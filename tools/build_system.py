@@ -192,9 +192,7 @@ class DQ3RBuildSystem:
                 "formatting_applied": True,
                 "summary": formatting_summary,
                 "compliance": compliance,
-                "compliance_rate": compliance["summary"].get(
-                    "compliance_rate", "Unknown"
-                ),
+                "compliance_rate": compliance["summary"].get("compliance_rate", "Unknown"),
             }
 
         except Exception as e:
@@ -225,9 +223,7 @@ class DQ3RBuildSystem:
 
                     for algorithm in algorithms:
                         try:
-                            compressed, stats = self.compression_engine.compress(
-                                file_data, algorithm
-                            )
+                            compressed, stats = self.compression_engine.compress(file_data, algorithm)
                             if stats.compression_ratio < best_ratio:
                                 best_ratio = stats.compression_ratio
                                 best_algo = algorithm
@@ -247,9 +243,7 @@ class DQ3RBuildSystem:
                         compression_results["total_savings"] += savings
 
                 except Exception as e:
-                    self.log_build_action(
-                        f"Compression analysis failed for {file_path}: {e}", "WARNING"
-                    )
+                    self.log_build_action(f"Compression analysis failed for {file_path}: {e}", "WARNING")
                     continue
 
             compression_results["algorithms_tested"] = algorithms
@@ -278,9 +272,7 @@ class DQ3RBuildSystem:
 
         for pattern in patterns:
             for file_path in self.project_root.rglob(pattern):
-                if (
-                    file_path.is_file() and file_path.stat().st_size > 1024
-                ):  # At least 1KB
+                if file_path.is_file() and file_path.stat().st_size > 1024:  # At least 1KB
                     candidates.append(file_path)
 
         return candidates[:10]  # Limit to prevent excessive processing
@@ -382,16 +374,12 @@ class DQ3RBuildSystem:
 
             # Check if we should continue
             if self.config["max_token_utilization"]:
-                self.log_build_action(
-                    "Maximizing token utilization - continuing development..."
-                )
+                self.log_build_action("Maximizing token utilization - continuing development...")
                 time.sleep(1)  # Brief pause between iterations
             else:
                 break
 
-        self.log_build_action(
-            f"Continuous development mode completed after {iteration} iterations"
-        )
+        self.log_build_action(f"Continuous development mode completed after {iteration} iterations")
 
 
 def main():
@@ -403,15 +391,9 @@ def main():
         action="store_true",
         help="Run in continuous development mode",
     )
-    parser.add_argument(
-        "--no-format", action="store_true", help="Skip automated formatting"
-    )
-    parser.add_argument(
-        "--no-session", action="store_true", help="Skip session logging"
-    )
-    parser.add_argument(
-        "--no-assets", action="store_true", help="Skip asset extraction"
-    )
+    parser.add_argument("--no-format", action="store_true", help="Skip automated formatting")
+    parser.add_argument("--no-session", action="store_true", help="Skip session logging")
+    parser.add_argument("--no-assets", action="store_true", help="Skip asset extraction")
     parser.add_argument("--project-root", default=".", help="Project root directory")
 
     args = parser.parse_args()

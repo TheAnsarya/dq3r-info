@@ -90,9 +90,7 @@ class SNESEmulatorInterface:
 
         # Try to find in PATH
         try:
-            result = subprocess.run(
-                ["where", "MesenS.exe"], capture_output=True, text=True
-            )
+            result = subprocess.run(["where", "MesenS.exe"], capture_output=True, text=True)
             if result.returncode == 0:
                 path = Path(result.stdout.strip())
                 self.log_action(f"Found MesenS in PATH: {path}")
@@ -207,9 +205,7 @@ class SNESEmulatorInterface:
             # Validate ROM first
             rom_validation = self.validate_rom(self.config.rom_path)
             if not rom_validation["valid"]:
-                result.error_message = (
-                    f"ROM validation failed: {rom_validation['errors']}"
-                )
+                result.error_message = f"ROM validation failed: {rom_validation['errors']}"
                 return result
 
             # Find emulator
@@ -269,9 +265,7 @@ class SNESEmulatorInterface:
         """Execute test in emulator"""
         try:
             # Create test script file
-            script_file = (
-                self.config.test_scripts_dir / f"test_script_{int(time.time())}.txt"
-            )
+            script_file = self.config.test_scripts_dir / f"test_script_{int(time.time())}.txt"
 
             with open(script_file, "w") as f:
                 for command in commands:
@@ -281,9 +275,7 @@ class SNESEmulatorInterface:
             # Note: This is a mock implementation - real MesenS integration would need specific API
             cmd = [str(emulator_path), str(self.config.rom_path)]
 
-            process = subprocess.run(
-                cmd, timeout=60, capture_output=True, text=True  # 1 minute timeout
-            )
+            process = subprocess.run(cmd, timeout=60, capture_output=True, text=True)  # 1 minute timeout
 
             # Check if emulator started successfully
             return process.returncode == 0
@@ -439,9 +431,7 @@ class SNESDevelopmentToolchain:
 
         # Check for assembler (asar)
         try:
-            result = subprocess.run(
-                ["asar", "--version"], capture_output=True, text=True
-            )
+            result = subprocess.run(["asar", "--version"], capture_output=True, text=True)
             tools_status["asar"] = {
                 "available": result.returncode == 0,
                 "version": result.stdout.strip() if result.returncode == 0 else None,
@@ -598,9 +588,7 @@ if __name__ == "__main__":
     import argparse
 
     parser = argparse.ArgumentParser(description="SNES Development Toolchain")
-    parser.add_argument(
-        "--setup", action="store_true", help="Setup development environment"
-    )
+    parser.add_argument("--setup", action="store_true", help="Setup development environment")
     parser.add_argument("--test", action="store_true", help="Run comprehensive tests")
     parser.add_argument("--analyze", action="store_true", help="Analyze ROM files")
     parser.add_argument("--project-root", default=".", help="Project root directory")

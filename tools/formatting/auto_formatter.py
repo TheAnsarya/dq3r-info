@@ -87,9 +87,7 @@ class CodeFormatter:
             if black_result.returncode == 0:
                 result["actions"].append("Formatted with black")
             else:
-                result["errors"].append(
-                    f"Black formatting failed: {black_result.stderr}"
-                )
+                result["errors"].append(f"Black formatting failed: {black_result.stderr}")
 
         except subprocess.TimeoutExpired:
             result["errors"].append("Black formatting timed out")
@@ -147,9 +145,7 @@ class CodeFormatter:
                 line = line.rstrip()
 
                 # Ensure proper spacing around operators (basic)
-                if "=" in line and not any(
-                    op in line for op in ["==", "!=", "<=", ">="]
-                ):
+                if "=" in line and not any(op in line for op in ["==", "!=", "<=", ">="]):
                     parts = line.split("=", 1)
                     if len(parts) == 2:
                         left = parts[0].rstrip()
@@ -366,9 +362,7 @@ class CodeFormatter:
             "file_results": [],
         }
 
-        self._log_action(
-            f"Starting automated formatting of {len(files_to_format)} files..."
-        )
+        self._log_action(f"Starting automated formatting of {len(files_to_format)} files...")
 
         for file_path in files_to_format:
             try:
@@ -445,9 +439,7 @@ class CodeFormatter:
 
                 # Check line endings (should be LF or CRLF consistently)
                 if "\r\n" in content and "\n" in content.replace("\r\n", ""):
-                    violations.append(
-                        {"file": str(file_path), "violation": "Mixed line endings"}
-                    )
+                    violations.append({"file": str(file_path), "violation": "Mixed line endings"})
 
                 # Check file ends with newline
                 if content and not content.endswith("\n"):
@@ -527,13 +519,9 @@ def run_automated_formatting():
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(
-        description="Automated code formatting for DQ3R project"
-    )
+    parser = argparse.ArgumentParser(description="Automated code formatting for DQ3R project")
     parser.add_argument("--verbose", "-v", action="store_true", help="Verbose output")
-    parser.add_argument(
-        "--check-only", action="store_true", help="Check compliance only, don't format"
-    )
+    parser.add_argument("--check-only", action="store_true", help="Check compliance only, don't format")
 
     args = parser.parse_args()
 
@@ -541,9 +529,7 @@ if __name__ == "__main__":
 
     if args.check_only:
         compliance = formatter.check_editorconfig_compliance()
-        print(
-            f"EditorConfig compliance: {compliance['summary'].get('compliance_rate', 'Unknown')}"
-        )
+        print(f"EditorConfig compliance: {compliance['summary'].get('compliance_rate', 'Unknown')}")
         if compliance["violations"]:
             print("Violations found:")
             for violation in compliance["violations"][:10]:  # Show first 10

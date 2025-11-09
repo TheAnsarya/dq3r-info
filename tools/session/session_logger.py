@@ -70,9 +70,7 @@ class SessionLogger:
         with open(self.session_file, "w") as f:
             json.dump(session_data, f, indent=2)
 
-    def log_chat_entry(
-        self, entry_type: str, content: str, metadata: Optional[Dict] = None
-    ) -> None:
+    def log_chat_entry(self, entry_type: str, content: str, metadata: Optional[Dict] = None) -> None:
         """Add entry to chat history log"""
         timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
@@ -100,11 +98,7 @@ class SessionLogger:
                 capture_output=True,
                 text=True,
             )
-            current_branch = (
-                branch_result.stdout.strip()
-                if branch_result.returncode == 0
-                else "unknown"
-            )
+            current_branch = branch_result.stdout.strip() if branch_result.returncode == 0 else "unknown"
 
             # Get latest commit
             commit_result = subprocess.run(
@@ -113,11 +107,7 @@ class SessionLogger:
                 capture_output=True,
                 text=True,
             )
-            latest_commit = (
-                commit_result.stdout.strip()
-                if commit_result.returncode == 0
-                else "unknown"
-            )
+            latest_commit = commit_result.stdout.strip() if commit_result.returncode == 0 else "unknown"
 
             # Get status
             status_result = subprocess.run(
@@ -126,11 +116,7 @@ class SessionLogger:
                 capture_output=True,
                 text=True,
             )
-            modified_files = [
-                line.strip()
-                for line in status_result.stdout.split("\n")
-                if line.strip()
-            ]
+            modified_files = [line.strip() for line in status_result.stdout.split("\n") if line.strip()]
 
             return {
                 "current_branch": current_branch,
@@ -159,9 +145,7 @@ class SessionLogger:
             if dir_path.exists():
                 project_state["directory_structure"][dir_name] = {
                     "exists": True,
-                    "file_count": (
-                        len(list(dir_path.rglob("*"))) if dir_path.is_dir() else 0
-                    ),
+                    "file_count": (len(list(dir_path.rglob("*"))) if dir_path.is_dir() else 0),
                 }
             else:
                 project_state["directory_structure"][dir_name] = {"exists": False}
@@ -175,27 +159,17 @@ class SessionLogger:
         # Check build tools
         try:
             # Check Python
-            python_result = subprocess.run(
-                [sys.executable, "--version"], capture_output=True, text=True
-            )
+            python_result = subprocess.run([sys.executable, "--version"], capture_output=True, text=True)
             project_state["build_tools"]["python"] = (
-                python_result.stdout.strip()
-                if python_result.returncode == 0
-                else "not found"
+                python_result.stdout.strip() if python_result.returncode == 0 else "not found"
             )
 
             # Check Asar
-            asar_result = subprocess.run(
-                ["asar", "--version"], capture_output=True, text=True
-            )
-            project_state["build_tools"]["asar"] = (
-                "installed" if asar_result.returncode == 0 else "not found"
-            )
+            asar_result = subprocess.run(["asar", "--version"], capture_output=True, text=True)
+            project_state["build_tools"]["asar"] = "installed" if asar_result.returncode == 0 else "not found"
 
             # Check Git
-            git_result = subprocess.run(
-                ["git", "--version"], capture_output=True, text=True
-            )
+            git_result = subprocess.run(["git", "--version"], capture_output=True, text=True)
             project_state["build_tools"]["git"] = (
                 git_result.stdout.strip() if git_result.returncode == 0 else "not found"
             )
@@ -235,9 +209,7 @@ class SessionLogger:
         with open(self.progress_file, "w") as f:
             json.dump(progress, f, indent=2)
 
-    def log_prompt_activity(
-        self, prompt_summary: str, actions: List[str], outcomes: List[str]
-    ) -> None:
+    def log_prompt_activity(self, prompt_summary: str, actions: List[str], outcomes: List[str]) -> None:
         """Log activity for current prompt/interaction"""
         session_updates = {
             "files_modified": self.get_git_status().get("modified_files", []),
@@ -255,9 +227,7 @@ class SessionLogger:
             + "\n".join(f"- {outcome}" for outcome in outcomes),
             {
                 "prompt_count": self.initialize_session()["prompt_count"] + 1,
-                "git_status": (
-                    "modified" if session_updates["files_modified"] else "clean"
-                ),
+                "git_status": ("modified" if session_updates["files_modified"] else "clean"),
             },
         )
 
@@ -330,9 +300,7 @@ def log_current_prompt():
             elif ".json" in file:
                 actions.append(f"Configuration update: {file}")
 
-    logger.log_prompt_activity(
-        "Automated session update - Development progress tracking", actions, outcomes
-    )
+    logger.log_prompt_activity("Automated session update - Development progress tracking", actions, outcomes)
 
     return logger.generate_session_report()
 

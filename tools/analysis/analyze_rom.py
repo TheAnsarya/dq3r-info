@@ -232,9 +232,7 @@ class ROMAnalyzer:
         # Character Classes analysis ($C4179E - $C424A8)
         classes_start = 0xC4179E - 0xC00000  # Convert to ROM offset
         if classes_start >= 0 and classes_start + 0xD0B < self.rom_size:
-            dq3_data["character_classes"] = self.analyze_character_classes(
-                classes_start
-            )
+            dq3_data["character_classes"] = self.analyze_character_classes(classes_start)
 
         # Monster data analysis ($3ED964 - $3EE0DB)
         monsters_start = 0x3ED964 - 0xC00000  # Convert to ROM offset
@@ -277,9 +275,7 @@ class ROMAnalyzer:
                 classes.append(
                     {
                         "id": i,
-                        "name": (
-                            class_names[i] if i < len(class_names) else f"Unknown_{i}"
-                        ),
+                        "name": (class_names[i] if i < len(class_names) else f"Unknown_{i}"),
                         "offset": f"0x{class_offset + 0xC00000:06X}",
                         "name_index": name_index,
                         "size": 0x173,
@@ -478,21 +474,13 @@ class ROMAnalyzer:
         # Count DQ3 findings
         dq3_counts = []
         if "character_classes" in self.analysis["dq3_data"]:
-            dq3_counts.append(
-                f"{self.analysis['dq3_data']['character_classes']['count']} character classes"
-            )
+            dq3_counts.append(f"{self.analysis['dq3_data']['character_classes']['count']} character classes")
         if "monsters" in self.analysis["dq3_data"]:
-            dq3_counts.append(
-                f"{self.analysis['dq3_data']['monsters']['count']} monsters"
-            )
+            dq3_counts.append(f"{self.analysis['dq3_data']['monsters']['count']} monsters")
         if "dialog_font" in self.analysis["dq3_data"]:
-            dq3_counts.append(
-                f"{self.analysis['dq3_data']['dialog_font']['count']} font structures"
-            )
+            dq3_counts.append(f"{self.analysis['dq3_data']['dialog_font']['count']} font structures")
         if "text_strings" in self.analysis["dq3_data"]:
-            dq3_counts.append(
-                f"{self.analysis['dq3_data']['text_strings']['count']} text strings"
-            )
+            dq3_counts.append(f"{self.analysis['dq3_data']['text_strings']['count']} text strings")
 
         if dq3_counts:
             print(f"   Found DQ3 data: {', '.join(dq3_counts)}")
@@ -505,9 +493,7 @@ class ROMAnalyzer:
         # Graphics analysis
         print("   Searching for graphics patterns...")
         self.analysis["graphics_regions"] = self.find_graphics_patterns()
-        print(
-            f"   Found {len(self.analysis['graphics_regions'])} potential graphics regions"
-        )
+        print(f"   Found {len(self.analysis['graphics_regions'])} potential graphics regions")
 
         print("SUCCESS: Analysis complete!")
         return self.analysis
@@ -549,12 +535,8 @@ Examples:
     )
 
     parser.add_argument("rom_file", help="Path to ROM file to analyze")
-    parser.add_argument(
-        "-o", "--output", help="Output file for analysis results (JSON format)"
-    )
-    parser.add_argument(
-        "--verbose", "-v", action="store_true", help="Show verbose analysis output"
-    )
+    parser.add_argument("-o", "--output", help="Output file for analysis results (JSON format)")
+    parser.add_argument("--verbose", "-v", action="store_true", help="Show verbose analysis output")
 
     args = parser.parse_args()
 

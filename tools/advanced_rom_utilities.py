@@ -42,10 +42,7 @@ class ROMPatch:
 
     def validate(self) -> bool:
         """Validate patch integrity"""
-        return (
-            len(self.original_data) == len(self.patched_data)
-            and len(self.original_data) > 0
-        )
+        return len(self.original_data) == len(self.patched_data) and len(self.original_data) > 0
 
 
 @dataclass
@@ -67,9 +64,7 @@ class AdvancedROMAnalyzer:
     def __init__(self, rom_path: Path):
         self.rom_path = rom_path
         self.rom_data = self._load_rom()
-        self.compression_engine = (
-            get_compression_engine() if "get_compression_engine" in globals() else None
-        )
+        self.compression_engine = get_compression_engine() if "get_compression_engine" in globals() else None
         self.session_logger = SessionLogger() if "SessionLogger" in globals() else None
 
         self.analysis_cache = {}
@@ -216,9 +211,7 @@ class AdvancedROMAnalyzer:
             header_data = self.rom_data[offset : offset + 0x40]
 
             header = {
-                "title": header_data[0:21]
-                .decode("ascii", errors="ignore")
-                .strip("\x00"),
+                "title": header_data[0:21].decode("ascii", errors="ignore").strip("\x00"),
                 "rom_makeup": header_data[0x25],
                 "rom_type": header_data[0x26],
                 "rom_size": header_data[0x27],
@@ -306,14 +299,10 @@ class AdvancedROMAnalyzer:
 
                 # Calculate total size
                 if "count" in structure_info and "size_each" in structure_info:
-                    analysis["size"] = (
-                        structure_info["count"] * structure_info["size_each"]
-                    )
+                    analysis["size"] = structure_info["count"] * structure_info["size_each"]
                 elif "count" in structure_info:
                     # Variable size structure - estimate
-                    analysis["size"] = self._estimate_structure_size(
-                        base_offset, structure_info
-                    )
+                    analysis["size"] = self._estimate_structure_size(base_offset, structure_info)
 
             structures_analysis[structure_name] = analysis
 
@@ -338,9 +327,7 @@ class AdvancedROMAnalyzer:
 
         return min(entropy, 8.0)  # Cap at 8 bits
 
-    def _estimate_structure_size(
-        self, offset: int, structure_info: Dict[str, Any]
-    ) -> int:
+    def _estimate_structure_size(self, offset: int, structure_info: Dict[str, Any]) -> int:
         """Estimate size of variable-length structure"""
         if "terminator" in structure_info:
             terminator = structure_info["terminator"]
@@ -379,9 +366,7 @@ class AdvancedROMAnalyzer:
             # Test compression algorithms
             for algorithm in ["basic_ring400", "simple_tail_window"]:
                 try:
-                    compressed, stats = self.compression_engine.compress(
-                        chunk, algorithm
-                    )
+                    compressed, stats = self.compression_engine.compress(chunk, algorithm)
 
                     if stats.compression_ratio < 0.8:  # Good compression
                         compression_analysis["regions"].append(
@@ -394,9 +379,7 @@ class AdvancedROMAnalyzer:
                             }
                         )
 
-                        algorithm_stats = compression_analysis[
-                            "compression_algorithms"
-                        ].setdefault(
+                        algorithm_stats = compression_analysis["compression_algorithms"].setdefault(
                             algorithm,
                             {"regions": 0, "total_savings": 0, "avg_ratio": 0.0},
                         )
@@ -412,33 +395,21 @@ class AdvancedROMAnalyzer:
                 except Exception:
                     continue
 
-        compression_analysis["total_compressed_regions"] = len(
-            compression_analysis["regions"]
-        )
+        compression_analysis["total_compressed_regions"] = len(compression_analysis["regions"])
 
         if total_original > 0:
-            compression_analysis["compression_ratio"] = (
-                total_compressed / total_original
-            )
+            compression_analysis["compression_ratio"] = total_compressed / total_original
 
         # Calculate average ratios for each algorithm
         for algorithm, stats in compression_analysis["compression_algorithms"].items():
             if stats["regions"] > 0:
                 total_original_algo = sum(
-                    r["size"]
-                    for r in compression_analysis["regions"]
-                    if r["algorithm"] == algorithm
+                    r["size"] for r in compression_analysis["regions"] if r["algorithm"] == algorithm
                 )
                 total_compressed_algo = sum(
-                    r["size"] * r["ratio"]
-                    for r in compression_analysis["regions"]
-                    if r["algorithm"] == algorithm
+                    r["size"] * r["ratio"] for r in compression_analysis["regions"] if r["algorithm"] == algorithm
                 )
-                stats["avg_ratio"] = (
-                    total_compressed_algo / total_original_algo
-                    if total_original_algo > 0
-                    else 0.0
-                )
+                stats["avg_ratio"] = total_compressed_algo / total_original_algo if total_original_algo > 0 else 0.0
 
         return compression_analysis
 
@@ -546,9 +517,7 @@ class AdvancedROMAnalyzer:
 
             for algorithm in ["basic_ring400", "simple_tail_window", "huffman_dialog"]:
                 try:
-                    compressed, stats = self.compression_engine.compress(
-                        chunk, algorithm
-                    )
+                    compressed, stats = self.compression_engine.compress(chunk, algorithm)
                     if stats.compression_ratio < best_ratio:
                         best_ratio = stats.compression_ratio
                         best_algorithm = algorithm
@@ -642,17 +611,13 @@ class AdvancedROMAnalyzer:
                 integrity["issues"].append("Internal ROM checksum validation failed")
 
         # Validate data structures
-        structures = self.analysis_cache.get(
-            "data_structures", self._analyze_data_structures()
-        )
+        structures = self.analysis_cache.get("data_structures", self._analyze_data_structures())
         valid_structures = sum(1 for s in structures.values() if s.get("found", False))
         total_structures = len(structures)
 
         integrity["data_structures_valid"] = valid_structures > (total_structures * 0.7)
         if not integrity["data_structures_valid"]:
-            integrity["issues"].append(
-                f"Only {valid_structures}/{total_structures} data structures found"
-            )
+            integrity["issues"].append(f"Only {valid_structures}/{total_structures} data structures found")
 
         # Check for corruption indicators
         corruption_indicators = self._detect_corruption_indicators()
@@ -691,9 +656,7 @@ class AdvancedROMAnalyzer:
                     invalid_instructions += 1
 
         if invalid_instructions > 100:  # Threshold for concern
-            indicators.append(
-                f"High number of invalid instructions: {invalid_instructions}"
-            )
+            indicators.append(f"High number of invalid instructions: {invalid_instructions}")
 
         return indicators
 
@@ -712,9 +675,7 @@ class AdvancedROMAnalyzer:
         total_unused = sum(r["size"] for r in unused_regions if r["size"] > 0x100)
 
         modification_analysis["expansion_space"] = total_unused
-        modification_analysis["expansion_possible"] = (
-            total_unused > 0x10000
-        )  # 64KB threshold
+        modification_analysis["expansion_possible"] = total_unused > 0x10000  # 64KB threshold
 
         # Identify safe modification zones
         for region in unused_regions:
@@ -733,8 +694,7 @@ class AdvancedROMAnalyzer:
                 modification_analysis["risky_zones"].append(
                     {
                         "offset": structure["base_offset"],
-                        "size": structure.get("count", 1)
-                        * structure.get("size_each", 0x100),
+                        "size": structure.get("count", 1) * structure.get("size_each", 0x100),
                         "name": name,
                         "reason": "Critical game data structure",
                     }
@@ -791,9 +751,7 @@ class AdvancedROMAnalyzer:
 
         # Estimate compression performance impact
         if self.compression_engine:
-            total_potential_savings = sum(
-                opt.potential_savings for opt in self.optimization_opportunities
-            )
+            total_potential_savings = sum(opt.potential_savings for opt in self.optimization_opportunities)
             profile["compression_performance"] = {
                 "potential_space_savings": total_potential_savings,
                 "compression_overhead_estimate": "Low to medium",
@@ -836,9 +794,7 @@ class AdvancedROMAnalyzer:
         compression = analysis["compression_analysis"]
 
         if "error" not in compression:
-            report += (
-                f"- **Compressed Regions**: {compression['total_compressed_regions']}\n"
-            )
+            report += f"- **Compressed Regions**: {compression['total_compressed_regions']}\n"
             report += f"- **Overall Compression Ratio**: {compression['compression_ratio']:.2f}\n"
 
             for algorithm, stats in compression["compression_algorithms"].items():
@@ -858,11 +814,7 @@ class AdvancedROMAnalyzer:
                 by_type[opt_type] = by_type.get(opt_type, 0) + 1
 
             for opt_type, count in by_type.items():
-                total_savings = sum(
-                    opt.potential_savings
-                    for opt in optimizations
-                    if opt.optimization_type == opt_type
-                )
+                total_savings = sum(opt.potential_savings for opt in optimizations if opt.optimization_type == opt_type)
                 report += f"  - `{opt_type}`: {count} opportunities, {total_savings:,} bytes potential savings\n"
         else:
             report += "- **No significant optimization opportunities found**\n"
@@ -944,17 +896,13 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Advanced ROM Analysis and Utilities")
     parser.add_argument("rom_path", help="Path to ROM file")
     parser.add_argument("--output", "-o", help="Output directory for results")
-    parser.add_argument(
-        "--deep-analysis", action="store_true", help="Perform deep structural analysis"
-    )
+    parser.add_argument("--deep-analysis", action="store_true", help="Perform deep structural analysis")
     parser.add_argument(
         "--find-optimizations",
         action="store_true",
         help="Find optimization opportunities",
     )
-    parser.add_argument(
-        "--generate-report", action="store_true", help="Generate comprehensive report"
-    )
+    parser.add_argument("--generate-report", action="store_true", help="Generate comprehensive report")
 
     args = parser.parse_args()
 
@@ -968,22 +916,16 @@ if __name__ == "__main__":
         print("Performing deep analysis...")
         analysis_results = analyzer.perform_deep_analysis()
 
-        print(
-            f"✅ Analysis complete in {analysis_results['analysis_time']:.2f} seconds"
-        )
+        print(f"✅ Analysis complete in {analysis_results['analysis_time']:.2f} seconds")
         print(f"📊 Found {len(analysis_results['data_structures'])} data structures")
-        print(
-            f"🗜️  Found {len(analysis_results['optimization_opportunities'])} optimization opportunities"
-        )
+        print(f"🗜️  Found {len(analysis_results['optimization_opportunities'])} optimization opportunities")
 
     if args.find_optimizations:
         print("\nFinding optimization opportunities...")
         optimizations = analyzer._find_optimization_opportunities()
 
         for opt in optimizations[:5]:  # Show top 5
-            print(
-                f"  - {opt.optimization_type} at 0x{opt.location:08X}: {opt.description}"
-            )
+            print(f"  - {opt.optimization_type} at 0x{opt.location:08X}: {opt.description}")
 
     if args.generate_report:
         print("\nGenerating comprehensive report...")

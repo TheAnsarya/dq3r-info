@@ -183,9 +183,7 @@ class SNESROMAnalyzer:
                 # Try decompression with our algorithms
                 for algorithm in ["basic_ring400", "simple_tail_window"]:
                     try:
-                        decompressed = self.compression_engine.decompress(
-                            chunk, algorithm
-                        )
+                        decompressed = self.compression_engine.decompress(chunk, algorithm)
                         if len(decompressed) > len(chunk):
                             compressed_regions.append(
                                 {
@@ -459,9 +457,7 @@ class SNESROMAnalyzer:
             monster_size = self._find_monster_data_size(current_offset)
 
             if monster_size > 0:
-                monster_data = self.rom_data[
-                    current_offset : current_offset + monster_size
-                ]
+                monster_data = self.rom_data[current_offset : current_offset + monster_size]
 
                 asset = AssetInfo(
                     name=f"monster_{i:03d}",
@@ -507,9 +503,7 @@ class SNESROMAnalyzer:
             compressed_text = None
             for algorithm in ["huffman_dialog"]:
                 try:
-                    decompressed = self.compression_engine.decompress(
-                        text_data, algorithm
-                    )
+                    decompressed = self.compression_engine.decompress(text_data, algorithm)
                     if len(decompressed) > 0:
                         compressed_text = algorithm
                         text_data = decompressed
@@ -547,9 +541,7 @@ class SNESROMAnalyzer:
             compressed_graphics = None
             for algorithm in ["basic_ring400", "simple_tail_window"]:
                 try:
-                    decompressed = self.compression_engine.decompress(
-                        graphics_data, algorithm
-                    )
+                    decompressed = self.compression_engine.decompress(graphics_data, algorithm)
                     if len(decompressed) > len(graphics_data):
                         compressed_graphics = algorithm
                         graphics_data = decompressed
@@ -567,9 +559,7 @@ class SNESROMAnalyzer:
                 tile_format="4bpp",
                 metadata={
                     "tile_count": len(graphics_data) // 32,  # 32 bytes per 4bpp tile
-                    "estimated_dimensions": self._estimate_graphics_dimensions(
-                        graphics_data
-                    ),
+                    "estimated_dimensions": self._estimate_graphics_dimensions(graphics_data),
                 },
             )
 
@@ -599,9 +589,7 @@ class SNESROMAnalyzer:
 
         return {"estimated": True, "size": data_size}
 
-    def export_assets(
-        self, output_dir: Path, assets: List[AssetInfo]
-    ) -> Dict[str, Any]:
+    def export_assets(self, output_dir: Path, assets: List[AssetInfo]) -> Dict[str, Any]:
         """Export extracted assets to files"""
         output_dir.mkdir(exist_ok=True)
         export_results = {"exported_count": 0, "failed_count": 0, "exports": []}
@@ -663,16 +651,10 @@ def create_asset_pipeline(rom_path: str) -> SNESROMAnalyzer:
 if __name__ == "__main__":
     import argparse
 
-    parser = argparse.ArgumentParser(
-        description="Extract assets from Dragon Quest III ROM"
-    )
+    parser = argparse.ArgumentParser(description="Extract assets from Dragon Quest III ROM")
     parser.add_argument("rom_path", help="Path to DQ3 ROM file")
-    parser.add_argument(
-        "--output", "-o", default="./extracted_assets", help="Output directory"
-    )
-    parser.add_argument(
-        "--analyze-only", action="store_true", help="Only analyze, don't extract"
-    )
+    parser.add_argument("--output", "-o", default="./extracted_assets", help="Output directory")
+    parser.add_argument("--analyze-only", action="store_true", help="Only analyze, don't extract")
 
     args = parser.parse_args()
 

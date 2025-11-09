@@ -151,8 +151,7 @@ class BasicRing400:
             while (
                 match_length < max_length
                 and pos + match_length < len(data)
-                and data[pos + match_length]
-                == self.ring_buffer[(ring_addr + match_length) % self.RING_SIZE]
+                and data[pos + match_length] == self.ring_buffer[(ring_addr + match_length) % self.RING_SIZE]
             ):
                 match_length += 1
 
@@ -226,11 +225,7 @@ class SimpleTailWindowCompression:
                 length_byte = compressed_data[pos + 2]
 
                 # Validate command
-                if (
-                    offset > 0
-                    and offset <= len(decompressed)
-                    and length_byte + self.min_match <= self.max_match
-                ):
+                if offset > 0 and offset <= len(decompressed) and length_byte + self.min_match <= self.max_match:
 
                     # Copy from previous data
                     copy_length = length_byte + self.min_match
@@ -422,14 +417,10 @@ class CompressionEngine:
             "huffman_dialog": HuffmanDialogCompression(),
         }
 
-        self.stats_log = (
-            Path(__file__).parent.parent.parent / "logs" / "compression_stats.json"
-        )
+        self.stats_log = Path(__file__).parent.parent.parent / "logs" / "compression_stats.json"
         self.stats_log.parent.mkdir(exist_ok=True)
 
-    def compress(
-        self, data: Union[bytes, str], algorithm: str = "auto"
-    ) -> Tuple[bytes, CompressionStats]:
+    def compress(self, data: Union[bytes, str], algorithm: str = "auto") -> Tuple[bytes, CompressionStats]:
         """Compress data using specified algorithm"""
         import time
 
@@ -460,9 +451,7 @@ class CompressionEngine:
         stats = CompressionStats(
             original_size=len(original_bytes),
             compressed_size=len(compressed),
-            compression_ratio=(
-                len(compressed) / len(original_bytes) if original_bytes else 0.0
-            ),
+            compression_ratio=(len(compressed) / len(original_bytes) if original_bytes else 0.0),
             algorithm=algorithm,
             time_taken=end_time - start_time,
         )
@@ -476,11 +465,7 @@ class CompressionEngine:
             raise ValueError(f"Unknown algorithm: {algorithm}")
 
         if algorithm == "huffman_dialog":
-            return (
-                self.algorithms[algorithm]
-                .decompress_text(compressed_data)
-                .encode("utf-8")
-            )
+            return self.algorithms[algorithm].decompress_text(compressed_data).encode("utf-8")
         else:
             return self.algorithms[algorithm].decompress(compressed_data)
 
@@ -518,9 +503,7 @@ class CompressionEngine:
             "level",
         ]
 
-        indicator_count = sum(
-            1 for indicator in dialog_indicators if indicator.lower() in text.lower()
-        )
+        indicator_count = sum(1 for indicator in dialog_indicators if indicator.lower() in text.lower())
         return indicator_count >= 2
 
     def _log_stats(self, stats: CompressionStats):
