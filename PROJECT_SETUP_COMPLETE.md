@@ -134,7 +134,7 @@ python tools/analysis/analyze_rom.py static/dq3.smc
 - **File**: Dragon Quest III - Soshite Densetsu he... (J).smc
 - **Size**: 4,194,304 bytes (4MB)
 - **Format**: HiROM SNES
-- **Title**: DRAGONQUEST3 
+- **Title**: DRAGONQUEST3
 - **Header**: 0x00FFC0
 - **Map Mode**: 0x31 (HiROM + FastROM)
 - **Text Regions**: 50 potential areas found
@@ -158,7 +158,7 @@ Your **DQ3R (Dragon Quest III Remake) disassembly project** is fully set up and 
 The project structure follows proven patterns from the FFMQ-Info project, with all modern development practices:
 - ✨ **EditorConfig formatting** (tabs, CRLF, UTF-8)
 - 🐍 **Python virtual environment** with all dependencies
-- ⚙️ **PowerShell build automation** 
+- ⚙️ **PowerShell build automation**
 - 🔍 **Working ROM analysis tools**
 - 📝 **Comprehensive documentation structure**
 - 🎮 **SNES-specific tooling and configuration**
