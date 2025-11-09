@@ -1,0 +1,49 @@
+{
+  "test_suite": "DQ3R SNES Tests",
+  "version": "1.0",
+  "tests": [
+    {
+      "name": "boot_sequence",
+      "description": "Test ROM boot sequence",
+      "commands": [
+        "reset",
+        "run_frames 300",
+        "screenshot boot_sequence.png"
+      ],
+      "expected_outcomes": [
+        "ROM boots without errors",
+        "Title screen appears"
+      ]
+    },
+    {
+      "name": "character_creation",
+      "description": "Test character creation system",
+      "commands": [
+        "reset",
+        "run_frames 300",
+        "input START",
+        "run_frames 60",
+        "input A",
+        "run_frames 180"
+      ],
+      "expected_outcomes": [
+        "Character creation screen accessible",
+        "All character classes available"
+      ]
+    },
+    {
+      "name": "save_load",
+      "description": "Test save/load functionality",
+      "commands": [
+        "reset",
+        "load_save_state test.sfc",
+        "run_frames 60",
+        "save_state test_result.sfc"
+      ],
+      "expected_outcomes": [
+        "Save state loads correctly",
+        "Game state preserved"
+      ]
+    }
+  ]
+}

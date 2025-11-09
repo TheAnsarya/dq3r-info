@@ -1,0 +1,14 @@
+{
+	"title": "\ud83c\udfae Main Game Loop Disassembly",
+	"body": "## Objective\nDisassemble and document the main game loop and core engine systems.\n\n## Tasks\n- [ ] Locate main game loop entry point\n- [ ] Disassemble frame processing logic\n- [ ] Document input handling system\n- [ ] Analyze state machine transitions\n- [ ] Map VBlank and timing critical code\n\n## Acceptance Criteria\n- Complete disassembly of main loop\n- Flow chart of game states\n- Input system documentation\n- Timing analysis and performance notes\n\n## Files to Create/Modify\n- `disassembly/main_loop.asm`\n- `analysis/game_states.md`\n- `documentation/input_system.md`\n",
+	"labels": [
+		"disassembly",
+		"core-engine",
+		"high-priority"
+	],
+	"milestone": null,
+	"assignees": null,
+	"project_column": "To Do",
+	"branch_name": "",
+	"issue_number": null
+}

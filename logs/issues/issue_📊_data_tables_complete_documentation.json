@@ -1,0 +1,14 @@
+{
+	"title": "\ud83d\udcca Data Tables Complete Documentation",
+	"body": "## Objective\nDocument all game data tables with complete structure analysis.\n\n## Tasks\n- [ ] Document item database structure\n- [ ] Analyze spell data tables\n- [ ] Map monster statistics\n- [ ] Document class progression tables\n- [ ] Create data extraction tools\n\n## Acceptance Criteria\n- All data tables documented\n- C header files for structures\n- Data extraction tools working\n- Complete data specifications\n\n## Files to Create/Modify\n- `documentation/data_structures.h`\n- `analysis/item_database.md`\n- `tools/data/extract_tables.py`\n",
+	"labels": [
+		"documentation",
+		"data-analysis",
+		"high-priority"
+	],
+	"milestone": null,
+	"assignees": null,
+	"project_column": "To Do",
+	"branch_name": "",
+	"issue_number": null
+}

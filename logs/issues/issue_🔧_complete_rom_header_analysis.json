@@ -1,0 +1,15 @@
+{
+	"title": "\ud83d\udd27 Complete ROM Header Analysis",
+	"body": "## Objective\nPerform comprehensive analysis of Dragon Quest III ROM header and system initialization.\n\n## Tasks\n- [ ] Parse SNES header data (title, region, ROM size)\n- [ ] Analyze interrupt vectors (NMI, IRQ, BRK, COP)\n- [ ] Document reset sequence and initialization code\n- [ ] Map system memory layout\n- [ ] Identify ROM type (LoROM/HiROM) and banking\n\n## Acceptance Criteria\n- Complete header documentation in markdown\n- Assembly listing of initialization code\n- Memory map with all system regions documented\n- Banking analysis with bank content classification\n\n## Files to Create/Modify\n- `analysis/rom_header_analysis.md`\n- `disassembly/system_init.asm`\n- `documentation/memory_layout.md`\n",
+	"labels": [
+		"disassembly",
+		"analysis",
+		"high-priority",
+		"system"
+	],
+	"milestone": null,
+	"assignees": null,
+	"project_column": "To Do",
+	"branch_name": "",
+	"issue_number": null
+}

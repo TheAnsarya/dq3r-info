@@ -1,0 +1,14 @@
+{
+	"title": "\u2694\ufe0f Battle System Analysis",
+	"body": "## Objective\nComprehensive disassembly of the battle system and combat mechanics.\n\n## Tasks\n- [ ] Disassemble battle initialization\n- [ ] Document combat calculations (damage, hit rate)\n- [ ] Analyze spell system implementation\n- [ ] Map monster AI behavior\n- [ ] Document status effect system\n\n## Acceptance Criteria\n- Battle system completely disassembled\n- Combat formula documentation\n- AI behavior analysis\n- Status effect technical specs\n\n## Files to Create/Modify\n- `disassembly/battle_system.asm`\n- `analysis/combat_formulas.md`\n- `documentation/monster_ai.md`\n",
+	"labels": [
+		"disassembly",
+		"gameplay",
+		"high-priority"
+	],
+	"milestone": null,
+	"assignees": null,
+	"project_column": "To Do",
+	"branch_name": "",
+	"issue_number": null
+}

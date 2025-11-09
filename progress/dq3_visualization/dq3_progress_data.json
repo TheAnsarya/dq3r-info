@@ -1,0 +1,2947 @@
+{
+	"progress_categories": {
+		"disassembly": {
+			"category": "Code Disassembly",
+			"total_items": 6291456,
+			"completed_items": 155348,
+			"in_progress_items": 0,
+			"percentage": 2.469189961751302,
+			"status_bar": "[\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591] 2.5%",
+			"details": [
+				"Total ROM size: 6,291,456 bytes",
+				"Disassembled: 155,348 bytes",
+				"Remaining: 6,136,108 bytes"
+			]
+		},
+		"functions": {
+			"category": "Function Analysis",
+			"total_items": 255,
+			"completed_items": 255,
+			"in_progress_items": 0,
+			"percentage": 100.0,
+			"status_bar": "[\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588] 100.0%",
+			"details": [
+				"Functions discovered: 255",
+				"Functions analyzed: 255",
+				"Analysis completion: 100.0%"
+			]
+		},
+		"banking": {
+			"category": "Banking System",
+			"total_items": 64,
+			"completed_items": 63,
+			"in_progress_items": 0,
+			"percentage": 98.4375,
+			"status_bar": "[\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2591] 98.4%",
+			"details": [
+				"Total banks: 64",
+				"Analyzed banks: 63",
+				"ROM type: HiROM"
+			]
+		},
+		"systems": {
+			"category": "Game Systems",
+			"total_items": 9,
+			"completed_items": 0,
+			"in_progress_items": 0,
+			"percentage": 0.0,
+			"status_bar": "[\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591\u2591] 0.0%",
+			"details": [
+				"SystemCore: 0.0%",
+				"BattleEngine: 0.0%",
+				"WorldEngine: 0.0%",
+				"MenuSystem: 0.0%",
+				"TextEngine: 0.0%",
+				"AudioEngine: 0.0%",
+				"GraphicsEngine: 0.0%",
+				"SaveSystem: 0.0%",
+				"GameData: 0.0%"
+			]
+		}
+	},
+	"asset_inventory": {
+		"graphics_tiles": [
+			{
+				"asset_type": "graphics_tiles",
+				"name": "Character Tiles",
+				"address": 2097152,
+				"size": 65536,
+				"bank": 32,
+				"format_info": "4bpp SNES format",
+				"extracted": false,
+				"extraction_notes": ""
+			},
+			{
+				"asset_type": "graphics_tiles",
+				"name": "Monster Tiles",
+				"address": 2228224,
+				"size": 131072,
+				"bank": 34,
+				"format_info": "4bpp SNES format",
+				"extracted": false,
+				"extraction_notes": ""
+			},
+			{
+				"asset_type": "graphics_tiles",
+				"name": "World Map Tiles",
+				"address": 1572864,
+				"size": 32768,
+				"bank": 24,
+				"format_info": "2bpp SNES format",
+				"extracted": false,
+				"extraction_notes": ""
+			},
+			{
+				"asset_type": "graphics_tiles",
+				"name": "UI Tiles",
+				"address": 1703936,
+				"size": 16384,
+				"bank": 26,
+				"format_info": "2bpp SNES format",
+				"extracted": false,
+				"extraction_notes": ""
+			}
+		],
+		"graphics_sprites": [
+			{
+				"asset_type": "graphics_sprites",
+				"name": "Player Character Sprites",
+				"address": 2359296,
+				"size": 32768,
+				"bank": 36,
+				"format_info": "16x16 4bpp",
+				"extracted": false,
+				"extraction_notes": ""
+			},
+			{
+				"asset_type": "graphics_sprites",
+				"name": "NPC Sprites",
+				"address": 2424832,
+				"size": 49152,
+				"bank": 37,
+				"format_info": "16x16 4bpp",
+				"extracted": false,
+				"extraction_notes": ""
+			},
+			{
+				"asset_type": "graphics_sprites",
+				"name": "Battle Effects",
+				"address": 2490368,
+				"size": 24576,
+				"bank": 38,
+				"format_info": "Variable size 4bpp",
+				"extracted": false,
+				"extraction_notes": ""
+			}
+		],
+		"audio_music": [
+			{
+				"asset_type": "audio_music",
+				"name": "Overture",
+				"address": 3145728,
+				"size": 8192,
+				"bank": 48,
+				"format_info": "SNES SPC format",
+				"extracted": false,
+				"extraction_notes": ""
+			},
+			{
+				"asset_type": "audio_music",
+				"name": "Adventure",
+				"address": 3153920,
+				"size": 6144,
+				"bank": 48,
+				"format_info": "SNES SPC format",
+				"extracted": false,
+				"extraction_notes": ""
+			},
+			{
+				"asset_type": "audio_music",
+				"name": "Battle Theme",
+				"address": 3162112,
+				"size": 5632,
+				"bank": 48,
+				"format_info": "SNES SPC format",
+				"extracted": false,
+				"extraction_notes": ""
+			},
+			{
+				"asset_type": "audio_music",
+				"name": "Boss Battle",
+				"address": 3170304,
+				"size": 6144,
+				"bank": 48,
+				"format_info": "SNES SPC format",
+				"extracted": false,
+				"extraction_notes": ""
+			},
+			{
+				"asset_type": "audio_music",
+				"name": "Town Theme",
+				"address": 3178496,
+				"size": 5120,
+				"bank": 48,
+				"format_info": "SNES SPC format",
+				"extracted": false,
+				"extraction_notes": ""
+			}
+		],
+		"audio_instruments": [
+			{
+				"asset_type": "audio_instruments",
+				"name": "Instrument Samples",
+				"address": 3276800,
+				"size": 32768,
+				"bank": 50,
+				"format_info": "BRR samples",
+				"extracted": false,
+				"extraction_notes": ""
+			},
+			{
+				"asset_type": "audio_instruments",
+				"name": "Drum Kit",
+				"address": 3309568,
+				"size": 8192,
+				"bank": 50,
+				"format_info": "BRR samples",
+				"extracted": false,
+				"extraction_notes": ""
+			}
+		],
+		"text_dialog": [
+			{
+				"asset_type": "text_dialog",
+				"name": "Main Story Text",
+				"address": 4194304,
+				"size": 131072,
+				"bank": 64,
+				"format_info": "Compressed Shift-JIS",
+				"extracted": false,
+				"extraction_notes": ""
+			},
+			{
+				"asset_type": "text_dialog",
+				"name": "NPC Dialog",
+				"address": 4325376,
+				"size": 86016,
+				"bank": 66,
+				"format_info": "Compressed Shift-JIS",
+				"extracted": false,
+				"extraction_notes": ""
+			},
+			{
+				"asset_type": "text_dialog",
+				"name": "Item Descriptions",
+				"address": 4456448,
+				"size": 32768,
+				"bank": 68,
+				"format_info": "Compressed Shift-JIS",
+				"extracted": false,
+				"extraction_notes": ""
+			}
+		],
+		"data_items": [
+			{
+				"asset_type": "data_items",
+				"name": "Weapon Data",
+				"address": 5242880,
+				"size": 2048,
+				"bank": 80,
+				"format_info": "16-byte records",
+				"extracted": false,
+				"extraction_notes": ""
+			},
+			{
+				"asset_type": "data_items",
+				"name": "Armor Data",
+				"address": 5244928,
+				"size": 1536,
+				"bank": 80,
+				"format_info": "12-byte records",
+				"extracted": false,
+				"extraction_notes": ""
+			},
+			{
+				"asset_type": "data_items",
+				"name": "Item Data",
+				"address": 5246976,
+				"size": 4096,
+				"bank": 80,
+				"format_info": "Variable records",
+				"extracted": false,
+				"extraction_notes": ""
+			}
+		],
+		"data_monsters": [
+			{
+				"asset_type": "data_monsters",
+				"name": "Monster Stats",
+				"address": 5308416,
+				"size": 8192,
+				"bank": 81,
+				"format_info": "32-byte records",
+				"extracted": false,
+				"extraction_notes": ""
+			},
+			{
+				"asset_type": "data_monsters",
+				"name": "Monster AI",
+				"address": 5316608,
+				"size": 12288,
+				"bank": 81,
+				"format_info": "Variable AI scripts",
+				"extracted": false,
+				"extraction_notes": ""
+			},
+			{
+				"asset_type": "data_monsters",
+				"name": "Drop Tables",
+				"address": 5328896,
+				"size": 4096,
+				"bank": 81,
+				"format_info": "Drop probability tables",
+				"extracted": false,
+				"extraction_notes": ""
+			}
+		],
+		"data_spells": [
+			{
+				"asset_type": "data_spells",
+				"name": "Spell Data",
+				"address": 5373952,
+				"size": 2048,
+				"bank": 82,
+				"format_info": "16-byte records",
+				"extracted": false,
+				"extraction_notes": ""
+			},
+			{
+				"asset_type": "data_spells",
+				"name": "Spell Effects",
+				"address": 5376000,
+				"size": 4096,
+				"bank": 82,
+				"format_info": "Effect script data",
+				"extracted": false,
+				"extraction_notes": ""
+			}
+		],
+		"data_maps": [
+			{
+				"asset_type": "data_maps",
+				"name": "World Map Data",
+				"address": 6291456,
+				"size": 16384,
+				"bank": 96,
+				"format_info": "Compressed tilemap",
+				"extracted": false,
+				"extraction_notes": ""
+			},
+			{
+				"asset_type": "data_maps",
+				"name": "Town Maps",
+				"address": 6307840,
+				"size": 32768,
+				"bank": 96,
+				"format_info": "Compressed tilemaps",
+				"extracted": false,
+				"extraction_notes": ""
+			},
+			{
+				"asset_type": "data_maps",
+				"name": "Dungeon Maps",
+				"address": 6340608,
+				"size": 40960,
+				"bank": 96,
+				"format_info": "Compressed tilemaps",
+				"extracted": false,
+				"extraction_notes": ""
+			}
+		]
+	},
+	"analysis_data": {
+		"dq3_progress": {
+			"overview": {
+				"total_bytes": 6291456,
+				"analyzed_bytes": 155348,
+				"completion_percentage": 2.469189961751302,
+				"functions": {
+					"found": 255,
+					"analyzed": 255,
+					"percentage": 100.0
+				},
+				"data_structures": {
+					"found": 0,
+					"documented": 0,
+					"percentage": 0.0
+				},
+				"assets": {
+					"graphics_extracted": 0,
+					"audio_extracted": 0,
+					"text_blocks_found": 0
+				}
+			},
+			"systems": {
+				"SystemCore": {
+					"completion": 0.0,
+					"functions": 0,
+					"data_structures": 0,
+					"banks": [
+						0
+					]
+				},
+				"BattleEngine": {
+					"completion": 0.0,
+					"functions": 0,
+					"data_structures": 0,
+					"banks": [
+						1,
+						2,
+						3
+					]
+				},
+				"WorldEngine": {
+					"completion": 0.0,
+					"functions": 0,
+					"data_structures": 0,
+					"banks": [
+						4,
+						5
+					]
+				},
+				"MenuSystem": {
+					"completion": 0.0,
+					"functions": 0,
+					"data_structures": 0,
+					"banks": [
+						6,
+						7
+					]
+				},
+				"TextEngine": {
+					"completion": 0.0,
+					"functions": 0,
+					"data_structures": 0,
+					"banks": [
+						8,
+						9,
+						10
+					]
+				},
+				"AudioEngine": {
+					"completion": 0.0,
+					"functions": 0,
+					"data_structures": 0,
+					"banks": [
+						11,
+						12
+					]
+				},
+				"GraphicsEngine": {
+					"completion": 0.0,
+					"functions": 0,
+					"data_structures": 0,
+					"banks": [
+						13,
+						14,
+						15
+					]
+				},
+				"SaveSystem": {
+					"completion": 0.0,
+					"functions": 0,
+					"data_structures": 0,
+					"banks": [
+						16
+					]
+				},
+				"GameData": {
+					"completion": 0.0,
+					"functions": 0,
+					"data_structures": 0,
+					"banks": [
+						17,
+						18,
+						19,
+						20,
+						21,
+						22
+					]
+				}
+			},
+			"banking": {
+				"total_banks": 64,
+				"analyzed_banks": 0,
+				"completion": 0.0
+			},
+			"functions": {
+				"total": 255,
+				"by_type": {
+					"subroutine": 143,
+					"interrupt": 86,
+					"main_loop": 19,
+					"data_handler": 6,
+					"calculation": 1
+				},
+				"by_bank": {
+					"0": 24,
+					"1": 10,
+					"2": 15,
+					"4": 6,
+					"5": 2,
+					"6": 19,
+					"7": 1,
+					"8": 5,
+					"9": 7,
+					"10": 1,
+					"14": 8,
+					"15": 8,
+					"16": 12,
+					"17": 8,
+					"18": 6,
+					"20": 1,
+					"21": 4,
+					"22": 4,
+					"23": 7,
+					"24": 3,
+					"25": 3,
+					"26": 3,
+					"27": 7,
+					"28": 6,
+					"29": 4,
+					"30": 3,
+					"31": 4,
+					"32": 1,
+					"33": 6,
+					"35": 4,
+					"37": 1,
+					"38": 1,
+					"39": 1,
+					"40": 4,
+					"41": 2,
+					"42": 1,
+					"43": 2,
+					"44": 1,
+					"45": 3,
+					"47": 4,
+					"48": 1,
+					"49": 16,
+					"50": 4,
+					"51": 1,
+					"52": 4,
+					"55": 3,
+					"57": 3,
+					"58": 9,
+					"60": 1,
+					"61": 1
+				}
+			},
+			"memory_map": {
+				"total_regions": 70,
+				"documented_regions": 70
+			}
+		},
+		"dq3_banking": {
+			"rom_type": "HiROM",
+			"total_banks": 64,
+			"rom_size": 6291456,
+			"banks": {
+				"$00": {
+					"rom_offset": "$000000",
+					"snes_range": "$0000-$FFFF",
+					"size": 65536,
+					"description": "System/Boot code",
+					"content_analysis": {
+						"code_density": 0.595947265625,
+						"graphics_probability": 0.015625,
+						"text_probability": 0.5880271306399292,
+						"audio_probability": 1.0,
+						"patterns": [
+							"Function: sub_00_0803 (subroutine)",
+							"Function: sub_00_0589 (subroutine)",
+							"Function: sub_00_0514 (subroutine)",
+							"Function: sub_00_06E1 (subroutine)",
+							"Function: sub_00_06A1 (subroutine)",
+							"Function: sub_00_0704 (subroutine)",
+							"Function: sub_00_0E4C (interrupt)",
+							"Function: sub_00_0C46 (subroutine)",
+							"Function: sub_00_0D2E (subroutine)",
+							"Function: sub_00_0C94 (subroutine)",
+							"Function: sub_00_0CE0 (subroutine)",
+							"Function: sub_00_0D7D (subroutine)",
+							"Function: sub_00_0DCC (interrupt)",
+							"Function: sub_00_0E0C (interrupt)",
+							"Function: sub_00_0858 (subroutine)",
+							"Function: sub_00_0704 (subroutine)",
+							"Function: sub_00_0733 (subroutine)",
+							"Function: sub_00_0B16 (subroutine)",
+							"Function: sub_00_0766 (subroutine)",
+							"Function: sub_00_0F2A (subroutine)"
+						],
+						"functions_detected": 20
+					}
+				},
+				"$01": {
+					"rom_offset": "$010000",
+					"snes_range": "$0000-$FFFF",
+					"size": 65536,
+					"description": "Program code",
+					"content_analysis": {
+						"code_density": 0.30517578125,
+						"graphics_probability": 0.0390625,
+						"text_probability": 0.3700314555333143,
+						"audio_probability": 1.0,
+						"patterns": [
+							"Function: sub_01_011A (interrupt)",
+							"Function: sub_01_011A (interrupt)",
+							"Function: sub_01_0147 (interrupt)",
+							"Function: sub_01_0116 (interrupt)",
+							"Function: sub_01_0132 (interrupt)",
+							"Function: sub_01_0121 (interrupt)",
+							"Function: sub_01_0139 (interrupt)",
+							"Function: sub_01_0149 (interrupt)",
+							"Function: sub_01_0FF9 (subroutine)",
+							"Function: sub_01_0147 (interrupt)",
+							"Function: sub_01_0147 (interrupt)",
+							"Function: sub_01_0147 (interrupt)",
+							"Function: sub_01_014D (interrupt)",
+							"Function: sub_01_0104 (subroutine)"
+						],
+						"functions_detected": 14
+					}
+				},
+				"$02": {
+					"rom_offset": "$020000",
+					"snes_range": "$0000-$FFFF",
+					"size": 65536,
+					"description": "Program code",
+					"content_analysis": {
+						"code_density": 0.57568359375,
+						"graphics_probability": 0.0,
+						"text_probability": 0.43157033805888767,
+						"audio_probability": 1.0,
+						"patterns": [
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_02_0180 (interrupt)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_02_0040 (subroutine)",
+							"Function: sub_02_0010 (subroutine)",
+							"Function: sub_02_0021 (subroutine)",
+							"Function: sub_02_0028 (subroutine)",
+							"Function: sub_02_0020 (subroutine)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_02_0810 (subroutine)",
+							"Function: sub_02_0663 (interrupt)",
+							"Function: sub_02_0090 (interrupt)",
+							"Function: sub_02_0029 (subroutine)",
+							"Function: sub_02_002B (subroutine)",
+							"Function: sub_02_0040 (subroutine)",
+							"Function: sub_02_1000 (interrupt)",
+							"Function: sub_02_0373 (main_loop)",
+							"Function: sub_02_0040 (subroutine)",
+							"Function: sub_02_0D06 (interrupt)",
+							"Function: sub_02_1000 (interrupt)"
+						],
+						"functions_detected": 20
+					}
+				},
+				"$03": {
+					"rom_offset": "$030000",
+					"snes_range": "$0000-$FFFF",
+					"size": 65536,
+					"description": "Program code",
+					"content_analysis": {
+						"code_density": 0.658935546875,
+						"graphics_probability": 0.3,
+						"text_probability": 0.4682981090100111,
+						"audio_probability": 1.0,
+						"patterns": [
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_02_0000 (subroutine)"
+						],
+						"functions_detected": 20
+					}
+				},
+				"$04": {
+					"rom_offset": "$040000",
+					"snes_range": "$0000-$FFFF",
+					"size": 65536,
+					"description": "Program code",
+					"content_analysis": {
+						"code_density": 0.5283203125,
+						"graphics_probability": 0.3,
+						"text_probability": 0.27008500137098984,
+						"audio_probability": 1.0,
+						"patterns": [
+							"Function: sub_04_0300 (subroutine)",
+							"Function: sub_04_0003 (subroutine)",
+							"Function: sub_04_0003 (subroutine)",
+							"Function: sub_04_0300 (subroutine)",
+							"Function: sub_04_000B (subroutine)",
+							"Function: sub_04_0009 (subroutine)",
+							"Function: sub_04_0009 (subroutine)",
+							"Function: sub_04_0007 (subroutine)",
+							"Function: sub_04_0003 (subroutine)",
+							"Function: sub_04_0713 (subroutine)"
+						],
+						"functions_detected": 10
+					}
+				},
+				"$05": {
+					"rom_offset": "$050000",
+					"snes_range": "$0000-$FFFF",
+					"size": 65536,
+					"description": "Program code",
+					"content_analysis": {
+						"code_density": 0.579833984375,
+						"graphics_probability": 0.3,
+						"text_probability": 0.19335433973073618,
+						"audio_probability": 1.0,
+						"patterns": [
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_05_0620 (interrupt)",
+							"Function: sub_04_0003 (subroutine)",
+							"Function: sub_05_0B04 (subroutine)"
+						],
+						"functions_detected": 5
+					}
+				},
+				"$06": {
+					"rom_offset": "$060000",
+					"snes_range": "$0000-$FFFF",
+					"size": 65536,
+					"description": "Program code",
+					"content_analysis": {
+						"code_density": 0.595703125,
+						"graphics_probability": 0.0078125,
+						"text_probability": 0.647588424437299,
+						"audio_probability": 1.0,
+						"patterns": [
+							"Function: sub_06_0100 (interrupt)",
+							"Function: sub_06_00BD (interrupt)",
+							"Function: sub_06_0230 (subroutine)",
+							"Function: sub_06_0230 (subroutine)",
+							"Function: sub_06_09A9 (subroutine)",
+							"Function: sub_06_02C8 (interrupt)",
+							"Function: sub_06_03AF (subroutine)",
+							"Function: sub_06_03E2 (data_handler)",
+							"Function: sub_06_03F2 (data_handler)",
+							"Function: sub_06_03FF (subroutine)",
+							"Function: sub_06_04A0 (data_handler)",
+							"Function: sub_06_049F (subroutine)",
+							"Function: sub_06_04A7 (subroutine)",
+							"Function: sub_06_051C (data_handler)",
+							"Function: sub_06_0455 (data_handler)",
+							"Function: sub_06_052F (data_handler)",
+							"Function: sub_06_055D (subroutine)",
+							"Function: sub_06_057A (subroutine)",
+							"Function: sub_06_05C3 (subroutine)",
+							"Function: sub_06_05FD (subroutine)"
+						],
+						"functions_detected": 20
+					}
+				},
+				"$07": {
+					"rom_offset": "$070000",
+					"snes_range": "$0000-$FFFF",
+					"size": 65536,
+					"description": "Program code",
+					"content_analysis": {
+						"code_density": 0.459716796875,
+						"graphics_probability": 0.5265625,
+						"text_probability": 0.08120649651972157,
+						"audio_probability": 1.0,
+						"patterns": [
+							"Function: sub_07_0400 (subroutine)"
+						],
+						"functions_detected": 1
+					}
+				},
+				"$08": {
+					"rom_offset": "$080000",
+					"snes_range": "$0000-$FFFF",
+					"size": 65536,
+					"description": "Program code",
+					"content_analysis": {
+						"code_density": 0.515380859375,
+						"graphics_probability": 0.0,
+						"text_probability": 0.7867583834909716,
+						"audio_probability": 1.0,
+						"patterns": [
+							"Function: sub_08_0052 (subroutine)",
+							"Function: sub_08_0056 (subroutine)",
+							"Function: sub_08_004A (subroutine)",
+							"Function: sub_08_0042 (subroutine)",
+							"Function: sub_08_004A (subroutine)",
+							"Function: sub_08_0052 (subroutine)",
+							"Function: sub_08_005A (subroutine)"
+						],
+						"functions_detected": 7
+					}
+				},
+				"$09": {
+					"rom_offset": "$090000",
+					"snes_range": "$0000-$FFFF",
+					"size": 65536,
+					"description": "Program code",
+					"content_analysis": {
+						"code_density": 0.61083984375,
+						"graphics_probability": 0.0,
+						"text_probability": 0.6600541027953111,
+						"audio_probability": 1.0,
+						"patterns": [
+							"Function: sub_09_0CA3 (subroutine)",
+							"Function: sub_06_00BD (interrupt)",
+							"Function: sub_09_08A3 (subroutine)",
+							"Function: sub_09_02A0 (interrupt)",
+							"Function: sub_09_06A0 (main_loop)",
+							"Function: sub_09_045D (interrupt)",
+							"Function: sub_09_02A0 (interrupt)",
+							"Function: sub_09_06A0 (main_loop)",
+							"Function: sub_09_045D (interrupt)",
+							"Function: sub_09_08A3 (subroutine)",
+							"Function: sub_09_02A0 (interrupt)",
+							"Function: sub_09_045D (interrupt)",
+							"Function: sub_09_02A0 (interrupt)",
+							"Function: sub_09_06A0 (main_loop)",
+							"Function: sub_09_045D (interrupt)",
+							"Function: sub_09_02A0 (interrupt)",
+							"Function: sub_09_06A0 (main_loop)",
+							"Function: sub_09_09A0 (subroutine)",
+							"Function: sub_09_045D (interrupt)",
+							"Function: sub_09_02B5 (interrupt)"
+						],
+						"functions_detected": 20
+					}
+				},
+				"$0A": {
+					"rom_offset": "$0A0000",
+					"snes_range": "$0000-$FFFF",
+					"size": 65536,
+					"description": "Program code",
+					"content_analysis": {
+						"code_density": 0.586181640625,
+						"graphics_probability": 0.0,
+						"text_probability": 0.7069510268562401,
+						"audio_probability": 1.0,
+						"patterns": [
+							"Function: sub_0A_0C00 (subroutine)",
+							"Function: sub_0A_0C00 (subroutine)",
+							"Function: sub_0A_0C00 (subroutine)",
+							"Function: sub_0A_0C00 (subroutine)",
+							"Function: sub_0A_0C00 (subroutine)"
+						],
+						"functions_detected": 5
+					}
+				},
+				"$0B": {
+					"rom_offset": "$0B0000",
+					"snes_range": "$0000-$FFFF",
+					"size": 65536,
+					"description": "Program code",
+					"content_analysis": {
+						"code_density": 0.59716796875,
+						"graphics_probability": 0.0,
+						"text_probability": 0.687682119205298,
+						"audio_probability": 1.0,
+						"patterns": [
+							"Function: sub_0A_0C00 (subroutine)",
+							"Function: sub_0A_0C00 (subroutine)"
+						],
+						"functions_detected": 2
+					}
+				},
+				"$0C": {
+					"rom_offset": "$0C0000",
+					"snes_range": "$0000-$FFFF",
+					"size": 65536,
+					"description": "Program code",
+					"content_analysis": {
+						"code_density": 0.559326171875,
+						"graphics_probability": 0.0,
+						"text_probability": 0.8274666666666667,
+						"audio_probability": 1.0,
+						"patterns": [
+							"Function: sub_0A_0C00 (subroutine)"
+						],
+						"functions_detected": 1
+					}
+				},
+				"$0D": {
+					"rom_offset": "$0D0000",
+					"snes_range": "$0000-$FFFF",
+					"size": 65536,
+					"description": "Program code",
+					"content_analysis": {
+						"code_density": 0.58740234375,
+						"graphics_probability": 0.0,
+						"text_probability": 0.6368549040799784,
+						"audio_probability": 1.0,
+						"patterns": [
+							"Function: sub_0A_0C00 (subroutine)",
+							"Function: sub_0A_0C00 (subroutine)",
+							"Function: sub_0A_0C00 (subroutine)",
+							"Function: sub_0A_0C00 (subroutine)"
+						],
+						"functions_detected": 4
+					}
+				},
+				"$0E": {
+					"rom_offset": "$0E0000",
+					"snes_range": "$0000-$FFFF",
+					"size": 65536,
+					"description": "Program code",
+					"content_analysis": {
+						"code_density": 0.602783203125,
+						"graphics_probability": 0.03125,
+						"text_probability": 0.45922873123344127,
+						"audio_probability": 1.0,
+						"patterns": [
+							"Function: sub_0E_005F (main_loop)",
+							"Function: sub_0E_00E0 (subroutine)",
+							"Function: sub_0E_0C28 (interrupt)",
+							"Function: sub_0E_00C0 (main_loop)",
+							"Function: sub_0E_0070 (main_loop)",
+							"Function: sub_0E_0253 (main_loop)",
+							"Function: sub_0E_0658 (interrupt)",
+							"Function: sub_0E_0078 (main_loop)",
+							"Function: sub_0E_0078 (main_loop)"
+						],
+						"functions_detected": 9
+					}
+				},
+				"$0F": {
+					"rom_offset": "$0F0000",
+					"snes_range": "$0000-$FFFF",
+					"size": 65536,
+					"description": "Program code",
+					"content_analysis": {
+						"code_density": 0.646484375,
+						"graphics_probability": 0.0,
+						"text_probability": 0.49441028507546114,
+						"audio_probability": 1.0,
+						"patterns": [
+							"Function: sub_0F_0101 (interrupt)",
+							"Function: sub_0F_0060 (subroutine)",
+							"Function: sub_0F_0060 (subroutine)",
+							"Function: sub_0F_0008 (interrupt)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_02_0020 (subroutine)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_02_0020 (subroutine)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_0F_0414 (subroutine)",
+							"Function: sub_0F_0220 (interrupt)",
+							"Function: sub_0F_0102 (interrupt)",
+							"Function: sub_0F_008C (interrupt)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_02_0010 (subroutine)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_0F_0088 (interrupt)"
+						],
+						"functions_detected": 20
+					}
+				},
+				"$10": {
+					"rom_offset": "$100000",
+					"snes_range": "$0000-$FFFF",
+					"size": 65536,
+					"description": "Program code",
+					"content_analysis": {
+						"code_density": 0.65576171875,
+						"graphics_probability": 0.3078125,
+						"text_probability": 0.3798090830199595,
+						"audio_probability": 1.0,
+						"patterns": [
+							"Function: sub_10_003B (subroutine)",
+							"Function: sub_10_0480 (interrupt)",
+							"Function: sub_10_0628 (main_loop)",
+							"Function: sub_10_085F (subroutine)",
+							"Function: sub_10_0C20 (interrupt)",
+							"Function: sub_10_000F (subroutine)",
+							"Function: sub_10_0D3C (interrupt)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_10_000F (subroutine)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_10_003E (subroutine)",
+							"Function: sub_10_0830 (subroutine)",
+							"Function: sub_10_0022 (subroutine)",
+							"Function: sub_10_0830 (subroutine)",
+							"Function: sub_10_003D (subroutine)",
+							"Function: sub_0E_00E0 (subroutine)",
+							"Function: sub_10_019F (main_loop)"
+						],
+						"functions_detected": 18
+					}
+				},
+				"$11": {
+					"rom_offset": "$110000",
+					"snes_range": "$0000-$FFFF",
+					"size": 65536,
+					"description": "Program code",
+					"content_analysis": {
+						"code_density": 0.557861328125,
+						"graphics_probability": 0.0078125,
+						"text_probability": 0.4919278252611586,
+						"audio_probability": 1.0,
+						"patterns": [
+							"Function: sub_11_00DF (interrupt)",
+							"Function: sub_11_07A2 (subroutine)",
+							"Function: sub_11_03DA (subroutine)",
+							"Function: sub_11_061E (subroutine)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_02_0020 (subroutine)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_11_00F8 (interrupt)",
+							"Function: sub_11_006F (subroutine)",
+							"Function: sub_04_0007 (subroutine)",
+							"Function: sub_11_001E (subroutine)",
+							"Function: sub_11_00FF (interrupt)"
+						],
+						"functions_detected": 13
+					}
+				},
+				"$12": {
+					"rom_offset": "$120000",
+					"snes_range": "$0000-$FFFF",
+					"size": 65536,
+					"description": "Program code",
+					"content_analysis": {
+						"code_density": 0.56298828125,
+						"graphics_probability": 0.315625,
+						"text_probability": 0.3147468818782098,
+						"audio_probability": 1.0,
+						"patterns": [
+							"Function: sub_11_00DF (interrupt)",
+							"Function: sub_12_077F (subroutine)",
+							"Function: sub_11_00FF (interrupt)",
+							"Function: sub_02_0020 (subroutine)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_11_00DF (interrupt)",
+							"Function: sub_11_00DF (interrupt)",
+							"Function: sub_11_00DF (interrupt)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_11_00FF (interrupt)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_11_00FF (interrupt)",
+							"Function: sub_12_007C (main_loop)",
+							"Function: sub_02_1000 (interrupt)",
+							"Function: sub_12_00F0 (subroutine)",
+							"Function: sub_12_0120 (main_loop)",
+							"Function: sub_12_0079 (main_loop)",
+							"Function: sub_12_0880 (subroutine)"
+						],
+						"functions_detected": 18
+					}
+				},
+				"$13": {
+					"rom_offset": "$130000",
+					"snes_range": "$0000-$FFFF",
+					"size": 65536,
+					"description": "Program code",
+					"content_analysis": {
+						"code_density": 0.484130859375,
+						"graphics_probability": 0.0078125,
+						"text_probability": 0.47946685878962536,
+						"audio_probability": 1.0,
+						"patterns": [
+							"Function: sub_10_085F (subroutine)",
+							"Function: sub_10_085F (subroutine)",
+							"Function: sub_02_1000 (interrupt)"
+						],
+						"functions_detected": 3
+					}
+				},
+				"$14": {
+					"rom_offset": "$140000",
+					"snes_range": "$0000-$FFFF",
+					"size": 65536,
+					"description": "Program code",
+					"content_analysis": {
+						"code_density": 0.64501953125,
+						"graphics_probability": 0.3,
+						"text_probability": 0.38297223069880987,
+						"audio_probability": 1.0,
+						"patterns": [
+							"Function: sub_02_1000 (interrupt)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_14_000E (subroutine)",
+							"Function: sub_11_00DF (interrupt)"
+						],
+						"functions_detected": 5
+					}
+				},
+				"$15": {
+					"rom_offset": "$150000",
+					"snes_range": "$0000-$FFFF",
+					"size": 65536,
+					"description": "Program code",
+					"content_analysis": {
+						"code_density": 0.5283203125,
+						"graphics_probability": 0.33125,
+						"text_probability": 0.38806948541461816,
+						"audio_probability": 1.0,
+						"patterns": [
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_15_0200 (interrupt)",
+							"Function: sub_11_00FF (interrupt)",
+							"Function: sub_15_003F (subroutine)",
+							"Function: sub_15_08F8 (subroutine)",
+							"Function: sub_15_04EE (subroutine)"
+						],
+						"functions_detected": 7
+					}
+				},
+				"$16": {
+					"rom_offset": "$160000",
+					"snes_range": "$0000-$FFFF",
+					"size": 65536,
+					"description": "Program code",
+					"content_analysis": {
+						"code_density": 0.551025390625,
+						"graphics_probability": 0.03125,
+						"text_probability": 0.6143100511073254,
+						"audio_probability": 1.0,
+						"patterns": [
+							"Function: sub_0E_00E0 (subroutine)",
+							"Function: sub_02_0020 (subroutine)",
+							"Function: sub_02_0020 (subroutine)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_16_00A0 (subroutine)",
+							"Function: sub_16_0080 (subroutine)",
+							"Function: sub_16_02FC (main_loop)",
+							"Function: sub_16_0CD8 (subroutine)"
+						],
+						"functions_detected": 8
+					}
+				},
+				"$17": {
+					"rom_offset": "$170000",
+					"snes_range": "$0000-$FFFF",
+					"size": 65536,
+					"description": "Program code",
+					"content_analysis": {
+						"code_density": 0.5,
+						"graphics_probability": 0.33125,
+						"text_probability": 0.45752339812814974,
+						"audio_probability": 1.0,
+						"patterns": [
+							"Function: sub_0E_005F (main_loop)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_17_0001 (subroutine)",
+							"Function: sub_17_00FD (interrupt)",
+							"Function: sub_17_0602 (interrupt)",
+							"Function: sub_11_00FF (interrupt)",
+							"Function: sub_17_00EB (interrupt)",
+							"Function: sub_17_000C (subroutine)",
+							"Function: sub_17_06E0 (interrupt)",
+							"Function: sub_17_03DE (interrupt)"
+						],
+						"functions_detected": 10
+					}
+				},
+				"$18": {
+					"rom_offset": "$180000",
+					"snes_range": "$0000-$FFFF",
+					"size": 65536,
+					"description": "Program code",
+					"content_analysis": {
+						"code_density": 0.48486328125,
+						"graphics_probability": 0.3625,
+						"text_probability": 0.45496714340935446,
+						"audio_probability": 1.0,
+						"patterns": [
+							"Function: sub_18_00F7 (subroutine)",
+							"Function: sub_18_001F (subroutine)",
+							"Function: sub_15_003F (subroutine)",
+							"Function: sub_18_02FD (subroutine)"
+						],
+						"functions_detected": 4
+					}
+				},
+				"$19": {
+					"rom_offset": "$190000",
+					"snes_range": "$0000-$FFFF",
+					"size": 65536,
+					"description": "Program code",
+					"content_analysis": {
+						"code_density": 0.7861328125,
+						"graphics_probability": 0.3234375,
+						"text_probability": 0.3073658684449833,
+						"audio_probability": 1.0,
+						"patterns": [
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_19_00F9 (interrupt)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_02_0010 (subroutine)",
+							"Function: sub_19_07F8 (subroutine)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_19_0033 (main_loop)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_0E_00E0 (subroutine)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_02_0020 (subroutine)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_19_07F8 (subroutine)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_0F_0101 (interrupt)",
+							"Function: sub_02_1000 (interrupt)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_0F_0060 (subroutine)"
+						],
+						"functions_detected": 20
+					}
+				},
+				"$1A": {
+					"rom_offset": "$1A0000",
+					"snes_range": "$0000-$FFFF",
+					"size": 65536,
+					"description": "Program code",
+					"content_analysis": {
+						"code_density": 0.719970703125,
+						"graphics_probability": 0.3,
+						"text_probability": 0.3208109719737627,
+						"audio_probability": 1.0,
+						"patterns": [
+							"Function: sub_02_1000 (interrupt)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_02_1000 (interrupt)",
+							"Function: sub_1A_0058 (subroutine)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_02_1000 (interrupt)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_0E_00C0 (main_loop)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_16_0080 (subroutine)",
+							"Function: sub_0E_00E0 (subroutine)",
+							"Function: sub_1A_002F (interrupt)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_02_1000 (interrupt)",
+							"Function: sub_1A_002F (interrupt)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_0E_00E0 (subroutine)",
+							"Function: sub_1A_0800 (interrupt)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_02_0020 (subroutine)"
+						],
+						"functions_detected": 20
+					}
+				},
+				"$1B": {
+					"rom_offset": "$1B0000",
+					"snes_range": "$0000-$FFFF",
+					"size": 65536,
+					"description": "Program code",
+					"content_analysis": {
+						"code_density": 0.690185546875,
+						"graphics_probability": 0.3,
+						"text_probability": 0.292551600358959,
+						"audio_probability": 1.0,
+						"patterns": [
+							"Function: sub_0E_00E0 (subroutine)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_1B_0117 (interrupt)",
+							"Function: sub_1B_01DD (interrupt)",
+							"Function: sub_1B_00DB (interrupt)",
+							"Function: sub_1B_0050 (interrupt)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_1B_00DC (interrupt)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_11_00FF (interrupt)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_02_0020 (subroutine)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_1B_00FC (interrupt)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_1B_083F (interrupt)",
+							"Function: sub_1B_00FC (interrupt)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_02_0000 (subroutine)"
+						],
+						"functions_detected": 20
+					}
+				},
+				"$1C": {
+					"rom_offset": "$1C0000",
+					"snes_range": "$0000-$FFFF",
+					"size": 65536,
+					"description": "Program code",
+					"content_analysis": {
+						"code_density": 0.740966796875,
+						"graphics_probability": 0.3234375,
+						"text_probability": 0.3348429951690821,
+						"audio_probability": 1.0,
+						"patterns": [
+							"Function: sub_1C_054A (interrupt)",
+							"Function: sub_1C_003C (interrupt)",
+							"Function: sub_02_0090 (interrupt)",
+							"Function: sub_1C_0C64 (main_loop)",
+							"Function: sub_1C_0068 (interrupt)",
+							"Function: sub_1C_0038 (interrupt)",
+							"Function: sub_1C_0038 (interrupt)",
+							"Function: sub_1C_00F4 (subroutine)",
+							"Function: sub_1C_00F4 (subroutine)",
+							"Function: sub_1C_0068 (interrupt)",
+							"Function: sub_0E_00E0 (subroutine)",
+							"Function: sub_02_0090 (interrupt)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_0E_00E0 (subroutine)"
+						],
+						"functions_detected": 14
+					}
+				},
+				"$1D": {
+					"rom_offset": "$1D0000",
+					"snes_range": "$0000-$FFFF",
+					"size": 65536,
+					"description": "Program code",
+					"content_analysis": {
+						"code_density": 0.655517578125,
+						"graphics_probability": 0.3,
+						"text_probability": 0.3775662005355549,
+						"audio_probability": 1.0,
+						"patterns": [
+							"Function: sub_1D_00D0 (interrupt)",
+							"Function: sub_1D_0004 (interrupt)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_1D_0801 (subroutine)",
+							"Function: sub_1D_0801 (subroutine)",
+							"Function: sub_02_0020 (subroutine)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_02_0020 (subroutine)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_16_00A0 (subroutine)",
+							"Function: sub_1D_0F5F (interrupt)"
+						],
+						"functions_detected": 12
+					}
+				},
+				"$1E": {
+					"rom_offset": "$1E0000",
+					"snes_range": "$0000-$FFFF",
+					"size": 65536,
+					"description": "Program code",
+					"content_analysis": {
+						"code_density": 0.71240234375,
+						"graphics_probability": 0.3234375,
+						"text_probability": 0.2340111995284409,
+						"audio_probability": 1.0,
+						"patterns": [
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_0E_00C0 (main_loop)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_1E_0006 (interrupt)",
+							"Function: sub_1E_0030 (interrupt)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_1E_0002 (interrupt)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_0E_00C0 (main_loop)",
+							"Function: sub_1A_0800 (interrupt)"
+						],
+						"functions_detected": 20
+					}
+				},
+				"$1F": {
+					"rom_offset": "$1F0000",
+					"snes_range": "$0000-$FFFF",
+					"size": 65536,
+					"description": "Program code",
+					"content_analysis": {
+						"code_density": 0.60546875,
+						"graphics_probability": 0.3234375,
+						"text_probability": 0.34057971014492755,
+						"audio_probability": 1.0,
+						"patterns": [
+							"Function: sub_0E_00E0 (subroutine)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_1F_0C0F (interrupt)",
+							"Function: sub_1F_021D (interrupt)",
+							"Function: sub_1F_0089 (interrupt)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_10_000F (subroutine)",
+							"Function: sub_18_001F (subroutine)",
+							"Function: sub_04_0007 (subroutine)",
+							"Function: sub_02_1000 (interrupt)",
+							"Function: sub_08_0042 (subroutine)",
+							"Function: sub_1F_01E0 (interrupt)"
+						],
+						"functions_detected": 13
+					}
+				},
+				"$20": {
+					"rom_offset": "$200000",
+					"snes_range": "$0000-$FFFF",
+					"size": 65536,
+					"description": "Program code",
+					"content_analysis": {
+						"code_density": 0.66455078125,
+						"graphics_probability": 0.315625,
+						"text_probability": 0.3250230840258541,
+						"audio_probability": 1.0,
+						"patterns": [
+							"Function: sub_02_0010 (subroutine)",
+							"Function: sub_0E_00E0 (subroutine)",
+							"Function: sub_1C_0068 (interrupt)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_20_059E (interrupt)",
+							"Function: sub_02_0020 (subroutine)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_02_0020 (subroutine)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_12_00F0 (subroutine)"
+						],
+						"functions_detected": 10
+					}
+				},
+				"$21": {
+					"rom_offset": "$210000",
+					"snes_range": "$0000-$FFFF",
+					"size": 65536,
+					"description": "Program code",
+					"content_analysis": {
+						"code_density": 0.698486328125,
+						"graphics_probability": 0.346875,
+						"text_probability": 0.27231638418079096,
+						"audio_probability": 1.0,
+						"patterns": [
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_21_001D (subroutine)",
+							"Function: sub_02_1000 (interrupt)",
+							"Function: sub_02_1000 (interrupt)",
+							"Function: sub_21_009C (subroutine)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_21_015C (interrupt)",
+							"Function: sub_1E_0030 (interrupt)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_21_081B (interrupt)",
+							"Function: sub_11_00FF (interrupt)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_21_02D1 (interrupt)",
+							"Function: sub_21_0043 (subroutine)"
+						],
+						"functions_detected": 14
+					}
+				},
+				"$22": {
+					"rom_offset": "$220000",
+					"snes_range": "$0000-$FFFF",
+					"size": 65536,
+					"description": "Program code",
+					"content_analysis": {
+						"code_density": 0.831787109375,
+						"graphics_probability": 0.4328125,
+						"text_probability": 0.14613778705636743,
+						"audio_probability": 1.0,
+						"patterns": [
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_1E_0030 (interrupt)",
+							"Function: sub_02_0020 (subroutine)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_02_0020 (subroutine)",
+							"Function: sub_0E_00E0 (subroutine)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_02_0020 (subroutine)",
+							"Function: sub_02_0000 (subroutine)"
+						],
+						"functions_detected": 11
+					}
+				},
+				"$23": {
+					"rom_offset": "$230000",
+					"snes_range": "$0000-$FFFF",
+					"size": 65536,
+					"description": "Program code",
+					"content_analysis": {
+						"code_density": 0.76904296875,
+						"graphics_probability": 0.4015625,
+						"text_probability": 0.19972337482710928,
+						"audio_probability": 1.0,
+						"patterns": [
+							"Function: sub_02_1000 (interrupt)",
+							"Function: sub_23_0818 (subroutine)",
+							"Function: sub_23_00B0 (subroutine)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_16_00A0 (subroutine)",
+							"Function: sub_23_0615 (subroutine)",
+							"Function: sub_00_0704 (subroutine)",
+							"Function: sub_23_08F0 (subroutine)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_02_0000 (subroutine)"
+						],
+						"functions_detected": 11
+					}
+				},
+				"$24": {
+					"rom_offset": "$240000",
+					"snes_range": "$0000-$FFFF",
+					"size": 65536,
+					"description": "Audio data",
+					"content_analysis": {
+						"code_density": 0.355712890625,
+						"graphics_probability": 0.0,
+						"text_probability": 0.34012276785714285,
+						"audio_probability": 1.0,
+						"patterns": [
+							"Function: sub_1E_0006 (interrupt)"
+						],
+						"functions_detected": 1
+					}
+				},
+				"$25": {
+					"rom_offset": "$250000",
+					"snes_range": "$0000-$FFFF",
+					"size": 65536,
+					"description": "Program code",
+					"content_analysis": {
+						"code_density": 0.385498046875,
+						"graphics_probability": 0.0,
+						"text_probability": 0.8020641356431994,
+						"audio_probability": 1.0,
+						"patterns": [
+							"Function: sub_25_075B (subroutine)"
+						],
+						"functions_detected": 1
+					}
+				},
+				"$26": {
+					"rom_offset": "$260000",
+					"snes_range": "$0000-$FFFF",
+					"size": 65536,
+					"description": "Program code",
+					"content_analysis": {
+						"code_density": 0.550048828125,
+						"graphics_probability": 0.0,
+						"text_probability": 0.4501478097285676,
+						"audio_probability": 1.0,
+						"patterns": [
+							"Function: sub_26_0048 (subroutine)",
+							"Function: sub_1C_0068 (interrupt)"
+						],
+						"functions_detected": 2
+					}
+				},
+				"$27": {
+					"rom_offset": "$270000",
+					"snes_range": "$0000-$FFFF",
+					"size": 65536,
+					"description": "Program code",
+					"content_analysis": {
+						"code_density": 0.59228515625,
+						"graphics_probability": 0.0,
+						"text_probability": 0.4577707175006619,
+						"audio_probability": 1.0,
+						"patterns": [
+							"Function: sub_27_0E80 (subroutine)"
+						],
+						"functions_detected": 1
+					}
+				},
+				"$28": {
+					"rom_offset": "$280000",
+					"snes_range": "$0000-$FFFF",
+					"size": 65536,
+					"description": "Program code",
+					"content_analysis": {
+						"code_density": 0.786865234375,
+						"graphics_probability": 0.315625,
+						"text_probability": 0.30566905005107253,
+						"audio_probability": 1.0,
+						"patterns": [
+							"Function: sub_06_0100 (interrupt)",
+							"Function: sub_28_0FC0 (interrupt)",
+							"Function: sub_02_0000 (subroutine)",
+							"Function: sub_28_0F00 (interrupt)",
+							"Function: sub_28_0F00 (interrupt)",
+							"Function: sub_28_0B40 (interrupt)",
+							"Function: sub_28_0240 (interrupt)"
+						],
+						"functions_detected": 7
+					}
+				},
+				"$29": {
+					"rom_offset": "$290000",
+					"snes_range": "$0000-$FFFF",
+					"size": 65536,
+					"description": "Program code",
+					"content_analysis": {
+						"code_density": 0.453125,
+						"graphics_probability": 0.0,
+						"text_probability": 0.636203349985307,
+						"audio_probability": 1.0,
+						"patterns": [
+							"Function: sub_29_0299 (interrupt)",
+							"Function: sub_29_0273 (interrupt)"
+						],
+						"functions_detected": 2
+					}
+				},
+				"$2A": {
+					"rom_offset": "$2A0000",
+					"snes_range": "$0000-$FFFF",
+					"size": 65536,
+					"description": "Program code",
+					"content_analysis": {
+						"code_density": 0.4345703125,
+						"graphics_probability": 0.0,
+						"text_probability": 0.6654929577464789,
+						"audio_probability": 1.0,
+						"patterns": [
+							"Function: sub_04_0003 (subroutine)",
+							"Function: sub_2A_01CA (interrupt)"
+						],
+						"functions_detected": 2
+					}
+				},
+				"$2B": {
+					"rom_offset": "$2B0000",
+					"snes_range": "$0000-$FFFF",
+					"size": 65536,
+					"description": "Program code",
+					"content_analysis": {
+						"code_density": 0.47021484375,
+						"graphics_probability": 0.0,
+						"text_probability": 0.6704443781688041,
+						"audio_probability": 1.0,
+						"patterns": [
+							"Function: sub_2B_0025 (subroutine)",
+							"Function: sub_2B_067D (subroutine)"
+						],
+						"functions_detected": 2
+					}
+				},
+				"$2C": {
+					"rom_offset": "$2C0000",
+					"snes_range": "$0000-$FFFF",
+					"size": 65536,
+					"description": "Program code",
+					"content_analysis": {
+						"code_density": 0.416259765625,
+						"graphics_probability": 0.0,
+						"text_probability": 0.7035790761700826,
+						"audio_probability": 1.0,
+						"patterns": [
+							"Function: sub_2C_00C1 (subroutine)"
+						],
+						"functions_detected": 1
+					}
+				},
+				"$2D": {
+					"rom_offset": "$2D0000",
+					"snes_range": "$0000-$FFFF",
+					"size": 65536,
+					"description": "Program code",
+					"content_analysis": {
+						"code_density": 0.48486328125,
+						"graphics_probability": 0.0,
+						"text_probability": 0.5828705057000877,
+						"audio_probability": 1.0,
+						"patterns": [
+							"Function: sub_2D_00BF (interrupt)",
+							"Function: sub_2D_0005 (interrupt)",
+							"Function: sub_2D_0243 (interrupt)"
+						],
+						"functions_detected": 3
+					}
+				},
+				"$2E": {
+					"rom_offset": "$2E0000",
+					"snes_range": "$0000-$FFFF",
+					"size": 65536,
+					"description": "Program code",
+					"content_analysis": {
+						"code_density": 0.549560546875,
+						"graphics_probability": 0.0,
+						"text_probability": 0.721038961038961,
+						"audio_probability": 1.0,
+						"patterns": [],
+						"functions_detected": 0
+					}
+				},
+				"$2F": {
+					"rom_offset": "$2F0000",
+					"snes_range": "$0000-$FFFF",
+					"size": 65536,
+					"description": "Program code",
+					"content_analysis": {
+						"code_density": 0.5693359375,
+						"graphics_probability": 0.0,
+						"text_probability": 0.6197564276048715,
+						"audio_probability": 1.0,
+						"patterns": [
+							"Function: sub_10_003E (subroutine)",
+							"Function: sub_10_003E (subroutine)",
+							"Function: sub_10_003E (subroutine)",
+							"Function: sub_2F_002E (subroutine)",
+							"Function: sub_02_0040 (subroutine)",
+							"Function: sub_02_0040 (subroutine)",
+							"Function: sub_2F_0ADC (subroutine)",
+							"Function: sub_1E_0002 (interrupt)",
+							"Function: sub_2F_0CF0 (subroutine)",
+							"Function: sub_2F_0EE0 (subroutine)"
+						],
+						"functions_detected": 10
+					}
+				},
+				"$30": {
+					"rom_offset": "$300000",
+					"snes_range": "$0000-$FFFF",
+					"size": 65536,
+					"description": "Program code",
+					"content_analysis": {
+						"code_density": 0.604248046875,
+						"graphics_probability": 0.0,
+						"text_probability": 0.6525374855824683,
+						"audio_probability": 1.0,
+						"patterns": [
+							"Function: sub_30_0520 (calculation)",
+							"Function: sub_17_0001 (subroutine)"
+						],
+						"functions_detected": 2
+					}
+				},
+				"$31": {
+					"rom_offset": "$310000",
+					"snes_range": "$0000-$FFFF",
+					"size": 65536,
+					"description": "Program code",
+					"content_analysis": {
+						"code_density": 0.706787109375,
+						"graphics_probability": 0.0,
+						"text_probability": 0.5097696121318168,
+						"audio_probability": 1.0,
+						"patterns": [
+							"Function: sub_31_0AE8 (subroutine)",
+							"Function: sub_31_08E0 (subroutine)",
+							"Function: sub_31_09E8 (subroutine)",
+							"Function: sub_31_0AF0 (subroutine)",
+							"Function: sub_31_0BF8 (subroutine)",
+							"Function: sub_31_0018 (subroutine)",
+							"Function: sub_31_09E0 (subroutine)",
+							"Function: sub_31_0AE8 (subroutine)",
+							"Function: sub_31_0BF0 (subroutine)",
+							"Function: sub_31_0CF8 (subroutine)",
+							"Function: sub_31_0018 (subroutine)",
+							"Function: sub_31_0AE0 (subroutine)",
+							"Function: sub_31_0BE8 (subroutine)",
+							"Function: sub_2F_0CF0 (subroutine)",
+							"Function: sub_31_0DF8 (main_loop)",
+							"Function: sub_31_0018 (subroutine)",
+							"Function: sub_31_0BE0 (subroutine)",
+							"Function: sub_31_0CE8 (subroutine)",
+							"Function: sub_31_0DF0 (main_loop)",
+							"Function: sub_31_0EF8 (subroutine)"
+						],
+						"functions_detected": 20
+					}
+				},
+				"$32": {
+					"rom_offset": "$320000",
+					"snes_range": "$0000-$FFFF",
+					"size": 65536,
+					"description": "Program code",
+					"content_analysis": {
+						"code_density": 0.512451171875,
+						"graphics_probability": 0.0,
+						"text_probability": 0.6268999139661601,
+						"audio_probability": 1.0,
+						"patterns": [
+							"Function: sub_32_06E8 (subroutine)",
+							"Function: sub_02_0020 (subroutine)",
+							"Function: sub_26_0048 (subroutine)",
+							"Function: sub_32_04E8 (subroutine)",
+							"Function: sub_02_0020 (subroutine)",
+							"Function: sub_26_0048 (subroutine)",
+							"Function: sub_32_0AD6 (main_loop)",
+							"Function: sub_32_04E8 (subroutine)",
+							"Function: sub_02_0020 (subroutine)",
+							"Function: sub_26_0048 (subroutine)",
+							"Function: sub_32_04E8 (subroutine)",
+							"Function: sub_02_0020 (subroutine)",
+							"Function: sub_26_0048 (subroutine)",
+							"Function: sub_32_04E8 (subroutine)",
+							"Function: sub_02_0020 (subroutine)",
+							"Function: sub_32_0046 (subroutine)",
+							"Function: sub_32_04E8 (subroutine)",
+							"Function: sub_32_0046 (subroutine)",
+							"Function: sub_32_04E8 (subroutine)",
+							"Function: sub_32_0046 (subroutine)"
+						],
+						"functions_detected": 20
+					}
+				},
+				"$33": {
+					"rom_offset": "$330000",
+					"snes_range": "$0000-$FFFF",
+					"size": 65536,
+					"description": "Program code",
+					"content_analysis": {
+						"code_density": 0.627685546875,
+						"graphics_probability": 0.0,
+						"text_probability": 0.5252971137521223,
+						"audio_probability": 1.0,
+						"patterns": [
+							"Function: sub_0F_0220 (interrupt)",
+							"Function: sub_0F_0220 (interrupt)",
+							"Function: sub_0F_0220 (interrupt)",
+							"Function: sub_0F_0220 (interrupt)",
+							"Function: sub_0F_0220 (interrupt)",
+							"Function: sub_0F_0220 (interrupt)",
+							"Function: sub_33_0A20 (subroutine)",
+							"Function: sub_33_0A20 (subroutine)",
+							"Function: sub_33_0A20 (subroutine)"
+						],
+						"functions_detected": 9
+					}
+				},
+				"$34": {
+					"rom_offset": "$340000",
+					"snes_range": "$0000-$FFFF",
+					"size": 65536,
+					"description": "Program code",
+					"content_analysis": {
+						"code_density": 0.44482421875,
+						"graphics_probability": 0.0,
+						"text_probability": 0.7785714285714286,
+						"audio_probability": 1.0,
+						"patterns": [
+							"Function: sub_34_0115 (subroutine)",
+							"Function: sub_34_010D (subroutine)",
+							"Function: sub_34_0105 (subroutine)",
+							"Function: sub_34_0115 (subroutine)",
+							"Function: sub_34_010D (subroutine)",
+							"Function: sub_34_0105 (subroutine)",
+							"Function: sub_34_0115 (subroutine)",
+							"Function: sub_34_010D (subroutine)",
+							"Function: sub_34_0105 (subroutine)",
+							"Function: sub_34_0115 (subroutine)",
+							"Function: sub_34_010D (subroutine)",
+							"Function: sub_34_0105 (subroutine)",
+							"Function: sub_34_0115 (subroutine)",
+							"Function: sub_34_010D (subroutine)",
+							"Function: sub_34_0105 (subroutine)",
+							"Function: sub_34_0D30 (subroutine)",
+							"Function: sub_34_0D30 (subroutine)",
+							"Function: sub_34_0D30 (subroutine)",
+							"Function: sub_34_0D30 (subroutine)",
+							"Function: sub_34_0D30 (subroutine)"
+						],
+						"functions_detected": 20
+					}
+				},
+				"$35": {
+					"rom_offset": "$350000",
+					"snes_range": "$0000-$FFFF",
+					"size": 65536,
+					"description": "Program code",
+					"content_analysis": {
+						"code_density": 0.51416015625,
+						"graphics_probability": 0.09375,
+						"text_probability": 0.17789672544080604,
+						"audio_probability": 1.0,
+						"patterns": [
+							"Function: sub_02_0010 (subroutine)",
+							"Function: sub_02_0010 (subroutine)",
+							"Function: sub_02_0010 (subroutine)",
+							"Function: sub_02_0810 (subroutine)",
+							"Function: sub_02_0810 (subroutine)",
+							"Function: sub_02_0010 (subroutine)",
+							"Function: sub_02_0010 (subroutine)",
+							"Function: sub_02_0010 (subroutine)",
+							"Function: sub_02_0010 (subroutine)",
+							"Function: sub_02_0010 (subroutine)",
+							"Function: sub_02_0810 (subroutine)",
+							"Function: sub_02_0810 (subroutine)",
+							"Function: sub_02_0810 (subroutine)",
+							"Function: sub_02_0810 (subroutine)"
+						],
+						"functions_detected": 14
+					}
+				},
+				"$36": {
+					"rom_offset": "$360000",
+					"snes_range": "$0000-$FFFF",
+					"size": 65536,
+					"description": "Program code",
+					"content_analysis": {
+						"code_density": 0.33447265625,
+						"graphics_probability": 0.1171875,
+						"text_probability": 0.27806610215788036,
+						"audio_probability": 1.0,
+						"patterns": [],
+						"functions_detected": 0
+					}
+				},
+				"$37": {
+					"rom_offset": "$370000",
+					"snes_range": "$0000-$FFFF",
+					"size": 65536,
+					"description": "Program code",
+					"content_analysis": {
+						"code_density": 0.58203125,
+						"graphics_probability": 0.0,
+						"text_probability": 0.5091926458832934,
+						"audio_probability": 1.0,
+						"patterns": [
+							"Function: sub_02_0010 (subroutine)",
+							"Function: sub_37_0C65 (interrupt)",
+							"Function: sub_37_0E3C (subroutine)",
+							"Function: sub_37_0EAD (subroutine)",
+							"Function: sub_17_000C (subroutine)",
+							"Function: sub_37_0EAD (subroutine)",
+							"Function: sub_1D_0004 (interrupt)",
+							"Function: sub_02_0000 (subroutine)"
+						],
+						"functions_detected": 8
+					}
+				},
+				"$38": {
+					"rom_offset": "$380000",
+					"snes_range": "$0000-$FFFF",
+					"size": 65536,
+					"description": "Program code",
+					"content_analysis": {
+						"code_density": 0.494384765625,
+						"graphics_probability": 0.0,
+						"text_probability": 0.72,
+						"audio_probability": 1.0,
+						"patterns": [
+							"Function: sub_2D_0005 (interrupt)",
+							"Function: sub_17_0001 (subroutine)"
+						],
+						"functions_detected": 2
+					}
+				},
+				"$39": {
+					"rom_offset": "$390000",
+					"snes_range": "$0000-$FFFF",
+					"size": 65536,
+					"description": "Program code",
+					"content_analysis": {
+						"code_density": 0.504150390625,
+						"graphics_probability": 0.0,
+						"text_probability": 0.7107075767063243,
+						"audio_probability": 1.0,
+						"patterns": [
+							"Function: sub_19_00F9 (interrupt)",
+							"Function: sub_39_0013 (subroutine)",
+							"Function: sub_39_0037 (subroutine)",
+							"Function: sub_39_027D (subroutine)"
+						],
+						"functions_detected": 4
+					}
+				},
+				"$3A": {
+					"rom_offset": "$3A0000",
+					"snes_range": "$0000-$FFFF",
+					"size": 65536,
+					"description": "Program code",
+					"content_analysis": {
+						"code_density": 0.470947265625,
+						"graphics_probability": 0.0,
+						"text_probability": 0.6339373970345964,
+						"audio_probability": 1.0,
+						"patterns": [
+							"Function: sub_3A_009A (interrupt)",
+							"Function: sub_3A_0F9A (main_loop)",
+							"Function: sub_10_000F (subroutine)",
+							"Function: sub_3A_00AA (interrupt)",
+							"Function: sub_3A_02DF (interrupt)",
+							"Function: sub_3A_009A (interrupt)",
+							"Function: sub_3A_00F1 (interrupt)",
+							"Function: sub_3A_0C40 (subroutine)",
+							"Function: sub_17_0001 (subroutine)",
+							"Function: sub_3A_04FC (subroutine)",
+							"Function: sub_3A_01E1 (subroutine)",
+							"Function: sub_3A_01F0 (subroutine)"
+						],
+						"functions_detected": 12
+					}
+				},
+				"$3B": {
+					"rom_offset": "$3B0000",
+					"snes_range": "$0000-$FFFF",
+					"size": 65536,
+					"description": "Program code",
+					"content_analysis": {
+						"code_density": 0.430908203125,
+						"graphics_probability": 0.0,
+						"text_probability": 0.6397119911381889,
+						"audio_probability": 1.0,
+						"patterns": [],
+						"functions_detected": 0
+					}
+				},
+				"$3C": {
+					"rom_offset": "$3C0000",
+					"snes_range": "$0000-$FFFF",
+					"size": 65536,
+					"description": "Program code",
+					"content_analysis": {
+						"code_density": 0.398681640625,
+						"graphics_probability": 0.0078125,
+						"text_probability": 0.6357142857142857,
+						"audio_probability": 1.0,
+						"patterns": [
+							"Function: sub_3C_04EB (subroutine)"
+						],
+						"functions_detected": 1
+					}
+				},
+				"$3D": {
+					"rom_offset": "$3D0000",
+					"snes_range": "$0000-$FFFF",
+					"size": 65536,
+					"description": "Program code",
+					"content_analysis": {
+						"code_density": 0.42138671875,
+						"graphics_probability": 0.0,
+						"text_probability": 0.8575088056356068,
+						"audio_probability": 1.0,
+						"patterns": [
+							"Function: sub_3D_0979 (subroutine)"
+						],
+						"functions_detected": 1
+					}
+				},
+				"$3E": {
+					"rom_offset": "$3E0000",
+					"snes_range": "$0000-$FFFF",
+					"size": 65536,
+					"description": "Program code",
+					"content_analysis": {
+						"code_density": 0.423828125,
+						"graphics_probability": 0.0,
+						"text_probability": 0.8475801382778126,
+						"audio_probability": 1.0,
+						"patterns": [],
+						"functions_detected": 0
+					}
+				},
+				"$3F": {
+					"rom_offset": "$3F0000",
+					"snes_range": "$0000-$FFFF",
+					"size": 65536,
+					"description": "Data/Unknown",
+					"content_analysis": {
+						"code_density": 0.0,
+						"graphics_probability": 0.7,
+						"text_probability": 0.0,
+						"audio_probability": 0.0,
+						"patterns": [],
+						"functions_detected": 0
+					}
+				}
+			}
+		},
+		"dq3_vectors": {
+			"native_mode": {
+				"COP": {
+					"vector_address": "$FFE4",
+					"handler_address": "$FFAC",
+					"handler_function": "sub_00_FFAC",
+					"handler_type": "subroutine",
+					"handler_size": 1
+				},
+				"BRK": {
+					"vector_address": "$FFE6",
+					"handler_address": "$FFA8",
+					"handler_function": "sub_00_FFA8",
+					"handler_type": "subroutine",
+					"handler_size": 1
+				},
+				"ABORT": {
+					"vector_address": "$FFE8",
+					"handler_address": "$FFA4",
+					"handler_function": "sub_00_FFA4",
+					"handler_type": "subroutine",
+					"handler_size": 1
+				},
+				"NMI": {
+					"vector_address": "$FFEA",
+					"handler_address": "$FFA0",
+					"handler_function": "sub_00_FFA0",
+					"handler_type": "subroutine",
+					"handler_size": 1
+				},
+				"UNUSED": {
+					"vector_address": "$FFEC",
+					"handler_address": "$FFA4",
+					"handler_function": "sub_00_FFA4",
+					"handler_type": "subroutine",
+					"handler_size": 1
+				},
+				"IRQ": {
+					"vector_address": "$FFEE",
+					"handler_address": "$FFA4",
+					"handler_function": "sub_00_FFA4",
+					"handler_type": "subroutine",
+					"handler_size": 1
+				}
+			},
+			"emulation_mode": {
+				"COP": {
+					"vector_address": "$FFF4",
+					"handler_address": "$FFA4",
+					"handler_function": "sub_00_FFA4",
+					"handler_type": "subroutine",
+					"handler_size": 1
+				},
+				"UNUSED": {
+					"vector_address": "$FFF6",
+					"handler_address": "$FFA4",
+					"handler_function": "sub_00_FFA4",
+					"handler_type": "subroutine",
+					"handler_size": 1
+				},
+				"ABORT": {
+					"vector_address": "$FFF8",
+					"handler_address": "$FFA4",
+					"handler_function": "sub_00_FFA4",
+					"handler_type": "subroutine",
+					"handler_size": 1
+				},
+				"NMI": {
+					"vector_address": "$FFFA",
+					"handler_address": "$FFA0",
+					"handler_function": "sub_00_FFA0",
+					"handler_type": "subroutine",
+					"handler_size": 1
+				},
+				"RESET": {
+					"vector_address": "$FFFC",
+					"handler_address": "$FF98",
+					"handler_function": "sub_00_FF98",
+					"handler_type": "subroutine",
+					"handler_size": 5
+				},
+				"IRQ": {
+					"vector_address": "$FFFE",
+					"handler_address": "$FFA4",
+					"handler_function": "sub_00_FFA4",
+					"handler_type": "subroutine",
+					"handler_size": 1
+				}
+			}
+		},
+		"dq3_systems": {
+			"SystemCore": {
+				"name": "SystemCore",
+				"description": "Core system initialization, interrupt handlers, and main loop",
+				"start_address": 32768,
+				"end_address": 65535,
+				"banks": [
+					0
+				],
+				"functions": [],
+				"data_structures": [],
+				"variables": {},
+				"documentation": "Handles system startup, IRQ/NMI processing, and main game loop",
+				"completion_percentage": 0.0
+			},
+			"BattleEngine": {
+				"name": "BattleEngine",
+				"description": "Combat system, AI, damage calculations, and battle UI",
+				"start_address": 32768,
+				"end_address": 65535,
+				"banks": [
+					1,
+					2,
+					3
+				],
+				"functions": [],
+				"data_structures": [],
+				"variables": {},
+				"documentation": "Complete battle system implementation including turn order, spells, and AI",
+				"completion_percentage": 0.0
+			},
+			"WorldEngine": {
+				"name": "WorldEngine",
+				"description": "Overworld navigation, collision detection, and map management",
+				"start_address": 32768,
+				"end_address": 65535,
+				"banks": [
+					4,
+					5
+				],
+				"functions": [],
+				"data_structures": [],
+				"variables": {},
+				"documentation": "Handles world map movement, transitions, and collision systems",
+				"completion_percentage": 0.0
+			},
+			"MenuSystem": {
+				"name": "MenuSystem",
+				"description": "UI management, inventory, character status, and save/load",
+				"start_address": 32768,
+				"end_address": 65535,
+				"banks": [
+					6,
+					7
+				],
+				"functions": [],
+				"data_structures": [],
+				"variables": {},
+				"documentation": "Complete menu interface including item management and character progression",
+				"completion_percentage": 0.0
+			},
+			"TextEngine": {
+				"name": "TextEngine",
+				"description": "Dialog system, text rendering, and script processing",
+				"start_address": 32768,
+				"end_address": 65535,
+				"banks": [
+					8,
+					9,
+					10
+				],
+				"functions": [],
+				"data_structures": [],
+				"variables": {},
+				"documentation": "Text display engine with compression and variable-width font support",
+				"completion_percentage": 0.0
+			},
+			"AudioEngine": {
+				"name": "AudioEngine",
+				"description": "Music playback, sound effects, and audio streaming",
+				"start_address": 32768,
+				"end_address": 65535,
+				"banks": [
+					11,
+					12
+				],
+				"functions": [],
+				"data_structures": [],
+				"variables": {},
+				"documentation": "Audio system with instrument samples and music sequencing",
+				"completion_percentage": 0.0
+			},
+			"GraphicsEngine": {
+				"name": "GraphicsEngine",
+				"description": "Sprite rendering, background processing, and visual effects",
+				"start_address": 32768,
+				"end_address": 65535,
+				"banks": [
+					13,
+					14,
+					15
+				],
+				"functions": [],
+				"data_structures": [],
+				"variables": {},
+				"documentation": "Graphics rendering pipeline with sprite management and effects",
+				"completion_percentage": 0.0
+			},
+			"SaveSystem": {
+				"name": "SaveSystem",
+				"description": "Game state persistence, SRAM management, and data validation",
+				"start_address": 32768,
+				"end_address": 65535,
+				"banks": [
+					16
+				],
+				"functions": [],
+				"data_structures": [],
+				"variables": {},
+				"documentation": "Save/load system with checksum validation and state management",
+				"completion_percentage": 0.0
+			},
+			"GameData": {
+				"name": "GameData",
+				"description": "Static game data including items, spells, monsters, and maps",
+				"start_address": 32768,
+				"end_address": 65535,
+				"banks": [
+					17,
+					18,
+					19,
+					20,
+					21,
+					22
+				],
+				"functions": [],
+				"data_structures": [],
+				"variables": {},
+				"documentation": "All game content data tables and configuration",
+				"completion_percentage": 0.0
+			}
+		},
+		"dq3_memory_map": {
+			"regions": [
+				{
+					"address": 0,
+					"size": 8192,
+					"name": "DirectPage",
+					"description": "Direct page and stack space",
+					"access_type": "rw",
+					"data_type": "data",
+					"bank": 0
+				},
+				{
+					"address": 0,
+					"size": 65536,
+					"name": "Bank$00",
+					"description": "System/Boot code",
+					"access_type": "rx",
+					"data_type": "code",
+					"bank": 0
+				},
+				{
+					"address": 8192,
+					"size": 24576,
+					"name": "SystemRAM",
+					"description": "System work RAM",
+					"access_type": "rw",
+					"data_type": "data",
+					"bank": 0
+				},
+				{
+					"address": 8448,
+					"size": 256,
+					"name": "PPU",
+					"description": "Picture Processing Unit registers",
+					"access_type": "rw",
+					"data_type": "data",
+					"bank": 0
+				},
+				{
+					"address": 16384,
+					"size": 1024,
+					"name": "Controllers",
+					"description": "Controller and system registers",
+					"access_type": "rw",
+					"data_type": "data",
+					"bank": 0
+				},
+				{
+					"address": 24576,
+					"size": 32768,
+					"name": "WorkRAM",
+					"description": "Game work RAM",
+					"access_type": "rw",
+					"data_type": "data",
+					"bank": 0
+				},
+				{
+					"address": 65536,
+					"size": 65536,
+					"name": "Bank$01",
+					"description": "Program code",
+					"access_type": "rx",
+					"data_type": "code",
+					"bank": 1
+				},
+				{
+					"address": 131072,
+					"size": 65536,
+					"name": "Bank$02",
+					"description": "Program code",
+					"access_type": "rx",
+					"data_type": "code",
+					"bank": 2
+				},
+				{
+					"address": 196608,
+					"size": 65536,
+					"name": "Bank$03",
+					"description": "Program code",
+					"access_type": "rx",
+					"data_type": "code",
+					"bank": 3
+				},
+				{
+					"address": 262144,
+					"size": 65536,
+					"name": "Bank$04",
+					"description": "Program code",
+					"access_type": "rx",
+					"data_type": "code",
+					"bank": 4
+				},
+				{
+					"address": 327680,
+					"size": 65536,
+					"name": "Bank$05",
+					"description": "Program code",
+					"access_type": "rx",
+					"data_type": "code",
+					"bank": 5
+				},
+				{
+					"address": 393216,
+					"size": 65536,
+					"name": "Bank$06",
+					"description": "Program code",
+					"access_type": "rx",
+					"data_type": "code",
+					"bank": 6
+				},
+				{
+					"address": 458752,
+					"size": 65536,
+					"name": "Bank$07",
+					"description": "Program code",
+					"access_type": "rx",
+					"data_type": "code",
+					"bank": 7
+				},
+				{
+					"address": 524288,
+					"size": 65536,
+					"name": "Bank$08",
+					"description": "Program code",
+					"access_type": "rx",
+					"data_type": "code",
+					"bank": 8
+				},
+				{
+					"address": 589824,
+					"size": 65536,
+					"name": "Bank$09",
+					"description": "Program code",
+					"access_type": "rx",
+					"data_type": "code",
+					"bank": 9
+				},
+				{
+					"address": 655360,
+					"size": 65536,
+					"name": "Bank$0A",
+					"description": "Program code",
+					"access_type": "rx",
+					"data_type": "code",
+					"bank": 10
+				},
+				{
+					"address": 720896,
+					"size": 65536,
+					"name": "Bank$0B",
+					"description": "Program code",
+					"access_type": "rx",
+					"data_type": "code",
+					"bank": 11
+				},
+				{
+					"address": 786432,
+					"size": 65536,
+					"name": "Bank$0C",
+					"description": "Program code",
+					"access_type": "rx",
+					"data_type": "code",
+					"bank": 12
+				},
+				{
+					"address": 851968,
+					"size": 65536,
+					"name": "Bank$0D",
+					"description": "Program code",
+					"access_type": "rx",
+					"data_type": "code",
+					"bank": 13
+				},
+				{
+					"address": 917504,
+					"size": 65536,
+					"name": "Bank$0E",
+					"description": "Program code",
+					"access_type": "rx",
+					"data_type": "code",
+					"bank": 14
+				},
+				{
+					"address": 983040,
+					"size": 65536,
+					"name": "Bank$0F",
+					"description": "Program code",
+					"access_type": "rx",
+					"data_type": "code",
+					"bank": 15
+				},
+				{
+					"address": 1048576,
+					"size": 65536,
+					"name": "Bank$10",
+					"description": "Program code",
+					"access_type": "rx",
+					"data_type": "code",
+					"bank": 16
+				},
+				{
+					"address": 1114112,
+					"size": 65536,
+					"name": "Bank$11",
+					"description": "Program code",
+					"access_type": "rx",
+					"data_type": "code",
+					"bank": 17
+				},
+				{
+					"address": 1179648,
+					"size": 65536,
+					"name": "Bank$12",
+					"description": "Program code",
+					"access_type": "rx",
+					"data_type": "code",
+					"bank": 18
+				},
+				{
+					"address": 1245184,
+					"size": 65536,
+					"name": "Bank$13",
+					"description": "Program code",
+					"access_type": "rx",
+					"data_type": "code",
+					"bank": 19
+				},
+				{
+					"address": 1310720,
+					"size": 65536,
+					"name": "Bank$14",
+					"description": "Program code",
+					"access_type": "rx",
+					"data_type": "code",
+					"bank": 20
+				},
+				{
+					"address": 1376256,
+					"size": 65536,
+					"name": "Bank$15",
+					"description": "Program code",
+					"access_type": "rx",
+					"data_type": "code",
+					"bank": 21
+				},
+				{
+					"address": 1441792,
+					"size": 65536,
+					"name": "Bank$16",
+					"description": "Program code",
+					"access_type": "rx",
+					"data_type": "code",
+					"bank": 22
+				},
+				{
+					"address": 1507328,
+					"size": 65536,
+					"name": "Bank$17",
+					"description": "Program code",
+					"access_type": "rx",
+					"data_type": "code",
+					"bank": 23
+				},
+				{
+					"address": 1572864,
+					"size": 65536,
+					"name": "Bank$18",
+					"description": "Program code",
+					"access_type": "rx",
+					"data_type": "code",
+					"bank": 24
+				},
+				{
+					"address": 1638400,
+					"size": 65536,
+					"name": "Bank$19",
+					"description": "Program code",
+					"access_type": "rx",
+					"data_type": "code",
+					"bank": 25
+				},
+				{
+					"address": 1703936,
+					"size": 65536,
+					"name": "Bank$1A",
+					"description": "Program code",
+					"access_type": "rx",
+					"data_type": "code",
+					"bank": 26
+				},
+				{
+					"address": 1769472,
+					"size": 65536,
+					"name": "Bank$1B",
+					"description": "Program code",
+					"access_type": "rx",
+					"data_type": "code",
+					"bank": 27
+				},
+				{
+					"address": 1835008,
+					"size": 65536,
+					"name": "Bank$1C",
+					"description": "Program code",
+					"access_type": "rx",
+					"data_type": "code",
+					"bank": 28
+				},
+				{
+					"address": 1900544,
+					"size": 65536,
+					"name": "Bank$1D",
+					"description": "Program code",
+					"access_type": "rx",
+					"data_type": "code",
+					"bank": 29
+				},
+				{
+					"address": 1966080,
+					"size": 65536,
+					"name": "Bank$1E",
+					"description": "Program code",
+					"access_type": "rx",
+					"data_type": "code",
+					"bank": 30
+				},
+				{
+					"address": 2031616,
+					"size": 65536,
+					"name": "Bank$1F",
+					"description": "Program code",
+					"access_type": "rx",
+					"data_type": "code",
+					"bank": 31
+				},
+				{
+					"address": 2097152,
+					"size": 65536,
+					"name": "Bank$20",
+					"description": "Program code",
+					"access_type": "rx",
+					"data_type": "code",
+					"bank": 32
+				},
+				{
+					"address": 2162688,
+					"size": 65536,
+					"name": "Bank$21",
+					"description": "Program code",
+					"access_type": "rx",
+					"data_type": "code",
+					"bank": 33
+				},
+				{
+					"address": 2228224,
+					"size": 65536,
+					"name": "Bank$22",
+					"description": "Program code",
+					"access_type": "rx",
+					"data_type": "code",
+					"bank": 34
+				},
+				{
+					"address": 2293760,
+					"size": 65536,
+					"name": "Bank$23",
+					"description": "Program code",
+					"access_type": "rx",
+					"data_type": "code",
+					"bank": 35
+				},
+				{
+					"address": 2359296,
+					"size": 65536,
+					"name": "Bank$24",
+					"description": "Audio data",
+					"access_type": "rx",
+					"data_type": "audio",
+					"bank": 36
+				},
+				{
+					"address": 2424832,
+					"size": 65536,
+					"name": "Bank$25",
+					"description": "Program code",
+					"access_type": "rx",
+					"data_type": "code",
+					"bank": 37
+				},
+				{
+					"address": 2490368,
+					"size": 65536,
+					"name": "Bank$26",
+					"description": "Program code",
+					"access_type": "rx",
+					"data_type": "code",
+					"bank": 38
+				},
+				{
+					"address": 2555904,
+					"size": 65536,
+					"name": "Bank$27",
+					"description": "Program code",
+					"access_type": "rx",
+					"data_type": "code",
+					"bank": 39
+				},
+				{
+					"address": 2621440,
+					"size": 65536,
+					"name": "Bank$28",
+					"description": "Program code",
+					"access_type": "rx",
+					"data_type": "code",
+					"bank": 40
+				},
+				{
+					"address": 2686976,
+					"size": 65536,
+					"name": "Bank$29",
+					"description": "Program code",
+					"access_type": "rx",
+					"data_type": "code",
+					"bank": 41
+				},
+				{
+					"address": 2752512,
+					"size": 65536,
+					"name": "Bank$2A",
+					"description": "Program code",
+					"access_type": "rx",
+					"data_type": "code",
+					"bank": 42
+				},
+				{
+					"address": 2818048,
+					"size": 65536,
+					"name": "Bank$2B",
+					"description": "Program code",
+					"access_type": "rx",
+					"data_type": "code",
+					"bank": 43
+				},
+				{
+					"address": 2883584,
+					"size": 65536,
+					"name": "Bank$2C",
+					"description": "Program code",
+					"access_type": "rx",
+					"data_type": "code",
+					"bank": 44
+				},
+				{
+					"address": 2949120,
+					"size": 65536,
+					"name": "Bank$2D",
+					"description": "Program code",
+					"access_type": "rx",
+					"data_type": "code",
+					"bank": 45
+				},
+				{
+					"address": 3014656,
+					"size": 65536,
+					"name": "Bank$2E",
+					"description": "Program code",
+					"access_type": "rx",
+					"data_type": "code",
+					"bank": 46
+				},
+				{
+					"address": 3080192,
+					"size": 65536,
+					"name": "Bank$2F",
+					"description": "Program code",
+					"access_type": "rx",
+					"data_type": "code",
+					"bank": 47
+				},
+				{
+					"address": 3145728,
+					"size": 65536,
+					"name": "Bank$30",
+					"description": "Program code",
+					"access_type": "rx",
+					"data_type": "code",
+					"bank": 48
+				},
+				{
+					"address": 3211264,
+					"size": 65536,
+					"name": "Bank$31",
+					"description": "Program code",
+					"access_type": "rx",
+					"data_type": "code",
+					"bank": 49
+				},
+				{
+					"address": 3276800,
+					"size": 65536,
+					"name": "Bank$32",
+					"description": "Program code",
+					"access_type": "rx",
+					"data_type": "code",
+					"bank": 50
+				},
+				{
+					"address": 3342336,
+					"size": 65536,
+					"name": "Bank$33",
+					"description": "Program code",
+					"access_type": "rx",
+					"data_type": "code",
+					"bank": 51
+				},
+				{
+					"address": 3407872,
+					"size": 65536,
+					"name": "Bank$34",
+					"description": "Program code",
+					"access_type": "rx",
+					"data_type": "code",
+					"bank": 52
+				},
+				{
+					"address": 3473408,
+					"size": 65536,
+					"name": "Bank$35",
+					"description": "Program code",
+					"access_type": "rx",
+					"data_type": "code",
+					"bank": 53
+				},
+				{
+					"address": 3538944,
+					"size": 65536,
+					"name": "Bank$36",
+					"description": "Program code",
+					"access_type": "rx",
+					"data_type": "code",
+					"bank": 54
+				},
+				{
+					"address": 3604480,
+					"size": 65536,
+					"name": "Bank$37",
+					"description": "Program code",
+					"access_type": "rx",
+					"data_type": "code",
+					"bank": 55
+				},
+				{
+					"address": 3670016,
+					"size": 65536,
+					"name": "Bank$38",
+					"description": "Program code",
+					"access_type": "rx",
+					"data_type": "code",
+					"bank": 56
+				},
+				{
+					"address": 3735552,
+					"size": 65536,
+					"name": "Bank$39",
+					"description": "Program code",
+					"access_type": "rx",
+					"data_type": "code",
+					"bank": 57
+				},
+				{
+					"address": 3801088,
+					"size": 65536,
+					"name": "Bank$3A",
+					"description": "Program code",
+					"access_type": "rx",
+					"data_type": "code",
+					"bank": 58
+				},
+				{
+					"address": 3866624,
+					"size": 65536,
+					"name": "Bank$3B",
+					"description": "Program code",
+					"access_type": "rx",
+					"data_type": "code",
+					"bank": 59
+				},
+				{
+					"address": 3932160,
+					"size": 65536,
+					"name": "Bank$3C",
+					"description": "Program code",
+					"access_type": "rx",
+					"data_type": "code",
+					"bank": 60
+				},
+				{
+					"address": 3997696,
+					"size": 65536,
+					"name": "Bank$3D",
+					"description": "Program code",
+					"access_type": "rx",
+					"data_type": "code",
+					"bank": 61
+				},
+				{
+					"address": 4063232,
+					"size": 65536,
+					"name": "Bank$3E",
+					"description": "Program code",
+					"access_type": "rx",
+					"data_type": "code",
+					"bank": 62
+				},
+				{
+					"address": 4128768,
+					"size": 65536,
+					"name": "Bank$3F",
+					"description": "Data/Unknown",
+					"access_type": "rx",
+					"data_type": "data",
+					"bank": 63
+				},
+				{
+					"address": 8257536,
+					"size": 131072,
+					"name": "WRAM",
+					"description": "Additional work RAM",
+					"access_type": "rw",
+					"data_type": "data",
+					"bank": 0
+				}
+			]
+		}
+	}
+}

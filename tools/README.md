@@ -1,44 +1,47 @@
 # DQ3R Tools Directory
+
 # Development tools for Dragon Quest III Remake disassembly project
+
 # Based on FFMQ-Info project structure
 
 This directory contains tools for ROM analysis, asset extraction, data editing, and build automation.
 
-## 📁 Tool Categories
+# # 📁 Tool Categories
 
-### 🔍 Analysis Tools (`analysis/`)
+# ## 🔍 Analysis Tools (`analysis/`)
 - **analyze_rom.py** - Initial ROM analysis and structure detection
 - **find_patterns.py** - Pattern detection for graphics, text, and data
 - **memory_mapper.py** - SNES memory mapping analysis
 - **compression_detector.py** - Detect compression algorithms used
 
-### 📦 Asset Extractors (`extractors/`)
+# ## 📦 Asset Extractors (`extractors/`)
 - **extract_graphics.py** - Extract tiles, sprites, and backgrounds
 - **extract_text.py** - Extract dialog, menus, and item names
 - **extract_music.py** - Extract music and sound data
 - **extract_data.py** - Extract game data tables
 
-### ✏️ Data Editors (`editors/`)
+# ## ✏️ Data Editors (`editors/`)
 - **character_editor.py** - Edit character stats and abilities
 - **enemy_editor.py** - Edit enemy stats, AI, and drops
 - **item_editor.py** - Edit item properties and effects
 - **spell_editor.py** - Edit magic spells and abilities
 
-### 🔧 Build Tools (`build/`)
+# ## 🔧 Build Tools (`build/`)
 - **build_rom.py** - Python ROM building pipeline
 - **validate_rom.py** - ROM integrity validation
 - **compare_roms.py** - Compare built ROM with original
 - **patch_creator.py** - Create IPS patches from changes
 
-### 🎨 Formatting Tools (`formatting/`)
+# ## 🎨 Formatting Tools (`formatting/`)
 - **format_asm.ps1** - Assembly code formatting
 - **clean_code.py** - Code cleanup and standardization
 - **check_style.py** - Code style verification
 
-## 🚀 Quick Start
+# # 🚀 Quick Start
 
-### Initial ROM Analysis
+# ## Initial ROM Analysis
 ```powershell
+
 # Analyze the primary target ROM
 python tools/analysis/analyze_rom.py static/"Dragon Quest III - Soshite Densetsu he... (J).smc"
 
@@ -46,8 +49,9 @@ python tools/analysis/analyze_rom.py static/"Dragon Quest III - Soshite Densetsu
 python tools/analysis/find_patterns.py --type graphics --output analysis/graphics_map.json
 ```
 
-### Asset Extraction
+# ## Asset Extraction
 ```powershell
+
 # Extract all graphics
 python tools/extractors/extract_graphics.py --input static/ --output assets/graphics/
 
@@ -58,8 +62,9 @@ python tools/extractors/extract_text.py --input static/ --output assets/text/
 python tools/extractors/extract_music.py --input static/ --output assets/music/
 ```
 
-### Data Editing
+# ## Data Editing
 ```powershell
+
 # Launch character editor
 python tools/editors/character_editor.py
 
@@ -70,8 +75,9 @@ python tools/editors/enemy_editor.py --enemy "Slime" --stat hp --value 15
 python tools/editors/item_editor.py --batch assets/data/items.json
 ```
 
-### Building and Testing
+# ## Building and Testing
 ```powershell
+
 # Build ROM from extracted assets
 python tools/build/build_rom.py --source src/ --output build/dq3r-rebuilt.sfc
 
@@ -82,7 +88,7 @@ python tools/build/validate_rom.py build/dq3r-rebuilt.sfc
 python tools/build/compare_roms.py original.smc build/dq3r-rebuilt.sfc
 ```
 
-## 🛠️ Tool Dependencies
+# # 🛠️ Tool Dependencies
 
 **Core Requirements:**
 - Python 3.8+ with packages from requirements.txt
@@ -95,11 +101,12 @@ python tools/build/compare_roms.py original.smc build/dq3r-rebuilt.sfc
 - YY-CHR for graphics editing
 - Hex editor for manual analysis
 
-## 📖 Tool Documentation
+# # 📖 Tool Documentation
 
 Each tool includes detailed help:
 
 ```powershell
+
 # Get help for any tool
 python tools/[category]/[tool_name].py --help
 
@@ -112,14 +119,14 @@ For comprehensive documentation, see:
 - `docs/guides/tool-usage.md` - Tool usage examples
 - `docs/reference/tool-reference.md` - Complete tool reference
 
-## ⚙️ Configuration
+# # ⚙️ Configuration
 
 Tools can be configured via:
 - `build.config.json` - Global build configuration
 - `tools/config/` - Tool-specific configuration files
 - Command line arguments - Override default settings
 
-## 🐛 Troubleshooting
+# # 🐛 Troubleshooting
 
 **Common Issues:**
 
@@ -133,7 +140,7 @@ Tools can be configured via:
 - Review error logs in `build/logs/`
 - See troubleshooting guide: `docs/guides/troubleshooting.md`
 
-## 🤝 Contributing
+# # 🤝 Contributing
 
 When adding new tools:
 1. Follow the existing directory structure
@@ -142,21 +149,21 @@ When adding new tools:
 4. Write tests in `tests/` directory
 5. Update this README with new tools
 
-## 📊 Tool Status
+# # 📊 Tool Status
 
-### Extraction Tools
+# ## Extraction Tools
 - [ ] Graphics extractor - In development
 - [ ] Text extractor - Planned
 - [ ] Music extractor - Planned
 - [ ] Data extractor - Planned
 
-### Editor Tools
+# ## Editor Tools
 - [ ] Character editor - Planned
 - [ ] Enemy editor - Planned
 - [ ] Item editor - Planned
 - [ ] Map editor - Future
 
-### Build Tools
+# ## Build Tools
 - [x] Basic build script - Complete
 - [ ] ROM validator - Planned
 - [ ] ROM comparison - Planned

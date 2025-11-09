@@ -10,11 +10,11 @@
 
 ---
 
-## 🎮 About Dragon Quest III
+# # 🎮 About Dragon Quest III
 
 **Dragon Quest III: Soshite Densetsu he...** (そして伝説へ..., "And Into the Legend...") is a classic JRPG originally released for the Nintendo Famicom in 1988, later ported to the Super Nintendo Entertainment System (SNES) in 1996. This project focuses on the **Japanese SNES version** for complete disassembly and documentation.
 
-### Key Features
+# ## Key Features
 - **Classic JRPG Mechanics** - Turn-based combat, character classes, party management
 - **Epic Quest** - Save the world from the Archfiend Baramos
 - **Character Customization** - Multiple character classes and party configurations
@@ -22,7 +22,7 @@
 
 ---
 
-## 📁 Project Structure
+# # 📁 Project Structure
 
 ```
 dq3r-info/
@@ -75,9 +75,9 @@ dq3r-info/
 
 ---
 
-## 🚀 Quick Start
+# # 🚀 Quick Start
 
-### Prerequisites
+# ## Prerequisites
 
 **Required Tools:**
 - **Python 3.8+** - For extraction and analysis tools
@@ -90,9 +90,10 @@ dq3r-info/
 - **MesenS** - SNES emulator for testing
 - **YY-CHR** - Graphics editor for SNES tiles
 
-### Initial Setup
+# ## Initial Setup
 
 ```powershell
+
 # 1. Clone the repository
 git clone https://github.com/[YOUR_USERNAME]/dq3r-info.git
 cd dq3r-info
@@ -101,7 +102,9 @@ cd dq3r-info
 .\setup.ps1
 
 # 3. Place ROM files in static/ directory
+
 # - Dragon Quest III - Soshite Densetsu he... (J).smc (required)
+
 # - Any save files or patches (optional)
 
 # 4. Verify setup
@@ -110,10 +113,11 @@ cd dq3r-info
 
 ---
 
-## 🛠️ Available Tools
+# # 🛠️ Available Tools
 
-### Asset Extraction
+# ## Asset Extraction
 ```powershell
+
 # Extract graphics
 python tools/extract_graphics.py --output assets/graphics/
 
@@ -124,8 +128,9 @@ python tools/extract_text.py --output assets/text/
 python tools/extract_music.py --output assets/music/
 ```
 
-### Data Editing
+# ## Data Editing
 ```powershell
+
 # Character stats editor
 python tools/editors/character_editor.py
 
@@ -136,8 +141,9 @@ python tools/editors/enemy_editor.py
 python tools/editors/item_editor.py
 ```
 
-### Build and Test
+# ## Build and Test
 ```powershell
+
 # Build ROM from source
 .\build.ps1
 
@@ -150,9 +156,9 @@ python -m pytest tests/
 
 ---
 
-## 📊 Project Status
+# # 📊 Project Status
 
-### Completion Overview
+# ## Completion Overview
 - **🔍 ROM Analysis**: Starting
 - **📝 Disassembly**: 0% complete
 - **📖 Documentation**: In progress
@@ -161,7 +167,7 @@ python -m pytest tests/
 - **🎵 Music Extraction**: Not started
 - **🧪 Testing**: Framework in place
 
-### Current Focus
+# ## Current Focus
 1. **Initial ROM analysis** using Diztinguish
 2. **Setting up build pipeline** and tools
 3. **Creating extraction workflows**
@@ -169,11 +175,11 @@ python -m pytest tests/
 
 ---
 
-## 🤝 Contributing
+# # 🤝 Contributing
 
 We welcome contributions from the Dragon Quest and ROM hacking communities!
 
-### How to Help
+# ## How to Help
 
 **For Modders:**
 - Test tools and report bugs
@@ -193,7 +199,7 @@ We welcome contributions from the Dragon Quest and ROM hacking communities!
 - Reverse engineer algorithms
 - Create technical documentation
 
-### Contribution Guidelines
+# ## Contribution Guidelines
 1. Read our [Code Standards](docs/reference/coding-standards.md)
 2. Follow the [EditorConfig](.editorconfig) formatting rules
 3. Write tests for new features
@@ -202,7 +208,7 @@ We welcome contributions from the Dragon Quest and ROM hacking communities!
 
 ---
 
-## 📖 Documentation
+# # 📖 Documentation
 
 **Quick Links:**
 - **[Getting Started Guide](docs/guides/getting-started.md)** - New contributor walkthrough
@@ -215,21 +221,21 @@ We welcome contributions from the Dragon Quest and ROM hacking communities!
 
 ---
 
-## 🎯 Project Goals
+# # 🎯 Project Goals
 
-### Short Term (3 months)
+# ## Short Term (3 months)
 - [ ] Complete ROM analysis with Diztinguish
 - [ ] Extract and document graphics format
 - [ ] Set up automated build pipeline
 - [ ] Create basic character/enemy editors
 
-### Medium Term (6 months)
+# ## Medium Term (6 months)
 - [ ] Disassemble core game engine (50%)
 - [ ] Document battle system mechanics
 - [ ] Extract all text and create translation tools
 - [ ] Build comprehensive test suite
 
-### Long Term (1+ years)
+# ## Long Term (1+ years)
 - [ ] Complete disassembly with full documentation
 - [ ] Advanced ROM editor suite
 - [ ] Translation patch creation tools
@@ -237,7 +243,7 @@ We welcome contributions from the Dragon Quest and ROM hacking communities!
 
 ---
 
-## 📄 License
+# # 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
@@ -249,7 +255,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-## 🙏 Acknowledgments
+# # 🙏 Acknowledgments
 
 - **Enix/Square Enix** - Original Dragon Quest III creators
 - **Nintendo** - SNES hardware platform
@@ -260,7 +266,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-## 📞 Contact
+# # 📞 Contact
 
 - **Issues**: Report bugs via [GitHub Issues](https://github.com/[YOUR_USERNAME]/dq3r-info/issues)
 - **Discussions**: Join our community discussions

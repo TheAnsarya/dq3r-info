@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Dragon Quest III - Analysis Dashboard</title>
+	<style>
+		body { font-family: 'Courier New', monospace; background: #1a1a1a; color: #00ff00; margin: 20px; }
+		.container { max-width: 1200px; margin: 0 auto; }
+		.header { text-align: center; border-bottom: 2px solid #00ff00; padding-bottom: 20px; margin-bottom: 30px; }
+		.section { margin-bottom: 30px; border: 1px solid #333; padding: 20px; background: #2a2a2a; }
+		.progress-bar { width: 100%; height: 20px; background: #333; border: 1px solid #555; margin: 10px 0; }
+		.progress-fill { height: 100%; background: linear-gradient(90deg, #00ff00, #ffff00); transition: width 0.3s; }
+		.asset-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px; }
+		.asset-card { border: 1px solid #444; padding: 15px; background: #333; }
+		.status-icon { font-size: 1.2em; }
+		.bank-grid { display: grid; grid-template-columns: repeat(8, 1fr); gap: 5px; }
+		.bank-cell { padding: 10px; text-align: center; border: 1px solid #555; font-size: 0.8em; }
+		.bank-high { background: #ff4444; }
+		.bank-medium { background: #ffaa00; }
+		.bank-low { background: #00aa00; }
+		.bank-data { background: #4444ff; }
+		.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+		.stat-card { text-align: center; padding: 20px; border: 1px solid #555; }
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="header">
+			<h1>🐉 Dragon Quest III Analysis Dashboard</h1>
+			<p>Real-time progress tracking and asset extraction status</p>
+		</div>
+
+		<div class="section">
+			<h2>📊 Overall Progress</h2>
+			<div class="stats-grid">
+				
+			<div class="stat-card">
+				<h3>50.2%</h3>
+				<p>Overall Progress</p>
+			</div>
+			<div class="stat-card">
+				<h3>255</h3>
+				<p>Functions Analyzed</p>
+			</div>
+			<div class="stat-card">
+				<h3>28</h3>
+				<p>Assets Catalogued</p>
+			</div>
+			<div class="stat-card">
+				<h3>63</h3>
+				<p>Banks Analyzed</p>
+			</div>
+		
+			</div>
+		</div>
+
+		<div class="section">
+			<h2>🎯 Main Categories</h2>
+			
+			<div style="margin: 15px 0;">
+				<h3>Code Disassembly</h3>
+				<div class="progress-bar">
+					<div class="progress-fill" style="width: 2.469189961751302%"></div>
+				</div>
+				<p>155,348 / 6,291,456 (2.5%)</p>
+			</div>
+			
+			<div style="margin: 15px 0;">
+				<h3>Function Analysis</h3>
+				<div class="progress-bar">
+					<div class="progress-fill" style="width: 100.0%"></div>
+				</div>
+				<p>255 / 255 (100.0%)</p>
+			</div>
+			
+			<div style="margin: 15px 0;">
+				<h3>Banking System</h3>
+				<div class="progress-bar">
+					<div class="progress-fill" style="width: 98.4375%"></div>
+				</div>
+				<p>63 / 64 (98.4%)</p>
+			</div>
+			
+			<div style="margin: 15px 0;">
+				<h3>Game Systems</h3>
+				<div class="progress-bar">
+					<div class="progress-fill" style="width: 0.0%"></div>
+				</div>
+				<p>0 / 9 (0.0%)</p>
+			</div>
+			
+		</div>
+
+		<div class="section">
+			<h2>🏦 Banking System Overview</h2>
+			<div class="bank-grid">
+				<div class="bank-cell bank-high">$00</div><div class="bank-cell bank-medium">$01</div><div class="bank-cell bank-high">$02</div><div class="bank-cell bank-high">$03</div><div class="bank-cell bank-high">$04</div><div class="bank-cell bank-high">$05</div><div class="bank-cell bank-high">$06</div><div class="bank-cell bank-medium">$07</div><div class="bank-cell bank-high">$08</div><div class="bank-cell bank-high">$09</div><div class="bank-cell bank-high">$0A</div><div class="bank-cell bank-high">$0B</div><div class="bank-cell bank-high">$0C</div><div class="bank-cell bank-high">$0D</div><div class="bank-cell bank-high">$0E</div><div class="bank-cell bank-high">$0F</div><div class="bank-cell bank-high">$10</div><div class="bank-cell bank-high">$11</div><div class="bank-cell bank-high">$12</div><div class="bank-cell bank-medium">$13</div><div class="bank-cell bank-high">$14</div><div class="bank-cell bank-high">$15</div><div class="bank-cell bank-high">$16</div><div class="bank-cell bank-medium">$17</div><div class="bank-cell bank-medium">$18</div><div class="bank-cell bank-high">$19</div><div class="bank-cell bank-high">$1A</div><div class="bank-cell bank-high">$1B</div><div class="bank-cell bank-high">$1C</div><div class="bank-cell bank-high">$1D</div><div class="bank-cell bank-high">$1E</div><div class="bank-cell bank-high">$1F</div><div class="bank-cell bank-high">$20</div><div class="bank-cell bank-high">$21</div><div class="bank-cell bank-high">$22</div><div class="bank-cell bank-high">$23</div><div class="bank-cell bank-medium">$24</div><div class="bank-cell bank-medium">$25</div><div class="bank-cell bank-high">$26</div><div class="bank-cell bank-high">$27</div><div class="bank-cell bank-high">$28</div><div class="bank-cell bank-medium">$29</div><div class="bank-cell bank-medium">$2A</div><div class="bank-cell bank-medium">$2B</div><div class="bank-cell bank-medium">$2C</div><div class="bank-cell bank-medium">$2D</div><div class="bank-cell bank-high">$2E</div><div class="bank-cell bank-high">$2F</div><div class="bank-cell bank-high">$30</div><div class="bank-cell bank-high">$31</div><div class="bank-cell bank-high">$32</div><div class="bank-cell bank-high">$33</div><div class="bank-cell bank-medium">$34</div><div class="bank-cell bank-high">$35</div><div class="bank-cell bank-medium">$36</div><div class="bank-cell bank-high">$37</div><div class="bank-cell bank-medium">$38</div><div class="bank-cell bank-high">$39</div><div class="bank-cell bank-medium">$3A</div><div class="bank-cell bank-medium">$3B</div><div class="bank-cell bank-medium">$3C</div><div class="bank-cell bank-medium">$3D</div><div class="bank-cell bank-medium">$3E</div><div class="bank-cell bank-data">$3F</div>
+			</div>
+		</div>
+
+		<div class="section">
+			<h2>🎨 Asset Extraction Status</h2>
+			<div class="asset-grid">
+				
+			<div class="asset-card">
+				<h4>Graphics Tiles</h4>
+				<div class="progress-bar">
+					<div class="progress-fill" style="width: 0.0%"></div>
+				</div>
+				<p>0/4 extracted (0.0%)</p>
+				<ul>
+			<li>⏳ Character Tiles</li><li>⏳ Monster Tiles</li><li>⏳ World Map Tiles</li></ul></div>
+			<div class="asset-card">
+				<h4>Graphics Sprites</h4>
+				<div class="progress-bar">
+					<div class="progress-fill" style="width: 0.0%"></div>
+				</div>
+				<p>0/3 extracted (0.0%)</p>
+				<ul>
+			<li>⏳ Player Character Sprites</li><li>⏳ NPC Sprites</li><li>⏳ Battle Effects</li></ul></div>
+			<div class="asset-card">
+				<h4>Audio Music</h4>
+				<div class="progress-bar">
+					<div class="progress-fill" style="width: 0.0%"></div>
+				</div>
+				<p>0/5 extracted (0.0%)</p>
+				<ul>
+			<li>⏳ Overture</li><li>⏳ Adventure</li><li>⏳ Battle Theme</li></ul></div>
+			<div class="asset-card">
+				<h4>Audio Instruments</h4>
+				<div class="progress-bar">
+					<div class="progress-fill" style="width: 0.0%"></div>
+				</div>
+				<p>0/2 extracted (0.0%)</p>
+				<ul>
+			<li>⏳ Instrument Samples</li><li>⏳ Drum Kit</li></ul></div>
+			<div class="asset-card">
+				<h4>Text Dialog</h4>
+				<div class="progress-bar">
+					<div class="progress-fill" style="width: 0.0%"></div>
+				</div>
+				<p>0/3 extracted (0.0%)</p>
+				<ul>
+			<li>⏳ Main Story Text</li><li>⏳ NPC Dialog</li><li>⏳ Item Descriptions</li></ul></div>
+			<div class="asset-card">
+				<h4>Data Items</h4>
+				<div class="progress-bar">
+					<div class="progress-fill" style="width: 0.0%"></div>
+				</div>
+				<p>0/3 extracted (0.0%)</p>
+				<ul>
+			<li>⏳ Weapon Data</li><li>⏳ Armor Data</li><li>⏳ Item Data</li></ul></div>
+			<div class="asset-card">
+				<h4>Data Monsters</h4>
+				<div class="progress-bar">
+					<div class="progress-fill" style="width: 0.0%"></div>
+				</div>
+				<p>0/3 extracted (0.0%)</p>
+				<ul>
+			<li>⏳ Monster Stats</li><li>⏳ Monster AI</li><li>⏳ Drop Tables</li></ul></div>
+			<div class="asset-card">
+				<h4>Data Spells</h4>
+				<div class="progress-bar">
+					<div class="progress-fill" style="width: 0.0%"></div>
+				</div>
+				<p>0/2 extracted (0.0%)</p>
+				<ul>
+			<li>⏳ Spell Data</li><li>⏳ Spell Effects</li></ul></div>
+			<div class="asset-card">
+				<h4>Data Maps</h4>
+				<div class="progress-bar">
+					<div class="progress-fill" style="width: 0.0%"></div>
+				</div>
+				<p>0/3 extracted (0.0%)</p>
+				<ul>
+			<li>⏳ World Map Data</li><li>⏳ Town Maps</li><li>⏳ Dungeon Maps</li></ul></div>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		// Auto-refresh every 30 seconds
+		setTimeout(() => location.reload(), 30000);
+
+		// Add click handlers for interactive elements
+		document.querySelectorAll('.bank-cell').forEach(cell => {
+			cell.addEventListener('click', () => {
+				alert('Bank details: ' + cell.textContent);
+			});
+		});
+	</script>
+</body>
+</html>

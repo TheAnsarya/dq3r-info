@@ -1,0 +1,1985 @@
+{
+	"Inventory": {
+		"name": "Inventory",
+		"base_address": "$3725",
+		"total_size": 512,
+		"structure_type": "item",
+		"description": "Inventory and item management data",
+		"field_coverage": 100.0,
+		"completion_status": "partial",
+		"fields": [
+			{
+				"name": "Bag_Items",
+				"offset": 0,
+				"absolute_address": "$3725",
+				"size": 256,
+				"data_type": "item_id",
+				"description": "Each byte is which item is in bag slot, 0 means empty, game uses values $01-$e4",
+				"valid_range": null,
+				"notes": "Raw offset: $3725"
+			},
+			{
+				"name": "Items_Amounts",
+				"offset": 256,
+				"absolute_address": "$3825",
+				"size": 256,
+				"data_type": "uint16",
+				"description": "Each byte is amount of the item in the bag slot, game allows up to 99 ($63)",
+				"valid_range": null,
+				"notes": "Raw offset: $3825"
+			}
+		]
+	},
+	"Hero": {
+		"name": "Hero",
+		"base_address": "$3925",
+		"total_size": 60,
+		"structure_type": "character",
+		"description": "Character data structure for Hero",
+		"field_coverage": 76.67,
+		"completion_status": "documented",
+		"fields": [
+			{
+				"name": "Hero_Level",
+				"offset": 0,
+				"absolute_address": "$3925",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Hero - Level\\nTop 7 bits are Hero's level, bottom bit unknown",
+				"valid_range": null,
+				"notes": "Raw offset: $3925"
+			},
+			{
+				"name": "Hero_XP",
+				"offset": 1,
+				"absolute_address": "$3926",
+				"size": 3,
+				"data_type": "uint24",
+				"description": "Hero - XP",
+				"valid_range": null,
+				"notes": "Raw offset: $3926"
+			},
+			{
+				"name": "HP_Max",
+				"offset": 4,
+				"absolute_address": "$3929",
+				"size": 2,
+				"data_type": "uint16",
+				"description": "Hero - Max HP",
+				"valid_range": null,
+				"notes": "Raw offset: $3929"
+			},
+			{
+				"name": "Hero_HP",
+				"offset": 6,
+				"absolute_address": "$392B",
+				"size": 2,
+				"data_type": "uint16",
+				"description": "Hero - Current HP",
+				"valid_range": null,
+				"notes": "Raw offset: $392B"
+			},
+			{
+				"name": "MP_Max",
+				"offset": 8,
+				"absolute_address": "$392D",
+				"size": 2,
+				"data_type": "uint16",
+				"description": "Hero - Max MP",
+				"valid_range": null,
+				"notes": "Raw offset: $392D"
+			},
+			{
+				"name": "Hero_MP",
+				"offset": 10,
+				"absolute_address": "$392F",
+				"size": 2,
+				"data_type": "uint16",
+				"description": "Hero - Current MP",
+				"valid_range": null,
+				"notes": "Raw offset: $392F"
+			},
+			{
+				"name": "Hero_Strength",
+				"offset": 12,
+				"absolute_address": "$3931",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Hero - Strength stat",
+				"valid_range": null,
+				"notes": "Raw offset: $3931"
+			},
+			{
+				"name": "Hero_Agility",
+				"offset": 13,
+				"absolute_address": "$3932",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Hero - Agility stat",
+				"valid_range": null,
+				"notes": "Raw offset: $3932"
+			},
+			{
+				"name": "Hero_Stamina",
+				"offset": 14,
+				"absolute_address": "$3933",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Hero - Stamina stat",
+				"valid_range": null,
+				"notes": "Raw offset: $3933"
+			},
+			{
+				"name": "Hero_Wisdom",
+				"offset": 15,
+				"absolute_address": "$3934",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Hero - Wisdom stat",
+				"valid_range": null,
+				"notes": "Raw offset: $3934"
+			},
+			{
+				"name": "Hero_Luck",
+				"offset": 16,
+				"absolute_address": "$3935",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Hero - Luck stat, excluding equipment",
+				"valid_range": null,
+				"notes": "Raw offset: $3935"
+			},
+			{
+				"name": "Hero_Name",
+				"offset": 22,
+				"absolute_address": "$393B",
+				"size": 5,
+				"data_type": "string",
+				"description": "Hero - Name, 4 characters max, ends in AC",
+				"valid_range": null,
+				"notes": "Raw offset: $393B"
+			},
+			{
+				"name": "Hero_Spells",
+				"offset": 36,
+				"absolute_address": "$3949",
+				"size": 10,
+				"data_type": "spell_flags",
+				"description": "Hero spells flags",
+				"valid_range": null,
+				"notes": "Raw offset: $3949"
+			},
+			{
+				"name": "Bag_Number_Equiped",
+				"offset": 46,
+				"absolute_address": "$3953",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Hero - Number of items equipped",
+				"valid_range": null,
+				"notes": "Raw offset: $3953"
+			},
+			{
+				"name": "Bag_Number_Carried",
+				"offset": 47,
+				"absolute_address": "$3954",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Hero - Number of items in bag",
+				"valid_range": null,
+				"notes": "Raw offset: $3954"
+			},
+			{
+				"name": "Bag_Items",
+				"offset": 48,
+				"absolute_address": "$3955",
+				"size": 12,
+				"data_type": "item_id",
+				"description": "Hero - Each byte is which item is in the bag slot",
+				"valid_range": null,
+				"notes": "Raw offset: $3955"
+			}
+		]
+	},
+	"PartyMember_2": {
+		"name": "PartyMember_2",
+		"base_address": "$3961",
+		"total_size": 60,
+		"structure_type": "character",
+		"description": "Character data structure for PartyMember_2",
+		"field_coverage": 60.0,
+		"completion_status": "documented",
+		"fields": [
+			{
+				"name": "2_Level",
+				"offset": 0,
+				"absolute_address": "$3961",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #2 - Level\\nTop 7 bits are level, bottom bit unknown",
+				"valid_range": null,
+				"notes": "Raw offset: $3961"
+			},
+			{
+				"name": "2_XP",
+				"offset": 1,
+				"absolute_address": "$3962",
+				"size": 3,
+				"data_type": "uint24",
+				"description": "Party member #2 - XP",
+				"valid_range": null,
+				"notes": "Raw offset: $3962"
+			},
+			{
+				"name": "2_HP_Max",
+				"offset": 4,
+				"absolute_address": "$3965",
+				"size": 2,
+				"data_type": "uint16",
+				"description": "Party member #2 - Max HP",
+				"valid_range": null,
+				"notes": "Raw offset: $3965"
+			},
+			{
+				"name": "2_HP",
+				"offset": 6,
+				"absolute_address": "$3967",
+				"size": 2,
+				"data_type": "uint16",
+				"description": "Party member #2 - Current HP",
+				"valid_range": null,
+				"notes": "Raw offset: $3967"
+			},
+			{
+				"name": "2_MP_Max",
+				"offset": 8,
+				"absolute_address": "$3969",
+				"size": 2,
+				"data_type": "uint16",
+				"description": "Party member #2 - Max MP",
+				"valid_range": null,
+				"notes": "Raw offset: $3969"
+			},
+			{
+				"name": "2_MP",
+				"offset": 10,
+				"absolute_address": "$396B",
+				"size": 2,
+				"data_type": "uint16",
+				"description": "Party member #2 - Current HP",
+				"valid_range": null,
+				"notes": "Raw offset: $396B"
+			},
+			{
+				"name": "2_Strength",
+				"offset": 12,
+				"absolute_address": "$396D",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #2 - Strength stat",
+				"valid_range": null,
+				"notes": "Raw offset: $396D"
+			},
+			{
+				"name": "2_Agility",
+				"offset": 13,
+				"absolute_address": "$396E",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #2 - Agility stat",
+				"valid_range": null,
+				"notes": "Raw offset: $396E"
+			},
+			{
+				"name": "2_Stamina",
+				"offset": 14,
+				"absolute_address": "$396F",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #2 - Stamina stat",
+				"valid_range": null,
+				"notes": "Raw offset: $396F"
+			},
+			{
+				"name": "2_Wisdom",
+				"offset": 15,
+				"absolute_address": "$3970",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #2 - Wisdom stat",
+				"valid_range": null,
+				"notes": "Raw offset: $3970"
+			},
+			{
+				"name": "2_Luck",
+				"offset": 16,
+				"absolute_address": "$3971",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #2 - Luck stat, excluding equipment",
+				"valid_range": null,
+				"notes": "Raw offset: $3971"
+			},
+			{
+				"name": "2_Name",
+				"offset": 22,
+				"absolute_address": "$3977",
+				"size": 5,
+				"data_type": "string",
+				"description": "Party member #2 - Name, 4 characters max, ends in AC",
+				"valid_range": null,
+				"notes": "Raw offset: $3977"
+			},
+			{
+				"name": "2_Bag_Number_Equiped",
+				"offset": 46,
+				"absolute_address": "$398F",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #2 - Number of items equipped",
+				"valid_range": null,
+				"notes": "Raw offset: $398F"
+			},
+			{
+				"name": "2_Bag_Number_Carried",
+				"offset": 47,
+				"absolute_address": "$3990",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #2 - Number of items in bag",
+				"valid_range": null,
+				"notes": "Raw offset: $3990"
+			},
+			{
+				"name": "2_Bag_Items",
+				"offset": 48,
+				"absolute_address": "$3991",
+				"size": 12,
+				"data_type": "item_id",
+				"description": "Party member #2 - Each byte is which item is in the bag slot",
+				"valid_range": null,
+				"notes": "Raw offset: $3991"
+			}
+		]
+	},
+	"PartyMember_3": {
+		"name": "PartyMember_3",
+		"base_address": "$399D",
+		"total_size": 60,
+		"structure_type": "character",
+		"description": "Character data structure for PartyMember_3",
+		"field_coverage": 60.0,
+		"completion_status": "documented",
+		"fields": [
+			{
+				"name": "3_Level",
+				"offset": 0,
+				"absolute_address": "$399D",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #3 - Level\\nTop 7 bits are level, bottom bit unknown",
+				"valid_range": null,
+				"notes": "Raw offset: $399D"
+			},
+			{
+				"name": "3_XP",
+				"offset": 1,
+				"absolute_address": "$399E",
+				"size": 3,
+				"data_type": "uint24",
+				"description": "Party member #3 - XP",
+				"valid_range": null,
+				"notes": "Raw offset: $399E"
+			},
+			{
+				"name": "3_HP_Max",
+				"offset": 4,
+				"absolute_address": "$39A1",
+				"size": 2,
+				"data_type": "uint16",
+				"description": "Party member #3 - Max HP",
+				"valid_range": null,
+				"notes": "Raw offset: $39A1"
+			},
+			{
+				"name": "3_HP",
+				"offset": 6,
+				"absolute_address": "$39A3",
+				"size": 2,
+				"data_type": "uint16",
+				"description": "Party member #3 - Current HP",
+				"valid_range": null,
+				"notes": "Raw offset: $39A3"
+			},
+			{
+				"name": "3_MP_Max",
+				"offset": 8,
+				"absolute_address": "$39A5",
+				"size": 2,
+				"data_type": "uint16",
+				"description": "Party member #3 - Max MP",
+				"valid_range": null,
+				"notes": "Raw offset: $39A5"
+			},
+			{
+				"name": "3_MP",
+				"offset": 10,
+				"absolute_address": "$39A7",
+				"size": 2,
+				"data_type": "uint16",
+				"description": "Party member #3 - Current HP",
+				"valid_range": null,
+				"notes": "Raw offset: $39A7"
+			},
+			{
+				"name": "3_Strength",
+				"offset": 12,
+				"absolute_address": "$39A9",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #3 - Strength stat",
+				"valid_range": null,
+				"notes": "Raw offset: $39A9"
+			},
+			{
+				"name": "3_Agility",
+				"offset": 13,
+				"absolute_address": "$39AA",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #3 - Agility stat",
+				"valid_range": null,
+				"notes": "Raw offset: $39AA"
+			},
+			{
+				"name": "3_Stamina",
+				"offset": 14,
+				"absolute_address": "$39AB",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #3 - Stamina stat",
+				"valid_range": null,
+				"notes": "Raw offset: $39AB"
+			},
+			{
+				"name": "3_Wisdom",
+				"offset": 15,
+				"absolute_address": "$39AC",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #3 - Wisdom stat",
+				"valid_range": null,
+				"notes": "Raw offset: $39AC"
+			},
+			{
+				"name": "3_Luck",
+				"offset": 16,
+				"absolute_address": "$39AD",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #3 - Luck stat, excluding equipment",
+				"valid_range": null,
+				"notes": "Raw offset: $39AD"
+			},
+			{
+				"name": "3_Name",
+				"offset": 22,
+				"absolute_address": "$39B3",
+				"size": 5,
+				"data_type": "string",
+				"description": "Party member #3 - Name, 4 characters max, ends in AC",
+				"valid_range": null,
+				"notes": "Raw offset: $39B3"
+			},
+			{
+				"name": "3_Bag_Number_Equiped",
+				"offset": 46,
+				"absolute_address": "$39CB",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #3 - Number of items equipped",
+				"valid_range": null,
+				"notes": "Raw offset: $39CB"
+			},
+			{
+				"name": "3_Bag_Number_Carried",
+				"offset": 47,
+				"absolute_address": "$39CC",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #3 - Number of items in bag",
+				"valid_range": null,
+				"notes": "Raw offset: $39CC"
+			},
+			{
+				"name": "3_Bag_Items",
+				"offset": 48,
+				"absolute_address": "$39CD",
+				"size": 12,
+				"data_type": "item_id",
+				"description": "Party member #3 - Each byte is which item is in the bag slot",
+				"valid_range": null,
+				"notes": "Raw offset: $39CD"
+			}
+		]
+	},
+	"PartyMember_4": {
+		"name": "PartyMember_4",
+		"base_address": "$39D9",
+		"total_size": 60,
+		"structure_type": "character",
+		"description": "Character data structure for PartyMember_4",
+		"field_coverage": 60.0,
+		"completion_status": "documented",
+		"fields": [
+			{
+				"name": "4_Level",
+				"offset": 0,
+				"absolute_address": "$39D9",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #4 - Level\\nTop 7 bits are level, bottom bit unknown",
+				"valid_range": null,
+				"notes": "Raw offset: $39D9"
+			},
+			{
+				"name": "4_XP",
+				"offset": 1,
+				"absolute_address": "$39DA",
+				"size": 3,
+				"data_type": "uint24",
+				"description": "Party member #4 - XP",
+				"valid_range": null,
+				"notes": "Raw offset: $39DA"
+			},
+			{
+				"name": "4_HP_Max",
+				"offset": 4,
+				"absolute_address": "$39DD",
+				"size": 2,
+				"data_type": "uint16",
+				"description": "Party member #4 - Max HP",
+				"valid_range": null,
+				"notes": "Raw offset: $39DD"
+			},
+			{
+				"name": "4_HP",
+				"offset": 6,
+				"absolute_address": "$39DF",
+				"size": 2,
+				"data_type": "uint16",
+				"description": "Party member #4 - Current HP",
+				"valid_range": null,
+				"notes": "Raw offset: $39DF"
+			},
+			{
+				"name": "4_MP_Max",
+				"offset": 8,
+				"absolute_address": "$39E1",
+				"size": 2,
+				"data_type": "uint16",
+				"description": "Party member #4 - Max MP",
+				"valid_range": null,
+				"notes": "Raw offset: $39E1"
+			},
+			{
+				"name": "4_MP",
+				"offset": 10,
+				"absolute_address": "$39E3",
+				"size": 2,
+				"data_type": "uint16",
+				"description": "Party member #4 - Current HP",
+				"valid_range": null,
+				"notes": "Raw offset: $39E3"
+			},
+			{
+				"name": "4_Strength",
+				"offset": 12,
+				"absolute_address": "$39E5",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #4 - Strength stat",
+				"valid_range": null,
+				"notes": "Raw offset: $39E5"
+			},
+			{
+				"name": "4_Agility",
+				"offset": 13,
+				"absolute_address": "$39E6",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #4 - Agility stat",
+				"valid_range": null,
+				"notes": "Raw offset: $39E6"
+			},
+			{
+				"name": "4_Stamina",
+				"offset": 14,
+				"absolute_address": "$39E7",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #4 - Stamina stat",
+				"valid_range": null,
+				"notes": "Raw offset: $39E7"
+			},
+			{
+				"name": "4_Wisdom",
+				"offset": 15,
+				"absolute_address": "$39E8",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #4 - Wisdom stat",
+				"valid_range": null,
+				"notes": "Raw offset: $39E8"
+			},
+			{
+				"name": "4_Luck",
+				"offset": 16,
+				"absolute_address": "$39E9",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #4 - Luck stat, excluding equipment",
+				"valid_range": null,
+				"notes": "Raw offset: $39E9"
+			},
+			{
+				"name": "4_Name",
+				"offset": 22,
+				"absolute_address": "$39EF",
+				"size": 5,
+				"data_type": "string",
+				"description": "Party member #4 - Name, 4 characters max, ends in AC",
+				"valid_range": null,
+				"notes": "Raw offset: $39EF"
+			},
+			{
+				"name": "4_Bag_Number_Equiped",
+				"offset": 46,
+				"absolute_address": "$3A07",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #4 - Number of items equipped",
+				"valid_range": null,
+				"notes": "Raw offset: $3A07"
+			},
+			{
+				"name": "4_Bag_Number_Carried",
+				"offset": 47,
+				"absolute_address": "$3A08",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #4 - Number of items in bag",
+				"valid_range": null,
+				"notes": "Raw offset: $3A08"
+			},
+			{
+				"name": "4_Bag_Items",
+				"offset": 48,
+				"absolute_address": "$3A09",
+				"size": 12,
+				"data_type": "item_id",
+				"description": "Party member #4 - Each byte is which item is in the bag slot",
+				"valid_range": null,
+				"notes": "Raw offset: $3A09"
+			}
+		]
+	},
+	"PartyMember_5": {
+		"name": "PartyMember_5",
+		"base_address": "$3A15",
+		"total_size": 60,
+		"structure_type": "character",
+		"description": "Character data structure for PartyMember_5",
+		"field_coverage": 76.67,
+		"completion_status": "documented",
+		"fields": [
+			{
+				"name": "5_Level",
+				"offset": 0,
+				"absolute_address": "$3A15",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #5 - Level\\nTop 7 bits are level, bottom bit unknown",
+				"valid_range": null,
+				"notes": "Raw offset: $3A15"
+			},
+			{
+				"name": "5_XP",
+				"offset": 1,
+				"absolute_address": "$3A16",
+				"size": 3,
+				"data_type": "uint24",
+				"description": "Party Member #5 - XP",
+				"valid_range": null,
+				"notes": "Raw offset: $3A16"
+			},
+			{
+				"name": "5_HP_Max",
+				"offset": 4,
+				"absolute_address": "$3A19",
+				"size": 2,
+				"data_type": "uint16",
+				"description": "Party member #5 - Max HP",
+				"valid_range": null,
+				"notes": "Raw offset: $3A19"
+			},
+			{
+				"name": "5_HP",
+				"offset": 6,
+				"absolute_address": "$3A1B",
+				"size": 2,
+				"data_type": "uint16",
+				"description": "Party member #5 - Current HP",
+				"valid_range": null,
+				"notes": "Raw offset: $3A1B"
+			},
+			{
+				"name": "5_MP_Max",
+				"offset": 8,
+				"absolute_address": "$3A1D",
+				"size": 2,
+				"data_type": "uint16",
+				"description": "Party member #5 - Max MP",
+				"valid_range": null,
+				"notes": "Raw offset: $3A1D"
+			},
+			{
+				"name": "5_MP",
+				"offset": 10,
+				"absolute_address": "$3A1F",
+				"size": 2,
+				"data_type": "uint16",
+				"description": "Party member #5 - Current HP",
+				"valid_range": null,
+				"notes": "Raw offset: $3A1F"
+			},
+			{
+				"name": "5_Strength",
+				"offset": 12,
+				"absolute_address": "$3A21",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #5 - Strength stat",
+				"valid_range": null,
+				"notes": "Raw offset: $3A21"
+			},
+			{
+				"name": "5_Agility",
+				"offset": 13,
+				"absolute_address": "$3A22",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #5 - Agility stat",
+				"valid_range": null,
+				"notes": "Raw offset: $3A22"
+			},
+			{
+				"name": "5_Stamina",
+				"offset": 14,
+				"absolute_address": "$3A23",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #5 - Stamina stat",
+				"valid_range": null,
+				"notes": "Raw offset: $3A23"
+			},
+			{
+				"name": "5_Wisdom",
+				"offset": 15,
+				"absolute_address": "$3A24",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #5 - Wisdom stat",
+				"valid_range": null,
+				"notes": "Raw offset: $3A24"
+			},
+			{
+				"name": "5_Luck",
+				"offset": 16,
+				"absolute_address": "$3A25",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #5 - Luck stat, excluding equipment",
+				"valid_range": null,
+				"notes": "Raw offset: $3A25"
+			},
+			{
+				"name": "5_Name",
+				"offset": 22,
+				"absolute_address": "$3A2B",
+				"size": 5,
+				"data_type": "string",
+				"description": "Party member #5 - Name, 4 characters max, ends in AC",
+				"valid_range": null,
+				"notes": "Raw offset: $3A2B"
+			},
+			{
+				"name": "5_Spells",
+				"offset": 36,
+				"absolute_address": "$3A39",
+				"size": 10,
+				"data_type": "spell_flags",
+				"description": "Party member #5 spell flags",
+				"valid_range": null,
+				"notes": "Raw offset: $3A39"
+			},
+			{
+				"name": "5_Bag_Number_Equiped",
+				"offset": 46,
+				"absolute_address": "$3A43",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #5 - Number of items equipped",
+				"valid_range": null,
+				"notes": "Raw offset: $3A43"
+			},
+			{
+				"name": "5_Bag_Number_Carried",
+				"offset": 47,
+				"absolute_address": "$3A44",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #5 - Number of items in bag",
+				"valid_range": null,
+				"notes": "Raw offset: $3A44"
+			},
+			{
+				"name": "5_Bag_Items",
+				"offset": 48,
+				"absolute_address": "$3A45",
+				"size": 12,
+				"data_type": "item_id",
+				"description": "Party member #5 - Each byte is which item is in the bag slot",
+				"valid_range": null,
+				"notes": "Raw offset: $3A45"
+			}
+		]
+	},
+	"PartyMember_6": {
+		"name": "PartyMember_6",
+		"base_address": "$3A51",
+		"total_size": 60,
+		"structure_type": "character",
+		"description": "Character data structure for PartyMember_6",
+		"field_coverage": 60.0,
+		"completion_status": "documented",
+		"fields": [
+			{
+				"name": "6_Level",
+				"offset": 0,
+				"absolute_address": "$3A51",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #6 - Level\\nTop 7 bits are level, bottom bit unknown",
+				"valid_range": null,
+				"notes": "Raw offset: $3A51"
+			},
+			{
+				"name": "6_XP",
+				"offset": 1,
+				"absolute_address": "$3A52",
+				"size": 3,
+				"data_type": "uint24",
+				"description": "Party member #6 - XP",
+				"valid_range": null,
+				"notes": "Raw offset: $3A52"
+			},
+			{
+				"name": "6_HP_Max",
+				"offset": 4,
+				"absolute_address": "$3A55",
+				"size": 2,
+				"data_type": "uint16",
+				"description": "Party member #6 - Max HP",
+				"valid_range": null,
+				"notes": "Raw offset: $3A55"
+			},
+			{
+				"name": "6_HP",
+				"offset": 6,
+				"absolute_address": "$3A57",
+				"size": 2,
+				"data_type": "uint16",
+				"description": "Party member #6 - Current HP",
+				"valid_range": null,
+				"notes": "Raw offset: $3A57"
+			},
+			{
+				"name": "6_MP_Max",
+				"offset": 8,
+				"absolute_address": "$3A59",
+				"size": 2,
+				"data_type": "uint16",
+				"description": "Party member #6 - Max MP",
+				"valid_range": null,
+				"notes": "Raw offset: $3A59"
+			},
+			{
+				"name": "6_MP",
+				"offset": 10,
+				"absolute_address": "$3A5B",
+				"size": 2,
+				"data_type": "uint16",
+				"description": "Party member #6 - Current HP",
+				"valid_range": null,
+				"notes": "Raw offset: $3A5B"
+			},
+			{
+				"name": "6_Strength",
+				"offset": 12,
+				"absolute_address": "$3A5D",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #6 - Strength stat",
+				"valid_range": null,
+				"notes": "Raw offset: $3A5D"
+			},
+			{
+				"name": "6_Agility",
+				"offset": 13,
+				"absolute_address": "$3A5E",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #6 - Agility stat",
+				"valid_range": null,
+				"notes": "Raw offset: $3A5E"
+			},
+			{
+				"name": "6_Stamina",
+				"offset": 14,
+				"absolute_address": "$3A5F",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #6 - Stamina stat",
+				"valid_range": null,
+				"notes": "Raw offset: $3A5F"
+			},
+			{
+				"name": "6_Wisdom",
+				"offset": 15,
+				"absolute_address": "$3A60",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #6 - Wisdom stat",
+				"valid_range": null,
+				"notes": "Raw offset: $3A60"
+			},
+			{
+				"name": "6_Luck",
+				"offset": 16,
+				"absolute_address": "$3A61",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #6 - Luck stat, excluding equipment",
+				"valid_range": null,
+				"notes": "Raw offset: $3A61"
+			},
+			{
+				"name": "6_Name",
+				"offset": 22,
+				"absolute_address": "$3A67",
+				"size": 5,
+				"data_type": "string",
+				"description": "Party member #6 - Name, 4 characters max, ends in AC",
+				"valid_range": null,
+				"notes": "Raw offset: $3A67"
+			},
+			{
+				"name": "6_Bag_Number_Equiped",
+				"offset": 46,
+				"absolute_address": "$3A7F",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #6 - Number of items equipped",
+				"valid_range": null,
+				"notes": "Raw offset: $3A7F"
+			},
+			{
+				"name": "6_Bag_Number_Carried",
+				"offset": 47,
+				"absolute_address": "$3A80",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #6 - Number of items in bag",
+				"valid_range": null,
+				"notes": "Raw offset: $3A80"
+			},
+			{
+				"name": "6_Bag_Items",
+				"offset": 48,
+				"absolute_address": "$3A81",
+				"size": 12,
+				"data_type": "item_id",
+				"description": "Party member #6 - Each byte is which item is in the bag slot",
+				"valid_range": null,
+				"notes": "Raw offset: $3A81"
+			}
+		]
+	},
+	"PartyMember_7": {
+		"name": "PartyMember_7",
+		"base_address": "$3A8D",
+		"total_size": 60,
+		"structure_type": "character",
+		"description": "Character data structure for PartyMember_7",
+		"field_coverage": 60.0,
+		"completion_status": "documented",
+		"fields": [
+			{
+				"name": "7_Level",
+				"offset": 0,
+				"absolute_address": "$3A8D",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #7 - Level\\nTop 7 bits are level, bottom bit unknown",
+				"valid_range": null,
+				"notes": "Raw offset: $3A8D"
+			},
+			{
+				"name": "7_XP",
+				"offset": 1,
+				"absolute_address": "$3A8E",
+				"size": 3,
+				"data_type": "uint24",
+				"description": "Party member #7 - XP",
+				"valid_range": null,
+				"notes": "Raw offset: $3A8E"
+			},
+			{
+				"name": "7_HP_Max",
+				"offset": 4,
+				"absolute_address": "$3A91",
+				"size": 2,
+				"data_type": "uint16",
+				"description": "Party member #7 - Max HP",
+				"valid_range": null,
+				"notes": "Raw offset: $3A91"
+			},
+			{
+				"name": "7_HP",
+				"offset": 6,
+				"absolute_address": "$3A93",
+				"size": 2,
+				"data_type": "uint16",
+				"description": "Party member #7 - Current HP",
+				"valid_range": null,
+				"notes": "Raw offset: $3A93"
+			},
+			{
+				"name": "7_MP_Max",
+				"offset": 8,
+				"absolute_address": "$3A95",
+				"size": 2,
+				"data_type": "uint16",
+				"description": "Party member #7 - Max MP",
+				"valid_range": null,
+				"notes": "Raw offset: $3A95"
+			},
+			{
+				"name": "7_MP",
+				"offset": 10,
+				"absolute_address": "$3A97",
+				"size": 2,
+				"data_type": "uint16",
+				"description": "Party member #7 - Current HP",
+				"valid_range": null,
+				"notes": "Raw offset: $3A97"
+			},
+			{
+				"name": "7_Strength",
+				"offset": 12,
+				"absolute_address": "$3A99",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #7 - Strength stat",
+				"valid_range": null,
+				"notes": "Raw offset: $3A99"
+			},
+			{
+				"name": "7_Agility",
+				"offset": 13,
+				"absolute_address": "$3A9A",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #7 - Agility stat",
+				"valid_range": null,
+				"notes": "Raw offset: $3A9A"
+			},
+			{
+				"name": "7_Stamina",
+				"offset": 14,
+				"absolute_address": "$3A9B",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #7 - Stamina stat",
+				"valid_range": null,
+				"notes": "Raw offset: $3A9B"
+			},
+			{
+				"name": "7_Wisdom",
+				"offset": 15,
+				"absolute_address": "$3A9C",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #7 - Wisdom stat",
+				"valid_range": null,
+				"notes": "Raw offset: $3A9C"
+			},
+			{
+				"name": "7_Luck",
+				"offset": 16,
+				"absolute_address": "$3A9D",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #7 - Luck stat, excluding equipment",
+				"valid_range": null,
+				"notes": "Raw offset: $3A9D"
+			},
+			{
+				"name": "7_Name",
+				"offset": 22,
+				"absolute_address": "$3AA3",
+				"size": 5,
+				"data_type": "string",
+				"description": "Party member #7 - Name, 4 characters max, ends in AC",
+				"valid_range": null,
+				"notes": "Raw offset: $3AA3"
+			},
+			{
+				"name": "7_Bag_Number_Equiped",
+				"offset": 46,
+				"absolute_address": "$3ABB",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #7 - Number of items equipped",
+				"valid_range": null,
+				"notes": "Raw offset: $3ABB"
+			},
+			{
+				"name": "7_Bag_Number_Carried",
+				"offset": 47,
+				"absolute_address": "$3ABC",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #7 - Number of items in bag",
+				"valid_range": null,
+				"notes": "Raw offset: $3ABC"
+			},
+			{
+				"name": "7_Bag_Items",
+				"offset": 48,
+				"absolute_address": "$3ABD",
+				"size": 12,
+				"data_type": "item_id",
+				"description": "Party member #7 - Each byte is which item is in the bag slot",
+				"valid_range": null,
+				"notes": "Raw offset: $3ABD"
+			}
+		]
+	},
+	"PartyMember_8": {
+		"name": "PartyMember_8",
+		"base_address": "$3AC9",
+		"total_size": 60,
+		"structure_type": "character",
+		"description": "Character data structure for PartyMember_8",
+		"field_coverage": 60.0,
+		"completion_status": "documented",
+		"fields": [
+			{
+				"name": "8_Level",
+				"offset": 0,
+				"absolute_address": "$3AC9",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #8 - Level\\nTop 7 bits are level, bottom bit unknown",
+				"valid_range": null,
+				"notes": "Raw offset: $3AC9"
+			},
+			{
+				"name": "8_XP",
+				"offset": 1,
+				"absolute_address": "$3ACA",
+				"size": 3,
+				"data_type": "uint24",
+				"description": "Party member #8 - XP",
+				"valid_range": null,
+				"notes": "Raw offset: $3ACA"
+			},
+			{
+				"name": "8_HP_Max",
+				"offset": 4,
+				"absolute_address": "$3ACD",
+				"size": 2,
+				"data_type": "uint16",
+				"description": "Party member #8 - Max HP",
+				"valid_range": null,
+				"notes": "Raw offset: $3ACD"
+			},
+			{
+				"name": "8_HP",
+				"offset": 6,
+				"absolute_address": "$3ACF",
+				"size": 2,
+				"data_type": "uint16",
+				"description": "Party member #8 - Current HP",
+				"valid_range": null,
+				"notes": "Raw offset: $3ACF"
+			},
+			{
+				"name": "8_MP_Max",
+				"offset": 8,
+				"absolute_address": "$3AD1",
+				"size": 2,
+				"data_type": "uint16",
+				"description": "Party member #8 - Max MP",
+				"valid_range": null,
+				"notes": "Raw offset: $3AD1"
+			},
+			{
+				"name": "8_MP",
+				"offset": 10,
+				"absolute_address": "$3AD3",
+				"size": 2,
+				"data_type": "uint16",
+				"description": "Party member #8 - Current HP",
+				"valid_range": null,
+				"notes": "Raw offset: $3AD3"
+			},
+			{
+				"name": "8_Strength",
+				"offset": 12,
+				"absolute_address": "$3AD5",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #8 - Strength stat",
+				"valid_range": null,
+				"notes": "Raw offset: $3AD5"
+			},
+			{
+				"name": "8_Agility",
+				"offset": 13,
+				"absolute_address": "$3AD6",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #8 - Agility stat",
+				"valid_range": null,
+				"notes": "Raw offset: $3AD6"
+			},
+			{
+				"name": "8_Stamina",
+				"offset": 14,
+				"absolute_address": "$3AD7",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #8 - Stamina stat",
+				"valid_range": null,
+				"notes": "Raw offset: $3AD7"
+			},
+			{
+				"name": "8_Wisdom",
+				"offset": 15,
+				"absolute_address": "$3AD8",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #8 - Wisdom stat",
+				"valid_range": null,
+				"notes": "Raw offset: $3AD8"
+			},
+			{
+				"name": "8_Luck",
+				"offset": 16,
+				"absolute_address": "$3AD9",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #8 - Luck stat, excluding equipment",
+				"valid_range": null,
+				"notes": "Raw offset: $3AD9"
+			},
+			{
+				"name": "8_Name",
+				"offset": 22,
+				"absolute_address": "$3ADF",
+				"size": 5,
+				"data_type": "string",
+				"description": "Party member #8 - Name, 4 characters max, ends in AC",
+				"valid_range": null,
+				"notes": "Raw offset: $3ADF"
+			},
+			{
+				"name": "8_Bag_Number_Equiped",
+				"offset": 46,
+				"absolute_address": "$3AF7",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #8 - Number of items equipped",
+				"valid_range": null,
+				"notes": "Raw offset: $3AF7"
+			},
+			{
+				"name": "8_Bag_Number_Carried",
+				"offset": 47,
+				"absolute_address": "$3AF8",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #8 - Number of items in bag",
+				"valid_range": null,
+				"notes": "Raw offset: $3AF8"
+			},
+			{
+				"name": "8_Bag_Items",
+				"offset": 48,
+				"absolute_address": "$3AF9",
+				"size": 12,
+				"data_type": "item_id",
+				"description": "Party member #8 - Each byte is which item is in the bag slot",
+				"valid_range": null,
+				"notes": "Raw offset: $3AF9"
+			}
+		]
+	},
+	"PartyMember_9": {
+		"name": "PartyMember_9",
+		"base_address": "$3B05",
+		"total_size": 60,
+		"structure_type": "character",
+		"description": "Character data structure for PartyMember_9",
+		"field_coverage": 60.0,
+		"completion_status": "documented",
+		"fields": [
+			{
+				"name": "9_Level",
+				"offset": 0,
+				"absolute_address": "$3B05",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #9 - Level\\nTop 7 bits are level, bottom bit unknown",
+				"valid_range": null,
+				"notes": "Raw offset: $3B05"
+			},
+			{
+				"name": "9_XP",
+				"offset": 1,
+				"absolute_address": "$3B06",
+				"size": 3,
+				"data_type": "uint24",
+				"description": "Party member #9 - XP",
+				"valid_range": null,
+				"notes": "Raw offset: $3B06"
+			},
+			{
+				"name": "9_HP_Max",
+				"offset": 4,
+				"absolute_address": "$3B09",
+				"size": 2,
+				"data_type": "uint16",
+				"description": "Party member #9 - Max HP",
+				"valid_range": null,
+				"notes": "Raw offset: $3B09"
+			},
+			{
+				"name": "9_HP",
+				"offset": 6,
+				"absolute_address": "$3B0B",
+				"size": 2,
+				"data_type": "uint16",
+				"description": "Party member #9 - Current HP",
+				"valid_range": null,
+				"notes": "Raw offset: $3B0B"
+			},
+			{
+				"name": "9_MP_Max",
+				"offset": 8,
+				"absolute_address": "$3B0D",
+				"size": 2,
+				"data_type": "uint16",
+				"description": "Party member #9 - Max MP",
+				"valid_range": null,
+				"notes": "Raw offset: $3B0D"
+			},
+			{
+				"name": "9_MP",
+				"offset": 10,
+				"absolute_address": "$3B0F",
+				"size": 2,
+				"data_type": "uint16",
+				"description": "Party member #9 - Current HP",
+				"valid_range": null,
+				"notes": "Raw offset: $3B0F"
+			},
+			{
+				"name": "9_Strength",
+				"offset": 12,
+				"absolute_address": "$3B11",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #9 - Strength stat",
+				"valid_range": null,
+				"notes": "Raw offset: $3B11"
+			},
+			{
+				"name": "9_Agility",
+				"offset": 13,
+				"absolute_address": "$3B12",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #9 - Agility stat",
+				"valid_range": null,
+				"notes": "Raw offset: $3B12"
+			},
+			{
+				"name": "9_Stamina",
+				"offset": 14,
+				"absolute_address": "$3B13",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #9 - Stamina stat",
+				"valid_range": null,
+				"notes": "Raw offset: $3B13"
+			},
+			{
+				"name": "9_Wisdom",
+				"offset": 15,
+				"absolute_address": "$3B14",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #9 - Wisdom stat",
+				"valid_range": null,
+				"notes": "Raw offset: $3B14"
+			},
+			{
+				"name": "9_Luck",
+				"offset": 16,
+				"absolute_address": "$3B15",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #9 - Luck stat, excluding equipment",
+				"valid_range": null,
+				"notes": "Raw offset: $3B15"
+			},
+			{
+				"name": "9_Name",
+				"offset": 22,
+				"absolute_address": "$3B1B",
+				"size": 5,
+				"data_type": "string",
+				"description": "Party member #9 - Name, 4 characters max, ends in AC",
+				"valid_range": null,
+				"notes": "Raw offset: $3B1B"
+			},
+			{
+				"name": "9_Bag_Number_Equiped",
+				"offset": 46,
+				"absolute_address": "$3B33",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #9 - Number of items equipped",
+				"valid_range": null,
+				"notes": "Raw offset: $3B33"
+			},
+			{
+				"name": "9_Bag_Number_Carried",
+				"offset": 47,
+				"absolute_address": "$3B34",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #9 - Number of items in bag",
+				"valid_range": null,
+				"notes": "Raw offset: $3B34"
+			},
+			{
+				"name": "9_Bag_Items",
+				"offset": 48,
+				"absolute_address": "$3B35",
+				"size": 12,
+				"data_type": "item_id",
+				"description": "Party member #9 - Each byte is which item is in the bag slot",
+				"valid_range": null,
+				"notes": "Raw offset: $3B35"
+			}
+		]
+	},
+	"PartyMember_10": {
+		"name": "PartyMember_10",
+		"base_address": "$3B41",
+		"total_size": 60,
+		"structure_type": "character",
+		"description": "Character data structure for PartyMember_10",
+		"field_coverage": 60.0,
+		"completion_status": "documented",
+		"fields": [
+			{
+				"name": "10_Level",
+				"offset": 0,
+				"absolute_address": "$3B41",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #10 - Level\\nTop 7 bits are level, bottom bit unknown",
+				"valid_range": null,
+				"notes": "Raw offset: $3B41"
+			},
+			{
+				"name": "10_XP",
+				"offset": 1,
+				"absolute_address": "$3B42",
+				"size": 3,
+				"data_type": "uint24",
+				"description": "Party member #10 - XP",
+				"valid_range": null,
+				"notes": "Raw offset: $3B42"
+			},
+			{
+				"name": "10_HP_Max",
+				"offset": 4,
+				"absolute_address": "$3B45",
+				"size": 2,
+				"data_type": "uint16",
+				"description": "Party member #10 - Max HP",
+				"valid_range": null,
+				"notes": "Raw offset: $3B45"
+			},
+			{
+				"name": "10_HP",
+				"offset": 6,
+				"absolute_address": "$3B47",
+				"size": 2,
+				"data_type": "uint16",
+				"description": "Party member #10 - Current HP",
+				"valid_range": null,
+				"notes": "Raw offset: $3B47"
+			},
+			{
+				"name": "10_MP_Max",
+				"offset": 8,
+				"absolute_address": "$3B49",
+				"size": 2,
+				"data_type": "uint16",
+				"description": "Party member #10 - Max MP",
+				"valid_range": null,
+				"notes": "Raw offset: $3B49"
+			},
+			{
+				"name": "10_MP",
+				"offset": 10,
+				"absolute_address": "$3B4B",
+				"size": 2,
+				"data_type": "uint16",
+				"description": "Party member #10 - Current HP",
+				"valid_range": null,
+				"notes": "Raw offset: $3B4B"
+			},
+			{
+				"name": "10_Strength",
+				"offset": 12,
+				"absolute_address": "$3B4D",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #10 - Strength stat",
+				"valid_range": null,
+				"notes": "Raw offset: $3B4D"
+			},
+			{
+				"name": "10_Agility",
+				"offset": 13,
+				"absolute_address": "$3B4E",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #10 - Agility stat",
+				"valid_range": null,
+				"notes": "Raw offset: $3B4E"
+			},
+			{
+				"name": "10_Stamina",
+				"offset": 14,
+				"absolute_address": "$3B4F",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #10 - Stamina stat",
+				"valid_range": null,
+				"notes": "Raw offset: $3B4F"
+			},
+			{
+				"name": "10_Wisdom",
+				"offset": 15,
+				"absolute_address": "$3B50",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #10 - Wisdom stat",
+				"valid_range": null,
+				"notes": "Raw offset: $3B50"
+			},
+			{
+				"name": "10_Luck",
+				"offset": 16,
+				"absolute_address": "$3B51",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #10 - Luck stat, excluding equipment",
+				"valid_range": null,
+				"notes": "Raw offset: $3B51"
+			},
+			{
+				"name": "10_Name",
+				"offset": 22,
+				"absolute_address": "$3B57",
+				"size": 5,
+				"data_type": "string",
+				"description": "Party member #10 - Name, 4 characters max, ends in AC",
+				"valid_range": null,
+				"notes": "Raw offset: $3B57"
+			},
+			{
+				"name": "10_Bag_Number_Equiped",
+				"offset": 46,
+				"absolute_address": "$3B6F",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #10 - Number of items equipped",
+				"valid_range": null,
+				"notes": "Raw offset: $3B6F"
+			},
+			{
+				"name": "10_Bag_Number_Carried",
+				"offset": 47,
+				"absolute_address": "$3B70",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #10 - Number of items in bag",
+				"valid_range": null,
+				"notes": "Raw offset: $3B70"
+			},
+			{
+				"name": "10_Bag_Items",
+				"offset": 48,
+				"absolute_address": "$3B71",
+				"size": 12,
+				"data_type": "item_id",
+				"description": "Party member #10 - Each byte is which item is in the bag slot",
+				"valid_range": null,
+				"notes": "Raw offset: $3B71"
+			}
+		]
+	},
+	"PartyMember_11": {
+		"name": "PartyMember_11",
+		"base_address": "$3B7D",
+		"total_size": 60,
+		"structure_type": "character",
+		"description": "Character data structure for PartyMember_11",
+		"field_coverage": 60.0,
+		"completion_status": "documented",
+		"fields": [
+			{
+				"name": "11_Level",
+				"offset": 0,
+				"absolute_address": "$3B7D",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #11 - Level\\nTop 7 bits are level, bottom bit unknown",
+				"valid_range": null,
+				"notes": "Raw offset: $3B7D"
+			},
+			{
+				"name": "11_XP",
+				"offset": 1,
+				"absolute_address": "$3B7E",
+				"size": 3,
+				"data_type": "uint24",
+				"description": "Party member #11 - XP",
+				"valid_range": null,
+				"notes": "Raw offset: $3B7E"
+			},
+			{
+				"name": "11_HP_Max",
+				"offset": 4,
+				"absolute_address": "$3B81",
+				"size": 2,
+				"data_type": "uint16",
+				"description": "Party member #11 - Max HP",
+				"valid_range": null,
+				"notes": "Raw offset: $3B81"
+			},
+			{
+				"name": "11_HP",
+				"offset": 6,
+				"absolute_address": "$3B83",
+				"size": 2,
+				"data_type": "uint16",
+				"description": "Party member #11 - Current HP",
+				"valid_range": null,
+				"notes": "Raw offset: $3B83"
+			},
+			{
+				"name": "11_MP_Max",
+				"offset": 8,
+				"absolute_address": "$3B85",
+				"size": 2,
+				"data_type": "uint16",
+				"description": "Party member #11 - Max MP",
+				"valid_range": null,
+				"notes": "Raw offset: $3B85"
+			},
+			{
+				"name": "11_MP",
+				"offset": 10,
+				"absolute_address": "$3B87",
+				"size": 2,
+				"data_type": "uint16",
+				"description": "Party member #11 - Current HP",
+				"valid_range": null,
+				"notes": "Raw offset: $3B87"
+			},
+			{
+				"name": "11_Strength",
+				"offset": 12,
+				"absolute_address": "$3B89",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #11 - Strength stat",
+				"valid_range": null,
+				"notes": "Raw offset: $3B89"
+			},
+			{
+				"name": "11_Agility",
+				"offset": 13,
+				"absolute_address": "$3B8A",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #11 - Agility stat",
+				"valid_range": null,
+				"notes": "Raw offset: $3B8A"
+			},
+			{
+				"name": "11_Stamina",
+				"offset": 14,
+				"absolute_address": "$3B8B",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #11 - Stamina stat",
+				"valid_range": null,
+				"notes": "Raw offset: $3B8B"
+			},
+			{
+				"name": "11_Wisdom",
+				"offset": 15,
+				"absolute_address": "$3B8C",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #11 - Wisdom stat",
+				"valid_range": null,
+				"notes": "Raw offset: $3B8C"
+			},
+			{
+				"name": "11_Luck",
+				"offset": 16,
+				"absolute_address": "$3B8D",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #11 - Luck stat, excluding equipment",
+				"valid_range": null,
+				"notes": "Raw offset: $3B8D"
+			},
+			{
+				"name": "11_Name",
+				"offset": 22,
+				"absolute_address": "$3B93",
+				"size": 5,
+				"data_type": "string",
+				"description": "Party member #11 - Name, 4 characters max, ends in AC",
+				"valid_range": null,
+				"notes": "Raw offset: $3B93"
+			},
+			{
+				"name": "11_Bag_Number_Equiped",
+				"offset": 46,
+				"absolute_address": "$3BAB",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #11 - Number of items equipped",
+				"valid_range": null,
+				"notes": "Raw offset: $3BAB"
+			},
+			{
+				"name": "11_Bag_Number_Carried",
+				"offset": 47,
+				"absolute_address": "$3BAC",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #11 - Number of items in bag",
+				"valid_range": null,
+				"notes": "Raw offset: $3BAC"
+			},
+			{
+				"name": "11_Bag_Items",
+				"offset": 48,
+				"absolute_address": "$3BAD",
+				"size": 12,
+				"data_type": "item_id",
+				"description": "Party member #11 - Each byte is which item is in the bag slot",
+				"valid_range": null,
+				"notes": "Raw offset: $3BAD"
+			}
+		]
+	},
+	"PartyMember_12": {
+		"name": "PartyMember_12",
+		"base_address": "$3BB9",
+		"total_size": 60,
+		"structure_type": "character",
+		"description": "Character data structure for PartyMember_12",
+		"field_coverage": 60.0,
+		"completion_status": "documented",
+		"fields": [
+			{
+				"name": "12_Level",
+				"offset": 0,
+				"absolute_address": "$3BB9",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #12 - Level\\nTop 7 bits are level, bottom bit unknown",
+				"valid_range": null,
+				"notes": "Raw offset: $3BB9"
+			},
+			{
+				"name": "12_XP",
+				"offset": 1,
+				"absolute_address": "$3BBA",
+				"size": 3,
+				"data_type": "uint24",
+				"description": "Party member #12 - XP",
+				"valid_range": null,
+				"notes": "Raw offset: $3BBA"
+			},
+			{
+				"name": "12_HP_Max",
+				"offset": 4,
+				"absolute_address": "$3BBD",
+				"size": 2,
+				"data_type": "uint16",
+				"description": "Party member #12 - Max HP",
+				"valid_range": null,
+				"notes": "Raw offset: $3BBD"
+			},
+			{
+				"name": "12_HP",
+				"offset": 6,
+				"absolute_address": "$3BBF",
+				"size": 2,
+				"data_type": "uint16",
+				"description": "Party member #12 - Current HP",
+				"valid_range": null,
+				"notes": "Raw offset: $3BBF"
+			},
+			{
+				"name": "12_MP_Max",
+				"offset": 8,
+				"absolute_address": "$3BC1",
+				"size": 2,
+				"data_type": "uint16",
+				"description": "Party member #12 - Max MP",
+				"valid_range": null,
+				"notes": "Raw offset: $3BC1"
+			},
+			{
+				"name": "12_MP",
+				"offset": 10,
+				"absolute_address": "$3BC3",
+				"size": 2,
+				"data_type": "uint16",
+				"description": "Party member #12 - Current HP",
+				"valid_range": null,
+				"notes": "Raw offset: $3BC3"
+			},
+			{
+				"name": "12_Strength",
+				"offset": 12,
+				"absolute_address": "$3BC5",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #12 - Strength stat",
+				"valid_range": null,
+				"notes": "Raw offset: $3BC5"
+			},
+			{
+				"name": "12_Agility",
+				"offset": 13,
+				"absolute_address": "$3BC6",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #12 - Agility stat",
+				"valid_range": null,
+				"notes": "Raw offset: $3BC6"
+			},
+			{
+				"name": "12_Stamina",
+				"offset": 14,
+				"absolute_address": "$3BC7",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #12 - Stamina stat",
+				"valid_range": null,
+				"notes": "Raw offset: $3BC7"
+			},
+			{
+				"name": "12_Wisdom",
+				"offset": 15,
+				"absolute_address": "$3BC8",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #12 - Wisdom stat",
+				"valid_range": null,
+				"notes": "Raw offset: $3BC8"
+			},
+			{
+				"name": "12_Luck",
+				"offset": 16,
+				"absolute_address": "$3BC9",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #12 - Luck stat, excluding equipment",
+				"valid_range": null,
+				"notes": "Raw offset: $3BC9"
+			},
+			{
+				"name": "12_Name",
+				"offset": 22,
+				"absolute_address": "$3BCF",
+				"size": 5,
+				"data_type": "string",
+				"description": "Party member #12 - Name, 4 characters max, ends in AC",
+				"valid_range": null,
+				"notes": "Raw offset: $3BCF"
+			},
+			{
+				"name": "12_Bag_Number_Equiped",
+				"offset": 46,
+				"absolute_address": "$3BE7",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #12 - Number of items equipped",
+				"valid_range": null,
+				"notes": "Raw offset: $3BE7"
+			},
+			{
+				"name": "12_Bag_Number_Carried",
+				"offset": 47,
+				"absolute_address": "$3BE8",
+				"size": 1,
+				"data_type": "uint8",
+				"description": "Party member #12 - Number of items in bag",
+				"valid_range": null,
+				"notes": "Raw offset: $3BE8"
+			},
+			{
+				"name": "12_Bag_Items",
+				"offset": 48,
+				"absolute_address": "$3BE9",
+				"size": 12,
+				"data_type": "item_id",
+				"description": "Party member #12 - Each byte is which item is in the bag slot",
+				"valid_range": null,
+				"notes": "Raw offset: $3BE9"
+			}
+		]
+	}
+}

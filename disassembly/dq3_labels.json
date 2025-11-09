@@ -1,0 +1,723 @@
+{
+	"metadata": {
+		"source_file": "static\\Dragon Quest III (SNES) (JP).diz",
+		"total_labels": 100,
+		"total_banks": 1,
+		"progress": {
+			"total_bytes": 1293532,
+			"disassembled_bytes": 400,
+			"completion_percentage": 0.030923085010653
+		}
+	},
+	"banks": {
+		"0": {
+			"description": "System vectors and main code",
+			"type": "ROM",
+			"start_address": "$8000",
+			"end_address": "$FFFF",
+			"label_count": 100
+		}
+	},
+	"labels": {
+		"$000D41": {
+			"name": "auto_label_0000",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:0D41",
+			"data_type": "LABEL"
+		},
+		"$000D45": {
+			"name": "auto_label_0001",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:0D45",
+			"data_type": "LABEL"
+		},
+		"$000D55": {
+			"name": "auto_label_0002",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:0D55",
+			"data_type": "LABEL"
+		},
+		"$002020": {
+			"name": "auto_label_0003",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:2020",
+			"data_type": "LABEL"
+		},
+		"$002038": {
+			"name": "auto_label_0004",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:2038",
+			"data_type": "LABEL"
+		},
+		"$002039": {
+			"name": "auto_label_0005",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:2039",
+			"data_type": "LABEL"
+		},
+		"$002220": {
+			"name": "auto_label_0006",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:2220",
+			"data_type": "LABEL"
+		},
+		"$002F3C": {
+			"name": "auto_label_0007",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:2F3C",
+			"data_type": "LABEL"
+		},
+		"$00302B": {
+			"name": "auto_label_0008",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:302B",
+			"data_type": "LABEL"
+		},
+		"$003031": {
+			"name": "auto_label_0009",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3031",
+			"data_type": "LABEL"
+		},
+		"$003032": {
+			"name": "auto_label_000A",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3032",
+			"data_type": "LABEL"
+		},
+		"$003033": {
+			"name": "auto_label_000B",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3033",
+			"data_type": "LABEL"
+		},
+		"$003034": {
+			"name": "auto_label_000C",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3034",
+			"data_type": "LABEL"
+		},
+		"$003035": {
+			"name": "auto_label_000D",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3035",
+			"data_type": "LABEL"
+		},
+		"$003036": {
+			"name": "auto_label_000E",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3036",
+			"data_type": "LABEL"
+		},
+		"$003037": {
+			"name": "auto_label_000F",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3037",
+			"data_type": "LABEL"
+		},
+		"$003038": {
+			"name": "auto_label_0010",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3038",
+			"data_type": "LABEL"
+		},
+		"$003039": {
+			"name": "auto_label_0011",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3039",
+			"data_type": "LABEL"
+		},
+		"$003131": {
+			"name": "auto_label_0012",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3131",
+			"data_type": "LABEL"
+		},
+		"$003132": {
+			"name": "auto_label_0013",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3132",
+			"data_type": "LABEL"
+		},
+		"$003133": {
+			"name": "auto_label_0014",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3133",
+			"data_type": "LABEL"
+		},
+		"$003134": {
+			"name": "auto_label_0015",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3134",
+			"data_type": "LABEL"
+		},
+		"$003135": {
+			"name": "auto_label_0016",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3135",
+			"data_type": "LABEL"
+		},
+		"$003136": {
+			"name": "auto_label_0017",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3136",
+			"data_type": "LABEL"
+		},
+		"$003137": {
+			"name": "auto_label_0018",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3137",
+			"data_type": "LABEL"
+		},
+		"$003138": {
+			"name": "auto_label_0019",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3138",
+			"data_type": "LABEL"
+		},
+		"$003139": {
+			"name": "auto_label_001A",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3139",
+			"data_type": "LABEL"
+		},
+		"$003231": {
+			"name": "auto_label_001B",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3231",
+			"data_type": "LABEL"
+		},
+		"$003232": {
+			"name": "auto_label_001C",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3232",
+			"data_type": "LABEL"
+		},
+		"$003233": {
+			"name": "auto_label_001D",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3233",
+			"data_type": "LABEL"
+		},
+		"$003234": {
+			"name": "auto_label_001E",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3234",
+			"data_type": "LABEL"
+		},
+		"$003235": {
+			"name": "auto_label_001F",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3235",
+			"data_type": "LABEL"
+		},
+		"$003236": {
+			"name": "auto_label_0020",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3236",
+			"data_type": "LABEL"
+		},
+		"$003237": {
+			"name": "auto_label_0021",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3237",
+			"data_type": "LABEL"
+		},
+		"$003238": {
+			"name": "auto_label_0022",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3238",
+			"data_type": "LABEL"
+		},
+		"$003239": {
+			"name": "auto_label_0023",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3239",
+			"data_type": "LABEL"
+		},
+		"$003331": {
+			"name": "auto_label_0024",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3331",
+			"data_type": "LABEL"
+		},
+		"$003332": {
+			"name": "auto_label_0025",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3332",
+			"data_type": "LABEL"
+		},
+		"$003333": {
+			"name": "auto_label_0026",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3333",
+			"data_type": "LABEL"
+		},
+		"$003334": {
+			"name": "auto_label_0027",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3334",
+			"data_type": "LABEL"
+		},
+		"$003335": {
+			"name": "auto_label_0028",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3335",
+			"data_type": "LABEL"
+		},
+		"$003336": {
+			"name": "auto_label_0029",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3336",
+			"data_type": "LABEL"
+		},
+		"$003337": {
+			"name": "auto_label_002A",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3337",
+			"data_type": "LABEL"
+		},
+		"$003338": {
+			"name": "auto_label_002B",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3338",
+			"data_type": "LABEL"
+		},
+		"$003339": {
+			"name": "auto_label_002C",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3339",
+			"data_type": "LABEL"
+		},
+		"$003431": {
+			"name": "auto_label_002D",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3431",
+			"data_type": "LABEL"
+		},
+		"$003432": {
+			"name": "auto_label_002E",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3432",
+			"data_type": "LABEL"
+		},
+		"$003433": {
+			"name": "auto_label_002F",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3433",
+			"data_type": "LABEL"
+		},
+		"$003434": {
+			"name": "auto_label_0030",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3434",
+			"data_type": "LABEL"
+		},
+		"$003435": {
+			"name": "auto_label_0031",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3435",
+			"data_type": "LABEL"
+		},
+		"$003436": {
+			"name": "auto_label_0032",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3436",
+			"data_type": "LABEL"
+		},
+		"$003437": {
+			"name": "auto_label_0033",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3437",
+			"data_type": "LABEL"
+		},
+		"$003438": {
+			"name": "auto_label_0034",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3438",
+			"data_type": "LABEL"
+		},
+		"$003439": {
+			"name": "auto_label_0035",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3439",
+			"data_type": "LABEL"
+		},
+		"$003531": {
+			"name": "auto_label_0036",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3531",
+			"data_type": "LABEL"
+		},
+		"$003532": {
+			"name": "auto_label_0037",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3532",
+			"data_type": "LABEL"
+		},
+		"$003533": {
+			"name": "auto_label_0038",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3533",
+			"data_type": "LABEL"
+		},
+		"$003534": {
+			"name": "auto_label_0039",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3534",
+			"data_type": "LABEL"
+		},
+		"$003535": {
+			"name": "auto_label_003A",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3535",
+			"data_type": "LABEL"
+		},
+		"$003536": {
+			"name": "auto_label_003B",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3536",
+			"data_type": "LABEL"
+		},
+		"$003537": {
+			"name": "auto_label_003C",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3537",
+			"data_type": "LABEL"
+		},
+		"$003538": {
+			"name": "auto_label_003D",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3538",
+			"data_type": "LABEL"
+		},
+		"$003539": {
+			"name": "auto_label_003E",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3539",
+			"data_type": "LABEL"
+		},
+		"$003631": {
+			"name": "auto_label_003F",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3631",
+			"data_type": "LABEL"
+		},
+		"$003632": {
+			"name": "auto_label_0040",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3632",
+			"data_type": "LABEL"
+		},
+		"$003633": {
+			"name": "auto_label_0041",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3633",
+			"data_type": "LABEL"
+		},
+		"$003634": {
+			"name": "auto_label_0042",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3634",
+			"data_type": "LABEL"
+		},
+		"$003635": {
+			"name": "auto_label_0043",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3635",
+			"data_type": "LABEL"
+		},
+		"$003636": {
+			"name": "auto_label_0044",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3636",
+			"data_type": "LABEL"
+		},
+		"$003637": {
+			"name": "auto_label_0045",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3637",
+			"data_type": "LABEL"
+		},
+		"$003638": {
+			"name": "auto_label_0046",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3638",
+			"data_type": "LABEL"
+		},
+		"$003639": {
+			"name": "auto_label_0047",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3639",
+			"data_type": "LABEL"
+		},
+		"$003731": {
+			"name": "auto_label_0048",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3731",
+			"data_type": "LABEL"
+		},
+		"$003732": {
+			"name": "auto_label_0049",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3732",
+			"data_type": "LABEL"
+		},
+		"$003733": {
+			"name": "auto_label_004A",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3733",
+			"data_type": "LABEL"
+		},
+		"$003734": {
+			"name": "auto_label_004B",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3734",
+			"data_type": "LABEL"
+		},
+		"$003735": {
+			"name": "auto_label_004C",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3735",
+			"data_type": "LABEL"
+		},
+		"$003736": {
+			"name": "auto_label_004D",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3736",
+			"data_type": "LABEL"
+		},
+		"$003737": {
+			"name": "auto_label_004E",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3737",
+			"data_type": "LABEL"
+		},
+		"$003738": {
+			"name": "auto_label_004F",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3738",
+			"data_type": "LABEL"
+		},
+		"$003739": {
+			"name": "auto_label_0050",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3739",
+			"data_type": "LABEL"
+		},
+		"$003831": {
+			"name": "auto_label_0051",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3831",
+			"data_type": "LABEL"
+		},
+		"$003832": {
+			"name": "auto_label_0052",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3832",
+			"data_type": "LABEL"
+		},
+		"$003833": {
+			"name": "auto_label_0053",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3833",
+			"data_type": "LABEL"
+		},
+		"$003834": {
+			"name": "auto_label_0054",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3834",
+			"data_type": "LABEL"
+		},
+		"$003835": {
+			"name": "auto_label_0055",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3835",
+			"data_type": "LABEL"
+		},
+		"$003836": {
+			"name": "auto_label_0056",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3836",
+			"data_type": "LABEL"
+		},
+		"$003837": {
+			"name": "auto_label_0057",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3837",
+			"data_type": "LABEL"
+		},
+		"$003838": {
+			"name": "auto_label_0058",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3838",
+			"data_type": "LABEL"
+		},
+		"$003839": {
+			"name": "auto_label_0059",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3839",
+			"data_type": "LABEL"
+		},
+		"$003931": {
+			"name": "auto_label_005A",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3931",
+			"data_type": "LABEL"
+		},
+		"$003932": {
+			"name": "auto_label_005B",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3932",
+			"data_type": "LABEL"
+		},
+		"$003933": {
+			"name": "auto_label_005C",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3933",
+			"data_type": "LABEL"
+		},
+		"$003934": {
+			"name": "auto_label_005D",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3934",
+			"data_type": "LABEL"
+		},
+		"$003935": {
+			"name": "auto_label_005E",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3935",
+			"data_type": "LABEL"
+		},
+		"$003936": {
+			"name": "auto_label_005F",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3936",
+			"data_type": "LABEL"
+		},
+		"$003937": {
+			"name": "auto_label_0060",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3937",
+			"data_type": "LABEL"
+		},
+		"$003938": {
+			"name": "auto_label_0061",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3938",
+			"data_type": "LABEL"
+		},
+		"$003939": {
+			"name": "auto_label_0062",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3939",
+			"data_type": "LABEL"
+		},
+		"$003C20": {
+			"name": "auto_label_0063",
+			"comment": "Detected JSR_target",
+			"bank": "$00",
+			"snes_address": "$00:3C20",
+			"data_type": "LABEL"
+		}
+	}
+}

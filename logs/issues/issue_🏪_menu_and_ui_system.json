@@ -1,0 +1,14 @@
+{
+	"title": "\ud83c\udfea Menu and UI System",
+	"body": "## Objective\nDisassemble menu systems, inventory, and user interface code.\n\n## Tasks\n- [ ] Disassemble menu rendering system\n- [ ] Document inventory management\n- [ ] Analyze text rendering engine\n- [ ] Map dialog system\n- [ ] Document save/load system\n\n## Acceptance Criteria\n- Complete UI system disassembly\n- Menu flow documentation\n- Text rendering specifications\n- Save format documentation\n\n## Files to Create/Modify\n- `disassembly/menu_system.asm`\n- `documentation/ui_system.md`\n- `documentation/save_format.md`\n",
+	"labels": [
+		"disassembly",
+		"ui",
+		"medium-priority"
+	],
+	"milestone": null,
+	"assignees": null,
+	"project_column": "To Do",
+	"branch_name": "",
+	"issue_number": null
+}

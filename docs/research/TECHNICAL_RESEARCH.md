@@ -1,11 +1,11 @@
 # Dragon Quest III Technical Research Documentation
 
-## Overview
+# # Overview
 This document compiles comprehensive technical research about Dragon Quest III: Soshite Densetsu e... for the Super Nintendo Entertainment System. The information is gathered from multiple authoritative sources including DataCrystal, the GameInfo repository, and community reverse engineering efforts.
 
-## ROM Information
+# # ROM Information
 
-### Basic ROM Details
+# ## Basic ROM Details
 - **Title**: Dragon Quest III: Soshite Densetsu e...
 - **System**: Super Nintendo Entertainment System (SNES)
 - **Developer**: Heartbeat
@@ -17,18 +17,18 @@ This document compiles comprehensive technical research about Dragon Quest III: 
 - **Speed**: FastROM (120ns)
 - **Region**: Japan (NTSC)
 
-### Known ROM Dumps
+# ## Known ROM Dumps
 - **Primary CRC32**: `13836bd2` (verified good dump)
 - **Internal Title**: `DRAGONQUEST3`
 - **Revision**: 1.0
 - **Header**: No copier header (512-byte header not present)
 
-## Memory Structure
+# # Memory Structure
 
-### ROM Layout (HiROM Mapping)
+# ## ROM Layout (HiROM Mapping)
 The ROM uses HiROM memory mapping starting at `$C00000` in the SNES address space.
 
-#### Key ROM Sections
+# ### Key ROM Sections
 - **Character Classes**: `$C4179E - $C424A8` (3,339 bytes)
   - 9 character classes, 371 bytes each
   - Includes stat progressions, spells, equipment restrictions
@@ -38,9 +38,9 @@ The ROM uses HiROM memory mapping starting at `$C00000` in the SNES address spac
   - 50 font structures, 5 bytes each
   - Includes width, height, and graphics pointers
 
-### RAM Structure ($7E Bank)
+# ## RAM Structure ($7E Bank)
 
-#### Party Member Data
+# ### Party Member Data
 Starting at `$7E3925`, each party member uses `$3C` (60) bytes:
 - **Hero**: `$7E3925 - $7E3960`
 - **Party Member 2**: `$7E3961 - $7E399C`
@@ -48,7 +48,7 @@ Starting at `$7E3925`, each party member uses `$3C` (60) bytes:
 - **Party Member 4**: `$7E39D9 - $7E3A14`
 - Additional slots continue up to 18 total party members
 
-#### Player Data Structure (per member)
+# ### Player Data Structure (per member)
 | Offset | Size | Description |
 |--------|------|-------------|
 | $00-$01 | word | Current HP |
@@ -72,20 +72,20 @@ Starting at `$7E3925`, each party member uses `$3C` (60) bytes:
 | $2E | byte | Bag item count |
 | $2F-$3B | 13 bytes | Additional data |
 
-#### Game State Data
+# ### Game State Data
 - **Gold**: `$7E3696` (long, 4 bytes)
 - **Item Bag**: `$7E3725 - $7E3824` (256 bytes for item IDs)
 - **Item Quantities**: `$7E3825 - $7E3924` (256 bytes for quantities)
 
-## Text and Graphics Systems
+# # Text and Graphics Systems
 
-### Text Encoding
+# ## Text Encoding
 The game uses a custom text encoding system with the following characteristics:
 - **String Terminator**: `$AC` marks end of text strings
 - **Character Width**: Variable width font system
 - **Compression**: Text uses dictionary-based compression
 
-#### Character Set Mapping (Sample)
+# ### Character Set Mapping (Sample)
 | Hex | Character | Hex | Character | Hex | Character |
 |-----|-----------|-----|-----------|-----|-----------|
 | $01 | A | $1B | a | $87 | 0 |
@@ -93,16 +93,16 @@ The game uses a custom text encoding system with the following characteristics:
 | $03 | C | $1D | c | $89 | 2 |
 | ... | ... | ... | ... | ... | ... |
 
-### Font System
+# ## Font System
 Dialog fonts are stored as compressed graphics with associated metadata:
 - **Group Size**: 12-bit value indicating number of characters
 - **Width**: 4-bit character width in pixels
 - **Height**: 4-bit character height in pixels
 - **Graphics Offset**: 16-bit pointer to compressed graphics data
 
-## Game Data Structures
+# # Game Data Structures
 
-### Character Classes
+# ## Character Classes
 The game supports 9 character classes, each with detailed progression data:
 
 | ID | Class | Description |
@@ -117,64 +117,64 @@ The game supports 9 character classes, each with detailed progression data:
 | $07 | Sage | Advanced magic user |
 | $08 | Hero | Protagonist with unique abilities |
 
-### Monster Data
+# ## Monster Data
 155 monsters are defined with comprehensive battle data:
 - **Basic Stats**: HP, MP, Attack, Defense, Agility, Wisdom, Luck
 - **Resistances**: 14 different resistance types (2 bits each)
 - **Special Flags**: Metal monster designation, behavior flags
 - **Name Data**: Variable-length Japanese names with $AC terminator
 
-### Items System
+# ## Items System
 The game supports 228 different items ($01-$E4):
 - **Weapons**: Swords, clubs, boomerangs, whips, etc.
 - **Armor**: Shields, helmets, clothing, accessories
 - **Tools**: Consumables, quest items, special items
 - **Books**: Spell books and reference materials
 
-## Compression and Graphics
+# # Compression and Graphics
 
-### Graphics Compression
+# ## Graphics Compression
 The game uses multiple compression schemes:
 - **Font Graphics**: Custom compression for dialog fonts
 - **Tilemap Data**: Run-length and dictionary compression
 - **Sprite Graphics**: Planar graphics with palette mapping
 
-### Audio System
+# ## Audio System
 - **Sound Engine**: Custom audio driver
 - **Music Format**: Compressed sequence data
 - **Sample Data**: PCM samples for sound effects
 
-## Hardware Interface
+# # Hardware Interface
 
-### Graphics Registers
+# ## Graphics Registers
 The game directly manipulates SNES PPU registers for:
 - **Background Layers**: Mode 1 with 3 background layers
 - **Sprites**: 128 sprite limit, multiple sizes
 - **Palettes**: 256 colors across multiple palettes
 - **HDMA**: Horizontal blanking effects
 
-### Input Handling
+# ## Input Handling
 - **Controller 1**: Primary player input
 - **Controller 2**: Optional second player (limited)
 - **Special Input**: Hold button combinations for debug features
 
-## Debugging and Development
+# # Debugging and Development
 
-### Mesen-S Integration
+# ## Mesen-S Integration
 The project includes symbol files for the Mesen-S debugger:
 - **Memory Labels**: Named addresses for important RAM locations
 - **Breakpoint Sets**: Pre-configured debugging breakpoints
 - **Watch Lists**: Important variables for monitoring
 
-### Debug Features
+# ## Debug Features
 Several debug features are present in the ROM:
 - **Debug Menus**: Accessible through button combinations
 - **Memory Viewers**: Built-in RAM inspection tools
 - **Event Flags**: Debugging flags for story progression
 
-## Research Sources
+# # Research Sources
 
-### Primary Sources
+# ## Primary Sources
 1. **DataCrystal Wiki**: [Dragon Quest III SNES](https://datacrystal.romhacking.net/wiki/Dragon_Quest_III:_Soshite_Densetsu_e...)
    - ROM structure documentation
    - Memory mapping details
@@ -192,22 +192,22 @@ Several debug features are present in the ROM:
    - Disassembly projects
    - Translation tools and documentation
 
-### Tools and Utilities
+# ## Tools and Utilities
 - **Dragon Quest III Tools**: Font dumpers and analyzers
 - **Asar Assembler**: For rebuilding modified ROMs
 - **Hex Editors**: For direct ROM examination
 - **Debuggers**: Mesen-S, bsnes-plus for runtime analysis
 
-## Research Notes
+# # Research Notes
 
-### Open Questions
+# ## Open Questions
 1. **Compression Algorithm**: Exact details of graphics compression
 2. **Audio Format**: Complete specification of music/SFX format
 3. **Story Scripting**: Event system and script format
 4. **Save Data**: Complete save file structure
 5. **Unused Content**: Cut content and debug features
 
-### Future Research Directions
+# ## Future Research Directions
 1. **Complete Disassembly**: Full assembly source reconstruction
 2. **Tool Development**: Better analysis and modification tools
 3. **Translation Support**: Enhanced localization capabilities
