@@ -70,6 +70,7 @@ class EnhancedDQ3GraphicsAnalyzer:
         self.project_root = Path(project_root)
         self.rom_path = self.project_root / "static" / "Dragon Quest III - english (patched).smc"
         self.rom_data = bytes()
+        self.smc_header_size = 0
 
         # Enhanced analysis results
         self.graphics_chunks = []
@@ -78,6 +79,10 @@ class EnhancedDQ3GraphicsAnalyzer:
         self.analysis_metadata = {}
 
         # Initialize SNES address translator
+        self.address_translator = SNESAddressTranslator(rom_size=0x600000)
+
+        # Load ROM immediately
+        self.load_rom()
         self.address_translator = SNESAddressTranslator(rom_size=0x600000)
 
         # SNES graphics constants
