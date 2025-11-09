@@ -99,14 +99,14 @@ class DQ3GraphicsAnalyzer:
     def load_rom(self) -> bool:
         """Load ROM and prepare for graphics analysis"""
 
-        print("🎨 Dragon Quest III - Advanced Graphics Format Analyzer")
+        print("GRAPHICS Dragon Quest III - Advanced Graphics Format Analyzer")
         print("=" * 70)
-        print("🎯 Target: SNES Graphics Analysis with Correct Address Translation")
-        print("📊 Formats: 1bpp, 2bpp, 3bpp, 4bpp, 8bpp")
+        print("TARGET: SNES Graphics Analysis with Correct Address Translation")
+        print("FORMATS: 1bpp, 2bpp, 3bpp, 4bpp, 8bpp")
         print()
 
         if not self.rom_path.exists():
-            print(f"❌ ROM file not found: {self.rom_path}")
+            print(f"ERROR ROM file not found: {self.rom_path}")
             return False
 
         with open(self.rom_path, 'rb') as f:
@@ -118,7 +118,7 @@ class DQ3GraphicsAnalyzer:
         # Update address translator with actual ROM size
         self.address_translator = SNESAddressTranslator(rom_size=len(self.rom_data))
 
-        print(f"✅ ROM loaded: {len(self.rom_data):,} bytes")
+        print(f"OK ROM loaded: {len(self.rom_data):,} bytes")
         print(f"📊 SMC header: {self.smc_header_size} bytes")
         print(f"📊 Analysis target: {len(self.rom_data) - self.smc_header_size:,} bytes")
         print(f"🔧 SNES address translation: Active")
@@ -167,7 +167,7 @@ class DQ3GraphicsAnalyzer:
             print(f"🔍 Analyzing {snes_addr}: {description}")
 
             # Translate SNES address to ROM offset
-            mapping = self.address_translator.snes_to_rom_offset(snes_addr)
+            mapping = self.address_translator.snes_to_rom_mapping(snes_addr)
 
             if not mapping or not mapping.is_valid:
                 print(f"   ❌ Invalid address translation")
