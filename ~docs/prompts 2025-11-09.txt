@@ -9,21 +9,11 @@ disassemble as much code as you can starting by using the `diz` diztinguish file
 
 create a github issue/todo for every piece of work and add it to the kanban board; git commit and push every prompt; update the session/chat logs every prompt; run formatting on the files every prompt; make a new branch for each issue and then merge it back into main when you're done and get rid of the old branch; now disassemble and document absolutely everything you can; disassemble and document all code!
 
+maximize disassembly coverage; document and disassemble everything you can; and, as with the `ffmq-info` project for reference, implement the whole "build the rom from the source code and assets pipeline and compare it with the reference rom" processes and then build and compare and report the comparison
 
+I do not see any assembly files in the `src` folder or the `disassembly` folder, where is the code? disassemble as much code as you can! use up every session token you can! do as much work as you can, take forevrer, just disassemble code and document it; also convert extracted graphics to png using palettes
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+git commit and push every prompt; Sorry to interupt, but all ASM code should be lowercase and ALL hexadecimal values in all files NEED to be lowercase; continue what you were doing; document all the code so we have a complete disassembly of the rom;; implement the changes to make it awesome for as long as you can and use up all the tokens for each session, do not waste my money - use the entire token space; create a github issue/todo for every piece of work and add it to the kanban board; git commit and push every prompt; update the session/chat logs every prompt; run formatting on the files every prompt; make a new branch for each issue and then merge it back into main when you're done and get rid of the old branch; now disassemble and document absolutely everything you can; disassemble and document all code!
 
 
 
