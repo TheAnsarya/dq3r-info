@@ -1,27 +1,55 @@
 {
   "summary": {
-    "total_chunks": 690,
-    "total_tiles": 85536,
+    "total_chunks": 694,
+    "total_tiles": 86240,
     "palette_areas": 8463,
     "format_breakdown": {
       "1bpp": {
-        "chunks": 647,
-        "tiles": 82816,
-        "bytes": 662528
-      },
-      "2bpp": {
-        "chunks": 42,
-        "tiles": 2688,
-        "bytes": 43008
+        "chunks": 649,
+        "tiles": 83328,
+        "bytes": 666624
       },
       "4bpp": {
-        "chunks": 1,
-        "tiles": 32,
-        "bytes": 1024
+        "chunks": 2,
+        "tiles": 96,
+        "bytes": 3072
+      },
+      "2bpp": {
+        "chunks": 43,
+        "tiles": 2816,
+        "bytes": 45056
       }
     }
   },
   "chunks": [
+    {
+      "offset": "$100000",
+      "size": 2048,
+      "format": "1bpp",
+      "tile_count": 256,
+      "confidence": 0.98046875
+    },
+    {
+      "offset": "$108000",
+      "size": 2048,
+      "format": "1bpp",
+      "tile_count": 256,
+      "confidence": 0.8343749999999999
+    },
+    {
+      "offset": "$120000",
+      "size": 2048,
+      "format": "4bpp",
+      "tile_count": 64,
+      "confidence": 0.8105468750000001
+    },
+    {
+      "offset": "$130000",
+      "size": 2048,
+      "format": "2bpp",
+      "tile_count": 128,
+      "confidence": 0.8374999999999997
+    },
     {
       "offset": "$000000",
       "size": 1024,
