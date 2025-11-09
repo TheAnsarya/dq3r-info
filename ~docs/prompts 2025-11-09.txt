@@ -15,8 +15,9 @@ I do not see any assembly files in the `src` folder or the `disassembly` folder,
 
 git commit and push every prompt; Sorry to interupt, but all ASM code should be lowercase and ALL hexadecimal values in all files NEED to be lowercase; continue what you were doing; document all the code so we have a complete disassembly of the rom;; implement the changes to make it awesome for as long as you can and use up all the tokens for each session, do not waste my money - use the entire token space; create a github issue/todo for every piece of work and add it to the kanban board; git commit and push every prompt; update the session/chat logs every prompt; run formatting on the files every prompt; make a new branch for each issue and then merge it back into main when you're done and get rid of the old branch; now disassemble and document absolutely everything you can; disassemble and document all code!
 
+you say there are 19 github issues but I don't see any in github? Where is all the planning?
 
-
+put a timestamp on the IDE chat window for every response line so I know when it happened; Install WLA-DX assembler; then start working the guthub issues; make sure you're using the reference materials like `https://datacrystal.tcrf.net/wiki/Dragon_Quest_III_(SNES)/ROM_map` for the overworld format; continue and disassemble and document; implement the changes to make it awesome for as long as you can and use up all the tokens for each session, do not waste my money - use the entire token space; git commit and push every prompt; implement the changes to make it awesome for as long as you can and use up all the tokens for each session, do not waste my money - use the entire token space;
 
 
 

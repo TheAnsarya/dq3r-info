@@ -204,7 +204,7 @@
 ## Build System
 
 - **Makefile**: Professional build configuration
-- **build.ps1**: Automated build script 
+- **build.ps1**: Automated build script
 - **dq3_master.s**: Master assembly file
 
 ## Build Instructions
