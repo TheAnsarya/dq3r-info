@@ -1,0 +1,622 @@
+{
+    "plugin": "DQ3 Text Analyzer",
+    "version": "1.0.0",
+    "rom_size": 4194304,
+    "text_strings_found": 1000,
+    "dialogue_blocks": 31273,
+    "character_names": [
+        "勇者",
+        "戦士",
+        "僧侶",
+        "魔法使い",
+        "商人",
+        "遊び人",
+        "盗賊",
+        "賢者",
+        "アリアハン",
+        "ラダトーム"
+    ],
+    "text_strings": [
+        {
+            "offset": "0x304",
+            "length": 13,
+            "text": "庫B宰w宰.ﾉﾀA&ﾉ件ﾉ",
+            "bytes": "8cc9428dc9778dc92ec9c04126c9ed8c8fc9ee8f"
+        },
+        {
+            "offset": "0x307",
+            "length": 13,
+            "text": "宰w宰.ﾉﾀA&ﾉ件ﾉ硝\u0013",
+            "bytes": "8dc9778dc92ec9c04126c9ed8c8fc9ee8fc91390"
+        },
+        {
+            "offset": "0x314",
+            "length": 14,
+            "text": "硝硝\u0013惜.ﾉﾀB\u000eｰlc惜竃",
+            "bytes": "8fc9ee8fc91390c92ec9c0420eb06c6390c98a96"
+        },
+        {
+            "offset": "0x519",
+            "length": 15,
+            "text": "ｫｩ\u0000｢\u0000\u0000懺懴懿懽惹",
+            "bytes": "aba900a200009cf07f9cf17f9cf27f9cf37f8ee4"
+        },
+        {
+            "offset": "0x51a",
+            "length": 15,
+            "text": "ｩ\u0000｢\u0000\u0000懺懴懿懽惹",
+            "bytes": "a900a200009cf07f9cf17f9cf27f9cf37f8ee47f"
+        },
+        {
+            "offset": "0x51b",
+            "length": 14,
+            "text": "\u0000｢\u0000\u0000懺懴懿懽惹",
+            "bytes": "00a200009cf07f9cf17f9cf27f9cf37f8ee47f8e"
+        },
+        {
+            "offset": "0x51c",
+            "length": 14,
+            "text": "｢\u0000\u0000懺懴懿懽惹酌",
+            "bytes": "a200009cf07f9cf17f9cf27f9cf37f8ee47f8ede"
+        },
+        {
+            "offset": "0x51d",
+            "length": 14,
+            "text": "\u0000\u0000懺懴懿懽惹酌",
+            "bytes": "00009cf07f9cf17f9cf27f9cf37f8ee47f8ede7f"
+        },
+        {
+            "offset": "0x51e",
+            "length": 13,
+            "text": "\u0000懺懴懿懽惹酌",
+            "bytes": "009cf07f9cf17f9cf27f9cf37f8ee47f8ede7f8e"
+        },
+        {
+            "offset": "0x51f",
+            "length": 13,
+            "text": "懺懴懿懽惹酌錫",
+            "bytes": "9cf07f9cf17f9cf27f9cf37f8ee47f8ede7f8ee0"
+        },
+        {
+            "offset": "0x520",
+            "length": 13,
+            "text": "懴懿懽惹酌錫",
+            "bytes": "f07f9cf17f9cf27f9cf37f8ee47f8ede7f8ee07f"
+        },
+        {
+            "offset": "0x521",
+            "length": 13,
+            "text": "懴懿懽惹酌錫",
+            "bytes": "7f9cf17f9cf27f9cf37f8ee47f8ede7f8ee07f8e"
+        },
+        {
+            "offset": "0x522",
+            "length": 13,
+            "text": "懴懿懽惹酌錫寂",
+            "bytes": "9cf17f9cf27f9cf37f8ee47f8ede7f8ee07f8ee2"
+        },
+        {
+            "offset": "0x523",
+            "length": 13,
+            "text": "懿懽惹酌錫寂",
+            "bytes": "f17f9cf27f9cf37f8ee47f8ede7f8ee07f8ee27f"
+        },
+        {
+            "offset": "0x524",
+            "length": 13,
+            "text": "懿懽惹酌錫寂",
+            "bytes": "7f9cf27f9cf37f8ee47f8ede7f8ee07f8ee27f8e"
+        },
+        {
+            "offset": "0x525",
+            "length": 13,
+            "text": "懿懽惹酌錫寂手",
+            "bytes": "9cf27f9cf37f8ee47f8ede7f8ee07f8ee27f8ee8"
+        },
+        {
+            "offset": "0x526",
+            "length": 13,
+            "text": "懽惹酌錫寂手",
+            "bytes": "f27f9cf37f8ee47f8ede7f8ee07f8ee27f8ee87f"
+        },
+        {
+            "offset": "0x527",
+            "length": 13,
+            "text": "懽惹酌錫寂手",
+            "bytes": "7f9cf37f8ee47f8ede7f8ee07f8ee27f8ee87f8e"
+        },
+        {
+            "offset": "0x528",
+            "length": 13,
+            "text": "懽惹酌錫寂手殊",
+            "bytes": "9cf37f8ee47f8ede7f8ee07f8ee27f8ee87f8eea"
+        },
+        {
+            "offset": "0x529",
+            "length": 13,
+            "text": "惹酌錫寂手殊",
+            "bytes": "f37f8ee47f8ede7f8ee07f8ee27f8ee87f8eea7f"
+        },
+        {
+            "offset": "0x52a",
+            "length": 13,
+            "text": "惹酌錫寂手殊",
+            "bytes": "7f8ee47f8ede7f8ee07f8ee27f8ee87f8eea7f8e"
+        },
+        {
+            "offset": "0x52b",
+            "length": 13,
+            "text": "惹酌錫寂手殊珠",
+            "bytes": "8ee47f8ede7f8ee07f8ee27f8ee87f8eea7f8eec"
+        },
+        {
+            "offset": "0x52c",
+            "length": 13,
+            "text": "酌錫寂手殊珠",
+            "bytes": "e47f8ede7f8ee07f8ee27f8ee87f8eea7f8eec7f"
+        },
+        {
+            "offset": "0x52d",
+            "length": 13,
+            "text": "酌錫寂手殊珠",
+            "bytes": "7f8ede7f8ee07f8ee27f8ee87f8eea7f8eec7f8e"
+        },
+        {
+            "offset": "0x52e",
+            "length": 13,
+            "text": "酌錫寂手殊珠腫",
+            "bytes": "8ede7f8ee07f8ee27f8ee87f8eea7f8eec7f8eee"
+        },
+        {
+            "offset": "0x52f",
+            "length": 14,
+            "text": "ﾞ錫寂手殊珠腫",
+            "bytes": "de7f8ee07f8ee27f8ee87f8eea7f8eec7f8eee7f"
+        },
+        {
+            "offset": "0x530",
+            "length": 13,
+            "text": "錫寂手殊珠腫",
+            "bytes": "7f8ee07f8ee27f8ee87f8eea7f8eec7f8eee7f8e"
+        },
+        {
+            "offset": "0x531",
+            "length": 13,
+            "text": "錫寂手殊珠腫授",
+            "bytes": "8ee07f8ee27f8ee87f8eea7f8eec7f8eee7f8ef6"
+        },
+        {
+            "offset": "0x532",
+            "length": 13,
+            "text": "寂手殊珠腫授",
+            "bytes": "e07f8ee27f8ee87f8eea7f8eec7f8eee7f8ef67f"
+        },
+        {
+            "offset": "0x533",
+            "length": 13,
+            "text": "寂手殊珠腫授",
+            "bytes": "7f8ee27f8ee87f8eea7f8eec7f8eee7f8ef67f8e"
+        },
+        {
+            "offset": "0x534",
+            "length": 13,
+            "text": "寂手殊珠腫授呪",
+            "bytes": "8ee27f8ee87f8eea7f8eec7f8eee7f8ef67f8ef4"
+        },
+        {
+            "offset": "0x535",
+            "length": 13,
+            "text": "手殊珠腫授呪",
+            "bytes": "e27f8ee87f8eea7f8eec7f8eee7f8ef67f8ef47f"
+        },
+        {
+            "offset": "0x536",
+            "length": 13,
+            "text": "手殊珠腫授呪",
+            "bytes": "7f8ee87f8eea7f8eec7f8eee7f8ef67f8ef47f8e"
+        },
+        {
+            "offset": "0x537",
+            "length": 13,
+            "text": "手殊珠腫授呪取",
+            "bytes": "8ee87f8eea7f8eec7f8eee7f8ef67f8ef47f8ee6"
+        },
+        {
+            "offset": "0x538",
+            "length": 13,
+            "text": "殊珠腫授呪取",
+            "bytes": "e87f8eea7f8eec7f8eee7f8ef67f8ef47f8ee67f"
+        },
+        {
+            "offset": "0x539",
+            "length": 13,
+            "text": "殊珠腫授呪取",
+            "bytes": "7f8eea7f8eec7f8eee7f8ef67f8ef47f8ee67f8e"
+        },
+        {
+            "offset": "0x53a",
+            "length": 13,
+            "text": "殊珠腫授呪取式",
+            "bytes": "8eea7f8eec7f8eee7f8ef67f8ef47f8ee67f8eae"
+        },
+        {
+            "offset": "0x53b",
+            "length": 12,
+            "text": "珠腫授呪取式",
+            "bytes": "ea7f8eec7f8eee7f8ef67f8ef47f8ee67f8eae93"
+        },
+        {
+            "offset": "0x53c",
+            "length": 13,
+            "text": "珠腫授呪取式梼",
+            "bytes": "7f8eec7f8eee7f8ef67f8ef47f8ee67f8eae938e"
+        },
+        {
+            "offset": "0x53d",
+            "length": 13,
+            "text": "珠腫授呪取式梼ﾌ",
+            "bytes": "8eec7f8eee7f8ef67f8ef47f8ee67f8eae938ecc"
+        },
+        {
+            "offset": "0x53e",
+            "length": 12,
+            "text": "腫授呪取式梼ﾌ",
+            "bytes": "ec7f8eee7f8ef67f8ef47f8ee67f8eae938ecc95"
+        },
+        {
+            "offset": "0x53f",
+            "length": 13,
+            "text": "腫授呪取式梼ﾌ侮",
+            "bytes": "7f8eee7f8ef67f8ef47f8ee67f8eae938ecc958e"
+        },
+        {
+            "offset": "0x540",
+            "length": 13,
+            "text": "腫授呪取式梼ﾌ侮ｰ",
+            "bytes": "8eee7f8ef67f8ef47f8ee67f8eae938ecc958eb0"
+        },
+        {
+            "offset": "0x541",
+            "length": 12,
+            "text": "授呪取式梼ﾌ侮ｰ",
+            "bytes": "ee7f8ef67f8ef47f8ee67f8eae938ecc958eb094"
+        },
+        {
+            "offset": "0x542",
+            "length": 13,
+            "text": "授呪取式梼ﾌ侮ｰ博",
+            "bytes": "7f8ef67f8ef47f8ee67f8eae938ecc958eb0948e"
+        },
+        {
+            "offset": "0x543",
+            "length": 13,
+            "text": "授呪取式梼ﾌ侮ｰ博ｲ",
+            "bytes": "8ef67f8ef47f8ee67f8eae938ecc958eb0948eb2"
+        },
+        {
+            "offset": "0x544",
+            "length": 12,
+            "text": "呪取式梼ﾌ侮ｰ博ｲ",
+            "bytes": "f67f8ef47f8ee67f8eae938ecc958eb0948eb295"
+        },
+        {
+            "offset": "0x545",
+            "length": 13,
+            "text": "呪取式梼ﾌ侮ｰ博ｲ侮",
+            "bytes": "7f8ef47f8ee67f8eae938ecc958eb0948eb2958e"
+        },
+        {
+            "offset": "0x546",
+            "length": 13,
+            "text": "呪取式梼ﾌ侮ｰ博ｲ侮n",
+            "bytes": "8ef47f8ee67f8eae938ecc958eb0948eb2958e6e"
+        },
+        {
+            "offset": "0x547",
+            "length": 12,
+            "text": "取式梼ﾌ侮ｰ博ｲ侮n",
+            "bytes": "f47f8ee67f8eae938ecc958eb0948eb2958e6e96"
+        },
+        {
+            "offset": "0x548",
+            "length": 13,
+            "text": "取式梼ﾌ侮ｰ博ｲ侮n鮪",
+            "bytes": "7f8ee67f8eae938ecc958eb0948eb2958e6e968e"
+        },
+        {
+            "offset": "0x549",
+            "length": 13,
+            "text": "取式梼ﾌ侮ｰ博ｲ侮n鮪ﾙ",
+            "bytes": "8ee67f8eae938ecc958eb0948eb2958e6e968ed9"
+        },
+        {
+            "offset": "0x54a",
+            "length": 12,
+            "text": "式梼ﾌ侮ｰ博ｲ侮n鮪ﾙ",
+            "bytes": "e67f8eae938ecc958eb0948eb2958e6e968ed999"
+        },
+        {
+            "offset": "0x54b",
+            "length": 13,
+            "text": "式梼ﾌ侮ｰ博ｲ侮n鮪ﾙ剋",
+            "bytes": "7f8eae938ecc958eb0948eb2958e6e968ed9998e"
+        },
+        {
+            "offset": "0x54c",
+            "length": 13,
+            "text": "式梼ﾌ侮ｰ博ｲ侮n鮪ﾙ剋@",
+            "bytes": "8eae938ecc958eb0948eb2958e6e968ed9998e40"
+        },
+        {
+            "offset": "0x54d",
+            "length": 14,
+            "text": "ｮ梼ﾌ侮ｰ博ｲ侮n鮪ﾙ剋@|",
+            "bytes": "ae938ecc958eb0948eb2958e6e968ed9998e407c"
+        },
+        {
+            "offset": "0x54e",
+            "length": 13,
+            "text": "梼ﾌ侮ｰ博ｲ侮n鮪ﾙ剋@|",
+            "bytes": "938ecc958eb0948eb2958e6e968ed9998e407c8e"
+        },
+        {
+            "offset": "0x54f",
+            "length": 13,
+            "text": "捨侮ｰ博ｲ侮n鮪ﾙ剋@|止",
+            "bytes": "8ecc958eb0948eb2958e6e968ed9998e407c8e7e"
+        },
+        {
+            "offset": "0x550",
+            "length": 14,
+            "text": "ﾌ侮ｰ博ｲ侮n鮪ﾙ剋@|止",
+            "bytes": "cc958eb0948eb2958e6e968ed9998e407c8e7e7f"
+        },
+        {
+            "offset": "0x551",
+            "length": 14,
+            "text": "侮ｰ博ｲ侮n鮪ﾙ剋@|止ｩ",
+            "bytes": "958eb0948eb2958e6e968ed9998e407c8e7e7fa9"
+        },
+        {
+            "offset": "0x552",
+            "length": 14,
+            "text": "鴫博ｲ侮n鮪ﾙ剋@|止ｩY",
+            "bytes": "8eb0948eb2958e6e968ed9998e407c8e7e7fa959"
+        },
+        {
+            "offset": "0x553",
+            "length": 14,
+            "text": "ｰ博ｲ侮n鮪ﾙ剋@|止ｩY",
+            "bytes": "b0948eb2958e6e968ed9998e407c8e7e7fa9598d"
+        },
+        {
+            "offset": "0x554",
+            "length": 14,
+            "text": "博ｲ侮n鮪ﾙ剋@|止ｩY鉱",
+            "bytes": "948eb2958e6e968ed9998e407c8e7e7fa9598d7a"
+        },
+        {
+            "offset": "0x555",
+            "length": 14,
+            "text": "軸侮n鮪ﾙ剋@|止ｩY鉱",
+            "bytes": "8eb2958e6e968ed9998e407c8e7e7fa9598d7a7f"
+        },
+        {
+            "offset": "0x556",
+            "length": 15,
+            "text": "ｲ侮n鮪ﾙ剋@|止ｩY鉱ｩ",
+            "bytes": "b2958e6e968ed9998e407c8e7e7fa9598d7a7fa9"
+        },
+        {
+            "offset": "0x557",
+            "length": 15,
+            "text": "侮n鮪ﾙ剋@|止ｩY鉱ｩ\u0012",
+            "bytes": "958e6e968ed9998e407c8e7e7fa9598d7a7fa912"
+        },
+        {
+            "offset": "0x558",
+            "length": 14,
+            "text": "始鮪ﾙ剋@|止ｩY鉱ｩ\u0012",
+            "bytes": "8e6e968ed9998e407c8e7e7fa9598d7a7fa9128d"
+        },
+        {
+            "offset": "0x559",
+            "length": 15,
+            "text": "n鮪ﾙ剋@|止ｩY鉱ｩ\u0012砿",
+            "bytes": "6e968ed9998e407c8e7e7fa9598d7a7fa9128d7b"
+        },
+        {
+            "offset": "0x55a",
+            "length": 15,
+            "text": "鮪ﾙ剋@|止ｩY鉱ｩ\u0012砿",
+            "bytes": "968ed9998e407c8e7e7fa9598d7a7fa9128d7b7f"
+        },
+        {
+            "offset": "0x55b",
+            "length": 15,
+            "text": "勺剋@|止ｩY鉱ｩ\u0012砿ｩ",
+            "bytes": "8ed9998e407c8e7e7fa9598d7a7fa9128d7b7fa9"
+        },
+        {
+            "offset": "0x55d",
+            "length": 15,
+            "text": "剋@|止ｩY鉱ｩ\u0012砿ｩ竝",
+            "bytes": "998e407c8e7e7fa9598d7a7fa9128d7b7fa9e28d"
+        },
+        {
+            "offset": "0x55e",
+            "length": 15,
+            "text": "察|止ｩY鉱ｩ\u0012砿ｩ竝|",
+            "bytes": "8e407c8e7e7fa9598d7a7fa9128d7b7fa9e28d7c"
+        },
+        {
+            "offset": "0x65a",
+            "length": 15,
+            "text": "\fB\u0000｢\u0000\u0000酌錫寂手腫",
+            "bytes": "0c4200a200008ede7f8ee07f8ee27f8ee87f8eee"
+        },
+        {
+            "offset": "0x65b",
+            "length": 15,
+            "text": "B\u0000｢\u0000\u0000酌錫寂手腫",
+            "bytes": "4200a200008ede7f8ee07f8ee27f8ee87f8eee7f"
+        },
+        {
+            "offset": "0x65c",
+            "length": 14,
+            "text": "\u0000｢\u0000\u0000酌錫寂手腫",
+            "bytes": "00a200008ede7f8ee07f8ee27f8ee87f8eee7f8e"
+        },
+        {
+            "offset": "0x65d",
+            "length": 14,
+            "text": "｢\u0000\u0000酌錫寂手腫呪",
+            "bytes": "a200008ede7f8ee07f8ee27f8ee87f8eee7f8ef4"
+        },
+        {
+            "offset": "0x65e",
+            "length": 14,
+            "text": "\u0000\u0000酌錫寂手腫呪",
+            "bytes": "00008ede7f8ee07f8ee27f8ee87f8eee7f8ef47f"
+        },
+        {
+            "offset": "0x65f",
+            "length": 13,
+            "text": "\u0000酌錫寂手腫呪",
+            "bytes": "008ede7f8ee07f8ee27f8ee87f8eee7f8ef47f8e"
+        },
+        {
+            "offset": "0x660",
+            "length": 13,
+            "text": "酌錫寂手腫呪察",
+            "bytes": "8ede7f8ee07f8ee27f8ee87f8eee7f8ef47f8e40"
+        },
+        {
+            "offset": "0x661",
+            "length": 14,
+            "text": "ﾞ錫寂手腫呪察|",
+            "bytes": "de7f8ee07f8ee27f8ee87f8eee7f8ef47f8e407c"
+        },
+        {
+            "offset": "0x662",
+            "length": 14,
+            "text": "錫寂手腫呪察|ｭ",
+            "bytes": "7f8ee07f8ee27f8ee87f8eee7f8ef47f8e407cad"
+        },
+        {
+            "offset": "0x663",
+            "length": 13,
+            "text": "錫寂手腫呪察|ｭ",
+            "bytes": "8ee07f8ee27f8ee87f8eee7f8ef47f8e407cad88"
+        },
+        {
+            "offset": "0x664",
+            "length": 13,
+            "text": "寂手腫呪察|ｭ",
+            "bytes": "e07f8ee27f8ee87f8eee7f8ef47f8e407cad887f"
+        },
+        {
+            "offset": "0x665",
+            "length": 13,
+            "text": "寂手腫呪察|ｭ",
+            "bytes": "7f8ee27f8ee87f8eee7f8ef47f8e407cad887f8f"
+        },
+        {
+            "offset": "0x666",
+            "length": 13,
+            "text": "寂手腫呪察|ｭ\u0000",
+            "bytes": "8ee27f8ee87f8eee7f8ef47f8e407cad887f8f00"
+        },
+        {
+            "offset": "0x667",
+            "length": 13,
+            "text": "手腫呪察|ｭ\u0000!",
+            "bytes": "e27f8ee87f8eee7f8ef47f8e407cad887f8f0021"
+        },
+        {
+            "offset": "0x669",
+            "length": 13,
+            "text": "手腫呪察|ｭ\u0000!\u0000",
+            "bytes": "8ee87f8eee7f8ef47f8e407cad887f8f002100ee"
+        },
+        {
+            "offset": "0xcd4",
+            "length": 13,
+            "text": "ﾌｲ武ﾓ\u0000\u0000鹸描ｬｰ避Hｩ",
+            "bytes": "ccb29590d3a000008cb29560acb094f048a9808f"
+        },
+        {
+            "offset": "0xcd5",
+            "length": 13,
+            "text": "ｲ武ﾓ\u0000\u0000鹸描ｬｰ避Hｩ\u0015",
+            "bytes": "b29590d3a000008cb29560acb094f048a9808f15"
+        },
+        {
+            "offset": "0xcd6",
+            "length": 13,
+            "text": "武ﾓ\u0000\u0000鹸描ｬｰ避Hｩ\u0015!",
+            "bytes": "9590d3a000008cb29560acb094f048a9808f1521"
+        },
+        {
+            "offset": "0xcd7",
+            "length": 13,
+            "text": "責\u0000\u0000鹸描ｬｰ避Hｩ\u0015!\u0000",
+            "bytes": "90d3a000008cb29560acb094f048a9808f152100"
+        },
+        {
+            "offset": "0xd22",
+            "length": 13,
+            "text": "ﾌｰ柏ﾓ\u0000\u0000顕覗ｬﾌ呆Iｩ",
+            "bytes": "ccb09490d3a000008cb09460accc95f049a9808f"
+        },
+        {
+            "offset": "0xd23",
+            "length": 13,
+            "text": "ｰ柏ﾓ\u0000\u0000顕覗ｬﾌ呆Iｩ\u0015",
+            "bytes": "b09490d3a000008cb09460accc95f049a9808f15"
+        },
+        {
+            "offset": "0xd24",
+            "length": 13,
+            "text": "柏ﾓ\u0000\u0000顕覗ｬﾌ呆Iｩ\u0015!",
+            "bytes": "9490d3a000008cb09460accc95f049a9808f1521"
+        },
+        {
+            "offset": "0xd25",
+            "length": 13,
+            "text": "責\u0000\u0000顕覗ｬﾌ呆Iｩ\u0015!\u0000",
+            "bytes": "90d3a000008cb09460accc95f049a9808f152100"
+        },
+        {
+            "offset": "0x2127",
+            "length": 13,
+            "text": "\u001d\u0000\u0000\u0000\u0000韋甘\u0007趨派hhh",
+            "bytes": "1d00009d0000e8e88ac3079096f09468686868fa"
+        },
+        {
+            "offset": "0x2128",
+            "length": 13,
+            "text": "\u0000\u0000\u0000\u0000韋甘\u0007趨派hhhz",
+            "bytes": "00009d0000e8e88ac3079096f09468686868fa7a"
+        },
+        {
+            "offset": "0x2129",
+            "length": 13,
+            "text": "\u0000\u0000\u0000韋甘\u0007趨派hhhzh",
+            "bytes": "009d0000e8e88ac3079096f09468686868fa7a68"
+        },
+        {
+            "offset": "0x212a",
+            "length": 13,
+            "text": "\u0000\u0000韋甘\u0007趨派hhhzhｫ",
+            "bytes": "9d0000e8e88ac3079096f09468686868fa7a68ab"
+        },
+        {
+            "offset": "0x21c8",
+            "length": 13,
+            "text": "\u001d\u0000\u0000\u0000\u0000韋甘\u0007澄拮hhh",
+            "bytes": "1d00009d0000e8e88ac307909ff09d68686868fa"
+        }
+    ],
+    "processed": true
+}

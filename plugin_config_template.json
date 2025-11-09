@@ -1,0 +1,32 @@
+{
+    "Audio Extractor": {
+        "enabled": true,
+        "config": {},
+        "description": "Extracts audio samples and music"
+    },
+    "Graphics Analyzer": {
+        "enabled": true,
+        "config": {},
+        "description": "Analyzes graphics data structures"
+    },
+    "Map Analyzer": {
+        "enabled": true,
+        "config": {},
+        "description": "Analyzes game map data"
+    },
+    "ROM Patcher": {
+        "enabled": true,
+        "config": {},
+        "description": "Applies patches to ROM files"
+    },
+    "Sprite Viewer": {
+        "enabled": true,
+        "config": {},
+        "description": "Visualizes sprite data"
+    },
+    "Text Extractor": {
+        "enabled": true,
+        "config": {},
+        "description": "Extracts text strings from ROM"
+    }
+}

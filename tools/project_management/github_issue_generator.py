@@ -10,62 +10,62 @@ import datetime
 from typing import Dict, List, Any
 
 class GitHubIssueGenerator:
-    def __init__(self, project_root: str):
-        self.project_root = project_root
-        self.issues_dir = os.path.join(project_root, "project_management", "github_issues")
-        self.kanban_dir = os.path.join(project_root, "project_management", "kanban")
-        self.reports_dir = os.path.join(project_root, "reports")
+	def __init__(self, project_root: str):
+		self.project_root = project_root
+		self.issues_dir = os.path.join(project_root, "project_management", "github_issues")
+		self.kanban_dir = os.path.join(project_root, "project_management", "kanban")
+		self.reports_dir = os.path.join(project_root, "reports")
 
-        # Ensure output directories exist
-        os.makedirs(self.issues_dir, exist_ok=True)
-        os.makedirs(self.kanban_dir, exist_ok=True)
-        os.makedirs(self.reports_dir, exist_ok=True)
+		# Ensure output directories exist
+		os.makedirs(self.issues_dir, exist_ok=True)
+		os.makedirs(self.kanban_dir, exist_ok=True)
+		os.makedirs(self.reports_dir, exist_ok=True)
 
-        self.issues = []
-        self.issue_counter = 1
+		self.issues = []
+		self.issue_counter = 1
 
-    def create_comprehensive_issues(self):
-        """Create comprehensive GitHub issues covering all aspects of ROM analysis"""
+	def create_comprehensive_issues(self):
+		"""Create comprehensive GitHub issues covering all aspects of ROM analysis"""
 
-        print("🚀 Creating comprehensive GitHub issues for Dragon Quest III ROM analysis...")
+		print("🚀 Creating comprehensive GitHub issues for Dragon Quest III ROM analysis...")
 
-        # Core Disassembly Issues
-        self.create_core_disassembly_issues()
+		# Core Disassembly Issues
+		self.create_core_disassembly_issues()
 
-        # System-Specific Analysis Issues
-        self.create_system_analysis_issues()
+		# System-Specific Analysis Issues
+		self.create_system_analysis_issues()
 
-        # Documentation and Organization Issues
-        self.create_documentation_issues()
+		# Documentation and Organization Issues
+		self.create_documentation_issues()
 
-        # Quality Assurance and Testing Issues
-        self.create_quality_assurance_issues()
+		# Quality Assurance and Testing Issues
+		self.create_quality_assurance_issues()
 
-        # Advanced Analysis Issues
-        self.create_advanced_analysis_issues()
+		# Advanced Analysis Issues
+		self.create_advanced_analysis_issues()
 
-        # Project Management Issues
-        self.create_project_management_issues()
+		# Project Management Issues
+		self.create_project_management_issues()
 
-        # Generate kanban board
-        self.generate_kanban_board()
+		# Generate kanban board
+		self.generate_kanban_board()
 
-        # Generate summary report
-        self.generate_issues_report()
+		# Generate summary report
+		self.generate_issues_report()
 
-        print(f"✅ Generated {len(self.issues)} comprehensive GitHub issues")
-        return len(self.issues)
+		print(f"✅ Generated {len(self.issues)} comprehensive GitHub issues")
+		return len(self.issues)
 
-    def create_core_disassembly_issues(self):
-        """Create issues for core ROM disassembly work"""
+	def create_core_disassembly_issues(self):
+		"""Create issues for core ROM disassembly work"""
 
-        # Complete ROM Coverage Issue
-        self.add_issue(
-            title="🔍 Complete ROM Coverage Analysis",
-            labels=["enhancement", "disassembly", "high-priority"],
-            milestone="Phase 1: Core Disassembly",
-            priority="critical",
-            description="""
+		# Complete ROM Coverage Issue
+		self.add_issue(
+			title="🔍 Complete ROM Coverage Analysis",
+			labels=["enhancement", "disassembly", "high-priority"],
+			milestone="Phase 1: Core Disassembly",
+			priority="critical",
+			description="""
 ## Objective
 Achieve 100% ROM coverage with comprehensive disassembly of all code sections.
 
@@ -96,18 +96,18 @@ Achieve 100% ROM coverage with comprehensive disassembly of all code sections.
 ## Dependencies
 - Requires completion of graphics/data analysis
 - Should coordinate with documentation generation
-            """,
-            assignee="rom-analysis-team",
-            estimated_hours=40
-        )
+			""",
+			assignee="rom-analysis-team",
+			estimated_hours=40
+		)
 
-        # Memory Banking Analysis
-        self.add_issue(
-            title="🏦 Complete Memory Banking System Analysis",
-            labels=["enhancement", "memory-mapping", "architecture"],
-            milestone="Phase 1: Core Disassembly",
-            priority="high",
-            description="""
+		# Memory Banking Analysis
+		self.add_issue(
+			title="🏦 Complete Memory Banking System Analysis",
+			labels=["enhancement", "memory-mapping", "architecture"],
+			milestone="Phase 1: Core Disassembly",
+			priority="high",
+			description="""
 ## Objective
 Comprehensive analysis of 65816 memory banking and address mapping.
 
@@ -134,18 +134,18 @@ Comprehensive analysis of 65816 memory banking and address mapping.
 - Complete bank usage documentation
 - Memory layout diagrams
 - Bank switching function catalog
-            """,
-            assignee="architecture-team",
-            estimated_hours=25
-        )
+			""",
+			assignee="architecture-team",
+			estimated_hours=25
+		)
 
-        # Function Classification
-        self.add_issue(
-            title="⚙️ Advanced Function Classification System",
-            labels=["enhancement", "analysis", "automation"],
-            milestone="Phase 2: Analysis Enhancement",
-            priority="high",
-            description="""
+		# Function Classification
+		self.add_issue(
+			title="⚙️ Advanced Function Classification System",
+			labels=["enhancement", "analysis", "automation"],
+			milestone="Phase 2: Analysis Enhancement",
+			priority="high",
+			description="""
 ## Objective
 Implement advanced function classification beyond basic patterns.
 
@@ -174,21 +174,21 @@ Implement advanced function classification beyond basic patterns.
 - Function catalog with detailed metadata
 - Call graph visualization
 - Performance profiling data
-            """,
-            assignee="analysis-team",
-            estimated_hours=30
-        )
+			""",
+			assignee="analysis-team",
+			estimated_hours=30
+		)
 
-    def create_system_analysis_issues(self):
-        """Create issues for specific game system analysis"""
+	def create_system_analysis_issues(self):
+		"""Create issues for specific game system analysis"""
 
-        # Battle System Complete Analysis
-        self.add_issue(
-            title="⚔️ Complete Battle System Disassembly",
-            labels=["battle-system", "gameplay", "critical"],
-            milestone="Phase 2: System Analysis",
-            priority="high",
-            description="""
+		# Battle System Complete Analysis
+		self.add_issue(
+			title="⚔️ Complete Battle System Disassembly",
+			labels=["battle-system", "gameplay", "critical"],
+			milestone="Phase 2: System Analysis",
+			priority="high",
+			description="""
 ## Objective
 Complete disassembly and documentation of Dragon Quest III battle system.
 
@@ -220,18 +220,18 @@ Complete disassembly and documentation of Dragon Quest III battle system.
 - Weapon/armor statistics
 - Spell damage formulas
 - Experience tables
-            """,
-            assignee="gameplay-team",
-            estimated_hours=45
-        )
+			""",
+			assignee="gameplay-team",
+			estimated_hours=45
+		)
 
-        # Audio System Analysis
-        self.add_issue(
-            title="🎵 Complete Audio System Disassembly",
-            labels=["audio", "spc700", "hardware"],
-            milestone="Phase 2: System Analysis",
-            priority="medium",
-            description="""
+		# Audio System Analysis
+		self.add_issue(
+			title="🎵 Complete Audio System Disassembly",
+			labels=["audio", "spc700", "hardware"],
+			milestone="Phase 2: System Analysis",
+			priority="medium",
+			description="""
 ## Objective
 Full analysis of SNES audio system and SPC700 driver implementation.
 
@@ -258,18 +258,18 @@ Full analysis of SNES audio system and SPC700 driver implementation.
 - Audio format specifications
 - Hardware usage guide
 - Audio asset catalog
-            """,
-            assignee="audio-team",
-            estimated_hours=35
-        )
+			""",
+			assignee="audio-team",
+			estimated_hours=35
+		)
 
-        # Graphics Engine Analysis
-        self.add_issue(
-            title="🖼️ Graphics Engine Complete Analysis",
-            labels=["graphics", "ppu", "rendering"],
-            milestone="Phase 2: System Analysis",
-            priority="high",
-            description="""
+		# Graphics Engine Analysis
+		self.add_issue(
+			title="🖼️ Graphics Engine Complete Analysis",
+			labels=["graphics", "ppu", "rendering"],
+			milestone="Phase 2: System Analysis",
+			priority="high",
+			description="""
 ## Objective
 Comprehensive analysis of SNES PPU usage and graphics rendering.
 
@@ -298,18 +298,18 @@ Comprehensive analysis of SNES PPU usage and graphics rendering.
 - Compression algorithm details
 - PPU register usage patterns
 - Performance optimization techniques
-            """,
-            assignee="graphics-team",
-            estimated_hours=40
-        )
+			""",
+			assignee="graphics-team",
+			estimated_hours=40
+		)
 
-        # Map and Field System
-        self.add_issue(
-            title="🗺️ Map and Field System Analysis",
-            labels=["maps", "world", "navigation"],
-            milestone="Phase 2: System Analysis",
-            priority="medium",
-            description="""
+		# Map and Field System
+		self.add_issue(
+			title="🗺️ Map and Field System Analysis",
+			labels=["maps", "world", "navigation"],
+			milestone="Phase 2: System Analysis",
+			priority="medium",
+			description="""
 ## Objective
 Complete analysis of overworld, towns, and dungeon systems.
 
@@ -339,18 +339,18 @@ Complete analysis of overworld, towns, and dungeon systems.
 - Event system documentation
 - Collision system analysis
 - Performance optimization details
-            """,
-            assignee="world-team",
-            estimated_hours=35
-        )
+			""",
+			assignee="world-team",
+			estimated_hours=35
+		)
 
-        # Menu and UI System
-        self.add_issue(
-            title="🏪 Menu and UI System Analysis",
-            labels=["ui", "menus", "interface"],
-            milestone="Phase 2: System Analysis",
-            priority="medium",
-            description="""
+		# Menu and UI System
+		self.add_issue(
+			title="🏪 Menu and UI System Analysis",
+			labels=["ui", "menus", "interface"],
+			milestone="Phase 2: System Analysis",
+			priority="medium",
+			description="""
 ## Objective
 Complete analysis of all menu systems and user interface elements.
 
@@ -381,21 +381,21 @@ Complete analysis of all menu systems and user interface elements.
 - Input handling specifications
 - Text system documentation
 - Menu behavior patterns
-            """,
-            assignee="interface-team",
-            estimated_hours=30
-        )
+			""",
+			assignee="interface-team",
+			estimated_hours=30
+		)
 
-    def create_documentation_issues(self):
-        """Create issues for documentation and organization"""
+	def create_documentation_issues(self):
+		"""Create issues for documentation and organization"""
 
-        # Master Documentation System
-        self.add_issue(
-            title="📚 Master Documentation System",
-            labels=["documentation", "organization", "critical"],
-            milestone="Phase 3: Documentation",
-            priority="critical",
-            description="""
+		# Master Documentation System
+		self.add_issue(
+			title="📚 Master Documentation System",
+			labels=["documentation", "organization", "critical"],
+			milestone="Phase 3: Documentation",
+			priority="critical",
+			description="""
 ## Objective
 Create comprehensive, professional documentation for the entire project.
 
@@ -426,18 +426,18 @@ Create comprehensive, professional documentation for the entire project.
 - [ ] Automated quality checks
 - [ ] Consistency validation
 - [ ] Link verification
-            """,
-            assignee="documentation-team",
-            estimated_hours=50
-        )
+			""",
+			assignee="documentation-team",
+			estimated_hours=50
+		)
 
-        # Code Formatting Standards
-        self.add_issue(
-            title="🎨 Code Formatting and Standards Enforcement",
-            labels=["formatting", "standards", "automation"],
-            milestone="Phase 3: Quality Assurance",
-            priority="high",
-            description="""
+		# Code Formatting Standards
+		self.add_issue(
+			title="🎨 Code Formatting and Standards Enforcement",
+			labels=["formatting", "standards", "automation"],
+			milestone="Phase 3: Quality Assurance",
+			priority="high",
+			description="""
 ## Objective
 Enforce professional code formatting and development standards.
 
@@ -465,18 +465,18 @@ Enforce professional code formatting and development standards.
 - [ ] Documentation coverage metrics
 - [ ] Formatting compliance reporting
 - [ ] Technical debt tracking
-            """,
-            assignee="quality-team",
-            estimated_hours=25
-        )
+			""",
+			assignee="quality-team",
+			estimated_hours=25
+		)
 
-        # Cross-Reference Generation
-        self.add_issue(
-            title="🔗 Complete Cross-Reference System",
-            labels=["cross-reference", "navigation", "tooling"],
-            milestone="Phase 3: Documentation",
-            priority="medium",
-            description="""
+		# Cross-Reference Generation
+		self.add_issue(
+			title="🔗 Complete Cross-Reference System",
+			labels=["cross-reference", "navigation", "tooling"],
+			milestone="Phase 3: Documentation",
+			priority="medium",
+			description="""
 ## Objective
 Generate comprehensive cross-reference system for all code and data.
 
@@ -506,21 +506,21 @@ Generate comprehensive cross-reference system for all code and data.
 - [ ] Web browser compatibility
 - [ ] Command-line tools
 - [ ] API access for external tools
-            """,
-            assignee="tooling-team",
-            estimated_hours=35
-        )
+			""",
+			assignee="tooling-team",
+			estimated_hours=35
+		)
 
-    def create_quality_assurance_issues(self):
-        """Create issues for testing and quality assurance"""
+	def create_quality_assurance_issues(self):
+		"""Create issues for testing and quality assurance"""
 
-        # Comprehensive Testing Suite
-        self.add_issue(
-            title="🧪 Comprehensive Testing and Validation Suite",
-            labels=["testing", "validation", "critical"],
-            milestone="Phase 3: Quality Assurance",
-            priority="critical",
-            description="""
+		# Comprehensive Testing Suite
+		self.add_issue(
+			title="🧪 Comprehensive Testing and Validation Suite",
+			labels=["testing", "validation", "critical"],
+			milestone="Phase 3: Quality Assurance",
+			priority="critical",
+			description="""
 ## Objective
 Implement comprehensive testing for all analysis tools and generated code.
 
@@ -555,18 +555,18 @@ Implement comprehensive testing for all analysis tools and generated code.
 - [ ] Performance benchmarks
 - [ ] Error rate tracking
 - [ ] Documentation coverage
-            """,
-            assignee="qa-team",
-            estimated_hours=40
-        )
+			""",
+			assignee="qa-team",
+			estimated_hours=40
+		)
 
-        # Build System Validation
-        self.add_issue(
-            title="🔨 Build System and Assembly Validation",
-            labels=["build", "assembly", "validation"],
-            milestone="Phase 3: Quality Assurance",
-            priority="high",
-            description="""
+		# Build System Validation
+		self.add_issue(
+			title="🔨 Build System and Assembly Validation",
+			labels=["build", "assembly", "validation"],
+			milestone="Phase 3: Quality Assurance",
+			priority="high",
+			description="""
 ## Objective
 Ensure all generated assembly can be built and produces correct ROM.
 
@@ -600,21 +600,21 @@ Ensure all generated assembly can be built and produces correct ROM.
 - [ ] Automated issue detection
 - [ ] Recovery procedures
 - [ ] Error classification
-            """,
-            assignee="build-team",
-            estimated_hours=30
-        )
+			""",
+			assignee="build-team",
+			estimated_hours=30
+		)
 
-    def create_advanced_analysis_issues(self):
-        """Create issues for advanced analysis techniques"""
+	def create_advanced_analysis_issues(self):
+		"""Create issues for advanced analysis techniques"""
 
-        # AI-Powered Analysis
-        self.add_issue(
-            title="🤖 AI-Powered Code Analysis Enhancement",
-            labels=["ai", "analysis", "enhancement", "experimental"],
-            milestone="Phase 4: Advanced Analysis",
-            priority="low",
-            description="""
+		# AI-Powered Analysis
+		self.add_issue(
+			title="🤖 AI-Powered Code Analysis Enhancement",
+			labels=["ai", "analysis", "enhancement", "experimental"],
+			milestone="Phase 4: Advanced Analysis",
+			priority="low",
+			description="""
 ## Objective
 Implement AI/ML techniques for advanced code analysis and pattern recognition.
 
@@ -650,18 +650,18 @@ Implement AI/ML techniques for advanced code analysis and pattern recognition.
 - [ ] Assembly code embeddings
 - [ ] Graph-based analysis
 - [ ] Transfer learning applications
-            """,
-            assignee="research-team",
-            estimated_hours=60
-        )
+			""",
+			assignee="research-team",
+			estimated_hours=60
+		)
 
-        # Performance Analysis
-        self.add_issue(
-            title="📊 Performance Analysis and Optimization",
-            labels=["performance", "analysis", "optimization"],
-            milestone="Phase 4: Advanced Analysis",
-            priority="medium",
-            description="""
+		# Performance Analysis
+		self.add_issue(
+			title="📊 Performance Analysis and Optimization",
+			labels=["performance", "analysis", "optimization"],
+			milestone="Phase 4: Advanced Analysis",
+			priority="medium",
+			description="""
 ## Objective
 Comprehensive performance analysis of original game code and analysis tools.
 
@@ -697,18 +697,18 @@ Comprehensive performance analysis of original game code and analysis tools.
 - Optimization recommendations
 - Benchmarking tools
 - Performance monitoring
-            """,
-            assignee="performance-team",
-            estimated_hours=35
-        )
+			""",
+			assignee="performance-team",
+			estimated_hours=35
+		)
 
-        # Comparative Analysis
-        self.add_issue(
-            title="🔄 Comparative Analysis with Other SNES RPGs",
-            labels=["comparative", "research", "analysis"],
-            milestone="Phase 4: Advanced Analysis",
-            priority="low",
-            description="""
+		# Comparative Analysis
+		self.add_issue(
+			title="🔄 Comparative Analysis with Other SNES RPGs",
+			labels=["comparative", "research", "analysis"],
+			milestone="Phase 4: Advanced Analysis",
+			priority="low",
+			description="""
 ## Objective
 Compare Dragon Quest III implementation with other SNES RPGs for insights.
 
@@ -744,21 +744,21 @@ Compare Dragon Quest III implementation with other SNES RPGs for insights.
 - [ ] Unique implementation choices
 - [ ] Performance trade-offs
 - [ ] Innovation identification
-            """,
-            assignee="research-team",
-            estimated_hours=50
-        )
+			""",
+			assignee="research-team",
+			estimated_hours=50
+		)
 
-    def create_project_management_issues(self):
-        """Create issues for project management and coordination"""
+	def create_project_management_issues(self):
+		"""Create issues for project management and coordination"""
 
-        # Project Automation
-        self.add_issue(
-            title="🤖 Complete Project Automation Pipeline",
-            labels=["automation", "ci-cd", "workflow"],
-            milestone="Phase 4: Project Management",
-            priority="high",
-            description="""
+		# Project Automation
+		self.add_issue(
+			title="🤖 Complete Project Automation Pipeline",
+			labels=["automation", "ci-cd", "workflow"],
+			milestone="Phase 4: Project Management",
+			priority="high",
+			description="""
 ## Objective
 Implement comprehensive automation for all project workflows.
 
@@ -794,18 +794,18 @@ Implement comprehensive automation for all project workflows.
 - [ ] Quality metric tracking
 - [ ] Performance monitoring
 - [ ] Error detection and alerting
-            """,
-            assignee="devops-team",
-            estimated_hours=45
-        )
+			""",
+			assignee="devops-team",
+			estimated_hours=45
+		)
 
-        # Team Coordination
-        self.add_issue(
-            title="👥 Team Coordination and Workflow Management",
-            labels=["team", "workflow", "coordination"],
-            milestone="Phase 4: Project Management",
-            priority="medium",
-            description="""
+		# Team Coordination
+		self.add_issue(
+			title="👥 Team Coordination and Workflow Management",
+			labels=["team", "workflow", "coordination"],
+			milestone="Phase 4: Project Management",
+			priority="medium",
+			description="""
 ## Objective
 Establish efficient team coordination and workflow management systems.
 
@@ -842,18 +842,18 @@ Establish efficient team coordination and workflow management systems.
 - [ ] Quality metrics
 - [ ] Team productivity
 - [ ] Technical debt monitoring
-            """,
-            assignee="project-manager",
-            estimated_hours=20
-        )
+			""",
+			assignee="project-manager",
+			estimated_hours=20
+		)
 
-        # Release Planning
-        self.add_issue(
-            title="🚀 Release Planning and Version Management",
-            labels=["release", "versioning", "planning"],
-            milestone="Phase 4: Project Management",
-            priority="medium",
-            description="""
+		# Release Planning
+		self.add_issue(
+			title="🚀 Release Planning and Version Management",
+			labels=["release", "versioning", "planning"],
+			milestone="Phase 4: Project Management",
+			priority="medium",
+			description="""
 ## Objective
 Establish comprehensive release planning and version management.
 
@@ -891,422 +891,422 @@ Establish comprehensive release planning and version management.
 - [ ] Issue tracking
 - [ ] Performance monitoring
 - [ ] User support
-            """,
-            assignee="release-manager",
-            estimated_hours=25
-        )
+			""",
+			assignee="release-manager",
+			estimated_hours=25
+		)
 
-    def add_issue(self, title: str, labels: List[str], milestone: str, priority: str,
-                  description: str, assignee: str = "", estimated_hours: int = 0):
-        """Add a new issue to the collection"""
+	def add_issue(self, title: str, labels: List[str], milestone: str, priority: str,
+				  description: str, assignee: str = "", estimated_hours: int = 0):
+		"""Add a new issue to the collection"""
 
-        issue = {
-            "number": self.issue_counter,
-            "title": title,
-            "description": description,
-            "labels": labels,
-            "milestone": milestone,
-            "priority": priority,
-            "assignee": assignee,
-            "estimated_hours": estimated_hours,
-            "created_at": datetime.datetime.now().isoformat(),
-            "status": "backlog",
-            "epic": self.determine_epic(labels),
-            "acceptance_criteria": self.extract_acceptance_criteria(description),
-            "technical_complexity": self.assess_complexity(estimated_hours),
-            "dependencies": self.extract_dependencies(description)
-        }
+		issue = {
+			"number": self.issue_counter,
+			"title": title,
+			"description": description,
+			"labels": labels,
+			"milestone": milestone,
+			"priority": priority,
+			"assignee": assignee,
+			"estimated_hours": estimated_hours,
+			"created_at": datetime.datetime.now().isoformat(),
+			"status": "backlog",
+			"epic": self.determine_epic(labels),
+			"acceptance_criteria": self.extract_acceptance_criteria(description),
+			"technical_complexity": self.assess_complexity(estimated_hours),
+			"dependencies": self.extract_dependencies(description)
+		}
 
-        self.issues.append(issue)
-        self.save_individual_issue(issue)
-        self.issue_counter += 1
+		self.issues.append(issue)
+		self.save_individual_issue(issue)
+		self.issue_counter += 1
 
-    def determine_epic(self, labels: List[str]) -> str:
-        """Determine epic based on labels"""
-        epic_mapping = {
-            "disassembly": "Core ROM Analysis",
-            "documentation": "Documentation & Organization",
-            "testing": "Quality Assurance",
-            "automation": "Project Infrastructure",
-            "analysis": "Advanced Analysis",
-            "graphics": "Graphics System Analysis",
-            "audio": "Audio System Analysis",
-            "battle-system": "Gameplay Systems",
-            "performance": "Performance & Optimization"
-        }
+	def determine_epic(self, labels: List[str]) -> str:
+		"""Determine epic based on labels"""
+		epic_mapping = {
+			"disassembly": "Core ROM Analysis",
+			"documentation": "Documentation & Organization",
+			"testing": "Quality Assurance",
+			"automation": "Project Infrastructure",
+			"analysis": "Advanced Analysis",
+			"graphics": "Graphics System Analysis",
+			"audio": "Audio System Analysis",
+			"battle-system": "Gameplay Systems",
+			"performance": "Performance & Optimization"
+		}
 
-        for label in labels:
-            if label in epic_mapping:
-                return epic_mapping[label]
+		for label in labels:
+			if label in epic_mapping:
+				return epic_mapping[label]
 
-        return "General"
+		return "General"
 
-    def extract_acceptance_criteria(self, description: str) -> List[str]:
-        """Extract acceptance criteria from issue description"""
-        criteria = []
-        lines = description.split('\n')
-        in_acceptance_section = False
+	def extract_acceptance_criteria(self, description: str) -> List[str]:
+		"""Extract acceptance criteria from issue description"""
+		criteria = []
+		lines = description.split('\n')
+		in_acceptance_section = False
 
-        for line in lines:
-            line = line.strip()
-            if "Acceptance Criteria" in line:
-                in_acceptance_section = True
-                continue
-            elif line.startswith("##") and in_acceptance_section:
-                break
-            elif in_acceptance_section and line.startswith("- [ ]"):
-                criteria.append(line[6:])  # Remove "- [ ] "
+		for line in lines:
+			line = line.strip()
+			if "Acceptance Criteria" in line:
+				in_acceptance_section = True
+				continue
+			elif line.startswith("##") and in_acceptance_section:
+				break
+			elif in_acceptance_section and line.startswith("- [ ]"):
+				criteria.append(line[6:])  # Remove "- [ ] "
 
-        return criteria
+		return criteria
 
-    def assess_complexity(self, estimated_hours: int) -> str:
-        """Assess technical complexity based on estimated hours"""
-        if estimated_hours <= 10:
-            return "Low"
-        elif estimated_hours <= 25:
-            return "Medium"
-        elif estimated_hours <= 40:
-            return "High"
-        else:
-            return "Very High"
+	def assess_complexity(self, estimated_hours: int) -> str:
+		"""Assess technical complexity based on estimated hours"""
+		if estimated_hours <= 10:
+			return "Low"
+		elif estimated_hours <= 25:
+			return "Medium"
+		elif estimated_hours <= 40:
+			return "High"
+		else:
+			return "Very High"
 
-    def extract_dependencies(self, description: str) -> List[str]:
-        """Extract dependencies from issue description"""
-        dependencies = []
-        lines = description.split('\n')
+	def extract_dependencies(self, description: str) -> List[str]:
+		"""Extract dependencies from issue description"""
+		dependencies = []
+		lines = description.split('\n')
 
-        for line in lines:
-            line = line.strip()
-            if "Dependencies" in line or "Requires" in line:
-                if "completion of" in line.lower():
-                    dependencies.append(line)
+		for line in lines:
+			line = line.strip()
+			if "Dependencies" in line or "Requires" in line:
+				if "completion of" in line.lower():
+					dependencies.append(line)
 
-        return dependencies
+		return dependencies
 
-    def save_individual_issue(self, issue: Dict[str, Any]):
-        """Save individual issue to markdown file"""
-        filename = f"issue_{issue['number']:03d}_{issue['title'].replace(' ', '_').replace(':', '').replace('/', '_').lower()}.md"
-        filepath = os.path.join(self.issues_dir, filename)
+	def save_individual_issue(self, issue: Dict[str, Any]):
+		"""Save individual issue to markdown file"""
+		filename = f"issue_{issue['number']:03d}_{issue['title'].replace(' ', '_').replace(':', '').replace('/', '_').lower()}.md"
+		filepath = os.path.join(self.issues_dir, filename)
 
-        with open(filepath, 'w', encoding='utf-8') as f:
-            f.write(f"# {issue['title']}\n\n")
-            f.write(f"**Issue Number:** #{issue['number']}\n")
-            f.write(f"**Priority:** {issue['priority']}\n")
-            f.write(f"**Epic:** {issue['epic']}\n")
-            f.write(f"**Milestone:** {issue['milestone']}\n")
-            f.write(f"**Labels:** {', '.join(issue['labels'])}\n")
-            f.write(f"**Assignee:** {issue['assignee']}\n")
-            f.write(f"**Estimated Hours:** {issue['estimated_hours']}\n")
-            f.write(f"**Complexity:** {issue['technical_complexity']}\n")
-            f.write(f"**Created:** {issue['created_at']}\n")
-            f.write(f"**Status:** {issue['status']}\n\n")
+		with open(filepath, 'w', encoding='utf-8') as f:
+			f.write(f"# {issue['title']}\n\n")
+			f.write(f"**Issue Number:** #{issue['number']}\n")
+			f.write(f"**Priority:** {issue['priority']}\n")
+			f.write(f"**Epic:** {issue['epic']}\n")
+			f.write(f"**Milestone:** {issue['milestone']}\n")
+			f.write(f"**Labels:** {', '.join(issue['labels'])}\n")
+			f.write(f"**Assignee:** {issue['assignee']}\n")
+			f.write(f"**Estimated Hours:** {issue['estimated_hours']}\n")
+			f.write(f"**Complexity:** {issue['technical_complexity']}\n")
+			f.write(f"**Created:** {issue['created_at']}\n")
+			f.write(f"**Status:** {issue['status']}\n\n")
 
-            f.write("## Description\n\n")
-            f.write(issue['description'])
-            f.write("\n\n")
+			f.write("## Description\n\n")
+			f.write(issue['description'])
+			f.write("\n\n")
 
-            if issue['acceptance_criteria']:
-                f.write("## Acceptance Criteria\n\n")
-                for criteria in issue['acceptance_criteria']:
-                    f.write(f"- [ ] {criteria}\n")
-                f.write("\n")
+			if issue['acceptance_criteria']:
+				f.write("## Acceptance Criteria\n\n")
+				for criteria in issue['acceptance_criteria']:
+					f.write(f"- [ ] {criteria}\n")
+				f.write("\n")
 
-            if issue['dependencies']:
-                f.write("## Dependencies\n\n")
-                for dep in issue['dependencies']:
-                    f.write(f"- {dep}\n")
-                f.write("\n")
+			if issue['dependencies']:
+				f.write("## Dependencies\n\n")
+				for dep in issue['dependencies']:
+					f.write(f"- {dep}\n")
+				f.write("\n")
 
-    def generate_kanban_board(self):
-        """Generate kanban board representation"""
+	def generate_kanban_board(self):
+		"""Generate kanban board representation"""
 
-        print("📋 Generating kanban board...")
+		print("📋 Generating kanban board...")
 
-        # Group issues by status and priority
-        kanban = {
-            "backlog": {"critical": [], "high": [], "medium": [], "low": []},
-            "todo": {"critical": [], "high": [], "medium": [], "low": []},
-            "in_progress": {"critical": [], "high": [], "medium": [], "low": []},
-            "review": {"critical": [], "high": [], "medium": [], "low": []},
-            "done": {"critical": [], "high": [], "medium": [], "low": []}
-        }
+		# Group issues by status and priority
+		kanban = {
+			"backlog": {"critical": [], "high": [], "medium": [], "low": []},
+			"todo": {"critical": [], "high": [], "medium": [], "low": []},
+			"in_progress": {"critical": [], "high": [], "medium": [], "low": []},
+			"review": {"critical": [], "high": [], "medium": [], "low": []},
+			"done": {"critical": [], "high": [], "medium": [], "low": []}
+		}
 
-        for issue in self.issues:
-            status = issue["status"]
-            priority = issue["priority"]
-            if status in kanban and priority in kanban[status]:
-                kanban[status][priority].append(issue)
+		for issue in self.issues:
+			status = issue["status"]
+			priority = issue["priority"]
+			if status in kanban and priority in kanban[status]:
+				kanban[status][priority].append(issue)
 
-        # Generate kanban HTML
-        kanban_html = self.generate_kanban_html(kanban)
-        html_path = os.path.join(self.kanban_dir, "project_kanban.html")
-        with open(html_path, 'w', encoding='utf-8') as f:
-            f.write(kanban_html)
+		# Generate kanban HTML
+		kanban_html = self.generate_kanban_html(kanban)
+		html_path = os.path.join(self.kanban_dir, "project_kanban.html")
+		with open(html_path, 'w', encoding='utf-8') as f:
+			f.write(kanban_html)
 
-        # Generate kanban JSON
-        kanban_path = os.path.join(self.kanban_dir, "kanban_data.json")
-        with open(kanban_path, 'w', encoding='utf-8') as f:
-            json.dump(kanban, f, indent=2, default=str)
+		# Generate kanban JSON
+		kanban_path = os.path.join(self.kanban_dir, "kanban_data.json")
+		with open(kanban_path, 'w', encoding='utf-8') as f:
+			json.dump(kanban, f, indent=2, default=str)
 
-        # Generate kanban markdown summary
-        self.generate_kanban_markdown(kanban)
+		# Generate kanban markdown summary
+		self.generate_kanban_markdown(kanban)
 
-    def generate_kanban_html(self, kanban: Dict) -> str:
-        """Generate HTML kanban board"""
+	def generate_kanban_html(self, kanban: Dict) -> str:
+		"""Generate HTML kanban board"""
 
-        html = """<!DOCTYPE html>
+		html = """<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DQ3 ROM Analysis - Project Kanban</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background: #f5f5f5; }
-        .kanban-board { display: flex; gap: 20px; overflow-x: auto; }
-        .column { background: white; border-radius: 8px; padding: 15px; min-width: 300px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-        .column h2 { margin-top: 0; text-align: center; border-bottom: 2px solid #ddd; padding-bottom: 10px; }
-        .priority-section { margin-bottom: 20px; }
-        .priority-header { font-weight: bold; color: #666; margin-bottom: 10px; }
-        .issue-card { background: #f9f9f9; border-left: 4px solid #ccc; margin-bottom: 10px; padding: 10px; border-radius: 4px; }
-        .issue-title { font-weight: bold; margin-bottom: 5px; }
-        .issue-meta { font-size: 0.8em; color: #666; }
-        .critical { border-left-color: #e74c3c; }
-        .high { border-left-color: #f39c12; }
-        .medium { border-left-color: #3498db; }
-        .low { border-left-color: #95a5a6; }
-        .stats { background: white; padding: 15px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-    </style>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>DQ3 ROM Analysis - Project Kanban</title>
+	<style>
+		body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background: #f5f5f5; }
+		.kanban-board { display: flex; gap: 20px; overflow-x: auto; }
+		.column { background: white; border-radius: 8px; padding: 15px; min-width: 300px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+		.column h2 { margin-top: 0; text-align: center; border-bottom: 2px solid #ddd; padding-bottom: 10px; }
+		.priority-section { margin-bottom: 20px; }
+		.priority-header { font-weight: bold; color: #666; margin-bottom: 10px; }
+		.issue-card { background: #f9f9f9; border-left: 4px solid #ccc; margin-bottom: 10px; padding: 10px; border-radius: 4px; }
+		.issue-title { font-weight: bold; margin-bottom: 5px; }
+		.issue-meta { font-size: 0.8em; color: #666; }
+		.critical { border-left-color: #e74c3c; }
+		.high { border-left-color: #f39c12; }
+		.medium { border-left-color: #3498db; }
+		.low { border-left-color: #95a5a6; }
+		.stats { background: white; padding: 15px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+	</style>
 </head>
 <body>
-    <h1>🎮 Dragon Quest III ROM Analysis - Project Kanban Board</h1>
+	<h1>🎮 Dragon Quest III ROM Analysis - Project Kanban Board</h1>
 
-    <div class="stats">
-        <h3>📊 Project Statistics</h3>
-        <p><strong>Total Issues:</strong> """ + str(len(self.issues)) + """</p>
-        <p><strong>Total Estimated Hours:</strong> """ + str(sum(issue['estimated_hours'] for issue in self.issues)) + """</p>
-        <p><strong>Generated:</strong> """ + datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S") + """</p>
-    </div>
+	<div class="stats">
+		<h3>📊 Project Statistics</h3>
+		<p><strong>Total Issues:</strong> """ + str(len(self.issues)) + """</p>
+		<p><strong>Total Estimated Hours:</strong> """ + str(sum(issue['estimated_hours'] for issue in self.issues)) + """</p>
+		<p><strong>Generated:</strong> """ + datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S") + """</p>
+	</div>
 
-    <div class="kanban-board">
+	<div class="kanban-board">
 """
 
-        columns = [
-            ("backlog", "📋 Backlog"),
-            ("todo", "📝 To Do"),
-            ("in_progress", "⚡ In Progress"),
-            ("review", "👀 Review"),
-            ("done", "✅ Done")
-        ]
+		columns = [
+			("backlog", "📋 Backlog"),
+			("todo", "📝 To Do"),
+			("in_progress", "⚡ In Progress"),
+			("review", "👀 Review"),
+			("done", "✅ Done")
+		]
 
-        for status, title in columns:
-            html += f'        <div class="column">\n            <h2>{title}</h2>\n'
+		for status, title in columns:
+			html += f'		<div class="column">\n			<h2>{title}</h2>\n'
 
-            for priority in ["critical", "high", "medium", "low"]:
-                if kanban[status][priority]:
-                    priority_emoji = {"critical": "🔥", "high": "⚠️", "medium": "📊", "low": "📝"}
-                    html += f'            <div class="priority-section">\n'
-                    html += f'                <div class="priority-header">{priority_emoji.get(priority, "📝")} {priority.title()} Priority</div>\n'
+			for priority in ["critical", "high", "medium", "low"]:
+				if kanban[status][priority]:
+					priority_emoji = {"critical": "🔥", "high": "⚠️", "medium": "📊", "low": "📝"}
+					html += f'			<div class="priority-section">\n'
+					html += f'				<div class="priority-header">{priority_emoji.get(priority, "📝")} {priority.title()} Priority</div>\n'
 
-                    for issue in kanban[status][priority]:
-                        html += f'                <div class="issue-card {priority}">\n'
-                        html += f'                    <div class="issue-title">#{issue["number"]} {issue["title"]}</div>\n'
-                        html += f'                    <div class="issue-meta">\n'
-                        html += f'                        Epic: {issue["epic"]} | Hours: {issue["estimated_hours"]} | {issue["assignee"]}\n'
-                        html += f'                    </div>\n'
-                        html += f'                </div>\n'
+					for issue in kanban[status][priority]:
+						html += f'				<div class="issue-card {priority}">\n'
+						html += f'					<div class="issue-title">#{issue["number"]} {issue["title"]}</div>\n'
+						html += f'					<div class="issue-meta">\n'
+						html += f'						Epic: {issue["epic"]} | Hours: {issue["estimated_hours"]} | {issue["assignee"]}\n'
+						html += f'					</div>\n'
+						html += f'				</div>\n'
 
-                    html += f'            </div>\n'
+					html += f'			</div>\n'
 
-            html += '        </div>\n'
+			html += '		</div>\n'
 
-        html += """    </div>
+		html += """	</div>
 </body>
 </html>"""
 
-        return html
+		return html
 
-    def generate_kanban_markdown(self, kanban: Dict):
-        """Generate markdown summary of kanban board"""
+	def generate_kanban_markdown(self, kanban: Dict):
+		"""Generate markdown summary of kanban board"""
 
-        kanban_md_path = os.path.join(self.kanban_dir, "kanban_summary.md")
+		kanban_md_path = os.path.join(self.kanban_dir, "kanban_summary.md")
 
-        with open(kanban_md_path, 'w', encoding='utf-8') as f:
-            f.write("# 🎮 Dragon Quest III ROM Analysis - Kanban Summary\n\n")
-            f.write(f"**Generated:** {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n\n")
-            f.write(f"**Total Issues:** {len(self.issues)}\n")
-            f.write(f"**Total Estimated Hours:** {sum(issue['estimated_hours'] for issue in self.issues)}\n\n")
+		with open(kanban_md_path, 'w', encoding='utf-8') as f:
+			f.write("# 🎮 Dragon Quest III ROM Analysis - Kanban Summary\n\n")
+			f.write(f"**Generated:** {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n\n")
+			f.write(f"**Total Issues:** {len(self.issues)}\n")
+			f.write(f"**Total Estimated Hours:** {sum(issue['estimated_hours'] for issue in self.issues)}\n\n")
 
-            # Epic summary
-            epics = {}
-            for issue in self.issues:
-                epic = issue['epic']
-                if epic not in epics:
-                    epics[epic] = {"count": 0, "hours": 0}
-                epics[epic]["count"] += 1
-                epics[epic]["hours"] += issue['estimated_hours']
+			# Epic summary
+			epics = {}
+			for issue in self.issues:
+				epic = issue['epic']
+				if epic not in epics:
+					epics[epic] = {"count": 0, "hours": 0}
+				epics[epic]["count"] += 1
+				epics[epic]["hours"] += issue['estimated_hours']
 
-            f.write("## 🏗️ Epics Summary\n\n")
-            for epic, data in sorted(epics.items()):
-                f.write(f"- **{epic}:** {data['count']} issues, {data['hours']} hours\n")
-            f.write("\n")
+			f.write("## 🏗️ Epics Summary\n\n")
+			for epic, data in sorted(epics.items()):
+				f.write(f"- **{epic}:** {data['count']} issues, {data['hours']} hours\n")
+			f.write("\n")
 
-            # Status breakdown
-            f.write("## 📊 Status Breakdown\n\n")
-            for status in ["backlog", "todo", "in_progress", "review", "done"]:
-                total_in_status = sum(len(kanban[status][priority]) for priority in kanban[status])
-                f.write(f"- **{status.replace('_', ' ').title()}:** {total_in_status} issues\n")
-            f.write("\n")
+			# Status breakdown
+			f.write("## 📊 Status Breakdown\n\n")
+			for status in ["backlog", "todo", "in_progress", "review", "done"]:
+				total_in_status = sum(len(kanban[status][priority]) for priority in kanban[status])
+				f.write(f"- **{status.replace('_', ' ').title()}:** {total_in_status} issues\n")
+			f.write("\n")
 
-            # Priority breakdown
-            priority_counts = {"critical": 0, "high": 0, "medium": 0, "low": 0}
-            for issue in self.issues:
-                priority_counts[issue['priority']] += 1
+			# Priority breakdown
+			priority_counts = {"critical": 0, "high": 0, "medium": 0, "low": 0}
+			for issue in self.issues:
+				priority_counts[issue['priority']] += 1
 
-            f.write("## 🎯 Priority Breakdown\n\n")
-            for priority, count in priority_counts.items():
-                emoji = {"critical": "🔥", "high": "⚠️", "medium": "📊", "low": "📝"}
-                f.write(f"- **{emoji[priority]} {priority.title()}:** {count} issues\n")
+			f.write("## 🎯 Priority Breakdown\n\n")
+			for priority, count in priority_counts.items():
+				emoji = {"critical": "🔥", "high": "⚠️", "medium": "📊", "low": "📝"}
+				f.write(f"- **{emoji[priority]} {priority.title()}:** {count} issues\n")
 
-    def generate_issues_report(self):
-        """Generate comprehensive issues report"""
+	def generate_issues_report(self):
+		"""Generate comprehensive issues report"""
 
-        print("📈 Generating comprehensive issues report...")
+		print("📈 Generating comprehensive issues report...")
 
-        report_path = os.path.join(self.reports_dir, "github_issues_report.md")
-        json_path = os.path.join(self.reports_dir, "github_issues_report.json")
+		report_path = os.path.join(self.reports_dir, "github_issues_report.md")
+		json_path = os.path.join(self.reports_dir, "github_issues_report.json")
 
-        # Calculate statistics
-        stats = self.calculate_issue_statistics()
+		# Calculate statistics
+		stats = self.calculate_issue_statistics()
 
-        # Generate markdown report
-        with open(report_path, 'w', encoding='utf-8') as f:
-            f.write("# 🎯 GitHub Issues Generation Report\n\n")
-            f.write(f"**Generated:** {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n\n")
+		# Generate markdown report
+		with open(report_path, 'w', encoding='utf-8') as f:
+			f.write("# 🎯 GitHub Issues Generation Report\n\n")
+			f.write(f"**Generated:** {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n\n")
 
-            f.write("## 📊 Summary Statistics\n\n")
-            f.write(f"- **Total Issues Created:** {stats['total_issues']}\n")
-            f.write(f"- **Total Estimated Hours:** {stats['total_hours']}\n")
-            f.write(f"- **Average Hours per Issue:** {stats['avg_hours']:.1f}\n")
-            f.write(f"- **Number of Epics:** {stats['epic_count']}\n")
-            f.write(f"- **Number of Milestones:** {stats['milestone_count']}\n\n")
+			f.write("## 📊 Summary Statistics\n\n")
+			f.write(f"- **Total Issues Created:** {stats['total_issues']}\n")
+			f.write(f"- **Total Estimated Hours:** {stats['total_hours']}\n")
+			f.write(f"- **Average Hours per Issue:** {stats['avg_hours']:.1f}\n")
+			f.write(f"- **Number of Epics:** {stats['epic_count']}\n")
+			f.write(f"- **Number of Milestones:** {stats['milestone_count']}\n\n")
 
-            f.write("## 🏗️ Epic Distribution\n\n")
-            for epic, data in sorted(stats['epics'].items()):
-                f.write(f"- **{epic}:** {data['count']} issues ({data['percentage']:.1f}%), {data['hours']} hours\n")
-            f.write("\n")
+			f.write("## 🏗️ Epic Distribution\n\n")
+			for epic, data in sorted(stats['epics'].items()):
+				f.write(f"- **{epic}:** {data['count']} issues ({data['percentage']:.1f}%), {data['hours']} hours\n")
+			f.write("\n")
 
-            f.write("## 📅 Milestone Distribution\n\n")
-            for milestone, data in sorted(stats['milestones'].items()):
-                f.write(f"- **{milestone}:** {data['count']} issues, {data['hours']} hours\n")
-            f.write("\n")
+			f.write("## 📅 Milestone Distribution\n\n")
+			for milestone, data in sorted(stats['milestones'].items()):
+				f.write(f"- **{milestone}:** {data['count']} issues, {data['hours']} hours\n")
+			f.write("\n")
 
-            f.write("## 🎯 Priority Distribution\n\n")
-            for priority, data in sorted(stats['priorities'].items()):
-                emoji = {"critical": "🔥", "high": "⚠️", "medium": "📊", "low": "📝"}
-                f.write(f"- **{emoji.get(priority, '📝')} {priority.title()}:** {data['count']} issues ({data['percentage']:.1f}%)\n")
-            f.write("\n")
+			f.write("## 🎯 Priority Distribution\n\n")
+			for priority, data in sorted(stats['priorities'].items()):
+				emoji = {"critical": "🔥", "high": "⚠️", "medium": "📊", "low": "📝"}
+				f.write(f"- **{emoji.get(priority, '📝')} {priority.title()}:** {data['count']} issues ({data['percentage']:.1f}%)\n")
+			f.write("\n")
 
-            f.write("## 🔧 Complexity Distribution\n\n")
-            for complexity, count in sorted(stats['complexity'].items()):
-                percentage = (count / stats['total_issues']) * 100
-                f.write(f"- **{complexity}:** {count} issues ({percentage:.1f}%)\n")
-            f.write("\n")
+			f.write("## 🔧 Complexity Distribution\n\n")
+			for complexity, count in sorted(stats['complexity'].items()):
+				percentage = (count / stats['total_issues']) * 100
+				f.write(f"- **{complexity}:** {count} issues ({percentage:.1f}%)\n")
+			f.write("\n")
 
-            f.write("## 📋 All Issues\n\n")
-            for issue in sorted(self.issues, key=lambda x: x['number']):
-                f.write(f"### #{issue['number']} {issue['title']}\n")
-                f.write(f"- **Epic:** {issue['epic']}\n")
-                f.write(f"- **Priority:** {issue['priority']}\n")
-                f.write(f"- **Milestone:** {issue['milestone']}\n")
-                f.write(f"- **Hours:** {issue['estimated_hours']}\n")
-                f.write(f"- **Labels:** {', '.join(issue['labels'])}\n\n")
+			f.write("## 📋 All Issues\n\n")
+			for issue in sorted(self.issues, key=lambda x: x['number']):
+				f.write(f"### #{issue['number']} {issue['title']}\n")
+				f.write(f"- **Epic:** {issue['epic']}\n")
+				f.write(f"- **Priority:** {issue['priority']}\n")
+				f.write(f"- **Milestone:** {issue['milestone']}\n")
+				f.write(f"- **Hours:** {issue['estimated_hours']}\n")
+				f.write(f"- **Labels:** {', '.join(issue['labels'])}\n\n")
 
-        # Generate JSON report
-        report_data = {
-            "metadata": {
-                "generated_at": datetime.datetime.now().isoformat(),
-                "tool_version": "1.0.0",
-                "total_issues": len(self.issues)
-            },
-            "statistics": stats,
-            "issues": self.issues
-        }
+		# Generate JSON report
+		report_data = {
+			"metadata": {
+				"generated_at": datetime.datetime.now().isoformat(),
+				"tool_version": "1.0.0",
+				"total_issues": len(self.issues)
+			},
+			"statistics": stats,
+			"issues": self.issues
+		}
 
-        with open(json_path, 'w', encoding='utf-8') as f:
-            json.dump(report_data, f, indent=2, default=str)
+		with open(json_path, 'w', encoding='utf-8') as f:
+			json.dump(report_data, f, indent=2, default=str)
 
-    def calculate_issue_statistics(self) -> Dict[str, Any]:
-        """Calculate comprehensive statistics about generated issues"""
+	def calculate_issue_statistics(self) -> Dict[str, Any]:
+		"""Calculate comprehensive statistics about generated issues"""
 
-        stats = {
-            "total_issues": len(self.issues),
-            "total_hours": sum(issue['estimated_hours'] for issue in self.issues),
-            "avg_hours": sum(issue['estimated_hours'] for issue in self.issues) / len(self.issues) if self.issues else 0,
-            "epics": {},
-            "milestones": {},
-            "priorities": {},
-            "complexity": {}
-        }
+		stats = {
+			"total_issues": len(self.issues),
+			"total_hours": sum(issue['estimated_hours'] for issue in self.issues),
+			"avg_hours": sum(issue['estimated_hours'] for issue in self.issues) / len(self.issues) if self.issues else 0,
+			"epics": {},
+			"milestones": {},
+			"priorities": {},
+			"complexity": {}
+		}
 
-        # Epic statistics
-        for issue in self.issues:
-            epic = issue['epic']
-            if epic not in stats['epics']:
-                stats['epics'][epic] = {"count": 0, "hours": 0}
-            stats['epics'][epic]["count"] += 1
-            stats['epics'][epic]["hours"] += issue['estimated_hours']
+		# Epic statistics
+		for issue in self.issues:
+			epic = issue['epic']
+			if epic not in stats['epics']:
+				stats['epics'][epic] = {"count": 0, "hours": 0}
+			stats['epics'][epic]["count"] += 1
+			stats['epics'][epic]["hours"] += issue['estimated_hours']
 
-        # Add percentages to epics
-        for epic in stats['epics']:
-            stats['epics'][epic]["percentage"] = (stats['epics'][epic]["count"] / stats['total_issues']) * 100
+		# Add percentages to epics
+		for epic in stats['epics']:
+			stats['epics'][epic]["percentage"] = (stats['epics'][epic]["count"] / stats['total_issues']) * 100
 
-        # Milestone statistics
-        for issue in self.issues:
-            milestone = issue['milestone']
-            if milestone not in stats['milestones']:
-                stats['milestones'][milestone] = {"count": 0, "hours": 0}
-            stats['milestones'][milestone]["count"] += 1
-            stats['milestones'][milestone]["hours"] += issue['estimated_hours']
+		# Milestone statistics
+		for issue in self.issues:
+			milestone = issue['milestone']
+			if milestone not in stats['milestones']:
+				stats['milestones'][milestone] = {"count": 0, "hours": 0}
+			stats['milestones'][milestone]["count"] += 1
+			stats['milestones'][milestone]["hours"] += issue['estimated_hours']
 
-        # Priority statistics
-        for issue in self.issues:
-            priority = issue['priority']
-            if priority not in stats['priorities']:
-                stats['priorities'][priority] = {"count": 0}
-            stats['priorities'][priority]["count"] += 1
+		# Priority statistics
+		for issue in self.issues:
+			priority = issue['priority']
+			if priority not in stats['priorities']:
+				stats['priorities'][priority] = {"count": 0}
+			stats['priorities'][priority]["count"] += 1
 
-        # Add percentages to priorities
-        for priority in stats['priorities']:
-            stats['priorities'][priority]["percentage"] = (stats['priorities'][priority]["count"] / stats['total_issues']) * 100
+		# Add percentages to priorities
+		for priority in stats['priorities']:
+			stats['priorities'][priority]["percentage"] = (stats['priorities'][priority]["count"] / stats['total_issues']) * 100
 
-        # Complexity statistics
-        for issue in self.issues:
-            complexity = issue['technical_complexity']
-            stats['complexity'][complexity] = stats['complexity'].get(complexity, 0) + 1
+		# Complexity statistics
+		for issue in self.issues:
+			complexity = issue['technical_complexity']
+			stats['complexity'][complexity] = stats['complexity'].get(complexity, 0) + 1
 
-        stats['epic_count'] = len(stats['epics'])
-        stats['milestone_count'] = len(stats['milestones'])
+		stats['epic_count'] = len(stats['epics'])
+		stats['milestone_count'] = len(stats['milestones'])
 
-        return stats
+		return stats
 
 def main():
-    """Main execution function"""
-    print("🎯 Starting GitHub Issues Generation for Dragon Quest III ROM Analysis")
-    print("=" * 80)
+	"""Main execution function"""
+	print("🎯 Starting GitHub Issues Generation for Dragon Quest III ROM Analysis")
+	print("=" * 80)
 
-    project_root = os.getcwd()
-    generator = GitHubIssueGenerator(project_root)
+	project_root = os.getcwd()
+	generator = GitHubIssueGenerator(project_root)
 
-    # Generate comprehensive issues
-    issue_count = generator.create_comprehensive_issues()
+	# Generate comprehensive issues
+	issue_count = generator.create_comprehensive_issues()
 
-    print("\n" + "=" * 80)
-    print("✅ GitHub Issues Generation Complete!")
-    print(f"📊 Generated {issue_count} comprehensive issues")
-    print(f"⏱️  Total estimated effort: {sum(issue['estimated_hours'] for issue in generator.issues)} hours")
-    print(f"📁 Issues saved to: {generator.issues_dir}")
-    print(f"📋 Kanban board: {generator.kanban_dir}/project_kanban.html")
-    print(f"📈 Reports saved to: {generator.reports_dir}")
+	print("\n" + "=" * 80)
+	print("✅ GitHub Issues Generation Complete!")
+	print(f"📊 Generated {issue_count} comprehensive issues")
+	print(f"⏱️  Total estimated effort: {sum(issue['estimated_hours'] for issue in generator.issues)} hours")
+	print(f"📁 Issues saved to: {generator.issues_dir}")
+	print(f"📋 Kanban board: {generator.kanban_dir}/project_kanban.html")
+	print(f"📈 Reports saved to: {generator.reports_dir}")
 
 if __name__ == "__main__":
-    main()
+	main()

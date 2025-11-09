@@ -1,0 +1,11 @@
+{
+    "rom_path": "static/Dragon Quest III - Soshite Densetsu he... (J).smc",
+    "output_dir": "test_plugin_output",
+    "plugins_run": [],
+    "plugin_results": {},
+    "errors": [
+        "Plugin Graphics Analyzer not loaded",
+        "Plugin Map Analyzer not loaded"
+    ],
+    "total_execution_time": 3.5762786865234375e-06
+}

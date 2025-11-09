@@ -1,0 +1,25 @@
+{
+    "name": "Graphics Analyzer",
+    "version": "1.0.0",
+    "description": "Analyzes graphics data structures",
+    "author": "Plugin Developer",
+    "plugin_type": "analyzer",
+    "entry_point": "plugin.py",
+    "dependencies": [],
+    "config_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+    },
+    "supported_rom_formats": [
+        "smc",
+        "sfc"
+    ],
+    "min_python_version": "3.8",
+    "max_python_version": "",
+    "tags": [
+        "analyzer"
+    ],
+    "homepage": "",
+    "license": ""
+}

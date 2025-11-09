@@ -1,0 +1,96 @@
+{
+    "rom_size": 4194304,
+    "total_patterns": 1,
+    "patterns_by_type": {
+        "pointers": 1
+    },
+    "summary": {
+        "rom_size_bytes": 4194304,
+        "total_patterns_found": 1,
+        "total_coverage_bytes": 1024,
+        "coverage_percentage": 0.0244140625,
+        "confidence_distribution": {
+            "very_high": 1
+        },
+        "average_scores_by_type": {
+            "pointers": 1.3
+        },
+        "patterns_by_type": {
+            "pointers": 1
+        },
+        "top_patterns": [
+            {
+                "offset": "0x001500",
+                "type": "pointers",
+                "score": 1.3,
+                "description": "Pointer table (512 pointers) (refined from 27072 overlapping patterns)"
+            }
+        ]
+    },
+    "analysis_time": 22.749861240386963,
+    "patterns": [
+        {
+            "offset": "0x001500",
+            "length": 1024,
+            "data_type": "pointers",
+            "confidence": "very_high",
+            "score": 1.3,
+            "features": {
+                "entropy": 0.7334519334559972,
+                "byte_distribution": 0.557551524626032,
+                "repetition_analysis": 0.027372391932710096,
+                "sequence_analysis": 0.007820136852394917,
+                "compression_ratio": 0.181640625,
+                "pointer_analysis": 1.0
+            },
+            "description": "Pointer table (512 pointers) (refined from 27072 overlapping patterns)",
+            "metadata": {
+                "printable_ratio": 0.23828125,
+                "japanese_ratio": 0.03125,
+                "likely_encoding": "ascii",
+                "palette_score": 0.3,
+                "tile_patterns": 0.2,
+                "suspected_format": "4bpp_tile_data",
+                "instruction_density": 0.28515625,
+                "addressing_patterns": 5,
+                "suspected_architecture": "65816",
+                "pointer_count": 512,
+                "ascending_ratio": 0.998046875,
+                "address_range": "$FFFF-$FFFF",
+                "tile_count": 512,
+                "unique_tiles": 1,
+                "max_tile_id": 1023,
+                "format": "16-bit_snes_tilemap",
+                "pattern_count": 420,
+                "dominant_type": "graphics",
+                "region_id": 63,
+                "entropy": 0.8762105630423752,
+                "mean_amplitude": 106.8193359375,
+                "amplitude_std": 69.57260411475929,
+                "rgb15_ratio": 0.0,
+                "color_count": 512,
+                "gradient_ratio": 0.998046875,
+                "palette_format": "unknown",
+                "detected_format": "",
+                "unique_values": 1,
+                "uniqueness_ratio": 0.0009765625,
+                "common_difference": 0,
+                "table_type": "arithmetic_progression",
+                "compression_ratio": 0.044921875,
+                "likely_compressed": true,
+                "context_before": {
+                    "length": 1024,
+                    "entropy": 0.7623649355687933,
+                    "zero_ratio": 0.087890625,
+                    "dominant_byte": 0
+                },
+                "context_after": {
+                    "length": 1024,
+                    "entropy": 0.7325866894420195,
+                    "zero_ratio": 0.0322265625,
+                    "dominant_byte": 4
+                }
+            }
+        }
+    ]
+}

@@ -1,0 +1,76 @@
+{
+    "system_status": {
+        "plugin_directory": "plugins",
+        "registry_status": "PluginRegistry(6 registered, 0 loaded)",
+        "total_plugins": 6,
+        "loaded_plugins": 0,
+        "enabled_plugins": 0,
+        "error_plugins": 0,
+        "websocket_server": false,
+        "connected_clients": 0,
+        "execution_history_count": 0,
+        "performance_metrics_available": 0,
+        "plugins_by_type": {
+            "analyzer": 2,
+            "extractor": 2,
+            "editor": 1,
+            "converter": 0,
+            "validator": 0,
+            "visualizer": 1
+        },
+        "plugin_statuses": {}
+    },
+    "plugin_registry": {
+        "plugin_directory": "plugins",
+        "total_plugins": 6,
+        "loaded_plugins": 0,
+        "plugins_by_type": {
+            "analyzer": 2,
+            "extractor": 2,
+            "editor": 1,
+            "converter": 0,
+            "validator": 0,
+            "visualizer": 1
+        },
+        "plugins": {
+            "Audio Extractor": {
+                "version": "1.0.0",
+                "type": "extractor",
+                "loaded": false,
+                "description": "Extracts audio samples and music"
+            },
+            "Graphics Analyzer": {
+                "version": "1.0.0",
+                "type": "analyzer",
+                "loaded": false,
+                "description": "Analyzes graphics data structures"
+            },
+            "Map Analyzer": {
+                "version": "1.0.0",
+                "type": "analyzer",
+                "loaded": false,
+                "description": "Analyzes game map data"
+            },
+            "ROM Patcher": {
+                "version": "1.0.0",
+                "type": "editor",
+                "loaded": false,
+                "description": "Applies patches to ROM files"
+            },
+            "Sprite Viewer": {
+                "version": "1.0.0",
+                "type": "visualizer",
+                "loaded": false,
+                "description": "Visualizes sprite data"
+            },
+            "Text Extractor": {
+                "version": "1.0.0",
+                "type": "extractor",
+                "loaded": false,
+                "description": "Extracts text strings from ROM"
+            }
+        }
+    },
+    "performance_metrics": {},
+    "execution_history": []
+}

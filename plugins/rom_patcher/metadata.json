@@ -1,0 +1,25 @@
+{
+    "name": "ROM Patcher",
+    "version": "1.0.0",
+    "description": "Applies patches to ROM files",
+    "author": "Plugin Developer",
+    "plugin_type": "editor",
+    "entry_point": "plugin.py",
+    "dependencies": [],
+    "config_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+    },
+    "supported_rom_formats": [
+        "smc",
+        "sfc"
+    ],
+    "min_python_version": "3.8",
+    "max_python_version": "",
+    "tags": [
+        "editor"
+    ],
+    "homepage": "",
+    "license": ""
+}

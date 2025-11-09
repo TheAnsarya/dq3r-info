@@ -1,0 +1,21 @@
+DRAGON QUEST III ROM - AI PATTERN ANALYSIS SUMMARY
+=======================================================
+
+ROM Size: 4,194,304 bytes
+Analysis Time: 22.75 seconds
+Total Patterns Found: 1
+
+PATTERNS BY TYPE:
+--------------------
+pointers       :      1 (100.0%)
+
+COVERAGE ANALYSIS:
+------------------
+Coverage: 0.0% of ROM
+Analyzed: 1,024 bytes
+
+TOP PATTERNS:
+-------------
+1. 0x001500 - pointers (score: 1.300)
+   Pointer table (512 pointers) (refined from 27072 overlapping patterns)
+

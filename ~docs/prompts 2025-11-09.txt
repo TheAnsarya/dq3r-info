@@ -35,6 +35,10 @@ run formatting on the files every prompt (tabs not spaces!); always make new iss
 
 git commit and push damnit!; run formatting on the files (tabs not spaces!) those python files are using spaces, fix it, use tabs!; always make new issues/todo-lists for every progress effort so that ALL progress is tracked; make a new branch for each issue and then merge it back into main when you're done and get rid of the old branch; start working the guthub issues; implement the changes to make it awesome for as long as you can and use up all the tokens for each session, do not waste my money - use the entire token space;
 
+No! the english translation rom is only for reference. The `Dragon Quest III - Soshite Densetsu he... (J).smc` rom is the source of truth and what we are disassembling and the build target.
+
+if a module isn't available, then add it! add the missing websockets module and pytest; put a timestamp on the IDE chat window for every response line using the _actual time_, not time since prompt started FOR EVERY SESSION AND PROMPT; run formatting on the files (tabs not spaces!); start working the github issues; implement the changes to make it awesome for as long as you can and use up all the tokens for each session, do not waste my money - use the entire token space;
+
 
 
 

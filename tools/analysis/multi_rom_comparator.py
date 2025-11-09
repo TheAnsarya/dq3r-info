@@ -115,9 +115,9 @@ class MultiROMComparator:
 		# Text encoding detection patterns
 		self.text_patterns = {
 			'dialogue': [0x00, 0x01, 0x02, 0x03],  # Common dialogue markers
-			'menu': [0x20, 0x21, 0x22, 0x23],      # Menu text markers
-			'item': [0x40, 0x41, 0x42],            # Item name markers
-			'monster': [0x50, 0x51, 0x52]          # Monster name markers
+			'menu': [0x20, 0x21, 0x22, 0x23],	  # Menu text markers
+			'item': [0x40, 0x41, 0x42],			# Item name markers
+			'monster': [0x50, 0x51, 0x52]		  # Monster name markers
 		}
 
 		# Known graphics regions for DQ3
@@ -201,9 +201,9 @@ class MultiROMComparator:
 		if len(data) % 1024 == 512:
 			return 512  # SMC header
 		elif len(data) % 1024 == 0:
-			return 0    # No header
+			return 0	# No header
 		else:
-			return 0    # Unknown, assume no header
+			return 0	# Unknown, assume no header
 
 	def identify_rom_variant(self, filename: str, data: bytes) -> Tuple[str, str, str]:
 		"""Identify ROM version, region, and language"""
@@ -659,7 +659,7 @@ class MultiROMComparator:
 		if diff_count < len(data1) * 0.1:
 			return "palette"  # Small changes likely palette
 		elif diff_count < len(data1) * 0.5:
-			return "tiles"    # Medium changes likely tile data
+			return "tiles"	# Medium changes likely tile data
 		else:
 			return "complete" # Large changes
 
@@ -848,7 +848,7 @@ class MultiROMComparator:
 					# Write current group
 					if len(current_data) <= 65535:  # IPS size limit
 						patch_data += struct.pack('>I', current_offset)[1:]  # 24-bit offset
-						patch_data += struct.pack('>H', len(current_data))    # 16-bit size
+						patch_data += struct.pack('>H', len(current_data))	# 16-bit size
 						patch_data += bytes(current_data)
 
 					# Start new group

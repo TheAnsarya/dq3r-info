@@ -1,0 +1,25 @@
+{
+    "name": "Text Extractor",
+    "version": "1.0.0",
+    "description": "Extracts text strings from ROM",
+    "author": "Plugin Developer",
+    "plugin_type": "extractor",
+    "entry_point": "plugin.py",
+    "dependencies": [],
+    "config_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+    },
+    "supported_rom_formats": [
+        "smc",
+        "sfc"
+    ],
+    "min_python_version": "3.8",
+    "max_python_version": "",
+    "tags": [
+        "extractor"
+    ],
+    "homepage": "",
+    "license": ""
+}
