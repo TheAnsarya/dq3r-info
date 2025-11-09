@@ -54,7 +54,7 @@
     },
     {
       "snes_address": 12713984,
-      "address_string": "$C4:0000", 
+      "address_string": "$C4:0000",
       "size": 4096,
       "estimated_tiles": 128,
       "format": "4bpp",
@@ -65,7 +65,7 @@
       "address_string": "$C5:0000",
       "size": 1024,
       "estimated_tiles": 32,
-      "format": "4bpp", 
+      "format": "4bpp",
       "confidence": 0.87
     },
     {
@@ -96,7 +96,7 @@
     {
       "id": 2,
       "source_address": 12648480,
-      "format": "4bpp", 
+      "format": "4bpp",
       "size": 32,
       "pattern_hash": "e5f6g7h8"
     },
@@ -104,7 +104,7 @@
       "id": 3,
       "source_address": 12648512,
       "format": "4bpp",
-      "size": 32, 
+      "size": 32,
       "pattern_hash": "i9j0k1l2"
     }
   ],

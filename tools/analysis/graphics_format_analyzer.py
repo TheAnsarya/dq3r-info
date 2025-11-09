@@ -119,9 +119,9 @@ class DQ3GraphicsAnalyzer:
         self.address_translator = SNESAddressTranslator(rom_size=len(self.rom_data))
 
         print(f"OK ROM loaded: {len(self.rom_data):,} bytes")
-        print(f"📊 SMC header: {self.smc_header_size} bytes")
-        print(f"📊 Analysis target: {len(self.rom_data) - self.smc_header_size:,} bytes")
-        print(f"🔧 SNES address translation: Active")
+        print(f"SMC header: {self.smc_header_size} bytes")
+        print(f"Analysis target: {len(self.rom_data) - self.smc_header_size:,} bytes")
+        print(f"SNES address translation: Active")
 
         return True
 

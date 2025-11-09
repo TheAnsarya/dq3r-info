@@ -1,9 +1,9 @@
 # GitHub Issue #11: Create Graphics Visualization Tools for Dragon Quest III
 
-**Priority:** HIGH  
-**Type:** Feature Enhancement  
-**Component:** Graphics Analysis & Visualization  
-**Date Created:** November 9, 2025  
+**Priority:** HIGH
+**Type:** Feature Enhancement
+**Component:** Graphics Analysis & Visualization
+**Date Created:** November 9, 2025
 **Depends On:** Issue #10 (HiROM Correction)
 
 ## 🎯 Objective
@@ -14,7 +14,7 @@ Develop comprehensive graphics visualization tools to display extracted Dragon Q
 
 With the successful implementation of HiROM address translation (Issue #10), our graphics analyzer now extracts **real Dragon Quest III graphics data**:
 - ✅ 8,463 palette candidates
-- ✅ 86,112 tiles extracted  
+- ✅ 86,112 tiles extracted
 - ✅ 694 graphics chunks analyzed
 - ✅ 1BPP, 2BPP, 4BPP format detection
 
@@ -25,7 +25,7 @@ With the successful implementation of HiROM address translation (Issue #10), our
 ### Core Functionality
 1. **SNES Graphics Format Support**
    - 1BPP (2 colors) - Text/UI elements
-   - 2BPP (4 colors) - Simple sprites  
+   - 2BPP (4 colors) - Simple sprites
    - 4BPP (16 colors) - Character sprites
    - 8BPP (256 colors) - Backgrounds
 
@@ -50,7 +50,7 @@ With the successful implementation of HiROM address translation (Issue #10), our
 ```
 tools/visualization/
 ├── graphics_viewer.py          # Main visualization tool
-├── snes_graphics_converter.py  # SNES format to image conversion  
+├── snes_graphics_converter.py  # SNES format to image conversion
 ├── palette_renderer.py         # Color palette visualization
 ├── tile_assembler.py           # Tile map assembly
 ├── sprite_organizer.py         # Sprite categorization
@@ -71,7 +71,7 @@ output/graphics/
 ```python
 class SNESGraphicsConverter:
     def convert_1bpp_to_image(data, palette) -> PIL.Image
-    def convert_2bpp_to_image(data, palette) -> PIL.Image  
+    def convert_2bpp_to_image(data, palette) -> PIL.Image
     def convert_4bpp_to_image(data, palette) -> PIL.Image
     def convert_8bpp_to_image(data, palette) -> PIL.Image
 ```
@@ -136,14 +136,14 @@ class PaletteRenderer:
 - [ ] Create basic palette color conversion (BGR555 → RGB)
 - [ ] Build tile rendering pipeline
 
-### Phase 2: Visualization Tools (Week 2)  
+### Phase 2: Visualization Tools (Week 2)
 - [ ] Develop tile sheet generators
 - [ ] Create palette swatch visualizations
 - [ ] Build sprite organization tools
 - [ ] Implement export functionality
 
 ### Phase 3: Interactive Gallery (Week 3)
-- [ ] Generate HTML gallery framework  
+- [ ] Generate HTML gallery framework
 - [ ] Add thumbnail navigation
 - [ ] Implement filtering and search
 - [ ] Create export/download features
@@ -214,7 +214,7 @@ graphics_location = translator.snes_to_rom_offset(0xC20000)  # HiROM
 - [ ] Generate organized tile sheets by category
 - [ ] Create interactive HTML gallery for browsing
 
-### Nice to Have  
+### Nice to Have
 - [ ] Animated GIF support for palette cycling
 - [ ] Tile map assembly for background reconstruction
 - [ ] Advanced sprite animation preview
@@ -234,7 +234,7 @@ graphics_location = translator.snes_to_rom_offset(0xC20000)  # HiROM
 - I want to **browse extracted assets** in an organized gallery
 - I want to **export graphics** for documentation and analysis
 
-### As a Researcher  
+### As a Researcher
 - I want to **study Dragon Quest III graphics** in detail
 - I want to **analyze color palettes** and artistic choices
 - I want to **document game assets** for preservation

@@ -1,9 +1,9 @@
 # GitHub Issue #12: Complete Dragon Quest III ROM Structure Analysis with HiROM
 
-**Priority:** HIGH  
-**Type:** Feature Enhancement  
-**Component:** ROM Structure Analysis  
-**Date Created:** November 9, 2025  
+**Priority:** HIGH
+**Type:** Feature Enhancement
+**Component:** ROM Structure Analysis
+**Date Created:** November 9, 2025
 **Depends On:** Issue #10 (HiROM Correction)
 
 ## 🎯 Objective
@@ -25,7 +25,7 @@ With the successful HiROM correction (Issue #10), we now have:
 ### ROM Layout Analysis (6MB HiROM)
 ```
 ROM Structure:
-$000000-$5FFFFF: 6MB Dragon Quest III data  
+$000000-$5FFFFF: 6MB Dragon Quest III data
 96 banks × 64KB = 6,291,456 bytes
 
 HiROM Address Mapping:
@@ -43,9 +43,9 @@ Additional banks at higher addresses
 - **Menu Systems** - User interface code
 - **Save/Load** - Game state management
 
-#### 2. Graphics Data Mapping  
+#### 2. Graphics Data Mapping
 - **Character Sprites** - Heroes, NPCs, monsters
-- **Background Graphics** - Overworld, towns, dungeons  
+- **Background Graphics** - Overworld, towns, dungeons
 - **UI Elements** - Menus, text boxes, icons
 - **Font Data** - Text character sets
 - **Animation Frames** - Sprite movement sequences
@@ -59,7 +59,7 @@ Additional banks at higher addresses
 #### 4. Game Data Tables
 - **Character Stats** - Level progression, abilities
 - **Item Database** - Weapons, armor, items
-- **Monster Data** - Enemy stats and behaviors  
+- **Monster Data** - Enemy stats and behaviors
 - **Spell System** - Magic effects and costs
 - **Shop Inventories** - Town merchant data
 
@@ -78,7 +78,7 @@ class DQ3ROMStructureAnalyzer:
     def __init__(self, project_root: str):
         self.address_translator = SNESAddressTranslator()
         self.hirom_mapping = self._build_hirom_map()
-    
+
     def analyze_complete_structure(self):
         return {
             'code_sections': self._analyze_code_regions(),
@@ -93,11 +93,11 @@ class DQ3ROMStructureAnalyzer:
 ```python
 class HiROMMemoryMapper:
     """Complete HiROM memory layout analysis"""
-    
+
     def map_bank_usage(self) -> Dict[str, List[int]]:
         return {
             'code_banks': [],      # 65816 assembly code
-            'graphics_banks': [],  # Sprite and tile data  
+            'graphics_banks': [],  # Sprite and tile data
             'audio_banks': [],     # Music and sound data
             'data_banks': [],      # Tables and constants
             'text_banks': []       # Dialogue and strings
@@ -111,7 +111,7 @@ class HiROMMemoryMapper:
 Target Areas:
 - Boot/initialization code
 - Main game loop
-- Battle system implementation  
+- Battle system implementation
 - Menu navigation logic
 - Save/load functionality
 - Graphics rendering routines
@@ -200,7 +200,7 @@ Output Formats:
 - [ ] Map function calls and program flow
 - [ ] Document critical game systems
 
-### Phase 3: Data Extraction (Week 3) 
+### Phase 3: Data Extraction (Week 3)
 - [ ] Extract and parse game data tables
 - [ ] Build item/character databases
 - [ ] Map monster and spell data
@@ -221,7 +221,7 @@ $C0:0000-$C0:FFFF: [Boot Code & Initialization]
 $C1:0000-$C1:FFFF: [Main Game Engine]
 $C2:0000-$C5:FFFF: [Graphics Data] ←verified
 $C6:0000-$C9:FFFF: [Audio Data]
-$CA:0000-$CD:FFFF: [Game Data Tables]  
+$CA:0000-$CD:FFFF: [Game Data Tables]
 $CE:0000-$CF:FFFF: [Text & Dialogue]
 [Additional banks...]
 ```
@@ -300,11 +300,11 @@ def analyze_data_at_address(snes_addr: str) -> Dict:
 ### Technical Outputs
 - [ ] **Complete ROM Memory Map** - HiROM bank usage documentation
 - [ ] **Game Content Database** - Structured data extraction
-- [ ] **Code Analysis Report** - Assembly routine documentation  
+- [ ] **Code Analysis Report** - Assembly routine documentation
 - [ ] **Graphics Asset Catalog** - Complete sprite/tile inventory
 - [ ] **Audio Structure Analysis** - Music and sound mapping
 
-### Research Documentation  
+### Research Documentation
 - [ ] **ROM Structure Guide** - Technical reference manual
 - [ ] **Game System Analysis** - How Dragon Quest III works internally
 - [ ] **Reverse Engineering Notes** - Discovery process documentation
@@ -320,7 +320,7 @@ def analyze_data_at_address(snes_addr: str) -> Dict:
 ### Must Have
 - [ ] Complete bank-by-bank analysis of 6MB ROM using HiROM
 - [ ] Identification and cataloging of major game components
-- [ ] Accurate extraction of character, item, and monster data  
+- [ ] Accurate extraction of character, item, and monster data
 - [ ] Comprehensive graphics location mapping
 - [ ] Functional text and dialogue extraction
 
@@ -333,7 +333,7 @@ def analyze_data_at_address(snes_addr: str) -> Dict:
 
 ### Quality Gates
 - [ ] **Data accuracy validated through game testing**
-- [ ] **Cross-references between components verified**  
+- [ ] **Cross-references between components verified**
 - [ ] **Documentation comprehensive and usable**
 - [ ] **Tools provide reliable, repeatable results**
 
@@ -345,7 +345,7 @@ This issue represents the **culmination of our HiROM correction work**, using ac
 
 - **Complete Game Understanding** - How Dragon Quest III works internally
 - **Content Preservation** - Comprehensive backup of game assets and data
-- **Modification Framework** - Tools for ROM customization and enhancement  
+- **Modification Framework** - Tools for ROM customization and enhancement
 - **Research Foundation** - Basis for advanced SNES development research
 
 **Expected Outcome:** Transform our project from basic graphics extraction to comprehensive Dragon Quest III reverse engineering and documentation.

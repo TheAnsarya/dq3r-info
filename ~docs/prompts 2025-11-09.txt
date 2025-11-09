@@ -19,9 +19,13 @@ you say there are 19 github issues but I don't see any in github? Where is all t
 
 put a timestamp on the IDE chat window for every response line so I know when it happened; Install WLA-DX assembler; then start working the guthub issues; make sure you're using the reference materials like `https://datacrystal.tcrf.net/wiki/Dragon_Quest_III_(SNES)/ROM_map` for the overworld format; continue and disassemble and document; implement the changes to make it awesome for as long as you can and use up all the tokens for each session, do not waste my money - use the entire token space; git commit and push every prompt; implement the changes to make it awesome for as long as you can and use up all the tokens for each session, do not waste my money - use the entire token space;
 
-put a timestamp on the IDE chat window for every response line using the actuakl time, not time since prompt started; for all new work, always make github issues before working; the graphics do nt look like  like anything in the game, make sure the address translation is correct: SNES addresses are NOT file addresses; start working the guthub issues; git commit and push every prompt; implement the changes to make it awesome for as long as you can and use up all the tokens for each session, do not waste my money - use the entire token space;
+put a timestamp on the IDE chat window for every response line using the actual time, not time since prompt started; for all new work, always make github issues before working; the graphics do not look like  like anything in the game, make sure the address translation is correct: SNES addresses are NOT file addresses; start working the guthub issues; git commit and push every prompt; implement the changes to make it awesome for as long as you can and use up all the tokens for each session, do not waste my money - use the entire token space;
 
+DQ3r uses HiROM not lorom
 
+put a timestamp on the IDE chat window for every response line using the actual time, not time since prompt started; start working the guthub issues;
+
+put a timestamp on the IDE chat window for every response line using the _actual time_, not time since prompt started; start working the guthub issues; implement the changes to make it awesome for as long as you can and use up all the tokens for each session, do not waste my money - use the entire token space;
 
 
 
