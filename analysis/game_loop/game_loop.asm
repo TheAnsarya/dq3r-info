@@ -3,7 +3,7 @@
 ; ROM: Dragon Quest III - english (patched).smc
 
 ; Input handler 1
-input_handler_4017:		; $A7E1
+input_handler_4017:		; $a7e1
 	phx                  ; Push X
 	db $12               ; Unknown opcode
 	sec                  ; Set carry flag

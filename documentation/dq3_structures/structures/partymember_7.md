@@ -2,7 +2,7 @@
 
 Character data structure for PartyMember_7
 
-**Base Address:** `$3A8D`  
+**Base Address:** `$3a8d`  
 **Total Size:** 60 bytes  
 **Type:** Character  
 **Coverage:** 60.0% documented
@@ -11,165 +11,165 @@ Character data structure for PartyMember_7
 
 ### `7_Level`
 
-**Offset:** `+00` (`$3A8D`)
+**Offset:** `+00` (`$3a8d`)
 **Size:** 1 byte
 **Type:** `uint8`
 
 Party member #7 - Level\nTop 7 bits are level, bottom bit unknown
 
-**Notes:** Raw offset: $3A8D
+**Notes:** Raw offset: $3a8d
 
 
 ### `7_XP`
 
-**Offset:** `+01` (`$3A8E`)
+**Offset:** `+01` (`$3a8e`)
 **Size:** 3 bytes
 **Type:** `uint24`
 
 Party member #7 - XP
 
-**Notes:** Raw offset: $3A8E
+**Notes:** Raw offset: $3a8e
 
 
 ### `7_HP_Max`
 
-**Offset:** `+04` (`$3A91`)
+**Offset:** `+04` (`$3a91`)
 **Size:** 2 bytes
 **Type:** `uint16`
 
 Party member #7 - Max HP
 
-**Notes:** Raw offset: $3A91
+**Notes:** Raw offset: $3a91
 
 
 ### `7_HP`
 
-**Offset:** `+06` (`$3A93`)
+**Offset:** `+06` (`$3a93`)
 **Size:** 2 bytes
 **Type:** `uint16`
 
 Party member #7 - Current HP
 
-**Notes:** Raw offset: $3A93
+**Notes:** Raw offset: $3a93
 
 
 ### `7_MP_Max`
 
-**Offset:** `+08` (`$3A95`)
+**Offset:** `+08` (`$3a95`)
 **Size:** 2 bytes
 **Type:** `uint16`
 
 Party member #7 - Max MP
 
-**Notes:** Raw offset: $3A95
+**Notes:** Raw offset: $3a95
 
 
 ### `7_MP`
 
-**Offset:** `+0A` (`$3A97`)
+**Offset:** `+0A` (`$3a97`)
 **Size:** 2 bytes
 **Type:** `uint16`
 
 Party member #7 - Current HP
 
-**Notes:** Raw offset: $3A97
+**Notes:** Raw offset: $3a97
 
 
 ### `7_Strength`
 
-**Offset:** `+0C` (`$3A99`)
+**Offset:** `+0C` (`$3a99`)
 **Size:** 1 byte
 **Type:** `uint8`
 
 Party member #7 - Strength stat
 
-**Notes:** Raw offset: $3A99
+**Notes:** Raw offset: $3a99
 
 
 ### `7_Agility`
 
-**Offset:** `+0D` (`$3A9A`)
+**Offset:** `+0D` (`$3a9a`)
 **Size:** 1 byte
 **Type:** `uint8`
 
 Party member #7 - Agility stat
 
-**Notes:** Raw offset: $3A9A
+**Notes:** Raw offset: $3a9a
 
 
 ### `7_Stamina`
 
-**Offset:** `+0E` (`$3A9B`)
+**Offset:** `+0E` (`$3a9b`)
 **Size:** 1 byte
 **Type:** `uint8`
 
 Party member #7 - Stamina stat
 
-**Notes:** Raw offset: $3A9B
+**Notes:** Raw offset: $3a9b
 
 
 ### `7_Wisdom`
 
-**Offset:** `+0F` (`$3A9C`)
+**Offset:** `+0F` (`$3a9c`)
 **Size:** 1 byte
 **Type:** `uint8`
 
 Party member #7 - Wisdom stat
 
-**Notes:** Raw offset: $3A9C
+**Notes:** Raw offset: $3a9c
 
 
 ### `7_Luck`
 
-**Offset:** `+10` (`$3A9D`)
+**Offset:** `+10` (`$3a9d`)
 **Size:** 1 byte
 **Type:** `uint8`
 
 Party member #7 - Luck stat, excluding equipment
 
-**Notes:** Raw offset: $3A9D
+**Notes:** Raw offset: $3a9d
 
 
 ### `7_Name`
 
-**Offset:** `+16` (`$3AA3`)
+**Offset:** `+16` (`$3aa3`)
 **Size:** 5 bytes
 **Type:** `string`
 
 Party member #7 - Name, 4 characters max, ends in AC
 
-**Notes:** Raw offset: $3AA3
+**Notes:** Raw offset: $3aa3
 
 
 ### `7_Bag_Number_Equiped`
 
-**Offset:** `+2E` (`$3ABB`)
+**Offset:** `+2E` (`$3abb`)
 **Size:** 1 byte
 **Type:** `uint8`
 
 Party member #7 - Number of items equipped
 
-**Notes:** Raw offset: $3ABB
+**Notes:** Raw offset: $3abb
 
 
 ### `7_Bag_Number_Carried`
 
-**Offset:** `+2F` (`$3ABC`)
+**Offset:** `+2F` (`$3abc`)
 **Size:** 1 byte
 **Type:** `uint8`
 
 Party member #7 - Number of items in bag
 
-**Notes:** Raw offset: $3ABC
+**Notes:** Raw offset: $3abc
 
 
 ### `7_Bag_Items`
 
-**Offset:** `+30` (`$3ABD`)
+**Offset:** `+30` (`$3abd`)
 **Size:** 12 bytes
 **Type:** `item_id`
 
 Party member #7 - Each byte is which item is in the bag slot
 
-**Notes:** Raw offset: $3ABD
+**Notes:** Raw offset: $3abd
 

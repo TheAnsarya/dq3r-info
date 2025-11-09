@@ -69,8 +69,8 @@ class BasicRing400:
 
                 # Encode: 10-bit address + 6-bit length
                 # Format: AAAAAAAA AALLLLL
-                byte1 = (match_addr >> 2) & 0xFF
-                byte2 = ((match_addr & 0x03) << 6) | (match_length & 0x3F)
+                byte1 = (match_addr >> 2) & 0xff
+                byte2 = ((match_addr & 0x03) << 6) | (match_length & 0x3f)
 
                 compressed.extend([byte1, byte2])
 
@@ -109,7 +109,7 @@ class BasicRing400:
             byte1 = compressed_data[data_pos]
 
             if byte1 & 0x80:  # Literal byte
-                literal = byte1 & 0x7F
+                literal = byte1 & 0x7f
                 decompressed.append(literal)
                 self._add_to_ring(literal)
                 data_pos += 1
@@ -121,8 +121,8 @@ class BasicRing400:
                 byte2 = compressed_data[data_pos + 1]
 
                 # Decode: 10-bit address + 6-bit length
-                match_addr = ((byte1 << 2) | (byte2 >> 6)) & 0x3FF
-                match_length = byte2 & 0x3F
+                match_addr = ((byte1 << 2) | (byte2 >> 6)) & 0x3ff
+                match_length = byte2 & 0x3f
 
                 # Copy from ring buffer
                 for _ in range(match_length):

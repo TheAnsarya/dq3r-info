@@ -203,12 +203,12 @@ class DQ3ProgressTracker:
             AssetInfo(AssetType.GRAPHICS_TILES, "Character Tiles", 0x200000, 0x10000, 32, "4bpp SNES format"),
             AssetInfo(AssetType.GRAPHICS_TILES, "Monster Tiles", 0x220000, 0x20000, 34, "4bpp SNES format"),
             AssetInfo(AssetType.GRAPHICS_TILES, "World Map Tiles", 0x180000, 0x8000, 24, "2bpp SNES format"),
-            AssetInfo(AssetType.GRAPHICS_TILES, "UI Tiles", 0x1A0000, 0x4000, 26, "2bpp SNES format"),
+            AssetInfo(AssetType.GRAPHICS_TILES, "UI Tiles", 0x1a0000, 0x4000, 26, "2bpp SNES format"),
         ]
 
         self.asset_inventory[AssetType.GRAPHICS_SPRITES] = [
             AssetInfo(AssetType.GRAPHICS_SPRITES, "Player Character Sprites", 0x240000, 0x8000, 36, "16x16 4bpp"),
-            AssetInfo(AssetType.GRAPHICS_SPRITES, "NPC Sprites", 0x250000, 0xC000, 37, "16x16 4bpp"),
+            AssetInfo(AssetType.GRAPHICS_SPRITES, "NPC Sprites", 0x250000, 0xc000, 37, "16x16 4bpp"),
             AssetInfo(AssetType.GRAPHICS_SPRITES, "Battle Effects", 0x260000, 0x6000, 38, "Variable size 4bpp"),
         ]
 
@@ -251,7 +251,7 @@ class DQ3ProgressTracker:
         self.asset_inventory[AssetType.DATA_MAPS] = [
             AssetInfo(AssetType.DATA_MAPS, "World Map Data", 0x600000, 0x4000, 96, "Compressed tilemap"),
             AssetInfo(AssetType.DATA_MAPS, "Town Maps", 0x604000, 0x8000, 96, "Compressed tilemaps"),
-            AssetInfo(AssetType.DATA_MAPS, "Dungeon Maps", 0x60C000, 0xA000, 96, "Compressed tilemaps"),
+            AssetInfo(AssetType.DATA_MAPS, "Dungeon Maps", 0x60c000, 0xa000, 96, "Compressed tilemaps"),
         ]
 
     def generate_progress_table(self) -> str:

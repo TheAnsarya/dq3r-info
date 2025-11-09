@@ -4,7 +4,7 @@ Total functions analyzed: 200
 
 ## Functions by Complexity
 
-### func_00_83A0 ($0003A0)
+### func_00_83a0 ($0003a0)
 - **Type**: game_logic
 - **Size**: 239 bytes
 - **Instructions**: 201
@@ -14,7 +14,7 @@ Total functions analyzed: 200
 - **Called from**: 0 locations
 - **Description**: ; 201 instructions, game logic processing
 
-### func_00_82A0 ($0002A0)
+### func_00_82a0 ($0002a0)
 - **Type**: game_logic
 - **Size**: 243 bytes
 - **Instructions**: 191
@@ -24,7 +24,7 @@ Total functions analyzed: 200
 - **Called from**: 0 locations
 - **Description**: ; 191 instructions, game logic processing
 
-### func_00_88C7 ($0008C7)
+### func_00_88c7 ($0008c7)
 - **Type**: graphics
 - **Size**: 443 bytes
 - **Instructions**: 197
@@ -34,7 +34,7 @@ Total functions analyzed: 200
 - **Called from**: 0 locations
 - **Description**: ; 197 instructions, uses A1T0L - DMA source address low channel 0, DAS0L - DMA size low channel 0, VMADDL - VRAM address low, graphics processing
 
-### func_00_82C0 ($0002C0)
+### func_00_82c0 ($0002c0)
 - **Type**: game_logic
 - **Size**: 211 bytes
 - **Instructions**: 168
@@ -44,7 +44,7 @@ Total functions analyzed: 200
 - **Called from**: 0 locations
 - **Description**: ; 168 instructions, game logic processing
 
-### func_00_88C9 ($0008C9)
+### func_00_88c9 ($0008c9)
 - **Type**: graphics
 - **Size**: 441 bytes
 - **Instructions**: 198
@@ -54,7 +54,7 @@ Total functions analyzed: 200
 - **Called from**: 0 locations
 - **Description**: ; 198 instructions, uses A1T0L - DMA source address low channel 0, DAS0L - DMA size low channel 0, VMADDL - VRAM address low, graphics processing
 
-### func_00_88D1 ($0008D1)
+### func_00_88d1 ($0008d1)
 - **Type**: graphics
 - **Size**: 433 bytes
 - **Instructions**: 196
@@ -64,7 +64,7 @@ Total functions analyzed: 200
 - **Called from**: 0 locations
 - **Description**: ; 196 instructions, uses A1T0L - DMA source address low channel 0, DAS0L - DMA size low channel 0, VMADDL - VRAM address low, graphics processing
 
-### func_00_88DF ($0008DF)
+### func_00_88df ($0008df)
 - **Type**: graphics
 - **Size**: 419 bytes
 - **Instructions**: 189
@@ -74,7 +74,7 @@ Total functions analyzed: 200
 - **Called from**: 0 locations
 - **Description**: ; 189 instructions, uses A1T0L - DMA source address low channel 0, DAS0L - DMA size low channel 0, VMADDL - VRAM address low, graphics processing
 
-### func_00_88F5 ($0008F5)
+### func_00_88f5 ($0008f5)
 - **Type**: graphics
 - **Size**: 397 bytes
 - **Instructions**: 180
@@ -104,7 +104,7 @@ Total functions analyzed: 200
 - **Called from**: 0 locations
 - **Description**: ; 168 instructions, uses A1T0L - DMA source address low channel 0, DAS0L - DMA size low channel 0, VMADDL - VRAM address low, graphics processing
 
-### func_00_83D2 ($0003D2)
+### func_00_83d2 ($0003d2)
 - **Type**: game_logic
 - **Size**: 189 bytes
 - **Instructions**: 161
@@ -114,7 +114,7 @@ Total functions analyzed: 200
 - **Called from**: 0 locations
 - **Description**: ; 161 instructions, game logic processing
 
-### func_00_890F ($00090F)
+### func_00_890f ($00090f)
 - **Type**: graphics
 - **Size**: 371 bytes
 - **Instructions**: 166
@@ -134,7 +134,7 @@ Total functions analyzed: 200
 - **Called from**: 0 locations
 - **Description**: ; 166 instructions, uses A1T0L - DMA source address low channel 0, DAS0L - DMA size low channel 0, VMADDL - VRAM address low, graphics processing
 
-### func_00_891C ($00091C)
+### func_00_891c ($00091c)
 - **Type**: graphics
 - **Size**: 358 bytes
 - **Instructions**: 162
@@ -154,7 +154,7 @@ Total functions analyzed: 200
 - **Called from**: 0 locations
 - **Description**: ; 161 instructions, uses A1T0L - DMA source address low channel 0, DAS0L - DMA size low channel 0, VMADDL - VRAM address low, graphics processing
 
-### func_00_83E0 ($0003E0)
+### func_00_83e0 ($0003e0)
 - **Type**: game_logic
 - **Size**: 175 bytes
 - **Instructions**: 149
@@ -164,7 +164,7 @@ Total functions analyzed: 200
 - **Called from**: 0 locations
 - **Description**: ; 149 instructions, game logic processing
 
-### func_00_830C ($00030C)
+### func_00_830c ($00030c)
 - **Type**: game_logic
 - **Size**: 135 bytes
 - **Instructions**: 108
@@ -204,7 +204,7 @@ Total functions analyzed: 200
 - **Called from**: 0 locations
 - **Description**: ; 123 instructions, game logic processing
 
-### func_00_896D ($00096D)
+### func_00_896d ($00096d)
 - **Type**: graphics
 - **Size**: 277 bytes
 - **Instructions**: 125
@@ -244,7 +244,7 @@ Total functions analyzed: 200
 - **Called from**: 0 locations
 - **Description**: ; 109 instructions, game logic processing
 
-### func_00_861F ($00061F)
+### func_00_861f ($00061f)
 - **Type**: graphics
 - **Size**: 129 bytes
 - **Instructions**: 54
@@ -264,7 +264,7 @@ Total functions analyzed: 200
 - **Called from**: 0 locations
 - **Description**: ; 107 instructions, uses A1T0L - DMA source address low channel 0, VMADDL - VRAM address low, graphics processing
 
-### func_00_877C ($00077C)
+### func_00_877c ($00077c)
 - **Type**: graphics
 - **Size**: 219 bytes
 - **Instructions**: 91
@@ -274,7 +274,7 @@ Total functions analyzed: 200
 - **Called from**: 0 locations
 - **Description**: ; 91 instructions, uses A1T0L - DMA source address low channel 0, MDMAEN - Select DMA channels, A1B0 - DMA source address bank channel 0, makes 1 calls, graphics processing
 
-### func_00_862B ($00062B)
+### func_00_862b ($00062b)
 - **Type**: graphics
 - **Size**: 117 bytes
 - **Instructions**: 51
@@ -324,7 +324,7 @@ Total functions analyzed: 200
 - **Called from**: 0 locations
 - **Description**: ; 79 instructions, uses A1T0L - DMA source address low channel 0, MDMAEN - Select DMA channels, A1B0 - DMA source address bank channel 0, graphics processing
 
-### func_00_89C1 ($0009C1)
+### func_00_89c1 ($0009c1)
 - **Type**: graphics
 - **Size**: 193 bytes
 - **Instructions**: 88
@@ -334,7 +334,7 @@ Total functions analyzed: 200
 - **Called from**: 0 locations
 - **Description**: ; 88 instructions, uses A1T0L - DMA source address low channel 0, VMADDL - VRAM address low, graphics processing
 
-### func_00_8A83 ($000A83)
+### func_00_8a83 ($000a83)
 - **Type**: graphics
 - **Size**: 146 bytes
 - **Instructions**: 69
@@ -354,7 +354,7 @@ Total functions analyzed: 200
 - **Called from**: 0 locations
 - **Description**: ; 43 instructions, uses INIDISP - Screen display, makes 8 calls, graphics processing
 
-### func_00_87BA ($0007BA)
+### func_00_87ba ($0007ba)
 - **Type**: graphics
 - **Size**: 157 bytes
 - **Instructions**: 62
@@ -364,7 +364,7 @@ Total functions analyzed: 200
 - **Called from**: 0 locations
 - **Description**: ; 62 instructions, uses A1T0L - DMA source address low channel 0, A1B0 - DMA source address bank channel 0, DAS0L - DMA size low channel 0, graphics processing
 
-### func_00_89E7 ($0009E7)
+### func_00_89e7 ($0009e7)
 - **Type**: graphics
 - **Size**: 155 bytes
 - **Instructions**: 71
@@ -374,7 +374,7 @@ Total functions analyzed: 200
 - **Called from**: 0 locations
 - **Description**: ; 71 instructions, uses A1T0L - DMA source address low channel 0, VMADDL - VRAM address low, graphics processing
 
-### func_00_8A87 ($000A87)
+### func_00_8a87 ($000a87)
 - **Type**: graphics
 - **Size**: 142 bytes
 - **Instructions**: 65
@@ -394,7 +394,7 @@ Total functions analyzed: 200
 - **Called from**: 0 locations
 - **Description**: ; 42 instructions, uses INIDISP - Screen display, makes 7 calls, graphics processing
 
-### func_00_87C9 ($0007C9)
+### func_00_87c9 ($0007c9)
 - **Type**: graphics
 - **Size**: 142 bytes
 - **Instructions**: 58
@@ -404,7 +404,7 @@ Total functions analyzed: 200
 - **Called from**: 0 locations
 - **Description**: ; 58 instructions, uses A1T0L - DMA source address low channel 0, MDMAEN - Select DMA channels, A1B0 - DMA source address bank channel 0, graphics processing
 
-### func_00_87D3 ($0007D3)
+### func_00_87d3 ($0007d3)
 - **Type**: graphics
 - **Size**: 132 bytes
 - **Instructions**: 55
@@ -414,7 +414,7 @@ Total functions analyzed: 200
 - **Called from**: 0 locations
 - **Description**: ; 55 instructions, uses A1T0L - DMA source address low channel 0, MDMAEN - Select DMA channels, A1B0 - DMA source address bank channel 0, makes 1 calls, graphics processing
 
-### func_00_8A8D ($000A8D)
+### func_00_8a8d ($000a8d)
 - **Type**: graphics
 - **Size**: 136 bytes
 - **Instructions**: 61
@@ -424,7 +424,7 @@ Total functions analyzed: 200
 - **Called from**: 0 locations
 - **Description**: ; 61 instructions, uses DMAP0 - DMA control register channel 0, BBAD0 - DMA destination register channel 0, A1T0L - DMA source address low channel 0, graphics processing
 
-### func_00_84A4 ($0004A4)
+### func_00_84a4 ($0004a4)
 - **Type**: graphics
 - **Size**: 108 bytes
 - **Instructions**: 51
@@ -434,7 +434,7 @@ Total functions analyzed: 200
 - **Called from**: 0 locations
 - **Description**: ; 51 instructions, uses INIDISP - Screen display, HDMAEN - Select HDMA channels, makes 4 calls, graphics processing
 
-### func_00_89F5 ($0009F5)
+### func_00_89f5 ($0009f5)
 - **Type**: graphics
 - **Size**: 141 bytes
 - **Instructions**: 66
@@ -444,7 +444,7 @@ Total functions analyzed: 200
 - **Called from**: 0 locations
 - **Description**: ; 66 instructions, uses A1T0L - DMA source address low channel 0, VMADDL - VRAM address low, graphics processing
 
-### func_00_84AB ($0004AB)
+### func_00_84ab ($0004ab)
 - **Type**: graphics
 - **Size**: 101 bytes
 - **Instructions**: 49
@@ -454,7 +454,7 @@ Total functions analyzed: 200
 - **Called from**: 0 locations
 - **Description**: ; 49 instructions, uses INIDISP - Screen display, HDMAEN - Select HDMA channels, makes 4 calls, graphics processing
 
-### func_00_8A00 ($000A00)
+### func_00_8a00 ($000a00)
 - **Type**: graphics
 - **Size**: 130 bytes
 - **Instructions**: 62
@@ -464,7 +464,7 @@ Total functions analyzed: 200
 - **Called from**: 0 locations
 - **Description**: ; 62 instructions, uses A1T0L - DMA source address low channel 0, VMADDL - VRAM address low, graphics processing
 
-### func_00_8C20 ($000C20)
+### func_00_8c20 ($000c20)
 - **Type**: graphics
 - **Size**: 115 bytes
 - **Instructions**: 54
@@ -474,7 +474,7 @@ Total functions analyzed: 200
 - **Called from**: 0 locations
 - **Description**: ; 54 instructions, uses DMAP0 - DMA control register channel 0, BBAD0 - DMA destination register channel 0, A1T0L - DMA source address low channel 0, graphics processing
 
-### func_00_84BB ($0004BB)
+### func_00_84bb ($0004bb)
 - **Type**: graphics
 - **Size**: 85 bytes
 - **Instructions**: 44
@@ -484,7 +484,7 @@ Total functions analyzed: 200
 - **Called from**: 0 locations
 - **Description**: ; 44 instructions, uses INIDISP - Screen display, makes 4 calls, graphics processing
 
-### func_00_8C1D ($000C1D)
+### func_00_8c1d ($000c1d)
 - **Type**: graphics
 - **Size**: 118 bytes
 - **Instructions**: 53
@@ -494,7 +494,7 @@ Total functions analyzed: 200
 - **Called from**: 0 locations
 - **Description**: ; 53 instructions, uses DMAP0 - DMA control register channel 0, BBAD0 - DMA destination register channel 0, A1T0L - DMA source address low channel 0, graphics processing
 
-### func_00_8C28 ($000C28)
+### func_00_8c28 ($000c28)
 - **Type**: graphics
 - **Size**: 107 bytes
 - **Instructions**: 50

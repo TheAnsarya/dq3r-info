@@ -247,8 +247,8 @@ class DQ3AssetExtractor:
             {"name": "character_sprites", "start": 0x200000, "size": 0x10000, "format": AssetFormat.SNES_4BPP},
             {"name": "monster_graphics", "start": 0x220000, "size": 0x20000, "format": AssetFormat.SNES_4BPP},
             {"name": "world_tiles", "start": 0x180000, "size": 0x8000, "format": AssetFormat.SNES_2BPP},
-            {"name": "ui_graphics", "start": 0x1A0000, "size": 0x4000, "format": AssetFormat.SNES_2BPP},
-            {"name": "font_data", "start": 0x1B0000, "size": 0x2000, "format": AssetFormat.SNES_2BPP},
+            {"name": "ui_graphics", "start": 0x1a0000, "size": 0x4000, "format": AssetFormat.SNES_2BPP},
+            {"name": "font_data", "start": 0x1b0000, "size": 0x2000, "format": AssetFormat.SNES_2BPP},
         ]
 
         for location in graphics_locations:

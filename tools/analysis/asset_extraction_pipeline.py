@@ -230,9 +230,9 @@ class AssetExtractionPipeline:
         valid_colors = 0
         for color in colors:
             # Check if it's a valid BGR555 color
-            blue = (color >> 10) & 0x1F
-            green = (color >> 5) & 0x1F
-            red = color & 0x1F
+            blue = (color >> 10) & 0x1f
+            green = (color >> 5) & 0x1f
+            red = color & 0x1f
 
             # Colors should be reasonable values
             if blue <= 31 and green <= 31 and red <= 31:
@@ -395,7 +395,7 @@ class AssetExtractionPipeline:
                 header = data[i]
 
                 # BRR header has specific bit patterns
-                shift = (header >> 4) & 0x0F
+                shift = (header >> 4) & 0x0f
                 filter = (header >> 2) & 0x03
                 end_flag = (header >> 1) & 0x01
                 loop_flag = header & 0x01
@@ -454,11 +454,11 @@ class AssetExtractionPipeline:
             return False
 
         # Look for common music command patterns
-        command_patterns = [0x00, 0x01, 0x02, 0x10, 0x20, 0x40, 0x80, 0xFF]
+        command_patterns = [0x00, 0x01, 0x02, 0x10, 0x20, 0x40, 0x80, 0xff]
 
         command_count = 0
         for byte in data[:16]:
-            if byte in command_patterns or (0x80 <= byte <= 0xFF):
+            if byte in command_patterns or (0x80 <= byte <= 0xff):
                 command_count += 1
 
         return command_count >= 8  # At least half should be commands

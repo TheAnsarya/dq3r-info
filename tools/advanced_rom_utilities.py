@@ -74,7 +74,7 @@ class AdvancedROMAnalyzer:
         # DQ3-specific data structures from our research
         self.dq3_structures = {
             "character_classes": {
-                "base_offset": 0xC4179E,
+                "base_offset": 0xc4179e,
                 "count": 9,
                 "size_each": 90,
                 "structure": {
@@ -87,7 +87,7 @@ class AdvancedROMAnalyzer:
             "monster_data": {
                 "base_offset": 0x180000,  # Estimated
                 "count": 155,
-                "terminator": 0xAC,
+                "terminator": 0xac,
                 "structure": {
                     "stats": {"size": 8},
                     "ai_script": {"variable": True},
@@ -178,8 +178,8 @@ class AdvancedROMAnalyzer:
         # Detect ROM mapping
         if len(self.rom_data) >= 0x10000:
             # Check common header locations
-            lorom_header = self._extract_snes_header(0x7FC0)
-            hirom_header = self._extract_snes_header(0xFFC0)
+            lorom_header = self._extract_snes_header(0x7fc0)
+            hirom_header = self._extract_snes_header(0xffc0)
 
             lorom_score = self._score_header(lorom_header)
             hirom_score = self._score_header(hirom_header)
@@ -217,16 +217,16 @@ class AdvancedROMAnalyzer:
                 "rom_size": header_data[0x27],
                 "ram_size": header_data[0x28],
                 "country": header_data[0x29],
-                "version": header_data[0x2B],
+                "version": header_data[0x2b],
             }
 
             # Calculate checksums
-            checksum = struct.unpack("<H", header_data[0x2E:0x30])[0]
-            checksum_comp = struct.unpack("<H", header_data[0x2C:0x2E])[0]
+            checksum = struct.unpack("<H", header_data[0x2e:0x30])[0]
+            checksum_comp = struct.unpack("<H", header_data[0x2c:0x2e])[0]
 
             header["checksum"] = checksum
             header["checksum_complement"] = checksum_comp
-            header["checksum_valid"] = (checksum ^ checksum_comp) == 0xFFFF
+            header["checksum_valid"] = (checksum ^ checksum_comp) == 0xffff
 
             return header
 
@@ -551,7 +551,7 @@ class AdvancedROMAnalyzer:
             byte = self.rom_data[i]
 
             # Common unused byte patterns
-            is_unused = byte in [0x00, 0xFF] or (byte == 0xEA)  # NOP instruction
+            is_unused = byte in [0x00, 0xff] or (byte == 0xea)  # NOP instruction
 
             if is_unused:
                 if current_region is None:
@@ -652,7 +652,7 @@ class AdvancedROMAnalyzer:
             if i + 1 < len(self.rom_data):
                 # Check for invalid 65816 opcodes (simplified)
                 opcode = self.rom_data[i]
-                if opcode in [0x02, 0x03, 0x0B, 0x0F]:  # Some undefined opcodes
+                if opcode in [0x02, 0x03, 0x0b, 0x0f]:  # Some undefined opcodes
                     invalid_instructions += 1
 
         if invalid_instructions > 100:  # Threshold for concern

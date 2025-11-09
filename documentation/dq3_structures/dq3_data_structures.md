@@ -85,7 +85,7 @@ Inventory and item management data
 
 ## PartyMember_10
 
-**Base Address:** `$3B41`  
+**Base Address:** `$3b41`  
 **Total Size:** 60 bytes  
 **Type:** Character  
 **Coverage:** 60.0% documented  
@@ -122,7 +122,7 @@ Character data structure for PartyMember_10
 
 ## PartyMember_11
 
-**Base Address:** `$3B7D`  
+**Base Address:** `$3b7d`  
 **Total Size:** 60 bytes  
 **Type:** Character  
 **Coverage:** 60.0% documented  
@@ -159,7 +159,7 @@ Character data structure for PartyMember_11
 
 ## PartyMember_12
 
-**Base Address:** `$3BB9`  
+**Base Address:** `$3bb9`  
 **Total Size:** 60 bytes  
 **Type:** Character  
 **Coverage:** 60.0% documented  
@@ -233,7 +233,7 @@ Character data structure for PartyMember_2
 
 ## PartyMember_3
 
-**Base Address:** `$399D`  
+**Base Address:** `$399d`  
 **Total Size:** 60 bytes  
 **Type:** Character  
 **Coverage:** 60.0% documented  
@@ -270,7 +270,7 @@ Character data structure for PartyMember_3
 
 ## PartyMember_4
 
-**Base Address:** `$39D9`  
+**Base Address:** `$39d9`  
 **Total Size:** 60 bytes  
 **Type:** Character  
 **Coverage:** 60.0% documented  
@@ -307,7 +307,7 @@ Character data structure for PartyMember_4
 
 ## PartyMember_5
 
-**Base Address:** `$3A15`  
+**Base Address:** `$3a15`  
 **Total Size:** 60 bytes  
 **Type:** Character  
 **Coverage:** 76.7% documented  
@@ -345,7 +345,7 @@ Character data structure for PartyMember_5
 
 ## PartyMember_6
 
-**Base Address:** `$3A51`  
+**Base Address:** `$3a51`  
 **Total Size:** 60 bytes  
 **Type:** Character  
 **Coverage:** 60.0% documented  
@@ -382,7 +382,7 @@ Character data structure for PartyMember_6
 
 ## PartyMember_7
 
-**Base Address:** `$3A8D`  
+**Base Address:** `$3a8d`  
 **Total Size:** 60 bytes  
 **Type:** Character  
 **Coverage:** 60.0% documented  
@@ -419,7 +419,7 @@ Character data structure for PartyMember_7
 
 ## PartyMember_8
 
-**Base Address:** `$3AC9`  
+**Base Address:** `$3ac9`  
 **Total Size:** 60 bytes  
 **Type:** Character  
 **Coverage:** 60.0% documented  
@@ -456,7 +456,7 @@ Character data structure for PartyMember_8
 
 ## PartyMember_9
 
-**Base Address:** `$3B05`  
+**Base Address:** `$3b05`  
 **Total Size:** 60 bytes  
 **Type:** Character  
 **Coverage:** 60.0% documented  

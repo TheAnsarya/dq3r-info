@@ -94,23 +94,23 @@ class DQ3AudioAnalyzer:
 
         # Common SPC-700 opcodes for audio analysis
         self.spc_opcodes = {
-            0x8F: ("MOV", "Direct page write"),
-            0xAF: ("MOV", "Indirect X write"),
-            0xC4: ("MOV", "Direct page read"),
-            0xE4: ("MOV", "Direct page read"),
-            0x3F: ("CALL", "Subroutine call"),
-            0x6F: ("RET", "Return from subroutine"),
-            0x2F: ("BRA", "Branch always"),
-            0xF0: ("BEQ", "Branch if equal"),
-            0xD0: ("BNE", "Branch if not equal"),
+            0x8f: ("MOV", "Direct page write"),
+            0xaf: ("MOV", "Indirect X write"),
+            0xc4: ("MOV", "Direct page read"),
+            0xe4: ("MOV", "Direct page read"),
+            0x3f: ("CALL", "Subroutine call"),
+            0x6f: ("RET", "Return from subroutine"),
+            0x2f: ("BRA", "Branch always"),
+            0xf0: ("BEQ", "Branch if equal"),
+            0xd0: ("BNE", "Branch if not equal"),
         }
 
         # Audio patterns to detect
         self.audio_patterns = {
-            "apu_communication": [0x8D, 0x40, 0x21],  # STA $2140
-            "music_data_load": [0xA9, 0x00, 0x8D, 0x41, 0x21],  # LDA #$00, STA $2141
-            "sound_trigger": [0xA9, 0x01, 0x8D, 0x42, 0x21],  # LDA #$01, STA $2142
-            "dsp_register": [0x8D, 0x43, 0x21],  # STA $2143 (DSP register)
+            "apu_communication": [0x8d, 0x40, 0x21],  # STA $2140
+            "music_data_load": [0xa9, 0x00, 0x8d, 0x41, 0x21],  # LDA #$00, STA $2141
+            "sound_trigger": [0xa9, 0x01, 0x8d, 0x42, 0x21],  # LDA #$01, STA $2142
+            "dsp_register": [0x8d, 0x43, 0x21],  # STA $2143 (DSP register)
         }
 
         print(f"🎵 Audio System Analyzer initialized")
@@ -337,7 +337,7 @@ class DQ3AudioAnalyzer:
             # Look for function entry patterns
             if i >= 3 and self.rom_data[i - 3 : i] == b"\x20\x00\x80":  # JSR $8000
                 return i
-            if i >= 0 and self.rom_data[i] in [0x48, 0xDA, 0x5A]:  # Function prologue
+            if i >= 0 and self.rom_data[i] in [0x48, 0xda, 0x5a]:  # Function prologue
                 return i
 
         return search_start
@@ -349,7 +349,7 @@ class DQ3AudioAnalyzer:
         for i in range(offset, search_end):
             if i < len(self.rom_data) and self.rom_data[i] in [
                 0x60,
-                0x6B,
+                0x6b,
                 0x40,
             ]:  # RTS, RTL, RTI
                 return i + 1
@@ -489,7 +489,7 @@ class DQ3AudioAnalyzer:
         for i in range(0, 32, 16):
             if i + 2 < len(data):
                 addr = struct.unpack("<H", data[i : i + 2])[0]
-                if not (0x8000 <= addr <= 0xFFFF):
+                if not (0x8000 <= addr <= 0xffff):
                     return False
 
         return True
@@ -501,7 +501,7 @@ class DQ3AudioAnalyzer:
 
         # Check if first two bytes form a valid address
         addr = struct.unpack("<H", data[0:2])[0]
-        if not (0x8000 <= addr <= 0xFFFF):
+        if not (0x8000 <= addr <= 0xffff):
             return False
 
         # Check if size is reasonable
@@ -529,7 +529,7 @@ class DQ3AudioAnalyzer:
             ).startswith(" $"):
                 try:
                     addr = int(inst["operand"].replace(" $", ""), 16)
-                    if 0x8000 <= addr <= 0xFFFF:
+                    if 0x8000 <= addr <= 0xffff:
                         sfx_refs.append(
                             {
                                 "address": addr,
@@ -644,8 +644,8 @@ class DQ3AudioAnalyzer:
             0x7: "Gain",
             0x8: "ENV",
             0x9: "OUT",
-            0xC: "Main Vol L",
-            0x1C: "Main Vol R",
+            0xc: "Main Vol L",
+            0x1c: "Main Vol R",
         }
 
         for func in self.audio_functions:
@@ -685,16 +685,16 @@ class DQ3AudioAnalyzer:
             "driver_size": 0x1000,  # Estimated
             "sample_area": 0x1200,  # Common sample storage
             "sample_size": 0x6000,  # Estimated
-            "stack_pointer": 0x01FF,  # SPC-700 stack
-            "io_ports": 0x00F4,  # SPC I/O ports
+            "stack_pointer": 0x01ff,  # SPC-700 stack
+            "io_ports": 0x00f4,  # SPC I/O ports
         }
 
         return memory_layout
 
     def _snes_to_rom_address(self, snes_addr: int) -> int:
         """Convert SNES address to ROM file offset"""
-        bank = (snes_addr >> 16) & 0xFF
-        offset = snes_addr & 0xFFFF
+        bank = (snes_addr >> 16) & 0xff
+        offset = snes_addr & 0xffff
 
         if bank < 0x80 and offset >= 0x8000:
             return (bank * 0x8000) + (offset - 0x8000)
@@ -712,21 +712,21 @@ class DQ3AudioAnalyzer:
 
         # 65816 opcodes for audio analysis
         opcodes = {
-            0x8D: ("STA", 3),
-            0xAD: ("LDA", 3),
-            0xA9: ("LDA", 2),
+            0x8d: ("STA", 3),
+            0xad: ("LDA", 3),
+            0xa9: ("LDA", 2),
             0x60: ("RTS", 1),
             0x20: ("JSR", 3),
-            0x4C: ("JMP", 3),
-            0xF0: ("BEQ", 2),
-            0xD0: ("BNE", 2),
+            0x4c: ("JMP", 3),
+            0xf0: ("BEQ", 2),
+            0xd0: ("BNE", 2),
             0x80: ("BRA", 2),
-            0xA2: ("LDX", 2),
-            0xA0: ("LDY", 2),
-            0x8E: ("STX", 3),
-            0x8C: ("STY", 3),
-            0xC9: ("CMP", 2),
-            0xE0: ("CPX", 2),
+            0xa2: ("LDX", 2),
+            0xa0: ("LDY", 2),
+            0x8e: ("STX", 3),
+            0x8c: ("STY", 3),
+            0xc9: ("CMP", 2),
+            0xe0: ("CPX", 2),
         }
 
         while offset < end_offset:

@@ -61,7 +61,7 @@ class ROMAnalyzer:
         }
 
         # Check for SNES header at common locations
-        header_locations = [0x7FC0, 0xFFC0, 0x81C0, 0x101C0]  # LoROM/HiROM variants
+        header_locations = [0x7fc0, 0xffc0, 0x81c0, 0x101c0]  # LoROM/HiROM variants
 
         best_header = None
         best_score = 0
@@ -92,7 +92,7 @@ class ROMAnalyzer:
 
         # Check game title (bytes 0-20) - should be printable ASCII/Shift-JIS
         title = header_data[0:21]
-        printable_chars = sum(1 for b in title if 0x20 <= b <= 0x7E or b == 0x00)
+        printable_chars = sum(1 for b in title if 0x20 <= b <= 0x7e or b == 0x00)
         if printable_chars >= 15:  # Most characters should be printable
             score += 30
 
@@ -103,12 +103,12 @@ class ROMAnalyzer:
 
         # Check cart type (byte 22)
         cart_type = header_data[22]
-        if cart_type in [0x00, 0x01, 0x02, 0x03, 0x05, 0x1A]:  # Common cart types
+        if cart_type in [0x00, 0x01, 0x02, 0x03, 0x05, 0x1a]:  # Common cart types
             score += 15
 
         # Check ROM size (byte 23) - should be reasonable
         rom_size = header_data[23]
-        if 0x07 <= rom_size <= 0x0D:  # 128KB to 8MB range
+        if 0x07 <= rom_size <= 0x0d:  # 128KB to 8MB range
             score += 15
 
         # Check RAM size (byte 24)
@@ -134,7 +134,7 @@ class ROMAnalyzer:
         offset = header_info["offset"]
 
         # Determine ROM mapping
-        rom_type = "LoROM" if offset in [0x7FC0, 0x81C0] else "HiROM"
+        rom_type = "LoROM" if offset in [0x7fc0, 0x81c0] else "HiROM"
 
         # Parse header fields
         title_bytes = data[0:21]
@@ -153,7 +153,7 @@ class ROMAnalyzer:
         checksum = struct.unpack("<H", data[30:32])[0]
 
         # Calculate actual ROM size
-        if rom_size_code <= 0x0D:
+        if rom_size_code <= 0x0d:
             actual_rom_size = 1024 << rom_size_code  # 2^(rom_size_code + 10)
         else:
             actual_rom_size = self.rom_size
@@ -193,10 +193,10 @@ class ROMAnalyzer:
         for i, byte in enumerate(self.rom_data):
             # Check if byte could be part of text
             if (
-                0x20 <= byte <= 0x7E  # ASCII printable
-                or 0x81 <= byte <= 0x9F  # Shift-JIS first byte range 1
-                or 0xE0 <= byte <= 0xFC  # Shift-JIS first byte range 2
-                or byte in [0x0A, 0x0D, 0x00]
+                0x20 <= byte <= 0x7e  # ASCII printable
+                or 0x81 <= byte <= 0x9f  # Shift-JIS first byte range 1
+                or 0xe0 <= byte <= 0xfc  # Shift-JIS first byte range 2
+                or byte in [0x0a, 0x0d, 0x00]
             ):  # Control characters
 
                 if not current_text:
@@ -229,19 +229,19 @@ class ROMAnalyzer:
 
         dq3_data = {}
 
-        # Character Classes analysis ($C4179E - $C424A8)
-        classes_start = 0xC4179E - 0xC00000  # Convert to ROM offset
-        if classes_start >= 0 and classes_start + 0xD0B < self.rom_size:
+        # Character Classes analysis ($c4179e - $c424a8)
+        classes_start = 0xc4179e - 0xc00000  # Convert to ROM offset
+        if classes_start >= 0 and classes_start + 0xd0b < self.rom_size:
             dq3_data["character_classes"] = self.analyze_character_classes(classes_start)
 
-        # Monster data analysis ($3ED964 - $3EE0DB)
-        monsters_start = 0x3ED964 - 0xC00000  # Convert to ROM offset
+        # Monster data analysis ($3ed964 - $3ee0db)
+        monsters_start = 0x3ed964 - 0xc00000  # Convert to ROM offset
         if monsters_start >= 0 and monsters_start + 0x777 < self.rom_size:
             dq3_data["monsters"] = self.analyze_monster_data(monsters_start)
 
-        # Dialog font analysis ($C151AA - $C152A3)
-        font_start = 0xC151AA - 0xC00000  # Convert to ROM offset
-        if font_start >= 0 and font_start + 0xFA < self.rom_size:
+        # Dialog font analysis ($c151aa - $c152a3)
+        font_start = 0xc151aa - 0xc00000  # Convert to ROM offset
+        if font_start >= 0 and font_start + 0xfa < self.rom_size:
             dq3_data["dialog_font"] = self.analyze_dialog_font(font_start)
 
         # Text string analysis using DQ3 encoding
@@ -276,32 +276,32 @@ class ROMAnalyzer:
                     {
                         "id": i,
                         "name": (class_names[i] if i < len(class_names) else f"Unknown_{i}"),
-                        "offset": f"0x{class_offset + 0xC00000:06X}",
+                        "offset": f"0x{class_offset + 0xc00000:06X}",
                         "name_index": name_index,
                         "size": 0x173,
                     }
                 )
 
-        return {"count": len(classes), "total_size": 0xD0B, "classes": classes}
+        return {"count": len(classes), "total_size": 0xd0b, "classes": classes}
 
     def analyze_monster_data(self, offset: int) -> Dict[str, Any]:
         """Analyze monster data structures"""
         monsters = []
 
-        # Monster names start at $3ED964 with variable-length names ending in $AC
+        # Monster names start at $3ed964 with variable-length names ending in $ac
         current_offset = offset
         monster_id = 1
 
         while current_offset < self.rom_size and monster_id <= 155:
-            # Find name terminator ($AC)
+            # Find name terminator ($ac)
             name_start = current_offset
             name_end = name_start
 
-            # Look for $AC terminator within reasonable distance
+            # Look for $ac terminator within reasonable distance
             for i in range(20):  # Max name length
                 if name_start + i >= self.rom_size:
                     break
-                if self.rom_data[name_start + i] == 0xAC:
+                if self.rom_data[name_start + i] == 0xac:
                     name_end = name_start + i
                     break
 
@@ -310,7 +310,7 @@ class ROMAnalyzer:
                 monsters.append(
                     {
                         "id": monster_id,
-                        "name_offset": f"0x{name_start + 0xC00000:06X}",
+                        "name_offset": f"0x{name_start + 0xc00000:06X}",
                         "name_length": name_end - name_start + 1,  # Include terminator
                         "name_hex": " ".join(f"{b:02X}" for b in name_bytes),
                     }
@@ -334,10 +334,10 @@ class ROMAnalyzer:
                 # Parse font structure: gggggggg wwwwgggg aaaaaaaa aaaaaaaa 00hhhh00
                 raw = struct.unpack(">BBBBB", font_data)
 
-                group_size = ((raw[0] << 4) | (raw[1] >> 4)) & 0xFFF
-                width = raw[1] & 0x0F
+                group_size = ((raw[0] << 4) | (raw[1] >> 4)) & 0xfff
+                width = raw[1] & 0x0f
                 address = (raw[2] << 8) | raw[3]
-                height = (raw[4] >> 2) & 0x0F
+                height = (raw[4] >> 2) & 0x0f
 
                 fonts.append(
                     {
@@ -345,24 +345,24 @@ class ROMAnalyzer:
                         "group_size": group_size,
                         "width": width,
                         "height": height,
-                        "address": f"0x{address + 0xC10000:06X}",  # Add bank
+                        "address": f"0x{address + 0xc10000:06X}",  # Add bank
                         "raw_data": " ".join(f"{b:02X}" for b in font_data),
                     }
                 )
 
-        return {"count": len(fonts), "total_size": 0xFA, "fonts": fonts}
+        return {"count": len(fonts), "total_size": 0xfa, "fonts": fonts}
 
     def analyze_dq3_text(self) -> Dict[str, Any]:
         """Analyze DQ3 text encoding and find strings"""
         text_strings = []
 
-        # DQ3 uses $AC as string terminator
-        # Look for sequences ending with $AC
+        # DQ3 uses $ac as string terminator
+        # Look for sequences ending with $ac
         current_pos = 0
 
         while current_pos < self.rom_size - 1:
-            # Look for $AC terminator
-            ac_pos = self.rom_data.find(0xAC, current_pos)
+            # Look for $ac terminator
+            ac_pos = self.rom_data.find(0xac, current_pos)
             if ac_pos == -1:
                 break
 
@@ -371,7 +371,7 @@ class ROMAnalyzer:
             for i in range(ac_pos - 1, string_start - 1, -1):
                 byte = self.rom_data[i]
                 # Look for likely string start (printable characters, etc.)
-                if byte < 0x01 or byte > 0xFE:  # Outside reasonable range
+                if byte < 0x01 or byte > 0xfe:  # Outside reasonable range
                     string_start = i + 1
                     break
 

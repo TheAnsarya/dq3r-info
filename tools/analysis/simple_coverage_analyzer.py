@@ -121,7 +121,7 @@ class SimpleCoverageAnalyzer:
                 value = struct.unpack('<H', self.rom_data[offset:offset+2])[0]
 
                 # Check if this could be a valid ROM address
-                if 0x8000 <= value <= 0xFFFF:
+                if 0x8000 <= value <= 0xffff:
                     # Convert to ROM offset (assuming LoROM mapping)
                     rom_offset = ((value - 0x8000) % 0x8000)
                     if rom_offset < self.rom_size:
@@ -132,11 +132,11 @@ class SimpleCoverageAnalyzer:
         # Scan for 24-bit pointers
         for offset in range(0, self.rom_size - 4):
             if offset + 3 < self.rom_size:
-                value = struct.unpack('<I', self.rom_data[offset:offset+4])[0] & 0xFFFFFF
+                value = struct.unpack('<I', self.rom_data[offset:offset+4])[0] & 0xffffff
 
                 # Check for valid SNES address format
                 if (value & 0x8000) and (value < 0x400000):
-                    rom_offset = ((value & 0x3F0000) >> 1) + (value & 0x7FFF)
+                    rom_offset = ((value & 0x3f0000) >> 1) + (value & 0x7fff)
                     if rom_offset < self.rom_size:
                         if offset not in pointer_map:
                             pointer_map[offset] = []
@@ -282,8 +282,8 @@ class SimpleCoverageAnalyzer:
         # Check for 2bpp/4bpp patterns (graphics often have these bit patterns)
         nibble_counts = Counter()
         for byte in data:
-            nibble_counts[byte & 0x0F] += 1
-            nibble_counts[(byte & 0xF0) >> 4] += 1
+            nibble_counts[byte & 0x0f] += 1
+            nibble_counts[(byte & 0xf0) >> 4] += 1
 
         # Graphics data often has specific nibble distributions
         most_common = nibble_counts.most_common(4)

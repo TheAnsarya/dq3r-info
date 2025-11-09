@@ -49,7 +49,7 @@ Generated: 2025-11-09 01:20:03
    ⏳ Character Tiles           $200000 (65,536 bytes)
    ⏳ Monster Tiles             $220000 (131,072 bytes)
    ⏳ World Map Tiles           $180000 (32,768 bytes)
-   ⏳ UI Tiles                  $1A0000 (16,384 bytes)
+   ⏳ UI Tiles                  $1a0000 (16,384 bytes)
 
 📦 Graphics Sprites
    [░░░░░░░░░░░░░░░░░░░░] 0.0% (0/3)
@@ -105,7 +105,7 @@ Generated: 2025-11-09 01:20:03
 
    ⏳ World Map Data            $600000 (16,384 bytes)
    ⏳ Town Maps                 $604000 (32,768 bytes)
-   ⏳ Dungeon Maps              $60C000 (40,960 bytes)
+   ⏳ Dungeon Maps              $60c000 (40,960 bytes)
 
 
 📋 DETAILED BREAKDOWN
@@ -177,12 +177,12 @@ Generated: 2025-11-09 01:20:03
    Bank $07: 📊 Medium Activity Program code
    Bank $08: 🔥 High Activity Program code
    Bank $09: 🔥 High Activity Program code
-   Bank $0A: 🔥 High Activity Program code
-   Bank $0B: 🔥 High Activity Program code
-   Bank $0C: 🔥 High Activity Program code
-   Bank $0D: 🔥 High Activity Program code
-   Bank $0E: 🔥 High Activity Program code
-   Bank $0F: 🔥 High Activity Program code
+   Bank $0a: 🔥 High Activity Program code
+   Bank $0b: 🔥 High Activity Program code
+   Bank $0c: 🔥 High Activity Program code
+   Bank $0d: 🔥 High Activity Program code
+   Bank $0e: 🔥 High Activity Program code
+   Bank $0f: 🔥 High Activity Program code
 
 
 📈 SUMMARY STATISTICS

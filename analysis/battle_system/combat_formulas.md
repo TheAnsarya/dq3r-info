@@ -1,14 +1,14 @@
 # Dragon Quest III - Combat Formulas
 
 ## rng_func_AF3E_formula
-- **Address:** $AF3E
+- **Address:** $af3e
 - **Type:** multiplication_based
 - **Variables:** 
 - **Operations:** SHIFT, ADD
 - **Constants:** []
 
-## damage_formula_2C045
-- **Address:** $C045
+## damage_formula_2c045
+- **Address:** $c045
 - **Type:** damage
 - **Variables:** attack, defense
 - **Operations:** MUL, SUB

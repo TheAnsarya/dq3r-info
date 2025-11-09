@@ -45,19 +45,19 @@ class DQ3DeepAnalyzer:
             0x38: ("SEC", 1, "Set carry flag"),
             0x58: ("CLI", 1, "Clear interrupt disable"),
             0x78: ("SEI", 1, "Set interrupt disable"),
-            0xC2: ("REP", 2, "Reset processor status"),
-            0xE2: ("SEP", 2, "Set processor status"),
-            0xFB: ("XCE", 1, "Exchange carry and emulation"),
-            0xA9: ("LDA", 2, "Load accumulator immediate"),
-            0xAD: ("LDA", 3, "Load accumulator absolute"),
-            0x8D: ("STA", 3, "Store accumulator absolute"),
-            0x9C: ("STZ", 3, "Store zero absolute"),
-            0x4C: ("JMP", 3, "Jump absolute"),
-            0x5C: ("JML", 4, "Jump long"),
+            0xc2: ("REP", 2, "Reset processor status"),
+            0xe2: ("SEP", 2, "Set processor status"),
+            0xfb: ("XCE", 1, "Exchange carry and emulation"),
+            0xa9: ("LDA", 2, "Load accumulator immediate"),
+            0xad: ("LDA", 3, "Load accumulator absolute"),
+            0x8d: ("STA", 3, "Store accumulator absolute"),
+            0x9c: ("STZ", 3, "Store zero absolute"),
+            0x4c: ("JMP", 3, "Jump absolute"),
+            0x5c: ("JML", 4, "Jump long"),
             0x20: ("JSR", 3, "Jump subroutine"),
             0x22: ("JSL", 4, "Jump subroutine long"),
             0x60: ("RTS", 1, "Return from subroutine"),
-            0x6B: ("RTL", 1, "Return from subroutine long"),
+            0x6b: ("RTL", 1, "Return from subroutine long"),
             0x40: ("RTI", 1, "Return from interrupt"),
             0x80: ("BRA", 2, "Branch always"),
             0x10: ("BPL", 2, "Branch plus"),
@@ -65,10 +65,10 @@ class DQ3DeepAnalyzer:
             0x50: ("BVC", 2, "Branch overflow clear"),
             0x70: ("BVS", 2, "Branch overflow set"),
             0x90: ("BCC", 2, "Branch carry clear"),
-            0xB0: ("BCS", 2, "Branch carry set"),
-            0xD0: ("BNE", 2, "Branch not equal"),
-            0xF0: ("BEQ", 2, "Branch equal"),
-            0xEA: ("NOP", 1, "No operation"),
+            0xb0: ("BCS", 2, "Branch carry set"),
+            0xd0: ("BNE", 2, "Branch not equal"),
+            0xf0: ("BEQ", 2, "Branch equal"),
+            0xea: ("NOP", 1, "No operation"),
         }
 
         print(f"🔍 Deep ROM Analyzer initialized")
@@ -90,13 +90,13 @@ class DQ3DeepAnalyzer:
             addr = struct.unpack("<H", self.rom_data[offset : offset + 2])[0]
 
             # Check if this looks like a valid SNES address (bank 00-3F, high byte)
-            if 0x8000 <= addr <= 0xFFFF:
+            if 0x8000 <= addr <= 0xffff:
                 # Check if there are multiple consecutive valid addresses
                 consecutive_valid = 0
                 for i in range(8):  # Check next 8 vectors
                     if offset + (i * 2) + 2 <= len(self.rom_data):
                         next_addr = struct.unpack("<H", self.rom_data[offset + (i * 2) : offset + (i * 2) + 2])[0]
-                        if 0x8000 <= next_addr <= 0xFFFF:
+                        if 0x8000 <= next_addr <= 0xffff:
                             consecutive_valid += 1
 
                 if consecutive_valid >= 6:  # Likely a vector table
@@ -136,7 +136,7 @@ class DQ3DeepAnalyzer:
             if (
                 self.rom_data[offset] == 0x78
                 and self.rom_data[offset + 1] == 0x18
-                and self.rom_data[offset + 2] == 0xFB
+                and self.rom_data[offset + 2] == 0xfb
             ):
 
                 reset_addr = 0x8000 + (offset % 0x8000)
@@ -208,7 +208,7 @@ class DQ3DeepAnalyzer:
                 current_addr += length
 
                 # Stop at return instructions for subroutines
-                if opcode in [0x60, 0x6B, 0x40]:  # RTS, RTL, RTI
+                if opcode in [0x60, 0x6b, 0x40]:  # RTS, RTL, RTI
                     break
             else:
                 # Unknown opcode, advance by 1

@@ -66,46 +66,46 @@ Party member #2 - Max MP
 
 ### `2_MP`
 
-**Offset:** `+0A` (`$396B`)
+**Offset:** `+0A` (`$396b`)
 **Size:** 2 bytes
 **Type:** `uint16`
 
 Party member #2 - Current HP
 
-**Notes:** Raw offset: $396B
+**Notes:** Raw offset: $396b
 
 
 ### `2_Strength`
 
-**Offset:** `+0C` (`$396D`)
+**Offset:** `+0C` (`$396d`)
 **Size:** 1 byte
 **Type:** `uint8`
 
 Party member #2 - Strength stat
 
-**Notes:** Raw offset: $396D
+**Notes:** Raw offset: $396d
 
 
 ### `2_Agility`
 
-**Offset:** `+0D` (`$396E`)
+**Offset:** `+0D` (`$396e`)
 **Size:** 1 byte
 **Type:** `uint8`
 
 Party member #2 - Agility stat
 
-**Notes:** Raw offset: $396E
+**Notes:** Raw offset: $396e
 
 
 ### `2_Stamina`
 
-**Offset:** `+0E` (`$396F`)
+**Offset:** `+0E` (`$396f`)
 **Size:** 1 byte
 **Type:** `uint8`
 
 Party member #2 - Stamina stat
 
-**Notes:** Raw offset: $396F
+**Notes:** Raw offset: $396f
 
 
 ### `2_Wisdom`
@@ -143,13 +143,13 @@ Party member #2 - Name, 4 characters max, ends in AC
 
 ### `2_Bag_Number_Equiped`
 
-**Offset:** `+2E` (`$398F`)
+**Offset:** `+2E` (`$398f`)
 **Size:** 1 byte
 **Type:** `uint8`
 
 Party member #2 - Number of items equipped
 
-**Notes:** Raw offset: $398F
+**Notes:** Raw offset: $398f
 
 
 ### `2_Bag_Number_Carried`

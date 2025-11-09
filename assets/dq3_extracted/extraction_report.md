@@ -13,7 +13,7 @@
 | Asset Name | Size | Format | Source Address |
 |------------|------|--------|----------------|
 | `monster_graphics` | 131,072 bytes | snes_4bpp | `$220000` |
-| `ui_graphics` | 16,384 bytes | snes_2bpp | `$1A0000` |
+| `ui_graphics` | 16,384 bytes | snes_2bpp | `$1a0000` |
 
 
 ## Audio Assets (4 items)
@@ -30,11 +30,11 @@
 
 | Asset Name | Size | Format | Source Address |
 |------------|------|--------|----------------|
-| `font_data` | 8,192 bytes | snes_2bpp | `$1B0000` |
+| `font_data` | 8,192 bytes | snes_2bpp | `$1b0000` |
 | `sprite_data_01` | 16,384 bytes | sprite_16x16 | `$055800` |
 | `sprite_data_02` | 16,384 bytes | sprite_16x16 | `$056000` |
-| `sprite_data_03` | 16,384 bytes | sprite_16x16 | `$11B800` |
-| `sprite_data_04` | 16,384 bytes | sprite_16x16 | `$11E800` |
+| `sprite_data_03` | 16,384 bytes | sprite_16x16 | `$11b800` |
+| `sprite_data_04` | 16,384 bytes | sprite_16x16 | `$11e800` |
 | `sprite_data_05` | 16,384 bytes | sprite_16x16 | `$120800` |
 | `item_data` | 8,192 bytes | item_table | `$500000` |
 | `weapon_data` | 2,048 bytes | item_table | `$502000` |

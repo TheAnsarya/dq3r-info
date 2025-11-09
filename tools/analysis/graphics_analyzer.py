@@ -81,12 +81,12 @@ class DQ3GraphicsAnalyzer:
             0x2107: ("BG1SC", "BG1 Screen Base and Size"),
             0x2108: ("BG2SC", "BG2 Screen Base and Size"),
             0x2109: ("BG3SC", "BG3 Screen Base and Size"),
-            0x210A: ("BG4SC", "BG4 Screen Base and Size"),
-            0x210B: ("BG12NBA", "BG1 and BG2 Name Base"),
-            0x210C: ("BG34NBA", "BG3 and BG4 Name Base"),
-            0x210D: ("BG1HOFS", "BG1 Horizontal Scroll"),
-            0x210E: ("BG1VOFS", "BG1 Vertical Scroll"),
-            0x210F: ("BG2HOFS", "BG2 Horizontal Scroll"),
+            0x210a: ("BG4SC", "BG4 Screen Base and Size"),
+            0x210b: ("BG12NBA", "BG1 and BG2 Name Base"),
+            0x210c: ("BG34NBA", "BG3 and BG4 Name Base"),
+            0x210d: ("BG1HOFS", "BG1 Horizontal Scroll"),
+            0x210e: ("BG1VOFS", "BG1 Vertical Scroll"),
+            0x210f: ("BG2HOFS", "BG2 Horizontal Scroll"),
             0x2110: ("BG2VOFS", "BG2 Vertical Scroll"),
             0x2111: ("BG3HOFS", "BG3 Horizontal Scroll"),
             0x2112: ("BG3VOFS", "BG3 Vertical Scroll"),
@@ -96,12 +96,12 @@ class DQ3GraphicsAnalyzer:
             0x2116: ("VMADD", "VRAM Address"),
             0x2118: ("VMDATA", "VRAM Data Write"),
             0x2119: ("VMDATAL", "VRAM Data Low"),
-            0x211A: ("VMDATAH", "VRAM Data High"),
-            0x211B: ("M7SEL", "Mode 7 Settings"),
-            0x211C: ("M7A", "Mode 7 Matrix A"),
-            0x211D: ("M7B", "Mode 7 Matrix B"),
-            0x211E: ("M7C", "Mode 7 Matrix C"),
-            0x211F: ("M7D", "Mode 7 Matrix D"),
+            0x211a: ("VMDATAH", "VRAM Data High"),
+            0x211b: ("M7SEL", "Mode 7 Settings"),
+            0x211c: ("M7A", "Mode 7 Matrix A"),
+            0x211d: ("M7B", "Mode 7 Matrix B"),
+            0x211e: ("M7C", "Mode 7 Matrix C"),
+            0x211f: ("M7D", "Mode 7 Matrix D"),
             0x2120: ("M7X", "Mode 7 Center X"),
             0x2121: ("M7Y", "Mode 7 Center Y"),
             0x2122: ("CGADD", "Palette Address"),
@@ -112,12 +112,12 @@ class DQ3GraphicsAnalyzer:
             0x2127: ("WH0", "Window 1 Left"),
             0x2128: ("WH1", "Window 1 Right"),
             0x2129: ("WH2", "Window 2 Left"),
-            0x212A: ("WH3", "Window 2 Right"),
-            0x212B: ("WBGLOG", "Window BG Logic"),
-            0x212C: ("WOBJLOG", "Window Object Logic"),
-            0x212D: ("TM", "Main Screen Designation"),
-            0x212E: ("TS", "Sub Screen Designation"),
-            0x212F: ("TMW", "Main Screen Window"),
+            0x212a: ("WH3", "Window 2 Right"),
+            0x212b: ("WBGLOG", "Window BG Logic"),
+            0x212c: ("WOBJLOG", "Window Object Logic"),
+            0x212d: ("TM", "Main Screen Designation"),
+            0x212e: ("TS", "Sub Screen Designation"),
+            0x212f: ("TMW", "Main Screen Window"),
             0x2130: ("TSW", "Sub Screen Window"),
             0x2131: ("CGWSEL", "Color Math Control"),
             0x2132: ("CGADSUB", "Color Math Sub Screen"),
@@ -134,8 +134,8 @@ class DQ3GraphicsAnalyzer:
             0x4304: ("A1B", "DMA Source Address Bank"),
             0x4305: ("DASL", "DMA Transfer Size Low"),
             0x4306: ("DASH", "DMA Transfer Size High"),
-            0x420B: ("MDMAEN", "DMA Enable"),
-            0x420C: ("HDMAEN", "HDMA Enable"),
+            0x420b: ("MDMAEN", "DMA Enable"),
+            0x420c: ("HDMAEN", "HDMA Enable"),
         }
 
         print(f"🎨 Graphics Engine Analyzer initialized")
@@ -152,7 +152,7 @@ class DQ3GraphicsAnalyzer:
         # Search for all PPU register accesses
         for offset in range(0, len(self.rom_data) - 2):
             # Look for STA absolute to PPU registers
-            if self.rom_data[offset] == 0x8D:  # STA absolute
+            if self.rom_data[offset] == 0x8d:  # STA absolute
                 target_addr = struct.unpack(
                     "<H", self.rom_data[offset + 1 : offset + 3]
                 )[0]
@@ -243,8 +243,8 @@ class DQ3GraphicsAnalyzer:
         for offset in range(0, len(self.rom_data) - 5):
             # Look for DMA setup pattern: LDA #$00, STA $4301 (OAM destination)
             if (
-                self.rom_data[offset] == 0xA9  # LDA immediate
-                and self.rom_data[offset + 2] == 0x8D  # STA absolute
+                self.rom_data[offset] == 0xa9  # LDA immediate
+                and self.rom_data[offset + 2] == 0x8d  # STA absolute
                 and struct.unpack("<H", self.rom_data[offset + 3 : offset + 5])[0]
                 == 0x4301
             ):
@@ -273,7 +273,7 @@ class DQ3GraphicsAnalyzer:
                     if inst["name"] == "LDA" and inst["operand"].startswith(" $"):
                         try:
                             addr = int(inst["operand"].replace(" $", ""), 16)
-                            if 0x8000 <= addr <= 0xFFFF:
+                            if 0x8000 <= addr <= 0xffff:
                                 rom_offset = self._snes_to_rom_address(addr)
                                 if rom_offset > 0:
                                     graphics_data = self._check_for_graphics_data(
@@ -362,7 +362,7 @@ class DQ3GraphicsAnalyzer:
                 ):
                     try:
                         addr = int(inst["operand"].replace(" $", ""), 16)
-                        if 0x8000 <= addr <= 0xFFFF:
+                        if 0x8000 <= addr <= 0xffff:
                             rom_offset = self._snes_to_rom_address(addr)
                             if rom_offset > 0 and rom_offset < len(self.rom_data) - 32:
                                 # Check if this looks like palette data
@@ -429,7 +429,7 @@ class DQ3GraphicsAnalyzer:
             # Look for function entry patterns
             if i >= 3 and self.rom_data[i - 3 : i] == b"\x20\x00\x80":  # JSR $8000
                 return i
-            if i >= 0 and self.rom_data[i] in [0x48, 0xDA, 0x5A]:  # Function prologue
+            if i >= 0 and self.rom_data[i] in [0x48, 0xda, 0x5a]:  # Function prologue
                 return i
 
         return search_start
@@ -441,7 +441,7 @@ class DQ3GraphicsAnalyzer:
         for i in range(offset, search_end):
             if i < len(self.rom_data) and self.rom_data[i] in [
                 0x60,
-                0x6B,
+                0x6b,
                 0x40,
             ]:  # RTS, RTL, RTI
                 return i + 1
@@ -498,8 +498,8 @@ class DQ3GraphicsAnalyzer:
 
     def _snes_to_rom_address(self, snes_addr: int) -> int:
         """Convert SNES address to ROM file offset"""
-        bank = (snes_addr >> 16) & 0xFF
-        offset = snes_addr & 0xFFFF
+        bank = (snes_addr >> 16) & 0xff
+        offset = snes_addr & 0xffff
 
         if bank < 0x80 and offset >= 0x8000:
             return (bank * 0x8000) + (offset - 0x8000)
@@ -517,24 +517,24 @@ class DQ3GraphicsAnalyzer:
         for i in search_range:
             if (
                 i + 4 < len(self.rom_data)
-                and self.rom_data[i] == 0x8D  # STA absolute
+                and self.rom_data[i] == 0x8d  # STA absolute
                 and struct.unpack("<H", self.rom_data[i + 1 : i + 3])[0] == 0x4302
             ):  # A1TL
 
                 # Look for preceding LDA
-                if i >= 3 and self.rom_data[i - 3] == 0xA9:  # LDA immediate
+                if i >= 3 and self.rom_data[i - 3] == 0xa9:  # LDA immediate
                     addr_low = self.rom_data[i - 2]
 
                     # Look for high byte
                     for j in range(i, min(len(self.rom_data), i + 20)):
                         if (
                             j + 4 < len(self.rom_data)
-                            and self.rom_data[j] == 0x8D
+                            and self.rom_data[j] == 0x8d
                             and struct.unpack("<H", self.rom_data[j + 1 : j + 3])[0]
                             == 0x4303
                         ):  # A1TH
 
-                            if j >= 3 and self.rom_data[j - 3] == 0xA9:
+                            if j >= 3 and self.rom_data[j - 3] == 0xa9:
                                 addr_high = self.rom_data[j - 2]
                                 return (addr_high << 8) | addr_low
 
@@ -592,7 +592,7 @@ class DQ3GraphicsAnalyzer:
             ):
                 try:
                     addr = int(inst["operand"].replace(" $", ""), 16)
-                    if 0x8000 <= addr <= 0xFFFF:
+                    if 0x8000 <= addr <= 0xffff:
                         rom_offset = self._snes_to_rom_address(addr)
                         if rom_offset > 0:
                             tilemap_info = {
@@ -665,14 +665,14 @@ class DQ3GraphicsAnalyzer:
 
         # Basic 65816 opcodes for graphics analysis
         opcodes = {
-            0x8D: ("STA", 3),
-            0xAD: ("LDA", 3),
-            0xA9: ("LDA", 2),
+            0x8d: ("STA", 3),
+            0xad: ("LDA", 3),
+            0xa9: ("LDA", 2),
             0x60: ("RTS", 1),
             0x20: ("JSR", 3),
-            0x4C: ("JMP", 3),
-            0xF0: ("BEQ", 2),
-            0xD0: ("BNE", 2),
+            0x4c: ("JMP", 3),
+            0xf0: ("BEQ", 2),
+            0xd0: ("BNE", 2),
             0x80: ("BRA", 2),
         }
 

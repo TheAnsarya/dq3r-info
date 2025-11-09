@@ -156,7 +156,7 @@ class MaximumCoverageAnalyzer:
             ptr16 = struct.unpack('<H', self.rom_data[offset:offset + 2])[0]
 
             # Check if it's a valid SNES address
-            if 0x8000 <= ptr16 <= 0xFFFF:
+            if 0x8000 <= ptr16 <= 0xffff:
                 target = self._snes_to_rom_address(ptr16)
                 if 0 <= target < self.rom_size:
                     pointers[target].append(offset)
@@ -165,10 +165,10 @@ class MaximumCoverageAnalyzer:
             # 24-bit pointers (if enough data)
             if offset < self.rom_size - 3:
                 ptr24 = struct.unpack('<I', self.rom_data[offset:offset + 3] + b'\x00')[0]
-                bank = (ptr24 >> 16) & 0xFF
-                addr = ptr24 & 0xFFFF
+                bank = (ptr24 >> 16) & 0xff
+                addr = ptr24 & 0xffff
 
-                if bank <= 0x3F and 0x8000 <= addr <= 0xFFFF:
+                if bank <= 0x3f and 0x8000 <= addr <= 0xffff:
                     target = (bank * 0x8000) + (addr - 0x8000)
                     if 0 <= target < self.rom_size:
                         pointers[target].append(offset)
@@ -286,8 +286,8 @@ class MaximumCoverageAnalyzer:
 
         # Additional pattern-based graphics detection
         graphics_patterns = [
-            b'\x00\x00\x7E\x7E',  # Common tile pattern
-            b'\xFF\x00\xFF\x00',  # Checkerboard pattern
+            b'\x00\x00\x7e\x7e',  # Common tile pattern
+            b'\xff\x00\xff\x00',  # Checkerboard pattern
             b'\x80\x80\x80\x80',  # Vertical line pattern
         ]
 
@@ -355,7 +355,7 @@ class MaximumCoverageAnalyzer:
 
             # Check for SPC-700 instruction patterns
             spc_patterns = 0
-            spc_opcodes = [0x8F, 0xAF, 0xC4, 0xE4, 0x3F, 0x6F, 0x2F, 0xF0, 0xD0]
+            spc_opcodes = [0x8f, 0xaf, 0xc4, 0xe4, 0x3f, 0x6f, 0x2f, 0xf0, 0xd0]
 
             for byte_val in chunk[::8]:  # Sample every 8th byte
                 if byte_val in spc_opcodes:
@@ -410,9 +410,9 @@ class MaximumCoverageAnalyzer:
 
         # Additional instruction pattern analysis
         valid_65816_opcodes = {
-            0xA9, 0xAD, 0x8D, 0x60, 0x20, 0x4C, 0xF0, 0xD0, 0x80,
-            0x18, 0x38, 0x65, 0xE5, 0x0A, 0x4A, 0x29, 0x09, 0x49,
-            0xC9, 0xB0, 0x90, 0xA2, 0xA0, 0x8E, 0x8C, 0xE0, 0xC0
+            0xa9, 0xad, 0x8d, 0x60, 0x20, 0x4c, 0xf0, 0xd0, 0x80,
+            0x18, 0x38, 0x65, 0xe5, 0x0a, 0x4a, 0x29, 0x09, 0x49,
+            0xc9, 0xb0, 0x90, 0xa2, 0xa0, 0x8e, 0x8c, 0xe0, 0xc0
         }
 
         offset = 0
@@ -432,7 +432,7 @@ class MaximumCoverageAnalyzer:
                     sequence_length = i + 1
                 elif opcode == 0x60:  # RTS - end of function
                     break
-                elif opcode > 0xFF:  # Invalid
+                elif opcode > 0xff:  # Invalid
                     break
 
             # If we found a decent code sequence
@@ -581,8 +581,8 @@ class MaximumCoverageAnalyzer:
 
     def _snes_to_rom_address(self, snes_addr: int) -> int:
         """Convert SNES address to ROM offset"""
-        bank = (snes_addr >> 16) & 0xFF
-        offset = snes_addr & 0xFFFF
+        bank = (snes_addr >> 16) & 0xff
+        offset = snes_addr & 0xffff
 
         if bank < 0x80 and offset >= 0x8000:
             return (bank * 0x8000) + (offset - 0x8000)
@@ -614,7 +614,7 @@ class MaximumCoverageAnalyzer:
         for i in range(0, 32, 2):
             if i + 1 < len(data):
                 ptr = struct.unpack('<H', data[i:i+2])[0]
-                if 0x8000 <= ptr <= 0xFFFF:
+                if 0x8000 <= ptr <= 0xffff:
                     pointers.append(ptr)
 
         if len(pointers) >= 8:  # Likely pointer table
@@ -644,13 +644,13 @@ class MaximumCoverageAnalyzer:
     def _is_text_byte(self, byte_val: int) -> bool:
         """Check if byte could be text"""
         # Printable ASCII
-        if 0x20 <= byte_val <= 0x7E:
+        if 0x20 <= byte_val <= 0x7e:
             return True
         # Common control characters
-        if byte_val in [0x00, 0x0A, 0x0D, 0xFF]:
+        if byte_val in [0x00, 0x0a, 0x0d, 0xff]:
             return True
         # DQ3 specific character codes (estimated range)
-        if 0x80 <= byte_val <= 0xF0:
+        if 0x80 <= byte_val <= 0xf0:
             return True
         return False
 
@@ -659,15 +659,15 @@ class MaximumCoverageAnalyzer:
         if len(text_data) == 0:
             return 0.0
 
-        printable_chars = sum(1 for b in text_data if 0x20 <= b <= 0x7E)
-        control_chars = sum(1 for b in text_data if b in [0x00, 0x0A, 0x0D, 0xFF])
+        printable_chars = sum(1 for b in text_data if 0x20 <= b <= 0x7e)
+        control_chars = sum(1 for b in text_data if b in [0x00, 0x0a, 0x0d, 0xff])
 
         confidence = (printable_chars + control_chars * 0.5) / len(text_data)
         return min(1.0, confidence)
 
     def _detect_text_encoding(self, text_data: bytes) -> str:
         """Detect probable text encoding"""
-        ascii_chars = sum(1 for b in text_data if 0x20 <= b <= 0x7E)
+        ascii_chars = sum(1 for b in text_data if 0x20 <= b <= 0x7e)
         high_bit_chars = sum(1 for b in text_data if b >= 0x80)
 
         if ascii_chars > high_bit_chars:
@@ -703,7 +703,7 @@ class MaximumCoverageAnalyzer:
         # Calculate statistics
         unique_bytes = len(set(data))
         zero_bytes = data.count(0x00)
-        ff_bytes = data.count(0xFF)
+        ff_bytes = data.count(0xff)
 
         # Determine type based on patterns
         if zero_bytes > len(data) * 0.8:

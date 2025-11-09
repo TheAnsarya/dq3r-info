@@ -26,26 +26,26 @@ This document compiles comprehensive technical research about Dragon Quest III: 
 # # Memory Structure
 
 # ## ROM Layout (HiROM Mapping)
-The ROM uses HiROM memory mapping starting at `$C00000` in the SNES address space.
+The ROM uses HiROM memory mapping starting at `$c00000` in the SNES address space.
 
 # ### Key ROM Sections
-- **Character Classes**: `$C4179E - $C424A8` (3,339 bytes)
+- **Character Classes**: `$c4179e - $c424a8` (3,339 bytes)
   - 9 character classes, 371 bytes each
   - Includes stat progressions, spells, equipment restrictions
-- **Monster Data**: `$3ED964 - $3EE0DB` (1,896 bytes)
+- **Monster Data**: `$3ed964 - $3ee0db` (1,896 bytes)
   - 155 monsters with complete stat and behavior data
-- **Dialog Font**: `$C151AA - $C152A3` (250 bytes)
+- **Dialog Font**: `$c151aa - $c152a3` (250 bytes)
   - 50 font structures, 5 bytes each
   - Includes width, height, and graphics pointers
 
-# ## RAM Structure ($7E Bank)
+# ## RAM Structure ($7e Bank)
 
 # ### Party Member Data
-Starting at `$7E3925`, each party member uses `$3C` (60) bytes:
-- **Hero**: `$7E3925 - $7E3960`
-- **Party Member 2**: `$7E3961 - $7E399C`
-- **Party Member 3**: `$7E399D - $7E39D8`
-- **Party Member 4**: `$7E39D9 - $7E3A14`
+Starting at `$7e3925`, each party member uses `$3c` (60) bytes:
+- **Hero**: `$7e3925 - $7e3960`
+- **Party Member 2**: `$7e3961 - $7e399c`
+- **Party Member 3**: `$7e399d - $7e39d8`
+- **Party Member 4**: `$7e39d9 - $7e3a14`
 - Additional slots continue up to 18 total party members
 
 # ### Player Data Structure (per member)
@@ -57,40 +57,40 @@ Starting at `$7E3925`, each party member uses `$3C` (60) bytes:
 | $06-$07 | word | Maximum MP |
 | $08 | byte | Attack Power |
 | $09 | byte | Defense Power |
-| $0A | byte | Agility |
-| $0B | byte | Wisdom |
-| $0C | byte | Luck |
-| $0D | byte | Level |
-| $0E-$10 | 3 bytes | Experience Points |
+| $0a | byte | Agility |
+| $0b | byte | Wisdom |
+| $0c | byte | Luck |
+| $0d | byte | Level |
+| $0e-$10 | 3 bytes | Experience Points |
 | $11-$15 | 5 bytes | Stat carryover values |
-| $16-$1A | 5 bytes | Character name (4 chars + $AC terminator) |
-| $1B-$20 | 6 bytes | Unknown/padding |
+| $16-$1a | 5 bytes | Character name (4 chars + $ac terminator) |
+| $1b-$20 | 6 bytes | Unknown/padding |
 | $21 | byte | Character class |
 | $22 | byte | Menu cursor position |
 | $23 | byte | Battle cursor position |
-| $24-$2D | 10 bytes | Spell list |
-| $2E | byte | Bag item count |
-| $2F-$3B | 13 bytes | Additional data |
+| $24-$2d | 10 bytes | Spell list |
+| $2e | byte | Bag item count |
+| $2f-$3b | 13 bytes | Additional data |
 
 # ### Game State Data
-- **Gold**: `$7E3696` (long, 4 bytes)
-- **Item Bag**: `$7E3725 - $7E3824` (256 bytes for item IDs)
-- **Item Quantities**: `$7E3825 - $7E3924` (256 bytes for quantities)
+- **Gold**: `$7e3696` (long, 4 bytes)
+- **Item Bag**: `$7e3725 - $7e3824` (256 bytes for item IDs)
+- **Item Quantities**: `$7e3825 - $7e3924` (256 bytes for quantities)
 
 # # Text and Graphics Systems
 
 # ## Text Encoding
 The game uses a custom text encoding system with the following characteristics:
-- **String Terminator**: `$AC` marks end of text strings
+- **String Terminator**: `$ac` marks end of text strings
 - **Character Width**: Variable width font system
 - **Compression**: Text uses dictionary-based compression
 
 # ### Character Set Mapping (Sample)
 | Hex | Character | Hex | Character | Hex | Character |
 |-----|-----------|-----|-----------|-----|-----------|
-| $01 | A | $1B | a | $87 | 0 |
-| $02 | B | $1C | b | $88 | 1 |
-| $03 | C | $1D | c | $89 | 2 |
+| $01 | A | $1b | a | $87 | 0 |
+| $02 | B | $1c | b | $88 | 1 |
+| $03 | C | $1d | c | $89 | 2 |
 | ... | ... | ... | ... | ... | ... |
 
 # ## Font System
@@ -122,10 +122,10 @@ The game supports 9 character classes, each with detailed progression data:
 - **Basic Stats**: HP, MP, Attack, Defense, Agility, Wisdom, Luck
 - **Resistances**: 14 different resistance types (2 bits each)
 - **Special Flags**: Metal monster designation, behavior flags
-- **Name Data**: Variable-length Japanese names with $AC terminator
+- **Name Data**: Variable-length Japanese names with $ac terminator
 
 # ## Items System
-The game supports 228 different items ($01-$E4):
+The game supports 228 different items ($01-$e4):
 - **Weapons**: Swords, clubs, boomerangs, whips, etc.
 - **Armor**: Shields, helmets, clothing, accessories
 - **Tools**: Consumables, quest items, special items

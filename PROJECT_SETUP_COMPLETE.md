@@ -139,7 +139,7 @@ python tools/analysis/analyze_rom.py static/dq3.smc
 - **Size**: 4,194,304 bytes (4MB)
 - **Format**: HiROM SNES
 - **Title**: DRAGONQUEST3
-- **Header**: 0x00FFC0
+- **Header**: 0x00ffc0
 - **Map Mode**: 0x31 (HiROM + FastROM)
 - **Text Regions**: 50 potential areas found
 - **Graphics**: 20 potential data regions

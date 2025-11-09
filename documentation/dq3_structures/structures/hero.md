@@ -44,35 +44,35 @@ Hero - Max HP
 
 ### `Hero_HP`
 
-**Offset:** `+06` (`$392B`)
+**Offset:** `+06` (`$392b`)
 **Size:** 2 bytes
 **Type:** `uint16`
 
 Hero - Current HP
 
-**Notes:** Raw offset: $392B
+**Notes:** Raw offset: $392b
 
 
 ### `MP_Max`
 
-**Offset:** `+08` (`$392D`)
+**Offset:** `+08` (`$392d`)
 **Size:** 2 bytes
 **Type:** `uint16`
 
 Hero - Max MP
 
-**Notes:** Raw offset: $392D
+**Notes:** Raw offset: $392d
 
 
 ### `Hero_MP`
 
-**Offset:** `+0A` (`$392F`)
+**Offset:** `+0A` (`$392f`)
 **Size:** 2 bytes
 **Type:** `uint16`
 
 Hero - Current MP
 
-**Notes:** Raw offset: $392F
+**Notes:** Raw offset: $392f
 
 
 ### `Hero_Strength`
@@ -132,13 +132,13 @@ Hero - Luck stat, excluding equipment
 
 ### `Hero_Name`
 
-**Offset:** `+16` (`$393B`)
+**Offset:** `+16` (`$393b`)
 **Size:** 5 bytes
 **Type:** `string`
 
 Hero - Name, 4 characters max, ends in AC
 
-**Notes:** Raw offset: $393B
+**Notes:** Raw offset: $393b
 
 
 ### `Hero_Spells`

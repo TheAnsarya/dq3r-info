@@ -92,7 +92,7 @@ class MaximumROMAnalyzer:
             data = f.read()
 
         # Extract ROM info from header
-        header_candidates = [0x7FC0, 0xFFC0, 0x81C0]
+        header_candidates = [0x7fc0, 0xffc0, 0x81c0]
         for header_offset in header_candidates:
             if header_offset + 32 < len(data):
                 title = data[header_offset:header_offset+21]
@@ -110,25 +110,25 @@ class MaximumROMAnalyzer:
         return [
             {
                 'name': 'ascii_text',
-                'pattern': rb'[\x20-\x7E]{4,}',
+                'pattern': rb'[\x20-\x7e]{4,}',
                 'min_length': 4,
                 'encoding': 'ascii'
             },
             {
                 'name': 'dq3_dialogue',
-                'pattern': rb'[\x81-\x84][\x40-\x7E\x80-\xFC]{2,}',
+                'pattern': rb'[\x81-\x84][\x40-\x7e\x80-\xfc]{2,}',
                 'min_length': 3,
                 'encoding': 'dq3_jp'
             },
             {
                 'name': 'item_names',
-                'pattern': rb'[\x85-\x9F][\x40-\x7E]{2,15}\x00',
+                'pattern': rb'[\x85-\x9f][\x40-\x7e]{2,15}\x00',
                 'min_length': 3,
                 'encoding': 'dq3_item'
             },
             {
                 'name': 'menu_text',
-                'pattern': rb'[\xA0-\xDF]{3,20}\xFF',
+                'pattern': rb'[\xa0-\xdf]{3,20}\xff',
                 'min_length': 4,
                 'encoding': 'dq3_menu'
             }
@@ -284,11 +284,11 @@ class MaximumROMAnalyzer:
         # Simplified DQ3 text decoder
         result = ""
         for byte in data:
-            if 0x20 <= byte <= 0x7E:
+            if 0x20 <= byte <= 0x7e:
                 result += chr(byte)
             elif 0x81 <= byte <= 0x84:
                 result += "[CTRL]"
-            elif byte == 0xFF:
+            elif byte == 0xff:
                 result += "[END]"
             else:
                 result += f"[${byte:02X}]"
@@ -301,7 +301,7 @@ class MaximumROMAnalyzer:
         for byte in data:
             if byte == 0x00:
                 break
-            elif 0x20 <= byte <= 0x7E:
+            elif 0x20 <= byte <= 0x7e:
                 result += chr(byte)
             else:
                 result += f"[${byte:02X}]"
@@ -311,9 +311,9 @@ class MaximumROMAnalyzer:
         """Decode Dragon Quest 3 menu text"""
         result = ""
         for byte in data:
-            if byte == 0xFF:
+            if byte == 0xff:
                 break
-            elif 0x20 <= byte <= 0x7E:
+            elif 0x20 <= byte <= 0x7e:
                 result += chr(byte)
             else:
                 result += f"[${byte:02X}]"
@@ -357,7 +357,7 @@ class MaximumROMAnalyzer:
         pointers = []
         for i in range(0, 32, 2):
             ptr = struct.unpack('<H', data[offset+i:offset+i+2])[0]
-            if 0x8000 <= ptr <= 0xFFFF:
+            if 0x8000 <= ptr <= 0xffff:
                 pointers.append(ptr)
             else:
                 break
@@ -383,9 +383,9 @@ class MaximumROMAnalyzer:
         pointers = []
         for i in range(0, 48, 3):
             ptr = struct.unpack('<I', data[offset+i:offset+i+3] + b'\x00')[0]
-            bank = (ptr >> 16) & 0xFF
-            addr = ptr & 0xFFFF
-            if bank < 0x80 and 0x8000 <= addr <= 0xFFFF:
+            bank = (ptr >> 16) & 0xff
+            addr = ptr & 0xffff
+            if bank < 0x80 and 0x8000 <= addr <= 0xffff:
                 pointers.append(ptr)
             else:
                 break
@@ -395,7 +395,7 @@ class MaximumROMAnalyzer:
                 'count': len(pointers),
                 'entry_size': 3,
                 'total_size': len(pointers) * 3,
-                'entries': [{'pointer': ptr, 'bank': ptr >> 16, 'addr': ptr & 0xFFFF} for ptr in pointers]
+                'entries': [{'pointer': ptr, 'bank': ptr >> 16, 'addr': ptr & 0xffff} for ptr in pointers]
             }
 
         return None
@@ -619,7 +619,7 @@ class MaximumROMAnalyzer:
             for i in range(0, len(region_data) - 2, 2):
                 # 16-bit address
                 addr = struct.unpack('<H', region_data[i:i+2])[0]
-                if 0x8000 <= addr <= 0xFFFF:
+                if 0x8000 <= addr <= 0xffff:
                     target_offset = addr - 0x8000
                     if target_offset < self.rom_size:
                         region.cross_refs.append(target_offset)
@@ -627,9 +627,9 @@ class MaximumROMAnalyzer:
                 # 24-bit address (if we have 3 bytes)
                 if i + 2 < len(region_data):
                     addr24 = struct.unpack('<I', region_data[i:i+3] + b'\x00')[0]
-                    bank = (addr24 >> 16) & 0xFF
-                    addr = addr24 & 0xFFFF
-                    if bank < 0x80 and 0x8000 <= addr <= 0xFFFF:
+                    bank = (addr24 >> 16) & 0xff
+                    addr = addr24 & 0xffff
+                    if bank < 0x80 and 0x8000 <= addr <= 0xffff:
                         target_offset = bank * 0x8000 + (addr - 0x8000)
                         if target_offset < self.rom_size:
                             region.cross_refs.append(target_offset)

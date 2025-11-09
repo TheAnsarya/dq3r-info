@@ -59,19 +59,19 @@ This comprehensive analysis represents a complete disassembly framework for Drag
 Dragon Quest III uses the SNES LoROM (Low ROM) mapping mode with sophisticated bank switching:
 
 ```
-Banks $00-$7D: System/Work RAM regions
-Banks $7E-$7F: Extended RAM (128KB total)
-Banks $80-$FF: ROM mirror space (32KB windows)
+Banks $00-$7d: System/Work RAM regions
+Banks $7e-$7f: Extended RAM (128KB total)
+Banks $80-$ff: ROM mirror space (32KB windows)
 ```
 
 ### Banking Classification Results
 
 | Bank Range | Content Type | Size | Purpose |
 |------------|-------------|------|---------|
-| $00-$1F | System ROM | 2MB | Core engine, initialization |
-| $20-$3F | Graphics | 2MB | Sprite data, tiles, palettes |
-| $40-$5F | Audio | 2MB | Music, sound effects, SPC data |
-| $60-$7F | Data Tables | 2MB | Items, spells, monsters, dialog |
+| $00-$1f | System ROM | 2MB | Core engine, initialization |
+| $20-$3f | Graphics | 2MB | Sprite data, tiles, palettes |
+| $40-$5f | Audio | 2MB | Music, sound effects, SPC data |
+| $60-$7f | Data Tables | 2MB | Items, spells, monsters, dialog |
 
 ### Key Findings
 
@@ -91,8 +91,8 @@ Banks $80-$FF: ROM mirror space (32KB windows)
 | Initialization | 15 | 32-512 bytes | Banks $00-$01 |
 | Graphics Engine | 45 | 64-1024 bytes | Banks $02-$05 |
 | Audio System | 28 | 48-768 bytes | Banks $06-$07 |
-| Game Logic | 89 | 96-2048 bytes | Banks $08-$1F |
-| Data Handlers | 78 | 24-256 bytes | Banks $20-$3F |
+| Game Logic | 89 | 96-2048 bytes | Banks $08-$1f |
+| Data Handlers | 78 | 24-256 bytes | Banks $20-$3f |
 
 ### Critical Function Locations
 
@@ -100,7 +100,7 @@ Banks $80-$FF: ROM mirror space (32KB windows)
 ; Main initialization sequence
 RESET_VECTOR:		$008000		; System startup
 MAIN_LOOP:		$008156		; Core game loop
-VBLANK_HANDLER:		$008B42		; VBlank interrupt
+VBLANK_HANDLER:		$008b42		; VBlank interrupt
 GRAPHICS_ENGINE:	$020000		; PPU management
 SOUND_ENGINE:		$060000		; APU communication
 SAVE_SYSTEM:		$180000		; Battery save handling
@@ -152,7 +152,7 @@ From integrated `.mlb` file analysis, we documented **184 memory entries** acros
 #### Core Game Structures
 
 ```c
-// Player character data (Bank $7E)
+// Player character data (Bank $7e)
 struct PlayerCharacter {
 	uint8_t name[8];		// Character name (6 chars + terminator)
 	uint8_t class_id;		// Job class identifier
@@ -183,13 +183,13 @@ struct ItemData {
 
 | Address Range | Size | Purpose | Documentation Status |
 |---------------|------|---------|---------------------|
-| $7E0000-$7E1FFF | 8KB | Player party data | ✅ Complete |
-| $7E2000-$7E3FFF | 8KB | Inventory system | ✅ Complete |
-| $7E4000-$7E5FFF | 8KB | Battle system RAM | ✅ Complete |
-| $7E6000-$7E7FFF | 8KB | Map/field system | 🔄 Partial |
-| $500000-$50FFFF | 64KB | Item database | ✅ Complete |
-| $520000-$52FFFF | 64KB | Spell database | ✅ Complete |
-| $540000-$54FFFF | 64KB | Monster database | 🔄 Partial |
+| $7e0000-$7e1fff | 8KB | Player party data | ✅ Complete |
+| $7e2000-$7e3fff | 8KB | Inventory system | ✅ Complete |
+| $7e4000-$7e5fff | 8KB | Battle system RAM | ✅ Complete |
+| $7e6000-$7e7fff | 8KB | Map/field system | 🔄 Partial |
+| $500000-$50ffff | 64KB | Item database | ✅ Complete |
+| $520000-$52ffff | 64KB | Spell database | ✅ Complete |
+| $540000-$54ffff | 64KB | Monster database | 🔄 Partial |
 
 ---
 

@@ -1,7 +1,7 @@
 {
 	"name": "sprite_data_04",
 	"format": "sprite_16x16",
-	"source_address": "$11E800",
+	"source_address": "$11e800",
 	"source_bank": 17,
 	"raw_size": 16384,
 	"processed_size": 16384,
@@ -9,5 +9,5 @@
 	"metadata": {
 		"detection_method": "pattern_matching"
 	},
-	"extraction_notes": "Found via pattern matching at $11E800"
+	"extraction_notes": "Found via pattern matching at $11e800"
 }

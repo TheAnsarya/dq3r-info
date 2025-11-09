@@ -30,61 +30,61 @@ GameData                0.0% (0 functions, 6 banks)
 Total Banks: 64
 
 Bank $00:
-  📍 SNES Range: $0000-$FFFF
+  📍 SNES Range: $0000-$ffff
   💾 ROM Offset: $000000
   📝 Type: System/Boot code
   🔍 Code Density: 0.60
 
 Bank $01:
-  📍 SNES Range: $0000-$FFFF
+  📍 SNES Range: $0000-$ffff
   💾 ROM Offset: $010000
   📝 Type: Program code
   🔍 Code Density: 0.31
 
 Bank $02:
-  📍 SNES Range: $0000-$FFFF
+  📍 SNES Range: $0000-$ffff
   💾 ROM Offset: $020000
   📝 Type: Program code
   🔍 Code Density: 0.58
 
 Bank $03:
-  📍 SNES Range: $0000-$FFFF
+  📍 SNES Range: $0000-$ffff
   💾 ROM Offset: $030000
   📝 Type: Program code
   🔍 Code Density: 0.66
 
 Bank $04:
-  📍 SNES Range: $0000-$FFFF
+  📍 SNES Range: $0000-$ffff
   💾 ROM Offset: $040000
   📝 Type: Program code
   🔍 Code Density: 0.53
 
 Bank $05:
-  📍 SNES Range: $0000-$FFFF
+  📍 SNES Range: $0000-$ffff
   💾 ROM Offset: $050000
   📝 Type: Program code
   🔍 Code Density: 0.58
 
 Bank $06:
-  📍 SNES Range: $0000-$FFFF
+  📍 SNES Range: $0000-$ffff
   💾 ROM Offset: $060000
   📝 Type: Program code
   🔍 Code Density: 0.60
 
 Bank $07:
-  📍 SNES Range: $0000-$FFFF
+  📍 SNES Range: $0000-$ffff
   💾 ROM Offset: $070000
   📝 Type: Program code
   🔍 Code Density: 0.46
 
 Bank $08:
-  📍 SNES Range: $0000-$FFFF
+  📍 SNES Range: $0000-$ffff
   💾 ROM Offset: $080000
   📝 Type: Program code
   🔍 Code Density: 0.52
 
 Bank $09:
-  📍 SNES Range: $0000-$FFFF
+  📍 SNES Range: $0000-$ffff
   💾 ROM Offset: $090000
   📝 Type: Program code
   🔍 Code Density: 0.61
@@ -92,17 +92,17 @@ Bank $09:
 ⚡ INTERRUPT VECTORS
 ----------------------------------------
 NATIVE_MODE Mode:
-  COP      $FFE4 -> $FFAC (subroutine)
-  BRK      $FFE6 -> $FFA8 (subroutine)
-  ABORT    $FFE8 -> $FFA4 (subroutine)
-  NMI      $FFEA -> $FFA0 (subroutine)
-  UNUSED   $FFEC -> $FFA4 (subroutine)
-  IRQ      $FFEE -> $FFA4 (subroutine)
+  COP      $ffe4 -> $ffac (subroutine)
+  BRK      $ffe6 -> $ffa8 (subroutine)
+  ABORT    $ffe8 -> $ffa4 (subroutine)
+  NMI      $ffea -> $ffa0 (subroutine)
+  UNUSED   $ffec -> $ffa4 (subroutine)
+  IRQ      $ffee -> $ffa4 (subroutine)
 
 EMULATION_MODE Mode:
-  COP      $FFF4 -> $FFA4 (subroutine)
-  UNUSED   $FFF6 -> $FFA4 (subroutine)
-  ABORT    $FFF8 -> $FFA4 (subroutine)
-  NMI      $FFFA -> $FFA0 (subroutine)
-  RESET    $FFFC -> $FF98 (subroutine)
-  IRQ      $FFFE -> $FFA4 (subroutine)
+  COP      $fff4 -> $ffa4 (subroutine)
+  UNUSED   $fff6 -> $ffa4 (subroutine)
+  ABORT    $fff8 -> $ffa4 (subroutine)
+  NMI      $fffa -> $ffa0 (subroutine)
+  RESET    $fffc -> $ff98 (subroutine)
+  IRQ      $fffe -> $ffa4 (subroutine)

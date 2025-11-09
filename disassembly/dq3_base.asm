@@ -4,8 +4,8 @@
 ; Disassembly progress: 0.0%
 ;
 ; SNES Memory Banking Information:
-; Banks $00-$7F: LoROM mapping (32KB banks)
-; Banks $80-$FF: Extended LoROM mapping
+; Banks $00-$7f: LoROM mapping (32KB banks)
+; Banks $80-$ff: Extended LoROM mapping
 
 .LOROM
 .ASSUME dp:$0000, db:$8000
@@ -13,7 +13,7 @@
 
 ; =============================================================
 ; BANK $00: System vectors and main code
-; Address range: $8000-$FFFF
+; Address range: $8000-$ffff
 ; Labels found: 100
 ; =============================================================
 
@@ -22,15 +22,15 @@
 
 	; Detected JSR_target
 auto_label_0000:
-	; TODO: Disassemble from $000D41
+	; TODO: Disassemble from $000d41
 
 	; Detected JSR_target
 auto_label_0001:
-	; TODO: Disassemble from $000D45
+	; TODO: Disassemble from $000d45
 
 	; Detected JSR_target
 auto_label_0002:
-	; TODO: Disassemble from $000D55
+	; TODO: Disassemble from $000d55
 
 	; Detected JSR_target
 auto_label_0003:
@@ -50,38 +50,38 @@ auto_label_0006:
 
 	; Detected JSR_target
 auto_label_0007:
-	; TODO: Disassemble from $002F3C
+	; TODO: Disassemble from $002f3c
 
 	; Detected JSR_target
 auto_label_0008:
-	; TODO: Disassemble from $00302B
+	; TODO: Disassemble from $00302b
 
 	; Detected JSR_target
 auto_label_0009:
 	; TODO: Disassemble from $003031
 
 	; Detected JSR_target
-auto_label_000A:
+auto_label_000a:
 	; TODO: Disassemble from $003032
 
 	; Detected JSR_target
-auto_label_000B:
+auto_label_000b:
 	; TODO: Disassemble from $003033
 
 	; Detected JSR_target
-auto_label_000C:
+auto_label_000c:
 	; TODO: Disassemble from $003034
 
 	; Detected JSR_target
-auto_label_000D:
+auto_label_000d:
 	; TODO: Disassemble from $003035
 
 	; Detected JSR_target
-auto_label_000E:
+auto_label_000e:
 	; TODO: Disassemble from $003036
 
 	; Detected JSR_target
-auto_label_000F:
+auto_label_000f:
 	; TODO: Disassemble from $003037
 
 	; Detected JSR_target
@@ -125,27 +125,27 @@ auto_label_0019:
 	; TODO: Disassemble from $003138
 
 	; Detected JSR_target
-auto_label_001A:
+auto_label_001a:
 	; TODO: Disassemble from $003139
 
 	; Detected JSR_target
-auto_label_001B:
+auto_label_001b:
 	; TODO: Disassemble from $003231
 
 	; Detected JSR_target
-auto_label_001C:
+auto_label_001c:
 	; TODO: Disassemble from $003232
 
 	; Detected JSR_target
-auto_label_001D:
+auto_label_001d:
 	; TODO: Disassemble from $003233
 
 	; Detected JSR_target
-auto_label_001E:
+auto_label_001e:
 	; TODO: Disassemble from $003234
 
 	; Detected JSR_target
-auto_label_001F:
+auto_label_001f:
 	; TODO: Disassemble from $003235
 
 	; Detected JSR_target
@@ -189,27 +189,27 @@ auto_label_0029:
 	; TODO: Disassemble from $003336
 
 	; Detected JSR_target
-auto_label_002A:
+auto_label_002a:
 	; TODO: Disassemble from $003337
 
 	; Detected JSR_target
-auto_label_002B:
+auto_label_002b:
 	; TODO: Disassemble from $003338
 
 	; Detected JSR_target
-auto_label_002C:
+auto_label_002c:
 	; TODO: Disassemble from $003339
 
 	; Detected JSR_target
-auto_label_002D:
+auto_label_002d:
 	; TODO: Disassemble from $003431
 
 	; Detected JSR_target
-auto_label_002E:
+auto_label_002e:
 	; TODO: Disassemble from $003432
 
 	; Detected JSR_target
-auto_label_002F:
+auto_label_002f:
 	; TODO: Disassemble from $003433
 
 	; Detected JSR_target
@@ -253,27 +253,27 @@ auto_label_0039:
 	; TODO: Disassemble from $003534
 
 	; Detected JSR_target
-auto_label_003A:
+auto_label_003a:
 	; TODO: Disassemble from $003535
 
 	; Detected JSR_target
-auto_label_003B:
+auto_label_003b:
 	; TODO: Disassemble from $003536
 
 	; Detected JSR_target
-auto_label_003C:
+auto_label_003c:
 	; TODO: Disassemble from $003537
 
 	; Detected JSR_target
-auto_label_003D:
+auto_label_003d:
 	; TODO: Disassemble from $003538
 
 	; Detected JSR_target
-auto_label_003E:
+auto_label_003e:
 	; TODO: Disassemble from $003539
 
 	; Detected JSR_target
-auto_label_003F:
+auto_label_003f:
 	; TODO: Disassemble from $003631
 
 	; Detected JSR_target
@@ -317,27 +317,27 @@ auto_label_0049:
 	; TODO: Disassemble from $003732
 
 	; Detected JSR_target
-auto_label_004A:
+auto_label_004a:
 	; TODO: Disassemble from $003733
 
 	; Detected JSR_target
-auto_label_004B:
+auto_label_004b:
 	; TODO: Disassemble from $003734
 
 	; Detected JSR_target
-auto_label_004C:
+auto_label_004c:
 	; TODO: Disassemble from $003735
 
 	; Detected JSR_target
-auto_label_004D:
+auto_label_004d:
 	; TODO: Disassemble from $003736
 
 	; Detected JSR_target
-auto_label_004E:
+auto_label_004e:
 	; TODO: Disassemble from $003737
 
 	; Detected JSR_target
-auto_label_004F:
+auto_label_004f:
 	; TODO: Disassemble from $003738
 
 	; Detected JSR_target
@@ -381,27 +381,27 @@ auto_label_0059:
 	; TODO: Disassemble from $003839
 
 	; Detected JSR_target
-auto_label_005A:
+auto_label_005a:
 	; TODO: Disassemble from $003931
 
 	; Detected JSR_target
-auto_label_005B:
+auto_label_005b:
 	; TODO: Disassemble from $003932
 
 	; Detected JSR_target
-auto_label_005C:
+auto_label_005c:
 	; TODO: Disassemble from $003933
 
 	; Detected JSR_target
-auto_label_005D:
+auto_label_005d:
 	; TODO: Disassemble from $003934
 
 	; Detected JSR_target
-auto_label_005E:
+auto_label_005e:
 	; TODO: Disassemble from $003935
 
 	; Detected JSR_target
-auto_label_005F:
+auto_label_005f:
 	; TODO: Disassemble from $003936
 
 	; Detected JSR_target
@@ -418,4 +418,4 @@ auto_label_0062:
 
 	; Detected JSR_target
 auto_label_0063:
-	; TODO: Disassemble from $003C20
+	; TODO: Disassemble from $003c20

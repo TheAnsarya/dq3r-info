@@ -1,0 +1,75 @@
+# labels.inc
+**Project**: Dragon Quest III ROM Analysis
+**Type**: Assembly Include File
+**Size**: 2,252 bytes
+**Last Modified**: 2025-11-09 02:52:24
+**Git Status**: 🔄 M src/labels.inc
+
+## Overview
+This file is part of the comprehensive Dragon Quest III ROM analysis project.
+
+📄 Simple file with linear execution flow.
+
+## Technical Details
+- **File Size**: 2,252 bytes
+- **Line Count**: 41
+- **Character Encoding**: UTF-8 (auto-detected)
+- **Comment Lines**: 40
+- **Documentation Coverage**: 100.0%
+- **Estimated Complexity**: 0/10
+
+## Code Metrics
+- **Complexity Score**: 0/10
+- **Documentation Coverage**: 100.0%
+- **Function Count**: 0
+- **Comment Lines**: 40
+
+## Source Code Preview
+
+```nasm
+; Dragon Quest III - Labels
+
+.DEFINE FUNCTION_008409                $8409  ; Bank $01
+.DEFINE FUNCTION_008438                $8438  ; Bank $01
+.DEFINE FUNCTION_00847a                $847a  ; Bank $01
+.DEFINE FUNCTION_0177cd                $f7cd  ; Bank $02
+.DEFINE FUNCTION_018e04                $8e04  ; Bank $03
+.DEFINE FUNCTION_019351                $9351  ; Bank $03
+.DEFINE FUNCTION_01a776                $a776  ; Bank $03
+.DEFINE FUNCTION_01a78c                $a78c  ; Bank $03
+.DEFINE FUNCTION_01a7a2                $a7a2  ; Bank $03
+.DEFINE FUNCTION_01a7ac                $a7ac  ; Bank $03
+.DEFINE FUNCTION_01adfa                $adfa  ; Bank $03
+.DEFINE FUNCTION_020004                $8004  ; Bank $04
+.DEFINE FUNCTION_020040                $8040  ; Bank $04
+.DEFINE FUNCTION_020208                $8208  ; Bank $04
+.DEFINE FUNCTION_020480                $8480  ; Bank $04
+.DEFINE FUNCTION_0205a3                $85a3  ; Bank $04
+.DEFINE FUNCTION_02066a                $866a  ; Bank $04
+.DEFINE FUNCTION_020c0c                $8c0c  ; Bank $04
+.DEFINE FUNCTION_020fc0                $8fc0  ; Bank $04
+.DEFINE FUNCTION_021020                $9020  ; Bank $04
+.DEFINE FUNCTION_0216c0                $96c0  ; Bank $04
+.DEFINE FUNCTION_0217c0                $97c0  ; Bank $04
+.DEFINE FUNCTION_023403                $b403  ; Bank $04
+.DEFINE FUNCTION_023700                $b700  ; Bank $04
+.DEFINE FUNCTION_023d83                $bd83  ; Bank $04
+.DEFINE FUNCTION_0242d1                $c2d1  ; Bank $04
+.DEFINE FUNCTION_024321                $c321  ; Bank $04
+.DEFINE FUNCTION_024f43                $cf43  ; Bank $04
+.DEFINE FUNCTION_0252c3                $d2c3  ; Bank $04
+.DEFINE FUNCTION_025655                $d655  ; Bank $04
+.DEFINE FUNCTION_0477d2                $f7d2  ; Bank $08
+.DEFINE FUNCTION_10102f                $902f  ; Bank $20
+.DEFINE FUNCTION_1e3ac3                $bac3  ; Bank $3c
+.DEFINE FUNCTION_2f575d                $d75d  ; Bank $5e
+.DEFINE FUNCTION_340c0b                $8c0b  ; Bank $68
+.DEFINE FUNCTION_545402                $d402  ; Bank $a8
+.DEFINE FUNCTION_600fd7                $8fd7  ; Bank $c0
+.DEFINE FUNCTION_601052                $9052  ; Bank $c0
+.DEFINE FUNCTION_707f12                $ff12  ; Bank $e0
+
+```
+
+**Lines shown**: 41 of 41 total
+

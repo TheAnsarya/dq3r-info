@@ -78,8 +78,8 @@ class SNESDisassembler:
         opcode_defs = [
             # ADC instructions
             (0x69, "ADC", "immediate", 2, "Add with carry (immediate)"),
-            (0x6D, "ADC", "absolute", 3, "Add with carry (absolute)"),
-            (0x7D, "ADC", "absolute_x", 3, "Add with carry (absolute,X)"),
+            (0x6d, "ADC", "absolute", 3, "Add with carry (absolute)"),
+            (0x7d, "ADC", "absolute_x", 3, "Add with carry (absolute,X)"),
             (0x79, "ADC", "absolute_y", 3, "Add with carry (absolute,Y)"),
             (0x65, "ADC", "zeropage", 2, "Add with carry (zero page)"),
             (0x75, "ADC", "zeropage_x", 2, "Add with carry (zero page,X)"),
@@ -88,8 +88,8 @@ class SNESDisassembler:
             (0x72, "ADC", "zeropage_indirect", 2, "Add with carry (zp)"),
 
             # STA instructions
-            (0x8D, "STA", "absolute", 3, "Store accumulator (absolute)"),
-            (0x9D, "STA", "absolute_x", 3, "Store accumulator (absolute,X)"),
+            (0x8d, "STA", "absolute", 3, "Store accumulator (absolute)"),
+            (0x9d, "STA", "absolute_x", 3, "Store accumulator (absolute,X)"),
             (0x99, "STA", "absolute_y", 3, "Store accumulator (absolute,Y)"),
             (0x85, "STA", "zeropage", 2, "Store accumulator (zero page)"),
             (0x95, "STA", "zeropage_x", 2, "Store accumulator (zero page,X)"),
@@ -98,15 +98,15 @@ class SNESDisassembler:
             (0x92, "STA", "zeropage_indirect", 2, "Store accumulator (zp)"),
 
             # LDA instructions
-            (0xA9, "LDA", "immediate", 2, "Load accumulator (immediate)"),
-            (0xAD, "LDA", "absolute", 3, "Load accumulator (absolute)"),
-            (0xBD, "LDA", "absolute_x", 3, "Load accumulator (absolute,X)"),
-            (0xB9, "LDA", "absolute_y", 3, "Load accumulator (absolute,Y)"),
-            (0xA5, "LDA", "zeropage", 2, "Load accumulator (zero page)"),
-            (0xB5, "LDA", "zeropage_x", 2, "Load accumulator (zero page,X)"),
-            (0xA1, "LDA", "zeropage_x_indirect", 2, "Load accumulator (zp,X)"),
-            (0xB1, "LDA", "zeropage_indirect_y", 2, "Load accumulator (zp),Y"),
-            (0xB2, "LDA", "zeropage_indirect", 2, "Load accumulator (zp)"),
+            (0xa9, "LDA", "immediate", 2, "Load accumulator (immediate)"),
+            (0xad, "LDA", "absolute", 3, "Load accumulator (absolute)"),
+            (0xbd, "LDA", "absolute_x", 3, "Load accumulator (absolute,X)"),
+            (0xb9, "LDA", "absolute_y", 3, "Load accumulator (absolute,Y)"),
+            (0xa5, "LDA", "zeropage", 2, "Load accumulator (zero page)"),
+            (0xb5, "LDA", "zeropage_x", 2, "Load accumulator (zero page,X)"),
+            (0xa1, "LDA", "zeropage_x_indirect", 2, "Load accumulator (zp,X)"),
+            (0xb1, "LDA", "zeropage_indirect_y", 2, "Load accumulator (zp),Y"),
+            (0xb2, "LDA", "zeropage_indirect", 2, "Load accumulator (zp)"),
 
             # Branch instructions
             (0x10, "BPL", "relative", 2, "Branch if plus"),
@@ -114,145 +114,145 @@ class SNESDisassembler:
             (0x50, "BVC", "relative", 2, "Branch if overflow clear"),
             (0x70, "BVS", "relative", 2, "Branch if overflow set"),
             (0x90, "BCC", "relative", 2, "Branch if carry clear"),
-            (0xB0, "BCS", "relative", 2, "Branch if carry set"),
-            (0xD0, "BNE", "relative", 2, "Branch if not equal"),
-            (0xF0, "BEQ", "relative", 2, "Branch if equal"),
+            (0xb0, "BCS", "relative", 2, "Branch if carry set"),
+            (0xd0, "BNE", "relative", 2, "Branch if not equal"),
+            (0xf0, "BEQ", "relative", 2, "Branch if equal"),
             (0x80, "BRA", "relative", 2, "Branch always"),
 
             # Jump/Call instructions
-            (0x4C, "JMP", "absolute", 3, "Jump absolute"),
-            (0x6C, "JMP", "absolute_indirect", 3, "Jump (absolute)"),
-            (0x7C, "JMP", "absolute_x_indirect", 3, "Jump (absolute,X)"),
+            (0x4c, "JMP", "absolute", 3, "Jump absolute"),
+            (0x6c, "JMP", "absolute_indirect", 3, "Jump (absolute)"),
+            (0x7c, "JMP", "absolute_x_indirect", 3, "Jump (absolute,X)"),
             (0x20, "JSR", "absolute", 3, "Jump to subroutine"),
-            (0xFC, "JSR", "absolute_x_indirect", 3, "Jump to subroutine (absolute,X)"),
+            (0xfc, "JSR", "absolute_x_indirect", 3, "Jump to subroutine (absolute,X)"),
             (0x60, "RTS", "implied", 1, "Return from subroutine"),
-            (0x6B, "RTL", "implied", 1, "Return from subroutine long"),
+            (0x6b, "RTL", "implied", 1, "Return from subroutine long"),
             (0x22, "JSL", "long", 4, "Jump to subroutine long"),
             (0x40, "RTI", "implied", 1, "Return from interrupt"),
 
             # Stack operations
             (0x48, "PHA", "implied", 1, "Push accumulator"),
             (0x68, "PLA", "implied", 1, "Pull accumulator"),
-            (0x8B, "PHB", "implied", 1, "Push data bank"),
-            (0xAB, "PLB", "implied", 1, "Pull data bank"),
-            (0x0B, "PHD", "implied", 1, "Push direct page"),
-            (0x2B, "PLD", "implied", 1, "Pull direct page"),
-            (0x4B, "PHK", "implied", 1, "Push program bank"),
+            (0x8b, "PHB", "implied", 1, "Push data bank"),
+            (0xab, "PLB", "implied", 1, "Pull data bank"),
+            (0x0b, "PHD", "implied", 1, "Push direct page"),
+            (0x2b, "PLD", "implied", 1, "Pull direct page"),
+            (0x4b, "PHK", "implied", 1, "Push program bank"),
             (0x08, "PHP", "implied", 1, "Push processor status"),
             (0x28, "PLP", "implied", 1, "Pull processor status"),
-            (0xDA, "PHX", "implied", 1, "Push X register"),
-            (0xFA, "PLX", "implied", 1, "Pull X register"),
-            (0x5A, "PHY", "implied", 1, "Push Y register"),
-            (0x7A, "PLY", "implied", 1, "Pull Y register"),
+            (0xda, "PHX", "implied", 1, "Push X register"),
+            (0xfa, "PLX", "implied", 1, "Pull X register"),
+            (0x5a, "PHY", "implied", 1, "Push Y register"),
+            (0x7a, "PLY", "implied", 1, "Pull Y register"),
 
             # Status flag operations
             (0x18, "CLC", "implied", 1, "Clear carry"),
             (0x38, "SEC", "implied", 1, "Set carry"),
             (0x58, "CLI", "implied", 1, "Clear interrupt"),
             (0x78, "SEI", "implied", 1, "Set interrupt"),
-            (0xB8, "CLV", "implied", 1, "Clear overflow"),
-            (0xD8, "CLD", "implied", 1, "Clear decimal"),
-            (0xF8, "SED", "implied", 1, "Set decimal"),
-            (0xC2, "REP", "immediate", 2, "Reset processor status"),
-            (0xE2, "SEP", "immediate", 2, "Set processor status"),
+            (0xb8, "CLV", "implied", 1, "Clear overflow"),
+            (0xd8, "CLD", "implied", 1, "Clear decimal"),
+            (0xf8, "SED", "implied", 1, "Set decimal"),
+            (0xc2, "REP", "immediate", 2, "Reset processor status"),
+            (0xe2, "SEP", "immediate", 2, "Set processor status"),
 
             # Transfer instructions
-            (0xAA, "TAX", "implied", 1, "Transfer A to X"),
-            (0x8A, "TXA", "implied", 1, "Transfer X to A"),
-            (0xA8, "TAY", "implied", 1, "Transfer A to Y"),
+            (0xaa, "TAX", "implied", 1, "Transfer A to X"),
+            (0x8a, "TXA", "implied", 1, "Transfer X to A"),
+            (0xa8, "TAY", "implied", 1, "Transfer A to Y"),
             (0x98, "TYA", "implied", 1, "Transfer Y to A"),
-            (0x9A, "TXS", "implied", 1, "Transfer X to stack"),
-            (0xBA, "TSX", "implied", 1, "Transfer stack to X"),
-            (0x5B, "TCD", "implied", 1, "Transfer 16-bit A to direct page"),
-            (0x7B, "TDC", "implied", 1, "Transfer direct page to 16-bit A"),
-            (0x1B, "TCS", "implied", 1, "Transfer 16-bit A to stack"),
-            (0x3B, "TSC", "implied", 1, "Transfer stack to 16-bit A"),
+            (0x9a, "TXS", "implied", 1, "Transfer X to stack"),
+            (0xba, "TSX", "implied", 1, "Transfer stack to X"),
+            (0x5b, "TCD", "implied", 1, "Transfer 16-bit A to direct page"),
+            (0x7b, "TDC", "implied", 1, "Transfer direct page to 16-bit A"),
+            (0x1b, "TCS", "implied", 1, "Transfer 16-bit A to stack"),
+            (0x3b, "TSC", "implied", 1, "Transfer stack to 16-bit A"),
 
             # Increment/Decrement
-            (0xE8, "INX", "implied", 1, "Increment X"),
-            (0xCA, "DEX", "implied", 1, "Decrement X"),
-            (0xC8, "INY", "implied", 1, "Increment Y"),
+            (0xe8, "INX", "implied", 1, "Increment X"),
+            (0xca, "DEX", "implied", 1, "Decrement X"),
+            (0xc8, "INY", "implied", 1, "Increment Y"),
             (0x88, "DEY", "implied", 1, "Decrement Y"),
-            (0x1A, "INC", "accumulator", 1, "Increment accumulator"),
-            (0x3A, "DEC", "accumulator", 1, "Decrement accumulator"),
-            (0xEE, "INC", "absolute", 3, "Increment (absolute)"),
-            (0xCE, "DEC", "absolute", 3, "Decrement (absolute)"),
-            (0xFE, "INC", "absolute_x", 3, "Increment (absolute,X)"),
-            (0xDE, "DEC", "absolute_x", 3, "Decrement (absolute,X)"),
-            (0xE6, "INC", "zeropage", 2, "Increment (zero page)"),
-            (0xC6, "DEC", "zeropage", 2, "Decrement (zero page)"),
-            (0xF6, "INC", "zeropage_x", 2, "Increment (zero page,X)"),
-            (0xD6, "DEC", "zeropage_x", 2, "Decrement (zero page,X)"),
+            (0x1a, "INC", "accumulator", 1, "Increment accumulator"),
+            (0x3a, "DEC", "accumulator", 1, "Decrement accumulator"),
+            (0xee, "INC", "absolute", 3, "Increment (absolute)"),
+            (0xce, "DEC", "absolute", 3, "Decrement (absolute)"),
+            (0xfe, "INC", "absolute_x", 3, "Increment (absolute,X)"),
+            (0xde, "DEC", "absolute_x", 3, "Decrement (absolute,X)"),
+            (0xe6, "INC", "zeropage", 2, "Increment (zero page)"),
+            (0xc6, "DEC", "zeropage", 2, "Decrement (zero page)"),
+            (0xf6, "INC", "zeropage_x", 2, "Increment (zero page,X)"),
+            (0xd6, "DEC", "zeropage_x", 2, "Decrement (zero page,X)"),
 
             # Logic operations
             (0x29, "AND", "immediate", 2, "Logical AND (immediate)"),
-            (0x2D, "AND", "absolute", 3, "Logical AND (absolute)"),
+            (0x2d, "AND", "absolute", 3, "Logical AND (absolute)"),
             (0x09, "ORA", "immediate", 2, "Logical OR (immediate)"),
-            (0x0D, "ORA", "absolute", 3, "Logical OR (absolute)"),
+            (0x0d, "ORA", "absolute", 3, "Logical OR (absolute)"),
             (0x49, "EOR", "immediate", 2, "Exclusive OR (immediate)"),
-            (0x4D, "EOR", "absolute", 3, "Exclusive OR (absolute)"),
+            (0x4d, "EOR", "absolute", 3, "Exclusive OR (absolute)"),
 
             # Compare instructions
-            (0xC9, "CMP", "immediate", 2, "Compare accumulator (immediate)"),
-            (0xCD, "CMP", "absolute", 3, "Compare accumulator (absolute)"),
-            (0xE0, "CPX", "immediate", 2, "Compare X register (immediate)"),
-            (0xEC, "CPX", "absolute", 3, "Compare X register (absolute)"),
-            (0xC0, "CPY", "immediate", 2, "Compare Y register (immediate)"),
-            (0xCC, "CPY", "absolute", 3, "Compare Y register (absolute)"),
+            (0xc9, "CMP", "immediate", 2, "Compare accumulator (immediate)"),
+            (0xcd, "CMP", "absolute", 3, "Compare accumulator (absolute)"),
+            (0xe0, "CPX", "immediate", 2, "Compare X register (immediate)"),
+            (0xec, "CPX", "absolute", 3, "Compare X register (absolute)"),
+            (0xc0, "CPY", "immediate", 2, "Compare Y register (immediate)"),
+            (0xcc, "CPY", "absolute", 3, "Compare Y register (absolute)"),
 
             # Bit operations
             (0x89, "BIT", "immediate", 2, "Bit test (immediate)"),
-            (0x2C, "BIT", "absolute", 3, "Bit test (absolute)"),
+            (0x2c, "BIT", "absolute", 3, "Bit test (absolute)"),
             (0x24, "BIT", "zeropage", 2, "Bit test (zero page)"),
             (0x04, "TSB", "zeropage", 2, "Test and set bits (zero page)"),
-            (0x0C, "TSB", "absolute", 3, "Test and set bits (absolute)"),
+            (0x0c, "TSB", "absolute", 3, "Test and set bits (absolute)"),
             (0x14, "TRB", "zeropage", 2, "Test and reset bits (zero page)"),
-            (0x1C, "TRB", "absolute", 3, "Test and reset bits (absolute)"),
+            (0x1c, "TRB", "absolute", 3, "Test and reset bits (absolute)"),
 
             # Shift/Rotate
-            (0x0A, "ASL", "accumulator", 1, "Arithmetic shift left (accumulator)"),
-            (0x0E, "ASL", "absolute", 3, "Arithmetic shift left (absolute)"),
-            (0x4A, "LSR", "accumulator", 1, "Logical shift right (accumulator)"),
-            (0x4E, "LSR", "absolute", 3, "Logical shift right (absolute)"),
-            (0x2A, "ROL", "accumulator", 1, "Rotate left (accumulator)"),
-            (0x2E, "ROL", "absolute", 3, "Rotate left (absolute)"),
-            (0x6A, "ROR", "accumulator", 1, "Rotate right (accumulator)"),
-            (0x6E, "ROR", "absolute", 3, "Rotate right (absolute)"),
+            (0x0a, "ASL", "accumulator", 1, "Arithmetic shift left (accumulator)"),
+            (0x0e, "ASL", "absolute", 3, "Arithmetic shift left (absolute)"),
+            (0x4a, "LSR", "accumulator", 1, "Logical shift right (accumulator)"),
+            (0x4e, "LSR", "absolute", 3, "Logical shift right (absolute)"),
+            (0x2a, "ROL", "accumulator", 1, "Rotate left (accumulator)"),
+            (0x2e, "ROL", "absolute", 3, "Rotate left (absolute)"),
+            (0x6a, "ROR", "accumulator", 1, "Rotate right (accumulator)"),
+            (0x6e, "ROR", "absolute", 3, "Rotate right (absolute)"),
 
             # Load X/Y
-            (0xA2, "LDX", "immediate", 2, "Load X register (immediate)"),
-            (0xAE, "LDX", "absolute", 3, "Load X register (absolute)"),
-            (0xA0, "LDY", "immediate", 2, "Load Y register (immediate)"),
-            (0xAC, "LDY", "absolute", 3, "Load Y register (absolute)"),
+            (0xa2, "LDX", "immediate", 2, "Load X register (immediate)"),
+            (0xae, "LDX", "absolute", 3, "Load X register (absolute)"),
+            (0xa0, "LDY", "immediate", 2, "Load Y register (immediate)"),
+            (0xac, "LDY", "absolute", 3, "Load Y register (absolute)"),
 
             # Store X/Y
-            (0x8E, "STX", "absolute", 3, "Store X register (absolute)"),
+            (0x8e, "STX", "absolute", 3, "Store X register (absolute)"),
             (0x86, "STX", "zeropage", 2, "Store X register (zero page)"),
             (0x96, "STX", "zeropage_y", 2, "Store X register (zero page,Y)"),
-            (0x8C, "STY", "absolute", 3, "Store Y register (absolute)"),
+            (0x8c, "STY", "absolute", 3, "Store Y register (absolute)"),
             (0x84, "STY", "zeropage", 2, "Store Y register (zero page)"),
             (0x94, "STY", "zeropage_x", 2, "Store Y register (zero page,X)"),
 
             # Special 65816 instructions
-            (0x5C, "JML", "long", 4, "Jump long"),
-            (0xDC, "JML", "absolute_indirect_long", 3, "Jump [long]"),
+            (0x5c, "JML", "long", 4, "Jump long"),
+            (0xdc, "JML", "absolute_indirect_long", 3, "Jump [long]"),
             (0x54, "MVN", "block_move", 3, "Block move negative"),
             (0x44, "MVP", "block_move", 3, "Block move positive"),
             (0x42, "WDM", "immediate", 2, "Reserved for future use"),
-            (0xDB, "STP", "implied", 1, "Stop processor"),
-            (0xCB, "WAI", "implied", 1, "Wait for interrupt"),
-            (0xEB, "XBA", "implied", 1, "Exchange B and A"),
-            (0xFB, "XCE", "implied", 1, "Exchange carry and emulation"),
+            (0xdb, "STP", "implied", 1, "Stop processor"),
+            (0xcb, "WAI", "implied", 1, "Wait for interrupt"),
+            (0xeb, "XBA", "implied", 1, "Exchange B and A"),
+            (0xfb, "XCE", "implied", 1, "Exchange carry and emulation"),
 
             # Misc
-            (0xEA, "NOP", "implied", 1, "No operation"),
+            (0xea, "NOP", "implied", 1, "No operation"),
             (0x00, "BRK", "immediate", 2, "Break"),
             (0x02, "COP", "immediate", 2, "Coprocessor"),
 
             # Undefined/Illegal opcodes (appear in some ROMs)
             (0x03, "???", "unknown", 1, "Unknown/illegal opcode"),
             (0x07, "???", "unknown", 1, "Unknown/illegal opcode"),
-            (0x0F, "???", "unknown", 1, "Unknown/illegal opcode"),
+            (0x0f, "???", "unknown", 1, "Unknown/illegal opcode"),
         ]
 
         # Build opcode dictionary
@@ -268,14 +268,14 @@ class SNESDisassembler:
 
     def rom_offset_to_snes_address(self, offset: int) -> Tuple[int, int]:
         """Convert ROM offset to SNES address (bank:address format)"""
-        # LoROM mapping: each 32KB bank maps to $8000-$FFFF in SNES memory
+        # LoROM mapping: each 32KB bank maps to $8000-$ffff in SNES memory
         bank = offset // 0x8000
         address = 0x8000 + (offset % 0x8000)
         return bank, address
 
     def snes_address_to_rom_offset(self, bank: int, address: int) -> int:
         """Convert SNES address to ROM offset"""
-        if 0x8000 <= address <= 0xFFFF:
+        if 0x8000 <= address <= 0xffff:
             return bank * 0x8000 + (address - 0x8000)
         return -1  # Invalid address
 
@@ -515,8 +515,8 @@ class SNESDisassembler:
                     if len(bytes_data) >= 3:
                         if mnemonic == 'JSL' and len(bytes_data) >= 4:
                             addr = bytes_data[1] | (bytes_data[2] << 8) | (bytes_data[3] << 16)
-                            bank = (addr >> 16) & 0xFF
-                            target_offset = self.snes_address_to_rom_offset(bank, addr & 0xFFFF)
+                            bank = (addr >> 16) & 0xff
+                            target_offset = self.snes_address_to_rom_offset(bank, addr & 0xffff)
                         else:
                             addr = bytes_data[1] | (bytes_data[2] << 8)
                             target_offset = self.snes_address_to_rom_offset(instruction['bank'], addr)
@@ -732,12 +732,12 @@ class SNESDisassembler:
             f.write(".DEFINE BG1SC      $2107\n")
             f.write(".DEFINE BG2SC      $2108\n")
             f.write(".DEFINE BG3SC      $2109\n")
-            f.write(".DEFINE BG4SC      $210A\n")
-            f.write(".DEFINE BG12NBA    $210B\n")
-            f.write(".DEFINE BG34NBA    $210C\n")
-            f.write(".DEFINE BG1HOFS    $210D\n")
-            f.write(".DEFINE BG1VOFS    $210E\n")
-            f.write(".DEFINE BG2HOFS    $210F\n")
+            f.write(".DEFINE BG4SC      $210a\n")
+            f.write(".DEFINE BG12NBA    $210b\n")
+            f.write(".DEFINE BG34NBA    $210c\n")
+            f.write(".DEFINE BG1HOFS    $210d\n")
+            f.write(".DEFINE BG1VOFS    $210e\n")
+            f.write(".DEFINE BG2HOFS    $210f\n")
             f.write(".DEFINE BG2VOFS    $2110\n")
             f.write("\n")
 

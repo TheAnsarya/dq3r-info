@@ -548,7 +548,7 @@
 			"banks": {
 				"$00": {
 					"rom_offset": "$000000",
-					"snes_range": "$0000-$FFFF",
+					"snes_range": "$0000-$ffff",
 					"size": 65536,
 					"description": "System/Boot code",
 					"content_analysis": {
@@ -560,30 +560,30 @@
 							"Function: sub_00_0803 (subroutine)",
 							"Function: sub_00_0589 (subroutine)",
 							"Function: sub_00_0514 (subroutine)",
-							"Function: sub_00_06E1 (subroutine)",
-							"Function: sub_00_06A1 (subroutine)",
+							"Function: sub_00_06e1 (subroutine)",
+							"Function: sub_00_06a1 (subroutine)",
 							"Function: sub_00_0704 (subroutine)",
-							"Function: sub_00_0E4C (interrupt)",
-							"Function: sub_00_0C46 (subroutine)",
-							"Function: sub_00_0D2E (subroutine)",
-							"Function: sub_00_0C94 (subroutine)",
-							"Function: sub_00_0CE0 (subroutine)",
-							"Function: sub_00_0D7D (subroutine)",
-							"Function: sub_00_0DCC (interrupt)",
-							"Function: sub_00_0E0C (interrupt)",
+							"Function: sub_00_0e4c (interrupt)",
+							"Function: sub_00_0c46 (subroutine)",
+							"Function: sub_00_0d2e (subroutine)",
+							"Function: sub_00_0c94 (subroutine)",
+							"Function: sub_00_0ce0 (subroutine)",
+							"Function: sub_00_0d7d (subroutine)",
+							"Function: sub_00_0dcc (interrupt)",
+							"Function: sub_00_0e0c (interrupt)",
 							"Function: sub_00_0858 (subroutine)",
 							"Function: sub_00_0704 (subroutine)",
 							"Function: sub_00_0733 (subroutine)",
-							"Function: sub_00_0B16 (subroutine)",
+							"Function: sub_00_0b16 (subroutine)",
 							"Function: sub_00_0766 (subroutine)",
-							"Function: sub_00_0F2A (subroutine)"
+							"Function: sub_00_0f2a (subroutine)"
 						],
 						"functions_detected": 20
 					}
 				},
 				"$01": {
 					"rom_offset": "$010000",
-					"snes_range": "$0000-$FFFF",
+					"snes_range": "$0000-$ffff",
 					"size": 65536,
 					"description": "Program code",
 					"content_analysis": {
@@ -592,19 +592,19 @@
 						"text_probability": 0.3700314555333143,
 						"audio_probability": 1.0,
 						"patterns": [
-							"Function: sub_01_011A (interrupt)",
-							"Function: sub_01_011A (interrupt)",
+							"Function: sub_01_011a (interrupt)",
+							"Function: sub_01_011a (interrupt)",
 							"Function: sub_01_0147 (interrupt)",
 							"Function: sub_01_0116 (interrupt)",
 							"Function: sub_01_0132 (interrupt)",
 							"Function: sub_01_0121 (interrupt)",
 							"Function: sub_01_0139 (interrupt)",
 							"Function: sub_01_0149 (interrupt)",
-							"Function: sub_01_0FF9 (subroutine)",
+							"Function: sub_01_0ff9 (subroutine)",
 							"Function: sub_01_0147 (interrupt)",
 							"Function: sub_01_0147 (interrupt)",
 							"Function: sub_01_0147 (interrupt)",
-							"Function: sub_01_014D (interrupt)",
+							"Function: sub_01_014d (interrupt)",
 							"Function: sub_01_0104 (subroutine)"
 						],
 						"functions_detected": 14
@@ -612,7 +612,7 @@
 				},
 				"$02": {
 					"rom_offset": "$020000",
-					"snes_range": "$0000-$FFFF",
+					"snes_range": "$0000-$ffff",
 					"size": 65536,
 					"description": "Program code",
 					"content_analysis": {
@@ -634,12 +634,12 @@
 							"Function: sub_02_0663 (interrupt)",
 							"Function: sub_02_0090 (interrupt)",
 							"Function: sub_02_0029 (subroutine)",
-							"Function: sub_02_002B (subroutine)",
+							"Function: sub_02_002b (subroutine)",
 							"Function: sub_02_0040 (subroutine)",
 							"Function: sub_02_1000 (interrupt)",
 							"Function: sub_02_0373 (main_loop)",
 							"Function: sub_02_0040 (subroutine)",
-							"Function: sub_02_0D06 (interrupt)",
+							"Function: sub_02_0d06 (interrupt)",
 							"Function: sub_02_1000 (interrupt)"
 						],
 						"functions_detected": 20
@@ -647,7 +647,7 @@
 				},
 				"$03": {
 					"rom_offset": "$030000",
-					"snes_range": "$0000-$FFFF",
+					"snes_range": "$0000-$ffff",
 					"size": 65536,
 					"description": "Program code",
 					"content_analysis": {
@@ -682,7 +682,7 @@
 				},
 				"$04": {
 					"rom_offset": "$040000",
-					"snes_range": "$0000-$FFFF",
+					"snes_range": "$0000-$ffff",
 					"size": 65536,
 					"description": "Program code",
 					"content_analysis": {
@@ -695,7 +695,7 @@
 							"Function: sub_04_0003 (subroutine)",
 							"Function: sub_04_0003 (subroutine)",
 							"Function: sub_04_0300 (subroutine)",
-							"Function: sub_04_000B (subroutine)",
+							"Function: sub_04_000b (subroutine)",
 							"Function: sub_04_0009 (subroutine)",
 							"Function: sub_04_0009 (subroutine)",
 							"Function: sub_04_0007 (subroutine)",
@@ -707,7 +707,7 @@
 				},
 				"$05": {
 					"rom_offset": "$050000",
-					"snes_range": "$0000-$FFFF",
+					"snes_range": "$0000-$ffff",
 					"size": 65536,
 					"description": "Program code",
 					"content_analysis": {
@@ -720,14 +720,14 @@
 							"Function: sub_02_0000 (subroutine)",
 							"Function: sub_05_0620 (interrupt)",
 							"Function: sub_04_0003 (subroutine)",
-							"Function: sub_05_0B04 (subroutine)"
+							"Function: sub_05_0b04 (subroutine)"
 						],
 						"functions_detected": 5
 					}
 				},
 				"$06": {
 					"rom_offset": "$060000",
-					"snes_range": "$0000-$FFFF",
+					"snes_range": "$0000-$ffff",
 					"size": 65536,
 					"description": "Program code",
 					"content_analysis": {
@@ -737,32 +737,32 @@
 						"audio_probability": 1.0,
 						"patterns": [
 							"Function: sub_06_0100 (interrupt)",
-							"Function: sub_06_00BD (interrupt)",
+							"Function: sub_06_00bd (interrupt)",
 							"Function: sub_06_0230 (subroutine)",
 							"Function: sub_06_0230 (subroutine)",
-							"Function: sub_06_09A9 (subroutine)",
-							"Function: sub_06_02C8 (interrupt)",
-							"Function: sub_06_03AF (subroutine)",
-							"Function: sub_06_03E2 (data_handler)",
-							"Function: sub_06_03F2 (data_handler)",
-							"Function: sub_06_03FF (subroutine)",
-							"Function: sub_06_04A0 (data_handler)",
-							"Function: sub_06_049F (subroutine)",
-							"Function: sub_06_04A7 (subroutine)",
-							"Function: sub_06_051C (data_handler)",
+							"Function: sub_06_09a9 (subroutine)",
+							"Function: sub_06_02c8 (interrupt)",
+							"Function: sub_06_03af (subroutine)",
+							"Function: sub_06_03e2 (data_handler)",
+							"Function: sub_06_03f2 (data_handler)",
+							"Function: sub_06_03ff (subroutine)",
+							"Function: sub_06_04a0 (data_handler)",
+							"Function: sub_06_049f (subroutine)",
+							"Function: sub_06_04a7 (subroutine)",
+							"Function: sub_06_051c (data_handler)",
 							"Function: sub_06_0455 (data_handler)",
-							"Function: sub_06_052F (data_handler)",
-							"Function: sub_06_055D (subroutine)",
-							"Function: sub_06_057A (subroutine)",
-							"Function: sub_06_05C3 (subroutine)",
-							"Function: sub_06_05FD (subroutine)"
+							"Function: sub_06_052f (data_handler)",
+							"Function: sub_06_055d (subroutine)",
+							"Function: sub_06_057a (subroutine)",
+							"Function: sub_06_05c3 (subroutine)",
+							"Function: sub_06_05fd (subroutine)"
 						],
 						"functions_detected": 20
 					}
 				},
 				"$07": {
 					"rom_offset": "$070000",
-					"snes_range": "$0000-$FFFF",
+					"snes_range": "$0000-$ffff",
 					"size": 65536,
 					"description": "Program code",
 					"content_analysis": {
@@ -778,7 +778,7 @@
 				},
 				"$08": {
 					"rom_offset": "$080000",
-					"snes_range": "$0000-$FFFF",
+					"snes_range": "$0000-$ffff",
 					"size": 65536,
 					"description": "Program code",
 					"content_analysis": {
@@ -789,18 +789,18 @@
 						"patterns": [
 							"Function: sub_08_0052 (subroutine)",
 							"Function: sub_08_0056 (subroutine)",
-							"Function: sub_08_004A (subroutine)",
+							"Function: sub_08_004a (subroutine)",
 							"Function: sub_08_0042 (subroutine)",
-							"Function: sub_08_004A (subroutine)",
+							"Function: sub_08_004a (subroutine)",
 							"Function: sub_08_0052 (subroutine)",
-							"Function: sub_08_005A (subroutine)"
+							"Function: sub_08_005a (subroutine)"
 						],
 						"functions_detected": 7
 					}
 				},
 				"$09": {
 					"rom_offset": "$090000",
-					"snes_range": "$0000-$FFFF",
+					"snes_range": "$0000-$ffff",
 					"size": 65536,
 					"description": "Program code",
 					"content_analysis": {
@@ -809,33 +809,33 @@
 						"text_probability": 0.6600541027953111,
 						"audio_probability": 1.0,
 						"patterns": [
-							"Function: sub_09_0CA3 (subroutine)",
-							"Function: sub_06_00BD (interrupt)",
-							"Function: sub_09_08A3 (subroutine)",
-							"Function: sub_09_02A0 (interrupt)",
-							"Function: sub_09_06A0 (main_loop)",
-							"Function: sub_09_045D (interrupt)",
-							"Function: sub_09_02A0 (interrupt)",
-							"Function: sub_09_06A0 (main_loop)",
-							"Function: sub_09_045D (interrupt)",
-							"Function: sub_09_08A3 (subroutine)",
-							"Function: sub_09_02A0 (interrupt)",
-							"Function: sub_09_045D (interrupt)",
-							"Function: sub_09_02A0 (interrupt)",
-							"Function: sub_09_06A0 (main_loop)",
-							"Function: sub_09_045D (interrupt)",
-							"Function: sub_09_02A0 (interrupt)",
-							"Function: sub_09_06A0 (main_loop)",
-							"Function: sub_09_09A0 (subroutine)",
-							"Function: sub_09_045D (interrupt)",
-							"Function: sub_09_02B5 (interrupt)"
+							"Function: sub_09_0ca3 (subroutine)",
+							"Function: sub_06_00bd (interrupt)",
+							"Function: sub_09_08a3 (subroutine)",
+							"Function: sub_09_02a0 (interrupt)",
+							"Function: sub_09_06a0 (main_loop)",
+							"Function: sub_09_045d (interrupt)",
+							"Function: sub_09_02a0 (interrupt)",
+							"Function: sub_09_06a0 (main_loop)",
+							"Function: sub_09_045d (interrupt)",
+							"Function: sub_09_08a3 (subroutine)",
+							"Function: sub_09_02a0 (interrupt)",
+							"Function: sub_09_045d (interrupt)",
+							"Function: sub_09_02a0 (interrupt)",
+							"Function: sub_09_06a0 (main_loop)",
+							"Function: sub_09_045d (interrupt)",
+							"Function: sub_09_02a0 (interrupt)",
+							"Function: sub_09_06a0 (main_loop)",
+							"Function: sub_09_09a0 (subroutine)",
+							"Function: sub_09_045d (interrupt)",
+							"Function: sub_09_02b5 (interrupt)"
 						],
 						"functions_detected": 20
 					}
 				},
-				"$0A": {
-					"rom_offset": "$0A0000",
-					"snes_range": "$0000-$FFFF",
+				"$0a": {
+					"rom_offset": "$0a0000",
+					"snes_range": "$0000-$ffff",
 					"size": 65536,
 					"description": "Program code",
 					"content_analysis": {
@@ -844,18 +844,18 @@
 						"text_probability": 0.7069510268562401,
 						"audio_probability": 1.0,
 						"patterns": [
-							"Function: sub_0A_0C00 (subroutine)",
-							"Function: sub_0A_0C00 (subroutine)",
-							"Function: sub_0A_0C00 (subroutine)",
-							"Function: sub_0A_0C00 (subroutine)",
-							"Function: sub_0A_0C00 (subroutine)"
+							"Function: sub_0A_0c00 (subroutine)",
+							"Function: sub_0A_0c00 (subroutine)",
+							"Function: sub_0A_0c00 (subroutine)",
+							"Function: sub_0A_0c00 (subroutine)",
+							"Function: sub_0A_0c00 (subroutine)"
 						],
 						"functions_detected": 5
 					}
 				},
-				"$0B": {
-					"rom_offset": "$0B0000",
-					"snes_range": "$0000-$FFFF",
+				"$0b": {
+					"rom_offset": "$0b0000",
+					"snes_range": "$0000-$ffff",
 					"size": 65536,
 					"description": "Program code",
 					"content_analysis": {
@@ -864,15 +864,15 @@
 						"text_probability": 0.687682119205298,
 						"audio_probability": 1.0,
 						"patterns": [
-							"Function: sub_0A_0C00 (subroutine)",
-							"Function: sub_0A_0C00 (subroutine)"
+							"Function: sub_0A_0c00 (subroutine)",
+							"Function: sub_0A_0c00 (subroutine)"
 						],
 						"functions_detected": 2
 					}
 				},
-				"$0C": {
-					"rom_offset": "$0C0000",
-					"snes_range": "$0000-$FFFF",
+				"$0c": {
+					"rom_offset": "$0c0000",
+					"snes_range": "$0000-$ffff",
 					"size": 65536,
 					"description": "Program code",
 					"content_analysis": {
@@ -881,14 +881,14 @@
 						"text_probability": 0.8274666666666667,
 						"audio_probability": 1.0,
 						"patterns": [
-							"Function: sub_0A_0C00 (subroutine)"
+							"Function: sub_0A_0c00 (subroutine)"
 						],
 						"functions_detected": 1
 					}
 				},
-				"$0D": {
-					"rom_offset": "$0D0000",
-					"snes_range": "$0000-$FFFF",
+				"$0d": {
+					"rom_offset": "$0d0000",
+					"snes_range": "$0000-$ffff",
 					"size": 65536,
 					"description": "Program code",
 					"content_analysis": {
@@ -897,17 +897,17 @@
 						"text_probability": 0.6368549040799784,
 						"audio_probability": 1.0,
 						"patterns": [
-							"Function: sub_0A_0C00 (subroutine)",
-							"Function: sub_0A_0C00 (subroutine)",
-							"Function: sub_0A_0C00 (subroutine)",
-							"Function: sub_0A_0C00 (subroutine)"
+							"Function: sub_0A_0c00 (subroutine)",
+							"Function: sub_0A_0c00 (subroutine)",
+							"Function: sub_0A_0c00 (subroutine)",
+							"Function: sub_0A_0c00 (subroutine)"
 						],
 						"functions_detected": 4
 					}
 				},
-				"$0E": {
-					"rom_offset": "$0E0000",
-					"snes_range": "$0000-$FFFF",
+				"$0e": {
+					"rom_offset": "$0e0000",
+					"snes_range": "$0000-$ffff",
 					"size": 65536,
 					"description": "Program code",
 					"content_analysis": {
@@ -916,10 +916,10 @@
 						"text_probability": 0.45922873123344127,
 						"audio_probability": 1.0,
 						"patterns": [
-							"Function: sub_0E_005F (main_loop)",
-							"Function: sub_0E_00E0 (subroutine)",
-							"Function: sub_0E_0C28 (interrupt)",
-							"Function: sub_0E_00C0 (main_loop)",
+							"Function: sub_0E_005f (main_loop)",
+							"Function: sub_0E_00e0 (subroutine)",
+							"Function: sub_0E_0c28 (interrupt)",
+							"Function: sub_0E_00c0 (main_loop)",
 							"Function: sub_0E_0070 (main_loop)",
 							"Function: sub_0E_0253 (main_loop)",
 							"Function: sub_0E_0658 (interrupt)",
@@ -929,9 +929,9 @@
 						"functions_detected": 9
 					}
 				},
-				"$0F": {
-					"rom_offset": "$0F0000",
-					"snes_range": "$0000-$FFFF",
+				"$0f": {
+					"rom_offset": "$0f0000",
+					"snes_range": "$0000-$ffff",
 					"size": 65536,
 					"description": "Program code",
 					"content_analysis": {
@@ -954,7 +954,7 @@
 							"Function: sub_0F_0414 (subroutine)",
 							"Function: sub_0F_0220 (interrupt)",
 							"Function: sub_0F_0102 (interrupt)",
-							"Function: sub_0F_008C (interrupt)",
+							"Function: sub_0F_008c (interrupt)",
 							"Function: sub_02_0000 (subroutine)",
 							"Function: sub_02_0000 (subroutine)",
 							"Function: sub_02_0010 (subroutine)",
@@ -966,7 +966,7 @@
 				},
 				"$10": {
 					"rom_offset": "$100000",
-					"snes_range": "$0000-$FFFF",
+					"snes_range": "$0000-$ffff",
 					"size": 65536,
 					"description": "Program code",
 					"content_analysis": {
@@ -975,31 +975,31 @@
 						"text_probability": 0.3798090830199595,
 						"audio_probability": 1.0,
 						"patterns": [
-							"Function: sub_10_003B (subroutine)",
+							"Function: sub_10_003b (subroutine)",
 							"Function: sub_10_0480 (interrupt)",
 							"Function: sub_10_0628 (main_loop)",
-							"Function: sub_10_085F (subroutine)",
-							"Function: sub_10_0C20 (interrupt)",
-							"Function: sub_10_000F (subroutine)",
-							"Function: sub_10_0D3C (interrupt)",
+							"Function: sub_10_085f (subroutine)",
+							"Function: sub_10_0c20 (interrupt)",
+							"Function: sub_10_000f (subroutine)",
+							"Function: sub_10_0d3c (interrupt)",
 							"Function: sub_02_0000 (subroutine)",
 							"Function: sub_02_0000 (subroutine)",
-							"Function: sub_10_000F (subroutine)",
+							"Function: sub_10_000f (subroutine)",
 							"Function: sub_02_0000 (subroutine)",
-							"Function: sub_10_003E (subroutine)",
+							"Function: sub_10_003e (subroutine)",
 							"Function: sub_10_0830 (subroutine)",
 							"Function: sub_10_0022 (subroutine)",
 							"Function: sub_10_0830 (subroutine)",
-							"Function: sub_10_003D (subroutine)",
-							"Function: sub_0E_00E0 (subroutine)",
-							"Function: sub_10_019F (main_loop)"
+							"Function: sub_10_003d (subroutine)",
+							"Function: sub_0E_00e0 (subroutine)",
+							"Function: sub_10_019f (main_loop)"
 						],
 						"functions_detected": 18
 					}
 				},
 				"$11": {
 					"rom_offset": "$110000",
-					"snes_range": "$0000-$FFFF",
+					"snes_range": "$0000-$ffff",
 					"size": 65536,
 					"description": "Program code",
 					"content_analysis": {
@@ -1008,26 +1008,26 @@
 						"text_probability": 0.4919278252611586,
 						"audio_probability": 1.0,
 						"patterns": [
-							"Function: sub_11_00DF (interrupt)",
-							"Function: sub_11_07A2 (subroutine)",
-							"Function: sub_11_03DA (subroutine)",
-							"Function: sub_11_061E (subroutine)",
+							"Function: sub_11_00df (interrupt)",
+							"Function: sub_11_07a2 (subroutine)",
+							"Function: sub_11_03da (subroutine)",
+							"Function: sub_11_061e (subroutine)",
 							"Function: sub_02_0000 (subroutine)",
 							"Function: sub_02_0000 (subroutine)",
 							"Function: sub_02_0020 (subroutine)",
 							"Function: sub_02_0000 (subroutine)",
-							"Function: sub_11_00F8 (interrupt)",
-							"Function: sub_11_006F (subroutine)",
+							"Function: sub_11_00f8 (interrupt)",
+							"Function: sub_11_006f (subroutine)",
 							"Function: sub_04_0007 (subroutine)",
-							"Function: sub_11_001E (subroutine)",
-							"Function: sub_11_00FF (interrupt)"
+							"Function: sub_11_001e (subroutine)",
+							"Function: sub_11_00ff (interrupt)"
 						],
 						"functions_detected": 13
 					}
 				},
 				"$12": {
 					"rom_offset": "$120000",
-					"snes_range": "$0000-$FFFF",
+					"snes_range": "$0000-$ffff",
 					"size": 65536,
 					"description": "Program code",
 					"content_analysis": {
@@ -1036,21 +1036,21 @@
 						"text_probability": 0.3147468818782098,
 						"audio_probability": 1.0,
 						"patterns": [
-							"Function: sub_11_00DF (interrupt)",
-							"Function: sub_12_077F (subroutine)",
-							"Function: sub_11_00FF (interrupt)",
+							"Function: sub_11_00df (interrupt)",
+							"Function: sub_12_077f (subroutine)",
+							"Function: sub_11_00ff (interrupt)",
 							"Function: sub_02_0020 (subroutine)",
 							"Function: sub_02_0000 (subroutine)",
-							"Function: sub_11_00DF (interrupt)",
-							"Function: sub_11_00DF (interrupt)",
-							"Function: sub_11_00DF (interrupt)",
+							"Function: sub_11_00df (interrupt)",
+							"Function: sub_11_00df (interrupt)",
+							"Function: sub_11_00df (interrupt)",
 							"Function: sub_02_0000 (subroutine)",
-							"Function: sub_11_00FF (interrupt)",
+							"Function: sub_11_00ff (interrupt)",
 							"Function: sub_02_0000 (subroutine)",
-							"Function: sub_11_00FF (interrupt)",
-							"Function: sub_12_007C (main_loop)",
+							"Function: sub_11_00ff (interrupt)",
+							"Function: sub_12_007c (main_loop)",
 							"Function: sub_02_1000 (interrupt)",
-							"Function: sub_12_00F0 (subroutine)",
+							"Function: sub_12_00f0 (subroutine)",
 							"Function: sub_12_0120 (main_loop)",
 							"Function: sub_12_0079 (main_loop)",
 							"Function: sub_12_0880 (subroutine)"
@@ -1060,7 +1060,7 @@
 				},
 				"$13": {
 					"rom_offset": "$130000",
-					"snes_range": "$0000-$FFFF",
+					"snes_range": "$0000-$ffff",
 					"size": 65536,
 					"description": "Program code",
 					"content_analysis": {
@@ -1069,8 +1069,8 @@
 						"text_probability": 0.47946685878962536,
 						"audio_probability": 1.0,
 						"patterns": [
-							"Function: sub_10_085F (subroutine)",
-							"Function: sub_10_085F (subroutine)",
+							"Function: sub_10_085f (subroutine)",
+							"Function: sub_10_085f (subroutine)",
 							"Function: sub_02_1000 (interrupt)"
 						],
 						"functions_detected": 3
@@ -1078,7 +1078,7 @@
 				},
 				"$14": {
 					"rom_offset": "$140000",
-					"snes_range": "$0000-$FFFF",
+					"snes_range": "$0000-$ffff",
 					"size": 65536,
 					"description": "Program code",
 					"content_analysis": {
@@ -1090,15 +1090,15 @@
 							"Function: sub_02_1000 (interrupt)",
 							"Function: sub_02_0000 (subroutine)",
 							"Function: sub_02_0000 (subroutine)",
-							"Function: sub_14_000E (subroutine)",
-							"Function: sub_11_00DF (interrupt)"
+							"Function: sub_14_000e (subroutine)",
+							"Function: sub_11_00df (interrupt)"
 						],
 						"functions_detected": 5
 					}
 				},
 				"$15": {
 					"rom_offset": "$150000",
-					"snes_range": "$0000-$FFFF",
+					"snes_range": "$0000-$ffff",
 					"size": 65536,
 					"description": "Program code",
 					"content_analysis": {
@@ -1110,17 +1110,17 @@
 							"Function: sub_02_0000 (subroutine)",
 							"Function: sub_02_0000 (subroutine)",
 							"Function: sub_15_0200 (interrupt)",
-							"Function: sub_11_00FF (interrupt)",
-							"Function: sub_15_003F (subroutine)",
-							"Function: sub_15_08F8 (subroutine)",
-							"Function: sub_15_04EE (subroutine)"
+							"Function: sub_11_00ff (interrupt)",
+							"Function: sub_15_003f (subroutine)",
+							"Function: sub_15_08f8 (subroutine)",
+							"Function: sub_15_04ee (subroutine)"
 						],
 						"functions_detected": 7
 					}
 				},
 				"$16": {
 					"rom_offset": "$160000",
-					"snes_range": "$0000-$FFFF",
+					"snes_range": "$0000-$ffff",
 					"size": 65536,
 					"description": "Program code",
 					"content_analysis": {
@@ -1129,21 +1129,21 @@
 						"text_probability": 0.6143100511073254,
 						"audio_probability": 1.0,
 						"patterns": [
-							"Function: sub_0E_00E0 (subroutine)",
+							"Function: sub_0E_00e0 (subroutine)",
 							"Function: sub_02_0020 (subroutine)",
 							"Function: sub_02_0020 (subroutine)",
 							"Function: sub_02_0000 (subroutine)",
-							"Function: sub_16_00A0 (subroutine)",
+							"Function: sub_16_00a0 (subroutine)",
 							"Function: sub_16_0080 (subroutine)",
-							"Function: sub_16_02FC (main_loop)",
-							"Function: sub_16_0CD8 (subroutine)"
+							"Function: sub_16_02fc (main_loop)",
+							"Function: sub_16_0cd8 (subroutine)"
 						],
 						"functions_detected": 8
 					}
 				},
 				"$17": {
 					"rom_offset": "$170000",
-					"snes_range": "$0000-$FFFF",
+					"snes_range": "$0000-$ffff",
 					"size": 65536,
 					"description": "Program code",
 					"content_analysis": {
@@ -1152,23 +1152,23 @@
 						"text_probability": 0.45752339812814974,
 						"audio_probability": 1.0,
 						"patterns": [
-							"Function: sub_0E_005F (main_loop)",
+							"Function: sub_0E_005f (main_loop)",
 							"Function: sub_02_0000 (subroutine)",
 							"Function: sub_17_0001 (subroutine)",
-							"Function: sub_17_00FD (interrupt)",
+							"Function: sub_17_00fd (interrupt)",
 							"Function: sub_17_0602 (interrupt)",
-							"Function: sub_11_00FF (interrupt)",
-							"Function: sub_17_00EB (interrupt)",
-							"Function: sub_17_000C (subroutine)",
-							"Function: sub_17_06E0 (interrupt)",
-							"Function: sub_17_03DE (interrupt)"
+							"Function: sub_11_00ff (interrupt)",
+							"Function: sub_17_00eb (interrupt)",
+							"Function: sub_17_000c (subroutine)",
+							"Function: sub_17_06e0 (interrupt)",
+							"Function: sub_17_03de (interrupt)"
 						],
 						"functions_detected": 10
 					}
 				},
 				"$18": {
 					"rom_offset": "$180000",
-					"snes_range": "$0000-$FFFF",
+					"snes_range": "$0000-$ffff",
 					"size": 65536,
 					"description": "Program code",
 					"content_analysis": {
@@ -1177,17 +1177,17 @@
 						"text_probability": 0.45496714340935446,
 						"audio_probability": 1.0,
 						"patterns": [
-							"Function: sub_18_00F7 (subroutine)",
-							"Function: sub_18_001F (subroutine)",
-							"Function: sub_15_003F (subroutine)",
-							"Function: sub_18_02FD (subroutine)"
+							"Function: sub_18_00f7 (subroutine)",
+							"Function: sub_18_001f (subroutine)",
+							"Function: sub_15_003f (subroutine)",
+							"Function: sub_18_02fd (subroutine)"
 						],
 						"functions_detected": 4
 					}
 				},
 				"$19": {
 					"rom_offset": "$190000",
-					"snes_range": "$0000-$FFFF",
+					"snes_range": "$0000-$ffff",
 					"size": 65536,
 					"description": "Program code",
 					"content_analysis": {
@@ -1197,20 +1197,20 @@
 						"audio_probability": 1.0,
 						"patterns": [
 							"Function: sub_02_0000 (subroutine)",
-							"Function: sub_19_00F9 (interrupt)",
+							"Function: sub_19_00f9 (interrupt)",
 							"Function: sub_02_0000 (subroutine)",
 							"Function: sub_02_0010 (subroutine)",
-							"Function: sub_19_07F8 (subroutine)",
+							"Function: sub_19_07f8 (subroutine)",
 							"Function: sub_02_0000 (subroutine)",
 							"Function: sub_19_0033 (main_loop)",
 							"Function: sub_02_0000 (subroutine)",
-							"Function: sub_0E_00E0 (subroutine)",
+							"Function: sub_0E_00e0 (subroutine)",
 							"Function: sub_02_0000 (subroutine)",
 							"Function: sub_02_0000 (subroutine)",
 							"Function: sub_02_0020 (subroutine)",
 							"Function: sub_02_0000 (subroutine)",
 							"Function: sub_02_0000 (subroutine)",
-							"Function: sub_19_07F8 (subroutine)",
+							"Function: sub_19_07f8 (subroutine)",
 							"Function: sub_02_0000 (subroutine)",
 							"Function: sub_0F_0101 (interrupt)",
 							"Function: sub_02_1000 (interrupt)",
@@ -1220,9 +1220,9 @@
 						"functions_detected": 20
 					}
 				},
-				"$1A": {
-					"rom_offset": "$1A0000",
-					"snes_range": "$0000-$FFFF",
+				"$1a": {
+					"rom_offset": "$1a0000",
+					"snes_range": "$0000-$ffff",
 					"size": 65536,
 					"description": "Program code",
 					"content_analysis": {
@@ -1238,16 +1238,16 @@
 							"Function: sub_02_0000 (subroutine)",
 							"Function: sub_02_1000 (interrupt)",
 							"Function: sub_02_0000 (subroutine)",
-							"Function: sub_0E_00C0 (main_loop)",
+							"Function: sub_0E_00c0 (main_loop)",
 							"Function: sub_02_0000 (subroutine)",
 							"Function: sub_16_0080 (subroutine)",
-							"Function: sub_0E_00E0 (subroutine)",
-							"Function: sub_1A_002F (interrupt)",
+							"Function: sub_0E_00e0 (subroutine)",
+							"Function: sub_1A_002f (interrupt)",
 							"Function: sub_02_0000 (subroutine)",
 							"Function: sub_02_1000 (interrupt)",
-							"Function: sub_1A_002F (interrupt)",
+							"Function: sub_1A_002f (interrupt)",
 							"Function: sub_02_0000 (subroutine)",
-							"Function: sub_0E_00E0 (subroutine)",
+							"Function: sub_0E_00e0 (subroutine)",
 							"Function: sub_1A_0800 (interrupt)",
 							"Function: sub_02_0000 (subroutine)",
 							"Function: sub_02_0020 (subroutine)"
@@ -1255,9 +1255,9 @@
 						"functions_detected": 20
 					}
 				},
-				"$1B": {
-					"rom_offset": "$1B0000",
-					"snes_range": "$0000-$FFFF",
+				"$1b": {
+					"rom_offset": "$1b0000",
+					"snes_range": "$0000-$ffff",
 					"size": 65536,
 					"description": "Program code",
 					"content_analysis": {
@@ -1266,33 +1266,33 @@
 						"text_probability": 0.292551600358959,
 						"audio_probability": 1.0,
 						"patterns": [
-							"Function: sub_0E_00E0 (subroutine)",
+							"Function: sub_0E_00e0 (subroutine)",
 							"Function: sub_02_0000 (subroutine)",
 							"Function: sub_1B_0117 (interrupt)",
-							"Function: sub_1B_01DD (interrupt)",
-							"Function: sub_1B_00DB (interrupt)",
+							"Function: sub_1B_01dd (interrupt)",
+							"Function: sub_1B_00db (interrupt)",
 							"Function: sub_1B_0050 (interrupt)",
 							"Function: sub_02_0000 (subroutine)",
-							"Function: sub_1B_00DC (interrupt)",
+							"Function: sub_1B_00dc (interrupt)",
 							"Function: sub_02_0000 (subroutine)",
-							"Function: sub_11_00FF (interrupt)",
+							"Function: sub_11_00ff (interrupt)",
 							"Function: sub_02_0000 (subroutine)",
 							"Function: sub_02_0020 (subroutine)",
 							"Function: sub_02_0000 (subroutine)",
-							"Function: sub_1B_00FC (interrupt)",
+							"Function: sub_1B_00fc (interrupt)",
 							"Function: sub_02_0000 (subroutine)",
 							"Function: sub_02_0000 (subroutine)",
-							"Function: sub_1B_083F (interrupt)",
-							"Function: sub_1B_00FC (interrupt)",
+							"Function: sub_1B_083f (interrupt)",
+							"Function: sub_1B_00fc (interrupt)",
 							"Function: sub_02_0000 (subroutine)",
 							"Function: sub_02_0000 (subroutine)"
 						],
 						"functions_detected": 20
 					}
 				},
-				"$1C": {
-					"rom_offset": "$1C0000",
-					"snes_range": "$0000-$FFFF",
+				"$1c": {
+					"rom_offset": "$1c0000",
+					"snes_range": "$0000-$ffff",
 					"size": 65536,
 					"description": "Program code",
 					"content_analysis": {
@@ -1301,27 +1301,27 @@
 						"text_probability": 0.3348429951690821,
 						"audio_probability": 1.0,
 						"patterns": [
-							"Function: sub_1C_054A (interrupt)",
-							"Function: sub_1C_003C (interrupt)",
+							"Function: sub_1C_054a (interrupt)",
+							"Function: sub_1C_003c (interrupt)",
 							"Function: sub_02_0090 (interrupt)",
-							"Function: sub_1C_0C64 (main_loop)",
+							"Function: sub_1C_0c64 (main_loop)",
 							"Function: sub_1C_0068 (interrupt)",
 							"Function: sub_1C_0038 (interrupt)",
 							"Function: sub_1C_0038 (interrupt)",
-							"Function: sub_1C_00F4 (subroutine)",
-							"Function: sub_1C_00F4 (subroutine)",
+							"Function: sub_1C_00f4 (subroutine)",
+							"Function: sub_1C_00f4 (subroutine)",
 							"Function: sub_1C_0068 (interrupt)",
-							"Function: sub_0E_00E0 (subroutine)",
+							"Function: sub_0E_00e0 (subroutine)",
 							"Function: sub_02_0090 (interrupt)",
 							"Function: sub_02_0000 (subroutine)",
-							"Function: sub_0E_00E0 (subroutine)"
+							"Function: sub_0E_00e0 (subroutine)"
 						],
 						"functions_detected": 14
 					}
 				},
-				"$1D": {
-					"rom_offset": "$1D0000",
-					"snes_range": "$0000-$FFFF",
+				"$1d": {
+					"rom_offset": "$1d0000",
+					"snes_range": "$0000-$ffff",
 					"size": 65536,
 					"description": "Program code",
 					"content_analysis": {
@@ -1330,7 +1330,7 @@
 						"text_probability": 0.3775662005355549,
 						"audio_probability": 1.0,
 						"patterns": [
-							"Function: sub_1D_00D0 (interrupt)",
+							"Function: sub_1D_00d0 (interrupt)",
 							"Function: sub_1D_0004 (interrupt)",
 							"Function: sub_02_0000 (subroutine)",
 							"Function: sub_02_0000 (subroutine)",
@@ -1340,15 +1340,15 @@
 							"Function: sub_02_0000 (subroutine)",
 							"Function: sub_02_0020 (subroutine)",
 							"Function: sub_02_0000 (subroutine)",
-							"Function: sub_16_00A0 (subroutine)",
-							"Function: sub_1D_0F5F (interrupt)"
+							"Function: sub_16_00a0 (subroutine)",
+							"Function: sub_1D_0f5f (interrupt)"
 						],
 						"functions_detected": 12
 					}
 				},
-				"$1E": {
-					"rom_offset": "$1E0000",
-					"snes_range": "$0000-$FFFF",
+				"$1e": {
+					"rom_offset": "$1e0000",
+					"snes_range": "$0000-$ffff",
 					"size": 65536,
 					"description": "Program code",
 					"content_analysis": {
@@ -1358,7 +1358,7 @@
 						"audio_probability": 1.0,
 						"patterns": [
 							"Function: sub_02_0000 (subroutine)",
-							"Function: sub_0E_00C0 (main_loop)",
+							"Function: sub_0E_00c0 (main_loop)",
 							"Function: sub_02_0000 (subroutine)",
 							"Function: sub_02_0000 (subroutine)",
 							"Function: sub_02_0000 (subroutine)",
@@ -1375,15 +1375,15 @@
 							"Function: sub_1E_0002 (interrupt)",
 							"Function: sub_02_0000 (subroutine)",
 							"Function: sub_02_0000 (subroutine)",
-							"Function: sub_0E_00C0 (main_loop)",
+							"Function: sub_0E_00c0 (main_loop)",
 							"Function: sub_1A_0800 (interrupt)"
 						],
 						"functions_detected": 20
 					}
 				},
-				"$1F": {
-					"rom_offset": "$1F0000",
-					"snes_range": "$0000-$FFFF",
+				"$1f": {
+					"rom_offset": "$1f0000",
+					"snes_range": "$0000-$ffff",
 					"size": 65536,
 					"description": "Program code",
 					"content_analysis": {
@@ -1392,26 +1392,26 @@
 						"text_probability": 0.34057971014492755,
 						"audio_probability": 1.0,
 						"patterns": [
-							"Function: sub_0E_00E0 (subroutine)",
+							"Function: sub_0E_00e0 (subroutine)",
 							"Function: sub_02_0000 (subroutine)",
-							"Function: sub_1F_0C0F (interrupt)",
-							"Function: sub_1F_021D (interrupt)",
+							"Function: sub_1F_0c0f (interrupt)",
+							"Function: sub_1F_021d (interrupt)",
 							"Function: sub_1F_0089 (interrupt)",
 							"Function: sub_02_0000 (subroutine)",
 							"Function: sub_02_0000 (subroutine)",
-							"Function: sub_10_000F (subroutine)",
-							"Function: sub_18_001F (subroutine)",
+							"Function: sub_10_000f (subroutine)",
+							"Function: sub_18_001f (subroutine)",
 							"Function: sub_04_0007 (subroutine)",
 							"Function: sub_02_1000 (interrupt)",
 							"Function: sub_08_0042 (subroutine)",
-							"Function: sub_1F_01E0 (interrupt)"
+							"Function: sub_1F_01e0 (interrupt)"
 						],
 						"functions_detected": 13
 					}
 				},
 				"$20": {
 					"rom_offset": "$200000",
-					"snes_range": "$0000-$FFFF",
+					"snes_range": "$0000-$ffff",
 					"size": 65536,
 					"description": "Program code",
 					"content_analysis": {
@@ -1421,22 +1421,22 @@
 						"audio_probability": 1.0,
 						"patterns": [
 							"Function: sub_02_0010 (subroutine)",
-							"Function: sub_0E_00E0 (subroutine)",
+							"Function: sub_0E_00e0 (subroutine)",
 							"Function: sub_1C_0068 (interrupt)",
 							"Function: sub_02_0000 (subroutine)",
-							"Function: sub_20_059E (interrupt)",
+							"Function: sub_20_059e (interrupt)",
 							"Function: sub_02_0020 (subroutine)",
 							"Function: sub_02_0000 (subroutine)",
 							"Function: sub_02_0020 (subroutine)",
 							"Function: sub_02_0000 (subroutine)",
-							"Function: sub_12_00F0 (subroutine)"
+							"Function: sub_12_00f0 (subroutine)"
 						],
 						"functions_detected": 10
 					}
 				},
 				"$21": {
 					"rom_offset": "$210000",
-					"snes_range": "$0000-$FFFF",
+					"snes_range": "$0000-$ffff",
 					"size": 65536,
 					"description": "Program code",
 					"content_analysis": {
@@ -1446,18 +1446,18 @@
 						"audio_probability": 1.0,
 						"patterns": [
 							"Function: sub_02_0000 (subroutine)",
-							"Function: sub_21_001D (subroutine)",
+							"Function: sub_21_001d (subroutine)",
 							"Function: sub_02_1000 (interrupt)",
 							"Function: sub_02_1000 (interrupt)",
-							"Function: sub_21_009C (subroutine)",
+							"Function: sub_21_009c (subroutine)",
 							"Function: sub_02_0000 (subroutine)",
-							"Function: sub_21_015C (interrupt)",
+							"Function: sub_21_015c (interrupt)",
 							"Function: sub_1E_0030 (interrupt)",
 							"Function: sub_02_0000 (subroutine)",
-							"Function: sub_21_081B (interrupt)",
-							"Function: sub_11_00FF (interrupt)",
+							"Function: sub_21_081b (interrupt)",
+							"Function: sub_11_00ff (interrupt)",
 							"Function: sub_02_0000 (subroutine)",
-							"Function: sub_21_02D1 (interrupt)",
+							"Function: sub_21_02d1 (interrupt)",
 							"Function: sub_21_0043 (subroutine)"
 						],
 						"functions_detected": 14
@@ -1465,7 +1465,7 @@
 				},
 				"$22": {
 					"rom_offset": "$220000",
-					"snes_range": "$0000-$FFFF",
+					"snes_range": "$0000-$ffff",
 					"size": 65536,
 					"description": "Program code",
 					"content_analysis": {
@@ -1481,7 +1481,7 @@
 							"Function: sub_02_0020 (subroutine)",
 							"Function: sub_02_0000 (subroutine)",
 							"Function: sub_02_0020 (subroutine)",
-							"Function: sub_0E_00E0 (subroutine)",
+							"Function: sub_0E_00e0 (subroutine)",
 							"Function: sub_02_0000 (subroutine)",
 							"Function: sub_02_0020 (subroutine)",
 							"Function: sub_02_0000 (subroutine)"
@@ -1491,7 +1491,7 @@
 				},
 				"$23": {
 					"rom_offset": "$230000",
-					"snes_range": "$0000-$FFFF",
+					"snes_range": "$0000-$ffff",
 					"size": 65536,
 					"description": "Program code",
 					"content_analysis": {
@@ -1502,13 +1502,13 @@
 						"patterns": [
 							"Function: sub_02_1000 (interrupt)",
 							"Function: sub_23_0818 (subroutine)",
-							"Function: sub_23_00B0 (subroutine)",
+							"Function: sub_23_00b0 (subroutine)",
 							"Function: sub_02_0000 (subroutine)",
 							"Function: sub_02_0000 (subroutine)",
-							"Function: sub_16_00A0 (subroutine)",
+							"Function: sub_16_00a0 (subroutine)",
 							"Function: sub_23_0615 (subroutine)",
 							"Function: sub_00_0704 (subroutine)",
-							"Function: sub_23_08F0 (subroutine)",
+							"Function: sub_23_08f0 (subroutine)",
 							"Function: sub_02_0000 (subroutine)",
 							"Function: sub_02_0000 (subroutine)"
 						],
@@ -1517,7 +1517,7 @@
 				},
 				"$24": {
 					"rom_offset": "$240000",
-					"snes_range": "$0000-$FFFF",
+					"snes_range": "$0000-$ffff",
 					"size": 65536,
 					"description": "Audio data",
 					"content_analysis": {
@@ -1533,7 +1533,7 @@
 				},
 				"$25": {
 					"rom_offset": "$250000",
-					"snes_range": "$0000-$FFFF",
+					"snes_range": "$0000-$ffff",
 					"size": 65536,
 					"description": "Program code",
 					"content_analysis": {
@@ -1542,14 +1542,14 @@
 						"text_probability": 0.8020641356431994,
 						"audio_probability": 1.0,
 						"patterns": [
-							"Function: sub_25_075B (subroutine)"
+							"Function: sub_25_075b (subroutine)"
 						],
 						"functions_detected": 1
 					}
 				},
 				"$26": {
 					"rom_offset": "$260000",
-					"snes_range": "$0000-$FFFF",
+					"snes_range": "$0000-$ffff",
 					"size": 65536,
 					"description": "Program code",
 					"content_analysis": {
@@ -1566,7 +1566,7 @@
 				},
 				"$27": {
 					"rom_offset": "$270000",
-					"snes_range": "$0000-$FFFF",
+					"snes_range": "$0000-$ffff",
 					"size": 65536,
 					"description": "Program code",
 					"content_analysis": {
@@ -1575,14 +1575,14 @@
 						"text_probability": 0.4577707175006619,
 						"audio_probability": 1.0,
 						"patterns": [
-							"Function: sub_27_0E80 (subroutine)"
+							"Function: sub_27_0e80 (subroutine)"
 						],
 						"functions_detected": 1
 					}
 				},
 				"$28": {
 					"rom_offset": "$280000",
-					"snes_range": "$0000-$FFFF",
+					"snes_range": "$0000-$ffff",
 					"size": 65536,
 					"description": "Program code",
 					"content_analysis": {
@@ -1592,11 +1592,11 @@
 						"audio_probability": 1.0,
 						"patterns": [
 							"Function: sub_06_0100 (interrupt)",
-							"Function: sub_28_0FC0 (interrupt)",
+							"Function: sub_28_0fc0 (interrupt)",
 							"Function: sub_02_0000 (subroutine)",
-							"Function: sub_28_0F00 (interrupt)",
-							"Function: sub_28_0F00 (interrupt)",
-							"Function: sub_28_0B40 (interrupt)",
+							"Function: sub_28_0f00 (interrupt)",
+							"Function: sub_28_0f00 (interrupt)",
+							"Function: sub_28_0b40 (interrupt)",
 							"Function: sub_28_0240 (interrupt)"
 						],
 						"functions_detected": 7
@@ -1604,7 +1604,7 @@
 				},
 				"$29": {
 					"rom_offset": "$290000",
-					"snes_range": "$0000-$FFFF",
+					"snes_range": "$0000-$ffff",
 					"size": 65536,
 					"description": "Program code",
 					"content_analysis": {
@@ -1619,9 +1619,9 @@
 						"functions_detected": 2
 					}
 				},
-				"$2A": {
-					"rom_offset": "$2A0000",
-					"snes_range": "$0000-$FFFF",
+				"$2a": {
+					"rom_offset": "$2a0000",
+					"snes_range": "$0000-$ffff",
 					"size": 65536,
 					"description": "Program code",
 					"content_analysis": {
@@ -1631,14 +1631,14 @@
 						"audio_probability": 1.0,
 						"patterns": [
 							"Function: sub_04_0003 (subroutine)",
-							"Function: sub_2A_01CA (interrupt)"
+							"Function: sub_2A_01ca (interrupt)"
 						],
 						"functions_detected": 2
 					}
 				},
-				"$2B": {
-					"rom_offset": "$2B0000",
-					"snes_range": "$0000-$FFFF",
+				"$2b": {
+					"rom_offset": "$2b0000",
+					"snes_range": "$0000-$ffff",
 					"size": 65536,
 					"description": "Program code",
 					"content_analysis": {
@@ -1648,14 +1648,14 @@
 						"audio_probability": 1.0,
 						"patterns": [
 							"Function: sub_2B_0025 (subroutine)",
-							"Function: sub_2B_067D (subroutine)"
+							"Function: sub_2B_067d (subroutine)"
 						],
 						"functions_detected": 2
 					}
 				},
-				"$2C": {
-					"rom_offset": "$2C0000",
-					"snes_range": "$0000-$FFFF",
+				"$2c": {
+					"rom_offset": "$2c0000",
+					"snes_range": "$0000-$ffff",
 					"size": 65536,
 					"description": "Program code",
 					"content_analysis": {
@@ -1664,14 +1664,14 @@
 						"text_probability": 0.7035790761700826,
 						"audio_probability": 1.0,
 						"patterns": [
-							"Function: sub_2C_00C1 (subroutine)"
+							"Function: sub_2C_00c1 (subroutine)"
 						],
 						"functions_detected": 1
 					}
 				},
-				"$2D": {
-					"rom_offset": "$2D0000",
-					"snes_range": "$0000-$FFFF",
+				"$2d": {
+					"rom_offset": "$2d0000",
+					"snes_range": "$0000-$ffff",
 					"size": 65536,
 					"description": "Program code",
 					"content_analysis": {
@@ -1680,16 +1680,16 @@
 						"text_probability": 0.5828705057000877,
 						"audio_probability": 1.0,
 						"patterns": [
-							"Function: sub_2D_00BF (interrupt)",
+							"Function: sub_2D_00bf (interrupt)",
 							"Function: sub_2D_0005 (interrupt)",
 							"Function: sub_2D_0243 (interrupt)"
 						],
 						"functions_detected": 3
 					}
 				},
-				"$2E": {
-					"rom_offset": "$2E0000",
-					"snes_range": "$0000-$FFFF",
+				"$2e": {
+					"rom_offset": "$2e0000",
+					"snes_range": "$0000-$ffff",
 					"size": 65536,
 					"description": "Program code",
 					"content_analysis": {
@@ -1701,9 +1701,9 @@
 						"functions_detected": 0
 					}
 				},
-				"$2F": {
-					"rom_offset": "$2F0000",
-					"snes_range": "$0000-$FFFF",
+				"$2f": {
+					"rom_offset": "$2f0000",
+					"snes_range": "$0000-$ffff",
 					"size": 65536,
 					"description": "Program code",
 					"content_analysis": {
@@ -1712,23 +1712,23 @@
 						"text_probability": 0.6197564276048715,
 						"audio_probability": 1.0,
 						"patterns": [
-							"Function: sub_10_003E (subroutine)",
-							"Function: sub_10_003E (subroutine)",
-							"Function: sub_10_003E (subroutine)",
-							"Function: sub_2F_002E (subroutine)",
+							"Function: sub_10_003e (subroutine)",
+							"Function: sub_10_003e (subroutine)",
+							"Function: sub_10_003e (subroutine)",
+							"Function: sub_2F_002e (subroutine)",
 							"Function: sub_02_0040 (subroutine)",
 							"Function: sub_02_0040 (subroutine)",
-							"Function: sub_2F_0ADC (subroutine)",
+							"Function: sub_2F_0adc (subroutine)",
 							"Function: sub_1E_0002 (interrupt)",
-							"Function: sub_2F_0CF0 (subroutine)",
-							"Function: sub_2F_0EE0 (subroutine)"
+							"Function: sub_2F_0cf0 (subroutine)",
+							"Function: sub_2F_0ee0 (subroutine)"
 						],
 						"functions_detected": 10
 					}
 				},
 				"$30": {
 					"rom_offset": "$300000",
-					"snes_range": "$0000-$FFFF",
+					"snes_range": "$0000-$ffff",
 					"size": 65536,
 					"description": "Program code",
 					"content_analysis": {
@@ -1745,7 +1745,7 @@
 				},
 				"$31": {
 					"rom_offset": "$310000",
-					"snes_range": "$0000-$FFFF",
+					"snes_range": "$0000-$ffff",
 					"size": 65536,
 					"description": "Program code",
 					"content_analysis": {
@@ -1754,33 +1754,33 @@
 						"text_probability": 0.5097696121318168,
 						"audio_probability": 1.0,
 						"patterns": [
-							"Function: sub_31_0AE8 (subroutine)",
-							"Function: sub_31_08E0 (subroutine)",
-							"Function: sub_31_09E8 (subroutine)",
-							"Function: sub_31_0AF0 (subroutine)",
-							"Function: sub_31_0BF8 (subroutine)",
+							"Function: sub_31_0ae8 (subroutine)",
+							"Function: sub_31_08e0 (subroutine)",
+							"Function: sub_31_09e8 (subroutine)",
+							"Function: sub_31_0af0 (subroutine)",
+							"Function: sub_31_0bf8 (subroutine)",
 							"Function: sub_31_0018 (subroutine)",
-							"Function: sub_31_09E0 (subroutine)",
-							"Function: sub_31_0AE8 (subroutine)",
-							"Function: sub_31_0BF0 (subroutine)",
-							"Function: sub_31_0CF8 (subroutine)",
+							"Function: sub_31_09e0 (subroutine)",
+							"Function: sub_31_0ae8 (subroutine)",
+							"Function: sub_31_0bf0 (subroutine)",
+							"Function: sub_31_0cf8 (subroutine)",
 							"Function: sub_31_0018 (subroutine)",
-							"Function: sub_31_0AE0 (subroutine)",
-							"Function: sub_31_0BE8 (subroutine)",
-							"Function: sub_2F_0CF0 (subroutine)",
-							"Function: sub_31_0DF8 (main_loop)",
+							"Function: sub_31_0ae0 (subroutine)",
+							"Function: sub_31_0be8 (subroutine)",
+							"Function: sub_2F_0cf0 (subroutine)",
+							"Function: sub_31_0df8 (main_loop)",
 							"Function: sub_31_0018 (subroutine)",
-							"Function: sub_31_0BE0 (subroutine)",
-							"Function: sub_31_0CE8 (subroutine)",
-							"Function: sub_31_0DF0 (main_loop)",
-							"Function: sub_31_0EF8 (subroutine)"
+							"Function: sub_31_0be0 (subroutine)",
+							"Function: sub_31_0ce8 (subroutine)",
+							"Function: sub_31_0df0 (main_loop)",
+							"Function: sub_31_0ef8 (subroutine)"
 						],
 						"functions_detected": 20
 					}
 				},
 				"$32": {
 					"rom_offset": "$320000",
-					"snes_range": "$0000-$FFFF",
+					"snes_range": "$0000-$ffff",
 					"size": 65536,
 					"description": "Program code",
 					"content_analysis": {
@@ -1789,25 +1789,25 @@
 						"text_probability": 0.6268999139661601,
 						"audio_probability": 1.0,
 						"patterns": [
-							"Function: sub_32_06E8 (subroutine)",
+							"Function: sub_32_06e8 (subroutine)",
 							"Function: sub_02_0020 (subroutine)",
 							"Function: sub_26_0048 (subroutine)",
-							"Function: sub_32_04E8 (subroutine)",
+							"Function: sub_32_04e8 (subroutine)",
 							"Function: sub_02_0020 (subroutine)",
 							"Function: sub_26_0048 (subroutine)",
-							"Function: sub_32_0AD6 (main_loop)",
-							"Function: sub_32_04E8 (subroutine)",
+							"Function: sub_32_0ad6 (main_loop)",
+							"Function: sub_32_04e8 (subroutine)",
 							"Function: sub_02_0020 (subroutine)",
 							"Function: sub_26_0048 (subroutine)",
-							"Function: sub_32_04E8 (subroutine)",
+							"Function: sub_32_04e8 (subroutine)",
 							"Function: sub_02_0020 (subroutine)",
 							"Function: sub_26_0048 (subroutine)",
-							"Function: sub_32_04E8 (subroutine)",
+							"Function: sub_32_04e8 (subroutine)",
 							"Function: sub_02_0020 (subroutine)",
 							"Function: sub_32_0046 (subroutine)",
-							"Function: sub_32_04E8 (subroutine)",
+							"Function: sub_32_04e8 (subroutine)",
 							"Function: sub_32_0046 (subroutine)",
-							"Function: sub_32_04E8 (subroutine)",
+							"Function: sub_32_04e8 (subroutine)",
 							"Function: sub_32_0046 (subroutine)"
 						],
 						"functions_detected": 20
@@ -1815,7 +1815,7 @@
 				},
 				"$33": {
 					"rom_offset": "$330000",
-					"snes_range": "$0000-$FFFF",
+					"snes_range": "$0000-$ffff",
 					"size": 65536,
 					"description": "Program code",
 					"content_analysis": {
@@ -1830,16 +1830,16 @@
 							"Function: sub_0F_0220 (interrupt)",
 							"Function: sub_0F_0220 (interrupt)",
 							"Function: sub_0F_0220 (interrupt)",
-							"Function: sub_33_0A20 (subroutine)",
-							"Function: sub_33_0A20 (subroutine)",
-							"Function: sub_33_0A20 (subroutine)"
+							"Function: sub_33_0a20 (subroutine)",
+							"Function: sub_33_0a20 (subroutine)",
+							"Function: sub_33_0a20 (subroutine)"
 						],
 						"functions_detected": 9
 					}
 				},
 				"$34": {
 					"rom_offset": "$340000",
-					"snes_range": "$0000-$FFFF",
+					"snes_range": "$0000-$ffff",
 					"size": 65536,
 					"description": "Program code",
 					"content_analysis": {
@@ -1849,32 +1849,32 @@
 						"audio_probability": 1.0,
 						"patterns": [
 							"Function: sub_34_0115 (subroutine)",
-							"Function: sub_34_010D (subroutine)",
+							"Function: sub_34_010d (subroutine)",
 							"Function: sub_34_0105 (subroutine)",
 							"Function: sub_34_0115 (subroutine)",
-							"Function: sub_34_010D (subroutine)",
+							"Function: sub_34_010d (subroutine)",
 							"Function: sub_34_0105 (subroutine)",
 							"Function: sub_34_0115 (subroutine)",
-							"Function: sub_34_010D (subroutine)",
+							"Function: sub_34_010d (subroutine)",
 							"Function: sub_34_0105 (subroutine)",
 							"Function: sub_34_0115 (subroutine)",
-							"Function: sub_34_010D (subroutine)",
+							"Function: sub_34_010d (subroutine)",
 							"Function: sub_34_0105 (subroutine)",
 							"Function: sub_34_0115 (subroutine)",
-							"Function: sub_34_010D (subroutine)",
+							"Function: sub_34_010d (subroutine)",
 							"Function: sub_34_0105 (subroutine)",
-							"Function: sub_34_0D30 (subroutine)",
-							"Function: sub_34_0D30 (subroutine)",
-							"Function: sub_34_0D30 (subroutine)",
-							"Function: sub_34_0D30 (subroutine)",
-							"Function: sub_34_0D30 (subroutine)"
+							"Function: sub_34_0d30 (subroutine)",
+							"Function: sub_34_0d30 (subroutine)",
+							"Function: sub_34_0d30 (subroutine)",
+							"Function: sub_34_0d30 (subroutine)",
+							"Function: sub_34_0d30 (subroutine)"
 						],
 						"functions_detected": 20
 					}
 				},
 				"$35": {
 					"rom_offset": "$350000",
-					"snes_range": "$0000-$FFFF",
+					"snes_range": "$0000-$ffff",
 					"size": 65536,
 					"description": "Program code",
 					"content_analysis": {
@@ -1903,7 +1903,7 @@
 				},
 				"$36": {
 					"rom_offset": "$360000",
-					"snes_range": "$0000-$FFFF",
+					"snes_range": "$0000-$ffff",
 					"size": 65536,
 					"description": "Program code",
 					"content_analysis": {
@@ -1917,7 +1917,7 @@
 				},
 				"$37": {
 					"rom_offset": "$370000",
-					"snes_range": "$0000-$FFFF",
+					"snes_range": "$0000-$ffff",
 					"size": 65536,
 					"description": "Program code",
 					"content_analysis": {
@@ -1927,11 +1927,11 @@
 						"audio_probability": 1.0,
 						"patterns": [
 							"Function: sub_02_0010 (subroutine)",
-							"Function: sub_37_0C65 (interrupt)",
-							"Function: sub_37_0E3C (subroutine)",
-							"Function: sub_37_0EAD (subroutine)",
-							"Function: sub_17_000C (subroutine)",
-							"Function: sub_37_0EAD (subroutine)",
+							"Function: sub_37_0c65 (interrupt)",
+							"Function: sub_37_0e3c (subroutine)",
+							"Function: sub_37_0ead (subroutine)",
+							"Function: sub_17_000c (subroutine)",
+							"Function: sub_37_0ead (subroutine)",
 							"Function: sub_1D_0004 (interrupt)",
 							"Function: sub_02_0000 (subroutine)"
 						],
@@ -1940,7 +1940,7 @@
 				},
 				"$38": {
 					"rom_offset": "$380000",
-					"snes_range": "$0000-$FFFF",
+					"snes_range": "$0000-$ffff",
 					"size": 65536,
 					"description": "Program code",
 					"content_analysis": {
@@ -1957,7 +1957,7 @@
 				},
 				"$39": {
 					"rom_offset": "$390000",
-					"snes_range": "$0000-$FFFF",
+					"snes_range": "$0000-$ffff",
 					"size": 65536,
 					"description": "Program code",
 					"content_analysis": {
@@ -1966,17 +1966,17 @@
 						"text_probability": 0.7107075767063243,
 						"audio_probability": 1.0,
 						"patterns": [
-							"Function: sub_19_00F9 (interrupt)",
+							"Function: sub_19_00f9 (interrupt)",
 							"Function: sub_39_0013 (subroutine)",
 							"Function: sub_39_0037 (subroutine)",
-							"Function: sub_39_027D (subroutine)"
+							"Function: sub_39_027d (subroutine)"
 						],
 						"functions_detected": 4
 					}
 				},
-				"$3A": {
-					"rom_offset": "$3A0000",
-					"snes_range": "$0000-$FFFF",
+				"$3a": {
+					"rom_offset": "$3a0000",
+					"snes_range": "$0000-$ffff",
 					"size": 65536,
 					"description": "Program code",
 					"content_analysis": {
@@ -1985,25 +1985,25 @@
 						"text_probability": 0.6339373970345964,
 						"audio_probability": 1.0,
 						"patterns": [
-							"Function: sub_3A_009A (interrupt)",
-							"Function: sub_3A_0F9A (main_loop)",
-							"Function: sub_10_000F (subroutine)",
-							"Function: sub_3A_00AA (interrupt)",
-							"Function: sub_3A_02DF (interrupt)",
-							"Function: sub_3A_009A (interrupt)",
-							"Function: sub_3A_00F1 (interrupt)",
-							"Function: sub_3A_0C40 (subroutine)",
+							"Function: sub_3A_009a (interrupt)",
+							"Function: sub_3A_0f9a (main_loop)",
+							"Function: sub_10_000f (subroutine)",
+							"Function: sub_3A_00aa (interrupt)",
+							"Function: sub_3A_02df (interrupt)",
+							"Function: sub_3A_009a (interrupt)",
+							"Function: sub_3A_00f1 (interrupt)",
+							"Function: sub_3A_0c40 (subroutine)",
 							"Function: sub_17_0001 (subroutine)",
-							"Function: sub_3A_04FC (subroutine)",
-							"Function: sub_3A_01E1 (subroutine)",
-							"Function: sub_3A_01F0 (subroutine)"
+							"Function: sub_3A_04fc (subroutine)",
+							"Function: sub_3A_01e1 (subroutine)",
+							"Function: sub_3A_01f0 (subroutine)"
 						],
 						"functions_detected": 12
 					}
 				},
-				"$3B": {
-					"rom_offset": "$3B0000",
-					"snes_range": "$0000-$FFFF",
+				"$3b": {
+					"rom_offset": "$3b0000",
+					"snes_range": "$0000-$ffff",
 					"size": 65536,
 					"description": "Program code",
 					"content_analysis": {
@@ -2015,9 +2015,9 @@
 						"functions_detected": 0
 					}
 				},
-				"$3C": {
-					"rom_offset": "$3C0000",
-					"snes_range": "$0000-$FFFF",
+				"$3c": {
+					"rom_offset": "$3c0000",
+					"snes_range": "$0000-$ffff",
 					"size": 65536,
 					"description": "Program code",
 					"content_analysis": {
@@ -2026,14 +2026,14 @@
 						"text_probability": 0.6357142857142857,
 						"audio_probability": 1.0,
 						"patterns": [
-							"Function: sub_3C_04EB (subroutine)"
+							"Function: sub_3C_04eb (subroutine)"
 						],
 						"functions_detected": 1
 					}
 				},
-				"$3D": {
-					"rom_offset": "$3D0000",
-					"snes_range": "$0000-$FFFF",
+				"$3d": {
+					"rom_offset": "$3d0000",
+					"snes_range": "$0000-$ffff",
 					"size": 65536,
 					"description": "Program code",
 					"content_analysis": {
@@ -2047,9 +2047,9 @@
 						"functions_detected": 1
 					}
 				},
-				"$3E": {
-					"rom_offset": "$3E0000",
-					"snes_range": "$0000-$FFFF",
+				"$3e": {
+					"rom_offset": "$3e0000",
+					"snes_range": "$0000-$ffff",
 					"size": 65536,
 					"description": "Program code",
 					"content_analysis": {
@@ -2061,9 +2061,9 @@
 						"functions_detected": 0
 					}
 				},
-				"$3F": {
-					"rom_offset": "$3F0000",
-					"snes_range": "$0000-$FFFF",
+				"$3f": {
+					"rom_offset": "$3f0000",
+					"snes_range": "$0000-$ffff",
 					"size": 65536,
 					"description": "Data/Unknown",
 					"content_analysis": {
@@ -2080,88 +2080,88 @@
 		"dq3_vectors": {
 			"native_mode": {
 				"COP": {
-					"vector_address": "$FFE4",
-					"handler_address": "$FFAC",
-					"handler_function": "sub_00_FFAC",
+					"vector_address": "$ffe4",
+					"handler_address": "$ffac",
+					"handler_function": "sub_00_ffac",
 					"handler_type": "subroutine",
 					"handler_size": 1
 				},
 				"BRK": {
-					"vector_address": "$FFE6",
-					"handler_address": "$FFA8",
-					"handler_function": "sub_00_FFA8",
+					"vector_address": "$ffe6",
+					"handler_address": "$ffa8",
+					"handler_function": "sub_00_ffa8",
 					"handler_type": "subroutine",
 					"handler_size": 1
 				},
 				"ABORT": {
-					"vector_address": "$FFE8",
-					"handler_address": "$FFA4",
-					"handler_function": "sub_00_FFA4",
+					"vector_address": "$ffe8",
+					"handler_address": "$ffa4",
+					"handler_function": "sub_00_ffa4",
 					"handler_type": "subroutine",
 					"handler_size": 1
 				},
 				"NMI": {
-					"vector_address": "$FFEA",
-					"handler_address": "$FFA0",
-					"handler_function": "sub_00_FFA0",
+					"vector_address": "$ffea",
+					"handler_address": "$ffa0",
+					"handler_function": "sub_00_ffa0",
 					"handler_type": "subroutine",
 					"handler_size": 1
 				},
 				"UNUSED": {
-					"vector_address": "$FFEC",
-					"handler_address": "$FFA4",
-					"handler_function": "sub_00_FFA4",
+					"vector_address": "$ffec",
+					"handler_address": "$ffa4",
+					"handler_function": "sub_00_ffa4",
 					"handler_type": "subroutine",
 					"handler_size": 1
 				},
 				"IRQ": {
-					"vector_address": "$FFEE",
-					"handler_address": "$FFA4",
-					"handler_function": "sub_00_FFA4",
+					"vector_address": "$ffee",
+					"handler_address": "$ffa4",
+					"handler_function": "sub_00_ffa4",
 					"handler_type": "subroutine",
 					"handler_size": 1
 				}
 			},
 			"emulation_mode": {
 				"COP": {
-					"vector_address": "$FFF4",
-					"handler_address": "$FFA4",
-					"handler_function": "sub_00_FFA4",
+					"vector_address": "$fff4",
+					"handler_address": "$ffa4",
+					"handler_function": "sub_00_ffa4",
 					"handler_type": "subroutine",
 					"handler_size": 1
 				},
 				"UNUSED": {
-					"vector_address": "$FFF6",
-					"handler_address": "$FFA4",
-					"handler_function": "sub_00_FFA4",
+					"vector_address": "$fff6",
+					"handler_address": "$ffa4",
+					"handler_function": "sub_00_ffa4",
 					"handler_type": "subroutine",
 					"handler_size": 1
 				},
 				"ABORT": {
-					"vector_address": "$FFF8",
-					"handler_address": "$FFA4",
-					"handler_function": "sub_00_FFA4",
+					"vector_address": "$fff8",
+					"handler_address": "$ffa4",
+					"handler_function": "sub_00_ffa4",
 					"handler_type": "subroutine",
 					"handler_size": 1
 				},
 				"NMI": {
-					"vector_address": "$FFFA",
-					"handler_address": "$FFA0",
-					"handler_function": "sub_00_FFA0",
+					"vector_address": "$fffa",
+					"handler_address": "$ffa0",
+					"handler_function": "sub_00_ffa0",
 					"handler_type": "subroutine",
 					"handler_size": 1
 				},
 				"RESET": {
-					"vector_address": "$FFFC",
-					"handler_address": "$FF98",
-					"handler_function": "sub_00_FF98",
+					"vector_address": "$fffc",
+					"handler_address": "$ff98",
+					"handler_function": "sub_00_ff98",
 					"handler_type": "subroutine",
 					"handler_size": 5
 				},
 				"IRQ": {
-					"vector_address": "$FFFE",
-					"handler_address": "$FFA4",
-					"handler_function": "sub_00_FFA4",
+					"vector_address": "$fffe",
+					"handler_address": "$ffa4",
+					"handler_function": "sub_00_ffa4",
 					"handler_type": "subroutine",
 					"handler_size": 1
 				}
@@ -2449,7 +2449,7 @@
 				{
 					"address": 655360,
 					"size": 65536,
-					"name": "Bank$0A",
+					"name": "Bank$0a",
 					"description": "Program code",
 					"access_type": "rx",
 					"data_type": "code",
@@ -2458,7 +2458,7 @@
 				{
 					"address": 720896,
 					"size": 65536,
-					"name": "Bank$0B",
+					"name": "Bank$0b",
 					"description": "Program code",
 					"access_type": "rx",
 					"data_type": "code",
@@ -2467,7 +2467,7 @@
 				{
 					"address": 786432,
 					"size": 65536,
-					"name": "Bank$0C",
+					"name": "Bank$0c",
 					"description": "Program code",
 					"access_type": "rx",
 					"data_type": "code",
@@ -2476,7 +2476,7 @@
 				{
 					"address": 851968,
 					"size": 65536,
-					"name": "Bank$0D",
+					"name": "Bank$0d",
 					"description": "Program code",
 					"access_type": "rx",
 					"data_type": "code",
@@ -2485,7 +2485,7 @@
 				{
 					"address": 917504,
 					"size": 65536,
-					"name": "Bank$0E",
+					"name": "Bank$0e",
 					"description": "Program code",
 					"access_type": "rx",
 					"data_type": "code",
@@ -2494,7 +2494,7 @@
 				{
 					"address": 983040,
 					"size": 65536,
-					"name": "Bank$0F",
+					"name": "Bank$0f",
 					"description": "Program code",
 					"access_type": "rx",
 					"data_type": "code",
@@ -2593,7 +2593,7 @@
 				{
 					"address": 1703936,
 					"size": 65536,
-					"name": "Bank$1A",
+					"name": "Bank$1a",
 					"description": "Program code",
 					"access_type": "rx",
 					"data_type": "code",
@@ -2602,7 +2602,7 @@
 				{
 					"address": 1769472,
 					"size": 65536,
-					"name": "Bank$1B",
+					"name": "Bank$1b",
 					"description": "Program code",
 					"access_type": "rx",
 					"data_type": "code",
@@ -2611,7 +2611,7 @@
 				{
 					"address": 1835008,
 					"size": 65536,
-					"name": "Bank$1C",
+					"name": "Bank$1c",
 					"description": "Program code",
 					"access_type": "rx",
 					"data_type": "code",
@@ -2620,7 +2620,7 @@
 				{
 					"address": 1900544,
 					"size": 65536,
-					"name": "Bank$1D",
+					"name": "Bank$1d",
 					"description": "Program code",
 					"access_type": "rx",
 					"data_type": "code",
@@ -2629,7 +2629,7 @@
 				{
 					"address": 1966080,
 					"size": 65536,
-					"name": "Bank$1E",
+					"name": "Bank$1e",
 					"description": "Program code",
 					"access_type": "rx",
 					"data_type": "code",
@@ -2638,7 +2638,7 @@
 				{
 					"address": 2031616,
 					"size": 65536,
-					"name": "Bank$1F",
+					"name": "Bank$1f",
 					"description": "Program code",
 					"access_type": "rx",
 					"data_type": "code",
@@ -2737,7 +2737,7 @@
 				{
 					"address": 2752512,
 					"size": 65536,
-					"name": "Bank$2A",
+					"name": "Bank$2a",
 					"description": "Program code",
 					"access_type": "rx",
 					"data_type": "code",
@@ -2746,7 +2746,7 @@
 				{
 					"address": 2818048,
 					"size": 65536,
-					"name": "Bank$2B",
+					"name": "Bank$2b",
 					"description": "Program code",
 					"access_type": "rx",
 					"data_type": "code",
@@ -2755,7 +2755,7 @@
 				{
 					"address": 2883584,
 					"size": 65536,
-					"name": "Bank$2C",
+					"name": "Bank$2c",
 					"description": "Program code",
 					"access_type": "rx",
 					"data_type": "code",
@@ -2764,7 +2764,7 @@
 				{
 					"address": 2949120,
 					"size": 65536,
-					"name": "Bank$2D",
+					"name": "Bank$2d",
 					"description": "Program code",
 					"access_type": "rx",
 					"data_type": "code",
@@ -2773,7 +2773,7 @@
 				{
 					"address": 3014656,
 					"size": 65536,
-					"name": "Bank$2E",
+					"name": "Bank$2e",
 					"description": "Program code",
 					"access_type": "rx",
 					"data_type": "code",
@@ -2782,7 +2782,7 @@
 				{
 					"address": 3080192,
 					"size": 65536,
-					"name": "Bank$2F",
+					"name": "Bank$2f",
 					"description": "Program code",
 					"access_type": "rx",
 					"data_type": "code",
@@ -2881,7 +2881,7 @@
 				{
 					"address": 3801088,
 					"size": 65536,
-					"name": "Bank$3A",
+					"name": "Bank$3a",
 					"description": "Program code",
 					"access_type": "rx",
 					"data_type": "code",
@@ -2890,7 +2890,7 @@
 				{
 					"address": 3866624,
 					"size": 65536,
-					"name": "Bank$3B",
+					"name": "Bank$3b",
 					"description": "Program code",
 					"access_type": "rx",
 					"data_type": "code",
@@ -2899,7 +2899,7 @@
 				{
 					"address": 3932160,
 					"size": 65536,
-					"name": "Bank$3C",
+					"name": "Bank$3c",
 					"description": "Program code",
 					"access_type": "rx",
 					"data_type": "code",
@@ -2908,7 +2908,7 @@
 				{
 					"address": 3997696,
 					"size": 65536,
-					"name": "Bank$3D",
+					"name": "Bank$3d",
 					"description": "Program code",
 					"access_type": "rx",
 					"data_type": "code",
@@ -2917,7 +2917,7 @@
 				{
 					"address": 4063232,
 					"size": 65536,
-					"name": "Bank$3E",
+					"name": "Bank$3e",
 					"description": "Program code",
 					"access_type": "rx",
 					"data_type": "code",
@@ -2926,7 +2926,7 @@
 				{
 					"address": 4128768,
 					"size": 65536,
-					"name": "Bank$3F",
+					"name": "Bank$3f",
 					"description": "Data/Unknown",
 					"access_type": "rx",
 					"data_type": "data",

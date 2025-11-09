@@ -9,50 +9,50 @@
 
 ## Graphics Functions
 
-### gfx_func_84BE
-- **Address:** $84BE
+### gfx_func_84be
+- **Address:** $84be
 - **Purpose:** Display control
 - **Size:** 162 bytes
 - **PPU Registers:** INIDISP
 - **Complexity:** 23
 
-### gfx_func_86B7
-- **Address:** $86B7
+### gfx_func_86b7
+- **Address:** $86b7
 - **Purpose:** General graphics operation
 - **Size:** 530 bytes
 - **PPU Registers:** 
 - **Complexity:** 10
 
-### gfx_func_88F0
-- **Address:** $88F0
+### gfx_func_88f0
+- **Address:** $88f0
 - **Purpose:** VRAM data transfer
 - **Size:** 403 bytes
 - **PPU Registers:** VMADD
 - **Complexity:** 62
 
-### gfx_func_8C98
-- **Address:** $8C98
+### gfx_func_8c98
+- **Address:** $8c98
 - **Purpose:** General graphics operation
 - **Size:** 121 bytes
 - **PPU Registers:** 
 - **Complexity:** 4
 
-### gfx_func_A4AB
-- **Address:** $A4AB
+### gfx_func_a4ab
+- **Address:** $a4ab
 - **Purpose:** General graphics operation
 - **Size:** 560 bytes
 - **PPU Registers:** 
 - **Complexity:** 1
 
-### gfx_func_84AD
-- **Address:** $84AD
+### gfx_func_84ad
+- **Address:** $84ad
 - **Purpose:** General graphics operation
 - **Size:** 480 bytes
 - **PPU Registers:** M7SEL, M7A
 - **Complexity:** 80
 
-### gfx_func_850D
-- **Address:** $850D
+### gfx_func_850d
+- **Address:** $850d
 - **Purpose:** General graphics operation
 - **Size:** 384 bytes
 - **PPU Registers:** M7SEL, M7A
@@ -72,50 +72,50 @@
 - **PPU Registers:** M7SEL, M7A
 - **Complexity:** 36
 
-### gfx_func_8E53
-- **Address:** $8E53
+### gfx_func_8e53
+- **Address:** $8e53
 - **Purpose:** General graphics operation
 - **Size:** 149 bytes
 - **PPU Registers:** M7SEL, M7A
 - **Complexity:** 34
 
-### gfx_func_DC6D
-- **Address:** $DC6D
+### gfx_func_dc6d
+- **Address:** $dc6d
 - **Purpose:** Display control
 - **Size:** 48 bytes
 - **PPU Registers:** INIDISP
 - **Complexity:** 12
 
-### gfx_func_F55C
-- **Address:** $F55C
+### gfx_func_f55c
+- **Address:** $f55c
 - **Purpose:** General graphics operation
 - **Size:** 259 bytes
 - **PPU Registers:** BG3VOFS
 - **Complexity:** 14
 
-### gfx_func_868F
-- **Address:** $868F
+### gfx_func_868f
+- **Address:** $868f
 - **Purpose:** General graphics operation
 - **Size:** 418 bytes
 - **PPU Registers:** 
 - **Complexity:** 9
 
-### gfx_func_9EF2
-- **Address:** $9EF2
+### gfx_func_9ef2
+- **Address:** $9ef2
 - **Purpose:** General graphics operation
 - **Size:** 65 bytes
 - **PPU Registers:** BG4HOFS
 - **Complexity:** 13
 
-### gfx_func_F215
-- **Address:** $F215
+### gfx_func_f215
+- **Address:** $f215
 - **Purpose:** General graphics operation
 - **Size:** 590 bytes
 - **PPU Registers:** WH2
 - **Complexity:** 26
 
-### gfx_func_A008
-- **Address:** $A008
+### gfx_func_a008
+- **Address:** $a008
 - **Purpose:** Sprite/OAM management
 - **Size:** 412 bytes
 - **PPU Registers:** M7D, WBGLOG, TMW, BG3SC, WOBJSEL, BG3VOFS, BG4SC, BG1VOFS, BGMODE, CGWSEL, BG3HOFS, WH2, W12SEL, M7Y, WH1, BG12NBA, VMDATAH, M7SEL, WOBJLOG, CGADSUB, BG34NBA, BG2SC, OBSEL, BG2HOFS, M7C, CGDATA, MOSAIC, TS, BG1SC, TM, INIDISP, M7X, BG4VOFS, VMADD, TSW, M7A, WH3, OAMADDH, COLDATA, BG1HOFS, W34SEL, OAMADDL, BG2VOFS, VMAIN, M7B, WH0, BG4HOFS

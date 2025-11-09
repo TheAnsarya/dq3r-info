@@ -2,8 +2,8 @@
 
 ## Driver Functions
 
-### audio_func_D8AA
-- **Address:** $D8AA
+### audio_func_d8aa
+- **Address:** $d8aa
 - **Size:** 40 bytes
 - **Purpose:** SPC driver upload
 
@@ -17,5 +17,5 @@
 
 - **Driver Location:** $0200 - $1200
 - **Sample Area:** $1200 - $7200
-- **Stack Pointer:** $01FF
-- **I/O Ports:** $00F4
+- **Stack Pointer:** $01ff
+- **I/O Ports:** $00f4

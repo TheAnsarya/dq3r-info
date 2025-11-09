@@ -11,43 +11,43 @@
 - **Title:** `???? ????"?????Lm?"r?`
 - **ROM Type:** Unknown ($00)
 - **ROM Size:** 512 KB
-- **Country:** Unknown ($D8)
+- **Country:** Unknown ($d8)
 - **Version:** 197
 
 ### Checksums
-- **Checksum:** $00FF
+- **Checksum:** $00ff
 - **Complement:** $0002
 - **Valid:** ❌
 
 ### Memory Configuration
 - **SRAM Size:** 0 KB
 - **License Code:** $41
-- **ROM Makeup:** $C9
+- **ROM Makeup:** $c9
 
 ## Interrupt Vector Table
 
 | Vector | Address | Handler | Description |
 |--------|---------|---------|-------------|
-| cop_native | $0A00 | Active | Coprocessor instruction handler |
-| brk_native | $466D | Active | Break instruction handler (debugging) |
-| abort_native | $8DFC | Active | Abort exception handler |
-| nmi_native | $FC46 | Active | VBlank interrupt handler for graphics updates |
+| cop_native | $0a00 | Active | Coprocessor instruction handler |
+| brk_native | $466d | Active | Break instruction handler (debugging) |
+| abort_native | $8dfc | Active | Abort exception handler |
+| nmi_native | $fc46 | Active | VBlank interrupt handler for graphics updates |
 | unused_native | $7222 | Active | Unknown interrupt handler |
-| irq_native | $C905 | Active | Timer/controller interrupt handler |
+| irq_native | $c905 | Active | Timer/controller interrupt handler |
 | unused1 | $0900 | Active | Unknown interrupt handler |
-| unused2 | $D800 | Active | Unknown interrupt handler |
-| cop_emulation | $C541 | Active | Unknown interrupt handler |
+| unused2 | $d800 | Active | Unknown interrupt handler |
+| cop_emulation | $c541 | Active | Unknown interrupt handler |
 | unused3 | $0003 | Active | Unknown interrupt handler |
-| abort_emulation | $00FF | Active | Unknown interrupt handler |
-| nmi_emulation | $0A00 | Active | Emulation mode VBlank handler |
-| reset | $486D | Active | System initialization and startup sequence |
-| irq_emulation | $8DFC | Active | Emulation mode interrupt handler |
+| abort_emulation | $00ff | Active | Unknown interrupt handler |
+| nmi_emulation | $0a00 | Active | Emulation mode VBlank handler |
+| reset | $486d | Active | System initialization and startup sequence |
+| irq_emulation | $8dfc | Active | Emulation mode interrupt handler |
 
 
 ## System Initialization Analysis
 
 ### Reset Handler
-- **Address:** $486D
+- **Address:** $486d
 - **ROM Offset:** $000000
 - **Code Size:** 512 bytes
 
@@ -68,12 +68,12 @@ No direct memory operations detected in initialization.
 ### ROM Layout (LoROM)
 - **Banks 00-7F:** System RAM and ROM areas
 - **Banks 80-FF:** ROM mirror space
-- **Header Location:** $7FC0-$7FFF
-- **Vector Table:** $7FE0-$7FFF
+- **Header Location:** $7fc0-$7fff
+- **Vector Table:** $7fe0-$7fff
 
 ### Banking Analysis
 The ROM uses standard SNES LoROM mapping:
-- Each bank contains 32KB of addressable space ($8000-$FFFF)
+- Each bank contains 32KB of addressable space ($8000-$ffff)
 - Banks 00-7F contain the primary ROM image
 - Banks 80-FF mirror banks 00-7F respectively
 

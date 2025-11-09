@@ -64,38 +64,38 @@ class DQ3GameLoopAnalyzer:
             0x38: ("SEC", 1, "Set carry flag"),
             0x58: ("CLI", 1, "Clear interrupt disable"),
             0x78: ("SEI", 1, "Set interrupt disable"),
-            0xC2: ("REP", 2, "Reset processor status"),
-            0xE2: ("SEP", 2, "Set processor status"),
-            0xFB: ("XCE", 1, "Exchange carry and emulation"),
+            0xc2: ("REP", 2, "Reset processor status"),
+            0xe2: ("SEP", 2, "Set processor status"),
+            0xfb: ("XCE", 1, "Exchange carry and emulation"),
             # Load/Store operations
-            0xA9: ("LDA", 2, "Load accumulator immediate"),
-            0xAD: ("LDA", 3, "Load accumulator absolute"),
-            0xAF: ("LDA", 4, "Load accumulator absolute long"),
-            0xB9: ("LDA", 3, "Load accumulator absolute Y"),
-            0xBD: ("LDA", 3, "Load accumulator absolute X"),
-            0xA5: ("LDA", 2, "Load accumulator direct"),
-            0x8D: ("STA", 3, "Store accumulator absolute"),
-            0x8F: ("STA", 4, "Store accumulator absolute long"),
+            0xa9: ("LDA", 2, "Load accumulator immediate"),
+            0xad: ("LDA", 3, "Load accumulator absolute"),
+            0xaf: ("LDA", 4, "Load accumulator absolute long"),
+            0xb9: ("LDA", 3, "Load accumulator absolute Y"),
+            0xbd: ("LDA", 3, "Load accumulator absolute X"),
+            0xa5: ("LDA", 2, "Load accumulator direct"),
+            0x8d: ("STA", 3, "Store accumulator absolute"),
+            0x8f: ("STA", 4, "Store accumulator absolute long"),
             0x99: ("STA", 3, "Store accumulator absolute Y"),
-            0x9D: ("STA", 3, "Store accumulator absolute X"),
+            0x9d: ("STA", 3, "Store accumulator absolute X"),
             0x85: ("STA", 2, "Store accumulator direct"),
-            0x9C: ("STZ", 3, "Store zero absolute"),
+            0x9c: ("STZ", 3, "Store zero absolute"),
             0x64: ("STZ", 2, "Store zero direct"),
             # Index register operations
-            0xA2: ("LDX", 2, "Load X immediate"),
-            0xAE: ("LDX", 3, "Load X absolute"),
-            0xA0: ("LDY", 2, "Load Y immediate"),
-            0xAC: ("LDY", 3, "Load Y absolute"),
-            0x8E: ("STX", 3, "Store X absolute"),
-            0x8C: ("STY", 3, "Store Y absolute"),
+            0xa2: ("LDX", 2, "Load X immediate"),
+            0xae: ("LDX", 3, "Load X absolute"),
+            0xa0: ("LDY", 2, "Load Y immediate"),
+            0xac: ("LDY", 3, "Load Y absolute"),
+            0x8e: ("STX", 3, "Store X absolute"),
+            0x8c: ("STY", 3, "Store Y absolute"),
             # Jump/Branch instructions
-            0x4C: ("JMP", 3, "Jump absolute"),
-            0x5C: ("JML", 4, "Jump long"),
-            0x6C: ("JMP", 3, "Jump indirect"),
+            0x4c: ("JMP", 3, "Jump absolute"),
+            0x5c: ("JML", 4, "Jump long"),
+            0x6c: ("JMP", 3, "Jump indirect"),
             0x20: ("JSR", 3, "Jump subroutine"),
             0x22: ("JSL", 4, "Jump subroutine long"),
             0x60: ("RTS", 1, "Return from subroutine"),
-            0x6B: ("RTL", 1, "Return from subroutine long"),
+            0x6b: ("RTL", 1, "Return from subroutine long"),
             0x40: ("RTI", 1, "Return from interrupt"),
             # Branch instructions
             0x80: ("BRA", 2, "Branch always"),
@@ -105,47 +105,47 @@ class DQ3GameLoopAnalyzer:
             0x50: ("BVC", 2, "Branch overflow clear"),
             0x70: ("BVS", 2, "Branch overflow set"),
             0x90: ("BCC", 2, "Branch carry clear"),
-            0xB0: ("BCS", 2, "Branch carry set"),
-            0xD0: ("BNE", 2, "Branch not equal"),
-            0xF0: ("BEQ", 2, "Branch equal"),
+            0xb0: ("BCS", 2, "Branch carry set"),
+            0xd0: ("BNE", 2, "Branch not equal"),
+            0xf0: ("BEQ", 2, "Branch equal"),
             # Arithmetic operations
             0x69: ("ADC", 2, "Add with carry immediate"),
-            0x6D: ("ADC", 3, "Add with carry absolute"),
-            0xE9: ("SBC", 2, "Subtract with borrow immediate"),
-            0xED: ("SBC", 3, "Subtract with borrow absolute"),
-            0x1A: ("INC", 1, "Increment accumulator"),
-            0xEE: ("INC", 3, "Increment absolute"),
-            0x3A: ("DEC", 1, "Decrement accumulator"),
-            0xCE: ("DEC", 3, "Decrement absolute"),
+            0x6d: ("ADC", 3, "Add with carry absolute"),
+            0xe9: ("SBC", 2, "Subtract with borrow immediate"),
+            0xed: ("SBC", 3, "Subtract with borrow absolute"),
+            0x1a: ("INC", 1, "Increment accumulator"),
+            0xee: ("INC", 3, "Increment absolute"),
+            0x3a: ("DEC", 1, "Decrement accumulator"),
+            0xce: ("DEC", 3, "Decrement absolute"),
             # Logic operations
             0x29: ("AND", 2, "AND immediate"),
-            0x2D: ("AND", 3, "AND absolute"),
+            0x2d: ("AND", 3, "AND absolute"),
             0x09: ("ORA", 2, "OR immediate"),
-            0x0D: ("ORA", 3, "OR absolute"),
+            0x0d: ("ORA", 3, "OR absolute"),
             0x49: ("EOR", 2, "XOR immediate"),
-            0x4D: ("EOR", 3, "XOR absolute"),
+            0x4d: ("EOR", 3, "XOR absolute"),
             # Compare operations
-            0xC9: ("CMP", 2, "Compare accumulator immediate"),
-            0xCD: ("CMP", 3, "Compare accumulator absolute"),
-            0xE0: ("CPX", 2, "Compare X immediate"),
-            0xEC: ("CPX", 3, "Compare X absolute"),
-            0xC0: ("CPY", 2, "Compare Y immediate"),
-            0xCC: ("CPY", 3, "Compare Y absolute"),
+            0xc9: ("CMP", 2, "Compare accumulator immediate"),
+            0xcd: ("CMP", 3, "Compare accumulator absolute"),
+            0xe0: ("CPX", 2, "Compare X immediate"),
+            0xec: ("CPX", 3, "Compare X absolute"),
+            0xc0: ("CPY", 2, "Compare Y immediate"),
+            0xcc: ("CPY", 3, "Compare Y absolute"),
             # Bit operations
             0x24: ("BIT", 2, "Test bits direct"),
-            0x2C: ("BIT", 3, "Test bits absolute"),
+            0x2c: ("BIT", 3, "Test bits absolute"),
             0x89: ("BIT", 2, "Test bits immediate"),
             # Stack operations
             0x48: ("PHA", 1, "Push accumulator"),
             0x68: ("PLA", 1, "Pull accumulator"),
-            0xDA: ("PHX", 1, "Push X"),
-            0xFA: ("PLX", 1, "Pull X"),
-            0x5A: ("PHY", 1, "Push Y"),
-            0x7A: ("PLY", 1, "Pull Y"),
+            0xda: ("PHX", 1, "Push X"),
+            0xfa: ("PLX", 1, "Pull X"),
+            0x5a: ("PHY", 1, "Push Y"),
+            0x7a: ("PLY", 1, "Pull Y"),
             0x08: ("PHP", 1, "Push processor status"),
             0x28: ("PLP", 1, "Pull processor status"),
             # Miscellaneous
-            0xEA: ("NOP", 1, "No operation"),
+            0xea: ("NOP", 1, "No operation"),
             0x42: ("WDM", 2, "Reserved for future expansion"),
         }
 
@@ -164,7 +164,7 @@ class DQ3GameLoopAnalyzer:
             # Look for infinite loop pattern: code followed by JMP back to start
             if offset + 10 < len(self.rom_data):
                 # Check for JMP absolute back to earlier address
-                if self.rom_data[offset] == 0x4C:  # JMP absolute
+                if self.rom_data[offset] == 0x4c:  # JMP absolute
                     target_addr = struct.unpack("<H", self.rom_data[offset + 1 : offset + 3])[0]
                     current_addr = 0x8000 + (offset % 0x8000)
 
@@ -227,16 +227,16 @@ class DQ3GameLoopAnalyzer:
         score += jsr_count * 10  # More subroutines = higher score
 
         # Look for input handling patterns
-        input_patterns = [0xAD, 0x4016]  # LDA $4016 (controller read)
+        input_patterns = [0xad, 0x4016]  # LDA $4016 (controller read)
         for i in range(len(loop_data) - 2):
-            if loop_data[i] == 0xAD and struct.unpack("<H", loop_data[i + 1 : i + 3])[0] == 0x4016:
+            if loop_data[i] == 0xad and struct.unpack("<H", loop_data[i + 1 : i + 3])[0] == 0x4016:
                 score += 20  # Input handling is strong indicator
 
         # Look for graphics/PPU operations
         ppu_patterns = [0x2100, 0x2101, 0x2102, 0x2103, 0x2104, 0x2105, 0x2106, 0x2107]
         for ppu_reg in ppu_patterns:
             for i in range(len(loop_data) - 2):
-                if loop_data[i] == 0x8D and struct.unpack("<H", loop_data[i + 1 : i + 3])[0] == ppu_reg:
+                if loop_data[i] == 0x8d and struct.unpack("<H", loop_data[i + 1 : i + 3])[0] == ppu_reg:
                     score += 15  # PPU operations indicate main loop
 
         # Prefer moderate-sized loops (not too small, not too large)
@@ -268,10 +268,10 @@ class DQ3GameLoopAnalyzer:
             vblank_score = 0
 
             # Look for PPU operations common in VBlank
-            ppu_ops = [0x2100, 0x2101, 0x2102, 0x2103, 0x2104, 0x2105, 0x2106, 0x2107, 0x210D, 0x210E]
+            ppu_ops = [0x2100, 0x2101, 0x2102, 0x2103, 0x2104, 0x2105, 0x2106, 0x2107, 0x210d, 0x210e]
             for ppu_reg in ppu_ops:
                 if any(
-                    handler_data[i] == 0x8D
+                    handler_data[i] == 0x8d
                     and i + 2 < len(handler_data)
                     and struct.unpack("<H", handler_data[i + 1 : i + 3])[0] == ppu_reg
                     for i in range(len(handler_data) - 2)
@@ -280,7 +280,7 @@ class DQ3GameLoopAnalyzer:
 
             # Look for sprite DMA (common in VBlank)
             for i in range(len(handler_data) - 2):
-                if handler_data[i] == 0x8D and struct.unpack("<H", handler_data[i + 1 : i + 3])[0] == 0x4014:  # OAM DMA
+                if handler_data[i] == 0x8d and struct.unpack("<H", handler_data[i + 1 : i + 3])[0] == 0x4014:  # OAM DMA
                     vblank_score += 25
 
             if vblank_score > 20:
@@ -318,7 +318,7 @@ class DQ3GameLoopAnalyzer:
             # Find all references to controller ports
             for offset in range(0, len(self.rom_data) - 2):
                 if (
-                    self.rom_data[offset] == 0xAD  # LDA absolute
+                    self.rom_data[offset] == 0xad  # LDA absolute
                     and struct.unpack("<H", self.rom_data[offset + 1 : offset + 3])[0] == address
                 ):
 
@@ -362,9 +362,9 @@ class DQ3GameLoopAnalyzer:
         for offset in range(0, len(self.rom_data) - 5):
             # Pattern: LDA state_var, CMP #value, BEQ/BNE target
             if (
-                self.rom_data[offset] == 0xAD  # LDA absolute
-                and self.rom_data[offset + 3] == 0xC9  # CMP immediate
-                and self.rom_data[offset + 5] in [0xF0, 0xD0]
+                self.rom_data[offset] == 0xad  # LDA absolute
+                and self.rom_data[offset + 3] == 0xc9  # CMP immediate
+                and self.rom_data[offset + 5] in [0xf0, 0xd0]
             ):  # BEQ/BNE
 
                 state_addr = struct.unpack("<H", self.rom_data[offset + 1 : offset + 3])[0]
@@ -384,7 +384,7 @@ class DQ3GameLoopAnalyzer:
                         "state_addr": state_addr,
                         "state_value": state_value,
                         "target_addr": target_addr,
-                        "branch_type": "BEQ" if self.rom_data[offset + 5] == 0xF0 else "BNE",
+                        "branch_type": "BEQ" if self.rom_data[offset + 5] == 0xf0 else "BNE",
                     }
                 )
 
@@ -501,7 +501,7 @@ class DQ3GameLoopAnalyzer:
                     return i
 
                 # Look for label-like patterns (common function starts)
-                if self.rom_data[i] in [0x48, 0xDA, 0x5A] and i + 10 < len(  # PHA, PHX, PHY (function prologue)
+                if self.rom_data[i] in [0x48, 0xda, 0x5a] and i + 10 < len(  # PHA, PHX, PHY (function prologue)
                     self.rom_data
                 ):
                     return i
@@ -516,7 +516,7 @@ class DQ3GameLoopAnalyzer:
         for i in range(offset, search_end):
             if i < len(self.rom_data):
                 # Look for return instructions
-                if self.rom_data[i] in [0x60, 0x6B, 0x40]:  # RTS, RTL, RTI
+                if self.rom_data[i] in [0x60, 0x6b, 0x40]:  # RTS, RTL, RTI
                     return i + 1
 
         return search_end

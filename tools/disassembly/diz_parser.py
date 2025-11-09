@@ -48,7 +48,7 @@ class DisassemblyLabel:
 
     def to_snes_address(self) -> str:
         """Convert to SNES $XX:XXXX format"""
-        return f"${self.bank:02X}:{self.address & 0xFFFF:04X}"
+        return f"${self.bank:02X}:{self.address & 0xffff:04X}"
 
 
 @dataclass
@@ -117,36 +117,36 @@ class DiztinguishParser:
     def _initialize_snes_memory_map(self):
         """Initialize SNES memory banking information for Dragon Quest III"""
         # LoROM memory map for Dragon Quest III
-        # Bank $00-$7F: ROM banks (32KB each, mirrored)
-        # Bank $80-$FF: ROM banks (32KB each)
+        # Bank $00-$7f: ROM banks (32KB each, mirrored)
+        # Bank $80-$ff: ROM banks (32KB each)
 
         # ROM banks - typical DQ3 layout
         rom_banks = [
             # System and main code
-            BankInfo(0x00, 0x8000, 0xFFFF, "ROM", "System vectors and main code"),
-            BankInfo(0x01, 0x8000, 0xFFFF, "ROM", "Main game engine"),
-            BankInfo(0x02, 0x8000, 0xFFFF, "ROM", "Menu and UI code"),
-            BankInfo(0x03, 0x8000, 0xFFFF, "ROM", "Battle system"),
-            BankInfo(0x04, 0x8000, 0xFFFF, "ROM", "Field/overworld code"),
-            BankInfo(0x05, 0x8000, 0xFFFF, "ROM", "Character/party management"),
-            BankInfo(0x06, 0x8000, 0xFFFF, "ROM", "Item/equipment system"),
-            BankInfo(0x07, 0x8000, 0xFFFF, "ROM", "Magic/spell system"),
+            BankInfo(0x00, 0x8000, 0xffff, "ROM", "System vectors and main code"),
+            BankInfo(0x01, 0x8000, 0xffff, "ROM", "Main game engine"),
+            BankInfo(0x02, 0x8000, 0xffff, "ROM", "Menu and UI code"),
+            BankInfo(0x03, 0x8000, 0xffff, "ROM", "Battle system"),
+            BankInfo(0x04, 0x8000, 0xffff, "ROM", "Field/overworld code"),
+            BankInfo(0x05, 0x8000, 0xffff, "ROM", "Character/party management"),
+            BankInfo(0x06, 0x8000, 0xffff, "ROM", "Item/equipment system"),
+            BankInfo(0x07, 0x8000, 0xffff, "ROM", "Magic/spell system"),
             # Data banks
-            BankInfo(0x08, 0x8000, 0xFFFF, "ROM", "Character class data"),
-            BankInfo(0x09, 0x8000, 0xFFFF, "ROM", "Monster data and AI"),
-            BankInfo(0x0A, 0x8000, 0xFFFF, "ROM", "Item and equipment data"),
-            BankInfo(0x0B, 0x8000, 0xFFFF, "ROM", "Spell and magic data"),
-            BankInfo(0x0C, 0x8000, 0xFFFF, "ROM", "Map and location data"),
-            BankInfo(0x0D, 0x8000, 0xFFFF, "ROM", "Dialog and text data"),
-            BankInfo(0x0E, 0x8000, 0xFFFF, "ROM", "Graphics data (tiles)"),
-            BankInfo(0x0F, 0x8000, 0xFFFF, "ROM", "Graphics data (sprites)"),
+            BankInfo(0x08, 0x8000, 0xffff, "ROM", "Character class data"),
+            BankInfo(0x09, 0x8000, 0xffff, "ROM", "Monster data and AI"),
+            BankInfo(0x0a, 0x8000, 0xffff, "ROM", "Item and equipment data"),
+            BankInfo(0x0b, 0x8000, 0xffff, "ROM", "Spell and magic data"),
+            BankInfo(0x0c, 0x8000, 0xffff, "ROM", "Map and location data"),
+            BankInfo(0x0d, 0x8000, 0xffff, "ROM", "Dialog and text data"),
+            BankInfo(0x0e, 0x8000, 0xffff, "ROM", "Graphics data (tiles)"),
+            BankInfo(0x0f, 0x8000, 0xffff, "ROM", "Graphics data (sprites)"),
             # Additional banks for larger ROM
-            BankInfo(0x10, 0x8000, 0xFFFF, "ROM", "Additional graphics"),
-            BankInfo(0x11, 0x8000, 0xFFFF, "ROM", "Music and sound data"),
-            BankInfo(0x12, 0x8000, 0xFFFF, "ROM", "Music sequences"),
-            BankInfo(0x13, 0x8000, 0xFFFF, "ROM", "Sound effects"),
-            BankInfo(0x14, 0x8000, 0xFFFF, "ROM", "Compressed data"),
-            BankInfo(0x15, 0x8000, 0xFFFF, "ROM", "Additional dialog"),
+            BankInfo(0x10, 0x8000, 0xffff, "ROM", "Additional graphics"),
+            BankInfo(0x11, 0x8000, 0xffff, "ROM", "Music and sound data"),
+            BankInfo(0x12, 0x8000, 0xffff, "ROM", "Music sequences"),
+            BankInfo(0x13, 0x8000, 0xffff, "ROM", "Sound effects"),
+            BankInfo(0x14, 0x8000, 0xffff, "ROM", "Compressed data"),
+            BankInfo(0x15, 0x8000, 0xffff, "ROM", "Additional dialog"),
         ]
 
         # Add banks to our collection
@@ -154,8 +154,8 @@ class DiztinguishParser:
             self.banks[bank.bank_number] = bank
 
         # RAM banks
-        self.banks[0x7E] = BankInfo(0x7E, 0x0000, 0xFFFF, "RAM", "Main RAM bank")
-        self.banks[0x7F] = BankInfo(0x7F, 0x0000, 0xFFFF, "RAM", "Extended RAM bank")
+        self.banks[0x7e] = BankInfo(0x7e, 0x0000, 0xffff, "RAM", "Main RAM bank")
+        self.banks[0x7f] = BankInfo(0x7f, 0x0000, 0xffff, "RAM", "Extended RAM bank")
 
     def parse_diz_data(self) -> Dict[str, Any]:
         """Parse the decompressed .diz data"""
@@ -285,13 +285,13 @@ class DiztinguishParser:
         """Convert ROM address to SNES bank number"""
         # For LoROM mapping
         if address < 0x400000:
-            # Banks $00-$3F or $80-$BF
-            bank = (address >> 15) & 0x3F
+            # Banks $00-$3f or $80-$bf
+            bank = (address >> 15) & 0x3f
             if address >= 0x200000:
                 bank += 0x80
         else:
-            # Banks $40-$7F or $C0-$FF
-            bank = ((address - 0x400000) >> 15) & 0x3F
+            # Banks $40-$7f or $c0-$ff
+            bank = ((address - 0x400000) >> 15) & 0x3f
             bank += 0x40
             if address >= 0x600000:
                 bank += 0x80
@@ -318,7 +318,7 @@ class DiztinguishParser:
             elif data[i] == 0x80:  # BRA
                 if i + 1 < len(data):
                     offset = struct.unpack("<b", data[i + 1 : i + 2])[0]
-                    target = (i + 2 + offset) & 0xFFFF
+                    target = (i + 2 + offset) & 0xffff
                     patterns.append((target, "BRA_target"))
 
             # Check for data tables (ascending word values)
@@ -327,7 +327,7 @@ class DiztinguishParser:
                 word2 = struct.unpack("<H", data[i + 2 : i + 4])[0]
                 word3 = struct.unpack("<H", data[i + 4 : i + 6])[0]
 
-                if 0x8000 <= word1 < word2 < word3 <= 0xFFFF:
+                if 0x8000 <= word1 < word2 < word3 <= 0xffff:
                     patterns.append((i, "data_table"))
 
         # Remove duplicates and sort
@@ -349,8 +349,8 @@ class DiztinguishParser:
                 f"; Disassembly progress: {self.progress.completion_percentage:.1f}%",
                 f";",
                 f"; SNES Memory Banking Information:",
-                f"; Banks $00-$7F: LoROM mapping (32KB banks)",
-                f"; Banks $80-$FF: Extended LoROM mapping",
+                f"; Banks $00-$7f: LoROM mapping (32KB banks)",
+                f"; Banks $80-$ff: Extended LoROM mapping",
                 f"",
                 f".LOROM",
                 f".ASSUME dp:$0000, db:$8000",

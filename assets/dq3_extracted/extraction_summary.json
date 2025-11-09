@@ -62,7 +62,7 @@
 				"estimated_tiles": "1024 tiles"
 			},
 			"checksum": "e494c0b354780ade",
-			"extraction_notes": "Extracted from known location at $1A0000"
+			"extraction_notes": "Extracted from known location at $1a0000"
 		},
 		{
 			"name": "font_data",
@@ -76,7 +76,7 @@
 				"estimated_tiles": "512 tiles"
 			},
 			"checksum": "264a60a21ec36662",
-			"extraction_notes": "Extracted from known location at $1B0000"
+			"extraction_notes": "Extracted from known location at $1b0000"
 		},
 		{
 			"name": "character_tiles_01",
@@ -102,7 +102,7 @@
 				"detection_method": "pattern_matching"
 			},
 			"checksum": "39a67f9e730387ea",
-			"extraction_notes": "Found via pattern matching at $06E000"
+			"extraction_notes": "Found via pattern matching at $06e000"
 		},
 		{
 			"name": "character_tiles_03",
@@ -128,7 +128,7 @@
 				"detection_method": "pattern_matching"
 			},
 			"checksum": "0507a5aa854ed960",
-			"extraction_notes": "Found via pattern matching at $0CF000"
+			"extraction_notes": "Found via pattern matching at $0cf000"
 		},
 		{
 			"name": "character_tiles_05",
@@ -141,7 +141,7 @@
 				"detection_method": "pattern_matching"
 			},
 			"checksum": "ef90338b4ca5a58c",
-			"extraction_notes": "Found via pattern matching at $0E0000"
+			"extraction_notes": "Found via pattern matching at $0e0000"
 		},
 		{
 			"name": "sprite_data_01",
@@ -180,7 +180,7 @@
 				"detection_method": "pattern_matching"
 			},
 			"checksum": "adc43079ea1ad9a2",
-			"extraction_notes": "Found via pattern matching at $11B800"
+			"extraction_notes": "Found via pattern matching at $11b800"
 		},
 		{
 			"name": "sprite_data_04",
@@ -193,7 +193,7 @@
 				"detection_method": "pattern_matching"
 			},
 			"checksum": "888e4a773a96d286",
-			"extraction_notes": "Found via pattern matching at $11E800"
+			"extraction_notes": "Found via pattern matching at $11e800"
 		},
 		{
 			"name": "sprite_data_05",

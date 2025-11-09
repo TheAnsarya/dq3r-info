@@ -1,0 +1,84 @@
+# prompts 2025-11-09_documentation.md
+**Project**: Dragon Quest III ROM Analysis
+**Type**: Markdown Documentation
+**Size**: 5,962 bytes
+**Last Modified**: 2025-11-09 04:26:56
+**Git Status**: 🔄 ?? "documentation/ultimate/prompts 2025-11-09_documentation.md"
+
+## Overview
+This file is part of the comprehensive Dragon Quest III ROM analysis project.
+
+🔧 Medium complexity file with moderate control flow.
+
+## Technical Details
+- **File Size**: 5,962 bytes
+- **Line Count**: 64
+- **Character Encoding**: UTF-8 (auto-detected)
+- **Comment Lines**: 16
+- **Documentation Coverage**: 48.5%
+- **Estimated Complexity**: 10/10
+
+## Code Metrics
+- **Complexity Score**: 40/10
+- **Documentation Coverage**: 48.5%
+- **Function Count**: 0
+- **Comment Lines**: 16
+
+## Source Code Preview
+
+```text
+# prompts 2025-11-09.txt
+**Project**: Dragon Quest III ROM Analysis
+**Type**: Text Document
+**Size**: 5,170 bytes
+**Last Modified**: 2025-11-09 02:31:59
+**Git Status**: ✅ Tracked and clean
+
+## Overview
+This file is part of the comprehensive Dragon Quest III ROM analysis project.
+
+🔧 Medium complexity file with moderate control flow.
+
+## Technical Details
+- **File Size**: 5,170 bytes
+- **Line Count**: 30
+- **Character Encoding**: UTF-8 (auto-detected)
+- **Comment Lines**: 11
+- **Documentation Coverage**: 137.5%
+- **Estimated Complexity**: 10/10
+
+## Code Metrics
+- **Complexity Score**: 39/10
+- **Documentation Coverage**: 137.5%
+- **Function Count**: 0
+- **Comment Lines**: 11
+
+## Source Code Preview
+
+```text
+
+create a new github repository named `dq3r-info` and download it to `C:\Users\me\source\repos\dq3r-info\`  and then use `C:\Users\me\source\repos\dq3r-info\` as our vscode workspace; that is a completed disassembly/documentation/asset-extraction-reinsertion/editor-suite for `Dragon Quest 3 (SNES)` based on the structure of our FFMQ project at `https://github.com/TheAnsarya/ffmq-info`, copy `.editorconfig` and other helping files, install all the helper programs, setup the python virtual environment, etc; the japanese rom, which we will be disassembling and documenting is at `C:\Users\me\source\repos\dq3r-info\static\Dragon Quest III - Soshite Densetsu he... (J).smc` but there is an english translation, some save states, and a usage file and a `diz` file (diztinguish); add `/static/` to gitignore so we don't push the rom file to source control, but copy the diz file somewhere else so it is in git control;
+
+make a github kanban board for this repository/project then (every session, now and in the future) always make new issues/todo-lists for every progress effort so that ALL progress is tracked, go back and add a project creation issue with a list of what was done; update the session/chat logs every prompt; run formatting on the files every prompt; implement the changes to make it awesome for as long as you can and use up all the tokens for each session, do not waste my money - use the entire token space; git commit and push every prompt; make a new branch for each issue and then merge it back into main when you're done and get rid of the old branch; Setup an SNES development project for the complete disassembly and commenting and documentation of `Dragon Quest 3 (SNES)` (DQ3r) with a full toolset from coding, to build, to test, to running it using MesenS. Document everything. Some documentation can be found at `https://datacrystal.tcrf.net/wiki/Dragon_Quest_III_(SNES)` and `https://github.com/TheAnsarya/GameInfo/tree/main/Dragon%20Quest%20III%20(SNES)` ; steal the build system etc from ffmq-info as long as it fits our development
+
+there is loads of information and compression algorithms and data structures, etc in my githib project `https://github.com/TheAnsarya/logsmall` so use this as a base for compression and other stuff but update it; continue setting up build system and asset pipeline and disassembly and tools, etc, ; run formatting on the files every prompt; update the session/chat logs every prompt; implement the changes to make it awesome for as long as you can and use up all the tokens for each session, do not waste my money - use the entire token space; 
+
+disassemble as much code as you can starting by using the `diz` diztinguish file and all the manual disassembly I have already done in my other DQ3r github projects and document the functions and data structures as you go ; implement the changes to make it awesome for as long as you can and use up all the tokens for each session, do not waste my money - use the entire token space; make sure you document the complicated bank switching system for the code if applicable; and make progress tables for code disassembly and asset extraction/conversion and documentation; always format everything and always use tabs (not spaces); show our token usage at the end
+
+create a github issue/todo for every piece of work and add it to the kanban board; git commit and push every prompt; update the session/chat logs every prompt; run formatting on the files every prompt; make a new branch for each issue and then merge it back into main when you're done and get rid of the old branch; now disassemble and document absolutely everything you can; disassemble and document all code!
+
+maximize disassembly coverage; document and disassemble everything you can; and, as with the `ffmq-info` project for reference, implement the whole "build the rom from the source code and assets pipeline and compare it with the reference rom" processes and then build and compare and report the comparison
+
+I do not see any assembly files in the `src` folder or the `disassembly` folder, where is the code? disassemble as much code as you can! use up every session token you can! do as much work as you can, take forevrer, just disassemble code and document it; also convert extracted graphics to png using palettes
+
+git commit and push every prompt; Sorry to interupt, but all ASM code should be lowercase and ALL hexadecimal values in all files NEED to be lowercase; continue what you were doing; document all the code so we have a complete disassembly of the rom;; implement the changes to make it awesome for as long as you can and use up all the tokens for each session, do not waste my money - use the entire token space; create a github issue/todo for every piece of work and add it to the kanban board; git commit and push every prompt; update the session/chat logs every prompt; run formatting on the files every prompt; make a new branch for each issue and then merge it back into main when you're done and get rid of the old branch; now disassemble and document absolutely everything you can; disassemble and document all code!
+
+
+
+
+
+...
+```
+
+**Lines shown**: 50 of 64 total
+

@@ -140,8 +140,8 @@ class SNESEmulatorInterface:
             # Detect ROM type (LoROM vs HiROM)
             if len(rom_data) >= 0x8000:
                 # Check LoROM header location
-                lorom_score = self._calculate_header_score(rom_data, 0x7FC0)
-                hirom_score = self._calculate_header_score(rom_data, 0xFFC0)
+                lorom_score = self._calculate_header_score(rom_data, 0x7fc0)
+                hirom_score = self._calculate_header_score(rom_data, 0xffc0)
 
                 if lorom_score > hirom_score:
                     validation_result["rom_type"] = "LoROM"

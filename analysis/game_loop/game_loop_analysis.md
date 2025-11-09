@@ -10,7 +10,7 @@
 ## Input Handling System
 
 ### input_handler_4017
-- **Address:** $A7E1
+- **Address:** $a7e1
 - **Purpose:** Handle Controller 2 data
 - **Size:** 182 bytes
 - **Complexity:** 134

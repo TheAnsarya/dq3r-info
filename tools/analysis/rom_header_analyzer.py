@@ -63,9 +63,9 @@ class DQ3ROMHeaderAnalyzer:
         """Perform complete ROM header analysis"""
         print("\n📋 Analyzing SNES ROM Header...")
 
-        # SNES header is typically at 0x7FC0 for LoROM or 0xFFC0 for HiROM
-        # Try LoROM first (0x7FC0)
-        header_offset = 0x7FC0
+        # SNES header is typically at 0x7fc0 for LoROM or 0xffc0 for HiROM
+        # Try LoROM first (0x7fc0)
+        header_offset = 0x7fc0
 
         try:
             # Extract header fields
@@ -191,8 +191,8 @@ class DQ3ROMHeaderAnalyzer:
     def _snes_to_rom_address(self, snes_addr: int) -> int:
         """Convert SNES address to ROM file offset"""
         # For LoROM mapping
-        bank = (snes_addr >> 16) & 0xFF
-        offset = snes_addr & 0xFFFF
+        bank = (snes_addr >> 16) & 0xff
+        offset = snes_addr & 0xffff
 
         if bank < 0x80:
             # Banks 00-7F: direct mapping for ROM areas
@@ -232,7 +232,7 @@ class DQ3ROMHeaderAnalyzer:
             base_description += " - Disables interrupts immediately"
         elif first_instruction == 0x58:  # CLI (Clear Interrupt Disable)
             base_description += " - Enables interrupts immediately"
-        elif first_instruction == 0x4C:  # JMP absolute
+        elif first_instruction == 0x4c:  # JMP absolute
             jump_target = struct.unpack("<H", handler_code[1:3])[0]
             base_description += f" - Jumps to main handler at ${jump_target:04X}"
         elif first_instruction == 0x40:  # RTI (Return from Interrupt)
@@ -254,13 +254,13 @@ class DQ3ROMHeaderAnalyzer:
             elif opcode == 0x18:  # CLC
                 analysis["operations"].append({"offset": i, "instruction": "CLC", "description": "Clear carry flag"})
                 i += 1
-            elif opcode == 0xFB:  # XCE
+            elif opcode == 0xfb:  # XCE
                 analysis["operations"].append(
                     {"offset": i, "instruction": "XCE", "description": "Exchange carry and emulation flags"}
                 )
                 analysis["system_setup"].append("Switch to native 16-bit mode")
                 i += 1
-            elif opcode == 0xC2:  # REP
+            elif opcode == 0xc2:  # REP
                 if i + 1 < len(code):
                     flags = code[i + 1]
                     analysis["operations"].append(
@@ -271,7 +271,7 @@ class DQ3ROMHeaderAnalyzer:
                     i += 2
                 else:
                     break
-            elif opcode == 0xE2:  # SEP
+            elif opcode == 0xe2:  # SEP
                 if i + 1 < len(code):
                     flags = code[i + 1]
                     analysis["operations"].append(
@@ -280,7 +280,7 @@ class DQ3ROMHeaderAnalyzer:
                     i += 2
                 else:
                     break
-            elif opcode == 0x9C:  # STZ absolute
+            elif opcode == 0x9c:  # STZ absolute
                 if i + 2 < len(code):
                     addr = struct.unpack("<H", code[i + 1 : i + 3])[0]
                     analysis["operations"].append(
@@ -290,7 +290,7 @@ class DQ3ROMHeaderAnalyzer:
                     i += 3
                 else:
                     break
-            elif opcode == 0xA9:  # LDA immediate
+            elif opcode == 0xa9:  # LDA immediate
                 if i + 1 < len(code):
                     value = code[i + 1]
                     analysis["operations"].append(
@@ -303,7 +303,7 @@ class DQ3ROMHeaderAnalyzer:
                     i += 2
                 else:
                     break
-            elif opcode == 0x8D:  # STA absolute
+            elif opcode == 0x8d:  # STA absolute
                 if i + 2 < len(code):
                     addr = struct.unpack("<H", code[i + 1 : i + 3])[0]
                     analysis["operations"].append(
@@ -317,7 +317,7 @@ class DQ3ROMHeaderAnalyzer:
                     i += 3
                 else:
                     break
-            elif opcode == 0x4C:  # JMP absolute
+            elif opcode == 0x4c:  # JMP absolute
                 if i + 2 < len(code):
                     addr = struct.unpack("<H", code[i + 1 : i + 3])[0]
                     analysis["operations"].append(
@@ -357,7 +357,7 @@ class DQ3ROMHeaderAnalyzer:
                 0x31: "HiROM + FastROM",
             }
 
-            rom_sizes = {0x08: "256 KB", 0x09: "512 KB", 0x0A: "1 MB", 0x0B: "2 MB", 0x0C: "4 MB", 0x0D: "8 MB"}
+            rom_sizes = {0x08: "256 KB", 0x09: "512 KB", 0x0a: "1 MB", 0x0b: "2 MB", 0x0c: "4 MB", 0x0d: "8 MB"}
 
             countries = {
                 0x00: "Japan",
@@ -370,10 +370,10 @@ class DQ3ROMHeaderAnalyzer:
                 0x07: "Netherlands",
                 0x08: "Spain",
                 0x09: "Germany",
-                0x0A: "Italy",
-                0x0B: "China",
-                0x0C: "Indonesia",
-                0x0D: "South Korea",
+                0x0a: "Italy",
+                0x0b: "China",
+                0x0c: "Indonesia",
+                0x0d: "South Korea",
             }
 
             report += f"""### Basic Information
@@ -386,7 +386,7 @@ class DQ3ROMHeaderAnalyzer:
 ### Checksums
 - **Checksum:** ${self.header.checksum:04X}
 - **Complement:** ${self.header.checksum_complement:04X}
-- **Valid:** {'✅' if (self.header.checksum ^ self.header.checksum_complement) == 0xFFFF else '❌'}
+- **Valid:** {'✅' if (self.header.checksum ^ self.header.checksum_complement) == 0xffff else '❌'}
 
 ### Memory Configuration
 - **SRAM Size:** {2**(self.header.sram_size - 1) if self.header.sram_size > 0 else 0} KB
@@ -457,12 +457,12 @@ class DQ3ROMHeaderAnalyzer:
 ### ROM Layout (LoROM)
 - **Banks 00-7F:** System RAM and ROM areas
 - **Banks 80-FF:** ROM mirror space
-- **Header Location:** $7FC0-$7FFF
-- **Vector Table:** $7FE0-$7FFF
+- **Header Location:** $7fc0-$7fff
+- **Vector Table:** $7fe0-$7fff
 
 ### Banking Analysis
 The ROM uses standard SNES LoROM mapping:
-- Each bank contains 32KB of addressable space ($8000-$FFFF)
+- Each bank contains 32KB of addressable space ($8000-$ffff)
 - Banks 00-7F contain the primary ROM image
 - Banks 80-FF mirror banks 00-7F respectively
 

@@ -92,7 +92,7 @@ class SNESROMAnalyzer:
         # DQ3 specific memory layout
         self.dq3_layout = {
             "character_classes": {
-                "offset": 0xC4179E,  # From previous analysis
+                "offset": 0xc4179e,  # From previous analysis
                 "size": 9 * 90,  # 9 classes, 90 bytes each
                 "format": "character_class_data",
             },
@@ -382,11 +382,11 @@ class SNESROMAnalyzer:
             byte = self.rom_data[pos]
 
             # Common text terminators
-            if byte in [0x00, 0xFF]:
+            if byte in [0x00, 0xff]:
                 return size
 
             # Check if still looks like text
-            if byte < 0x20 and byte not in [0x0A, 0x0D]:  # Not printable/newline
+            if byte < 0x20 and byte not in [0x0a, 0x0d]:  # Not printable/newline
                 break
 
             size += 1
@@ -453,7 +453,7 @@ class SNESROMAnalyzer:
         current_offset = offset
 
         for i in range(layout["count"]):
-            # Estimate monster data size (look for $AC terminator)
+            # Estimate monster data size (look for $ac terminator)
             monster_size = self._find_monster_data_size(current_offset)
 
             if monster_size > 0:
@@ -464,7 +464,7 @@ class SNESROMAnalyzer:
                     offset=current_offset,
                     size=monster_size,
                     asset_type="monster_data",
-                    metadata={"monster_index": i, "terminator": 0xAC},
+                    metadata={"monster_index": i, "terminator": 0xac},
                 )
                 monsters.append(asset)
                 current_offset += monster_size
@@ -474,12 +474,12 @@ class SNESROMAnalyzer:
         return monsters
 
     def _find_monster_data_size(self, offset: int) -> int:
-        """Find size of monster data (look for $AC terminator)"""
+        """Find size of monster data (look for $ac terminator)"""
         size = 0
         pos = offset
 
         while pos < len(self.rom_data) and size < 0x100:  # Max 256 bytes per monster
-            if self.rom_data[pos] == 0xAC:
+            if self.rom_data[pos] == 0xac:
                 return size + 1  # Include terminator
             size += 1
             pos += 1

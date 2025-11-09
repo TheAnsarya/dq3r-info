@@ -19,8 +19,8 @@ This document summarizes the comprehensive disassembly automation framework crea
 ### 🏗️ Architecture Discovered
 
 #### Core Game Engine
-- **Main Game Loop:** Located at $ABE1 with confidence score 1340
-- **Input Handler:** Controller processing at $A7E1
+- **Main Game Loop:** Located at $abe1 with confidence score 1340
+- **Input Handler:** Controller processing at $a7e1
 - **VBlank Processing:** 979 infinite loop patterns analyzed
 - **Interrupt System:** 34,365 RTI instructions for timing analysis
 

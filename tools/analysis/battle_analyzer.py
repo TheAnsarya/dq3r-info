@@ -87,21 +87,21 @@ class DQ3BattleAnalyzer:
 
         # Battle system patterns to look for
         self.battle_patterns = {
-            "damage_calculation": [0xA5, 0x85, 0x18, 0x65],  # LDA, STA, CLC, ADC
-            "multiplication": [0x8D, 0xEA, 0xEA, 0x4A],  # STA, NOP, NOP, LSR
+            "damage_calculation": [0xa5, 0x85, 0x18, 0x65],  # LDA, STA, CLC, ADC
+            "multiplication": [0x8d, 0xea, 0xea, 0x4a],  # STA, NOP, NOP, LSR
             "rng_calls": [0x20, 0x00, 0x80],  # JSR $8000 (common RNG)
-            "hp_manipulation": [0xA5, 0x38, 0xE5],  # LDA, SEC, SBC
-            "status_checks": [0x29, 0x01, 0xF0],  # AND #$01, BEQ
+            "hp_manipulation": [0xa5, 0x38, 0xe5],  # LDA, SEC, SBC
+            "status_checks": [0x29, 0x01, 0xf0],  # AND #$01, BEQ
         }
 
         # Dragon Quest III specific addresses (common patterns)
         self.dq3_addresses = {
-            "player_stats": 0x7E0000,
-            "monster_stats": 0x7E1000,
-            "battle_vars": 0x7E2000,
-            "spell_data_table": 0x8C0000,  # Estimated
-            "monster_ai_table": 0x8D0000,  # Estimated
-            "damage_table": 0x8E0000,  # Estimated
+            "player_stats": 0x7e0000,
+            "monster_stats": 0x7e1000,
+            "battle_vars": 0x7e2000,
+            "spell_data_table": 0x8c0000,  # Estimated
+            "monster_ai_table": 0x8d0000,  # Estimated
+            "damage_table": 0x8e0000,  # Estimated
         }
 
         print(f"⚔️ Battle System Analyzer initialized")
@@ -234,7 +234,7 @@ class DQ3BattleAnalyzer:
 
                     # Look for AI pointer
                     ai_ptr = struct.unpack("<H", monster_bytes[14:16])[0]
-                    if 0x8000 <= ai_ptr <= 0xFFFF:
+                    if 0x8000 <= ai_ptr <= 0xffff:
                         # Analyze AI behavior
                         ai_rom_offset = self._snes_to_rom_address(ai_ptr)
                         if ai_rom_offset > 0:
@@ -354,7 +354,7 @@ class DQ3BattleAnalyzer:
             # Look for function entry patterns
             if i >= 3 and self.rom_data[i - 3 : i] == b"\x20\x00\x80":  # JSR $8000
                 return i
-            if i >= 0 and self.rom_data[i] in [0x48, 0xDA, 0x5A]:  # Function prologue
+            if i >= 0 and self.rom_data[i] in [0x48, 0xda, 0x5a]:  # Function prologue
                 return i
 
         return search_start
@@ -366,7 +366,7 @@ class DQ3BattleAnalyzer:
         for i in range(offset, search_end):
             if i < len(self.rom_data) and self.rom_data[i] in [
                 0x60,
-                0x6B,
+                0x6b,
                 0x40,
             ]:  # RTS, RTL, RTI
                 return i + 1
@@ -435,8 +435,8 @@ class DQ3BattleAnalyzer:
         for offset in range(0, len(self.rom_data) - 20):
             # Look for linear congruential generator pattern
             if (
-                self.rom_data[offset] == 0xA5  # LDA
-                and self.rom_data[offset + 2] == 0x0A  # ASL
+                self.rom_data[offset] == 0xa5  # LDA
+                and self.rom_data[offset + 2] == 0x0a  # ASL
                 and self.rom_data[offset + 3] == 0x85
             ):  # STA
 
@@ -619,7 +619,7 @@ class DQ3BattleAnalyzer:
                 addr_str = inst["operand"].replace(" $", "")
                 try:
                     addr = int(addr_str, 16)
-                    if 0x7E0000 <= addr <= 0x7EFFFF:  # RAM addresses
+                    if 0x7e0000 <= addr <= 0x7effff:  # RAM addresses
                         variables.add(f"RAM_{addr:06X}")
                 except:
                     pass
@@ -664,9 +664,9 @@ class DQ3BattleAnalyzer:
         for offset in range(0, len(self.rom_data) - 50):
             # Look for Attack * 2 - Defense type calculations
             if (
-                self.rom_data[offset] == 0x0A  # ASL (multiply by 2)
+                self.rom_data[offset] == 0x0a  # ASL (multiply by 2)
                 and self.rom_data[offset + 1] == 0x38  # SEC
-                and self.rom_data[offset + 2] == 0xE5
+                and self.rom_data[offset + 2] == 0xe5
             ):  # SBC (subtract)
 
                 func_start = self._find_function_start(offset)
@@ -712,8 +712,8 @@ class DQ3BattleAnalyzer:
 
     def _snes_to_rom_address(self, snes_addr: int) -> int:
         """Convert SNES address to ROM file offset"""
-        bank = (snes_addr >> 16) & 0xFF
-        offset = snes_addr & 0xFFFF
+        bank = (snes_addr >> 16) & 0xff
+        offset = snes_addr & 0xffff
 
         if bank < 0x80 and offset >= 0x8000:
             return (bank * 0x8000) + (offset - 0x8000)
@@ -731,26 +731,26 @@ class DQ3BattleAnalyzer:
 
         # Enhanced 65816 opcodes for battle analysis
         opcodes = {
-            0x8D: ("STA", 3),
-            0xAD: ("LDA", 3),
-            0xA9: ("LDA", 2),
+            0x8d: ("STA", 3),
+            0xad: ("LDA", 3),
+            0xa9: ("LDA", 2),
             0x60: ("RTS", 1),
             0x20: ("JSR", 3),
-            0x4C: ("JMP", 3),
-            0xF0: ("BEQ", 2),
-            0xD0: ("BNE", 2),
+            0x4c: ("JMP", 3),
+            0xf0: ("BEQ", 2),
+            0xd0: ("BNE", 2),
             0x80: ("BRA", 2),
             0x18: ("CLC", 1),
             0x38: ("SEC", 1),
             0x65: ("ADC", 2),
-            0xE5: ("SBC", 2),
-            0x0A: ("ASL", 1),
-            0x4A: ("LSR", 1),
+            0xe5: ("SBC", 2),
+            0x0a: ("ASL", 1),
+            0x4a: ("LSR", 1),
             0x29: ("AND", 2),
             0x09: ("ORA", 2),
             0x49: ("EOR", 2),
-            0xC9: ("CMP", 2),
-            0xB0: ("BCS", 2),
+            0xc9: ("CMP", 2),
+            0xb0: ("BCS", 2),
             0x90: ("BCC", 2),
         }
 

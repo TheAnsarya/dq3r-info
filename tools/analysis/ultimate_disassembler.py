@@ -140,11 +140,11 @@ class UltimateDisassembler:
                 "function": "arithmetic", "affects_flags": ["N", "V", "Z", "C"],
                 "reads": ["A", "C"], "writes": ["A"], "common_usage": "Basic arithmetic operations"
             }),
-            (0x6D, "ADC", "absolute", 3, 4, "NvZc", "Add memory to accumulator with carry", {
+            (0x6d, "ADC", "absolute", 3, 4, "NvZc", "Add memory to accumulator with carry", {
                 "function": "arithmetic", "affects_flags": ["N", "V", "Z", "C"],
                 "reads": ["A", "C", "memory"], "writes": ["A"], "common_usage": "Add variable or memory location"
             }),
-            (0x7D, "ADC", "absolute_x", 3, 4, "NvZc", "Add memory,X to accumulator with carry", {
+            (0x7d, "ADC", "absolute_x", 3, 4, "NvZc", "Add memory,X to accumulator with carry", {
                 "function": "arithmetic", "affects_flags": ["N", "V", "Z", "C"],
                 "reads": ["A", "C", "X", "memory"], "writes": ["A"], "common_usage": "Array/table processing"
             }),
@@ -158,37 +158,37 @@ class UltimateDisassembler:
             }),
 
             # LDA - Load Accumulator
-            (0xA9, "LDA", "immediate", 2, 2, "Nz", "Load immediate value into accumulator", {
+            (0xa9, "LDA", "immediate", 2, 2, "Nz", "Load immediate value into accumulator", {
                 "function": "load", "affects_flags": ["N", "Z"],
                 "reads": [], "writes": ["A"], "common_usage": "Initialize accumulator with constant"
             }),
-            (0xAD, "LDA", "absolute", 3, 4, "Nz", "Load memory into accumulator", {
+            (0xad, "LDA", "absolute", 3, 4, "Nz", "Load memory into accumulator", {
                 "function": "load", "affects_flags": ["N", "Z"],
                 "reads": ["memory"], "writes": ["A"], "common_usage": "Load variable or memory value"
             }),
-            (0xBD, "LDA", "absolute_x", 3, 4, "Nz", "Load memory,X into accumulator", {
+            (0xbd, "LDA", "absolute_x", 3, 4, "Nz", "Load memory,X into accumulator", {
                 "function": "load", "affects_flags": ["N", "Z"],
                 "reads": ["X", "memory"], "writes": ["A"], "common_usage": "Array/table element access"
             }),
-            (0xB9, "LDA", "absolute_y", 3, 4, "Nz", "Load memory,Y into accumulator", {
+            (0xb9, "LDA", "absolute_y", 3, 4, "Nz", "Load memory,Y into accumulator", {
                 "function": "load", "affects_flags": ["N", "Z"],
                 "reads": ["Y", "memory"], "writes": ["A"], "common_usage": "Array/table element access"
             }),
-            (0xA5, "LDA", "zeropage", 2, 3, "Nz", "Load zero page into accumulator", {
+            (0xa5, "LDA", "zeropage", 2, 3, "Nz", "Load zero page into accumulator", {
                 "function": "load", "affects_flags": ["N", "Z"],
                 "reads": ["memory"], "writes": ["A"], "common_usage": "Load zero page variable"
             }),
-            (0xAF, "LDA", "long", 4, 5, "Nz", "Load long address into accumulator", {
+            (0xaf, "LDA", "long", 4, 5, "Nz", "Load long address into accumulator", {
                 "function": "load", "affects_flags": ["N", "Z"],
                 "reads": ["memory"], "writes": ["A"], "common_usage": "Cross-bank data access"
             }),
 
             # STA - Store Accumulator
-            (0x8D, "STA", "absolute", 3, 4, "", "Store accumulator to memory", {
+            (0x8d, "STA", "absolute", 3, 4, "", "Store accumulator to memory", {
                 "function": "store", "affects_flags": [],
                 "reads": ["A"], "writes": ["memory"], "common_usage": "Save value to variable"
             }),
-            (0x9D, "STA", "absolute_x", 3, 5, "", "Store accumulator to memory,X", {
+            (0x9d, "STA", "absolute_x", 3, 5, "", "Store accumulator to memory,X", {
                 "function": "store", "affects_flags": [],
                 "reads": ["A", "X"], "writes": ["memory"], "common_usage": "Array/table element assignment"
             }),
@@ -200,17 +200,17 @@ class UltimateDisassembler:
                 "function": "store", "affects_flags": [],
                 "reads": ["A"], "writes": ["memory"], "common_usage": "Save to zero page variable"
             }),
-            (0x8F, "STA", "long", 4, 5, "", "Store accumulator to long address", {
+            (0x8f, "STA", "long", 4, 5, "", "Store accumulator to long address", {
                 "function": "store", "affects_flags": [],
                 "reads": ["A"], "writes": ["memory"], "common_usage": "Cross-bank data storage"
             }),
 
             # Control Flow
-            (0x4C, "JMP", "absolute", 3, 3, "", "Jump to absolute address", {
+            (0x4c, "JMP", "absolute", 3, 3, "", "Jump to absolute address", {
                 "function": "control_flow", "affects_flags": [],
                 "reads": [], "writes": ["PC"], "common_usage": "Unconditional jump", "control_type": "jump"
             }),
-            (0x5C, "JML", "long", 4, 4, "", "Jump long to address", {
+            (0x5c, "JML", "long", 4, 4, "", "Jump long to address", {
                 "function": "control_flow", "affects_flags": [],
                 "reads": [], "writes": ["PC", "PBR"], "common_usage": "Cross-bank jump", "control_type": "jump"
             }),
@@ -226,7 +226,7 @@ class UltimateDisassembler:
                 "function": "control_flow", "affects_flags": [],
                 "reads": ["S"], "writes": ["PC"], "common_usage": "Function return", "control_type": "return"
             }),
-            (0x6B, "RTL", "implied", 1, 6, "", "Return from subroutine long", {
+            (0x6b, "RTL", "implied", 1, 6, "", "Return from subroutine long", {
                 "function": "control_flow", "affects_flags": [],
                 "reads": ["S"], "writes": ["PC", "PBR"], "common_usage": "Cross-bank function return", "control_type": "return"
             }),
@@ -252,15 +252,15 @@ class UltimateDisassembler:
                 "function": "branch", "affects_flags": [],
                 "reads": ["C"], "writes": [], "common_usage": "Branch on no carry", "condition": "C=0"
             }),
-            (0xB0, "BCS", "relative", 2, 2, "", "Branch if carry set (C=1)", {
+            (0xb0, "BCS", "relative", 2, 2, "", "Branch if carry set (C=1)", {
                 "function": "branch", "affects_flags": [],
                 "reads": ["C"], "writes": [], "common_usage": "Branch on carry", "condition": "C=1"
             }),
-            (0xD0, "BNE", "relative", 2, 2, "", "Branch if not equal (Z=0)", {
+            (0xd0, "BNE", "relative", 2, 2, "", "Branch if not equal (Z=0)", {
                 "function": "branch", "affects_flags": [],
                 "reads": ["Z"], "writes": [], "common_usage": "Branch on not zero", "condition": "Z=0"
             }),
-            (0xF0, "BEQ", "relative", 2, 2, "", "Branch if equal (Z=1)", {
+            (0xf0, "BEQ", "relative", 2, 2, "", "Branch if equal (Z=1)", {
                 "function": "branch", "affects_flags": [],
                 "reads": ["Z"], "writes": [], "common_usage": "Branch on zero", "condition": "Z=1"
             }),
@@ -270,11 +270,11 @@ class UltimateDisassembler:
             }),
 
             # Status Control
-            (0xC2, "REP", "immediate", 2, 3, "Various", "Reset processor status bits", {
+            (0xc2, "REP", "immediate", 2, 3, "Various", "Reset processor status bits", {
                 "function": "status_control", "affects_flags": ["varies"],
                 "reads": [], "writes": ["P"], "common_usage": "Clear status flags", "special": "processor_mode"
             }),
-            (0xE2, "SEP", "immediate", 2, 3, "Various", "Set processor status bits", {
+            (0xe2, "SEP", "immediate", 2, 3, "Various", "Set processor status bits", {
                 "function": "status_control", "affects_flags": ["varies"],
                 "reads": [], "writes": ["P"], "common_usage": "Set status flags", "special": "processor_mode"
             }),
@@ -304,33 +304,33 @@ class UltimateDisassembler:
                 "function": "stack", "affects_flags": ["N", "Z"],
                 "reads": ["S", "memory"], "writes": ["A"], "common_usage": "Restore accumulator"
             }),
-            (0xDA, "PHX", "implied", 1, 3, "", "Push X register to stack", {
+            (0xda, "PHX", "implied", 1, 3, "", "Push X register to stack", {
                 "function": "stack", "affects_flags": [],
                 "reads": ["X"], "writes": ["S", "memory"], "common_usage": "Save X register"
             }),
-            (0xFA, "PLX", "implied", 1, 4, "Nz", "Pull X register from stack", {
+            (0xfa, "PLX", "implied", 1, 4, "Nz", "Pull X register from stack", {
                 "function": "stack", "affects_flags": ["N", "Z"],
                 "reads": ["S", "memory"], "writes": ["X"], "common_usage": "Restore X register"
             }),
-            (0x5A, "PHY", "implied", 1, 3, "", "Push Y register to stack", {
+            (0x5a, "PHY", "implied", 1, 3, "", "Push Y register to stack", {
                 "function": "stack", "affects_flags": [],
                 "reads": ["Y"], "writes": ["S", "memory"], "common_usage": "Save Y register"
             }),
-            (0x7A, "PLY", "implied", 1, 4, "Nz", "Pull Y register from stack", {
+            (0x7a, "PLY", "implied", 1, 4, "Nz", "Pull Y register from stack", {
                 "function": "stack", "affects_flags": ["N", "Z"],
                 "reads": ["S", "memory"], "writes": ["Y"], "common_usage": "Restore Y register"
             }),
 
             # Transfer Instructions
-            (0xAA, "TAX", "implied", 1, 2, "Nz", "Transfer A to X", {
+            (0xaa, "TAX", "implied", 1, 2, "Nz", "Transfer A to X", {
                 "function": "transfer", "affects_flags": ["N", "Z"],
                 "reads": ["A"], "writes": ["X"], "common_usage": "Copy accumulator to X"
             }),
-            (0x8A, "TXA", "implied", 1, 2, "Nz", "Transfer X to A", {
+            (0x8a, "TXA", "implied", 1, 2, "Nz", "Transfer X to A", {
                 "function": "transfer", "affects_flags": ["N", "Z"],
                 "reads": ["X"], "writes": ["A"], "common_usage": "Copy X to accumulator"
             }),
-            (0xA8, "TAY", "implied", 1, 2, "Nz", "Transfer A to Y", {
+            (0xa8, "TAY", "implied", 1, 2, "Nz", "Transfer A to Y", {
                 "function": "transfer", "affects_flags": ["N", "Z"],
                 "reads": ["A"], "writes": ["Y"], "common_usage": "Copy accumulator to Y"
             }),
@@ -340,7 +340,7 @@ class UltimateDisassembler:
             }),
 
             # Other important instructions
-            (0xEA, "NOP", "implied", 1, 2, "", "No operation", {
+            (0xea, "NOP", "implied", 1, 2, "", "No operation", {
                 "function": "misc", "affects_flags": [],
                 "reads": [], "writes": [], "common_usage": "Timing/padding"
             }),
@@ -477,7 +477,7 @@ SLOT 0 $8000
 .SNESHEADER
 ID "DQ3R"
 NAME "DRAGON QUEST III"
-ROMSIZE $0D
+ROMSIZE $0d
 SRAMSIZE $03
 COUNTRY $01
 LICENSEECODE $33

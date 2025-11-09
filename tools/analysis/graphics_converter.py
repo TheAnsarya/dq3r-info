@@ -73,9 +73,9 @@ class SNESGraphicsConverter:
     def bgr555_to_rgb(self, color_value: int) -> Tuple[int, int, int]:
         """Convert SNES BGR555 color to RGB tuple"""
         # BGR555 format: 0bbbbbgggggrrrrr
-        blue = (color_value >> 10) & 0x1F
-        green = (color_value >> 5) & 0x1F
-        red = color_value & 0x1F
+        blue = (color_value >> 10) & 0x1f
+        green = (color_value >> 5) & 0x1f
+        red = color_value & 0x1f
 
         # Scale 5-bit values to 8-bit
         red = (red * 255) // 31

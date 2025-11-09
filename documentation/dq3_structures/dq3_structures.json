@@ -72,32 +72,32 @@
 			{
 				"name": "Hero_HP",
 				"offset": 6,
-				"absolute_address": "$392B",
+				"absolute_address": "$392b",
 				"size": 2,
 				"data_type": "uint16",
 				"description": "Hero - Current HP",
 				"valid_range": null,
-				"notes": "Raw offset: $392B"
+				"notes": "Raw offset: $392b"
 			},
 			{
 				"name": "MP_Max",
 				"offset": 8,
-				"absolute_address": "$392D",
+				"absolute_address": "$392d",
 				"size": 2,
 				"data_type": "uint16",
 				"description": "Hero - Max MP",
 				"valid_range": null,
-				"notes": "Raw offset: $392D"
+				"notes": "Raw offset: $392d"
 			},
 			{
 				"name": "Hero_MP",
 				"offset": 10,
-				"absolute_address": "$392F",
+				"absolute_address": "$392f",
 				"size": 2,
 				"data_type": "uint16",
 				"description": "Hero - Current MP",
 				"valid_range": null,
-				"notes": "Raw offset: $392F"
+				"notes": "Raw offset: $392f"
 			},
 			{
 				"name": "Hero_Strength",
@@ -152,12 +152,12 @@
 			{
 				"name": "Hero_Name",
 				"offset": 22,
-				"absolute_address": "$393B",
+				"absolute_address": "$393b",
 				"size": 5,
 				"data_type": "string",
 				"description": "Hero - Name, 4 characters max, ends in AC",
 				"valid_range": null,
-				"notes": "Raw offset: $393B"
+				"notes": "Raw offset: $393b"
 			},
 			{
 				"name": "Hero_Spells",
@@ -263,42 +263,42 @@
 			{
 				"name": "2_MP",
 				"offset": 10,
-				"absolute_address": "$396B",
+				"absolute_address": "$396b",
 				"size": 2,
 				"data_type": "uint16",
 				"description": "Party member #2 - Current HP",
 				"valid_range": null,
-				"notes": "Raw offset: $396B"
+				"notes": "Raw offset: $396b"
 			},
 			{
 				"name": "2_Strength",
 				"offset": 12,
-				"absolute_address": "$396D",
+				"absolute_address": "$396d",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #2 - Strength stat",
 				"valid_range": null,
-				"notes": "Raw offset: $396D"
+				"notes": "Raw offset: $396d"
 			},
 			{
 				"name": "2_Agility",
 				"offset": 13,
-				"absolute_address": "$396E",
+				"absolute_address": "$396e",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #2 - Agility stat",
 				"valid_range": null,
-				"notes": "Raw offset: $396E"
+				"notes": "Raw offset: $396e"
 			},
 			{
 				"name": "2_Stamina",
 				"offset": 14,
-				"absolute_address": "$396F",
+				"absolute_address": "$396f",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #2 - Stamina stat",
 				"valid_range": null,
-				"notes": "Raw offset: $396F"
+				"notes": "Raw offset: $396f"
 			},
 			{
 				"name": "2_Wisdom",
@@ -333,12 +333,12 @@
 			{
 				"name": "2_Bag_Number_Equiped",
 				"offset": 46,
-				"absolute_address": "$398F",
+				"absolute_address": "$398f",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #2 - Number of items equipped",
 				"valid_range": null,
-				"notes": "Raw offset: $398F"
+				"notes": "Raw offset: $398f"
 			},
 			{
 				"name": "2_Bag_Number_Carried",
@@ -364,7 +364,7 @@
 	},
 	"PartyMember_3": {
 		"name": "PartyMember_3",
-		"base_address": "$399D",
+		"base_address": "$399d",
 		"total_size": 60,
 		"structure_type": "character",
 		"description": "Character data structure for PartyMember_3",
@@ -374,158 +374,158 @@
 			{
 				"name": "3_Level",
 				"offset": 0,
-				"absolute_address": "$399D",
+				"absolute_address": "$399d",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #3 - Level\\nTop 7 bits are level, bottom bit unknown",
 				"valid_range": null,
-				"notes": "Raw offset: $399D"
+				"notes": "Raw offset: $399d"
 			},
 			{
 				"name": "3_XP",
 				"offset": 1,
-				"absolute_address": "$399E",
+				"absolute_address": "$399e",
 				"size": 3,
 				"data_type": "uint24",
 				"description": "Party member #3 - XP",
 				"valid_range": null,
-				"notes": "Raw offset: $399E"
+				"notes": "Raw offset: $399e"
 			},
 			{
 				"name": "3_HP_Max",
 				"offset": 4,
-				"absolute_address": "$39A1",
+				"absolute_address": "$39a1",
 				"size": 2,
 				"data_type": "uint16",
 				"description": "Party member #3 - Max HP",
 				"valid_range": null,
-				"notes": "Raw offset: $39A1"
+				"notes": "Raw offset: $39a1"
 			},
 			{
 				"name": "3_HP",
 				"offset": 6,
-				"absolute_address": "$39A3",
+				"absolute_address": "$39a3",
 				"size": 2,
 				"data_type": "uint16",
 				"description": "Party member #3 - Current HP",
 				"valid_range": null,
-				"notes": "Raw offset: $39A3"
+				"notes": "Raw offset: $39a3"
 			},
 			{
 				"name": "3_MP_Max",
 				"offset": 8,
-				"absolute_address": "$39A5",
+				"absolute_address": "$39a5",
 				"size": 2,
 				"data_type": "uint16",
 				"description": "Party member #3 - Max MP",
 				"valid_range": null,
-				"notes": "Raw offset: $39A5"
+				"notes": "Raw offset: $39a5"
 			},
 			{
 				"name": "3_MP",
 				"offset": 10,
-				"absolute_address": "$39A7",
+				"absolute_address": "$39a7",
 				"size": 2,
 				"data_type": "uint16",
 				"description": "Party member #3 - Current HP",
 				"valid_range": null,
-				"notes": "Raw offset: $39A7"
+				"notes": "Raw offset: $39a7"
 			},
 			{
 				"name": "3_Strength",
 				"offset": 12,
-				"absolute_address": "$39A9",
+				"absolute_address": "$39a9",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #3 - Strength stat",
 				"valid_range": null,
-				"notes": "Raw offset: $39A9"
+				"notes": "Raw offset: $39a9"
 			},
 			{
 				"name": "3_Agility",
 				"offset": 13,
-				"absolute_address": "$39AA",
+				"absolute_address": "$39aa",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #3 - Agility stat",
 				"valid_range": null,
-				"notes": "Raw offset: $39AA"
+				"notes": "Raw offset: $39aa"
 			},
 			{
 				"name": "3_Stamina",
 				"offset": 14,
-				"absolute_address": "$39AB",
+				"absolute_address": "$39ab",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #3 - Stamina stat",
 				"valid_range": null,
-				"notes": "Raw offset: $39AB"
+				"notes": "Raw offset: $39ab"
 			},
 			{
 				"name": "3_Wisdom",
 				"offset": 15,
-				"absolute_address": "$39AC",
+				"absolute_address": "$39ac",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #3 - Wisdom stat",
 				"valid_range": null,
-				"notes": "Raw offset: $39AC"
+				"notes": "Raw offset: $39ac"
 			},
 			{
 				"name": "3_Luck",
 				"offset": 16,
-				"absolute_address": "$39AD",
+				"absolute_address": "$39ad",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #3 - Luck stat, excluding equipment",
 				"valid_range": null,
-				"notes": "Raw offset: $39AD"
+				"notes": "Raw offset: $39ad"
 			},
 			{
 				"name": "3_Name",
 				"offset": 22,
-				"absolute_address": "$39B3",
+				"absolute_address": "$39b3",
 				"size": 5,
 				"data_type": "string",
 				"description": "Party member #3 - Name, 4 characters max, ends in AC",
 				"valid_range": null,
-				"notes": "Raw offset: $39B3"
+				"notes": "Raw offset: $39b3"
 			},
 			{
 				"name": "3_Bag_Number_Equiped",
 				"offset": 46,
-				"absolute_address": "$39CB",
+				"absolute_address": "$39cb",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #3 - Number of items equipped",
 				"valid_range": null,
-				"notes": "Raw offset: $39CB"
+				"notes": "Raw offset: $39cb"
 			},
 			{
 				"name": "3_Bag_Number_Carried",
 				"offset": 47,
-				"absolute_address": "$39CC",
+				"absolute_address": "$39cc",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #3 - Number of items in bag",
 				"valid_range": null,
-				"notes": "Raw offset: $39CC"
+				"notes": "Raw offset: $39cc"
 			},
 			{
 				"name": "3_Bag_Items",
 				"offset": 48,
-				"absolute_address": "$39CD",
+				"absolute_address": "$39cd",
 				"size": 12,
 				"data_type": "item_id",
 				"description": "Party member #3 - Each byte is which item is in the bag slot",
 				"valid_range": null,
-				"notes": "Raw offset: $39CD"
+				"notes": "Raw offset: $39cd"
 			}
 		]
 	},
 	"PartyMember_4": {
 		"name": "PartyMember_4",
-		"base_address": "$39D9",
+		"base_address": "$39d9",
 		"total_size": 60,
 		"structure_type": "character",
 		"description": "Character data structure for PartyMember_4",
@@ -535,158 +535,158 @@
 			{
 				"name": "4_Level",
 				"offset": 0,
-				"absolute_address": "$39D9",
+				"absolute_address": "$39d9",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #4 - Level\\nTop 7 bits are level, bottom bit unknown",
 				"valid_range": null,
-				"notes": "Raw offset: $39D9"
+				"notes": "Raw offset: $39d9"
 			},
 			{
 				"name": "4_XP",
 				"offset": 1,
-				"absolute_address": "$39DA",
+				"absolute_address": "$39da",
 				"size": 3,
 				"data_type": "uint24",
 				"description": "Party member #4 - XP",
 				"valid_range": null,
-				"notes": "Raw offset: $39DA"
+				"notes": "Raw offset: $39da"
 			},
 			{
 				"name": "4_HP_Max",
 				"offset": 4,
-				"absolute_address": "$39DD",
+				"absolute_address": "$39dd",
 				"size": 2,
 				"data_type": "uint16",
 				"description": "Party member #4 - Max HP",
 				"valid_range": null,
-				"notes": "Raw offset: $39DD"
+				"notes": "Raw offset: $39dd"
 			},
 			{
 				"name": "4_HP",
 				"offset": 6,
-				"absolute_address": "$39DF",
+				"absolute_address": "$39df",
 				"size": 2,
 				"data_type": "uint16",
 				"description": "Party member #4 - Current HP",
 				"valid_range": null,
-				"notes": "Raw offset: $39DF"
+				"notes": "Raw offset: $39df"
 			},
 			{
 				"name": "4_MP_Max",
 				"offset": 8,
-				"absolute_address": "$39E1",
+				"absolute_address": "$39e1",
 				"size": 2,
 				"data_type": "uint16",
 				"description": "Party member #4 - Max MP",
 				"valid_range": null,
-				"notes": "Raw offset: $39E1"
+				"notes": "Raw offset: $39e1"
 			},
 			{
 				"name": "4_MP",
 				"offset": 10,
-				"absolute_address": "$39E3",
+				"absolute_address": "$39e3",
 				"size": 2,
 				"data_type": "uint16",
 				"description": "Party member #4 - Current HP",
 				"valid_range": null,
-				"notes": "Raw offset: $39E3"
+				"notes": "Raw offset: $39e3"
 			},
 			{
 				"name": "4_Strength",
 				"offset": 12,
-				"absolute_address": "$39E5",
+				"absolute_address": "$39e5",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #4 - Strength stat",
 				"valid_range": null,
-				"notes": "Raw offset: $39E5"
+				"notes": "Raw offset: $39e5"
 			},
 			{
 				"name": "4_Agility",
 				"offset": 13,
-				"absolute_address": "$39E6",
+				"absolute_address": "$39e6",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #4 - Agility stat",
 				"valid_range": null,
-				"notes": "Raw offset: $39E6"
+				"notes": "Raw offset: $39e6"
 			},
 			{
 				"name": "4_Stamina",
 				"offset": 14,
-				"absolute_address": "$39E7",
+				"absolute_address": "$39e7",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #4 - Stamina stat",
 				"valid_range": null,
-				"notes": "Raw offset: $39E7"
+				"notes": "Raw offset: $39e7"
 			},
 			{
 				"name": "4_Wisdom",
 				"offset": 15,
-				"absolute_address": "$39E8",
+				"absolute_address": "$39e8",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #4 - Wisdom stat",
 				"valid_range": null,
-				"notes": "Raw offset: $39E8"
+				"notes": "Raw offset: $39e8"
 			},
 			{
 				"name": "4_Luck",
 				"offset": 16,
-				"absolute_address": "$39E9",
+				"absolute_address": "$39e9",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #4 - Luck stat, excluding equipment",
 				"valid_range": null,
-				"notes": "Raw offset: $39E9"
+				"notes": "Raw offset: $39e9"
 			},
 			{
 				"name": "4_Name",
 				"offset": 22,
-				"absolute_address": "$39EF",
+				"absolute_address": "$39ef",
 				"size": 5,
 				"data_type": "string",
 				"description": "Party member #4 - Name, 4 characters max, ends in AC",
 				"valid_range": null,
-				"notes": "Raw offset: $39EF"
+				"notes": "Raw offset: $39ef"
 			},
 			{
 				"name": "4_Bag_Number_Equiped",
 				"offset": 46,
-				"absolute_address": "$3A07",
+				"absolute_address": "$3a07",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #4 - Number of items equipped",
 				"valid_range": null,
-				"notes": "Raw offset: $3A07"
+				"notes": "Raw offset: $3a07"
 			},
 			{
 				"name": "4_Bag_Number_Carried",
 				"offset": 47,
-				"absolute_address": "$3A08",
+				"absolute_address": "$3a08",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #4 - Number of items in bag",
 				"valid_range": null,
-				"notes": "Raw offset: $3A08"
+				"notes": "Raw offset: $3a08"
 			},
 			{
 				"name": "4_Bag_Items",
 				"offset": 48,
-				"absolute_address": "$3A09",
+				"absolute_address": "$3a09",
 				"size": 12,
 				"data_type": "item_id",
 				"description": "Party member #4 - Each byte is which item is in the bag slot",
 				"valid_range": null,
-				"notes": "Raw offset: $3A09"
+				"notes": "Raw offset: $3a09"
 			}
 		]
 	},
 	"PartyMember_5": {
 		"name": "PartyMember_5",
-		"base_address": "$3A15",
+		"base_address": "$3a15",
 		"total_size": 60,
 		"structure_type": "character",
 		"description": "Character data structure for PartyMember_5",
@@ -696,168 +696,168 @@
 			{
 				"name": "5_Level",
 				"offset": 0,
-				"absolute_address": "$3A15",
+				"absolute_address": "$3a15",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #5 - Level\\nTop 7 bits are level, bottom bit unknown",
 				"valid_range": null,
-				"notes": "Raw offset: $3A15"
+				"notes": "Raw offset: $3a15"
 			},
 			{
 				"name": "5_XP",
 				"offset": 1,
-				"absolute_address": "$3A16",
+				"absolute_address": "$3a16",
 				"size": 3,
 				"data_type": "uint24",
 				"description": "Party Member #5 - XP",
 				"valid_range": null,
-				"notes": "Raw offset: $3A16"
+				"notes": "Raw offset: $3a16"
 			},
 			{
 				"name": "5_HP_Max",
 				"offset": 4,
-				"absolute_address": "$3A19",
+				"absolute_address": "$3a19",
 				"size": 2,
 				"data_type": "uint16",
 				"description": "Party member #5 - Max HP",
 				"valid_range": null,
-				"notes": "Raw offset: $3A19"
+				"notes": "Raw offset: $3a19"
 			},
 			{
 				"name": "5_HP",
 				"offset": 6,
-				"absolute_address": "$3A1B",
+				"absolute_address": "$3a1b",
 				"size": 2,
 				"data_type": "uint16",
 				"description": "Party member #5 - Current HP",
 				"valid_range": null,
-				"notes": "Raw offset: $3A1B"
+				"notes": "Raw offset: $3a1b"
 			},
 			{
 				"name": "5_MP_Max",
 				"offset": 8,
-				"absolute_address": "$3A1D",
+				"absolute_address": "$3a1d",
 				"size": 2,
 				"data_type": "uint16",
 				"description": "Party member #5 - Max MP",
 				"valid_range": null,
-				"notes": "Raw offset: $3A1D"
+				"notes": "Raw offset: $3a1d"
 			},
 			{
 				"name": "5_MP",
 				"offset": 10,
-				"absolute_address": "$3A1F",
+				"absolute_address": "$3a1f",
 				"size": 2,
 				"data_type": "uint16",
 				"description": "Party member #5 - Current HP",
 				"valid_range": null,
-				"notes": "Raw offset: $3A1F"
+				"notes": "Raw offset: $3a1f"
 			},
 			{
 				"name": "5_Strength",
 				"offset": 12,
-				"absolute_address": "$3A21",
+				"absolute_address": "$3a21",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #5 - Strength stat",
 				"valid_range": null,
-				"notes": "Raw offset: $3A21"
+				"notes": "Raw offset: $3a21"
 			},
 			{
 				"name": "5_Agility",
 				"offset": 13,
-				"absolute_address": "$3A22",
+				"absolute_address": "$3a22",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #5 - Agility stat",
 				"valid_range": null,
-				"notes": "Raw offset: $3A22"
+				"notes": "Raw offset: $3a22"
 			},
 			{
 				"name": "5_Stamina",
 				"offset": 14,
-				"absolute_address": "$3A23",
+				"absolute_address": "$3a23",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #5 - Stamina stat",
 				"valid_range": null,
-				"notes": "Raw offset: $3A23"
+				"notes": "Raw offset: $3a23"
 			},
 			{
 				"name": "5_Wisdom",
 				"offset": 15,
-				"absolute_address": "$3A24",
+				"absolute_address": "$3a24",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #5 - Wisdom stat",
 				"valid_range": null,
-				"notes": "Raw offset: $3A24"
+				"notes": "Raw offset: $3a24"
 			},
 			{
 				"name": "5_Luck",
 				"offset": 16,
-				"absolute_address": "$3A25",
+				"absolute_address": "$3a25",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #5 - Luck stat, excluding equipment",
 				"valid_range": null,
-				"notes": "Raw offset: $3A25"
+				"notes": "Raw offset: $3a25"
 			},
 			{
 				"name": "5_Name",
 				"offset": 22,
-				"absolute_address": "$3A2B",
+				"absolute_address": "$3a2b",
 				"size": 5,
 				"data_type": "string",
 				"description": "Party member #5 - Name, 4 characters max, ends in AC",
 				"valid_range": null,
-				"notes": "Raw offset: $3A2B"
+				"notes": "Raw offset: $3a2b"
 			},
 			{
 				"name": "5_Spells",
 				"offset": 36,
-				"absolute_address": "$3A39",
+				"absolute_address": "$3a39",
 				"size": 10,
 				"data_type": "spell_flags",
 				"description": "Party member #5 spell flags",
 				"valid_range": null,
-				"notes": "Raw offset: $3A39"
+				"notes": "Raw offset: $3a39"
 			},
 			{
 				"name": "5_Bag_Number_Equiped",
 				"offset": 46,
-				"absolute_address": "$3A43",
+				"absolute_address": "$3a43",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #5 - Number of items equipped",
 				"valid_range": null,
-				"notes": "Raw offset: $3A43"
+				"notes": "Raw offset: $3a43"
 			},
 			{
 				"name": "5_Bag_Number_Carried",
 				"offset": 47,
-				"absolute_address": "$3A44",
+				"absolute_address": "$3a44",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #5 - Number of items in bag",
 				"valid_range": null,
-				"notes": "Raw offset: $3A44"
+				"notes": "Raw offset: $3a44"
 			},
 			{
 				"name": "5_Bag_Items",
 				"offset": 48,
-				"absolute_address": "$3A45",
+				"absolute_address": "$3a45",
 				"size": 12,
 				"data_type": "item_id",
 				"description": "Party member #5 - Each byte is which item is in the bag slot",
 				"valid_range": null,
-				"notes": "Raw offset: $3A45"
+				"notes": "Raw offset: $3a45"
 			}
 		]
 	},
 	"PartyMember_6": {
 		"name": "PartyMember_6",
-		"base_address": "$3A51",
+		"base_address": "$3a51",
 		"total_size": 60,
 		"structure_type": "character",
 		"description": "Character data structure for PartyMember_6",
@@ -867,158 +867,158 @@
 			{
 				"name": "6_Level",
 				"offset": 0,
-				"absolute_address": "$3A51",
+				"absolute_address": "$3a51",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #6 - Level\\nTop 7 bits are level, bottom bit unknown",
 				"valid_range": null,
-				"notes": "Raw offset: $3A51"
+				"notes": "Raw offset: $3a51"
 			},
 			{
 				"name": "6_XP",
 				"offset": 1,
-				"absolute_address": "$3A52",
+				"absolute_address": "$3a52",
 				"size": 3,
 				"data_type": "uint24",
 				"description": "Party member #6 - XP",
 				"valid_range": null,
-				"notes": "Raw offset: $3A52"
+				"notes": "Raw offset: $3a52"
 			},
 			{
 				"name": "6_HP_Max",
 				"offset": 4,
-				"absolute_address": "$3A55",
+				"absolute_address": "$3a55",
 				"size": 2,
 				"data_type": "uint16",
 				"description": "Party member #6 - Max HP",
 				"valid_range": null,
-				"notes": "Raw offset: $3A55"
+				"notes": "Raw offset: $3a55"
 			},
 			{
 				"name": "6_HP",
 				"offset": 6,
-				"absolute_address": "$3A57",
+				"absolute_address": "$3a57",
 				"size": 2,
 				"data_type": "uint16",
 				"description": "Party member #6 - Current HP",
 				"valid_range": null,
-				"notes": "Raw offset: $3A57"
+				"notes": "Raw offset: $3a57"
 			},
 			{
 				"name": "6_MP_Max",
 				"offset": 8,
-				"absolute_address": "$3A59",
+				"absolute_address": "$3a59",
 				"size": 2,
 				"data_type": "uint16",
 				"description": "Party member #6 - Max MP",
 				"valid_range": null,
-				"notes": "Raw offset: $3A59"
+				"notes": "Raw offset: $3a59"
 			},
 			{
 				"name": "6_MP",
 				"offset": 10,
-				"absolute_address": "$3A5B",
+				"absolute_address": "$3a5b",
 				"size": 2,
 				"data_type": "uint16",
 				"description": "Party member #6 - Current HP",
 				"valid_range": null,
-				"notes": "Raw offset: $3A5B"
+				"notes": "Raw offset: $3a5b"
 			},
 			{
 				"name": "6_Strength",
 				"offset": 12,
-				"absolute_address": "$3A5D",
+				"absolute_address": "$3a5d",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #6 - Strength stat",
 				"valid_range": null,
-				"notes": "Raw offset: $3A5D"
+				"notes": "Raw offset: $3a5d"
 			},
 			{
 				"name": "6_Agility",
 				"offset": 13,
-				"absolute_address": "$3A5E",
+				"absolute_address": "$3a5e",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #6 - Agility stat",
 				"valid_range": null,
-				"notes": "Raw offset: $3A5E"
+				"notes": "Raw offset: $3a5e"
 			},
 			{
 				"name": "6_Stamina",
 				"offset": 14,
-				"absolute_address": "$3A5F",
+				"absolute_address": "$3a5f",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #6 - Stamina stat",
 				"valid_range": null,
-				"notes": "Raw offset: $3A5F"
+				"notes": "Raw offset: $3a5f"
 			},
 			{
 				"name": "6_Wisdom",
 				"offset": 15,
-				"absolute_address": "$3A60",
+				"absolute_address": "$3a60",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #6 - Wisdom stat",
 				"valid_range": null,
-				"notes": "Raw offset: $3A60"
+				"notes": "Raw offset: $3a60"
 			},
 			{
 				"name": "6_Luck",
 				"offset": 16,
-				"absolute_address": "$3A61",
+				"absolute_address": "$3a61",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #6 - Luck stat, excluding equipment",
 				"valid_range": null,
-				"notes": "Raw offset: $3A61"
+				"notes": "Raw offset: $3a61"
 			},
 			{
 				"name": "6_Name",
 				"offset": 22,
-				"absolute_address": "$3A67",
+				"absolute_address": "$3a67",
 				"size": 5,
 				"data_type": "string",
 				"description": "Party member #6 - Name, 4 characters max, ends in AC",
 				"valid_range": null,
-				"notes": "Raw offset: $3A67"
+				"notes": "Raw offset: $3a67"
 			},
 			{
 				"name": "6_Bag_Number_Equiped",
 				"offset": 46,
-				"absolute_address": "$3A7F",
+				"absolute_address": "$3a7f",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #6 - Number of items equipped",
 				"valid_range": null,
-				"notes": "Raw offset: $3A7F"
+				"notes": "Raw offset: $3a7f"
 			},
 			{
 				"name": "6_Bag_Number_Carried",
 				"offset": 47,
-				"absolute_address": "$3A80",
+				"absolute_address": "$3a80",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #6 - Number of items in bag",
 				"valid_range": null,
-				"notes": "Raw offset: $3A80"
+				"notes": "Raw offset: $3a80"
 			},
 			{
 				"name": "6_Bag_Items",
 				"offset": 48,
-				"absolute_address": "$3A81",
+				"absolute_address": "$3a81",
 				"size": 12,
 				"data_type": "item_id",
 				"description": "Party member #6 - Each byte is which item is in the bag slot",
 				"valid_range": null,
-				"notes": "Raw offset: $3A81"
+				"notes": "Raw offset: $3a81"
 			}
 		]
 	},
 	"PartyMember_7": {
 		"name": "PartyMember_7",
-		"base_address": "$3A8D",
+		"base_address": "$3a8d",
 		"total_size": 60,
 		"structure_type": "character",
 		"description": "Character data structure for PartyMember_7",
@@ -1028,158 +1028,158 @@
 			{
 				"name": "7_Level",
 				"offset": 0,
-				"absolute_address": "$3A8D",
+				"absolute_address": "$3a8d",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #7 - Level\\nTop 7 bits are level, bottom bit unknown",
 				"valid_range": null,
-				"notes": "Raw offset: $3A8D"
+				"notes": "Raw offset: $3a8d"
 			},
 			{
 				"name": "7_XP",
 				"offset": 1,
-				"absolute_address": "$3A8E",
+				"absolute_address": "$3a8e",
 				"size": 3,
 				"data_type": "uint24",
 				"description": "Party member #7 - XP",
 				"valid_range": null,
-				"notes": "Raw offset: $3A8E"
+				"notes": "Raw offset: $3a8e"
 			},
 			{
 				"name": "7_HP_Max",
 				"offset": 4,
-				"absolute_address": "$3A91",
+				"absolute_address": "$3a91",
 				"size": 2,
 				"data_type": "uint16",
 				"description": "Party member #7 - Max HP",
 				"valid_range": null,
-				"notes": "Raw offset: $3A91"
+				"notes": "Raw offset: $3a91"
 			},
 			{
 				"name": "7_HP",
 				"offset": 6,
-				"absolute_address": "$3A93",
+				"absolute_address": "$3a93",
 				"size": 2,
 				"data_type": "uint16",
 				"description": "Party member #7 - Current HP",
 				"valid_range": null,
-				"notes": "Raw offset: $3A93"
+				"notes": "Raw offset: $3a93"
 			},
 			{
 				"name": "7_MP_Max",
 				"offset": 8,
-				"absolute_address": "$3A95",
+				"absolute_address": "$3a95",
 				"size": 2,
 				"data_type": "uint16",
 				"description": "Party member #7 - Max MP",
 				"valid_range": null,
-				"notes": "Raw offset: $3A95"
+				"notes": "Raw offset: $3a95"
 			},
 			{
 				"name": "7_MP",
 				"offset": 10,
-				"absolute_address": "$3A97",
+				"absolute_address": "$3a97",
 				"size": 2,
 				"data_type": "uint16",
 				"description": "Party member #7 - Current HP",
 				"valid_range": null,
-				"notes": "Raw offset: $3A97"
+				"notes": "Raw offset: $3a97"
 			},
 			{
 				"name": "7_Strength",
 				"offset": 12,
-				"absolute_address": "$3A99",
+				"absolute_address": "$3a99",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #7 - Strength stat",
 				"valid_range": null,
-				"notes": "Raw offset: $3A99"
+				"notes": "Raw offset: $3a99"
 			},
 			{
 				"name": "7_Agility",
 				"offset": 13,
-				"absolute_address": "$3A9A",
+				"absolute_address": "$3a9a",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #7 - Agility stat",
 				"valid_range": null,
-				"notes": "Raw offset: $3A9A"
+				"notes": "Raw offset: $3a9a"
 			},
 			{
 				"name": "7_Stamina",
 				"offset": 14,
-				"absolute_address": "$3A9B",
+				"absolute_address": "$3a9b",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #7 - Stamina stat",
 				"valid_range": null,
-				"notes": "Raw offset: $3A9B"
+				"notes": "Raw offset: $3a9b"
 			},
 			{
 				"name": "7_Wisdom",
 				"offset": 15,
-				"absolute_address": "$3A9C",
+				"absolute_address": "$3a9c",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #7 - Wisdom stat",
 				"valid_range": null,
-				"notes": "Raw offset: $3A9C"
+				"notes": "Raw offset: $3a9c"
 			},
 			{
 				"name": "7_Luck",
 				"offset": 16,
-				"absolute_address": "$3A9D",
+				"absolute_address": "$3a9d",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #7 - Luck stat, excluding equipment",
 				"valid_range": null,
-				"notes": "Raw offset: $3A9D"
+				"notes": "Raw offset: $3a9d"
 			},
 			{
 				"name": "7_Name",
 				"offset": 22,
-				"absolute_address": "$3AA3",
+				"absolute_address": "$3aa3",
 				"size": 5,
 				"data_type": "string",
 				"description": "Party member #7 - Name, 4 characters max, ends in AC",
 				"valid_range": null,
-				"notes": "Raw offset: $3AA3"
+				"notes": "Raw offset: $3aa3"
 			},
 			{
 				"name": "7_Bag_Number_Equiped",
 				"offset": 46,
-				"absolute_address": "$3ABB",
+				"absolute_address": "$3abb",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #7 - Number of items equipped",
 				"valid_range": null,
-				"notes": "Raw offset: $3ABB"
+				"notes": "Raw offset: $3abb"
 			},
 			{
 				"name": "7_Bag_Number_Carried",
 				"offset": 47,
-				"absolute_address": "$3ABC",
+				"absolute_address": "$3abc",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #7 - Number of items in bag",
 				"valid_range": null,
-				"notes": "Raw offset: $3ABC"
+				"notes": "Raw offset: $3abc"
 			},
 			{
 				"name": "7_Bag_Items",
 				"offset": 48,
-				"absolute_address": "$3ABD",
+				"absolute_address": "$3abd",
 				"size": 12,
 				"data_type": "item_id",
 				"description": "Party member #7 - Each byte is which item is in the bag slot",
 				"valid_range": null,
-				"notes": "Raw offset: $3ABD"
+				"notes": "Raw offset: $3abd"
 			}
 		]
 	},
 	"PartyMember_8": {
 		"name": "PartyMember_8",
-		"base_address": "$3AC9",
+		"base_address": "$3ac9",
 		"total_size": 60,
 		"structure_type": "character",
 		"description": "Character data structure for PartyMember_8",
@@ -1189,158 +1189,158 @@
 			{
 				"name": "8_Level",
 				"offset": 0,
-				"absolute_address": "$3AC9",
+				"absolute_address": "$3ac9",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #8 - Level\\nTop 7 bits are level, bottom bit unknown",
 				"valid_range": null,
-				"notes": "Raw offset: $3AC9"
+				"notes": "Raw offset: $3ac9"
 			},
 			{
 				"name": "8_XP",
 				"offset": 1,
-				"absolute_address": "$3ACA",
+				"absolute_address": "$3aca",
 				"size": 3,
 				"data_type": "uint24",
 				"description": "Party member #8 - XP",
 				"valid_range": null,
-				"notes": "Raw offset: $3ACA"
+				"notes": "Raw offset: $3aca"
 			},
 			{
 				"name": "8_HP_Max",
 				"offset": 4,
-				"absolute_address": "$3ACD",
+				"absolute_address": "$3acd",
 				"size": 2,
 				"data_type": "uint16",
 				"description": "Party member #8 - Max HP",
 				"valid_range": null,
-				"notes": "Raw offset: $3ACD"
+				"notes": "Raw offset: $3acd"
 			},
 			{
 				"name": "8_HP",
 				"offset": 6,
-				"absolute_address": "$3ACF",
+				"absolute_address": "$3acf",
 				"size": 2,
 				"data_type": "uint16",
 				"description": "Party member #8 - Current HP",
 				"valid_range": null,
-				"notes": "Raw offset: $3ACF"
+				"notes": "Raw offset: $3acf"
 			},
 			{
 				"name": "8_MP_Max",
 				"offset": 8,
-				"absolute_address": "$3AD1",
+				"absolute_address": "$3ad1",
 				"size": 2,
 				"data_type": "uint16",
 				"description": "Party member #8 - Max MP",
 				"valid_range": null,
-				"notes": "Raw offset: $3AD1"
+				"notes": "Raw offset: $3ad1"
 			},
 			{
 				"name": "8_MP",
 				"offset": 10,
-				"absolute_address": "$3AD3",
+				"absolute_address": "$3ad3",
 				"size": 2,
 				"data_type": "uint16",
 				"description": "Party member #8 - Current HP",
 				"valid_range": null,
-				"notes": "Raw offset: $3AD3"
+				"notes": "Raw offset: $3ad3"
 			},
 			{
 				"name": "8_Strength",
 				"offset": 12,
-				"absolute_address": "$3AD5",
+				"absolute_address": "$3ad5",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #8 - Strength stat",
 				"valid_range": null,
-				"notes": "Raw offset: $3AD5"
+				"notes": "Raw offset: $3ad5"
 			},
 			{
 				"name": "8_Agility",
 				"offset": 13,
-				"absolute_address": "$3AD6",
+				"absolute_address": "$3ad6",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #8 - Agility stat",
 				"valid_range": null,
-				"notes": "Raw offset: $3AD6"
+				"notes": "Raw offset: $3ad6"
 			},
 			{
 				"name": "8_Stamina",
 				"offset": 14,
-				"absolute_address": "$3AD7",
+				"absolute_address": "$3ad7",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #8 - Stamina stat",
 				"valid_range": null,
-				"notes": "Raw offset: $3AD7"
+				"notes": "Raw offset: $3ad7"
 			},
 			{
 				"name": "8_Wisdom",
 				"offset": 15,
-				"absolute_address": "$3AD8",
+				"absolute_address": "$3ad8",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #8 - Wisdom stat",
 				"valid_range": null,
-				"notes": "Raw offset: $3AD8"
+				"notes": "Raw offset: $3ad8"
 			},
 			{
 				"name": "8_Luck",
 				"offset": 16,
-				"absolute_address": "$3AD9",
+				"absolute_address": "$3ad9",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #8 - Luck stat, excluding equipment",
 				"valid_range": null,
-				"notes": "Raw offset: $3AD9"
+				"notes": "Raw offset: $3ad9"
 			},
 			{
 				"name": "8_Name",
 				"offset": 22,
-				"absolute_address": "$3ADF",
+				"absolute_address": "$3adf",
 				"size": 5,
 				"data_type": "string",
 				"description": "Party member #8 - Name, 4 characters max, ends in AC",
 				"valid_range": null,
-				"notes": "Raw offset: $3ADF"
+				"notes": "Raw offset: $3adf"
 			},
 			{
 				"name": "8_Bag_Number_Equiped",
 				"offset": 46,
-				"absolute_address": "$3AF7",
+				"absolute_address": "$3af7",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #8 - Number of items equipped",
 				"valid_range": null,
-				"notes": "Raw offset: $3AF7"
+				"notes": "Raw offset: $3af7"
 			},
 			{
 				"name": "8_Bag_Number_Carried",
 				"offset": 47,
-				"absolute_address": "$3AF8",
+				"absolute_address": "$3af8",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #8 - Number of items in bag",
 				"valid_range": null,
-				"notes": "Raw offset: $3AF8"
+				"notes": "Raw offset: $3af8"
 			},
 			{
 				"name": "8_Bag_Items",
 				"offset": 48,
-				"absolute_address": "$3AF9",
+				"absolute_address": "$3af9",
 				"size": 12,
 				"data_type": "item_id",
 				"description": "Party member #8 - Each byte is which item is in the bag slot",
 				"valid_range": null,
-				"notes": "Raw offset: $3AF9"
+				"notes": "Raw offset: $3af9"
 			}
 		]
 	},
 	"PartyMember_9": {
 		"name": "PartyMember_9",
-		"base_address": "$3B05",
+		"base_address": "$3b05",
 		"total_size": 60,
 		"structure_type": "character",
 		"description": "Character data structure for PartyMember_9",
@@ -1350,158 +1350,158 @@
 			{
 				"name": "9_Level",
 				"offset": 0,
-				"absolute_address": "$3B05",
+				"absolute_address": "$3b05",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #9 - Level\\nTop 7 bits are level, bottom bit unknown",
 				"valid_range": null,
-				"notes": "Raw offset: $3B05"
+				"notes": "Raw offset: $3b05"
 			},
 			{
 				"name": "9_XP",
 				"offset": 1,
-				"absolute_address": "$3B06",
+				"absolute_address": "$3b06",
 				"size": 3,
 				"data_type": "uint24",
 				"description": "Party member #9 - XP",
 				"valid_range": null,
-				"notes": "Raw offset: $3B06"
+				"notes": "Raw offset: $3b06"
 			},
 			{
 				"name": "9_HP_Max",
 				"offset": 4,
-				"absolute_address": "$3B09",
+				"absolute_address": "$3b09",
 				"size": 2,
 				"data_type": "uint16",
 				"description": "Party member #9 - Max HP",
 				"valid_range": null,
-				"notes": "Raw offset: $3B09"
+				"notes": "Raw offset: $3b09"
 			},
 			{
 				"name": "9_HP",
 				"offset": 6,
-				"absolute_address": "$3B0B",
+				"absolute_address": "$3b0b",
 				"size": 2,
 				"data_type": "uint16",
 				"description": "Party member #9 - Current HP",
 				"valid_range": null,
-				"notes": "Raw offset: $3B0B"
+				"notes": "Raw offset: $3b0b"
 			},
 			{
 				"name": "9_MP_Max",
 				"offset": 8,
-				"absolute_address": "$3B0D",
+				"absolute_address": "$3b0d",
 				"size": 2,
 				"data_type": "uint16",
 				"description": "Party member #9 - Max MP",
 				"valid_range": null,
-				"notes": "Raw offset: $3B0D"
+				"notes": "Raw offset: $3b0d"
 			},
 			{
 				"name": "9_MP",
 				"offset": 10,
-				"absolute_address": "$3B0F",
+				"absolute_address": "$3b0f",
 				"size": 2,
 				"data_type": "uint16",
 				"description": "Party member #9 - Current HP",
 				"valid_range": null,
-				"notes": "Raw offset: $3B0F"
+				"notes": "Raw offset: $3b0f"
 			},
 			{
 				"name": "9_Strength",
 				"offset": 12,
-				"absolute_address": "$3B11",
+				"absolute_address": "$3b11",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #9 - Strength stat",
 				"valid_range": null,
-				"notes": "Raw offset: $3B11"
+				"notes": "Raw offset: $3b11"
 			},
 			{
 				"name": "9_Agility",
 				"offset": 13,
-				"absolute_address": "$3B12",
+				"absolute_address": "$3b12",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #9 - Agility stat",
 				"valid_range": null,
-				"notes": "Raw offset: $3B12"
+				"notes": "Raw offset: $3b12"
 			},
 			{
 				"name": "9_Stamina",
 				"offset": 14,
-				"absolute_address": "$3B13",
+				"absolute_address": "$3b13",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #9 - Stamina stat",
 				"valid_range": null,
-				"notes": "Raw offset: $3B13"
+				"notes": "Raw offset: $3b13"
 			},
 			{
 				"name": "9_Wisdom",
 				"offset": 15,
-				"absolute_address": "$3B14",
+				"absolute_address": "$3b14",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #9 - Wisdom stat",
 				"valid_range": null,
-				"notes": "Raw offset: $3B14"
+				"notes": "Raw offset: $3b14"
 			},
 			{
 				"name": "9_Luck",
 				"offset": 16,
-				"absolute_address": "$3B15",
+				"absolute_address": "$3b15",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #9 - Luck stat, excluding equipment",
 				"valid_range": null,
-				"notes": "Raw offset: $3B15"
+				"notes": "Raw offset: $3b15"
 			},
 			{
 				"name": "9_Name",
 				"offset": 22,
-				"absolute_address": "$3B1B",
+				"absolute_address": "$3b1b",
 				"size": 5,
 				"data_type": "string",
 				"description": "Party member #9 - Name, 4 characters max, ends in AC",
 				"valid_range": null,
-				"notes": "Raw offset: $3B1B"
+				"notes": "Raw offset: $3b1b"
 			},
 			{
 				"name": "9_Bag_Number_Equiped",
 				"offset": 46,
-				"absolute_address": "$3B33",
+				"absolute_address": "$3b33",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #9 - Number of items equipped",
 				"valid_range": null,
-				"notes": "Raw offset: $3B33"
+				"notes": "Raw offset: $3b33"
 			},
 			{
 				"name": "9_Bag_Number_Carried",
 				"offset": 47,
-				"absolute_address": "$3B34",
+				"absolute_address": "$3b34",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #9 - Number of items in bag",
 				"valid_range": null,
-				"notes": "Raw offset: $3B34"
+				"notes": "Raw offset: $3b34"
 			},
 			{
 				"name": "9_Bag_Items",
 				"offset": 48,
-				"absolute_address": "$3B35",
+				"absolute_address": "$3b35",
 				"size": 12,
 				"data_type": "item_id",
 				"description": "Party member #9 - Each byte is which item is in the bag slot",
 				"valid_range": null,
-				"notes": "Raw offset: $3B35"
+				"notes": "Raw offset: $3b35"
 			}
 		]
 	},
 	"PartyMember_10": {
 		"name": "PartyMember_10",
-		"base_address": "$3B41",
+		"base_address": "$3b41",
 		"total_size": 60,
 		"structure_type": "character",
 		"description": "Character data structure for PartyMember_10",
@@ -1511,158 +1511,158 @@
 			{
 				"name": "10_Level",
 				"offset": 0,
-				"absolute_address": "$3B41",
+				"absolute_address": "$3b41",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #10 - Level\\nTop 7 bits are level, bottom bit unknown",
 				"valid_range": null,
-				"notes": "Raw offset: $3B41"
+				"notes": "Raw offset: $3b41"
 			},
 			{
 				"name": "10_XP",
 				"offset": 1,
-				"absolute_address": "$3B42",
+				"absolute_address": "$3b42",
 				"size": 3,
 				"data_type": "uint24",
 				"description": "Party member #10 - XP",
 				"valid_range": null,
-				"notes": "Raw offset: $3B42"
+				"notes": "Raw offset: $3b42"
 			},
 			{
 				"name": "10_HP_Max",
 				"offset": 4,
-				"absolute_address": "$3B45",
+				"absolute_address": "$3b45",
 				"size": 2,
 				"data_type": "uint16",
 				"description": "Party member #10 - Max HP",
 				"valid_range": null,
-				"notes": "Raw offset: $3B45"
+				"notes": "Raw offset: $3b45"
 			},
 			{
 				"name": "10_HP",
 				"offset": 6,
-				"absolute_address": "$3B47",
+				"absolute_address": "$3b47",
 				"size": 2,
 				"data_type": "uint16",
 				"description": "Party member #10 - Current HP",
 				"valid_range": null,
-				"notes": "Raw offset: $3B47"
+				"notes": "Raw offset: $3b47"
 			},
 			{
 				"name": "10_MP_Max",
 				"offset": 8,
-				"absolute_address": "$3B49",
+				"absolute_address": "$3b49",
 				"size": 2,
 				"data_type": "uint16",
 				"description": "Party member #10 - Max MP",
 				"valid_range": null,
-				"notes": "Raw offset: $3B49"
+				"notes": "Raw offset: $3b49"
 			},
 			{
 				"name": "10_MP",
 				"offset": 10,
-				"absolute_address": "$3B4B",
+				"absolute_address": "$3b4b",
 				"size": 2,
 				"data_type": "uint16",
 				"description": "Party member #10 - Current HP",
 				"valid_range": null,
-				"notes": "Raw offset: $3B4B"
+				"notes": "Raw offset: $3b4b"
 			},
 			{
 				"name": "10_Strength",
 				"offset": 12,
-				"absolute_address": "$3B4D",
+				"absolute_address": "$3b4d",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #10 - Strength stat",
 				"valid_range": null,
-				"notes": "Raw offset: $3B4D"
+				"notes": "Raw offset: $3b4d"
 			},
 			{
 				"name": "10_Agility",
 				"offset": 13,
-				"absolute_address": "$3B4E",
+				"absolute_address": "$3b4e",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #10 - Agility stat",
 				"valid_range": null,
-				"notes": "Raw offset: $3B4E"
+				"notes": "Raw offset: $3b4e"
 			},
 			{
 				"name": "10_Stamina",
 				"offset": 14,
-				"absolute_address": "$3B4F",
+				"absolute_address": "$3b4f",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #10 - Stamina stat",
 				"valid_range": null,
-				"notes": "Raw offset: $3B4F"
+				"notes": "Raw offset: $3b4f"
 			},
 			{
 				"name": "10_Wisdom",
 				"offset": 15,
-				"absolute_address": "$3B50",
+				"absolute_address": "$3b50",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #10 - Wisdom stat",
 				"valid_range": null,
-				"notes": "Raw offset: $3B50"
+				"notes": "Raw offset: $3b50"
 			},
 			{
 				"name": "10_Luck",
 				"offset": 16,
-				"absolute_address": "$3B51",
+				"absolute_address": "$3b51",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #10 - Luck stat, excluding equipment",
 				"valid_range": null,
-				"notes": "Raw offset: $3B51"
+				"notes": "Raw offset: $3b51"
 			},
 			{
 				"name": "10_Name",
 				"offset": 22,
-				"absolute_address": "$3B57",
+				"absolute_address": "$3b57",
 				"size": 5,
 				"data_type": "string",
 				"description": "Party member #10 - Name, 4 characters max, ends in AC",
 				"valid_range": null,
-				"notes": "Raw offset: $3B57"
+				"notes": "Raw offset: $3b57"
 			},
 			{
 				"name": "10_Bag_Number_Equiped",
 				"offset": 46,
-				"absolute_address": "$3B6F",
+				"absolute_address": "$3b6f",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #10 - Number of items equipped",
 				"valid_range": null,
-				"notes": "Raw offset: $3B6F"
+				"notes": "Raw offset: $3b6f"
 			},
 			{
 				"name": "10_Bag_Number_Carried",
 				"offset": 47,
-				"absolute_address": "$3B70",
+				"absolute_address": "$3b70",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #10 - Number of items in bag",
 				"valid_range": null,
-				"notes": "Raw offset: $3B70"
+				"notes": "Raw offset: $3b70"
 			},
 			{
 				"name": "10_Bag_Items",
 				"offset": 48,
-				"absolute_address": "$3B71",
+				"absolute_address": "$3b71",
 				"size": 12,
 				"data_type": "item_id",
 				"description": "Party member #10 - Each byte is which item is in the bag slot",
 				"valid_range": null,
-				"notes": "Raw offset: $3B71"
+				"notes": "Raw offset: $3b71"
 			}
 		]
 	},
 	"PartyMember_11": {
 		"name": "PartyMember_11",
-		"base_address": "$3B7D",
+		"base_address": "$3b7d",
 		"total_size": 60,
 		"structure_type": "character",
 		"description": "Character data structure for PartyMember_11",
@@ -1672,158 +1672,158 @@
 			{
 				"name": "11_Level",
 				"offset": 0,
-				"absolute_address": "$3B7D",
+				"absolute_address": "$3b7d",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #11 - Level\\nTop 7 bits are level, bottom bit unknown",
 				"valid_range": null,
-				"notes": "Raw offset: $3B7D"
+				"notes": "Raw offset: $3b7d"
 			},
 			{
 				"name": "11_XP",
 				"offset": 1,
-				"absolute_address": "$3B7E",
+				"absolute_address": "$3b7e",
 				"size": 3,
 				"data_type": "uint24",
 				"description": "Party member #11 - XP",
 				"valid_range": null,
-				"notes": "Raw offset: $3B7E"
+				"notes": "Raw offset: $3b7e"
 			},
 			{
 				"name": "11_HP_Max",
 				"offset": 4,
-				"absolute_address": "$3B81",
+				"absolute_address": "$3b81",
 				"size": 2,
 				"data_type": "uint16",
 				"description": "Party member #11 - Max HP",
 				"valid_range": null,
-				"notes": "Raw offset: $3B81"
+				"notes": "Raw offset: $3b81"
 			},
 			{
 				"name": "11_HP",
 				"offset": 6,
-				"absolute_address": "$3B83",
+				"absolute_address": "$3b83",
 				"size": 2,
 				"data_type": "uint16",
 				"description": "Party member #11 - Current HP",
 				"valid_range": null,
-				"notes": "Raw offset: $3B83"
+				"notes": "Raw offset: $3b83"
 			},
 			{
 				"name": "11_MP_Max",
 				"offset": 8,
-				"absolute_address": "$3B85",
+				"absolute_address": "$3b85",
 				"size": 2,
 				"data_type": "uint16",
 				"description": "Party member #11 - Max MP",
 				"valid_range": null,
-				"notes": "Raw offset: $3B85"
+				"notes": "Raw offset: $3b85"
 			},
 			{
 				"name": "11_MP",
 				"offset": 10,
-				"absolute_address": "$3B87",
+				"absolute_address": "$3b87",
 				"size": 2,
 				"data_type": "uint16",
 				"description": "Party member #11 - Current HP",
 				"valid_range": null,
-				"notes": "Raw offset: $3B87"
+				"notes": "Raw offset: $3b87"
 			},
 			{
 				"name": "11_Strength",
 				"offset": 12,
-				"absolute_address": "$3B89",
+				"absolute_address": "$3b89",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #11 - Strength stat",
 				"valid_range": null,
-				"notes": "Raw offset: $3B89"
+				"notes": "Raw offset: $3b89"
 			},
 			{
 				"name": "11_Agility",
 				"offset": 13,
-				"absolute_address": "$3B8A",
+				"absolute_address": "$3b8a",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #11 - Agility stat",
 				"valid_range": null,
-				"notes": "Raw offset: $3B8A"
+				"notes": "Raw offset: $3b8a"
 			},
 			{
 				"name": "11_Stamina",
 				"offset": 14,
-				"absolute_address": "$3B8B",
+				"absolute_address": "$3b8b",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #11 - Stamina stat",
 				"valid_range": null,
-				"notes": "Raw offset: $3B8B"
+				"notes": "Raw offset: $3b8b"
 			},
 			{
 				"name": "11_Wisdom",
 				"offset": 15,
-				"absolute_address": "$3B8C",
+				"absolute_address": "$3b8c",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #11 - Wisdom stat",
 				"valid_range": null,
-				"notes": "Raw offset: $3B8C"
+				"notes": "Raw offset: $3b8c"
 			},
 			{
 				"name": "11_Luck",
 				"offset": 16,
-				"absolute_address": "$3B8D",
+				"absolute_address": "$3b8d",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #11 - Luck stat, excluding equipment",
 				"valid_range": null,
-				"notes": "Raw offset: $3B8D"
+				"notes": "Raw offset: $3b8d"
 			},
 			{
 				"name": "11_Name",
 				"offset": 22,
-				"absolute_address": "$3B93",
+				"absolute_address": "$3b93",
 				"size": 5,
 				"data_type": "string",
 				"description": "Party member #11 - Name, 4 characters max, ends in AC",
 				"valid_range": null,
-				"notes": "Raw offset: $3B93"
+				"notes": "Raw offset: $3b93"
 			},
 			{
 				"name": "11_Bag_Number_Equiped",
 				"offset": 46,
-				"absolute_address": "$3BAB",
+				"absolute_address": "$3bab",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #11 - Number of items equipped",
 				"valid_range": null,
-				"notes": "Raw offset: $3BAB"
+				"notes": "Raw offset: $3bab"
 			},
 			{
 				"name": "11_Bag_Number_Carried",
 				"offset": 47,
-				"absolute_address": "$3BAC",
+				"absolute_address": "$3bac",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #11 - Number of items in bag",
 				"valid_range": null,
-				"notes": "Raw offset: $3BAC"
+				"notes": "Raw offset: $3bac"
 			},
 			{
 				"name": "11_Bag_Items",
 				"offset": 48,
-				"absolute_address": "$3BAD",
+				"absolute_address": "$3bad",
 				"size": 12,
 				"data_type": "item_id",
 				"description": "Party member #11 - Each byte is which item is in the bag slot",
 				"valid_range": null,
-				"notes": "Raw offset: $3BAD"
+				"notes": "Raw offset: $3bad"
 			}
 		]
 	},
 	"PartyMember_12": {
 		"name": "PartyMember_12",
-		"base_address": "$3BB9",
+		"base_address": "$3bb9",
 		"total_size": 60,
 		"structure_type": "character",
 		"description": "Character data structure for PartyMember_12",
@@ -1833,152 +1833,152 @@
 			{
 				"name": "12_Level",
 				"offset": 0,
-				"absolute_address": "$3BB9",
+				"absolute_address": "$3bb9",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #12 - Level\\nTop 7 bits are level, bottom bit unknown",
 				"valid_range": null,
-				"notes": "Raw offset: $3BB9"
+				"notes": "Raw offset: $3bb9"
 			},
 			{
 				"name": "12_XP",
 				"offset": 1,
-				"absolute_address": "$3BBA",
+				"absolute_address": "$3bba",
 				"size": 3,
 				"data_type": "uint24",
 				"description": "Party member #12 - XP",
 				"valid_range": null,
-				"notes": "Raw offset: $3BBA"
+				"notes": "Raw offset: $3bba"
 			},
 			{
 				"name": "12_HP_Max",
 				"offset": 4,
-				"absolute_address": "$3BBD",
+				"absolute_address": "$3bbd",
 				"size": 2,
 				"data_type": "uint16",
 				"description": "Party member #12 - Max HP",
 				"valid_range": null,
-				"notes": "Raw offset: $3BBD"
+				"notes": "Raw offset: $3bbd"
 			},
 			{
 				"name": "12_HP",
 				"offset": 6,
-				"absolute_address": "$3BBF",
+				"absolute_address": "$3bbf",
 				"size": 2,
 				"data_type": "uint16",
 				"description": "Party member #12 - Current HP",
 				"valid_range": null,
-				"notes": "Raw offset: $3BBF"
+				"notes": "Raw offset: $3bbf"
 			},
 			{
 				"name": "12_MP_Max",
 				"offset": 8,
-				"absolute_address": "$3BC1",
+				"absolute_address": "$3bc1",
 				"size": 2,
 				"data_type": "uint16",
 				"description": "Party member #12 - Max MP",
 				"valid_range": null,
-				"notes": "Raw offset: $3BC1"
+				"notes": "Raw offset: $3bc1"
 			},
 			{
 				"name": "12_MP",
 				"offset": 10,
-				"absolute_address": "$3BC3",
+				"absolute_address": "$3bc3",
 				"size": 2,
 				"data_type": "uint16",
 				"description": "Party member #12 - Current HP",
 				"valid_range": null,
-				"notes": "Raw offset: $3BC3"
+				"notes": "Raw offset: $3bc3"
 			},
 			{
 				"name": "12_Strength",
 				"offset": 12,
-				"absolute_address": "$3BC5",
+				"absolute_address": "$3bc5",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #12 - Strength stat",
 				"valid_range": null,
-				"notes": "Raw offset: $3BC5"
+				"notes": "Raw offset: $3bc5"
 			},
 			{
 				"name": "12_Agility",
 				"offset": 13,
-				"absolute_address": "$3BC6",
+				"absolute_address": "$3bc6",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #12 - Agility stat",
 				"valid_range": null,
-				"notes": "Raw offset: $3BC6"
+				"notes": "Raw offset: $3bc6"
 			},
 			{
 				"name": "12_Stamina",
 				"offset": 14,
-				"absolute_address": "$3BC7",
+				"absolute_address": "$3bc7",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #12 - Stamina stat",
 				"valid_range": null,
-				"notes": "Raw offset: $3BC7"
+				"notes": "Raw offset: $3bc7"
 			},
 			{
 				"name": "12_Wisdom",
 				"offset": 15,
-				"absolute_address": "$3BC8",
+				"absolute_address": "$3bc8",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #12 - Wisdom stat",
 				"valid_range": null,
-				"notes": "Raw offset: $3BC8"
+				"notes": "Raw offset: $3bc8"
 			},
 			{
 				"name": "12_Luck",
 				"offset": 16,
-				"absolute_address": "$3BC9",
+				"absolute_address": "$3bc9",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #12 - Luck stat, excluding equipment",
 				"valid_range": null,
-				"notes": "Raw offset: $3BC9"
+				"notes": "Raw offset: $3bc9"
 			},
 			{
 				"name": "12_Name",
 				"offset": 22,
-				"absolute_address": "$3BCF",
+				"absolute_address": "$3bcf",
 				"size": 5,
 				"data_type": "string",
 				"description": "Party member #12 - Name, 4 characters max, ends in AC",
 				"valid_range": null,
-				"notes": "Raw offset: $3BCF"
+				"notes": "Raw offset: $3bcf"
 			},
 			{
 				"name": "12_Bag_Number_Equiped",
 				"offset": 46,
-				"absolute_address": "$3BE7",
+				"absolute_address": "$3be7",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #12 - Number of items equipped",
 				"valid_range": null,
-				"notes": "Raw offset: $3BE7"
+				"notes": "Raw offset: $3be7"
 			},
 			{
 				"name": "12_Bag_Number_Carried",
 				"offset": 47,
-				"absolute_address": "$3BE8",
+				"absolute_address": "$3be8",
 				"size": 1,
 				"data_type": "uint8",
 				"description": "Party member #12 - Number of items in bag",
 				"valid_range": null,
-				"notes": "Raw offset: $3BE8"
+				"notes": "Raw offset: $3be8"
 			},
 			{
 				"name": "12_Bag_Items",
 				"offset": 48,
-				"absolute_address": "$3BE9",
+				"absolute_address": "$3be9",
 				"size": 12,
 				"data_type": "item_id",
 				"description": "Party member #12 - Each byte is which item is in the bag slot",
 				"valid_range": null,
-				"notes": "Raw offset: $3BE9"
+				"notes": "Raw offset: $3be9"
 			}
 		]
 	}

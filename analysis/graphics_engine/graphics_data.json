@@ -1,7 +1,7 @@
 {
   "functions": [
     {
-      "name": "gfx_func_84BE",
+      "name": "gfx_func_84be",
       "address": 33982,
       "purpose": "Display control",
       "ppu_registers": [
@@ -10,14 +10,14 @@
       "complexity": 23
     },
     {
-      "name": "gfx_func_86B7",
+      "name": "gfx_func_86b7",
       "address": 34487,
       "purpose": "General graphics operation",
       "ppu_registers": [],
       "complexity": 10
     },
     {
-      "name": "gfx_func_88F0",
+      "name": "gfx_func_88f0",
       "address": 35056,
       "purpose": "VRAM data transfer",
       "ppu_registers": [
@@ -26,21 +26,21 @@
       "complexity": 62
     },
     {
-      "name": "gfx_func_8C98",
+      "name": "gfx_func_8c98",
       "address": 35992,
       "purpose": "General graphics operation",
       "ppu_registers": [],
       "complexity": 4
     },
     {
-      "name": "gfx_func_A4AB",
+      "name": "gfx_func_a4ab",
       "address": 42155,
       "purpose": "General graphics operation",
       "ppu_registers": [],
       "complexity": 1
     },
     {
-      "name": "gfx_func_84AD",
+      "name": "gfx_func_84ad",
       "address": 33965,
       "purpose": "General graphics operation",
       "ppu_registers": [
@@ -50,7 +50,7 @@
       "complexity": 80
     },
     {
-      "name": "gfx_func_850D",
+      "name": "gfx_func_850d",
       "address": 34061,
       "purpose": "General graphics operation",
       "ppu_registers": [
@@ -80,7 +80,7 @@
       "complexity": 36
     },
     {
-      "name": "gfx_func_8E53",
+      "name": "gfx_func_8e53",
       "address": 36435,
       "purpose": "General graphics operation",
       "ppu_registers": [
@@ -90,7 +90,7 @@
       "complexity": 34
     },
     {
-      "name": "gfx_func_DC6D",
+      "name": "gfx_func_dc6d",
       "address": 56429,
       "purpose": "Display control",
       "ppu_registers": [
@@ -99,7 +99,7 @@
       "complexity": 12
     },
     {
-      "name": "gfx_func_F55C",
+      "name": "gfx_func_f55c",
       "address": 62812,
       "purpose": "General graphics operation",
       "ppu_registers": [
@@ -108,14 +108,14 @@
       "complexity": 14
     },
     {
-      "name": "gfx_func_868F",
+      "name": "gfx_func_868f",
       "address": 34447,
       "purpose": "General graphics operation",
       "ppu_registers": [],
       "complexity": 9
     },
     {
-      "name": "gfx_func_9EF2",
+      "name": "gfx_func_9ef2",
       "address": 40690,
       "purpose": "General graphics operation",
       "ppu_registers": [
@@ -124,7 +124,7 @@
       "complexity": 13
     },
     {
-      "name": "gfx_func_F215",
+      "name": "gfx_func_f215",
       "address": 61973,
       "purpose": "General graphics operation",
       "ppu_registers": [
@@ -133,7 +133,7 @@
       "complexity": 26
     },
     {
-      "name": "gfx_func_A008",
+      "name": "gfx_func_a008",
       "address": 40968,
       "purpose": "Sprite/OAM management",
       "ppu_registers": [

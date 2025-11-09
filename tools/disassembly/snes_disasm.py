@@ -65,7 +65,7 @@ class Instruction:
         elif len(self.operand_bytes) == 2:
             return struct.unpack("<H", self.operand_bytes)[0]
         elif len(self.operand_bytes) == 3:
-            return struct.unpack("<I", self.operand_bytes + b"\x00")[0] & 0xFFFFFF
+            return struct.unpack("<I", self.operand_bytes + b"\x00")[0] & 0xffffff
         return None
 
     def format_operand(self, bank: int = 0) -> str:
@@ -88,10 +88,10 @@ class Instruction:
             return f"${val:02X}"
         elif self.addressing_mode == AddressingMode.RELATIVE:
             # Calculate target address for branches
-            target = (self.address + self.size + struct.unpack("<b", self.operand_bytes)[0]) & 0xFFFF
+            target = (self.address + self.size + struct.unpack("<b", self.operand_bytes)[0]) & 0xffff
             return f"${target:04X}"
         elif self.addressing_mode == AddressingMode.RELATIVE_LONG:
-            target = (self.address + self.size + struct.unpack("<h", self.operand_bytes)[0]) & 0xFFFFFF
+            target = (self.address + self.size + struct.unpack("<h", self.operand_bytes)[0]) & 0xffffff
             return f"${target:06X}"
         elif self.addressing_mode in [AddressingMode.ABSOLUTE_X, AddressingMode.ABSOLUTE_LONG_X]:
             return f"${val:04X},X"
@@ -184,32 +184,32 @@ class SNES65816Disassembler:
             0x65: ("ADC", AddressingMode.DIRECT_PAGE, 2, 3),
             0x67: ("ADC", AddressingMode.DIRECT_PAGE_INDIRECT_LONG, 2, 6),
             0x69: ("ADC", AddressingMode.IMMEDIATE, 0, 2),  # Size varies with M flag
-            0x6D: ("ADC", AddressingMode.ABSOLUTE, 3, 4),
-            0x6F: ("ADC", AddressingMode.ABSOLUTE_LONG, 4, 5),
+            0x6d: ("ADC", AddressingMode.ABSOLUTE, 3, 4),
+            0x6f: ("ADC", AddressingMode.ABSOLUTE_LONG, 4, 5),
             0x71: ("ADC", AddressingMode.DIRECT_PAGE_INDIRECT_Y, 2, 5),
             0x72: ("ADC", AddressingMode.DIRECT_PAGE_INDIRECT, 2, 5),
             0x73: ("ADC", AddressingMode.STACK_RELATIVE_INDIRECT_Y, 2, 7),
             0x75: ("ADC", AddressingMode.DIRECT_PAGE_X, 2, 4),
             0x77: ("ADC", AddressingMode.DIRECT_PAGE_INDIRECT_LONG_Y, 2, 6),
             0x79: ("ADC", AddressingMode.ABSOLUTE_Y, 3, 4),
-            0x7D: ("ADC", AddressingMode.ABSOLUTE_X, 3, 4),
-            0x7F: ("ADC", AddressingMode.ABSOLUTE_LONG_X, 4, 5),
+            0x7d: ("ADC", AddressingMode.ABSOLUTE_X, 3, 4),
+            0x7f: ("ADC", AddressingMode.ABSOLUTE_LONG_X, 4, 5),
             # AND - Logical AND
             0x21: ("AND", AddressingMode.DIRECT_PAGE_INDIRECT_X, 2, 6),
             0x23: ("AND", AddressingMode.STACK_RELATIVE, 2, 4),
             0x25: ("AND", AddressingMode.DIRECT_PAGE, 2, 3),
             0x27: ("AND", AddressingMode.DIRECT_PAGE_INDIRECT_LONG, 2, 6),
             0x29: ("AND", AddressingMode.IMMEDIATE, 0, 2),
-            0x2D: ("AND", AddressingMode.ABSOLUTE, 3, 4),
-            0x2F: ("AND", AddressingMode.ABSOLUTE_LONG, 4, 5),
+            0x2d: ("AND", AddressingMode.ABSOLUTE, 3, 4),
+            0x2f: ("AND", AddressingMode.ABSOLUTE_LONG, 4, 5),
             0x31: ("AND", AddressingMode.DIRECT_PAGE_INDIRECT_Y, 2, 5),
             0x32: ("AND", AddressingMode.DIRECT_PAGE_INDIRECT, 2, 5),
             0x33: ("AND", AddressingMode.STACK_RELATIVE_INDIRECT_Y, 2, 7),
             0x35: ("AND", AddressingMode.DIRECT_PAGE_X, 2, 4),
             0x37: ("AND", AddressingMode.DIRECT_PAGE_INDIRECT_LONG_Y, 2, 6),
             0x39: ("AND", AddressingMode.ABSOLUTE_Y, 3, 4),
-            0x3D: ("AND", AddressingMode.ABSOLUTE_X, 3, 4),
-            0x3F: ("AND", AddressingMode.ABSOLUTE_LONG_X, 4, 5),
+            0x3d: ("AND", AddressingMode.ABSOLUTE_X, 3, 4),
+            0x3f: ("AND", AddressingMode.ABSOLUTE_LONG_X, 4, 5),
             # BRA, BRL - Branch always
             0x80: ("BRA", AddressingMode.RELATIVE, 2, 3),
             0x82: ("BRL", AddressingMode.RELATIVE_LONG, 3, 4),
@@ -219,88 +219,88 @@ class SNES65816Disassembler:
             0x50: ("BVC", AddressingMode.RELATIVE, 2, 2),
             0x70: ("BVS", AddressingMode.RELATIVE, 2, 2),
             0x90: ("BCC", AddressingMode.RELATIVE, 2, 2),
-            0xB0: ("BCS", AddressingMode.RELATIVE, 2, 2),
-            0xD0: ("BNE", AddressingMode.RELATIVE, 2, 2),
-            0xF0: ("BEQ", AddressingMode.RELATIVE, 2, 2),
+            0xb0: ("BCS", AddressingMode.RELATIVE, 2, 2),
+            0xd0: ("BNE", AddressingMode.RELATIVE, 2, 2),
+            0xf0: ("BEQ", AddressingMode.RELATIVE, 2, 2),
             # JSR, JSL - Jump to subroutine
             0x20: ("JSR", AddressingMode.ABSOLUTE, 3, 6),
             0x22: ("JSL", AddressingMode.ABSOLUTE_LONG, 4, 8),
-            0xFC: ("JSR", AddressingMode.INDIRECT_X, 3, 8),
+            0xfc: ("JSR", AddressingMode.INDIRECT_X, 3, 8),
             # JMP, JML - Jump
-            0x4C: ("JMP", AddressingMode.ABSOLUTE, 3, 3),
-            0x5C: ("JML", AddressingMode.ABSOLUTE_LONG, 4, 4),
-            0x6C: ("JMP", AddressingMode.INDIRECT, 3, 5),
-            0x7C: ("JMP", AddressingMode.INDIRECT_X, 3, 6),
-            0xDC: ("JML", AddressingMode.INDIRECT_LONG, 3, 6),
+            0x4c: ("JMP", AddressingMode.ABSOLUTE, 3, 3),
+            0x5c: ("JML", AddressingMode.ABSOLUTE_LONG, 4, 4),
+            0x6c: ("JMP", AddressingMode.INDIRECT, 3, 5),
+            0x7c: ("JMP", AddressingMode.INDIRECT_X, 3, 6),
+            0xdc: ("JML", AddressingMode.INDIRECT_LONG, 3, 6),
             # RTS, RTL, RTI - Return
             0x40: ("RTI", AddressingMode.IMPLIED, 1, 6),
             0x60: ("RTS", AddressingMode.IMPLIED, 1, 6),
-            0x6B: ("RTL", AddressingMode.IMPLIED, 1, 6),
+            0x6b: ("RTL", AddressingMode.IMPLIED, 1, 6),
             # Load/Store instructions
-            0xA9: ("LDA", AddressingMode.IMMEDIATE, 0, 2),  # Size varies with M flag
-            0xA2: ("LDX", AddressingMode.IMMEDIATE, 0, 2),  # Size varies with X flag
-            0xA0: ("LDY", AddressingMode.IMMEDIATE, 0, 2),  # Size varies with X flag
-            0xAD: ("LDA", AddressingMode.ABSOLUTE, 3, 4),
-            0xAE: ("LDX", AddressingMode.ABSOLUTE, 3, 4),
-            0xAC: ("LDY", AddressingMode.ABSOLUTE, 3, 4),
-            0x8D: ("STA", AddressingMode.ABSOLUTE, 3, 4),
-            0x8E: ("STX", AddressingMode.ABSOLUTE, 3, 4),
-            0x8C: ("STY", AddressingMode.ABSOLUTE, 3, 4),
+            0xa9: ("LDA", AddressingMode.IMMEDIATE, 0, 2),  # Size varies with M flag
+            0xa2: ("LDX", AddressingMode.IMMEDIATE, 0, 2),  # Size varies with X flag
+            0xa0: ("LDY", AddressingMode.IMMEDIATE, 0, 2),  # Size varies with X flag
+            0xad: ("LDA", AddressingMode.ABSOLUTE, 3, 4),
+            0xae: ("LDX", AddressingMode.ABSOLUTE, 3, 4),
+            0xac: ("LDY", AddressingMode.ABSOLUTE, 3, 4),
+            0x8d: ("STA", AddressingMode.ABSOLUTE, 3, 4),
+            0x8e: ("STX", AddressingMode.ABSOLUTE, 3, 4),
+            0x8c: ("STY", AddressingMode.ABSOLUTE, 3, 4),
             # Stack operations
             0x48: ("PHA", AddressingMode.IMPLIED, 1, 3),
             0x68: ("PLA", AddressingMode.IMPLIED, 1, 4),
-            0x8B: ("PHB", AddressingMode.IMPLIED, 1, 3),
-            0xAB: ("PLB", AddressingMode.IMPLIED, 1, 4),
-            0x0B: ("PHD", AddressingMode.IMPLIED, 1, 4),
-            0x2B: ("PLD", AddressingMode.IMPLIED, 1, 5),
-            0x4B: ("PHK", AddressingMode.IMPLIED, 1, 3),
+            0x8b: ("PHB", AddressingMode.IMPLIED, 1, 3),
+            0xab: ("PLB", AddressingMode.IMPLIED, 1, 4),
+            0x0b: ("PHD", AddressingMode.IMPLIED, 1, 4),
+            0x2b: ("PLD", AddressingMode.IMPLIED, 1, 5),
+            0x4b: ("PHK", AddressingMode.IMPLIED, 1, 3),
             0x08: ("PHP", AddressingMode.IMPLIED, 1, 3),
             0x28: ("PLP", AddressingMode.IMPLIED, 1, 4),
-            0xDA: ("PHX", AddressingMode.IMPLIED, 1, 3),
-            0xFA: ("PLX", AddressingMode.IMPLIED, 1, 4),
-            0x5A: ("PHY", AddressingMode.IMPLIED, 1, 3),
-            0x7A: ("PLY", AddressingMode.IMPLIED, 1, 4),
+            0xda: ("PHX", AddressingMode.IMPLIED, 1, 3),
+            0xfa: ("PLX", AddressingMode.IMPLIED, 1, 4),
+            0x5a: ("PHY", AddressingMode.IMPLIED, 1, 3),
+            0x7a: ("PLY", AddressingMode.IMPLIED, 1, 4),
             # Processor status
             0x18: ("CLC", AddressingMode.IMPLIED, 1, 2),
             0x38: ("SEC", AddressingMode.IMPLIED, 1, 2),
             0x58: ("CLI", AddressingMode.IMPLIED, 1, 2),
             0x78: ("SEI", AddressingMode.IMPLIED, 1, 2),
-            0xB8: ("CLV", AddressingMode.IMPLIED, 1, 2),
-            0xD8: ("CLD", AddressingMode.IMPLIED, 1, 2),
-            0xF8: ("SED", AddressingMode.IMPLIED, 1, 2),
+            0xb8: ("CLV", AddressingMode.IMPLIED, 1, 2),
+            0xd8: ("CLD", AddressingMode.IMPLIED, 1, 2),
+            0xf8: ("SED", AddressingMode.IMPLIED, 1, 2),
             # Processor control
-            0xC2: ("REP", AddressingMode.IMMEDIATE, 2, 3),
-            0xE2: ("SEP", AddressingMode.IMMEDIATE, 2, 3),
-            0xFB: ("XCE", AddressingMode.IMPLIED, 1, 2),
+            0xc2: ("REP", AddressingMode.IMMEDIATE, 2, 3),
+            0xe2: ("SEP", AddressingMode.IMMEDIATE, 2, 3),
+            0xfb: ("XCE", AddressingMode.IMPLIED, 1, 2),
             # Transfers
-            0xAA: ("TAX", AddressingMode.IMPLIED, 1, 2),
-            0xA8: ("TAY", AddressingMode.IMPLIED, 1, 2),
-            0xBA: ("TSX", AddressingMode.IMPLIED, 1, 2),
-            0x8A: ("TXA", AddressingMode.IMPLIED, 1, 2),
-            0x9A: ("TXS", AddressingMode.IMPLIED, 1, 2),
+            0xaa: ("TAX", AddressingMode.IMPLIED, 1, 2),
+            0xa8: ("TAY", AddressingMode.IMPLIED, 1, 2),
+            0xba: ("TSX", AddressingMode.IMPLIED, 1, 2),
+            0x8a: ("TXA", AddressingMode.IMPLIED, 1, 2),
+            0x9a: ("TXS", AddressingMode.IMPLIED, 1, 2),
             0x98: ("TYA", AddressingMode.IMPLIED, 1, 2),
-            0x5B: ("TCD", AddressingMode.IMPLIED, 1, 2),
-            0x7B: ("TDC", AddressingMode.IMPLIED, 1, 2),
-            0x1B: ("TCS", AddressingMode.IMPLIED, 1, 2),
-            0x3B: ("TSC", AddressingMode.IMPLIED, 1, 2),
-            0x0A: ("ASL", AddressingMode.ACCUMULATOR, 1, 2),
+            0x5b: ("TCD", AddressingMode.IMPLIED, 1, 2),
+            0x7b: ("TDC", AddressingMode.IMPLIED, 1, 2),
+            0x1b: ("TCS", AddressingMode.IMPLIED, 1, 2),
+            0x3b: ("TSC", AddressingMode.IMPLIED, 1, 2),
+            0x0a: ("ASL", AddressingMode.ACCUMULATOR, 1, 2),
             # Compare
-            0xC9: ("CMP", AddressingMode.IMMEDIATE, 0, 2),
-            0xE0: ("CPX", AddressingMode.IMMEDIATE, 0, 2),
-            0xC0: ("CPY", AddressingMode.IMMEDIATE, 0, 2),
+            0xc9: ("CMP", AddressingMode.IMMEDIATE, 0, 2),
+            0xe0: ("CPX", AddressingMode.IMMEDIATE, 0, 2),
+            0xc0: ("CPY", AddressingMode.IMMEDIATE, 0, 2),
             # Increment/Decrement
-            0xE8: ("INX", AddressingMode.IMPLIED, 1, 2),
-            0xCA: ("DEX", AddressingMode.IMPLIED, 1, 2),
-            0xC8: ("INY", AddressingMode.IMPLIED, 1, 2),
+            0xe8: ("INX", AddressingMode.IMPLIED, 1, 2),
+            0xca: ("DEX", AddressingMode.IMPLIED, 1, 2),
+            0xc8: ("INY", AddressingMode.IMPLIED, 1, 2),
             0x88: ("DEY", AddressingMode.IMPLIED, 1, 2),
-            0x1A: ("INC", AddressingMode.ACCUMULATOR, 1, 2),
-            0x3A: ("DEC", AddressingMode.ACCUMULATOR, 1, 2),
+            0x1a: ("INC", AddressingMode.ACCUMULATOR, 1, 2),
+            0x3a: ("DEC", AddressingMode.ACCUMULATOR, 1, 2),
             # Misc
-            0xEA: ("NOP", AddressingMode.IMPLIED, 1, 2),
+            0xea: ("NOP", AddressingMode.IMPLIED, 1, 2),
             0x00: ("BRK", AddressingMode.IMMEDIATE, 2, 8),
             0x02: ("COP", AddressingMode.IMMEDIATE, 2, 8),
-            0xDB: ("STP", AddressingMode.IMPLIED, 1, 3),
-            0xCB: ("WAI", AddressingMode.IMPLIED, 1, 3),
+            0xdb: ("STP", AddressingMode.IMPLIED, 1, 3),
+            0xcb: ("WAI", AddressingMode.IMPLIED, 1, 3),
             # Block moves
             0x44: ("MVP", AddressingMode.BLOCK_MOVE, 3, 7),
             0x54: ("MVN", AddressingMode.BLOCK_MOVE, 3, 7),
@@ -315,7 +315,7 @@ class SNES65816Disassembler:
 
         if rom_mapping == "LoROM":
             # LoROM: 32KB banks starting at $8000
-            total_banks = (self.rom_size + 0x7FFF) // 0x8000
+            total_banks = (self.rom_size + 0x7fff) // 0x8000
 
             for bank in range(min(total_banks, 0x80)):
                 rom_offset = bank * 0x8000
@@ -323,7 +323,7 @@ class SNES65816Disassembler:
                     "type": "LoROM",
                     "rom_offset": rom_offset,
                     "snes_start": 0x8000,
-                    "snes_end": 0xFFFF,
+                    "snes_end": 0xffff,
                     "size": min(0x8000, self.rom_size - rom_offset),
                     "description": self._classify_bank_content(bank, rom_offset),
                 }
@@ -335,7 +335,7 @@ class SNES65816Disassembler:
 
         else:
             # HiROM: 64KB banks
-            total_banks = (self.rom_size + 0xFFFF) // 0x10000
+            total_banks = (self.rom_size + 0xffff) // 0x10000
 
             for bank in range(min(total_banks, 0x40)):
                 rom_offset = bank * 0x10000
@@ -343,7 +343,7 @@ class SNES65816Disassembler:
                     "type": "HiROM",
                     "rom_offset": rom_offset,
                     "snes_start": 0x0000,
-                    "snes_end": 0xFFFF,
+                    "snes_end": 0xffff,
                     "size": min(0x10000, self.rom_size - rom_offset),
                     "description": self._classify_bank_content(bank, rom_offset),
                 }
@@ -356,23 +356,23 @@ class SNES65816Disassembler:
         lorom_score = 0
         hirom_score = 0
 
-        # LoROM header at $7FC0 (file offset $7FC0)
-        if self.rom_size > 0x7FC0 + 0x40:
-            lorom_header = self.rom_data[0x7FC0 : 0x7FC0 + 0x40]
+        # LoROM header at $7fc0 (file offset $7fc0)
+        if self.rom_size > 0x7fc0 + 0x40:
+            lorom_header = self.rom_data[0x7fc0 : 0x7fc0 + 0x40]
             lorom_score = self._score_snes_header(lorom_header)
 
-        # HiROM header at $FFC0 (file offset $FFC0 if no header)
-        if self.rom_size > 0xFFC0 + 0x40:
-            hirom_header = self.rom_data[0xFFC0 : 0xFFC0 + 0x40]
+        # HiROM header at $ffc0 (file offset $ffc0 if no header)
+        if self.rom_size > 0xffc0 + 0x40:
+            hirom_header = self.rom_data[0xffc0 : 0xffc0 + 0x40]
             hirom_score = self._score_snes_header(hirom_header)
 
         # Also check offset by 0x200 for headers
-        if self.rom_size > 0x81C0 + 0x40:
-            lorom_header_offset = self.rom_data[0x81C0 : 0x81C0 + 0x40]
+        if self.rom_size > 0x81c0 + 0x40:
+            lorom_header_offset = self.rom_data[0x81c0 : 0x81c0 + 0x40]
             lorom_score = max(lorom_score, self._score_snes_header(lorom_header_offset))
 
-        if self.rom_size > 0x101C0 + 0x40:
-            hirom_header_offset = self.rom_data[0x101C0 : 0x101C0 + 0x40]
+        if self.rom_size > 0x101c0 + 0x40:
+            hirom_header_offset = self.rom_data[0x101c0 : 0x101c0 + 0x40]
             hirom_score = max(hirom_score, self._score_snes_header(hirom_header_offset))
 
         return "LoROM" if lorom_score > hirom_score else "HiROM"
@@ -401,9 +401,9 @@ class SNES65816Disassembler:
 
         # Check checksums
         if len(header_data) >= 0x30:
-            checksum = struct.unpack("<H", header_data[0x2E:0x30])[0]
-            checksum_comp = struct.unpack("<H", header_data[0x2C:0x2E])[0]
-            if (checksum ^ checksum_comp) == 0xFFFF:
+            checksum = struct.unpack("<H", header_data[0x2e:0x30])[0]
+            checksum_comp = struct.unpack("<H", header_data[0x2c:0x2e])[0]
+            if (checksum ^ checksum_comp) == 0xffff:
                 score += 30
 
         return score
@@ -621,11 +621,11 @@ class SNES65816Disassembler:
         bank_info = self.bank_map[bank]
 
         if bank_info["type"] == "LoROM":
-            if 0x8000 <= snes_addr <= 0xFFFF:
+            if 0x8000 <= snes_addr <= 0xffff:
                 offset_in_bank = snes_addr - 0x8000
                 return bank_info["rom_offset"] + offset_in_bank
         else:  # HiROM
-            if 0x0000 <= snes_addr <= 0xFFFF:
+            if 0x0000 <= snes_addr <= 0xffff:
                 return bank_info["rom_offset"] + snes_addr
 
         return None
@@ -673,7 +673,7 @@ class SNES65816Disassembler:
                 if target:
                     branch_target = (
                         current_addr + instruction.size + struct.unpack("<b", instruction.operand_bytes)[0]
-                    ) & 0xFFFF
+                    ) & 0xffff
                     # Continue from branch target
                     current_addr = branch_target
                     continue
@@ -725,18 +725,18 @@ class SNES65816Disassembler:
 
         # Check interrupt vectors in bank 0
         vector_locations = [
-            (0xFFE4, "COP"),
-            (0xFFE6, "BRK"),
-            (0xFFE8, "ABORT"),
-            (0xFFEA, "NMI"),
-            (0xFFEC, "UNUSED"),
-            (0xFFEE, "IRQ"),
-            (0xFFF4, "COP_EMU"),
-            (0xFFF6, "UNUSED_EMU"),
-            (0xFFF8, "ABORT_EMU"),
-            (0xFFFA, "NMI_EMU"),
-            (0xFFFC, "RESET"),
-            (0xFFFE, "IRQ_EMU"),
+            (0xffe4, "COP"),
+            (0xffe6, "BRK"),
+            (0xffe8, "ABORT"),
+            (0xffea, "NMI"),
+            (0xffec, "UNUSED"),
+            (0xffee, "IRQ"),
+            (0xfff4, "COP_EMU"),
+            (0xfff6, "UNUSED_EMU"),
+            (0xfff8, "ABORT_EMU"),
+            (0xfffa, "NMI_EMU"),
+            (0xfffc, "RESET"),
+            (0xfffe, "IRQ_EMU"),
         ]
 
         for vector_addr, vector_name in vector_locations:
@@ -752,8 +752,8 @@ class SNES65816Disassembler:
                 if target:
                     target_bank = 0  # Assume same bank for JSR
                     if instruction.mnemonic == "JSL":
-                        target_bank = (target >> 16) & 0xFF
-                        target = target & 0xFFFF
+                        target_bank = (target >> 16) & 0xff
+                        target = target & 0xffff
 
                     entry_points.append((target, target_bank, f"called_function"))
 

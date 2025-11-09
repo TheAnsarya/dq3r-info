@@ -1,6 +1,6 @@
 /* PartyMember_5 Data Structure */
 /* Generated from Dragon Quest III analysis */
-/* Base Address: $3A15 */
+/* Base Address: $3a15 */
 /* Size: 60 bytes */
 
 #ifndef DQ3_PARTYMEMBER_5_H
@@ -8,7 +8,7 @@
 
 #include <stdint.h>
 
-#define PARTYMEMBER_5_BASE_ADDR 0x3A15
+#define PARTYMEMBER_5_BASE_ADDR 0x3a15
 #define PARTYMEMBER_5_SIZE 60
 
 typedef struct {

@@ -86,7 +86,7 @@ class ComprehensiveDisassembler:
         # Validate ROM header
         if len(data) >= 0x8000:
             # Check for SNES header markers
-            potential_headers = [0x7FC0, 0xFFC0, 0x81C0]
+            potential_headers = [0x7fc0, 0xffc0, 0x81c0]
             for header_offset in potential_headers:
                 if header_offset + 32 < len(data):
                     rom_name = data[header_offset:header_offset+21]
@@ -106,63 +106,63 @@ class ComprehensiveDisassembler:
 
             # ADC - Add with Carry
             (0x69, "ADC", "immediate", 2, 2, "NvZc", "Add immediate to accumulator", {"type": "arithmetic", "modifies": ["A"], "reads": ["A"]}),
-            (0x6D, "ADC", "absolute", 3, 4, "NvZc", "Add memory to accumulator", {"type": "arithmetic", "modifies": ["A"], "reads": ["A", "memory"]}),
-            (0x7D, "ADC", "absolute_x", 3, 4, "NvZc", "Add memory,X to accumulator", {"type": "arithmetic", "modifies": ["A"], "reads": ["A", "X", "memory"]}),
+            (0x6d, "ADC", "absolute", 3, 4, "NvZc", "Add memory to accumulator", {"type": "arithmetic", "modifies": ["A"], "reads": ["A", "memory"]}),
+            (0x7d, "ADC", "absolute_x", 3, 4, "NvZc", "Add memory,X to accumulator", {"type": "arithmetic", "modifies": ["A"], "reads": ["A", "X", "memory"]}),
             (0x79, "ADC", "absolute_y", 3, 4, "NvZc", "Add memory,Y to accumulator", {"type": "arithmetic", "modifies": ["A"], "reads": ["A", "Y", "memory"]}),
             (0x65, "ADC", "zeropage", 2, 3, "NvZc", "Add zero page to accumulator", {"type": "arithmetic", "modifies": ["A"], "reads": ["A", "memory"]}),
             (0x75, "ADC", "zeropage_x", 2, 4, "NvZc", "Add zero page,X to accumulator", {"type": "arithmetic", "modifies": ["A"], "reads": ["A", "X", "memory"]}),
             (0x61, "ADC", "zeropage_x_indirect", 2, 6, "NvZc", "Add (zp,X) to accumulator", {"type": "arithmetic", "modifies": ["A"], "reads": ["A", "X", "memory"]}),
             (0x71, "ADC", "zeropage_indirect_y", 2, 5, "NvZc", "Add (zp),Y to accumulator", {"type": "arithmetic", "modifies": ["A"], "reads": ["A", "Y", "memory"]}),
             (0x72, "ADC", "zeropage_indirect", 2, 5, "NvZc", "Add (zp) to accumulator", {"type": "arithmetic", "modifies": ["A"], "reads": ["A", "memory"]}),
-            (0x6F, "ADC", "long", 4, 5, "NvZc", "Add long to accumulator", {"type": "arithmetic", "modifies": ["A"], "reads": ["A", "memory"]}),
-            (0x7F, "ADC", "long_x", 4, 5, "NvZc", "Add long,X to accumulator", {"type": "arithmetic", "modifies": ["A"], "reads": ["A", "X", "memory"]}),
+            (0x6f, "ADC", "long", 4, 5, "NvZc", "Add long to accumulator", {"type": "arithmetic", "modifies": ["A"], "reads": ["A", "memory"]}),
+            (0x7f, "ADC", "long_x", 4, 5, "NvZc", "Add long,X to accumulator", {"type": "arithmetic", "modifies": ["A"], "reads": ["A", "X", "memory"]}),
 
             # SBC - Subtract with Carry
-            (0xE9, "SBC", "immediate", 2, 2, "NvZc", "Subtract immediate from accumulator", {"type": "arithmetic", "modifies": ["A"], "reads": ["A"]}),
-            (0xED, "SBC", "absolute", 3, 4, "NvZc", "Subtract memory from accumulator", {"type": "arithmetic", "modifies": ["A"], "reads": ["A", "memory"]}),
-            (0xFD, "SBC", "absolute_x", 3, 4, "NvZc", "Subtract memory,X from accumulator", {"type": "arithmetic", "modifies": ["A"], "reads": ["A", "X", "memory"]}),
-            (0xF9, "SBC", "absolute_y", 3, 4, "NvZc", "Subtract memory,Y from accumulator", {"type": "arithmetic", "modifies": ["A"], "reads": ["A", "Y", "memory"]}),
+            (0xe9, "SBC", "immediate", 2, 2, "NvZc", "Subtract immediate from accumulator", {"type": "arithmetic", "modifies": ["A"], "reads": ["A"]}),
+            (0xed, "SBC", "absolute", 3, 4, "NvZc", "Subtract memory from accumulator", {"type": "arithmetic", "modifies": ["A"], "reads": ["A", "memory"]}),
+            (0xfd, "SBC", "absolute_x", 3, 4, "NvZc", "Subtract memory,X from accumulator", {"type": "arithmetic", "modifies": ["A"], "reads": ["A", "X", "memory"]}),
+            (0xf9, "SBC", "absolute_y", 3, 4, "NvZc", "Subtract memory,Y from accumulator", {"type": "arithmetic", "modifies": ["A"], "reads": ["A", "Y", "memory"]}),
 
             # LDA - Load Accumulator
-            (0xA9, "LDA", "immediate", 2, 2, "Nz", "Load immediate into accumulator", {"type": "load", "modifies": ["A"], "reads": []}),
-            (0xAD, "LDA", "absolute", 3, 4, "Nz", "Load memory into accumulator", {"type": "load", "modifies": ["A"], "reads": ["memory"]}),
-            (0xBD, "LDA", "absolute_x", 3, 4, "Nz", "Load memory,X into accumulator", {"type": "load", "modifies": ["A"], "reads": ["X", "memory"]}),
-            (0xB9, "LDA", "absolute_y", 3, 4, "Nz", "Load memory,Y into accumulator", {"type": "load", "modifies": ["A"], "reads": ["Y", "memory"]}),
-            (0xA5, "LDA", "zeropage", 2, 3, "Nz", "Load zero page into accumulator", {"type": "load", "modifies": ["A"], "reads": ["memory"]}),
-            (0xB5, "LDA", "zeropage_x", 2, 4, "Nz", "Load zero page,X into accumulator", {"type": "load", "modifies": ["A"], "reads": ["X", "memory"]}),
-            (0xA1, "LDA", "zeropage_x_indirect", 2, 6, "Nz", "Load (zp,X) into accumulator", {"type": "load", "modifies": ["A"], "reads": ["X", "memory"]}),
-            (0xB1, "LDA", "zeropage_indirect_y", 2, 5, "Nz", "Load (zp),Y into accumulator", {"type": "load", "modifies": ["A"], "reads": ["Y", "memory"]}),
-            (0xB2, "LDA", "zeropage_indirect", 2, 5, "Nz", "Load (zp) into accumulator", {"type": "load", "modifies": ["A"], "reads": ["memory"]}),
-            (0xAF, "LDA", "long", 4, 5, "Nz", "Load long into accumulator", {"type": "load", "modifies": ["A"], "reads": ["memory"]}),
-            (0xBF, "LDA", "long_x", 4, 5, "Nz", "Load long,X into accumulator", {"type": "load", "modifies": ["A"], "reads": ["X", "memory"]}),
+            (0xa9, "LDA", "immediate", 2, 2, "Nz", "Load immediate into accumulator", {"type": "load", "modifies": ["A"], "reads": []}),
+            (0xad, "LDA", "absolute", 3, 4, "Nz", "Load memory into accumulator", {"type": "load", "modifies": ["A"], "reads": ["memory"]}),
+            (0xbd, "LDA", "absolute_x", 3, 4, "Nz", "Load memory,X into accumulator", {"type": "load", "modifies": ["A"], "reads": ["X", "memory"]}),
+            (0xb9, "LDA", "absolute_y", 3, 4, "Nz", "Load memory,Y into accumulator", {"type": "load", "modifies": ["A"], "reads": ["Y", "memory"]}),
+            (0xa5, "LDA", "zeropage", 2, 3, "Nz", "Load zero page into accumulator", {"type": "load", "modifies": ["A"], "reads": ["memory"]}),
+            (0xb5, "LDA", "zeropage_x", 2, 4, "Nz", "Load zero page,X into accumulator", {"type": "load", "modifies": ["A"], "reads": ["X", "memory"]}),
+            (0xa1, "LDA", "zeropage_x_indirect", 2, 6, "Nz", "Load (zp,X) into accumulator", {"type": "load", "modifies": ["A"], "reads": ["X", "memory"]}),
+            (0xb1, "LDA", "zeropage_indirect_y", 2, 5, "Nz", "Load (zp),Y into accumulator", {"type": "load", "modifies": ["A"], "reads": ["Y", "memory"]}),
+            (0xb2, "LDA", "zeropage_indirect", 2, 5, "Nz", "Load (zp) into accumulator", {"type": "load", "modifies": ["A"], "reads": ["memory"]}),
+            (0xaf, "LDA", "long", 4, 5, "Nz", "Load long into accumulator", {"type": "load", "modifies": ["A"], "reads": ["memory"]}),
+            (0xbf, "LDA", "long_x", 4, 5, "Nz", "Load long,X into accumulator", {"type": "load", "modifies": ["A"], "reads": ["X", "memory"]}),
 
             # STA - Store Accumulator
-            (0x8D, "STA", "absolute", 3, 4, "", "Store accumulator to memory", {"type": "store", "modifies": ["memory"], "reads": ["A"]}),
-            (0x9D, "STA", "absolute_x", 3, 5, "", "Store accumulator to memory,X", {"type": "store", "modifies": ["memory"], "reads": ["A", "X"]}),
+            (0x8d, "STA", "absolute", 3, 4, "", "Store accumulator to memory", {"type": "store", "modifies": ["memory"], "reads": ["A"]}),
+            (0x9d, "STA", "absolute_x", 3, 5, "", "Store accumulator to memory,X", {"type": "store", "modifies": ["memory"], "reads": ["A", "X"]}),
             (0x99, "STA", "absolute_y", 3, 5, "", "Store accumulator to memory,Y", {"type": "store", "modifies": ["memory"], "reads": ["A", "Y"]}),
             (0x85, "STA", "zeropage", 2, 3, "", "Store accumulator to zero page", {"type": "store", "modifies": ["memory"], "reads": ["A"]}),
             (0x95, "STA", "zeropage_x", 2, 4, "", "Store accumulator to zero page,X", {"type": "store", "modifies": ["memory"], "reads": ["A", "X"]}),
             (0x81, "STA", "zeropage_x_indirect", 2, 6, "", "Store accumulator to (zp,X)", {"type": "store", "modifies": ["memory"], "reads": ["A", "X"]}),
             (0x91, "STA", "zeropage_indirect_y", 2, 6, "", "Store accumulator to (zp),Y", {"type": "store", "modifies": ["memory"], "reads": ["A", "Y"]}),
             (0x92, "STA", "zeropage_indirect", 2, 5, "", "Store accumulator to (zp)", {"type": "store", "modifies": ["memory"], "reads": ["A"]}),
-            (0x8F, "STA", "long", 4, 5, "", "Store accumulator to long", {"type": "store", "modifies": ["memory"], "reads": ["A"]}),
-            (0x9F, "STA", "long_x", 4, 5, "", "Store accumulator to long,X", {"type": "store", "modifies": ["memory"], "reads": ["A", "X"]}),
+            (0x8f, "STA", "long", 4, 5, "", "Store accumulator to long", {"type": "store", "modifies": ["memory"], "reads": ["A"]}),
+            (0x9f, "STA", "long_x", 4, 5, "", "Store accumulator to long,X", {"type": "store", "modifies": ["memory"], "reads": ["A", "X"]}),
 
             # Control Flow
-            (0x4C, "JMP", "absolute", 3, 3, "", "Jump to absolute address", {"type": "control", "modifies": ["PC"], "reads": [], "control_flow": "unconditional_jump"}),
-            (0x6C, "JMP", "absolute_indirect", 3, 5, "", "Jump to (absolute)", {"type": "control", "modifies": ["PC"], "reads": ["memory"], "control_flow": "unconditional_jump"}),
-            (0x7C, "JMP", "absolute_x_indirect", 3, 6, "", "Jump to (absolute,X)", {"type": "control", "modifies": ["PC"], "reads": ["X", "memory"], "control_flow": "unconditional_jump"}),
-            (0x5C, "JML", "long", 4, 4, "", "Jump long to address", {"type": "control", "modifies": ["PC", "PBR"], "reads": [], "control_flow": "unconditional_jump"}),
-            (0xDC, "JML", "absolute_indirect_long", 3, 6, "", "Jump long to [absolute]", {"type": "control", "modifies": ["PC", "PBR"], "reads": ["memory"], "control_flow": "unconditional_jump"}),
+            (0x4c, "JMP", "absolute", 3, 3, "", "Jump to absolute address", {"type": "control", "modifies": ["PC"], "reads": [], "control_flow": "unconditional_jump"}),
+            (0x6c, "JMP", "absolute_indirect", 3, 5, "", "Jump to (absolute)", {"type": "control", "modifies": ["PC"], "reads": ["memory"], "control_flow": "unconditional_jump"}),
+            (0x7c, "JMP", "absolute_x_indirect", 3, 6, "", "Jump to (absolute,X)", {"type": "control", "modifies": ["PC"], "reads": ["X", "memory"], "control_flow": "unconditional_jump"}),
+            (0x5c, "JML", "long", 4, 4, "", "Jump long to address", {"type": "control", "modifies": ["PC", "PBR"], "reads": [], "control_flow": "unconditional_jump"}),
+            (0xdc, "JML", "absolute_indirect_long", 3, 6, "", "Jump long to [absolute]", {"type": "control", "modifies": ["PC", "PBR"], "reads": ["memory"], "control_flow": "unconditional_jump"}),
 
             # Subroutine calls
             (0x20, "JSR", "absolute", 3, 6, "", "Jump to subroutine", {"type": "control", "modifies": ["PC", "S"], "reads": [], "control_flow": "subroutine_call"}),
             (0x22, "JSL", "long", 4, 8, "", "Jump to subroutine long", {"type": "control", "modifies": ["PC", "PBR", "S"], "reads": [], "control_flow": "subroutine_call"}),
-            (0xFC, "JSR", "absolute_x_indirect", 3, 8, "", "Jump to subroutine (absolute,X)", {"type": "control", "modifies": ["PC", "S"], "reads": ["X", "memory"], "control_flow": "subroutine_call"}),
+            (0xfc, "JSR", "absolute_x_indirect", 3, 8, "", "Jump to subroutine (absolute,X)", {"type": "control", "modifies": ["PC", "S"], "reads": ["X", "memory"], "control_flow": "subroutine_call"}),
 
             # Returns
             (0x60, "RTS", "implied", 1, 6, "", "Return from subroutine", {"type": "control", "modifies": ["PC"], "reads": ["S"], "control_flow": "return"}),
-            (0x6B, "RTL", "implied", 1, 6, "", "Return from subroutine long", {"type": "control", "modifies": ["PC", "PBR"], "reads": ["S"], "control_flow": "return"}),
+            (0x6b, "RTL", "implied", 1, 6, "", "Return from subroutine long", {"type": "control", "modifies": ["PC", "PBR"], "reads": ["S"], "control_flow": "return"}),
             (0x40, "RTI", "implied", 1, 6, "", "Return from interrupt", {"type": "control", "modifies": ["PC", "P"], "reads": ["S"], "control_flow": "return"}),
 
             # Branches
@@ -171,58 +171,58 @@ class ComprehensiveDisassembler:
             (0x50, "BVC", "relative", 2, 2, "", "Branch if overflow clear", {"type": "control", "modifies": [], "reads": ["P"], "control_flow": "conditional_branch"}),
             (0x70, "BVS", "relative", 2, 2, "", "Branch if overflow set", {"type": "control", "modifies": [], "reads": ["P"], "control_flow": "conditional_branch"}),
             (0x90, "BCC", "relative", 2, 2, "", "Branch if carry clear", {"type": "control", "modifies": [], "reads": ["P"], "control_flow": "conditional_branch"}),
-            (0xB0, "BCS", "relative", 2, 2, "", "Branch if carry set", {"type": "control", "modifies": [], "reads": ["P"], "control_flow": "conditional_branch"}),
-            (0xD0, "BNE", "relative", 2, 2, "", "Branch if not equal", {"type": "control", "modifies": [], "reads": ["P"], "control_flow": "conditional_branch"}),
-            (0xF0, "BEQ", "relative", 2, 2, "", "Branch if equal", {"type": "control", "modifies": [], "reads": ["P"], "control_flow": "conditional_branch"}),
+            (0xb0, "BCS", "relative", 2, 2, "", "Branch if carry set", {"type": "control", "modifies": [], "reads": ["P"], "control_flow": "conditional_branch"}),
+            (0xd0, "BNE", "relative", 2, 2, "", "Branch if not equal", {"type": "control", "modifies": [], "reads": ["P"], "control_flow": "conditional_branch"}),
+            (0xf0, "BEQ", "relative", 2, 2, "", "Branch if equal", {"type": "control", "modifies": [], "reads": ["P"], "control_flow": "conditional_branch"}),
             (0x80, "BRA", "relative", 2, 3, "", "Branch always", {"type": "control", "modifies": [], "reads": [], "control_flow": "unconditional_branch"}),
 
             # Status flags
-            (0xC2, "REP", "immediate", 2, 3, "Various", "Reset processor status bits", {"type": "status", "modifies": ["P"], "reads": [], "special": "flag_control"}),
-            (0xE2, "SEP", "immediate", 2, 3, "Various", "Set processor status bits", {"type": "status", "modifies": ["P"], "reads": [], "special": "flag_control"}),
+            (0xc2, "REP", "immediate", 2, 3, "Various", "Reset processor status bits", {"type": "status", "modifies": ["P"], "reads": [], "special": "flag_control"}),
+            (0xe2, "SEP", "immediate", 2, 3, "Various", "Set processor status bits", {"type": "status", "modifies": ["P"], "reads": [], "special": "flag_control"}),
             (0x18, "CLC", "implied", 1, 2, "c", "Clear carry flag", {"type": "status", "modifies": ["P"], "reads": []}),
             (0x38, "SEC", "implied", 1, 2, "C", "Set carry flag", {"type": "status", "modifies": ["P"], "reads": []}),
             (0x58, "CLI", "implied", 1, 2, "i", "Clear interrupt disable", {"type": "status", "modifies": ["P"], "reads": []}),
             (0x78, "SEI", "implied", 1, 2, "I", "Set interrupt disable", {"type": "status", "modifies": ["P"], "reads": []}),
-            (0xD8, "CLD", "implied", 1, 2, "d", "Clear decimal mode", {"type": "status", "modifies": ["P"], "reads": []}),
-            (0xF8, "SED", "implied", 1, 2, "D", "Set decimal mode", {"type": "status", "modifies": ["P"], "reads": []}),
-            (0xB8, "CLV", "implied", 1, 2, "v", "Clear overflow flag", {"type": "status", "modifies": ["P"], "reads": []}),
+            (0xd8, "CLD", "implied", 1, 2, "d", "Clear decimal mode", {"type": "status", "modifies": ["P"], "reads": []}),
+            (0xf8, "SED", "implied", 1, 2, "D", "Set decimal mode", {"type": "status", "modifies": ["P"], "reads": []}),
+            (0xb8, "CLV", "implied", 1, 2, "v", "Clear overflow flag", {"type": "status", "modifies": ["P"], "reads": []}),
 
             # Stack operations
             (0x48, "PHA", "implied", 1, 3, "", "Push accumulator", {"type": "stack", "modifies": ["S", "memory"], "reads": ["A"]}),
             (0x68, "PLA", "implied", 1, 4, "Nz", "Pull accumulator", {"type": "stack", "modifies": ["A"], "reads": ["S", "memory"]}),
-            (0x5A, "PHY", "implied", 1, 3, "", "Push Y register", {"type": "stack", "modifies": ["S", "memory"], "reads": ["Y"]}),
-            (0x7A, "PLY", "implied", 1, 4, "Nz", "Pull Y register", {"type": "stack", "modifies": ["Y"], "reads": ["S", "memory"]}),
-            (0xDA, "PHX", "implied", 1, 3, "", "Push X register", {"type": "stack", "modifies": ["S", "memory"], "reads": ["X"]}),
-            (0xFA, "PLX", "implied", 1, 4, "Nz", "Pull X register", {"type": "stack", "modifies": ["X"], "reads": ["S", "memory"]}),
-            (0x8B, "PHB", "implied", 1, 3, "", "Push data bank", {"type": "stack", "modifies": ["S", "memory"], "reads": ["DBR"]}),
-            (0xAB, "PLB", "implied", 1, 4, "Nz", "Pull data bank", {"type": "stack", "modifies": ["DBR"], "reads": ["S", "memory"]}),
-            (0x0B, "PHD", "implied", 1, 3, "", "Push direct page", {"type": "stack", "modifies": ["S", "memory"], "reads": ["D"]}),
-            (0x2B, "PLD", "implied", 1, 4, "Nz", "Pull direct page", {"type": "stack", "modifies": ["D"], "reads": ["S", "memory"]}),
-            (0x4B, "PHK", "implied", 1, 3, "", "Push program bank", {"type": "stack", "modifies": ["S", "memory"], "reads": ["PBR"]}),
+            (0x5a, "PHY", "implied", 1, 3, "", "Push Y register", {"type": "stack", "modifies": ["S", "memory"], "reads": ["Y"]}),
+            (0x7a, "PLY", "implied", 1, 4, "Nz", "Pull Y register", {"type": "stack", "modifies": ["Y"], "reads": ["S", "memory"]}),
+            (0xda, "PHX", "implied", 1, 3, "", "Push X register", {"type": "stack", "modifies": ["S", "memory"], "reads": ["X"]}),
+            (0xfa, "PLX", "implied", 1, 4, "Nz", "Pull X register", {"type": "stack", "modifies": ["X"], "reads": ["S", "memory"]}),
+            (0x8b, "PHB", "implied", 1, 3, "", "Push data bank", {"type": "stack", "modifies": ["S", "memory"], "reads": ["DBR"]}),
+            (0xab, "PLB", "implied", 1, 4, "Nz", "Pull data bank", {"type": "stack", "modifies": ["DBR"], "reads": ["S", "memory"]}),
+            (0x0b, "PHD", "implied", 1, 3, "", "Push direct page", {"type": "stack", "modifies": ["S", "memory"], "reads": ["D"]}),
+            (0x2b, "PLD", "implied", 1, 4, "Nz", "Pull direct page", {"type": "stack", "modifies": ["D"], "reads": ["S", "memory"]}),
+            (0x4b, "PHK", "implied", 1, 3, "", "Push program bank", {"type": "stack", "modifies": ["S", "memory"], "reads": ["PBR"]}),
             (0x08, "PHP", "implied", 1, 3, "", "Push processor status", {"type": "stack", "modifies": ["S", "memory"], "reads": ["P"]}),
             (0x28, "PLP", "implied", 1, 4, "Various", "Pull processor status", {"type": "stack", "modifies": ["P"], "reads": ["S", "memory"]}),
 
             # Transfer instructions
-            (0xAA, "TAX", "implied", 1, 2, "Nz", "Transfer A to X", {"type": "transfer", "modifies": ["X"], "reads": ["A"]}),
-            (0x8A, "TXA", "implied", 1, 2, "Nz", "Transfer X to A", {"type": "transfer", "modifies": ["A"], "reads": ["X"]}),
-            (0xA8, "TAY", "implied", 1, 2, "Nz", "Transfer A to Y", {"type": "transfer", "modifies": ["Y"], "reads": ["A"]}),
+            (0xaa, "TAX", "implied", 1, 2, "Nz", "Transfer A to X", {"type": "transfer", "modifies": ["X"], "reads": ["A"]}),
+            (0x8a, "TXA", "implied", 1, 2, "Nz", "Transfer X to A", {"type": "transfer", "modifies": ["A"], "reads": ["X"]}),
+            (0xa8, "TAY", "implied", 1, 2, "Nz", "Transfer A to Y", {"type": "transfer", "modifies": ["Y"], "reads": ["A"]}),
             (0x98, "TYA", "implied", 1, 2, "Nz", "Transfer Y to A", {"type": "transfer", "modifies": ["A"], "reads": ["Y"]}),
-            (0x9A, "TXS", "implied", 1, 2, "", "Transfer X to stack", {"type": "transfer", "modifies": ["S"], "reads": ["X"]}),
-            (0xBA, "TSX", "implied", 1, 2, "Nz", "Transfer stack to X", {"type": "transfer", "modifies": ["X"], "reads": ["S"]}),
-            (0x5B, "TCD", "implied", 1, 2, "Nz", "Transfer A to direct page", {"type": "transfer", "modifies": ["D"], "reads": ["A"]}),
-            (0x7B, "TDC", "implied", 1, 2, "Nz", "Transfer direct page to A", {"type": "transfer", "modifies": ["A"], "reads": ["D"]}),
-            (0x1B, "TCS", "implied", 1, 2, "", "Transfer A to stack", {"type": "transfer", "modifies": ["S"], "reads": ["A"]}),
-            (0x3B, "TSC", "implied", 1, 2, "Nz", "Transfer stack to A", {"type": "transfer", "modifies": ["A"], "reads": ["S"]}),
+            (0x9a, "TXS", "implied", 1, 2, "", "Transfer X to stack", {"type": "transfer", "modifies": ["S"], "reads": ["X"]}),
+            (0xba, "TSX", "implied", 1, 2, "Nz", "Transfer stack to X", {"type": "transfer", "modifies": ["X"], "reads": ["S"]}),
+            (0x5b, "TCD", "implied", 1, 2, "Nz", "Transfer A to direct page", {"type": "transfer", "modifies": ["D"], "reads": ["A"]}),
+            (0x7b, "TDC", "implied", 1, 2, "Nz", "Transfer direct page to A", {"type": "transfer", "modifies": ["A"], "reads": ["D"]}),
+            (0x1b, "TCS", "implied", 1, 2, "", "Transfer A to stack", {"type": "transfer", "modifies": ["S"], "reads": ["A"]}),
+            (0x3b, "TSC", "implied", 1, 2, "Nz", "Transfer stack to A", {"type": "transfer", "modifies": ["A"], "reads": ["S"]}),
 
             # Other important instructions
-            (0xEA, "NOP", "implied", 1, 2, "", "No operation", {"type": "misc", "modifies": [], "reads": []}),
+            (0xea, "NOP", "implied", 1, 2, "", "No operation", {"type": "misc", "modifies": [], "reads": []}),
             (0x00, "BRK", "immediate", 2, 7, "I", "Break", {"type": "system", "modifies": ["PC", "S"], "reads": [], "special": "interrupt"}),
             (0x02, "COP", "immediate", 2, 7, "I", "Coprocessor", {"type": "system", "modifies": ["PC", "S"], "reads": [], "special": "interrupt"}),
             (0x42, "WDM", "immediate", 2, 2, "", "Reserved", {"type": "system", "modifies": [], "reads": []}),
-            (0xDB, "STP", "implied", 1, 3, "", "Stop processor", {"type": "system", "modifies": [], "reads": [], "special": "halt"}),
-            (0xCB, "WAI", "implied", 1, 3, "", "Wait for interrupt", {"type": "system", "modifies": [], "reads": [], "special": "wait"}),
-            (0xEB, "XBA", "implied", 1, 3, "Nz", "Exchange B and A", {"type": "transfer", "modifies": ["A"], "reads": ["A"]}),
-            (0xFB, "XCE", "implied", 1, 2, "Emulation", "Exchange carry and emulation", {"type": "system", "modifies": ["P"], "reads": ["P"], "special": "mode_switch"}),
+            (0xdb, "STP", "implied", 1, 3, "", "Stop processor", {"type": "system", "modifies": [], "reads": [], "special": "halt"}),
+            (0xcb, "WAI", "implied", 1, 3, "", "Wait for interrupt", {"type": "system", "modifies": [], "reads": [], "special": "wait"}),
+            (0xeb, "XBA", "implied", 1, 3, "Nz", "Exchange B and A", {"type": "transfer", "modifies": ["A"], "reads": ["A"]}),
+            (0xfb, "XCE", "implied", 1, 2, "Emulation", "Exchange carry and emulation", {"type": "system", "modifies": ["P"], "reads": ["P"], "special": "mode_switch"}),
         ]
 
         for opcode_val, mnemonic, addressing, size, cycles, flags, description, analysis in instructions:
@@ -241,13 +241,13 @@ class ComprehensiveDisassembler:
     def _init_snes_vectors(self) -> Dict[str, int]:
         """Initialize SNES interrupt vectors"""
         return {
-            'RESET': 0xFFFC,
-            'IRQ': 0xFFFE,
-            'NMI': 0xFFFA,
-            'BRK': 0xFFFE,
-            'COP': 0xFFF4,
-            'ABORT': 0xFFF8,
-            'UNUSED': 0xFFEA
+            'RESET': 0xfffc,
+            'IRQ': 0xfffe,
+            'NMI': 0xfffa,
+            'BRK': 0xfffe,
+            'COP': 0xfff4,
+            'ABORT': 0xfff8,
+            'UNUSED': 0xffea
         }
 
     def _init_hw_registers(self) -> Dict[int, str]:
@@ -264,12 +264,12 @@ class ComprehensiveDisassembler:
             0x2107: "BG1SC - BG1 screen base and size",
             0x2108: "BG2SC - BG2 screen base and size",
             0x2109: "BG3SC - BG3 screen base and size",
-            0x210A: "BG4SC - BG4 screen base and size",
-            0x210B: "BG12NBA - BG1 and BG2 character data area",
-            0x210C: "BG34NBA - BG3 and BG4 character data area",
-            0x210D: "BG1HOFS - BG1 horizontal scroll",
-            0x210E: "BG1VOFS - BG1 vertical scroll",
-            0x210F: "BG2HOFS - BG2 horizontal scroll",
+            0x210a: "BG4SC - BG4 screen base and size",
+            0x210b: "BG12NBA - BG1 and BG2 character data area",
+            0x210c: "BG34NBA - BG3 and BG4 character data area",
+            0x210d: "BG1HOFS - BG1 horizontal scroll",
+            0x210e: "BG1VOFS - BG1 vertical scroll",
+            0x210f: "BG2HOFS - BG2 horizontal scroll",
             0x2110: "BG2VOFS - BG2 vertical scroll",
             0x2111: "BG3HOFS - BG3 horizontal scroll",
             0x2112: "BG3VOFS - BG3 vertical scroll",
@@ -299,8 +299,8 @@ class ComprehensiveDisassembler:
             0x4304: "A1B0 - DMA source address bank channel 0",
             0x4305: "DAS0L - DMA size low channel 0",
             0x4306: "DAS0H - DMA size high channel 0",
-            0x420B: "MDMAEN - Select DMA channels",
-            0x420C: "HDMAEN - Select HDMA channels",
+            0x420b: "MDMAEN - Select DMA channels",
+            0x420c: "HDMAEN - Select HDMA channels",
         }
 
         return registers
@@ -319,7 +319,7 @@ class ComprehensiveDisassembler:
         for vector_name, vector_addr in self.snes_vectors.items():
             if vector_addr + 1 < self.rom_size:
                 target_addr = struct.unpack('<H', self.rom_data[vector_addr:vector_addr+2])[0]
-                if 0x8000 <= target_addr <= 0xFFFF:
+                if 0x8000 <= target_addr <= 0xffff:
                     # Convert SNES address to ROM offset
                     rom_offset = target_addr - 0x8000
                     if rom_offset < self.rom_size:
@@ -346,15 +346,15 @@ class ComprehensiveDisassembler:
             chunk = self.rom_data[offset:offset+10]
 
             # Pattern: REP #$30 (common start pattern)
-            if chunk[0] == 0xC2 and chunk[1] == 0x30:
+            if chunk[0] == 0xc2 and chunk[1] == 0x30:
                 patterns.append(offset)
 
             # Pattern: SEI; CLD; CLC (interrupt disable sequence)
-            if len(chunk) >= 3 and chunk[0] == 0x78 and chunk[1] == 0xD8 and chunk[2] == 0x18:
+            if len(chunk) >= 3 and chunk[0] == 0x78 and chunk[1] == 0xd8 and chunk[2] == 0x18:
                 patterns.append(offset)
 
             # Pattern: LDA #$xxxx; STA $xxxx (common data setup)
-            if len(chunk) >= 6 and chunk[0] == 0xA9 and chunk[3] == 0x8D:
+            if len(chunk) >= 6 and chunk[0] == 0xa9 and chunk[3] == 0x8d:
                 patterns.append(offset)
 
         return patterns[:50]  # Limit results
@@ -369,7 +369,7 @@ class ComprehensiveDisassembler:
             # JSR absolute ($20)
             if opcode == 0x20 and offset + 2 < self.rom_size:
                 target_addr = struct.unpack('<H', self.rom_data[offset+1:offset+3])[0]
-                if 0x8000 <= target_addr <= 0xFFFF:
+                if 0x8000 <= target_addr <= 0xffff:
                     rom_offset = target_addr - 0x8000
                     if rom_offset < self.rom_size:
                         targets.append(rom_offset)
@@ -377,9 +377,9 @@ class ComprehensiveDisassembler:
             # JSL long ($22)
             elif opcode == 0x22 and offset + 3 < self.rom_size:
                 target_addr = struct.unpack('<I', self.rom_data[offset+1:offset+4] + b'\x00')[0]
-                bank = (target_addr >> 16) & 0xFF
-                addr = target_addr & 0xFFFF
-                if 0x8000 <= addr <= 0xFFFF:
+                bank = (target_addr >> 16) & 0xff
+                addr = target_addr & 0xffff
+                if 0x8000 <= addr <= 0xffff:
                     rom_offset = bank * 0x8000 + (addr - 0x8000)
                     if rom_offset < self.rom_size:
                         targets.append(rom_offset)
@@ -617,7 +617,7 @@ class ComprehensiveDisassembler:
         """Classify function type based on instruction patterns"""
         # Check for graphics operations
         graphics_regs = {0x2100, 0x2101, 0x2102, 0x2103, 0x2104, 0x2105, 0x2106, 0x2107,
-                        0x2108, 0x2109, 0x210A, 0x210B, 0x210C, 0x210D, 0x210E, 0x210F,
+                        0x2108, 0x2109, 0x210a, 0x210b, 0x210c, 0x210d, 0x210e, 0x210f,
                         0x2110, 0x2111, 0x2112, 0x2113, 0x2114, 0x2115, 0x2116, 0x2117,
                         0x2118, 0x2119}
 
@@ -630,7 +630,7 @@ class ComprehensiveDisassembler:
             return "audio"
 
         # Check for DMA operations
-        dma_regs = {0x4300, 0x4301, 0x4302, 0x4303, 0x4304, 0x4305, 0x4306, 0x420B, 0x420C}
+        dma_regs = {0x4300, 0x4301, 0x4302, 0x4303, 0x4304, 0x4305, 0x4306, 0x420b, 0x420c}
         if hw_regs & dma_regs:
             return "system"
 

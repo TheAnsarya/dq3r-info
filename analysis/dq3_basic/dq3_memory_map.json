@@ -138,7 +138,7 @@
 		{
 			"address": 655360,
 			"size": 65536,
-			"name": "Bank$0A",
+			"name": "Bank$0a",
 			"description": "Program code",
 			"access_type": "rx",
 			"data_type": "code",
@@ -147,7 +147,7 @@
 		{
 			"address": 720896,
 			"size": 65536,
-			"name": "Bank$0B",
+			"name": "Bank$0b",
 			"description": "Program code",
 			"access_type": "rx",
 			"data_type": "code",
@@ -156,7 +156,7 @@
 		{
 			"address": 786432,
 			"size": 65536,
-			"name": "Bank$0C",
+			"name": "Bank$0c",
 			"description": "Program code",
 			"access_type": "rx",
 			"data_type": "code",
@@ -165,7 +165,7 @@
 		{
 			"address": 851968,
 			"size": 65536,
-			"name": "Bank$0D",
+			"name": "Bank$0d",
 			"description": "Program code",
 			"access_type": "rx",
 			"data_type": "code",
@@ -174,7 +174,7 @@
 		{
 			"address": 917504,
 			"size": 65536,
-			"name": "Bank$0E",
+			"name": "Bank$0e",
 			"description": "Program code",
 			"access_type": "rx",
 			"data_type": "code",
@@ -183,7 +183,7 @@
 		{
 			"address": 983040,
 			"size": 65536,
-			"name": "Bank$0F",
+			"name": "Bank$0f",
 			"description": "Program code",
 			"access_type": "rx",
 			"data_type": "code",
@@ -282,7 +282,7 @@
 		{
 			"address": 1703936,
 			"size": 65536,
-			"name": "Bank$1A",
+			"name": "Bank$1a",
 			"description": "Program code",
 			"access_type": "rx",
 			"data_type": "code",
@@ -291,7 +291,7 @@
 		{
 			"address": 1769472,
 			"size": 65536,
-			"name": "Bank$1B",
+			"name": "Bank$1b",
 			"description": "Program code",
 			"access_type": "rx",
 			"data_type": "code",
@@ -300,7 +300,7 @@
 		{
 			"address": 1835008,
 			"size": 65536,
-			"name": "Bank$1C",
+			"name": "Bank$1c",
 			"description": "Program code",
 			"access_type": "rx",
 			"data_type": "code",
@@ -309,7 +309,7 @@
 		{
 			"address": 1900544,
 			"size": 65536,
-			"name": "Bank$1D",
+			"name": "Bank$1d",
 			"description": "Program code",
 			"access_type": "rx",
 			"data_type": "code",
@@ -318,7 +318,7 @@
 		{
 			"address": 1966080,
 			"size": 65536,
-			"name": "Bank$1E",
+			"name": "Bank$1e",
 			"description": "Program code",
 			"access_type": "rx",
 			"data_type": "code",
@@ -327,7 +327,7 @@
 		{
 			"address": 2031616,
 			"size": 65536,
-			"name": "Bank$1F",
+			"name": "Bank$1f",
 			"description": "Program code",
 			"access_type": "rx",
 			"data_type": "code",
@@ -426,7 +426,7 @@
 		{
 			"address": 2752512,
 			"size": 65536,
-			"name": "Bank$2A",
+			"name": "Bank$2a",
 			"description": "Program code",
 			"access_type": "rx",
 			"data_type": "code",
@@ -435,7 +435,7 @@
 		{
 			"address": 2818048,
 			"size": 65536,
-			"name": "Bank$2B",
+			"name": "Bank$2b",
 			"description": "Program code",
 			"access_type": "rx",
 			"data_type": "code",
@@ -444,7 +444,7 @@
 		{
 			"address": 2883584,
 			"size": 65536,
-			"name": "Bank$2C",
+			"name": "Bank$2c",
 			"description": "Program code",
 			"access_type": "rx",
 			"data_type": "code",
@@ -453,7 +453,7 @@
 		{
 			"address": 2949120,
 			"size": 65536,
-			"name": "Bank$2D",
+			"name": "Bank$2d",
 			"description": "Program code",
 			"access_type": "rx",
 			"data_type": "code",
@@ -462,7 +462,7 @@
 		{
 			"address": 3014656,
 			"size": 65536,
-			"name": "Bank$2E",
+			"name": "Bank$2e",
 			"description": "Program code",
 			"access_type": "rx",
 			"data_type": "code",
@@ -471,7 +471,7 @@
 		{
 			"address": 3080192,
 			"size": 65536,
-			"name": "Bank$2F",
+			"name": "Bank$2f",
 			"description": "Program code",
 			"access_type": "rx",
 			"data_type": "code",
@@ -570,7 +570,7 @@
 		{
 			"address": 3801088,
 			"size": 65536,
-			"name": "Bank$3A",
+			"name": "Bank$3a",
 			"description": "Program code",
 			"access_type": "rx",
 			"data_type": "code",
@@ -579,7 +579,7 @@
 		{
 			"address": 3866624,
 			"size": 65536,
-			"name": "Bank$3B",
+			"name": "Bank$3b",
 			"description": "Program code",
 			"access_type": "rx",
 			"data_type": "code",
@@ -588,7 +588,7 @@
 		{
 			"address": 3932160,
 			"size": 65536,
-			"name": "Bank$3C",
+			"name": "Bank$3c",
 			"description": "Program code",
 			"access_type": "rx",
 			"data_type": "code",
@@ -597,7 +597,7 @@
 		{
 			"address": 3997696,
 			"size": 65536,
-			"name": "Bank$3D",
+			"name": "Bank$3d",
 			"description": "Program code",
 			"access_type": "rx",
 			"data_type": "code",
@@ -606,7 +606,7 @@
 		{
 			"address": 4063232,
 			"size": 65536,
-			"name": "Bank$3E",
+			"name": "Bank$3e",
 			"description": "Program code",
 			"access_type": "rx",
 			"data_type": "code",
@@ -615,7 +615,7 @@
 		{
 			"address": 4128768,
 			"size": 65536,
-			"name": "Bank$3F",
+			"name": "Bank$3f",
 			"description": "Data/Unknown",
 			"access_type": "rx",
 			"data_type": "data",

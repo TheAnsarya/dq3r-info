@@ -6,1284 +6,1284 @@
 
 ; Region 1: subroutine ($9000-$9013)
 region_1_subroutine:
-	db $1e               ; Unknown opcode $1E
+	db $1e               ; Unknown opcode $1e
 	db $00               ; Unknown opcode $00
 	lda #$55             ; Load accumulator immediate
 	db $55               ; Unknown opcode $55
-	db $9d               ; Unknown opcode $9D
-	db $1f               ; Unknown opcode $1F
-	db $dd               ; Unknown opcode $DD
-	db $ca               ; Unknown opcode $CA
-	db $ca               ; Unknown opcode $CA
+	db $9d               ; Unknown opcode $9d
+	db $1f               ; Unknown opcode $1f
+	db $dd               ; Unknown opcode $dd
+	db $ca               ; Unknown opcode $ca
+	db $ca               ; Unknown opcode $ca
 	bpl #$f9             ; Branch plus
-	db $ab               ; Unknown opcode $AB
+	db $ab               ; Unknown opcode $ab
 	rep #$30             ; Reset processor status
-	db $7a               ; Unknown opcode $7A
-	db $fa               ; Unknown opcode $FA
+	db $7a               ; Unknown opcode $7a
+	db $fa               ; Unknown opcode $fa
 	db $68               ; Unknown opcode $68
 	db $28               ; Unknown opcode $28
 	rtl                  ; Return from subroutine long
 
 
-; Region 2: subroutine ($B000-$B038)
+; Region 2: subroutine ($b000-$b038)
 region_2_subroutine:
 	jsr $34be            ; Jump subroutine
-	db $bd               ; Unknown opcode $BD
+	db $bd               ; Unknown opcode $bd
 	db $88               ; Unknown opcode $88
 	db $89               ; Unknown opcode $89
 	jsr $34be            ; Jump subroutine
-	db $bd               ; Unknown opcode $BD
-	db $8a               ; Unknown opcode $8A
+	db $bd               ; Unknown opcode $bd
+	db $8a               ; Unknown opcode $8a
 	db $89               ; Unknown opcode $89
 	jsr $34be            ; Jump subroutine
-	db $bd               ; Unknown opcode $BD
-	db $8c               ; Unknown opcode $8C
+	db $bd               ; Unknown opcode $bd
+	db $8c               ; Unknown opcode $8c
 	db $89               ; Unknown opcode $89
 	jsr $34be            ; Jump subroutine
-	db $bd               ; Unknown opcode $BD
-	db $8e               ; Unknown opcode $8E
+	db $bd               ; Unknown opcode $bd
+	db $8e               ; Unknown opcode $8e
 	db $89               ; Unknown opcode $89
 	jsr $34be            ; Jump subroutine
-	db $bd               ; Unknown opcode $BD
+	db $bd               ; Unknown opcode $bd
 	bcc #$89             ; Branch carry clear
 	jsr $34be            ; Jump subroutine
-	db $bd               ; Unknown opcode $BD
+	db $bd               ; Unknown opcode $bd
 	db $92               ; Unknown opcode $92
 	db $89               ; Unknown opcode $89
 	jsr $34be            ; Jump subroutine
-	db $bd               ; Unknown opcode $BD
+	db $bd               ; Unknown opcode $bd
 	db $94               ; Unknown opcode $94
 	db $89               ; Unknown opcode $89
 	jsr $34be            ; Jump subroutine
-	db $fa               ; Unknown opcode $FA
-	db $e8               ; Unknown opcode $E8
-	db $e8               ; Unknown opcode $E8
-	db $e0               ; Unknown opcode $E0
+	db $fa               ; Unknown opcode $fa
+	db $e8               ; Unknown opcode $e8
+	db $e8               ; Unknown opcode $e8
+	db $e0               ; Unknown opcode $e0
 	jsr $9000            ; Jump subroutine
-	db $af               ; Unknown opcode $AF
-	db $fa               ; Unknown opcode $FA
-	db $ab               ; Unknown opcode $AB
+	db $af               ; Unknown opcode $af
+	db $fa               ; Unknown opcode $fa
+	db $ab               ; Unknown opcode $ab
 	db $28               ; Unknown opcode $28
 	rtl                  ; Return from subroutine long
 
 
-; Region 3: subroutine ($F000-$F00D)
+; Region 3: subroutine ($f000-$f00d)
 region_3_subroutine:
 	jsr $74a9            ; Jump subroutine
 	bcc #$09             ; Branch carry clear
-	db $ab               ; Unknown opcode $AB
+	db $ab               ; Unknown opcode $ab
 	rep #$30             ; Reset processor status
-	db $7a               ; Unknown opcode $7A
-	db $fa               ; Unknown opcode $FA
+	db $7a               ; Unknown opcode $7a
+	db $fa               ; Unknown opcode $fa
 	db $68               ; Unknown opcode $68
 	db $28               ; Unknown opcode $28
 	sec                  ; Set carry flag
 	rtl                  ; Return from subroutine long
 
 
-; Region 4: subroutine ($E000-$E5D3)
+; Region 4: subroutine ($e000-$e5d3)
 region_4_subroutine:
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
 	clc                  ; Clear carry flag
 	db $85               ; Unknown opcode $85
-	db $1a               ; Unknown opcode $1A
+	db $1a               ; Unknown opcode $1a
 	lda $4214            ; Load accumulator absolute
-	db $8f               ; Unknown opcode $8F
-	db $f9               ; Unknown opcode $F9
+	db $8f               ; Unknown opcode $8f
+	db $f9               ; Unknown opcode $f9
 	beq #$7e             ; Branch equal
 	lda #$00             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $8f               ; Unknown opcode $8F
-	db $cf               ; Unknown opcode $CF
-	db $ee               ; Unknown opcode $EE
-	db $7e               ; Unknown opcode $7E
-	db $a5               ; Unknown opcode $A5
-	db $1b               ; Unknown opcode $1B
+	db $8f               ; Unknown opcode $8f
+	db $cf               ; Unknown opcode $cf
+	db $ee               ; Unknown opcode $ee
+	db $7e               ; Unknown opcode $7e
+	db $a5               ; Unknown opcode $a5
+	db $1b               ; Unknown opcode $1b
 	sta $4206            ; Store accumulator absolute
-	db $a5               ; Unknown opcode $A5
-	db $1a               ; Unknown opcode $1A
+	db $a5               ; Unknown opcode $a5
+	db $1a               ; Unknown opcode $1a
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
 	clc                  ; Clear carry flag
 	db $85               ; Unknown opcode $85
-	db $1a               ; Unknown opcode $1A
+	db $1a               ; Unknown opcode $1a
 	lda $4214            ; Load accumulator absolute
-	db $8f               ; Unknown opcode $8F
+	db $8f               ; Unknown opcode $8f
 	xce                  ; Exchange carry and emulation
 	beq #$7e             ; Branch equal
 	lda #$00             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $8f               ; Unknown opcode $8F
+	db $8f               ; Unknown opcode $8f
 	bne #$ee             ; Branch not equal
-	db $7e               ; Unknown opcode $7E
-	db $a5               ; Unknown opcode $A5
-	db $1b               ; Unknown opcode $1B
+	db $7e               ; Unknown opcode $7e
+	db $a5               ; Unknown opcode $a5
+	db $1b               ; Unknown opcode $1b
 	sta $4206            ; Store accumulator absolute
-	db $a5               ; Unknown opcode $A5
-	db $1a               ; Unknown opcode $1A
+	db $a5               ; Unknown opcode $a5
+	db $1a               ; Unknown opcode $1a
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
 	clc                  ; Clear carry flag
 	db $85               ; Unknown opcode $85
-	db $1a               ; Unknown opcode $1A
+	db $1a               ; Unknown opcode $1a
 	lda $4214            ; Load accumulator absolute
-	db $8f               ; Unknown opcode $8F
-	db $fd               ; Unknown opcode $FD
+	db $8f               ; Unknown opcode $8f
+	db $fd               ; Unknown opcode $fd
 	beq #$7e             ; Branch equal
 	lda #$00             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $8f               ; Unknown opcode $8F
-	db $d1               ; Unknown opcode $D1
-	db $ee               ; Unknown opcode $EE
-	db $7e               ; Unknown opcode $7E
-	db $a5               ; Unknown opcode $A5
-	db $1b               ; Unknown opcode $1B
+	db $8f               ; Unknown opcode $8f
+	db $d1               ; Unknown opcode $d1
+	db $ee               ; Unknown opcode $ee
+	db $7e               ; Unknown opcode $7e
+	db $a5               ; Unknown opcode $a5
+	db $1b               ; Unknown opcode $1b
 	sta $4206            ; Store accumulator absolute
-	db $a5               ; Unknown opcode $A5
-	db $1a               ; Unknown opcode $1A
+	db $a5               ; Unknown opcode $a5
+	db $1a               ; Unknown opcode $1a
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
 	clc                  ; Clear carry flag
 	db $85               ; Unknown opcode $85
-	db $1a               ; Unknown opcode $1A
+	db $1a               ; Unknown opcode $1a
 	lda $4214            ; Load accumulator absolute
-	db $8f               ; Unknown opcode $8F
-	db $ff               ; Unknown opcode $FF
+	db $8f               ; Unknown opcode $8f
+	db $ff               ; Unknown opcode $ff
 	beq #$7e             ; Branch equal
 	lda #$00             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $8f               ; Unknown opcode $8F
-	db $d2               ; Unknown opcode $D2
-	db $ee               ; Unknown opcode $EE
-	db $7e               ; Unknown opcode $7E
-	db $a5               ; Unknown opcode $A5
-	db $1b               ; Unknown opcode $1B
+	db $8f               ; Unknown opcode $8f
+	db $d2               ; Unknown opcode $d2
+	db $ee               ; Unknown opcode $ee
+	db $7e               ; Unknown opcode $7e
+	db $a5               ; Unknown opcode $a5
+	db $1b               ; Unknown opcode $1b
 	sta $4206            ; Store accumulator absolute
-	db $a5               ; Unknown opcode $A5
-	db $1a               ; Unknown opcode $1A
+	db $a5               ; Unknown opcode $a5
+	db $1a               ; Unknown opcode $1a
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
 	clc                  ; Clear carry flag
 	db $85               ; Unknown opcode $85
-	db $1a               ; Unknown opcode $1A
+	db $1a               ; Unknown opcode $1a
 	lda $4214            ; Load accumulator absolute
-	db $8f               ; Unknown opcode $8F
+	db $8f               ; Unknown opcode $8f
 	db $01               ; Unknown opcode $01
-	db $f1               ; Unknown opcode $F1
-	db $7e               ; Unknown opcode $7E
+	db $f1               ; Unknown opcode $f1
+	db $7e               ; Unknown opcode $7e
 	lda #$00             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $8f               ; Unknown opcode $8F
-	db $d3               ; Unknown opcode $D3
-	db $ee               ; Unknown opcode $EE
-	db $7e               ; Unknown opcode $7E
-	db $a5               ; Unknown opcode $A5
-	db $1b               ; Unknown opcode $1B
+	db $8f               ; Unknown opcode $8f
+	db $d3               ; Unknown opcode $d3
+	db $ee               ; Unknown opcode $ee
+	db $7e               ; Unknown opcode $7e
+	db $a5               ; Unknown opcode $a5
+	db $1b               ; Unknown opcode $1b
 	sta $4206            ; Store accumulator absolute
-	db $a5               ; Unknown opcode $A5
-	db $1a               ; Unknown opcode $1A
+	db $a5               ; Unknown opcode $a5
+	db $1a               ; Unknown opcode $1a
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
 	clc                  ; Clear carry flag
 	db $85               ; Unknown opcode $85
-	db $1a               ; Unknown opcode $1A
+	db $1a               ; Unknown opcode $1a
 	lda $4214            ; Load accumulator absolute
-	db $8f               ; Unknown opcode $8F
+	db $8f               ; Unknown opcode $8f
 	db $03               ; Unknown opcode $03
-	db $f1               ; Unknown opcode $F1
-	db $7e               ; Unknown opcode $7E
+	db $f1               ; Unknown opcode $f1
+	db $7e               ; Unknown opcode $7e
 	lda #$00             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $8f               ; Unknown opcode $8F
-	db $d4               ; Unknown opcode $D4
-	db $ee               ; Unknown opcode $EE
-	db $7e               ; Unknown opcode $7E
-	db $a5               ; Unknown opcode $A5
-	db $1b               ; Unknown opcode $1B
+	db $8f               ; Unknown opcode $8f
+	db $d4               ; Unknown opcode $d4
+	db $ee               ; Unknown opcode $ee
+	db $7e               ; Unknown opcode $7e
+	db $a5               ; Unknown opcode $a5
+	db $1b               ; Unknown opcode $1b
 	sta $4206            ; Store accumulator absolute
-	db $a5               ; Unknown opcode $A5
-	db $1a               ; Unknown opcode $1A
+	db $a5               ; Unknown opcode $a5
+	db $1a               ; Unknown opcode $1a
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
 	clc                  ; Clear carry flag
 	db $85               ; Unknown opcode $85
-	db $1a               ; Unknown opcode $1A
+	db $1a               ; Unknown opcode $1a
 	lda $4214            ; Load accumulator absolute
-	db $8f               ; Unknown opcode $8F
+	db $8f               ; Unknown opcode $8f
 	db $05               ; Unknown opcode $05
-	db $f1               ; Unknown opcode $F1
-	db $7e               ; Unknown opcode $7E
+	db $f1               ; Unknown opcode $f1
+	db $7e               ; Unknown opcode $7e
 	lda #$00             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $8f               ; Unknown opcode $8F
-	db $d5               ; Unknown opcode $D5
-	db $ee               ; Unknown opcode $EE
-	db $7e               ; Unknown opcode $7E
-	db $a5               ; Unknown opcode $A5
-	db $1b               ; Unknown opcode $1B
+	db $8f               ; Unknown opcode $8f
+	db $d5               ; Unknown opcode $d5
+	db $ee               ; Unknown opcode $ee
+	db $7e               ; Unknown opcode $7e
+	db $a5               ; Unknown opcode $a5
+	db $1b               ; Unknown opcode $1b
 	sta $4206            ; Store accumulator absolute
-	db $a5               ; Unknown opcode $A5
-	db $1a               ; Unknown opcode $1A
+	db $a5               ; Unknown opcode $a5
+	db $1a               ; Unknown opcode $1a
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
 	clc                  ; Clear carry flag
 	db $85               ; Unknown opcode $85
-	db $1a               ; Unknown opcode $1A
+	db $1a               ; Unknown opcode $1a
 	lda $4214            ; Load accumulator absolute
-	db $8f               ; Unknown opcode $8F
+	db $8f               ; Unknown opcode $8f
 	db $07               ; Unknown opcode $07
-	db $f1               ; Unknown opcode $F1
-	db $7e               ; Unknown opcode $7E
+	db $f1               ; Unknown opcode $f1
+	db $7e               ; Unknown opcode $7e
 	lda #$00             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $8f               ; Unknown opcode $8F
-	db $d6               ; Unknown opcode $D6
-	db $ee               ; Unknown opcode $EE
-	db $7e               ; Unknown opcode $7E
-	db $a5               ; Unknown opcode $A5
-	db $1b               ; Unknown opcode $1B
+	db $8f               ; Unknown opcode $8f
+	db $d6               ; Unknown opcode $d6
+	db $ee               ; Unknown opcode $ee
+	db $7e               ; Unknown opcode $7e
+	db $a5               ; Unknown opcode $a5
+	db $1b               ; Unknown opcode $1b
 	sta $4206            ; Store accumulator absolute
-	db $a5               ; Unknown opcode $A5
-	db $1a               ; Unknown opcode $1A
+	db $a5               ; Unknown opcode $a5
+	db $1a               ; Unknown opcode $1a
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
 	clc                  ; Clear carry flag
 	db $85               ; Unknown opcode $85
-	db $1a               ; Unknown opcode $1A
+	db $1a               ; Unknown opcode $1a
 	lda $4214            ; Load accumulator absolute
-	db $8f               ; Unknown opcode $8F
+	db $8f               ; Unknown opcode $8f
 	db $09               ; Unknown opcode $09
-	db $f1               ; Unknown opcode $F1
-	db $7e               ; Unknown opcode $7E
+	db $f1               ; Unknown opcode $f1
+	db $7e               ; Unknown opcode $7e
 	lda #$00             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $8f               ; Unknown opcode $8F
-	db $d7               ; Unknown opcode $D7
-	db $ee               ; Unknown opcode $EE
-	db $7e               ; Unknown opcode $7E
-	db $a5               ; Unknown opcode $A5
-	db $1b               ; Unknown opcode $1B
+	db $8f               ; Unknown opcode $8f
+	db $d7               ; Unknown opcode $d7
+	db $ee               ; Unknown opcode $ee
+	db $7e               ; Unknown opcode $7e
+	db $a5               ; Unknown opcode $a5
+	db $1b               ; Unknown opcode $1b
 	sta $4206            ; Store accumulator absolute
-	db $a5               ; Unknown opcode $A5
-	db $1a               ; Unknown opcode $1A
+	db $a5               ; Unknown opcode $a5
+	db $1a               ; Unknown opcode $1a
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
 	clc                  ; Clear carry flag
 	db $85               ; Unknown opcode $85
-	db $1a               ; Unknown opcode $1A
+	db $1a               ; Unknown opcode $1a
 	lda $4214            ; Load accumulator absolute
-	db $8f               ; Unknown opcode $8F
-	db $0b               ; Unknown opcode $0B
-	db $f1               ; Unknown opcode $F1
-	db $7e               ; Unknown opcode $7E
+	db $8f               ; Unknown opcode $8f
+	db $0b               ; Unknown opcode $0b
+	db $f1               ; Unknown opcode $f1
+	db $7e               ; Unknown opcode $7e
 	lda #$00             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $8f               ; Unknown opcode $8F
-	db $d8               ; Unknown opcode $D8
-	db $ee               ; Unknown opcode $EE
-	db $7e               ; Unknown opcode $7E
-	db $a5               ; Unknown opcode $A5
-	db $1b               ; Unknown opcode $1B
+	db $8f               ; Unknown opcode $8f
+	db $d8               ; Unknown opcode $d8
+	db $ee               ; Unknown opcode $ee
+	db $7e               ; Unknown opcode $7e
+	db $a5               ; Unknown opcode $a5
+	db $1b               ; Unknown opcode $1b
 	sta $4206            ; Store accumulator absolute
-	db $a5               ; Unknown opcode $A5
-	db $1a               ; Unknown opcode $1A
+	db $a5               ; Unknown opcode $a5
+	db $1a               ; Unknown opcode $1a
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
 	clc                  ; Clear carry flag
 	db $85               ; Unknown opcode $85
-	db $1a               ; Unknown opcode $1A
+	db $1a               ; Unknown opcode $1a
 	lda $4214            ; Load accumulator absolute
-	db $8f               ; Unknown opcode $8F
-	db $0d               ; Unknown opcode $0D
-	db $f1               ; Unknown opcode $F1
-	db $7e               ; Unknown opcode $7E
+	db $8f               ; Unknown opcode $8f
+	db $0d               ; Unknown opcode $0d
+	db $f1               ; Unknown opcode $f1
+	db $7e               ; Unknown opcode $7e
 	lda #$00             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $8f               ; Unknown opcode $8F
-	db $d9               ; Unknown opcode $D9
-	db $ee               ; Unknown opcode $EE
-	db $7e               ; Unknown opcode $7E
-	db $a5               ; Unknown opcode $A5
-	db $1b               ; Unknown opcode $1B
+	db $8f               ; Unknown opcode $8f
+	db $d9               ; Unknown opcode $d9
+	db $ee               ; Unknown opcode $ee
+	db $7e               ; Unknown opcode $7e
+	db $a5               ; Unknown opcode $a5
+	db $1b               ; Unknown opcode $1b
 	sta $4206            ; Store accumulator absolute
-	db $a5               ; Unknown opcode $A5
-	db $1a               ; Unknown opcode $1A
+	db $a5               ; Unknown opcode $a5
+	db $1a               ; Unknown opcode $1a
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
 	clc                  ; Clear carry flag
 	db $85               ; Unknown opcode $85
-	db $1a               ; Unknown opcode $1A
+	db $1a               ; Unknown opcode $1a
 	lda $4214            ; Load accumulator absolute
-	db $8f               ; Unknown opcode $8F
-	db $0f               ; Unknown opcode $0F
-	db $f1               ; Unknown opcode $F1
-	db $7e               ; Unknown opcode $7E
+	db $8f               ; Unknown opcode $8f
+	db $0f               ; Unknown opcode $0f
+	db $f1               ; Unknown opcode $f1
+	db $7e               ; Unknown opcode $7e
 	lda #$00             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $8f               ; Unknown opcode $8F
-	db $da               ; Unknown opcode $DA
-	db $ee               ; Unknown opcode $EE
-	db $7e               ; Unknown opcode $7E
-	db $a5               ; Unknown opcode $A5
-	db $1b               ; Unknown opcode $1B
+	db $8f               ; Unknown opcode $8f
+	db $da               ; Unknown opcode $da
+	db $ee               ; Unknown opcode $ee
+	db $7e               ; Unknown opcode $7e
+	db $a5               ; Unknown opcode $a5
+	db $1b               ; Unknown opcode $1b
 	sta $4206            ; Store accumulator absolute
-	db $a5               ; Unknown opcode $A5
-	db $1a               ; Unknown opcode $1A
+	db $a5               ; Unknown opcode $a5
+	db $1a               ; Unknown opcode $1a
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
 	clc                  ; Clear carry flag
 	db $85               ; Unknown opcode $85
-	db $1a               ; Unknown opcode $1A
+	db $1a               ; Unknown opcode $1a
 	lda $4214            ; Load accumulator absolute
-	db $8f               ; Unknown opcode $8F
+	db $8f               ; Unknown opcode $8f
 	db $11               ; Unknown opcode $11
-	db $f1               ; Unknown opcode $F1
-	db $7e               ; Unknown opcode $7E
+	db $f1               ; Unknown opcode $f1
+	db $7e               ; Unknown opcode $7e
 	lda #$00             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $8f               ; Unknown opcode $8F
-	db $db               ; Unknown opcode $DB
-	db $ee               ; Unknown opcode $EE
-	db $7e               ; Unknown opcode $7E
-	db $a5               ; Unknown opcode $A5
-	db $1b               ; Unknown opcode $1B
+	db $8f               ; Unknown opcode $8f
+	db $db               ; Unknown opcode $db
+	db $ee               ; Unknown opcode $ee
+	db $7e               ; Unknown opcode $7e
+	db $a5               ; Unknown opcode $a5
+	db $1b               ; Unknown opcode $1b
 	sta $4206            ; Store accumulator absolute
-	db $a5               ; Unknown opcode $A5
-	db $1a               ; Unknown opcode $1A
+	db $a5               ; Unknown opcode $a5
+	db $1a               ; Unknown opcode $1a
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
 	clc                  ; Clear carry flag
 	db $85               ; Unknown opcode $85
-	db $1a               ; Unknown opcode $1A
+	db $1a               ; Unknown opcode $1a
 	lda $4214            ; Load accumulator absolute
-	db $8f               ; Unknown opcode $8F
+	db $8f               ; Unknown opcode $8f
 	db $13               ; Unknown opcode $13
-	db $f1               ; Unknown opcode $F1
-	db $7e               ; Unknown opcode $7E
+	db $f1               ; Unknown opcode $f1
+	db $7e               ; Unknown opcode $7e
 	lda #$00             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $8f               ; Unknown opcode $8F
-	db $dc               ; Unknown opcode $DC
-	db $ee               ; Unknown opcode $EE
-	db $7e               ; Unknown opcode $7E
-	db $a5               ; Unknown opcode $A5
-	db $1b               ; Unknown opcode $1B
+	db $8f               ; Unknown opcode $8f
+	db $dc               ; Unknown opcode $dc
+	db $ee               ; Unknown opcode $ee
+	db $7e               ; Unknown opcode $7e
+	db $a5               ; Unknown opcode $a5
+	db $1b               ; Unknown opcode $1b
 	sta $4206            ; Store accumulator absolute
-	db $a5               ; Unknown opcode $A5
-	db $1a               ; Unknown opcode $1A
+	db $a5               ; Unknown opcode $a5
+	db $1a               ; Unknown opcode $1a
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
 	clc                  ; Clear carry flag
 	db $85               ; Unknown opcode $85
-	db $1a               ; Unknown opcode $1A
+	db $1a               ; Unknown opcode $1a
 	lda $4214            ; Load accumulator absolute
-	db $8f               ; Unknown opcode $8F
+	db $8f               ; Unknown opcode $8f
 	db $15               ; Unknown opcode $15
-	db $f1               ; Unknown opcode $F1
-	db $7e               ; Unknown opcode $7E
+	db $f1               ; Unknown opcode $f1
+	db $7e               ; Unknown opcode $7e
 	lda #$00             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $8f               ; Unknown opcode $8F
-	db $dd               ; Unknown opcode $DD
-	db $ee               ; Unknown opcode $EE
-	db $7e               ; Unknown opcode $7E
-	db $a5               ; Unknown opcode $A5
-	db $1b               ; Unknown opcode $1B
+	db $8f               ; Unknown opcode $8f
+	db $dd               ; Unknown opcode $dd
+	db $ee               ; Unknown opcode $ee
+	db $7e               ; Unknown opcode $7e
+	db $a5               ; Unknown opcode $a5
+	db $1b               ; Unknown opcode $1b
 	sta $4206            ; Store accumulator absolute
-	db $a5               ; Unknown opcode $A5
-	db $1a               ; Unknown opcode $1A
+	db $a5               ; Unknown opcode $a5
+	db $1a               ; Unknown opcode $1a
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
 	clc                  ; Clear carry flag
 	db $85               ; Unknown opcode $85
-	db $1a               ; Unknown opcode $1A
+	db $1a               ; Unknown opcode $1a
 	lda $4214            ; Load accumulator absolute
-	db $8f               ; Unknown opcode $8F
+	db $8f               ; Unknown opcode $8f
 	db $17               ; Unknown opcode $17
-	db $f1               ; Unknown opcode $F1
-	db $7e               ; Unknown opcode $7E
+	db $f1               ; Unknown opcode $f1
+	db $7e               ; Unknown opcode $7e
 	lda #$00             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $8f               ; Unknown opcode $8F
-	db $de               ; Unknown opcode $DE
-	db $ee               ; Unknown opcode $EE
-	db $7e               ; Unknown opcode $7E
-	db $a5               ; Unknown opcode $A5
-	db $1b               ; Unknown opcode $1B
+	db $8f               ; Unknown opcode $8f
+	db $de               ; Unknown opcode $de
+	db $ee               ; Unknown opcode $ee
+	db $7e               ; Unknown opcode $7e
+	db $a5               ; Unknown opcode $a5
+	db $1b               ; Unknown opcode $1b
 	sta $4206            ; Store accumulator absolute
-	db $a5               ; Unknown opcode $A5
-	db $1a               ; Unknown opcode $1A
+	db $a5               ; Unknown opcode $a5
+	db $1a               ; Unknown opcode $1a
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
 	clc                  ; Clear carry flag
 	db $85               ; Unknown opcode $85
-	db $1a               ; Unknown opcode $1A
+	db $1a               ; Unknown opcode $1a
 	lda $4214            ; Load accumulator absolute
-	db $8f               ; Unknown opcode $8F
+	db $8f               ; Unknown opcode $8f
 	db $19               ; Unknown opcode $19
-	db $f1               ; Unknown opcode $F1
-	db $7e               ; Unknown opcode $7E
+	db $f1               ; Unknown opcode $f1
+	db $7e               ; Unknown opcode $7e
 	lda #$00             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $8f               ; Unknown opcode $8F
-	db $df               ; Unknown opcode $DF
-	db $ee               ; Unknown opcode $EE
-	db $7e               ; Unknown opcode $7E
-	db $a5               ; Unknown opcode $A5
-	db $1b               ; Unknown opcode $1B
+	db $8f               ; Unknown opcode $8f
+	db $df               ; Unknown opcode $df
+	db $ee               ; Unknown opcode $ee
+	db $7e               ; Unknown opcode $7e
+	db $a5               ; Unknown opcode $a5
+	db $1b               ; Unknown opcode $1b
 	sta $4206            ; Store accumulator absolute
-	db $a5               ; Unknown opcode $A5
-	db $1a               ; Unknown opcode $1A
+	db $a5               ; Unknown opcode $a5
+	db $1a               ; Unknown opcode $1a
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
 	clc                  ; Clear carry flag
 	db $85               ; Unknown opcode $85
-	db $1a               ; Unknown opcode $1A
+	db $1a               ; Unknown opcode $1a
 	lda $4214            ; Load accumulator absolute
-	db $8f               ; Unknown opcode $8F
-	db $1b               ; Unknown opcode $1B
-	db $f1               ; Unknown opcode $F1
-	db $7e               ; Unknown opcode $7E
+	db $8f               ; Unknown opcode $8f
+	db $1b               ; Unknown opcode $1b
+	db $f1               ; Unknown opcode $f1
+	db $7e               ; Unknown opcode $7e
 	lda #$00             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $8f               ; Unknown opcode $8F
-	db $e0               ; Unknown opcode $E0
-	db $ee               ; Unknown opcode $EE
-	db $7e               ; Unknown opcode $7E
-	db $a5               ; Unknown opcode $A5
-	db $1b               ; Unknown opcode $1B
+	db $8f               ; Unknown opcode $8f
+	db $e0               ; Unknown opcode $e0
+	db $ee               ; Unknown opcode $ee
+	db $7e               ; Unknown opcode $7e
+	db $a5               ; Unknown opcode $a5
+	db $1b               ; Unknown opcode $1b
 	sta $4206            ; Store accumulator absolute
-	db $a5               ; Unknown opcode $A5
-	db $1a               ; Unknown opcode $1A
+	db $a5               ; Unknown opcode $a5
+	db $1a               ; Unknown opcode $1a
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
 	clc                  ; Clear carry flag
 	db $85               ; Unknown opcode $85
-	db $1a               ; Unknown opcode $1A
+	db $1a               ; Unknown opcode $1a
 	lda $4214            ; Load accumulator absolute
-	db $8f               ; Unknown opcode $8F
-	db $1d               ; Unknown opcode $1D
-	db $f1               ; Unknown opcode $F1
-	db $7e               ; Unknown opcode $7E
+	db $8f               ; Unknown opcode $8f
+	db $1d               ; Unknown opcode $1d
+	db $f1               ; Unknown opcode $f1
+	db $7e               ; Unknown opcode $7e
 	lda #$00             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $8f               ; Unknown opcode $8F
-	db $e1               ; Unknown opcode $E1
-	db $ee               ; Unknown opcode $EE
-	db $7e               ; Unknown opcode $7E
-	db $a5               ; Unknown opcode $A5
-	db $1b               ; Unknown opcode $1B
+	db $8f               ; Unknown opcode $8f
+	db $e1               ; Unknown opcode $e1
+	db $ee               ; Unknown opcode $ee
+	db $7e               ; Unknown opcode $7e
+	db $a5               ; Unknown opcode $a5
+	db $1b               ; Unknown opcode $1b
 	sta $4206            ; Store accumulator absolute
-	db $a5               ; Unknown opcode $A5
-	db $1a               ; Unknown opcode $1A
+	db $a5               ; Unknown opcode $a5
+	db $1a               ; Unknown opcode $1a
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
 	clc                  ; Clear carry flag
 	db $85               ; Unknown opcode $85
-	db $1a               ; Unknown opcode $1A
+	db $1a               ; Unknown opcode $1a
 	lda $4214            ; Load accumulator absolute
-	db $8f               ; Unknown opcode $8F
-	db $1f               ; Unknown opcode $1F
-	db $f1               ; Unknown opcode $F1
-	db $7e               ; Unknown opcode $7E
+	db $8f               ; Unknown opcode $8f
+	db $1f               ; Unknown opcode $1f
+	db $f1               ; Unknown opcode $f1
+	db $7e               ; Unknown opcode $7e
 	lda #$00             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $8f               ; Unknown opcode $8F
+	db $8f               ; Unknown opcode $8f
 	sep #$ee             ; Set processor status
-	db $7e               ; Unknown opcode $7E
-	db $a5               ; Unknown opcode $A5
-	db $1b               ; Unknown opcode $1B
+	db $7e               ; Unknown opcode $7e
+	db $a5               ; Unknown opcode $a5
+	db $1b               ; Unknown opcode $1b
 	sta $4206            ; Store accumulator absolute
-	db $a5               ; Unknown opcode $A5
-	db $1a               ; Unknown opcode $1A
+	db $a5               ; Unknown opcode $a5
+	db $1a               ; Unknown opcode $1a
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
 	clc                  ; Clear carry flag
 	db $85               ; Unknown opcode $85
-	db $1a               ; Unknown opcode $1A
+	db $1a               ; Unknown opcode $1a
 	lda $4214            ; Load accumulator absolute
-	db $8f               ; Unknown opcode $8F
+	db $8f               ; Unknown opcode $8f
 	db $21               ; Unknown opcode $21
-	db $f1               ; Unknown opcode $F1
-	db $7e               ; Unknown opcode $7E
+	db $f1               ; Unknown opcode $f1
+	db $7e               ; Unknown opcode $7e
 	lda #$00             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $8f               ; Unknown opcode $8F
-	db $e3               ; Unknown opcode $E3
-	db $ee               ; Unknown opcode $EE
-	db $7e               ; Unknown opcode $7E
-	db $a5               ; Unknown opcode $A5
-	db $1b               ; Unknown opcode $1B
+	db $8f               ; Unknown opcode $8f
+	db $e3               ; Unknown opcode $e3
+	db $ee               ; Unknown opcode $ee
+	db $7e               ; Unknown opcode $7e
+	db $a5               ; Unknown opcode $a5
+	db $1b               ; Unknown opcode $1b
 	sta $4206            ; Store accumulator absolute
-	db $a5               ; Unknown opcode $A5
-	db $1a               ; Unknown opcode $1A
+	db $a5               ; Unknown opcode $a5
+	db $1a               ; Unknown opcode $1a
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
 	clc                  ; Clear carry flag
 	db $85               ; Unknown opcode $85
-	db $1a               ; Unknown opcode $1A
+	db $1a               ; Unknown opcode $1a
 	lda $4214            ; Load accumulator absolute
-	db $8f               ; Unknown opcode $8F
+	db $8f               ; Unknown opcode $8f
 	db $23               ; Unknown opcode $23
-	db $f1               ; Unknown opcode $F1
-	db $7e               ; Unknown opcode $7E
+	db $f1               ; Unknown opcode $f1
+	db $7e               ; Unknown opcode $7e
 	lda #$00             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $8f               ; Unknown opcode $8F
-	db $e4               ; Unknown opcode $E4
-	db $ee               ; Unknown opcode $EE
-	db $7e               ; Unknown opcode $7E
-	db $a5               ; Unknown opcode $A5
-	db $1b               ; Unknown opcode $1B
+	db $8f               ; Unknown opcode $8f
+	db $e4               ; Unknown opcode $e4
+	db $ee               ; Unknown opcode $ee
+	db $7e               ; Unknown opcode $7e
+	db $a5               ; Unknown opcode $a5
+	db $1b               ; Unknown opcode $1b
 	sta $4206            ; Store accumulator absolute
-	db $a5               ; Unknown opcode $A5
-	db $1a               ; Unknown opcode $1A
+	db $a5               ; Unknown opcode $a5
+	db $1a               ; Unknown opcode $1a
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
 	clc                  ; Clear carry flag
 	db $85               ; Unknown opcode $85
-	db $1a               ; Unknown opcode $1A
+	db $1a               ; Unknown opcode $1a
 	lda $4214            ; Load accumulator absolute
-	db $8f               ; Unknown opcode $8F
+	db $8f               ; Unknown opcode $8f
 	db $25               ; Unknown opcode $25
-	db $f1               ; Unknown opcode $F1
-	db $7e               ; Unknown opcode $7E
+	db $f1               ; Unknown opcode $f1
+	db $7e               ; Unknown opcode $7e
 	lda #$00             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $8f               ; Unknown opcode $8F
-	db $e5               ; Unknown opcode $E5
-	db $ee               ; Unknown opcode $EE
-	db $7e               ; Unknown opcode $7E
-	db $a5               ; Unknown opcode $A5
-	db $1b               ; Unknown opcode $1B
+	db $8f               ; Unknown opcode $8f
+	db $e5               ; Unknown opcode $e5
+	db $ee               ; Unknown opcode $ee
+	db $7e               ; Unknown opcode $7e
+	db $a5               ; Unknown opcode $a5
+	db $1b               ; Unknown opcode $1b
 	sta $4206            ; Store accumulator absolute
-	db $a5               ; Unknown opcode $A5
-	db $1a               ; Unknown opcode $1A
+	db $a5               ; Unknown opcode $a5
+	db $1a               ; Unknown opcode $1a
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
 	clc                  ; Clear carry flag
 	db $85               ; Unknown opcode $85
-	db $1a               ; Unknown opcode $1A
+	db $1a               ; Unknown opcode $1a
 	lda $4214            ; Load accumulator absolute
-	db $8f               ; Unknown opcode $8F
+	db $8f               ; Unknown opcode $8f
 	db $27               ; Unknown opcode $27
-	db $f1               ; Unknown opcode $F1
-	db $7e               ; Unknown opcode $7E
+	db $f1               ; Unknown opcode $f1
+	db $7e               ; Unknown opcode $7e
 	lda #$00             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $8f               ; Unknown opcode $8F
-	db $e6               ; Unknown opcode $E6
-	db $ee               ; Unknown opcode $EE
-	db $7e               ; Unknown opcode $7E
-	db $a5               ; Unknown opcode $A5
-	db $1b               ; Unknown opcode $1B
+	db $8f               ; Unknown opcode $8f
+	db $e6               ; Unknown opcode $e6
+	db $ee               ; Unknown opcode $ee
+	db $7e               ; Unknown opcode $7e
+	db $a5               ; Unknown opcode $a5
+	db $1b               ; Unknown opcode $1b
 	sta $4206            ; Store accumulator absolute
-	db $a5               ; Unknown opcode $A5
-	db $1a               ; Unknown opcode $1A
+	db $a5               ; Unknown opcode $a5
+	db $1a               ; Unknown opcode $1a
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
 	clc                  ; Clear carry flag
 	db $85               ; Unknown opcode $85
-	db $1a               ; Unknown opcode $1A
+	db $1a               ; Unknown opcode $1a
 	lda $4214            ; Load accumulator absolute
-	db $8f               ; Unknown opcode $8F
+	db $8f               ; Unknown opcode $8f
 	db $29               ; Unknown opcode $29
-	db $f1               ; Unknown opcode $F1
-	db $7e               ; Unknown opcode $7E
+	db $f1               ; Unknown opcode $f1
+	db $7e               ; Unknown opcode $7e
 	lda #$00             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $8f               ; Unknown opcode $8F
-	db $e7               ; Unknown opcode $E7
-	db $ee               ; Unknown opcode $EE
-	db $7e               ; Unknown opcode $7E
-	db $a5               ; Unknown opcode $A5
-	db $1b               ; Unknown opcode $1B
+	db $8f               ; Unknown opcode $8f
+	db $e7               ; Unknown opcode $e7
+	db $ee               ; Unknown opcode $ee
+	db $7e               ; Unknown opcode $7e
+	db $a5               ; Unknown opcode $a5
+	db $1b               ; Unknown opcode $1b
 	sta $4206            ; Store accumulator absolute
-	db $a5               ; Unknown opcode $A5
-	db $1a               ; Unknown opcode $1A
+	db $a5               ; Unknown opcode $a5
+	db $1a               ; Unknown opcode $1a
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
 	clc                  ; Clear carry flag
 	db $85               ; Unknown opcode $85
-	db $1a               ; Unknown opcode $1A
+	db $1a               ; Unknown opcode $1a
 	lda $4214            ; Load accumulator absolute
-	db $8f               ; Unknown opcode $8F
-	db $2b               ; Unknown opcode $2B
-	db $f1               ; Unknown opcode $F1
-	db $7e               ; Unknown opcode $7E
+	db $8f               ; Unknown opcode $8f
+	db $2b               ; Unknown opcode $2b
+	db $f1               ; Unknown opcode $f1
+	db $7e               ; Unknown opcode $7e
 	lda #$00             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $8f               ; Unknown opcode $8F
-	db $e8               ; Unknown opcode $E8
-	db $ee               ; Unknown opcode $EE
-	db $7e               ; Unknown opcode $7E
-	db $a5               ; Unknown opcode $A5
-	db $1b               ; Unknown opcode $1B
+	db $8f               ; Unknown opcode $8f
+	db $e8               ; Unknown opcode $e8
+	db $ee               ; Unknown opcode $ee
+	db $7e               ; Unknown opcode $7e
+	db $a5               ; Unknown opcode $a5
+	db $1b               ; Unknown opcode $1b
 	sta $4206            ; Store accumulator absolute
-	db $a5               ; Unknown opcode $A5
-	db $1a               ; Unknown opcode $1A
+	db $a5               ; Unknown opcode $a5
+	db $1a               ; Unknown opcode $1a
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
 	clc                  ; Clear carry flag
 	db $85               ; Unknown opcode $85
-	db $1a               ; Unknown opcode $1A
+	db $1a               ; Unknown opcode $1a
 	lda $4214            ; Load accumulator absolute
-	db $8f               ; Unknown opcode $8F
-	db $2d               ; Unknown opcode $2D
-	db $f1               ; Unknown opcode $F1
-	db $7e               ; Unknown opcode $7E
+	db $8f               ; Unknown opcode $8f
+	db $2d               ; Unknown opcode $2d
+	db $f1               ; Unknown opcode $f1
+	db $7e               ; Unknown opcode $7e
 	lda #$00             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $8f               ; Unknown opcode $8F
-	db $e9               ; Unknown opcode $E9
-	db $ee               ; Unknown opcode $EE
-	db $7e               ; Unknown opcode $7E
-	db $a5               ; Unknown opcode $A5
-	db $1b               ; Unknown opcode $1B
+	db $8f               ; Unknown opcode $8f
+	db $e9               ; Unknown opcode $e9
+	db $ee               ; Unknown opcode $ee
+	db $7e               ; Unknown opcode $7e
+	db $a5               ; Unknown opcode $a5
+	db $1b               ; Unknown opcode $1b
 	sta $4206            ; Store accumulator absolute
-	db $a5               ; Unknown opcode $A5
-	db $1a               ; Unknown opcode $1A
+	db $a5               ; Unknown opcode $a5
+	db $1a               ; Unknown opcode $1a
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
 	clc                  ; Clear carry flag
 	db $85               ; Unknown opcode $85
-	db $1a               ; Unknown opcode $1A
+	db $1a               ; Unknown opcode $1a
 	lda $4214            ; Load accumulator absolute
-	db $8f               ; Unknown opcode $8F
-	db $2f               ; Unknown opcode $2F
-	db $f1               ; Unknown opcode $F1
-	db $7e               ; Unknown opcode $7E
+	db $8f               ; Unknown opcode $8f
+	db $2f               ; Unknown opcode $2f
+	db $f1               ; Unknown opcode $f1
+	db $7e               ; Unknown opcode $7e
 	lda #$00             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $8f               ; Unknown opcode $8F
+	db $8f               ; Unknown opcode $8f
 	nop                  ; No operation
-	db $ee               ; Unknown opcode $EE
-	db $7e               ; Unknown opcode $7E
-	db $a5               ; Unknown opcode $A5
-	db $1b               ; Unknown opcode $1B
+	db $ee               ; Unknown opcode $ee
+	db $7e               ; Unknown opcode $7e
+	db $a5               ; Unknown opcode $a5
+	db $1b               ; Unknown opcode $1b
 	sta $4206            ; Store accumulator absolute
-	db $a5               ; Unknown opcode $A5
-	db $1a               ; Unknown opcode $1A
+	db $a5               ; Unknown opcode $a5
+	db $1a               ; Unknown opcode $1a
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
 	clc                  ; Clear carry flag
 	db $85               ; Unknown opcode $85
-	db $1a               ; Unknown opcode $1A
+	db $1a               ; Unknown opcode $1a
 	lda $4214            ; Load accumulator absolute
-	db $8f               ; Unknown opcode $8F
+	db $8f               ; Unknown opcode $8f
 	db $31               ; Unknown opcode $31
-	db $f1               ; Unknown opcode $F1
-	db $7e               ; Unknown opcode $7E
+	db $f1               ; Unknown opcode $f1
+	db $7e               ; Unknown opcode $7e
 	lda #$00             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $8f               ; Unknown opcode $8F
-	db $eb               ; Unknown opcode $EB
-	db $ee               ; Unknown opcode $EE
-	db $7e               ; Unknown opcode $7E
-	db $a5               ; Unknown opcode $A5
-	db $1b               ; Unknown opcode $1B
+	db $8f               ; Unknown opcode $8f
+	db $eb               ; Unknown opcode $eb
+	db $ee               ; Unknown opcode $ee
+	db $7e               ; Unknown opcode $7e
+	db $a5               ; Unknown opcode $a5
+	db $1b               ; Unknown opcode $1b
 	sta $4206            ; Store accumulator absolute
-	db $a5               ; Unknown opcode $A5
-	db $1a               ; Unknown opcode $1A
+	db $a5               ; Unknown opcode $a5
+	db $1a               ; Unknown opcode $1a
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
 	clc                  ; Clear carry flag
 	db $85               ; Unknown opcode $85
-	db $1a               ; Unknown opcode $1A
+	db $1a               ; Unknown opcode $1a
 	lda $4214            ; Load accumulator absolute
-	db $8f               ; Unknown opcode $8F
+	db $8f               ; Unknown opcode $8f
 	db $33               ; Unknown opcode $33
-	db $f1               ; Unknown opcode $F1
-	db $7e               ; Unknown opcode $7E
+	db $f1               ; Unknown opcode $f1
+	db $7e               ; Unknown opcode $7e
 	lda #$00             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $8f               ; Unknown opcode $8F
-	db $ec               ; Unknown opcode $EC
-	db $ee               ; Unknown opcode $EE
-	db $7e               ; Unknown opcode $7E
-	db $a5               ; Unknown opcode $A5
-	db $1b               ; Unknown opcode $1B
+	db $8f               ; Unknown opcode $8f
+	db $ec               ; Unknown opcode $ec
+	db $ee               ; Unknown opcode $ee
+	db $7e               ; Unknown opcode $7e
+	db $a5               ; Unknown opcode $a5
+	db $1b               ; Unknown opcode $1b
 	sta $4206            ; Store accumulator absolute
-	db $a5               ; Unknown opcode $A5
-	db $1a               ; Unknown opcode $1A
+	db $a5               ; Unknown opcode $a5
+	db $1a               ; Unknown opcode $1a
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
 	clc                  ; Clear carry flag
 	db $85               ; Unknown opcode $85
-	db $1a               ; Unknown opcode $1A
+	db $1a               ; Unknown opcode $1a
 	lda $4214            ; Load accumulator absolute
-	db $8f               ; Unknown opcode $8F
+	db $8f               ; Unknown opcode $8f
 	db $35               ; Unknown opcode $35
-	db $f1               ; Unknown opcode $F1
-	db $7e               ; Unknown opcode $7E
+	db $f1               ; Unknown opcode $f1
+	db $7e               ; Unknown opcode $7e
 	lda #$00             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $8f               ; Unknown opcode $8F
-	db $ed               ; Unknown opcode $ED
-	db $ee               ; Unknown opcode $EE
-	db $7e               ; Unknown opcode $7E
-	db $a5               ; Unknown opcode $A5
-	db $1b               ; Unknown opcode $1B
+	db $8f               ; Unknown opcode $8f
+	db $ed               ; Unknown opcode $ed
+	db $ee               ; Unknown opcode $ee
+	db $7e               ; Unknown opcode $7e
+	db $a5               ; Unknown opcode $a5
+	db $1b               ; Unknown opcode $1b
 	sta $4206            ; Store accumulator absolute
-	db $a5               ; Unknown opcode $A5
-	db $1a               ; Unknown opcode $1A
+	db $a5               ; Unknown opcode $a5
+	db $1a               ; Unknown opcode $1a
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
 	clc                  ; Clear carry flag
 	db $85               ; Unknown opcode $85
-	db $1a               ; Unknown opcode $1A
+	db $1a               ; Unknown opcode $1a
 	lda $4214            ; Load accumulator absolute
-	db $8f               ; Unknown opcode $8F
+	db $8f               ; Unknown opcode $8f
 	db $37               ; Unknown opcode $37
-	db $f1               ; Unknown opcode $F1
-	db $7e               ; Unknown opcode $7E
+	db $f1               ; Unknown opcode $f1
+	db $7e               ; Unknown opcode $7e
 	lda #$00             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $8f               ; Unknown opcode $8F
-	db $ee               ; Unknown opcode $EE
-	db $ee               ; Unknown opcode $EE
-	db $7e               ; Unknown opcode $7E
-	db $a5               ; Unknown opcode $A5
-	db $1b               ; Unknown opcode $1B
+	db $8f               ; Unknown opcode $8f
+	db $ee               ; Unknown opcode $ee
+	db $ee               ; Unknown opcode $ee
+	db $7e               ; Unknown opcode $7e
+	db $a5               ; Unknown opcode $a5
+	db $1b               ; Unknown opcode $1b
 	sta $4206            ; Store accumulator absolute
-	db $a5               ; Unknown opcode $A5
-	db $1a               ; Unknown opcode $1A
+	db $a5               ; Unknown opcode $a5
+	db $1a               ; Unknown opcode $1a
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
 	clc                  ; Clear carry flag
 	db $85               ; Unknown opcode $85
-	db $1a               ; Unknown opcode $1A
+	db $1a               ; Unknown opcode $1a
 	lda $4214            ; Load accumulator absolute
-	db $8f               ; Unknown opcode $8F
+	db $8f               ; Unknown opcode $8f
 	db $39               ; Unknown opcode $39
-	db $f1               ; Unknown opcode $F1
-	db $7e               ; Unknown opcode $7E
+	db $f1               ; Unknown opcode $f1
+	db $7e               ; Unknown opcode $7e
 	lda #$00             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $8f               ; Unknown opcode $8F
-	db $ef               ; Unknown opcode $EF
-	db $ee               ; Unknown opcode $EE
-	db $7e               ; Unknown opcode $7E
-	db $a5               ; Unknown opcode $A5
-	db $1b               ; Unknown opcode $1B
+	db $8f               ; Unknown opcode $8f
+	db $ef               ; Unknown opcode $ef
+	db $ee               ; Unknown opcode $ee
+	db $7e               ; Unknown opcode $7e
+	db $a5               ; Unknown opcode $a5
+	db $1b               ; Unknown opcode $1b
 	sta $4206            ; Store accumulator absolute
-	db $a5               ; Unknown opcode $A5
-	db $1a               ; Unknown opcode $1A
+	db $a5               ; Unknown opcode $a5
+	db $1a               ; Unknown opcode $1a
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
 	clc                  ; Clear carry flag
 	db $85               ; Unknown opcode $85
-	db $1a               ; Unknown opcode $1A
+	db $1a               ; Unknown opcode $1a
 	lda $4214            ; Load accumulator absolute
-	db $8f               ; Unknown opcode $8F
-	db $3b               ; Unknown opcode $3B
-	db $f1               ; Unknown opcode $F1
-	db $7e               ; Unknown opcode $7E
+	db $8f               ; Unknown opcode $8f
+	db $3b               ; Unknown opcode $3b
+	db $f1               ; Unknown opcode $f1
+	db $7e               ; Unknown opcode $7e
 	lda #$00             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $8f               ; Unknown opcode $8F
+	db $8f               ; Unknown opcode $8f
 	beq #$ee             ; Branch equal
-	db $7e               ; Unknown opcode $7E
-	db $a5               ; Unknown opcode $A5
-	db $1b               ; Unknown opcode $1B
+	db $7e               ; Unknown opcode $7e
+	db $a5               ; Unknown opcode $a5
+	db $1b               ; Unknown opcode $1b
 	sta $4206            ; Store accumulator absolute
-	db $a5               ; Unknown opcode $A5
-	db $1a               ; Unknown opcode $1A
+	db $a5               ; Unknown opcode $a5
+	db $1a               ; Unknown opcode $1a
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
 	clc                  ; Clear carry flag
 	db $85               ; Unknown opcode $85
-	db $1a               ; Unknown opcode $1A
+	db $1a               ; Unknown opcode $1a
 	lda $4214            ; Load accumulator absolute
-	db $8f               ; Unknown opcode $8F
-	db $3d               ; Unknown opcode $3D
-	db $f1               ; Unknown opcode $F1
-	db $7e               ; Unknown opcode $7E
+	db $8f               ; Unknown opcode $8f
+	db $3d               ; Unknown opcode $3d
+	db $f1               ; Unknown opcode $f1
+	db $7e               ; Unknown opcode $7e
 	lda #$00             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $8f               ; Unknown opcode $8F
-	db $f1               ; Unknown opcode $F1
-	db $ee               ; Unknown opcode $EE
-	db $7e               ; Unknown opcode $7E
-	db $a5               ; Unknown opcode $A5
-	db $1b               ; Unknown opcode $1B
+	db $8f               ; Unknown opcode $8f
+	db $f1               ; Unknown opcode $f1
+	db $ee               ; Unknown opcode $ee
+	db $7e               ; Unknown opcode $7e
+	db $a5               ; Unknown opcode $a5
+	db $1b               ; Unknown opcode $1b
 	sta $4206            ; Store accumulator absolute
-	db $a5               ; Unknown opcode $A5
-	db $1a               ; Unknown opcode $1A
+	db $a5               ; Unknown opcode $a5
+	db $1a               ; Unknown opcode $1a
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
 	clc                  ; Clear carry flag
 	db $85               ; Unknown opcode $85
-	db $1a               ; Unknown opcode $1A
+	db $1a               ; Unknown opcode $1a
 	lda $4214            ; Load accumulator absolute
-	db $8f               ; Unknown opcode $8F
-	db $3f               ; Unknown opcode $3F
-	db $f1               ; Unknown opcode $F1
-	db $7e               ; Unknown opcode $7E
+	db $8f               ; Unknown opcode $8f
+	db $3f               ; Unknown opcode $3f
+	db $f1               ; Unknown opcode $f1
+	db $7e               ; Unknown opcode $7e
 	lda #$00             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $8f               ; Unknown opcode $8F
-	db $f2               ; Unknown opcode $F2
-	db $ee               ; Unknown opcode $EE
-	db $7e               ; Unknown opcode $7E
-	db $a5               ; Unknown opcode $A5
-	db $1b               ; Unknown opcode $1B
+	db $8f               ; Unknown opcode $8f
+	db $f2               ; Unknown opcode $f2
+	db $ee               ; Unknown opcode $ee
+	db $7e               ; Unknown opcode $7e
+	db $a5               ; Unknown opcode $a5
+	db $1b               ; Unknown opcode $1b
 	sta $4206            ; Store accumulator absolute
-	db $a5               ; Unknown opcode $A5
-	db $1a               ; Unknown opcode $1A
+	db $a5               ; Unknown opcode $a5
+	db $1a               ; Unknown opcode $1a
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
 	clc                  ; Clear carry flag
 	db $85               ; Unknown opcode $85
-	db $1a               ; Unknown opcode $1A
+	db $1a               ; Unknown opcode $1a
 	lda $4214            ; Load accumulator absolute
-	db $8f               ; Unknown opcode $8F
+	db $8f               ; Unknown opcode $8f
 	db $41               ; Unknown opcode $41
-	db $f1               ; Unknown opcode $F1
-	db $7e               ; Unknown opcode $7E
+	db $f1               ; Unknown opcode $f1
+	db $7e               ; Unknown opcode $7e
 	lda #$00             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $8f               ; Unknown opcode $8F
-	db $f3               ; Unknown opcode $F3
-	db $ee               ; Unknown opcode $EE
-	db $7e               ; Unknown opcode $7E
-	db $a5               ; Unknown opcode $A5
-	db $1b               ; Unknown opcode $1B
+	db $8f               ; Unknown opcode $8f
+	db $f3               ; Unknown opcode $f3
+	db $ee               ; Unknown opcode $ee
+	db $7e               ; Unknown opcode $7e
+	db $a5               ; Unknown opcode $a5
+	db $1b               ; Unknown opcode $1b
 	sta $4206            ; Store accumulator absolute
-	db $a5               ; Unknown opcode $A5
-	db $1a               ; Unknown opcode $1A
+	db $a5               ; Unknown opcode $a5
+	db $1a               ; Unknown opcode $1a
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
 	clc                  ; Clear carry flag
 	db $85               ; Unknown opcode $85
-	db $1a               ; Unknown opcode $1A
+	db $1a               ; Unknown opcode $1a
 	lda $4214            ; Load accumulator absolute
-	db $8f               ; Unknown opcode $8F
+	db $8f               ; Unknown opcode $8f
 	db $43               ; Unknown opcode $43
-	db $f1               ; Unknown opcode $F1
-	db $7e               ; Unknown opcode $7E
+	db $f1               ; Unknown opcode $f1
+	db $7e               ; Unknown opcode $7e
 	lda #$00             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $8f               ; Unknown opcode $8F
-	db $f4               ; Unknown opcode $F4
-	db $ee               ; Unknown opcode $EE
-	db $7e               ; Unknown opcode $7E
-	db $a5               ; Unknown opcode $A5
-	db $1b               ; Unknown opcode $1B
+	db $8f               ; Unknown opcode $8f
+	db $f4               ; Unknown opcode $f4
+	db $ee               ; Unknown opcode $ee
+	db $7e               ; Unknown opcode $7e
+	db $a5               ; Unknown opcode $a5
+	db $1b               ; Unknown opcode $1b
 	sta $4206            ; Store accumulator absolute
-	db $a5               ; Unknown opcode $A5
-	db $1a               ; Unknown opcode $1A
+	db $a5               ; Unknown opcode $a5
+	db $1a               ; Unknown opcode $1a
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
 	clc                  ; Clear carry flag
 	db $85               ; Unknown opcode $85
-	db $1a               ; Unknown opcode $1A
+	db $1a               ; Unknown opcode $1a
 	lda $4214            ; Load accumulator absolute
-	db $8f               ; Unknown opcode $8F
+	db $8f               ; Unknown opcode $8f
 	db $45               ; Unknown opcode $45
-	db $f1               ; Unknown opcode $F1
-	db $7e               ; Unknown opcode $7E
+	db $f1               ; Unknown opcode $f1
+	db $7e               ; Unknown opcode $7e
 	lda #$00             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $8f               ; Unknown opcode $8F
-	db $f5               ; Unknown opcode $F5
-	db $ee               ; Unknown opcode $EE
-	db $7e               ; Unknown opcode $7E
-	db $a5               ; Unknown opcode $A5
-	db $1b               ; Unknown opcode $1B
+	db $8f               ; Unknown opcode $8f
+	db $f5               ; Unknown opcode $f5
+	db $ee               ; Unknown opcode $ee
+	db $7e               ; Unknown opcode $7e
+	db $a5               ; Unknown opcode $a5
+	db $1b               ; Unknown opcode $1b
 	sta $4206            ; Store accumulator absolute
-	db $a5               ; Unknown opcode $A5
-	db $1a               ; Unknown opcode $1A
+	db $a5               ; Unknown opcode $a5
+	db $1a               ; Unknown opcode $1a
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
 	clc                  ; Clear carry flag
 	db $85               ; Unknown opcode $85
-	db $1a               ; Unknown opcode $1A
+	db $1a               ; Unknown opcode $1a
 	lda $4214            ; Load accumulator absolute
-	db $8f               ; Unknown opcode $8F
+	db $8f               ; Unknown opcode $8f
 	db $47               ; Unknown opcode $47
-	db $f1               ; Unknown opcode $F1
-	db $7e               ; Unknown opcode $7E
+	db $f1               ; Unknown opcode $f1
+	db $7e               ; Unknown opcode $7e
 	lda #$00             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $8f               ; Unknown opcode $8F
-	db $f6               ; Unknown opcode $F6
-	db $ee               ; Unknown opcode $EE
-	db $7e               ; Unknown opcode $7E
-	db $a5               ; Unknown opcode $A5
-	db $1b               ; Unknown opcode $1B
+	db $8f               ; Unknown opcode $8f
+	db $f6               ; Unknown opcode $f6
+	db $ee               ; Unknown opcode $ee
+	db $7e               ; Unknown opcode $7e
+	db $a5               ; Unknown opcode $a5
+	db $1b               ; Unknown opcode $1b
 	sta $4206            ; Store accumulator absolute
-	db $a5               ; Unknown opcode $A5
-	db $1a               ; Unknown opcode $1A
+	db $a5               ; Unknown opcode $a5
+	db $1a               ; Unknown opcode $1a
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
 	clc                  ; Clear carry flag
 	db $85               ; Unknown opcode $85
-	db $1a               ; Unknown opcode $1A
+	db $1a               ; Unknown opcode $1a
 	lda $4214            ; Load accumulator absolute
-	db $8f               ; Unknown opcode $8F
+	db $8f               ; Unknown opcode $8f
 	db $49               ; Unknown opcode $49
-	db $f1               ; Unknown opcode $F1
-	db $7e               ; Unknown opcode $7E
+	db $f1               ; Unknown opcode $f1
+	db $7e               ; Unknown opcode $7e
 	lda #$00             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $8f               ; Unknown opcode $8F
-	db $f7               ; Unknown opcode $F7
-	db $ee               ; Unknown opcode $EE
-	db $7e               ; Unknown opcode $7E
-	db $a5               ; Unknown opcode $A5
-	db $1b               ; Unknown opcode $1B
+	db $8f               ; Unknown opcode $8f
+	db $f7               ; Unknown opcode $f7
+	db $ee               ; Unknown opcode $ee
+	db $7e               ; Unknown opcode $7e
+	db $a5               ; Unknown opcode $a5
+	db $1b               ; Unknown opcode $1b
 	sta $4206            ; Store accumulator absolute
-	db $a5               ; Unknown opcode $A5
-	db $1a               ; Unknown opcode $1A
+	db $a5               ; Unknown opcode $a5
+	db $1a               ; Unknown opcode $1a
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
 	clc                  ; Clear carry flag
 	db $85               ; Unknown opcode $85
-	db $1a               ; Unknown opcode $1A
+	db $1a               ; Unknown opcode $1a
 	lda $4214            ; Load accumulator absolute
-	db $8f               ; Unknown opcode $8F
-	db $4b               ; Unknown opcode $4B
-	db $f1               ; Unknown opcode $F1
-	db $7e               ; Unknown opcode $7E
+	db $8f               ; Unknown opcode $8f
+	db $4b               ; Unknown opcode $4b
+	db $f1               ; Unknown opcode $f1
+	db $7e               ; Unknown opcode $7e
 	lda #$00             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $8f               ; Unknown opcode $8F
-	db $f8               ; Unknown opcode $F8
-	db $ee               ; Unknown opcode $EE
-	db $7e               ; Unknown opcode $7E
-	db $a5               ; Unknown opcode $A5
-	db $1b               ; Unknown opcode $1B
+	db $8f               ; Unknown opcode $8f
+	db $f8               ; Unknown opcode $f8
+	db $ee               ; Unknown opcode $ee
+	db $7e               ; Unknown opcode $7e
+	db $a5               ; Unknown opcode $a5
+	db $1b               ; Unknown opcode $1b
 	sta $4206            ; Store accumulator absolute
-	db $a5               ; Unknown opcode $A5
-	db $1a               ; Unknown opcode $1A
+	db $a5               ; Unknown opcode $a5
+	db $1a               ; Unknown opcode $1a
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
 	clc                  ; Clear carry flag
 	db $85               ; Unknown opcode $85
-	db $1a               ; Unknown opcode $1A
+	db $1a               ; Unknown opcode $1a
 	lda $4214            ; Load accumulator absolute
-	db $8f               ; Unknown opcode $8F
-	db $4d               ; Unknown opcode $4D
-	db $f1               ; Unknown opcode $F1
-	db $7e               ; Unknown opcode $7E
+	db $8f               ; Unknown opcode $8f
+	db $4d               ; Unknown opcode $4d
+	db $f1               ; Unknown opcode $f1
+	db $7e               ; Unknown opcode $7e
 	lda #$00             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $8f               ; Unknown opcode $8F
-	db $f9               ; Unknown opcode $F9
-	db $ee               ; Unknown opcode $EE
-	db $7e               ; Unknown opcode $7E
-	db $a5               ; Unknown opcode $A5
-	db $1b               ; Unknown opcode $1B
+	db $8f               ; Unknown opcode $8f
+	db $f9               ; Unknown opcode $f9
+	db $ee               ; Unknown opcode $ee
+	db $7e               ; Unknown opcode $7e
+	db $a5               ; Unknown opcode $a5
+	db $1b               ; Unknown opcode $1b
 	sta $4206            ; Store accumulator absolute
-	db $a5               ; Unknown opcode $A5
-	db $1a               ; Unknown opcode $1A
+	db $a5               ; Unknown opcode $a5
+	db $1a               ; Unknown opcode $1a
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
 	clc                  ; Clear carry flag
 	db $85               ; Unknown opcode $85
-	db $1a               ; Unknown opcode $1A
+	db $1a               ; Unknown opcode $1a
 	lda $4214            ; Load accumulator absolute
-	db $8f               ; Unknown opcode $8F
-	db $4f               ; Unknown opcode $4F
-	db $f1               ; Unknown opcode $F1
-	db $7e               ; Unknown opcode $7E
+	db $8f               ; Unknown opcode $8f
+	db $4f               ; Unknown opcode $4f
+	db $f1               ; Unknown opcode $f1
+	db $7e               ; Unknown opcode $7e
 	lda #$00             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $8f               ; Unknown opcode $8F
-	db $fa               ; Unknown opcode $FA
-	db $ee               ; Unknown opcode $EE
-	db $7e               ; Unknown opcode $7E
-	db $a5               ; Unknown opcode $A5
-	db $1b               ; Unknown opcode $1B
+	db $8f               ; Unknown opcode $8f
+	db $fa               ; Unknown opcode $fa
+	db $ee               ; Unknown opcode $ee
+	db $7e               ; Unknown opcode $7e
+	db $a5               ; Unknown opcode $a5
+	db $1b               ; Unknown opcode $1b
 	sta $4206            ; Store accumulator absolute
-	db $a5               ; Unknown opcode $A5
-	db $1a               ; Unknown opcode $1A
+	db $a5               ; Unknown opcode $a5
+	db $1a               ; Unknown opcode $1a
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
 	clc                  ; Clear carry flag
 	db $85               ; Unknown opcode $85
-	db $1a               ; Unknown opcode $1A
+	db $1a               ; Unknown opcode $1a
 	lda $4214            ; Load accumulator absolute
-	db $8f               ; Unknown opcode $8F
+	db $8f               ; Unknown opcode $8f
 	db $51               ; Unknown opcode $51
-	db $f1               ; Unknown opcode $F1
-	db $7e               ; Unknown opcode $7E
+	db $f1               ; Unknown opcode $f1
+	db $7e               ; Unknown opcode $7e
 	lda #$00             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $8f               ; Unknown opcode $8F
+	db $8f               ; Unknown opcode $8f
 	xce                  ; Exchange carry and emulation
-	db $ee               ; Unknown opcode $EE
-	db $7e               ; Unknown opcode $7E
-	db $a5               ; Unknown opcode $A5
-	db $1b               ; Unknown opcode $1B
+	db $ee               ; Unknown opcode $ee
+	db $7e               ; Unknown opcode $7e
+	db $a5               ; Unknown opcode $a5
+	db $1b               ; Unknown opcode $1b
 	sta $4206            ; Store accumulator absolute
-	db $a5               ; Unknown opcode $A5
-	db $1a               ; Unknown opcode $1A
+	db $a5               ; Unknown opcode $a5
+	db $1a               ; Unknown opcode $1a
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
 	clc                  ; Clear carry flag
 	db $85               ; Unknown opcode $85
-	db $1a               ; Unknown opcode $1A
+	db $1a               ; Unknown opcode $1a
 	lda $4214            ; Load accumulator absolute
-	db $8f               ; Unknown opcode $8F
+	db $8f               ; Unknown opcode $8f
 	db $53               ; Unknown opcode $53
-	db $f1               ; Unknown opcode $F1
-	db $7e               ; Unknown opcode $7E
+	db $f1               ; Unknown opcode $f1
+	db $7e               ; Unknown opcode $7e
 	lda #$00             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $8f               ; Unknown opcode $8F
-	db $fc               ; Unknown opcode $FC
-	db $ee               ; Unknown opcode $EE
-	db $7e               ; Unknown opcode $7E
-	db $a5               ; Unknown opcode $A5
-	db $1b               ; Unknown opcode $1B
+	db $8f               ; Unknown opcode $8f
+	db $fc               ; Unknown opcode $fc
+	db $ee               ; Unknown opcode $ee
+	db $7e               ; Unknown opcode $7e
+	db $a5               ; Unknown opcode $a5
+	db $1b               ; Unknown opcode $1b
 	sta $4206            ; Store accumulator absolute
-	db $a5               ; Unknown opcode $A5
-	db $1a               ; Unknown opcode $1A
+	db $a5               ; Unknown opcode $a5
+	db $1a               ; Unknown opcode $1a
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
 	clc                  ; Clear carry flag
 	db $85               ; Unknown opcode $85
-	db $1a               ; Unknown opcode $1A
+	db $1a               ; Unknown opcode $1a
 	lda $4214            ; Load accumulator absolute
-	db $8f               ; Unknown opcode $8F
+	db $8f               ; Unknown opcode $8f
 	db $55               ; Unknown opcode $55
-	db $f1               ; Unknown opcode $F1
-	db $7e               ; Unknown opcode $7E
+	db $f1               ; Unknown opcode $f1
+	db $7e               ; Unknown opcode $7e
 	lda #$00             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $8f               ; Unknown opcode $8F
-	db $fd               ; Unknown opcode $FD
-	db $ee               ; Unknown opcode $EE
-	db $7e               ; Unknown opcode $7E
-	db $a5               ; Unknown opcode $A5
-	db $1b               ; Unknown opcode $1B
+	db $8f               ; Unknown opcode $8f
+	db $fd               ; Unknown opcode $fd
+	db $ee               ; Unknown opcode $ee
+	db $7e               ; Unknown opcode $7e
+	db $a5               ; Unknown opcode $a5
+	db $1b               ; Unknown opcode $1b
 	sta $4206            ; Store accumulator absolute
-	db $a5               ; Unknown opcode $A5
-	db $1a               ; Unknown opcode $1A
+	db $a5               ; Unknown opcode $a5
+	db $1a               ; Unknown opcode $1a
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
 	clc                  ; Clear carry flag
 	db $85               ; Unknown opcode $85
-	db $1a               ; Unknown opcode $1A
+	db $1a               ; Unknown opcode $1a
 	lda $4214            ; Load accumulator absolute
-	db $8f               ; Unknown opcode $8F
+	db $8f               ; Unknown opcode $8f
 	db $57               ; Unknown opcode $57
-	db $f1               ; Unknown opcode $F1
-	db $7e               ; Unknown opcode $7E
+	db $f1               ; Unknown opcode $f1
+	db $7e               ; Unknown opcode $7e
 	lda #$00             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $8f               ; Unknown opcode $8F
-	db $fe               ; Unknown opcode $FE
-	db $ee               ; Unknown opcode $EE
-	db $7e               ; Unknown opcode $7E
-	db $a5               ; Unknown opcode $A5
-	db $1b               ; Unknown opcode $1B
+	db $8f               ; Unknown opcode $8f
+	db $fe               ; Unknown opcode $fe
+	db $ee               ; Unknown opcode $ee
+	db $7e               ; Unknown opcode $7e
+	db $a5               ; Unknown opcode $a5
+	db $1b               ; Unknown opcode $1b
 	sta $4206            ; Store accumulator absolute
-	db $a5               ; Unknown opcode $A5
-	db $1a               ; Unknown opcode $1A
+	db $a5               ; Unknown opcode $a5
+	db $1a               ; Unknown opcode $1a
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
 	clc                  ; Clear carry flag
 	db $85               ; Unknown opcode $85
-	db $1a               ; Unknown opcode $1A
+	db $1a               ; Unknown opcode $1a
 	lda $4214            ; Load accumulator absolute
-	db $8f               ; Unknown opcode $8F
+	db $8f               ; Unknown opcode $8f
 	db $59               ; Unknown opcode $59
-	db $f1               ; Unknown opcode $F1
-	db $7e               ; Unknown opcode $7E
+	db $f1               ; Unknown opcode $f1
+	db $7e               ; Unknown opcode $7e
 	lda #$00             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $8f               ; Unknown opcode $8F
-	db $ff               ; Unknown opcode $FF
-	db $ee               ; Unknown opcode $EE
-	db $7e               ; Unknown opcode $7E
-	db $a5               ; Unknown opcode $A5
-	db $1b               ; Unknown opcode $1B
+	db $8f               ; Unknown opcode $8f
+	db $ff               ; Unknown opcode $ff
+	db $ee               ; Unknown opcode $ee
+	db $7e               ; Unknown opcode $7e
+	db $a5               ; Unknown opcode $a5
+	db $1b               ; Unknown opcode $1b
 	sta $4206            ; Store accumulator absolute
-	db $a5               ; Unknown opcode $A5
-	db $1a               ; Unknown opcode $1A
+	db $a5               ; Unknown opcode $a5
+	db $1a               ; Unknown opcode $1a
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
 	clc                  ; Clear carry flag
 	db $85               ; Unknown opcode $85
-	db $1a               ; Unknown opcode $1A
+	db $1a               ; Unknown opcode $1a
 	lda $4214            ; Load accumulator absolute
-	db $8f               ; Unknown opcode $8F
-	db $5b               ; Unknown opcode $5B
-	db $f1               ; Unknown opcode $F1
-	db $7e               ; Unknown opcode $7E
+	db $8f               ; Unknown opcode $8f
+	db $5b               ; Unknown opcode $5b
+	db $f1               ; Unknown opcode $f1
+	db $7e               ; Unknown opcode $7e
 	lda #$00             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $8f               ; Unknown opcode $8F
+	db $8f               ; Unknown opcode $8f
 	db $00               ; Unknown opcode $00
-	db $ef               ; Unknown opcode $EF
-	db $7e               ; Unknown opcode $7E
-	db $a5               ; Unknown opcode $A5
-	db $1b               ; Unknown opcode $1B
+	db $ef               ; Unknown opcode $ef
+	db $7e               ; Unknown opcode $7e
+	db $a5               ; Unknown opcode $a5
+	db $1b               ; Unknown opcode $1b
 	sta $4206            ; Store accumulator absolute
-	db $a5               ; Unknown opcode $A5
-	db $1a               ; Unknown opcode $1A
+	db $a5               ; Unknown opcode $a5
+	db $1a               ; Unknown opcode $1a
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
 	clc                  ; Clear carry flag
 	db $85               ; Unknown opcode $85
-	db $1a               ; Unknown opcode $1A
+	db $1a               ; Unknown opcode $1a
 	lda $4214            ; Load accumulator absolute
-	db $8f               ; Unknown opcode $8F
-	db $5d               ; Unknown opcode $5D
-	db $f1               ; Unknown opcode $F1
-	db $7e               ; Unknown opcode $7E
+	db $8f               ; Unknown opcode $8f
+	db $5d               ; Unknown opcode $5d
+	db $f1               ; Unknown opcode $f1
+	db $7e               ; Unknown opcode $7e
 	lda #$00             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $8f               ; Unknown opcode $8F
+	db $8f               ; Unknown opcode $8f
 	db $01               ; Unknown opcode $01
-	db $ef               ; Unknown opcode $EF
-	db $7e               ; Unknown opcode $7E
-	db $a5               ; Unknown opcode $A5
-	db $1b               ; Unknown opcode $1B
+	db $ef               ; Unknown opcode $ef
+	db $7e               ; Unknown opcode $7e
+	db $a5               ; Unknown opcode $a5
+	db $1b               ; Unknown opcode $1b
 	sta $4206            ; Store accumulator absolute
-	db $a5               ; Unknown opcode $A5
-	db $1a               ; Unknown opcode $1A
+	db $a5               ; Unknown opcode $a5
+	db $1a               ; Unknown opcode $1a
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
 	clc                  ; Clear carry flag
 	db $85               ; Unknown opcode $85
-	db $1a               ; Unknown opcode $1A
+	db $1a               ; Unknown opcode $1a
 	lda $4214            ; Load accumulator absolute
-	db $8f               ; Unknown opcode $8F
-	db $5f               ; Unknown opcode $5F
-	db $f1               ; Unknown opcode $F1
-	db $7e               ; Unknown opcode $7E
+	db $8f               ; Unknown opcode $8f
+	db $5f               ; Unknown opcode $5f
+	db $f1               ; Unknown opcode $f1
+	db $7e               ; Unknown opcode $7e
 	lda #$00             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $8f               ; Unknown opcode $8F
+	db $8f               ; Unknown opcode $8f
 	db $02               ; Unknown opcode $02
-	db $ef               ; Unknown opcode $EF
-	db $7e               ; Unknown opcode $7E
-	db $a5               ; Unknown opcode $A5
-	db $1b               ; Unknown opcode $1B
+	db $ef               ; Unknown opcode $ef
+	db $7e               ; Unknown opcode $7e
+	db $a5               ; Unknown opcode $a5
+	db $1b               ; Unknown opcode $1b
 	sta $4206            ; Store accumulator absolute
-	db $a5               ; Unknown opcode $A5
-	db $1a               ; Unknown opcode $1A
+	db $a5               ; Unknown opcode $a5
+	db $1a               ; Unknown opcode $1a
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
 	clc                  ; Clear carry flag
 	db $85               ; Unknown opcode $85
-	db $1a               ; Unknown opcode $1A
+	db $1a               ; Unknown opcode $1a
 	lda $4214            ; Load accumulator absolute
-	db $8f               ; Unknown opcode $8F
+	db $8f               ; Unknown opcode $8f
 	db $61               ; Unknown opcode $61
-	db $f1               ; Unknown opcode $F1
-	db $7e               ; Unknown opcode $7E
+	db $f1               ; Unknown opcode $f1
+	db $7e               ; Unknown opcode $7e
 	lda #$00             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $8f               ; Unknown opcode $8F
+	db $8f               ; Unknown opcode $8f
 	db $03               ; Unknown opcode $03
-	db $ef               ; Unknown opcode $EF
-	db $7e               ; Unknown opcode $7E
-	db $a5               ; Unknown opcode $A5
-	db $1b               ; Unknown opcode $1B
+	db $ef               ; Unknown opcode $ef
+	db $7e               ; Unknown opcode $7e
+	db $a5               ; Unknown opcode $a5
+	db $1b               ; Unknown opcode $1b
 	sta $4206            ; Store accumulator absolute
-	db $a5               ; Unknown opcode $A5
-	db $1a               ; Unknown opcode $1A
+	db $a5               ; Unknown opcode $a5
+	db $1a               ; Unknown opcode $1a
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
 	clc                  ; Clear carry flag
 	db $85               ; Unknown opcode $85
-	db $1a               ; Unknown opcode $1A
+	db $1a               ; Unknown opcode $1a
 	lda $4214            ; Load accumulator absolute
-	db $8f               ; Unknown opcode $8F
+	db $8f               ; Unknown opcode $8f
 	db $63               ; Unknown opcode $63
-	db $f1               ; Unknown opcode $F1
-	db $7e               ; Unknown opcode $7E
+	db $f1               ; Unknown opcode $f1
+	db $7e               ; Unknown opcode $7e
 	lda #$00             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $8f               ; Unknown opcode $8F
+	db $8f               ; Unknown opcode $8f
 	db $04               ; Unknown opcode $04
-	db $ef               ; Unknown opcode $EF
-	db $7e               ; Unknown opcode $7E
-	db $a5               ; Unknown opcode $A5
-	db $1b               ; Unknown opcode $1B
+	db $ef               ; Unknown opcode $ef
+	db $7e               ; Unknown opcode $7e
+	db $a5               ; Unknown opcode $a5
+	db $1b               ; Unknown opcode $1b
 	sta $4206            ; Store accumulator absolute
-	db $a5               ; Unknown opcode $A5
-	db $1a               ; Unknown opcode $1A
+	db $a5               ; Unknown opcode $a5
+	db $1a               ; Unknown opcode $1a
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
 	clc                  ; Clear carry flag
 	db $85               ; Unknown opcode $85
-	db $1a               ; Unknown opcode $1A
+	db $1a               ; Unknown opcode $1a
 	lda $4214            ; Load accumulator absolute
-	db $8f               ; Unknown opcode $8F
+	db $8f               ; Unknown opcode $8f
 	db $65               ; Unknown opcode $65
-	db $f1               ; Unknown opcode $F1
-	db $7e               ; Unknown opcode $7E
+	db $f1               ; Unknown opcode $f1
+	db $7e               ; Unknown opcode $7e
 	lda #$00             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $8f               ; Unknown opcode $8F
+	db $8f               ; Unknown opcode $8f
 	db $05               ; Unknown opcode $05
-	db $ef               ; Unknown opcode $EF
-	db $7e               ; Unknown opcode $7E
-	db $a5               ; Unknown opcode $A5
-	db $1b               ; Unknown opcode $1B
+	db $ef               ; Unknown opcode $ef
+	db $7e               ; Unknown opcode $7e
+	db $a5               ; Unknown opcode $a5
+	db $1b               ; Unknown opcode $1b
 	sta $4206            ; Store accumulator absolute
-	db $a5               ; Unknown opcode $A5
-	db $1a               ; Unknown opcode $1A
+	db $a5               ; Unknown opcode $a5
+	db $1a               ; Unknown opcode $1a
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
 	clc                  ; Clear carry flag
 	db $85               ; Unknown opcode $85
-	db $1a               ; Unknown opcode $1A
+	db $1a               ; Unknown opcode $1a
 	lda $4214            ; Load accumulator absolute
-	db $8f               ; Unknown opcode $8F
+	db $8f               ; Unknown opcode $8f
 	db $67               ; Unknown opcode $67
-	db $f1               ; Unknown opcode $F1
-	db $7e               ; Unknown opcode $7E
+	db $f1               ; Unknown opcode $f1
+	db $7e               ; Unknown opcode $7e
 	lda #$00             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $8f               ; Unknown opcode $8F
+	db $8f               ; Unknown opcode $8f
 	db $06               ; Unknown opcode $06
-	db $ef               ; Unknown opcode $EF
-	db $7e               ; Unknown opcode $7E
-	db $a5               ; Unknown opcode $A5
-	db $1b               ; Unknown opcode $1B
+	db $ef               ; Unknown opcode $ef
+	db $7e               ; Unknown opcode $7e
+	db $a5               ; Unknown opcode $a5
+	db $1b               ; Unknown opcode $1b
 	sta $4206            ; Store accumulator absolute
-	db $a5               ; Unknown opcode $A5
-	db $1a               ; Unknown opcode $1A
+	db $a5               ; Unknown opcode $a5
+	db $1a               ; Unknown opcode $1a
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
 	clc                  ; Clear carry flag
 	db $85               ; Unknown opcode $85
-	db $1a               ; Unknown opcode $1A
+	db $1a               ; Unknown opcode $1a
 	lda $4214            ; Load accumulator absolute
-	db $8f               ; Unknown opcode $8F
+	db $8f               ; Unknown opcode $8f
 	db $69               ; Unknown opcode $69
-	db $f1               ; Unknown opcode $F1
-	db $7e               ; Unknown opcode $7E
+	db $f1               ; Unknown opcode $f1
+	db $7e               ; Unknown opcode $7e
 	lda #$00             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $8f               ; Unknown opcode $8F
+	db $8f               ; Unknown opcode $8f
 	db $07               ; Unknown opcode $07
-	db $ef               ; Unknown opcode $EF
-	db $7e               ; Unknown opcode $7E
-	db $a5               ; Unknown opcode $A5
-	db $1b               ; Unknown opcode $1B
+	db $ef               ; Unknown opcode $ef
+	db $7e               ; Unknown opcode $7e
+	db $a5               ; Unknown opcode $a5
+	db $1b               ; Unknown opcode $1b
 	sta $4206            ; Store accumulator absolute
-	db $a5               ; Unknown opcode $A5
-	db $1a               ; Unknown opcode $1A
+	db $a5               ; Unknown opcode $a5
+	db $1a               ; Unknown opcode $1a
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
 	clc                  ; Clear carry flag
 	db $85               ; Unknown opcode $85
-	db $1a               ; Unknown opcode $1A
+	db $1a               ; Unknown opcode $1a
 	lda $4214            ; Load accumulator absolute
-	db $8f               ; Unknown opcode $8F
+	db $8f               ; Unknown opcode $8f
 	rtl                  ; Return from subroutine long
 
 
-; Region 5: subroutine ($8000-$82B9)
+; Region 5: subroutine ($8000-$82b9)
 region_5_subroutine:
 	db $26               ; Unknown opcode $26
 	db $88               ; Unknown opcode $88
@@ -1291,48 +1291,48 @@ region_5_subroutine:
 	db $89               ; Unknown opcode $89
 	lda $e3d0            ; Load accumulator absolute
 	db $48               ; Unknown opcode $48
-	db $4a               ; Unknown opcode $4A
-	db $4a               ; Unknown opcode $4A
-	db $4a               ; Unknown opcode $4A
-	db $0a               ; Unknown opcode $0A
+	db $4a               ; Unknown opcode $4a
+	db $4a               ; Unknown opcode $4a
+	db $4a               ; Unknown opcode $4a
+	db $0a               ; Unknown opcode $0a
 	db $25               ; Unknown opcode $25
 	db $26               ; Unknown opcode $26
 	db $85               ; Unknown opcode $85
 	bpl #$a8             ; Branch plus
-	db $b7               ; Unknown opcode $B7
+	db $b7               ; Unknown opcode $b7
 	db $00               ; Unknown opcode $00
-	db $aa               ; Unknown opcode $AA
+	db $aa               ; Unknown opcode $aa
 	sep #$20             ; Set processor status
 	stz $fc4f            ; Store zero absolute
 	stz $fc51            ; Store zero absolute
 	stz $fc53            ; Store zero absolute
 	stz $fc55            ; Store zero absolute
-	db $bf               ; Unknown opcode $BF
+	db $bf               ; Unknown opcode $bf
 	stz $eda4            ; Store zero absolute
 	sta $fc4e            ; Store accumulator absolute
-	db $bf               ; Unknown opcode $BF
-	db $d9               ; Unknown opcode $D9
-	db $ae               ; Unknown opcode $AE
-	db $ed               ; Unknown opcode $ED
+	db $bf               ; Unknown opcode $bf
+	db $d9               ; Unknown opcode $d9
+	db $ae               ; Unknown opcode $ae
+	db $ed               ; Unknown opcode $ed
 	sta $fc50            ; Store accumulator absolute
-	db $bf               ; Unknown opcode $BF
+	db $bf               ; Unknown opcode $bf
 	db $16               ; Unknown opcode $16
-	db $b9               ; Unknown opcode $B9
-	db $ed               ; Unknown opcode $ED
+	db $b9               ; Unknown opcode $b9
+	db $ed               ; Unknown opcode $ed
 	sta $fc52            ; Store accumulator absolute
-	db $bf               ; Unknown opcode $BF
+	db $bf               ; Unknown opcode $bf
 	db $53               ; Unknown opcode $53
-	db $c3               ; Unknown opcode $C3
-	db $ed               ; Unknown opcode $ED
+	db $c3               ; Unknown opcode $c3
+	db $ed               ; Unknown opcode $ed
 	sta $fc54            ; Store accumulator absolute
 	rep #$20             ; Reset processor status
 	db $68               ; Unknown opcode $68
 	db $29               ; Unknown opcode $29
 	db $07               ; Unknown opcode $07
 	db $00               ; Unknown opcode $00
-	db $0a               ; Unknown opcode $0A
-	db $aa               ; Unknown opcode $AA
-	db $7c               ; Unknown opcode $7C
+	db $0a               ; Unknown opcode $0a
+	db $aa               ; Unknown opcode $aa
+	db $7c               ; Unknown opcode $7c
 	db $49               ; Unknown opcode $49
 	bra #$59             ; Branch always
 	bra #$5e             ; Branch always
@@ -1345,487 +1345,487 @@ region_5_subroutine:
 	bra #$a6             ; Branch always
 	db $04               ; Unknown opcode $04
 	jmp $80d7            ; Jump absolute
-	db $a6               ; Unknown opcode $A6
+	db $a6               ; Unknown opcode $a6
 	db $04               ; Unknown opcode $04
 	lda $fc4e            ; Load accumulator absolute
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
-	db $2a               ; Unknown opcode $2A
-	db $0a               ; Unknown opcode $0A
-	db $a8               ; Unknown opcode $A8
+	db $2a               ; Unknown opcode $2a
+	db $0a               ; Unknown opcode $0a
+	db $a8               ; Unknown opcode $a8
 	jmp $80eb            ; Jump absolute
-	db $a6               ; Unknown opcode $A6
+	db $a6               ; Unknown opcode $a6
 	db $04               ; Unknown opcode $04
 	jmp $80f7            ; Jump absolute
-	db $a6               ; Unknown opcode $A6
+	db $a6               ; Unknown opcode $a6
 	db $04               ; Unknown opcode $04
 	lda $fc50            ; Load accumulator absolute
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
-	db $2a               ; Unknown opcode $2A
-	db $0a               ; Unknown opcode $0A
-	db $a8               ; Unknown opcode $A8
+	db $2a               ; Unknown opcode $2a
+	db $0a               ; Unknown opcode $0a
+	db $a8               ; Unknown opcode $a8
 	jmp $810b            ; Jump absolute
-	db $a6               ; Unknown opcode $A6
+	db $a6               ; Unknown opcode $a6
 	db $04               ; Unknown opcode $04
 	jmp $8117            ; Jump absolute
-	db $a6               ; Unknown opcode $A6
+	db $a6               ; Unknown opcode $a6
 	db $04               ; Unknown opcode $04
 	lda $fc52            ; Load accumulator absolute
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
-	db $2a               ; Unknown opcode $2A
-	db $0a               ; Unknown opcode $0A
-	db $a8               ; Unknown opcode $A8
+	db $2a               ; Unknown opcode $2a
+	db $0a               ; Unknown opcode $0a
+	db $a8               ; Unknown opcode $a8
 	jmp $812b            ; Jump absolute
-	db $a6               ; Unknown opcode $A6
+	db $a6               ; Unknown opcode $a6
 	db $04               ; Unknown opcode $04
 	jmp $8137            ; Jump absolute
-	db $a6               ; Unknown opcode $A6
+	db $a6               ; Unknown opcode $a6
 	db $04               ; Unknown opcode $04
 	lda $fc54            ; Load accumulator absolute
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
-	db $2a               ; Unknown opcode $2A
-	db $0a               ; Unknown opcode $0A
-	db $a8               ; Unknown opcode $A8
+	db $2a               ; Unknown opcode $2a
+	db $0a               ; Unknown opcode $0a
+	db $a8               ; Unknown opcode $a8
 	jmp $814b            ; Jump absolute
-	db $a5               ; Unknown opcode $A5
+	db $a5               ; Unknown opcode $a5
 	bpl #$25             ; Branch plus
 	db $26               ; Unknown opcode $26
-	db $a8               ; Unknown opcode $A8
-	db $b7               ; Unknown opcode $B7
+	db $a8               ; Unknown opcode $a8
+	db $b7               ; Unknown opcode $b7
 	db $00               ; Unknown opcode $00
-	db $da               ; Unknown opcode $DA
-	db $aa               ; Unknown opcode $AA
+	db $da               ; Unknown opcode $da
+	db $aa               ; Unknown opcode $aa
 	sep #$20             ; Set processor status
 	stz $fc4f            ; Store zero absolute
 	stz $fc51            ; Store zero absolute
 	stz $fc53            ; Store zero absolute
 	stz $fc55            ; Store zero absolute
-	db $bf               ; Unknown opcode $BF
+	db $bf               ; Unknown opcode $bf
 	stz $eda4            ; Store zero absolute
 	sta $fc4e            ; Store accumulator absolute
-	db $bf               ; Unknown opcode $BF
-	db $d9               ; Unknown opcode $D9
-	db $ae               ; Unknown opcode $AE
-	db $ed               ; Unknown opcode $ED
+	db $bf               ; Unknown opcode $bf
+	db $d9               ; Unknown opcode $d9
+	db $ae               ; Unknown opcode $ae
+	db $ed               ; Unknown opcode $ed
 	sta $fc50            ; Store accumulator absolute
-	db $bf               ; Unknown opcode $BF
+	db $bf               ; Unknown opcode $bf
 	db $16               ; Unknown opcode $16
-	db $b9               ; Unknown opcode $B9
-	db $ed               ; Unknown opcode $ED
+	db $b9               ; Unknown opcode $b9
+	db $ed               ; Unknown opcode $ed
 	sta $fc52            ; Store accumulator absolute
-	db $bf               ; Unknown opcode $BF
+	db $bf               ; Unknown opcode $bf
 	db $53               ; Unknown opcode $53
-	db $c3               ; Unknown opcode $C3
-	db $ed               ; Unknown opcode $ED
+	db $c3               ; Unknown opcode $c3
+	db $ed               ; Unknown opcode $ed
 	sta $fc54            ; Store accumulator absolute
 	rep #$20             ; Reset processor status
-	db $fa               ; Unknown opcode $FA
+	db $fa               ; Unknown opcode $fa
 	lda $fc4e            ; Load accumulator absolute
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
-	db $2a               ; Unknown opcode $2A
-	db $0a               ; Unknown opcode $0A
-	db $a8               ; Unknown opcode $A8
-	db $b9               ; Unknown opcode $B9
+	db $2a               ; Unknown opcode $2a
+	db $0a               ; Unknown opcode $0a
+	db $a8               ; Unknown opcode $a8
+	db $b9               ; Unknown opcode $b9
 	db $86               ; Unknown opcode $86
-	db $c0               ; Unknown opcode $C0
-	db $9d               ; Unknown opcode $9D
+	db $c0               ; Unknown opcode $c0
+	db $9d               ; Unknown opcode $9d
 	db $00               ; Unknown opcode $00
 	db $00               ; Unknown opcode $00
-	db $e8               ; Unknown opcode $E8
-	db $e8               ; Unknown opcode $E8
-	db $c6               ; Unknown opcode $C6
+	db $e8               ; Unknown opcode $e8
+	db $e8               ; Unknown opcode $e8
+	db $c6               ; Unknown opcode $c6
 	db $24               ; Unknown opcode $24
 	beq #$73             ; Branch equal
-	db $b9               ; Unknown opcode $B9
+	db $b9               ; Unknown opcode $b9
 	db $86               ; Unknown opcode $86
-	db $b8               ; Unknown opcode $B8
-	db $9d               ; Unknown opcode $9D
+	db $b8               ; Unknown opcode $b8
+	db $9d               ; Unknown opcode $9d
 	db $00               ; Unknown opcode $00
 	db $00               ; Unknown opcode $00
-	db $e8               ; Unknown opcode $E8
-	db $e8               ; Unknown opcode $E8
-	db $c6               ; Unknown opcode $C6
+	db $e8               ; Unknown opcode $e8
+	db $e8               ; Unknown opcode $e8
+	db $c6               ; Unknown opcode $c6
 	db $24               ; Unknown opcode $24
 	beq #$67             ; Branch equal
 	lda $fc50            ; Load accumulator absolute
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
-	db $2a               ; Unknown opcode $2A
-	db $0a               ; Unknown opcode $0A
-	db $a8               ; Unknown opcode $A8
-	db $b9               ; Unknown opcode $B9
+	db $2a               ; Unknown opcode $2a
+	db $0a               ; Unknown opcode $0a
+	db $a8               ; Unknown opcode $a8
+	db $b9               ; Unknown opcode $b9
 	db $86               ; Unknown opcode $86
-	db $c0               ; Unknown opcode $C0
-	db $9d               ; Unknown opcode $9D
+	db $c0               ; Unknown opcode $c0
+	db $9d               ; Unknown opcode $9d
 	db $00               ; Unknown opcode $00
 	db $00               ; Unknown opcode $00
-	db $e8               ; Unknown opcode $E8
-	db $e8               ; Unknown opcode $E8
-	db $c6               ; Unknown opcode $C6
+	db $e8               ; Unknown opcode $e8
+	db $e8               ; Unknown opcode $e8
+	db $c6               ; Unknown opcode $c6
 	db $24               ; Unknown opcode $24
 	beq #$53             ; Branch equal
-	db $b9               ; Unknown opcode $B9
+	db $b9               ; Unknown opcode $b9
 	db $86               ; Unknown opcode $86
-	db $b8               ; Unknown opcode $B8
-	db $9d               ; Unknown opcode $9D
+	db $b8               ; Unknown opcode $b8
+	db $9d               ; Unknown opcode $9d
 	db $00               ; Unknown opcode $00
 	db $00               ; Unknown opcode $00
-	db $e8               ; Unknown opcode $E8
-	db $e8               ; Unknown opcode $E8
-	db $c6               ; Unknown opcode $C6
+	db $e8               ; Unknown opcode $e8
+	db $e8               ; Unknown opcode $e8
+	db $c6               ; Unknown opcode $c6
 	db $24               ; Unknown opcode $24
 	beq #$47             ; Branch equal
 	lda $fc52            ; Load accumulator absolute
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
-	db $2a               ; Unknown opcode $2A
-	db $0a               ; Unknown opcode $0A
-	db $a8               ; Unknown opcode $A8
-	db $b9               ; Unknown opcode $B9
+	db $2a               ; Unknown opcode $2a
+	db $0a               ; Unknown opcode $0a
+	db $a8               ; Unknown opcode $a8
+	db $b9               ; Unknown opcode $b9
 	db $86               ; Unknown opcode $86
-	db $c0               ; Unknown opcode $C0
-	db $9d               ; Unknown opcode $9D
+	db $c0               ; Unknown opcode $c0
+	db $9d               ; Unknown opcode $9d
 	db $00               ; Unknown opcode $00
 	db $00               ; Unknown opcode $00
-	db $e8               ; Unknown opcode $E8
-	db $e8               ; Unknown opcode $E8
-	db $c6               ; Unknown opcode $C6
+	db $e8               ; Unknown opcode $e8
+	db $e8               ; Unknown opcode $e8
+	db $c6               ; Unknown opcode $c6
 	db $24               ; Unknown opcode $24
 	beq #$33             ; Branch equal
-	db $b9               ; Unknown opcode $B9
+	db $b9               ; Unknown opcode $b9
 	db $86               ; Unknown opcode $86
-	db $b8               ; Unknown opcode $B8
-	db $9d               ; Unknown opcode $9D
+	db $b8               ; Unknown opcode $b8
+	db $9d               ; Unknown opcode $9d
 	db $00               ; Unknown opcode $00
 	db $00               ; Unknown opcode $00
-	db $e8               ; Unknown opcode $E8
-	db $e8               ; Unknown opcode $E8
-	db $c6               ; Unknown opcode $C6
+	db $e8               ; Unknown opcode $e8
+	db $e8               ; Unknown opcode $e8
+	db $c6               ; Unknown opcode $c6
 	db $24               ; Unknown opcode $24
 	beq #$27             ; Branch equal
 	lda $fc54            ; Load accumulator absolute
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
-	db $2a               ; Unknown opcode $2A
-	db $0a               ; Unknown opcode $0A
-	db $a8               ; Unknown opcode $A8
-	db $b9               ; Unknown opcode $B9
+	db $2a               ; Unknown opcode $2a
+	db $0a               ; Unknown opcode $0a
+	db $a8               ; Unknown opcode $a8
+	db $b9               ; Unknown opcode $b9
 	db $86               ; Unknown opcode $86
-	db $c0               ; Unknown opcode $C0
-	db $9d               ; Unknown opcode $9D
+	db $c0               ; Unknown opcode $c0
+	db $9d               ; Unknown opcode $9d
 	db $00               ; Unknown opcode $00
 	db $00               ; Unknown opcode $00
-	db $e8               ; Unknown opcode $E8
-	db $e8               ; Unknown opcode $E8
-	db $c6               ; Unknown opcode $C6
+	db $e8               ; Unknown opcode $e8
+	db $e8               ; Unknown opcode $e8
+	db $c6               ; Unknown opcode $c6
 	db $24               ; Unknown opcode $24
 	beq #$13             ; Branch equal
-	db $b9               ; Unknown opcode $B9
+	db $b9               ; Unknown opcode $b9
 	db $86               ; Unknown opcode $86
-	db $b8               ; Unknown opcode $B8
-	db $9d               ; Unknown opcode $9D
+	db $b8               ; Unknown opcode $b8
+	db $9d               ; Unknown opcode $9d
 	db $00               ; Unknown opcode $00
 	db $00               ; Unknown opcode $00
-	db $e8               ; Unknown opcode $E8
-	db $e8               ; Unknown opcode $E8
-	db $c6               ; Unknown opcode $C6
+	db $e8               ; Unknown opcode $e8
+	db $e8               ; Unknown opcode $e8
+	db $c6               ; Unknown opcode $c6
 	db $24               ; Unknown opcode $24
 	beq #$07             ; Branch equal
-	db $e6               ; Unknown opcode $E6
+	db $e6               ; Unknown opcode $e6
 	bpl #$e6             ; Branch plus
 	bpl #$4c             ; Branch plus
-	db $a1               ; Unknown opcode $A1
+	db $a1               ; Unknown opcode $a1
 	bra #$60             ; Branch always
 	lda $e3d0            ; Load accumulator absolute
 	db $48               ; Unknown opcode $48
-	db $4a               ; Unknown opcode $4A
-	db $4a               ; Unknown opcode $4A
-	db $4a               ; Unknown opcode $4A
-	db $0a               ; Unknown opcode $0A
+	db $4a               ; Unknown opcode $4a
+	db $4a               ; Unknown opcode $4a
+	db $4a               ; Unknown opcode $4a
+	db $0a               ; Unknown opcode $0a
 	db $25               ; Unknown opcode $25
 	db $26               ; Unknown opcode $26
 	db $85               ; Unknown opcode $85
 	bpl #$a8             ; Branch plus
-	db $b7               ; Unknown opcode $B7
+	db $b7               ; Unknown opcode $b7
 	db $00               ; Unknown opcode $00
-	db $aa               ; Unknown opcode $AA
+	db $aa               ; Unknown opcode $aa
 	sep #$20             ; Set processor status
 	stz $fc4f            ; Store zero absolute
 	stz $fc51            ; Store zero absolute
 	stz $fc53            ; Store zero absolute
 	stz $fc55            ; Store zero absolute
-	db $bf               ; Unknown opcode $BF
+	db $bf               ; Unknown opcode $bf
 	stz $eda4            ; Store zero absolute
 	sta $fc4e            ; Store accumulator absolute
-	db $bf               ; Unknown opcode $BF
-	db $d9               ; Unknown opcode $D9
-	db $ae               ; Unknown opcode $AE
-	db $ed               ; Unknown opcode $ED
+	db $bf               ; Unknown opcode $bf
+	db $d9               ; Unknown opcode $d9
+	db $ae               ; Unknown opcode $ae
+	db $ed               ; Unknown opcode $ed
 	sta $fc50            ; Store accumulator absolute
-	db $bf               ; Unknown opcode $BF
+	db $bf               ; Unknown opcode $bf
 	db $16               ; Unknown opcode $16
-	db $b9               ; Unknown opcode $B9
-	db $ed               ; Unknown opcode $ED
+	db $b9               ; Unknown opcode $b9
+	db $ed               ; Unknown opcode $ed
 	sta $fc52            ; Store accumulator absolute
-	db $bf               ; Unknown opcode $BF
+	db $bf               ; Unknown opcode $bf
 	db $53               ; Unknown opcode $53
-	db $c3               ; Unknown opcode $C3
-	db $ed               ; Unknown opcode $ED
+	db $c3               ; Unknown opcode $c3
+	db $ed               ; Unknown opcode $ed
 	sta $fc54            ; Store accumulator absolute
 	rep #$20             ; Reset processor status
 	db $68               ; Unknown opcode $68
 	db $29               ; Unknown opcode $29
 	db $07               ; Unknown opcode $07
 	db $00               ; Unknown opcode $00
-	db $0a               ; Unknown opcode $0A
-	db $aa               ; Unknown opcode $AA
-	db $7c               ; Unknown opcode $7C
-	db $a4               ; Unknown opcode $A4
+	db $0a               ; Unknown opcode $0a
+	db $aa               ; Unknown opcode $aa
+	db $7c               ; Unknown opcode $7c
+	db $a4               ; Unknown opcode $a4
 	db $81               ; Unknown opcode $81
-	db $b4               ; Unknown opcode $B4
+	db $b4               ; Unknown opcode $b4
 	db $81               ; Unknown opcode $81
-	db $b9               ; Unknown opcode $B9
+	db $b9               ; Unknown opcode $b9
 	db $81               ; Unknown opcode $81
-	db $c6               ; Unknown opcode $C6
+	db $c6               ; Unknown opcode $c6
 	db $81               ; Unknown opcode $81
-	db $cb               ; Unknown opcode $CB
+	db $cb               ; Unknown opcode $cb
 	db $81               ; Unknown opcode $81
-	db $d8               ; Unknown opcode $D8
+	db $d8               ; Unknown opcode $d8
 	db $81               ; Unknown opcode $81
-	db $dd               ; Unknown opcode $DD
+	db $dd               ; Unknown opcode $dd
 	db $81               ; Unknown opcode $81
 	nop                  ; No operation
 	db $81               ; Unknown opcode $81
-	db $ef               ; Unknown opcode $EF
+	db $ef               ; Unknown opcode $ef
 	db $81               ; Unknown opcode $81
-	db $a6               ; Unknown opcode $A6
+	db $a6               ; Unknown opcode $a6
 	db $04               ; Unknown opcode $04
 	jmp $8232            ; Jump absolute
-	db $a6               ; Unknown opcode $A6
+	db $a6               ; Unknown opcode $a6
 	db $04               ; Unknown opcode $04
 	lda $fc4e            ; Load accumulator absolute
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
-	db $2a               ; Unknown opcode $2A
-	db $0a               ; Unknown opcode $0A
-	db $a8               ; Unknown opcode $A8
+	db $2a               ; Unknown opcode $2a
+	db $0a               ; Unknown opcode $0a
+	db $a8               ; Unknown opcode $a8
 	jmp $8246            ; Jump absolute
-	db $a6               ; Unknown opcode $A6
+	db $a6               ; Unknown opcode $a6
 	db $04               ; Unknown opcode $04
 	jmp $8252            ; Jump absolute
-	db $a6               ; Unknown opcode $A6
+	db $a6               ; Unknown opcode $a6
 	db $04               ; Unknown opcode $04
 	lda $fc50            ; Load accumulator absolute
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
-	db $2a               ; Unknown opcode $2A
-	db $0a               ; Unknown opcode $0A
-	db $a8               ; Unknown opcode $A8
+	db $2a               ; Unknown opcode $2a
+	db $0a               ; Unknown opcode $0a
+	db $a8               ; Unknown opcode $a8
 	jmp $8266            ; Jump absolute
-	db $a6               ; Unknown opcode $A6
+	db $a6               ; Unknown opcode $a6
 	db $04               ; Unknown opcode $04
 	jmp $8272            ; Jump absolute
-	db $a6               ; Unknown opcode $A6
+	db $a6               ; Unknown opcode $a6
 	db $04               ; Unknown opcode $04
 	lda $fc52            ; Load accumulator absolute
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
-	db $2a               ; Unknown opcode $2A
-	db $0a               ; Unknown opcode $0A
-	db $a8               ; Unknown opcode $A8
+	db $2a               ; Unknown opcode $2a
+	db $0a               ; Unknown opcode $0a
+	db $a8               ; Unknown opcode $a8
 	jmp $8286            ; Jump absolute
-	db $a6               ; Unknown opcode $A6
+	db $a6               ; Unknown opcode $a6
 	db $04               ; Unknown opcode $04
 	jmp $8292            ; Jump absolute
-	db $a6               ; Unknown opcode $A6
+	db $a6               ; Unknown opcode $a6
 	db $04               ; Unknown opcode $04
 	lda $fc54            ; Load accumulator absolute
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
-	db $2a               ; Unknown opcode $2A
-	db $0a               ; Unknown opcode $0A
-	db $a8               ; Unknown opcode $A8
+	db $2a               ; Unknown opcode $2a
+	db $0a               ; Unknown opcode $0a
+	db $a8               ; Unknown opcode $a8
 	jmp $82a6            ; Jump absolute
-	db $a5               ; Unknown opcode $A5
+	db $a5               ; Unknown opcode $a5
 	bpl #$25             ; Branch plus
 	db $26               ; Unknown opcode $26
-	db $a8               ; Unknown opcode $A8
-	db $b7               ; Unknown opcode $B7
+	db $a8               ; Unknown opcode $a8
+	db $b7               ; Unknown opcode $b7
 	db $00               ; Unknown opcode $00
-	db $da               ; Unknown opcode $DA
-	db $aa               ; Unknown opcode $AA
+	db $da               ; Unknown opcode $da
+	db $aa               ; Unknown opcode $aa
 	sep #$20             ; Set processor status
 	stz $fc4f            ; Store zero absolute
 	stz $fc51            ; Store zero absolute
 	stz $fc53            ; Store zero absolute
 	stz $fc55            ; Store zero absolute
-	db $bf               ; Unknown opcode $BF
+	db $bf               ; Unknown opcode $bf
 	stz $eda4            ; Store zero absolute
 	sta $fc4e            ; Store accumulator absolute
-	db $bf               ; Unknown opcode $BF
-	db $d9               ; Unknown opcode $D9
-	db $ae               ; Unknown opcode $AE
-	db $ed               ; Unknown opcode $ED
+	db $bf               ; Unknown opcode $bf
+	db $d9               ; Unknown opcode $d9
+	db $ae               ; Unknown opcode $ae
+	db $ed               ; Unknown opcode $ed
 	sta $fc50            ; Store accumulator absolute
-	db $bf               ; Unknown opcode $BF
+	db $bf               ; Unknown opcode $bf
 	db $16               ; Unknown opcode $16
-	db $b9               ; Unknown opcode $B9
-	db $ed               ; Unknown opcode $ED
+	db $b9               ; Unknown opcode $b9
+	db $ed               ; Unknown opcode $ed
 	sta $fc52            ; Store accumulator absolute
-	db $bf               ; Unknown opcode $BF
+	db $bf               ; Unknown opcode $bf
 	db $53               ; Unknown opcode $53
-	db $c3               ; Unknown opcode $C3
-	db $ed               ; Unknown opcode $ED
+	db $c3               ; Unknown opcode $c3
+	db $ed               ; Unknown opcode $ed
 	sta $fc54            ; Store accumulator absolute
 	rep #$20             ; Reset processor status
-	db $fa               ; Unknown opcode $FA
+	db $fa               ; Unknown opcode $fa
 	lda $fc4e            ; Load accumulator absolute
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
-	db $2a               ; Unknown opcode $2A
-	db $0a               ; Unknown opcode $0A
-	db $a8               ; Unknown opcode $A8
-	db $b9               ; Unknown opcode $B9
+	db $2a               ; Unknown opcode $2a
+	db $0a               ; Unknown opcode $0a
+	db $a8               ; Unknown opcode $a8
+	db $b9               ; Unknown opcode $b9
 	db $86               ; Unknown opcode $86
 	bne #$9d             ; Branch not equal
 	db $00               ; Unknown opcode $00
 	db $00               ; Unknown opcode $00
-	db $e8               ; Unknown opcode $E8
-	db $e8               ; Unknown opcode $E8
-	db $c6               ; Unknown opcode $C6
+	db $e8               ; Unknown opcode $e8
+	db $e8               ; Unknown opcode $e8
+	db $c6               ; Unknown opcode $c6
 	db $24               ; Unknown opcode $24
 	beq #$73             ; Branch equal
-	db $b9               ; Unknown opcode $B9
+	db $b9               ; Unknown opcode $b9
 	db $86               ; Unknown opcode $86
-	db $c8               ; Unknown opcode $C8
-	db $9d               ; Unknown opcode $9D
+	db $c8               ; Unknown opcode $c8
+	db $9d               ; Unknown opcode $9d
 	db $00               ; Unknown opcode $00
 	db $00               ; Unknown opcode $00
-	db $e8               ; Unknown opcode $E8
-	db $e8               ; Unknown opcode $E8
-	db $c6               ; Unknown opcode $C6
+	db $e8               ; Unknown opcode $e8
+	db $e8               ; Unknown opcode $e8
+	db $c6               ; Unknown opcode $c6
 	db $24               ; Unknown opcode $24
 	beq #$67             ; Branch equal
 	lda $fc50            ; Load accumulator absolute
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
-	db $2a               ; Unknown opcode $2A
-	db $0a               ; Unknown opcode $0A
-	db $a8               ; Unknown opcode $A8
-	db $b9               ; Unknown opcode $B9
+	db $2a               ; Unknown opcode $2a
+	db $0a               ; Unknown opcode $0a
+	db $a8               ; Unknown opcode $a8
+	db $b9               ; Unknown opcode $b9
 	db $86               ; Unknown opcode $86
 	bne #$9d             ; Branch not equal
 	db $00               ; Unknown opcode $00
 	db $00               ; Unknown opcode $00
-	db $e8               ; Unknown opcode $E8
-	db $e8               ; Unknown opcode $E8
-	db $c6               ; Unknown opcode $C6
+	db $e8               ; Unknown opcode $e8
+	db $e8               ; Unknown opcode $e8
+	db $c6               ; Unknown opcode $c6
 	db $24               ; Unknown opcode $24
 	beq #$53             ; Branch equal
-	db $b9               ; Unknown opcode $B9
+	db $b9               ; Unknown opcode $b9
 	db $86               ; Unknown opcode $86
-	db $c8               ; Unknown opcode $C8
-	db $9d               ; Unknown opcode $9D
+	db $c8               ; Unknown opcode $c8
+	db $9d               ; Unknown opcode $9d
 	db $00               ; Unknown opcode $00
 	db $00               ; Unknown opcode $00
-	db $e8               ; Unknown opcode $E8
-	db $e8               ; Unknown opcode $E8
-	db $c6               ; Unknown opcode $C6
+	db $e8               ; Unknown opcode $e8
+	db $e8               ; Unknown opcode $e8
+	db $c6               ; Unknown opcode $c6
 	db $24               ; Unknown opcode $24
 	beq #$47             ; Branch equal
 	lda $fc52            ; Load accumulator absolute
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
-	db $2a               ; Unknown opcode $2A
-	db $0a               ; Unknown opcode $0A
-	db $a8               ; Unknown opcode $A8
-	db $b9               ; Unknown opcode $B9
+	db $2a               ; Unknown opcode $2a
+	db $0a               ; Unknown opcode $0a
+	db $a8               ; Unknown opcode $a8
+	db $b9               ; Unknown opcode $b9
 	db $86               ; Unknown opcode $86
 	bne #$9d             ; Branch not equal
 	db $00               ; Unknown opcode $00
 	db $00               ; Unknown opcode $00
-	db $e8               ; Unknown opcode $E8
-	db $e8               ; Unknown opcode $E8
-	db $c6               ; Unknown opcode $C6
+	db $e8               ; Unknown opcode $e8
+	db $e8               ; Unknown opcode $e8
+	db $c6               ; Unknown opcode $c6
 	db $24               ; Unknown opcode $24
 	beq #$33             ; Branch equal
-	db $b9               ; Unknown opcode $B9
+	db $b9               ; Unknown opcode $b9
 	db $86               ; Unknown opcode $86
-	db $c8               ; Unknown opcode $C8
-	db $9d               ; Unknown opcode $9D
+	db $c8               ; Unknown opcode $c8
+	db $9d               ; Unknown opcode $9d
 	db $00               ; Unknown opcode $00
 	db $00               ; Unknown opcode $00
-	db $e8               ; Unknown opcode $E8
-	db $e8               ; Unknown opcode $E8
-	db $c6               ; Unknown opcode $C6
+	db $e8               ; Unknown opcode $e8
+	db $e8               ; Unknown opcode $e8
+	db $c6               ; Unknown opcode $c6
 	db $24               ; Unknown opcode $24
 	beq #$27             ; Branch equal
 	lda $fc54            ; Load accumulator absolute
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
-	db $2a               ; Unknown opcode $2A
-	db $0a               ; Unknown opcode $0A
-	db $a8               ; Unknown opcode $A8
-	db $b9               ; Unknown opcode $B9
+	db $2a               ; Unknown opcode $2a
+	db $0a               ; Unknown opcode $0a
+	db $a8               ; Unknown opcode $a8
+	db $b9               ; Unknown opcode $b9
 	db $86               ; Unknown opcode $86
 	bne #$9d             ; Branch not equal
 	db $00               ; Unknown opcode $00
 	db $00               ; Unknown opcode $00
-	db $e8               ; Unknown opcode $E8
-	db $e8               ; Unknown opcode $E8
-	db $c6               ; Unknown opcode $C6
+	db $e8               ; Unknown opcode $e8
+	db $e8               ; Unknown opcode $e8
+	db $c6               ; Unknown opcode $c6
 	db $24               ; Unknown opcode $24
 	beq #$13             ; Branch equal
-	db $b9               ; Unknown opcode $B9
+	db $b9               ; Unknown opcode $b9
 	db $86               ; Unknown opcode $86
-	db $c8               ; Unknown opcode $C8
-	db $9d               ; Unknown opcode $9D
+	db $c8               ; Unknown opcode $c8
+	db $9d               ; Unknown opcode $9d
 	db $00               ; Unknown opcode $00
 	db $00               ; Unknown opcode $00
-	db $e8               ; Unknown opcode $E8
-	db $e8               ; Unknown opcode $E8
-	db $c6               ; Unknown opcode $C6
+	db $e8               ; Unknown opcode $e8
+	db $e8               ; Unknown opcode $e8
+	db $c6               ; Unknown opcode $c6
 	db $24               ; Unknown opcode $24
 	beq #$07             ; Branch equal
-	db $e6               ; Unknown opcode $E6
+	db $e6               ; Unknown opcode $e6
 	bpl #$e6             ; Branch plus
 	bpl #$4c             ; Branch plus
-	db $fc               ; Unknown opcode $FC
+	db $fc               ; Unknown opcode $fc
 	db $81               ; Unknown opcode $81
 	rts                  ; Return from subroutine
 
 
-; Region 6: subroutine ($E000-$E01F)
+; Region 6: subroutine ($e000-$e01f)
 region_6_subroutine:
-	db $e0               ; Unknown opcode $E0
+	db $e0               ; Unknown opcode $e0
 	bpl #$00             ; Branch plus
 	bcc #$f1             ; Branch carry clear
-	db $a2               ; Unknown opcode $A2
+	db $a2               ; Unknown opcode $a2
 	db $00               ; Unknown opcode $00
 	db $00               ; Unknown opcode $00
-	db $bd               ; Unknown opcode $BD
-	db $d6               ; Unknown opcode $D6
+	db $bd               ; Unknown opcode $bd
+	db $d6               ; Unknown opcode $d6
 	db $96               ; Unknown opcode $96
 	bmi #$13             ; Branch minus
-	db $e8               ; Unknown opcode $E8
-	db $e8               ; Unknown opcode $E8
-	db $e0               ; Unknown opcode $E0
+	db $e8               ; Unknown opcode $e8
+	db $e8               ; Unknown opcode $e8
+	db $e0               ; Unknown opcode $e0
 	bpl #$00             ; Branch plus
 	bcc #$f4             ; Branch carry clear
 	bra #$1a             ; Branch always
 	jsr $e065            ; Jump subroutine
-	db $8a               ; Unknown opcode $8A
-	db $4a               ; Unknown opcode $4A
+	db $8a               ; Unknown opcode $8a
+	db $4a               ; Unknown opcode $4a
 	sta $96b0            ; Store accumulator absolute
 	sec                  ; Set carry flag
 	rts                  ; Return from subroutine
 
 
-; Region 7: subroutine ($D000-$D29F)
+; Region 7: subroutine ($d000-$d29f)
 region_7_subroutine:
 	bpl #$50             ; Branch plus
 	db $15               ; Unknown opcode $15
@@ -1838,62 +1838,62 @@ region_7_subroutine:
 	bvc #$a6             ; Branch overflow clear
 	db $04               ; Unknown opcode $04
 	jmp $50a3            ; Jump absolute
-	db $a6               ; Unknown opcode $A6
+	db $a6               ; Unknown opcode $a6
 	db $04               ; Unknown opcode $04
 	lda $fc4e            ; Load accumulator absolute
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
-	db $2a               ; Unknown opcode $2A
-	db $0a               ; Unknown opcode $0A
-	db $a8               ; Unknown opcode $A8
+	db $2a               ; Unknown opcode $2a
+	db $0a               ; Unknown opcode $0a
+	db $a8               ; Unknown opcode $a8
 	jmp $50b6            ; Jump absolute
-	db $a6               ; Unknown opcode $A6
+	db $a6               ; Unknown opcode $a6
 	db $04               ; Unknown opcode $04
 	jmp $50c1            ; Jump absolute
-	db $a6               ; Unknown opcode $A6
+	db $a6               ; Unknown opcode $a6
 	db $04               ; Unknown opcode $04
 	lda $fc50            ; Load accumulator absolute
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
-	db $2a               ; Unknown opcode $2A
-	db $0a               ; Unknown opcode $0A
-	db $a8               ; Unknown opcode $A8
+	db $2a               ; Unknown opcode $2a
+	db $0a               ; Unknown opcode $0a
+	db $a8               ; Unknown opcode $a8
 	jmp $50d4            ; Jump absolute
-	db $a6               ; Unknown opcode $A6
+	db $a6               ; Unknown opcode $a6
 	db $04               ; Unknown opcode $04
 	jmp $50df            ; Jump absolute
-	db $a6               ; Unknown opcode $A6
+	db $a6               ; Unknown opcode $a6
 	db $04               ; Unknown opcode $04
 	lda $fc52            ; Load accumulator absolute
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
-	db $2a               ; Unknown opcode $2A
-	db $0a               ; Unknown opcode $0A
-	db $a8               ; Unknown opcode $A8
+	db $2a               ; Unknown opcode $2a
+	db $0a               ; Unknown opcode $0a
+	db $a8               ; Unknown opcode $a8
 	jmp $50f2            ; Jump absolute
-	db $a6               ; Unknown opcode $A6
+	db $a6               ; Unknown opcode $a6
 	db $04               ; Unknown opcode $04
 	jmp $50fd            ; Jump absolute
-	db $a6               ; Unknown opcode $A6
+	db $a6               ; Unknown opcode $a6
 	db $04               ; Unknown opcode $04
 	lda $fc54            ; Load accumulator absolute
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
-	db $2a               ; Unknown opcode $2A
-	db $0a               ; Unknown opcode $0A
-	db $a8               ; Unknown opcode $A8
+	db $2a               ; Unknown opcode $2a
+	db $0a               ; Unknown opcode $0a
+	db $a8               ; Unknown opcode $a8
 	jmp $5110            ; Jump absolute
-	db $a5               ; Unknown opcode $A5
+	db $a5               ; Unknown opcode $a5
 	bpl #$25             ; Branch plus
 	db $28               ; Unknown opcode $28
 	sep #$20             ; Set processor status
-	db $8f               ; Unknown opcode $8F
+	db $8f               ; Unknown opcode $8f
 	db $02               ; Unknown opcode $02
 	db $42               ; Unknown opcode $42
 	db $00               ; Unknown opcode $00
-	db $a5               ; Unknown opcode $A5
-	db $0e               ; Unknown opcode $0E
-	db $8f               ; Unknown opcode $8F
+	db $a5               ; Unknown opcode $a5
+	db $0e               ; Unknown opcode $0e
+	db $8f               ; Unknown opcode $8f
 	db $03               ; Unknown opcode $03
 	db $42               ; Unknown opcode $42
 	db $00               ; Unknown opcode $00
@@ -1901,153 +1901,153 @@ region_7_subroutine:
 	nop                  ; No operation
 	nop                  ; No operation
 	nop                  ; No operation
-	db $af               ; Unknown opcode $AF
+	db $af               ; Unknown opcode $af
 	db $16               ; Unknown opcode $16
 	db $42               ; Unknown opcode $42
 	db $00               ; Unknown opcode $00
-	db $a8               ; Unknown opcode $A8
-	db $b7               ; Unknown opcode $B7
+	db $a8               ; Unknown opcode $a8
+	db $b7               ; Unknown opcode $b7
 	db $00               ; Unknown opcode $00
-	db $da               ; Unknown opcode $DA
-	db $aa               ; Unknown opcode $AA
+	db $da               ; Unknown opcode $da
+	db $aa               ; Unknown opcode $aa
 	sep #$20             ; Set processor status
 	stz $fc4f            ; Store zero absolute
 	stz $fc51            ; Store zero absolute
 	stz $fc53            ; Store zero absolute
 	stz $fc55            ; Store zero absolute
-	db $bf               ; Unknown opcode $BF
-	db $d9               ; Unknown opcode $D9
-	db $ae               ; Unknown opcode $AE
-	db $ed               ; Unknown opcode $ED
+	db $bf               ; Unknown opcode $bf
+	db $d9               ; Unknown opcode $d9
+	db $ae               ; Unknown opcode $ae
+	db $ed               ; Unknown opcode $ed
 	sta $fc4e            ; Store accumulator absolute
-	db $bf               ; Unknown opcode $BF
-	db $cd               ; Unknown opcode $CD
-	db $d7               ; Unknown opcode $D7
-	db $ed               ; Unknown opcode $ED
+	db $bf               ; Unknown opcode $bf
+	db $cd               ; Unknown opcode $cd
+	db $d7               ; Unknown opcode $d7
+	db $ed               ; Unknown opcode $ed
 	sta $fc50            ; Store accumulator absolute
-	db $bf               ; Unknown opcode $BF
-	db $c1               ; Unknown opcode $C1
+	db $bf               ; Unknown opcode $bf
+	db $c1               ; Unknown opcode $c1
 	db $00               ; Unknown opcode $00
-	db $ee               ; Unknown opcode $EE
+	db $ee               ; Unknown opcode $ee
 	sta $fc52            ; Store accumulator absolute
-	db $bf               ; Unknown opcode $BF
-	db $b5               ; Unknown opcode $B5
+	db $bf               ; Unknown opcode $bf
+	db $b5               ; Unknown opcode $b5
 	db $29               ; Unknown opcode $29
-	db $ee               ; Unknown opcode $EE
+	db $ee               ; Unknown opcode $ee
 	sta $fc54            ; Store accumulator absolute
 	rep #$20             ; Reset processor status
-	db $fa               ; Unknown opcode $FA
+	db $fa               ; Unknown opcode $fa
 	lda $fc4e            ; Load accumulator absolute
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
-	db $2a               ; Unknown opcode $2A
-	db $0a               ; Unknown opcode $0A
-	db $a8               ; Unknown opcode $A8
-	db $b9               ; Unknown opcode $B9
+	db $2a               ; Unknown opcode $2a
+	db $0a               ; Unknown opcode $0a
+	db $a8               ; Unknown opcode $a8
+	db $b9               ; Unknown opcode $b9
 	db $86               ; Unknown opcode $86
-	db $c0               ; Unknown opcode $C0
-	db $9d               ; Unknown opcode $9D
+	db $c0               ; Unknown opcode $c0
+	db $9d               ; Unknown opcode $9d
 	db $00               ; Unknown opcode $00
 	db $00               ; Unknown opcode $00
-	db $e8               ; Unknown opcode $E8
-	db $c6               ; Unknown opcode $C6
+	db $e8               ; Unknown opcode $e8
+	db $c6               ; Unknown opcode $c6
 	db $24               ; Unknown opcode $24
 	beq #$6c             ; Branch equal
-	db $b9               ; Unknown opcode $B9
+	db $b9               ; Unknown opcode $b9
 	db $86               ; Unknown opcode $86
 	bne #$9d             ; Branch not equal
 	db $00               ; Unknown opcode $00
 	db $00               ; Unknown opcode $00
-	db $e8               ; Unknown opcode $E8
-	db $c6               ; Unknown opcode $C6
+	db $e8               ; Unknown opcode $e8
+	db $c6               ; Unknown opcode $c6
 	db $24               ; Unknown opcode $24
 	beq #$61             ; Branch equal
 	lda $fc50            ; Load accumulator absolute
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
-	db $2a               ; Unknown opcode $2A
-	db $0a               ; Unknown opcode $0A
-	db $a8               ; Unknown opcode $A8
-	db $b9               ; Unknown opcode $B9
+	db $2a               ; Unknown opcode $2a
+	db $0a               ; Unknown opcode $0a
+	db $a8               ; Unknown opcode $a8
+	db $b9               ; Unknown opcode $b9
 	db $86               ; Unknown opcode $86
-	db $c0               ; Unknown opcode $C0
-	db $9d               ; Unknown opcode $9D
+	db $c0               ; Unknown opcode $c0
+	db $9d               ; Unknown opcode $9d
 	db $00               ; Unknown opcode $00
 	db $00               ; Unknown opcode $00
-	db $e8               ; Unknown opcode $E8
-	db $c6               ; Unknown opcode $C6
+	db $e8               ; Unknown opcode $e8
+	db $c6               ; Unknown opcode $c6
 	db $24               ; Unknown opcode $24
 	beq #$4e             ; Branch equal
-	db $b9               ; Unknown opcode $B9
+	db $b9               ; Unknown opcode $b9
 	db $86               ; Unknown opcode $86
 	bne #$9d             ; Branch not equal
 	db $00               ; Unknown opcode $00
 	db $00               ; Unknown opcode $00
-	db $e8               ; Unknown opcode $E8
-	db $c6               ; Unknown opcode $C6
+	db $e8               ; Unknown opcode $e8
+	db $c6               ; Unknown opcode $c6
 	db $24               ; Unknown opcode $24
 	beq #$43             ; Branch equal
 	lda $fc52            ; Load accumulator absolute
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
-	db $2a               ; Unknown opcode $2A
-	db $0a               ; Unknown opcode $0A
-	db $a8               ; Unknown opcode $A8
-	db $b9               ; Unknown opcode $B9
+	db $2a               ; Unknown opcode $2a
+	db $0a               ; Unknown opcode $0a
+	db $a8               ; Unknown opcode $a8
+	db $b9               ; Unknown opcode $b9
 	db $86               ; Unknown opcode $86
-	db $c0               ; Unknown opcode $C0
-	db $9d               ; Unknown opcode $9D
+	db $c0               ; Unknown opcode $c0
+	db $9d               ; Unknown opcode $9d
 	db $00               ; Unknown opcode $00
 	db $00               ; Unknown opcode $00
-	db $e8               ; Unknown opcode $E8
-	db $c6               ; Unknown opcode $C6
+	db $e8               ; Unknown opcode $e8
+	db $c6               ; Unknown opcode $c6
 	db $24               ; Unknown opcode $24
 	beq #$30             ; Branch equal
-	db $b9               ; Unknown opcode $B9
+	db $b9               ; Unknown opcode $b9
 	db $86               ; Unknown opcode $86
 	bne #$9d             ; Branch not equal
 	db $00               ; Unknown opcode $00
 	db $00               ; Unknown opcode $00
-	db $e8               ; Unknown opcode $E8
-	db $c6               ; Unknown opcode $C6
+	db $e8               ; Unknown opcode $e8
+	db $c6               ; Unknown opcode $c6
 	db $24               ; Unknown opcode $24
 	beq #$25             ; Branch equal
 	lda $fc54            ; Load accumulator absolute
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
-	db $2a               ; Unknown opcode $2A
-	db $0a               ; Unknown opcode $0A
-	db $a8               ; Unknown opcode $A8
-	db $b9               ; Unknown opcode $B9
+	db $2a               ; Unknown opcode $2a
+	db $0a               ; Unknown opcode $0a
+	db $a8               ; Unknown opcode $a8
+	db $b9               ; Unknown opcode $b9
 	db $86               ; Unknown opcode $86
-	db $c0               ; Unknown opcode $C0
-	db $9d               ; Unknown opcode $9D
+	db $c0               ; Unknown opcode $c0
+	db $9d               ; Unknown opcode $9d
 	db $00               ; Unknown opcode $00
 	db $00               ; Unknown opcode $00
-	db $e8               ; Unknown opcode $E8
-	db $c6               ; Unknown opcode $C6
+	db $e8               ; Unknown opcode $e8
+	db $c6               ; Unknown opcode $c6
 	db $24               ; Unknown opcode $24
 	beq #$12             ; Branch equal
-	db $b9               ; Unknown opcode $B9
+	db $b9               ; Unknown opcode $b9
 	db $86               ; Unknown opcode $86
 	bne #$9d             ; Branch not equal
 	db $00               ; Unknown opcode $00
 	db $00               ; Unknown opcode $00
-	db $e8               ; Unknown opcode $E8
-	db $c6               ; Unknown opcode $C6
+	db $e8               ; Unknown opcode $e8
+	db $c6               ; Unknown opcode $c6
 	db $24               ; Unknown opcode $24
 	beq #$07             ; Branch equal
-	db $e6               ; Unknown opcode $E6
+	db $e6               ; Unknown opcode $e6
 	bpl #$e6             ; Branch plus
 	bpl #$4c             ; Branch plus
 	cli                  ; Clear interrupt disable
 	bvc #$60             ; Branch overflow clear
 	lda $e3d0            ; Load accumulator absolute
 	db $48               ; Unknown opcode $48
-	db $4a               ; Unknown opcode $4A
-	db $4a               ; Unknown opcode $4A
-	db $4a               ; Unknown opcode $4A
-	db $0a               ; Unknown opcode $0A
+	db $4a               ; Unknown opcode $4a
+	db $4a               ; Unknown opcode $4a
+	db $4a               ; Unknown opcode $4a
+	db $0a               ; Unknown opcode $0a
 	db $25               ; Unknown opcode $25
 	db $28               ; Unknown opcode $28
 	db $85               ; Unknown opcode $85
@@ -2055,9 +2055,9 @@ region_7_subroutine:
 	jsr $028f            ; Jump subroutine
 	db $42               ; Unknown opcode $42
 	db $00               ; Unknown opcode $00
-	db $a5               ; Unknown opcode $A5
-	db $0e               ; Unknown opcode $0E
-	db $8f               ; Unknown opcode $8F
+	db $a5               ; Unknown opcode $a5
+	db $0e               ; Unknown opcode $0e
+	db $8f               ; Unknown opcode $8f
 	db $03               ; Unknown opcode $03
 	db $42               ; Unknown opcode $42
 	db $00               ; Unknown opcode $00
@@ -2065,122 +2065,122 @@ region_7_subroutine:
 	nop                  ; No operation
 	nop                  ; No operation
 	nop                  ; No operation
-	db $af               ; Unknown opcode $AF
+	db $af               ; Unknown opcode $af
 	db $16               ; Unknown opcode $16
 	db $42               ; Unknown opcode $42
 	db $00               ; Unknown opcode $00
-	db $a8               ; Unknown opcode $A8
-	db $b7               ; Unknown opcode $B7
+	db $a8               ; Unknown opcode $a8
+	db $b7               ; Unknown opcode $b7
 	db $00               ; Unknown opcode $00
-	db $aa               ; Unknown opcode $AA
+	db $aa               ; Unknown opcode $aa
 	sep #$20             ; Set processor status
 	stz $fc4f            ; Store zero absolute
 	stz $fc51            ; Store zero absolute
 	stz $fc53            ; Store zero absolute
 	stz $fc55            ; Store zero absolute
-	db $bf               ; Unknown opcode $BF
-	db $d9               ; Unknown opcode $D9
-	db $ae               ; Unknown opcode $AE
-	db $ed               ; Unknown opcode $ED
+	db $bf               ; Unknown opcode $bf
+	db $d9               ; Unknown opcode $d9
+	db $ae               ; Unknown opcode $ae
+	db $ed               ; Unknown opcode $ed
 	sta $fc4e            ; Store accumulator absolute
-	db $bf               ; Unknown opcode $BF
-	db $cd               ; Unknown opcode $CD
-	db $d7               ; Unknown opcode $D7
-	db $ed               ; Unknown opcode $ED
+	db $bf               ; Unknown opcode $bf
+	db $cd               ; Unknown opcode $cd
+	db $d7               ; Unknown opcode $d7
+	db $ed               ; Unknown opcode $ed
 	sta $fc50            ; Store accumulator absolute
-	db $bf               ; Unknown opcode $BF
-	db $c1               ; Unknown opcode $C1
+	db $bf               ; Unknown opcode $bf
+	db $c1               ; Unknown opcode $c1
 	db $00               ; Unknown opcode $00
-	db $ee               ; Unknown opcode $EE
+	db $ee               ; Unknown opcode $ee
 	sta $fc52            ; Store accumulator absolute
-	db $bf               ; Unknown opcode $BF
-	db $b5               ; Unknown opcode $B5
+	db $bf               ; Unknown opcode $bf
+	db $b5               ; Unknown opcode $b5
 	db $29               ; Unknown opcode $29
-	db $ee               ; Unknown opcode $EE
+	db $ee               ; Unknown opcode $ee
 	sta $fc54            ; Store accumulator absolute
 	rep #$20             ; Reset processor status
 	db $68               ; Unknown opcode $68
 	db $29               ; Unknown opcode $29
 	db $07               ; Unknown opcode $07
 	db $00               ; Unknown opcode $00
-	db $0a               ; Unknown opcode $0A
-	db $aa               ; Unknown opcode $AA
-	db $7c               ; Unknown opcode $7C
-	db $7d               ; Unknown opcode $7D
+	db $0a               ; Unknown opcode $0a
+	db $aa               ; Unknown opcode $aa
+	db $7c               ; Unknown opcode $7c
+	db $7d               ; Unknown opcode $7d
 	db $51               ; Unknown opcode $51
 	sta $9251            ; Store accumulator absolute
 	db $51               ; Unknown opcode $51
-	db $9f               ; Unknown opcode $9F
+	db $9f               ; Unknown opcode $9f
 	db $51               ; Unknown opcode $51
-	db $a4               ; Unknown opcode $A4
+	db $a4               ; Unknown opcode $a4
 	db $51               ; Unknown opcode $51
-	db $b1               ; Unknown opcode $B1
+	db $b1               ; Unknown opcode $b1
 	db $51               ; Unknown opcode $51
-	db $b6               ; Unknown opcode $B6
+	db $b6               ; Unknown opcode $b6
 	db $51               ; Unknown opcode $51
-	db $c3               ; Unknown opcode $C3
+	db $c3               ; Unknown opcode $c3
 	db $51               ; Unknown opcode $51
-	db $c8               ; Unknown opcode $C8
+	db $c8               ; Unknown opcode $c8
 	db $51               ; Unknown opcode $51
-	db $a6               ; Unknown opcode $A6
+	db $a6               ; Unknown opcode $a6
 	db $04               ; Unknown opcode $04
 	jmp $5220            ; Jump absolute
-	db $a6               ; Unknown opcode $A6
+	db $a6               ; Unknown opcode $a6
 	db $04               ; Unknown opcode $04
 	lda $fc4e            ; Load accumulator absolute
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
-	db $2a               ; Unknown opcode $2A
-	db $0a               ; Unknown opcode $0A
-	db $a8               ; Unknown opcode $A8
+	db $2a               ; Unknown opcode $2a
+	db $0a               ; Unknown opcode $0a
+	db $a8               ; Unknown opcode $a8
 	jmp $5233            ; Jump absolute
-	db $a6               ; Unknown opcode $A6
+	db $a6               ; Unknown opcode $a6
 	db $04               ; Unknown opcode $04
 	jmp $523e            ; Jump absolute
-	db $a6               ; Unknown opcode $A6
+	db $a6               ; Unknown opcode $a6
 	db $04               ; Unknown opcode $04
 	lda $fc50            ; Load accumulator absolute
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
-	db $2a               ; Unknown opcode $2A
-	db $0a               ; Unknown opcode $0A
-	db $a8               ; Unknown opcode $A8
+	db $2a               ; Unknown opcode $2a
+	db $0a               ; Unknown opcode $0a
+	db $a8               ; Unknown opcode $a8
 	jmp $5251            ; Jump absolute
-	db $a6               ; Unknown opcode $A6
+	db $a6               ; Unknown opcode $a6
 	db $04               ; Unknown opcode $04
 	jmp $525c            ; Jump absolute
-	db $a6               ; Unknown opcode $A6
+	db $a6               ; Unknown opcode $a6
 	db $04               ; Unknown opcode $04
 	lda $fc52            ; Load accumulator absolute
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
-	db $2a               ; Unknown opcode $2A
-	db $0a               ; Unknown opcode $0A
-	db $a8               ; Unknown opcode $A8
+	db $2a               ; Unknown opcode $2a
+	db $0a               ; Unknown opcode $0a
+	db $a8               ; Unknown opcode $a8
 	jmp $526f            ; Jump absolute
-	db $a6               ; Unknown opcode $A6
+	db $a6               ; Unknown opcode $a6
 	db $04               ; Unknown opcode $04
 	jmp $527a            ; Jump absolute
-	db $a6               ; Unknown opcode $A6
+	db $a6               ; Unknown opcode $a6
 	db $04               ; Unknown opcode $04
 	lda $fc54            ; Load accumulator absolute
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
-	db $2a               ; Unknown opcode $2A
-	db $0a               ; Unknown opcode $0A
-	db $a8               ; Unknown opcode $A8
+	db $2a               ; Unknown opcode $2a
+	db $0a               ; Unknown opcode $0a
+	db $a8               ; Unknown opcode $a8
 	jmp $528d            ; Jump absolute
-	db $a5               ; Unknown opcode $A5
+	db $a5               ; Unknown opcode $a5
 	bpl #$25             ; Branch plus
 	db $28               ; Unknown opcode $28
 	sep #$20             ; Set processor status
-	db $8f               ; Unknown opcode $8F
+	db $8f               ; Unknown opcode $8f
 	db $02               ; Unknown opcode $02
 	db $42               ; Unknown opcode $42
 	db $00               ; Unknown opcode $00
-	db $a5               ; Unknown opcode $A5
-	db $0e               ; Unknown opcode $0E
-	db $8f               ; Unknown opcode $8F
+	db $a5               ; Unknown opcode $a5
+	db $0e               ; Unknown opcode $0e
+	db $8f               ; Unknown opcode $8f
 	db $03               ; Unknown opcode $03
 	db $42               ; Unknown opcode $42
 	db $00               ; Unknown opcode $00
@@ -2188,170 +2188,170 @@ region_7_subroutine:
 	nop                  ; No operation
 	nop                  ; No operation
 	nop                  ; No operation
-	db $af               ; Unknown opcode $AF
+	db $af               ; Unknown opcode $af
 	db $16               ; Unknown opcode $16
 	db $42               ; Unknown opcode $42
 	db $00               ; Unknown opcode $00
-	db $a8               ; Unknown opcode $A8
-	db $b7               ; Unknown opcode $B7
+	db $a8               ; Unknown opcode $a8
+	db $b7               ; Unknown opcode $b7
 	db $00               ; Unknown opcode $00
-	db $da               ; Unknown opcode $DA
-	db $aa               ; Unknown opcode $AA
+	db $da               ; Unknown opcode $da
+	db $aa               ; Unknown opcode $aa
 	sep #$20             ; Set processor status
 	stz $fc4f            ; Store zero absolute
 	stz $fc51            ; Store zero absolute
 	stz $fc53            ; Store zero absolute
 	stz $fc55            ; Store zero absolute
-	db $bf               ; Unknown opcode $BF
-	db $d9               ; Unknown opcode $D9
-	db $ae               ; Unknown opcode $AE
-	db $ed               ; Unknown opcode $ED
+	db $bf               ; Unknown opcode $bf
+	db $d9               ; Unknown opcode $d9
+	db $ae               ; Unknown opcode $ae
+	db $ed               ; Unknown opcode $ed
 	sta $fc4e            ; Store accumulator absolute
-	db $bf               ; Unknown opcode $BF
-	db $cd               ; Unknown opcode $CD
-	db $d7               ; Unknown opcode $D7
-	db $ed               ; Unknown opcode $ED
+	db $bf               ; Unknown opcode $bf
+	db $cd               ; Unknown opcode $cd
+	db $d7               ; Unknown opcode $d7
+	db $ed               ; Unknown opcode $ed
 	sta $fc50            ; Store accumulator absolute
-	db $bf               ; Unknown opcode $BF
-	db $c1               ; Unknown opcode $C1
+	db $bf               ; Unknown opcode $bf
+	db $c1               ; Unknown opcode $c1
 	db $00               ; Unknown opcode $00
-	db $ee               ; Unknown opcode $EE
+	db $ee               ; Unknown opcode $ee
 	sta $fc52            ; Store accumulator absolute
-	db $bf               ; Unknown opcode $BF
-	db $b5               ; Unknown opcode $B5
+	db $bf               ; Unknown opcode $bf
+	db $b5               ; Unknown opcode $b5
 	db $29               ; Unknown opcode $29
-	db $ee               ; Unknown opcode $EE
+	db $ee               ; Unknown opcode $ee
 	sta $fc54            ; Store accumulator absolute
 	rep #$20             ; Reset processor status
-	db $fa               ; Unknown opcode $FA
+	db $fa               ; Unknown opcode $fa
 	lda $fc4e            ; Load accumulator absolute
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
-	db $2a               ; Unknown opcode $2A
-	db $0a               ; Unknown opcode $0A
-	db $a8               ; Unknown opcode $A8
-	db $b9               ; Unknown opcode $B9
+	db $2a               ; Unknown opcode $2a
+	db $0a               ; Unknown opcode $0a
+	db $a8               ; Unknown opcode $a8
+	db $b9               ; Unknown opcode $b9
 	db $86               ; Unknown opcode $86
-	db $b8               ; Unknown opcode $B8
-	db $9d               ; Unknown opcode $9D
+	db $b8               ; Unknown opcode $b8
+	db $9d               ; Unknown opcode $9d
 	db $00               ; Unknown opcode $00
 	db $00               ; Unknown opcode $00
-	db $e8               ; Unknown opcode $E8
-	db $c6               ; Unknown opcode $C6
+	db $e8               ; Unknown opcode $e8
+	db $c6               ; Unknown opcode $c6
 	db $24               ; Unknown opcode $24
 	beq #$6c             ; Branch equal
-	db $b9               ; Unknown opcode $B9
+	db $b9               ; Unknown opcode $b9
 	db $86               ; Unknown opcode $86
-	db $c8               ; Unknown opcode $C8
-	db $9d               ; Unknown opcode $9D
+	db $c8               ; Unknown opcode $c8
+	db $9d               ; Unknown opcode $9d
 	db $00               ; Unknown opcode $00
 	db $00               ; Unknown opcode $00
-	db $e8               ; Unknown opcode $E8
-	db $c6               ; Unknown opcode $C6
+	db $e8               ; Unknown opcode $e8
+	db $c6               ; Unknown opcode $c6
 	db $24               ; Unknown opcode $24
 	beq #$61             ; Branch equal
 	lda $fc50            ; Load accumulator absolute
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
-	db $2a               ; Unknown opcode $2A
-	db $0a               ; Unknown opcode $0A
-	db $a8               ; Unknown opcode $A8
-	db $b9               ; Unknown opcode $B9
+	db $2a               ; Unknown opcode $2a
+	db $0a               ; Unknown opcode $0a
+	db $a8               ; Unknown opcode $a8
+	db $b9               ; Unknown opcode $b9
 	db $86               ; Unknown opcode $86
-	db $b8               ; Unknown opcode $B8
-	db $9d               ; Unknown opcode $9D
+	db $b8               ; Unknown opcode $b8
+	db $9d               ; Unknown opcode $9d
 	db $00               ; Unknown opcode $00
 	db $00               ; Unknown opcode $00
-	db $e8               ; Unknown opcode $E8
-	db $c6               ; Unknown opcode $C6
+	db $e8               ; Unknown opcode $e8
+	db $c6               ; Unknown opcode $c6
 	db $24               ; Unknown opcode $24
 	beq #$4e             ; Branch equal
-	db $b9               ; Unknown opcode $B9
+	db $b9               ; Unknown opcode $b9
 	db $86               ; Unknown opcode $86
-	db $c8               ; Unknown opcode $C8
-	db $9d               ; Unknown opcode $9D
+	db $c8               ; Unknown opcode $c8
+	db $9d               ; Unknown opcode $9d
 	db $00               ; Unknown opcode $00
 	db $00               ; Unknown opcode $00
-	db $e8               ; Unknown opcode $E8
-	db $c6               ; Unknown opcode $C6
+	db $e8               ; Unknown opcode $e8
+	db $c6               ; Unknown opcode $c6
 	db $24               ; Unknown opcode $24
 	beq #$43             ; Branch equal
 	lda $fc52            ; Load accumulator absolute
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
-	db $2a               ; Unknown opcode $2A
-	db $0a               ; Unknown opcode $0A
-	db $a8               ; Unknown opcode $A8
-	db $b9               ; Unknown opcode $B9
+	db $2a               ; Unknown opcode $2a
+	db $0a               ; Unknown opcode $0a
+	db $a8               ; Unknown opcode $a8
+	db $b9               ; Unknown opcode $b9
 	db $86               ; Unknown opcode $86
-	db $b8               ; Unknown opcode $B8
-	db $9d               ; Unknown opcode $9D
+	db $b8               ; Unknown opcode $b8
+	db $9d               ; Unknown opcode $9d
 	db $00               ; Unknown opcode $00
 	db $00               ; Unknown opcode $00
-	db $e8               ; Unknown opcode $E8
-	db $c6               ; Unknown opcode $C6
+	db $e8               ; Unknown opcode $e8
+	db $c6               ; Unknown opcode $c6
 	db $24               ; Unknown opcode $24
 	beq #$30             ; Branch equal
-	db $b9               ; Unknown opcode $B9
+	db $b9               ; Unknown opcode $b9
 	db $86               ; Unknown opcode $86
-	db $c8               ; Unknown opcode $C8
-	db $9d               ; Unknown opcode $9D
+	db $c8               ; Unknown opcode $c8
+	db $9d               ; Unknown opcode $9d
 	db $00               ; Unknown opcode $00
 	db $00               ; Unknown opcode $00
-	db $e8               ; Unknown opcode $E8
-	db $c6               ; Unknown opcode $C6
+	db $e8               ; Unknown opcode $e8
+	db $c6               ; Unknown opcode $c6
 	db $24               ; Unknown opcode $24
 	beq #$25             ; Branch equal
 	lda $fc54            ; Load accumulator absolute
 	clc                  ; Clear carry flag
 	db $65               ; Unknown opcode $65
-	db $2a               ; Unknown opcode $2A
-	db $0a               ; Unknown opcode $0A
-	db $a8               ; Unknown opcode $A8
-	db $b9               ; Unknown opcode $B9
+	db $2a               ; Unknown opcode $2a
+	db $0a               ; Unknown opcode $0a
+	db $a8               ; Unknown opcode $a8
+	db $b9               ; Unknown opcode $b9
 	db $86               ; Unknown opcode $86
-	db $b8               ; Unknown opcode $B8
-	db $9d               ; Unknown opcode $9D
+	db $b8               ; Unknown opcode $b8
+	db $9d               ; Unknown opcode $9d
 	db $00               ; Unknown opcode $00
 	db $00               ; Unknown opcode $00
-	db $e8               ; Unknown opcode $E8
-	db $c6               ; Unknown opcode $C6
+	db $e8               ; Unknown opcode $e8
+	db $c6               ; Unknown opcode $c6
 	db $24               ; Unknown opcode $24
 	beq #$12             ; Branch equal
-	db $b9               ; Unknown opcode $B9
+	db $b9               ; Unknown opcode $b9
 	db $86               ; Unknown opcode $86
-	db $c8               ; Unknown opcode $C8
-	db $9d               ; Unknown opcode $9D
+	db $c8               ; Unknown opcode $c8
+	db $9d               ; Unknown opcode $9d
 	db $00               ; Unknown opcode $00
 	db $00               ; Unknown opcode $00
-	db $e8               ; Unknown opcode $E8
-	db $c6               ; Unknown opcode $C6
+	db $e8               ; Unknown opcode $e8
+	db $c6               ; Unknown opcode $c6
 	db $24               ; Unknown opcode $24
 	beq #$07             ; Branch equal
-	db $e6               ; Unknown opcode $E6
+	db $e6               ; Unknown opcode $e6
 	bpl #$e6             ; Branch plus
 	bpl #$4c             ; Branch plus
-	db $d5               ; Unknown opcode $D5
+	db $d5               ; Unknown opcode $d5
 	db $51               ; Unknown opcode $51
 	rts                  ; Return from subroutine
 
 
-; Region 8: subroutine ($E000-$E00A)
+; Region 8: subroutine ($e000-$e00a)
 region_8_subroutine:
 	db $03               ; Unknown opcode $03
 	db $00               ; Unknown opcode $00
 	clc                  ; Clear carry flag
 	db $63               ; Unknown opcode $63
 	db $01               ; Unknown opcode $01
-	db $0a               ; Unknown opcode $0A
-	db $aa               ; Unknown opcode $AA
+	db $0a               ; Unknown opcode $0a
+	db $aa               ; Unknown opcode $aa
 	db $68               ; Unknown opcode $68
-	db $fc               ; Unknown opcode $FC
-	db $1c               ; Unknown opcode $1C
+	db $fc               ; Unknown opcode $fc
+	db $1c               ; Unknown opcode $1c
 	rts                  ; Return from subroutine
 
 
-; Region 9: subroutine ($F000-$F002)
+; Region 9: subroutine ($f000-$f002)
 region_9_subroutine:
 	db $24               ; Unknown opcode $24
 	clc                  ; Clear carry flag
@@ -2387,7 +2387,7 @@ region_11_subroutine:
 	rts                  ; Return from subroutine
 
 
-; Region 12: subroutine ($A000-$A022)
+; Region 12: subroutine ($a000-$a022)
 region_12_subroutine:
 	sta $be81            ; Store accumulator absolute
 	stz $be83            ; Store zero absolute
@@ -2396,10 +2396,10 @@ region_12_subroutine:
 	db $01               ; Unknown opcode $01
 	jsl $c43a42          ; Jump subroutine long
 	db $06               ; Unknown opcode $06
-	db $fd               ; Unknown opcode $FD
-	db $ff               ; Unknown opcode $FF
+	db $fd               ; Unknown opcode $fd
+	db $ff               ; Unknown opcode $ff
 	jsl $c2ca98          ; Jump subroutine long
-	db $3f               ; Unknown opcode $3F
+	db $3f               ; Unknown opcode $3f
 	jsr $6b38            ; Jump subroutine
 	jsl $c1a867          ; Jump subroutine long
 	db $41               ; Unknown opcode $41
@@ -2408,10 +2408,10 @@ region_12_subroutine:
 	rtl                  ; Return from subroutine long
 
 
-; Region 13: subroutine ($B000-$B053)
+; Region 13: subroutine ($b000-$b053)
 region_13_subroutine:
-	db $2b               ; Unknown opcode $2B
-	db $cb               ; Unknown opcode $CB
+	db $2b               ; Unknown opcode $2b
+	db $cb               ; Unknown opcode $cb
 	rep #$51             ; Reset processor status
 	jsr $0010            ; Jump subroutine
 	beq #$07             ; Branch equal
@@ -2452,23 +2452,23 @@ region_13_subroutine:
 	db $01               ; Unknown opcode $01
 	db $68               ; Unknown opcode $68
 	beq #$09             ; Branch equal
-	db $aa               ; Unknown opcode $AA
-	db $a3               ; Unknown opcode $A3
+	db $aa               ; Unknown opcode $aa
+	db $a3               ; Unknown opcode $a3
 	db $06               ; Unknown opcode $06
 	db $09               ; Unknown opcode $09
 	db $01               ; Unknown opcode $01
 	db $00               ; Unknown opcode $00
 	db $83               ; Unknown opcode $83
 	db $06               ; Unknown opcode $06
-	db $8a               ; Unknown opcode $8A
-	db $7a               ; Unknown opcode $7A
-	db $fa               ; Unknown opcode $FA
-	db $ab               ; Unknown opcode $AB
+	db $8a               ; Unknown opcode $8a
+	db $7a               ; Unknown opcode $7a
+	db $fa               ; Unknown opcode $fa
+	db $ab               ; Unknown opcode $ab
 	db $28               ; Unknown opcode $28
 	rtl                  ; Return from subroutine long
 
 
-; Region 14: subroutine ($C000-$C006)
+; Region 14: subroutine ($c000-$c006)
 region_14_subroutine:
 	bpl #$00             ; Branch plus
 	db $99               ; Unknown opcode $99
@@ -2477,29 +2477,29 @@ region_14_subroutine:
 	rts                  ; Return from subroutine
 
 
-; Region 15: subroutine ($D000-$D013)
+; Region 15: subroutine ($d000-$d013)
 region_15_subroutine:
-	db $8e               ; Unknown opcode $8E
-	db $cf               ; Unknown opcode $CF
+	db $8e               ; Unknown opcode $8e
+	db $cf               ; Unknown opcode $cf
 	jsr $cf3b            ; Jump subroutine
 	jsr $cf31            ; Jump subroutine
 	db $68               ; Unknown opcode $68
 	sta $2428            ; Store accumulator absolute
-	db $ab               ; Unknown opcode $AB
+	db $ab               ; Unknown opcode $ab
 	rep #$30             ; Reset processor status
-	db $7a               ; Unknown opcode $7A
-	db $fa               ; Unknown opcode $FA
+	db $7a               ; Unknown opcode $7a
+	db $fa               ; Unknown opcode $fa
 	db $68               ; Unknown opcode $68
 	db $28               ; Unknown opcode $28
 	rtl                  ; Return from subroutine long
 
 
-; Region 16: subroutine ($A000-$A024)
+; Region 16: subroutine ($a000-$a024)
 region_16_subroutine:
-	db $0a               ; Unknown opcode $0A
+	db $0a               ; Unknown opcode $0a
 	jsr $203b            ; Jump subroutine
 	jsl $c31b8d          ; Jump subroutine long
-	db $ee               ; Unknown opcode $EE
+	db $ee               ; Unknown opcode $ee
 	db $92               ; Unknown opcode $92
 	db $33               ; Unknown opcode $33
 	lda $3392            ; Load accumulator absolute
@@ -2507,58 +2507,58 @@ region_16_subroutine:
 	jsl $c325bd          ; Jump subroutine long
 	jsl $c31dba          ; Jump subroutine long
 	jsl $c32491          ; Jump subroutine long
-	db $2b               ; Unknown opcode $2B
-	db $ab               ; Unknown opcode $AB
+	db $2b               ; Unknown opcode $2b
+	db $ab               ; Unknown opcode $ab
 	rep #$30             ; Reset processor status
-	db $7a               ; Unknown opcode $7A
-	db $fa               ; Unknown opcode $FA
+	db $7a               ; Unknown opcode $7a
+	db $fa               ; Unknown opcode $fa
 	db $68               ; Unknown opcode $68
 	db $28               ; Unknown opcode $28
 	rtl                  ; Return from subroutine long
 
 
-; Region 17: subroutine ($C000-$C004)
+; Region 17: subroutine ($c000-$c004)
 region_17_subroutine:
-	db $0a               ; Unknown opcode $0A
+	db $0a               ; Unknown opcode $0a
 	sta $2a74            ; Store accumulator absolute
 	rts                  ; Return from subroutine
 
 
-; Region 18: interrupt_handler ($D000-$D00F)
+; Region 18: interrupt_handler ($d000-$d00f)
 region_18_interrupt_handler:
 	db $08               ; Unknown opcode $08
-	db $0a               ; Unknown opcode $0A
-	db $aa               ; Unknown opcode $AA
-	db $bf               ; Unknown opcode $BF
-	db $0e               ; Unknown opcode $0E
+	db $0a               ; Unknown opcode $0a
+	db $aa               ; Unknown opcode $aa
+	db $bf               ; Unknown opcode $bf
+	db $0e               ; Unknown opcode $0e
 	bvc #$c3             ; Branch overflow clear
-	db $aa               ; Unknown opcode $AA
-	db $bd               ; Unknown opcode $BD
+	db $aa               ; Unknown opcode $aa
+	db $bd               ; Unknown opcode $bd
 	db $00               ; Unknown opcode $00
 	db $00               ; Unknown opcode $00
 	jmp $4eeb            ; Jump absolute
-	db $a5               ; Unknown opcode $A5
+	db $a5               ; Unknown opcode $a5
 	rti                  ; Return from interrupt
 
 
-; Region 19: subroutine ($E000-$E003)
+; Region 19: subroutine ($e000-$e003)
 region_19_subroutine:
-	db $aa               ; Unknown opcode $AA
-	db $bf               ; Unknown opcode $BF
+	db $aa               ; Unknown opcode $aa
+	db $bf               ; Unknown opcode $bf
 	db $12               ; Unknown opcode $12
 	rts                  ; Return from subroutine
 
 
-; Region 20: subroutine ($F000-$F060)
+; Region 20: subroutine ($f000-$f060)
 region_20_subroutine:
 	jsl $c32b70          ; Jump subroutine long
 	jsl $c35512          ; Jump subroutine long
-	db $a2               ; Unknown opcode $A2
+	db $a2               ; Unknown opcode $a2
 	db $07               ; Unknown opcode $07
 	db $00               ; Unknown opcode $00
 	jsl $c32b70          ; Jump subroutine long
 	jsl $c34f61          ; Jump subroutine long
-	db $a2               ; Unknown opcode $A2
+	db $a2               ; Unknown opcode $a2
 	db $03               ; Unknown opcode $03
 	db $00               ; Unknown opcode $00
 	jsl $c32c9e          ; Jump subroutine long
@@ -2566,17 +2566,17 @@ region_20_subroutine:
 	lda #$2e             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $ff130c          ; Jump subroutine long
-	db $a2               ; Unknown opcode $A2
+	db $a2               ; Unknown opcode $a2
 	db $03               ; Unknown opcode $03
 	db $00               ; Unknown opcode $00
 	jsl $c32b70          ; Jump subroutine long
 	jsl $c35512          ; Jump subroutine long
-	db $a2               ; Unknown opcode $A2
+	db $a2               ; Unknown opcode $a2
 	db $07               ; Unknown opcode $07
 	db $00               ; Unknown opcode $00
 	jsl $c32b70          ; Jump subroutine long
 	jsl $c34f7f          ; Jump subroutine long
-	db $a2               ; Unknown opcode $A2
+	db $a2               ; Unknown opcode $a2
 	db $03               ; Unknown opcode $03
 	db $00               ; Unknown opcode $00
 	jsl $c32c9e          ; Jump subroutine long
@@ -2588,7 +2588,7 @@ region_20_subroutine:
 	db $00               ; Unknown opcode $00
 	jsl $c32b8d          ; Jump subroutine long
 	jsl $c34f2d          ; Jump subroutine long
-	db $a2               ; Unknown opcode $A2
+	db $a2               ; Unknown opcode $a2
 	db $08               ; Unknown opcode $08
 	db $00               ; Unknown opcode $00
 	jsl $c32c9e          ; Jump subroutine long
@@ -2596,10 +2596,10 @@ region_20_subroutine:
 	rtl                  ; Return from subroutine long
 
 
-; Region 21: subroutine ($8000-$805C)
+; Region 21: subroutine ($8000-$805c)
 region_21_subroutine:
-	db $2c               ; Unknown opcode $2C
-	db $c3               ; Unknown opcode $C3
+	db $2c               ; Unknown opcode $2c
+	db $c3               ; Unknown opcode $c3
 	jsl $c35522          ; Jump subroutine long
 	lda #$01             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
@@ -2608,7 +2608,7 @@ region_21_subroutine:
 	db $00               ; Unknown opcode $00
 	jsl $c32b8d          ; Jump subroutine long
 	jsl $c34efc          ; Jump subroutine long
-	db $a2               ; Unknown opcode $A2
+	db $a2               ; Unknown opcode $a2
 	db $03               ; Unknown opcode $03
 	db $00               ; Unknown opcode $00
 	jsl $c32c9e          ; Jump subroutine long
@@ -2633,22 +2633,22 @@ region_21_subroutine:
 	db $00               ; Unknown opcode $00
 	jsl $c32b8d          ; Jump subroutine long
 	jsl $c34f43          ; Jump subroutine long
-	db $a2               ; Unknown opcode $A2
+	db $a2               ; Unknown opcode $a2
 	db $03               ; Unknown opcode $03
 	db $00               ; Unknown opcode $00
 	jsl $c32c9e          ; Jump subroutine long
 	rtl                  ; Return from subroutine long
 
 
-; Region 22: subroutine ($9000-$903E)
+; Region 22: subroutine ($9000-$903e)
 region_22_subroutine:
 	bcc #$a9             ; Branch carry clear
 	db $00               ; Unknown opcode $00
 	db $00               ; Unknown opcode $00
 	jsl $c33d5c          ; Jump subroutine long
 	jsl $c3484a          ; Jump subroutine long
-	db $a2               ; Unknown opcode $A2
-	db $0c               ; Unknown opcode $0C
+	db $a2               ; Unknown opcode $a2
+	db $0c               ; Unknown opcode $0c
 	db $00               ; Unknown opcode $00
 	jsl $c32bc2          ; Jump subroutine long
 	jsl $c32bd2          ; Jump subroutine long
@@ -2668,7 +2668,7 @@ region_22_subroutine:
 	rtl                  ; Return from subroutine long
 
 
-; Region 23: subroutine ($A000-$A121)
+; Region 23: subroutine ($a000-$a121)
 region_23_subroutine:
 	jsl $c32baf          ; Jump subroutine long
 	lda #$00             ; Load accumulator immediate
@@ -2794,12 +2794,12 @@ region_23_subroutine:
 	rtl                  ; Return from subroutine long
 
 
-; Region 24: subroutine ($B000-$B016)
+; Region 24: subroutine ($b000-$b016)
 region_24_subroutine:
 	jmp $b00a            ; Jump absolute
 	jsl $c3305f          ; Jump subroutine long
 	lda $2bf0            ; Load accumulator absolute
-	db $c9               ; Unknown opcode $C9
+	db $c9               ; Unknown opcode $c9
 	db $00               ; Unknown opcode $00
 	db $00               ; Unknown opcode $00
 	beq #$03             ; Branch equal
@@ -2809,69 +2809,69 @@ region_24_subroutine:
 	rts                  ; Return from subroutine
 
 
-; Region 25: interrupt_handler ($C000-$C001)
+; Region 25: interrupt_handler ($c000-$c001)
 region_25_interrupt_handler:
-	db $f7               ; Unknown opcode $F7
+	db $f7               ; Unknown opcode $f7
 	rti                  ; Return from interrupt
 
 
-; Region 26: interrupt_handler ($D000-$D0CB)
+; Region 26: interrupt_handler ($d000-$d0cb)
 region_26_interrupt_handler:
-	db $cc               ; Unknown opcode $CC
-	db $2b               ; Unknown opcode $2B
+	db $cc               ; Unknown opcode $cc
+	db $2b               ; Unknown opcode $2b
 	db $29               ; Unknown opcode $29
-	db $ff               ; Unknown opcode $FF
+	db $ff               ; Unknown opcode $ff
 	db $00               ; Unknown opcode $00
 	sta $33e4            ; Store accumulator absolute
-	db $0e               ; Unknown opcode $0E
+	db $0e               ; Unknown opcode $0e
 	sep #$33             ; Set processor status
-	db $2e               ; Unknown opcode $2E
-	db $e4               ; Unknown opcode $E4
+	db $2e               ; Unknown opcode $2e
+	db $e4               ; Unknown opcode $e4
 	db $33               ; Unknown opcode $33
-	db $0e               ; Unknown opcode $0E
+	db $0e               ; Unknown opcode $0e
 	sep #$33             ; Set processor status
-	db $2e               ; Unknown opcode $2E
-	db $e4               ; Unknown opcode $E4
+	db $2e               ; Unknown opcode $2e
+	db $e4               ; Unknown opcode $e4
 	db $33               ; Unknown opcode $33
-	db $0e               ; Unknown opcode $0E
+	db $0e               ; Unknown opcode $0e
 	sep #$33             ; Set processor status
-	db $2e               ; Unknown opcode $2E
-	db $e4               ; Unknown opcode $E4
+	db $2e               ; Unknown opcode $2e
+	db $e4               ; Unknown opcode $e4
 	db $33               ; Unknown opcode $33
-	db $0e               ; Unknown opcode $0E
+	db $0e               ; Unknown opcode $0e
 	sep #$33             ; Set processor status
-	db $2e               ; Unknown opcode $2E
-	db $e4               ; Unknown opcode $E4
+	db $2e               ; Unknown opcode $2e
+	db $e4               ; Unknown opcode $e4
 	db $33               ; Unknown opcode $33
 	lda $33e3            ; Load accumulator absolute
 	sta $be82            ; Store accumulator absolute
 	lda $33e2            ; Load accumulator absolute
 	sta $be81            ; Store accumulator absolute
 	jsl $c1a92e          ; Jump subroutine long
-	db $0e               ; Unknown opcode $0E
-	db $0a               ; Unknown opcode $0A
+	db $0e               ; Unknown opcode $0e
+	db $0a               ; Unknown opcode $0a
 	jsl $c3226f          ; Jump subroutine long
 	db $16               ; Unknown opcode $16
 	db $12               ; Unknown opcode $12
 	jsl $c322c6          ; Jump subroutine long
 	db $16               ; Unknown opcode $16
 	bcs #$08             ; Branch carry set
-	db $c9               ; Unknown opcode $C9
+	db $c9               ; Unknown opcode $c9
 	db $00               ; Unknown opcode $00
 	db $00               ; Unknown opcode $00
 	bne #$03             ; Branch not equal
 	jmp $d09e            ; Jump absolute
 	jsr $d0e5            ; Jump subroutine
 	jsl $c1a92e          ; Jump subroutine long
-	db $0f               ; Unknown opcode $0F
-	db $0a               ; Unknown opcode $0A
+	db $0f               ; Unknown opcode $0f
+	db $0a               ; Unknown opcode $0a
 	jsl $c3226f          ; Jump subroutine long
 	db $16               ; Unknown opcode $16
 	db $12               ; Unknown opcode $12
 	jsl $c322c6          ; Jump subroutine long
 	db $16               ; Unknown opcode $16
 	bcs #$08             ; Branch carry set
-	db $c9               ; Unknown opcode $C9
+	db $c9               ; Unknown opcode $c9
 	db $00               ; Unknown opcode $00
 	db $00               ; Unknown opcode $00
 	bne #$03             ; Branch not equal
@@ -2879,14 +2879,14 @@ region_26_interrupt_handler:
 	jsr $d0e5            ; Jump subroutine
 	jsl $c1a92e          ; Jump subroutine long
 	db $14               ; Unknown opcode $14
-	db $0a               ; Unknown opcode $0A
+	db $0a               ; Unknown opcode $0a
 	jsl $c3226f          ; Jump subroutine long
 	db $16               ; Unknown opcode $16
 	db $12               ; Unknown opcode $12
 	jsl $c322c6          ; Jump subroutine long
 	db $16               ; Unknown opcode $16
 	bcs #$08             ; Branch carry set
-	db $c9               ; Unknown opcode $C9
+	db $c9               ; Unknown opcode $c9
 	db $00               ; Unknown opcode $00
 	db $00               ; Unknown opcode $00
 	bne #$03             ; Branch not equal
@@ -2900,7 +2900,7 @@ region_26_interrupt_handler:
 	jsl $c322c6          ; Jump subroutine long
 	db $16               ; Unknown opcode $16
 	bcs #$36             ; Branch carry set
-	db $c9               ; Unknown opcode $C9
+	db $c9               ; Unknown opcode $c9
 	db $00               ; Unknown opcode $00
 	db $00               ; Unknown opcode $00
 	bne #$31             ; Branch not equal
@@ -2911,78 +2911,78 @@ region_26_interrupt_handler:
 	db $85               ; Unknown opcode $85
 	bvs #$22             ; Branch overflow set
 	db $66               ; Unknown opcode $66
-	db $5b               ; Unknown opcode $5B
-	db $c4               ; Unknown opcode $C4
+	db $5b               ; Unknown opcode $5b
+	db $c4               ; Unknown opcode $c4
 	bvs #$90             ; Branch overflow set
 	db $09               ; Unknown opcode $09
 	jsl $c1a92e          ; Jump subroutine long
 	db $12               ; Unknown opcode $12
-	db $0a               ; Unknown opcode $0A
+	db $0a               ; Unknown opcode $0a
 	jmp $d0d5            ; Jump absolute
 	jsl $c32251          ; Jump subroutine long
 	db $12               ; Unknown opcode $12
 	jsl $c1a92e          ; Jump subroutine long
 	db $13               ; Unknown opcode $13
-	db $0a               ; Unknown opcode $0A
+	db $0a               ; Unknown opcode $0a
 	lda $33da            ; Load accumulator absolute
 	jsl $c44824          ; Jump subroutine long
-	db $ff               ; Unknown opcode $FF
+	db $ff               ; Unknown opcode $ff
 	rti                  ; Return from interrupt
 
 
 ; Region 27: subroutine ($9000-$9004)
 region_27_subroutine:
-	db $af               ; Unknown opcode $AF
+	db $af               ; Unknown opcode $af
 	jsr $b783            ; Jump subroutine
 	rts                  ; Return from subroutine
 
 
-; Region 28: subroutine ($A000-$A0C4)
+; Region 28: subroutine ($a000-$a0c4)
 region_28_subroutine:
-	db $ba               ; Unknown opcode $BA
-	db $2a               ; Unknown opcode $2A
-	db $c0               ; Unknown opcode $C0
+	db $ba               ; Unknown opcode $ba
+	db $2a               ; Unknown opcode $2a
+	db $c0               ; Unknown opcode $c0
 	db $12               ; Unknown opcode $12
-	db $b2               ; Unknown opcode $B2
-	db $c4               ; Unknown opcode $C4
-	db $bd               ; Unknown opcode $BD
+	db $b2               ; Unknown opcode $b2
+	db $c4               ; Unknown opcode $c4
+	db $bd               ; Unknown opcode $bd
 	bra #$48             ; Branch always
 	jsl $c04604          ; Jump subroutine long
-	db $6d               ; Unknown opcode $6D
+	db $6d               ; Unknown opcode $6d
 	db $59               ; Unknown opcode $59
-	db $f6               ; Unknown opcode $F6
+	db $f6               ; Unknown opcode $f6
 	db $01               ; Unknown opcode $01
 	jsl $c02aba          ; Jump subroutine long
-	db $c5               ; Unknown opcode $C5
-	db $a0               ; Unknown opcode $A0
-	db $c4               ; Unknown opcode $C4
-	db $a2               ; Unknown opcode $A2
+	db $c5               ; Unknown opcode $c5
+	db $a0               ; Unknown opcode $a0
+	db $c4               ; Unknown opcode $c4
+	db $a2               ; Unknown opcode $a2
 	bvc #$00             ; Branch overflow clear
 	jsr $afb1            ; Jump subroutine
 	jsl $c1e32e          ; Jump subroutine long
-	db $e3               ; Unknown opcode $E3
+	db $e3               ; Unknown opcode $e3
 	db $00               ; Unknown opcode $00
 	lda #$6e             ; Load accumulator immediate
 	db $03               ; Unknown opcode $03
 	sta $4245            ; Store accumulator absolute
 	lda #$69             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $a2               ; Unknown opcode $A2
+	db $a2               ; Unknown opcode $a2
 	bra #$00             ; Branch always
-	db $a0               ; Unknown opcode $A0
+	db $a0               ; Unknown opcode $a0
 	bvs #$00             ; Branch overflow set
 	jsr $b476            ; Jump subroutine
-	db $aa               ; Unknown opcode $AA
+	db $aa               ; Unknown opcode $aa
 	lda #$00             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsr $b4aa            ; Jump subroutine
 	jsl $c02aba          ; Jump subroutine long
-	db $d6               ; Unknown opcode $D6
+	db $d6               ; Unknown opcode $d6
 	bcs #$c4             ; Branch carry set
-	db $a2               ; Unknown opcode $A2
+	db $a2               ; Unknown opcode $a2
 	bvc #$00             ; Branch overflow clear
 	jsr $afb1            ; Jump subroutine
-	db $fa               ; Unknown opcode $FA
+	db $fa               ; Unknown opcode $fa
 	jsr $b6da            ; Jump subroutine
 	jsr $8548            ; Jump subroutine
 	jsr $afac            ; Jump subroutine
@@ -3001,41 +3001,41 @@ region_28_subroutine:
 	jsl $c04604          ; Jump subroutine long
 	db $76               ; Unknown opcode $76
 	jml $2201f6          ; Jump long
-	db $2e               ; Unknown opcode $2E
-	db $e3               ; Unknown opcode $E3
-	db $c1               ; Unknown opcode $C1
-	db $ee               ; Unknown opcode $EE
+	db $2e               ; Unknown opcode $2e
+	db $e3               ; Unknown opcode $e3
+	db $c1               ; Unknown opcode $c1
+	db $ee               ; Unknown opcode $ee
 	db $00               ; Unknown opcode $00
 	lda #$6c             ; Load accumulator immediate
 	db $03               ; Unknown opcode $03
 	sta $4f74            ; Store accumulator absolute
-	db $a2               ; Unknown opcode $A2
+	db $a2               ; Unknown opcode $a2
 	db $08               ; Unknown opcode $08
 	db $00               ; Unknown opcode $00
-	db $9b               ; Unknown opcode $9B
+	db $9b               ; Unknown opcode $9b
 	lda #$0f             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsr $b65b            ; Jump subroutine
-	db $da               ; Unknown opcode $DA
+	db $da               ; Unknown opcode $da
 	jsr $afa7            ; Jump subroutine
 	jsl $c02aba          ; Jump subroutine long
 	db $12               ; Unknown opcode $12
-	db $b2               ; Unknown opcode $B2
-	db $c4               ; Unknown opcode $C4
+	db $b2               ; Unknown opcode $b2
+	db $c4               ; Unknown opcode $c4
 	jsr $afa7            ; Jump subroutine
 	jsl $c02aba          ; Jump subroutine long
 	db $12               ; Unknown opcode $12
-	db $b2               ; Unknown opcode $B2
-	db $c4               ; Unknown opcode $C4
+	db $b2               ; Unknown opcode $b2
+	db $c4               ; Unknown opcode $c4
 	jsr $afa7            ; Jump subroutine
-	db $fa               ; Unknown opcode $FA
+	db $fa               ; Unknown opcode $fa
 	jsr $b6da            ; Jump subroutine
 	jsr $afac            ; Jump subroutine
 	jsl $c04835          ; Jump subroutine long
 	db $76               ; Unknown opcode $76
 	jml $f490f6          ; Jump long
 	jsl $c1e64d          ; Jump subroutine long
-	db $ee               ; Unknown opcode $EE
+	db $ee               ; Unknown opcode $ee
 	db $00               ; Unknown opcode $00
 	bra #$20             ; Branch always
 	db $48               ; Unknown opcode $48
@@ -3045,27 +3045,27 @@ region_28_subroutine:
 	rts                  ; Return from subroutine
 
 
-; Region 29: subroutine ($E000-$E00E)
+; Region 29: subroutine ($e000-$e00e)
 region_29_subroutine:
-	db $f6               ; Unknown opcode $F6
+	db $f6               ; Unknown opcode $f6
 	sep #$c9             ; Set processor status
 	jsl $c9e28d          ; Jump subroutine long
-	db $ab               ; Unknown opcode $AB
+	db $ab               ; Unknown opcode $ab
 	rep #$30             ; Reset processor status
-	db $7a               ; Unknown opcode $7A
-	db $fa               ; Unknown opcode $FA
+	db $7a               ; Unknown opcode $7a
+	db $fa               ; Unknown opcode $fa
 	db $68               ; Unknown opcode $68
 	db $28               ; Unknown opcode $28
 	rtl                  ; Return from subroutine long
 
 
-; Region 30: subroutine ($F000-$F00D)
+; Region 30: subroutine ($f000-$f00d)
 region_30_subroutine:
 	jmp $700c            ; Jump absolute
 	db $02               ; Unknown opcode $02
-	db $a3               ; Unknown opcode $A3
+	db $a3               ; Unknown opcode $a3
 	db $01               ; Unknown opcode $01
-	db $1a               ; Unknown opcode $1A
+	db $1a               ; Unknown opcode $1a
 	db $83               ; Unknown opcode $83
 	db $01               ; Unknown opcode $01
 	jmp $6feb            ; Jump absolute
@@ -3073,50 +3073,50 @@ region_30_subroutine:
 	rtl                  ; Return from subroutine long
 
 
-; Region 31: interrupt_handler ($8000-$804F)
+; Region 31: interrupt_handler ($8000-$804f)
 region_31_interrupt_handler:
 	db $66               ; Unknown opcode $66
-	db $ac               ; Unknown opcode $AC
-	db $cd               ; Unknown opcode $CD
+	db $ac               ; Unknown opcode $ac
+	db $cd               ; Unknown opcode $cd
 	bcs #$03             ; Branch carry set
 	jmp $80eb            ; Jump absolute
 	jsl $c569c9          ; Jump subroutine long
 	jmp $80b5            ; Jump absolute
 	jsl $c737be          ; Jump subroutine long
-	db $ef               ; Unknown opcode $EF
-	db $0e               ; Unknown opcode $0E
+	db $ef               ; Unknown opcode $ef
+	db $0e               ; Unknown opcode $0e
 	jsl $cdacd2          ; Jump subroutine long
 	jmp $80e8            ; Jump absolute
 	jsl $c737be          ; Jump subroutine long
-	db $eb               ; Unknown opcode $EB
-	db $0e               ; Unknown opcode $0E
+	db $eb               ; Unknown opcode $eb
+	db $0e               ; Unknown opcode $0e
 	jsl $cdacd2          ; Jump subroutine long
 	jsl $c58fcc          ; Jump subroutine long
 	jmp $80e8            ; Jump absolute
 	jsl $c59024          ; Jump subroutine long
 	jsl $c737be          ; Jump subroutine long
-	db $ec               ; Unknown opcode $EC
-	db $0e               ; Unknown opcode $0E
+	db $ec               ; Unknown opcode $ec
+	db $0e               ; Unknown opcode $0e
 	jsl $cdacd2          ; Jump subroutine long
 	jsl $c5903d          ; Jump subroutine long
 	lda $99c7            ; Load accumulator absolute
-	db $aa               ; Unknown opcode $AA
+	db $aa               ; Unknown opcode $aa
 	jsl $c90572          ; Jump subroutine long
 	db $00               ; Unknown opcode $00
 	db $36               ; Unknown opcode $36
 	db $00               ; Unknown opcode $00
 	db $23               ; Unknown opcode $23
-	db $f3               ; Unknown opcode $F3
-	db $c8               ; Unknown opcode $C8
+	db $f3               ; Unknown opcode $f3
+	db $c8               ; Unknown opcode $c8
 	db $29               ; Unknown opcode $29
 	db $00               ; Unknown opcode $00
 	rti                  ; Return from interrupt
 
 
-; Region 32: subroutine ($9000-$900A)
+; Region 32: subroutine ($9000-$900a)
 region_32_subroutine:
-	db $d9               ; Unknown opcode $D9
-	db $c1               ; Unknown opcode $C1
+	db $d9               ; Unknown opcode $d9
+	db $c1               ; Unknown opcode $c1
 	jsl $c56984          ; Jump subroutine long
 	jsl $ccd066          ; Jump subroutine long
 	rtl                  ; Return from subroutine long
@@ -3133,10 +3133,10 @@ region_33_subroutine:
 	lda #$02             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	sta $4245            ; Store accumulator absolute
-	db $a2               ; Unknown opcode $A2
+	db $a2               ; Unknown opcode $a2
 	db $00               ; Unknown opcode $00
 	db $00               ; Unknown opcode $00
-	db $9b               ; Unknown opcode $9B
+	db $9b               ; Unknown opcode $9b
 	lda #$04             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c79c43          ; Jump subroutine long
@@ -3144,50 +3144,50 @@ region_33_subroutine:
 	rts                  ; Return from subroutine
 
 
-; Region 34: subroutine ($F000-$F041)
+; Region 34: subroutine ($f000-$f041)
 region_34_subroutine:
 	db $03               ; Unknown opcode $03
 	db $00               ; Unknown opcode $00
 	beq #$15             ; Branch equal
-	db $c9               ; Unknown opcode $C9
+	db $c9               ; Unknown opcode $c9
 	bpl #$00             ; Branch plus
 	beq #$10             ; Branch equal
-	db $c9               ; Unknown opcode $C9
+	db $c9               ; Unknown opcode $c9
 	db $14               ; Unknown opcode $14
 	db $00               ; Unknown opcode $00
 	beq #$0b             ; Branch equal
-	db $c9               ; Unknown opcode $C9
+	db $c9               ; Unknown opcode $c9
 	db $04               ; Unknown opcode $04
 	db $00               ; Unknown opcode $00
 	bne #$2f             ; Branch not equal
 	lda #$01             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	sta $c189            ; Store accumulator absolute
-	db $b9               ; Unknown opcode $B9
-	db $bd               ; Unknown opcode $BD
-	db $a3               ; Unknown opcode $A3
-	db $0a               ; Unknown opcode $0A
-	db $aa               ; Unknown opcode $AA
-	db $fc               ; Unknown opcode $FC
-	db $f7               ; Unknown opcode $F7
+	db $b9               ; Unknown opcode $b9
+	db $bd               ; Unknown opcode $bd
+	db $a3               ; Unknown opcode $a3
+	db $0a               ; Unknown opcode $0a
+	db $aa               ; Unknown opcode $aa
+	db $fc               ; Unknown opcode $fc
+	db $f7               ; Unknown opcode $f7
 	db $72               ; Unknown opcode $72
 	bcs #$17             ; Branch carry set
-	db $b9               ; Unknown opcode $B9
-	db $bd               ; Unknown opcode $BD
-	db $a3               ; Unknown opcode $A3
-	db $c9               ; Unknown opcode $C9
+	db $b9               ; Unknown opcode $b9
+	db $bd               ; Unknown opcode $bd
+	db $a3               ; Unknown opcode $a3
+	db $c9               ; Unknown opcode $c9
 	db $00               ; Unknown opcode $00
 	db $00               ; Unknown opcode $00
 	beq #$19             ; Branch equal
-	db $c9               ; Unknown opcode $C9
+	db $c9               ; Unknown opcode $c9
 	db $01               ; Unknown opcode $01
 	db $00               ; Unknown opcode $00
 	beq #$14             ; Branch equal
-	db $c9               ; Unknown opcode $C9
+	db $c9               ; Unknown opcode $c9
 	db $03               ; Unknown opcode $03
 	db $00               ; Unknown opcode $00
 	beq #$1f             ; Branch equal
-	db $c9               ; Unknown opcode $C9
+	db $c9               ; Unknown opcode $c9
 	db $04               ; Unknown opcode $04
 	db $00               ; Unknown opcode $00
 	beq #$22             ; Branch equal
@@ -3198,14 +3198,14 @@ region_34_subroutine:
 	rtl                  ; Return from subroutine long
 
 
-; Region 35: subroutine ($B000-$B002)
+; Region 35: subroutine ($b000-$b002)
 region_35_subroutine:
-	db $e3               ; Unknown opcode $E3
-	db $c1               ; Unknown opcode $C1
+	db $e3               ; Unknown opcode $e3
+	db $c1               ; Unknown opcode $c1
 	rtl                  ; Return from subroutine long
 
 
-; Region 36: subroutine ($E000-$E00A)
+; Region 36: subroutine ($e000-$e00a)
 region_36_subroutine:
 	db $00               ; Unknown opcode $00
 	bra #$03             ; Branch always
@@ -3213,47 +3213,47 @@ region_36_subroutine:
 	db $00               ; Unknown opcode $00
 	db $99               ; Unknown opcode $99
 	db $65               ; Unknown opcode $65
-	db $d1               ; Unknown opcode $D1
+	db $d1               ; Unknown opcode $d1
 	clc                  ; Clear carry flag
 	rtl                  ; Return from subroutine long
 
 
-; Region 37: subroutine ($F000-$F01D)
+; Region 37: subroutine ($f000-$f01d)
 region_37_subroutine:
 	bcc #$f6             ; Branch carry clear
 	jsl $c4297c          ; Jump subroutine long
 	db $01               ; Unknown opcode $01
 	clc                  ; Clear carry flag
-	db $a2               ; Unknown opcode $A2
+	db $a2               ; Unknown opcode $a2
 	db $00               ; Unknown opcode $00
 	db $00               ; Unknown opcode $00
-	db $9b               ; Unknown opcode $9B
+	db $9b               ; Unknown opcode $9b
 	jsl $c429da          ; Jump subroutine long
 	db $01               ; Unknown opcode $01
-	db $fe               ; Unknown opcode $FE
-	db $ff               ; Unknown opcode $FF
+	db $fe               ; Unknown opcode $fe
+	db $ff               ; Unknown opcode $ff
 	db $99               ; Unknown opcode $99
 	db $24               ; Unknown opcode $24
 	db $35               ; Unknown opcode $35
-	db $e8               ; Unknown opcode $E8
-	db $c8               ; Unknown opcode $C8
-	db $c8               ; Unknown opcode $C8
-	db $e4               ; Unknown opcode $E4
+	db $e8               ; Unknown opcode $e8
+	db $c8               ; Unknown opcode $c8
+	db $c8               ; Unknown opcode $c8
+	db $e4               ; Unknown opcode $e4
 	clc                  ; Clear carry flag
 	bcc #$ef             ; Branch carry clear
 	rtl                  ; Return from subroutine long
 
 
-; Region 38: subroutine ($9000-$901E)
+; Region 38: subroutine ($9000-$901e)
 region_38_subroutine:
 	db $00               ; Unknown opcode $00
 	db $99               ; Unknown opcode $99
 	db $65               ; Unknown opcode $65
-	db $d1               ; Unknown opcode $D1
+	db $d1               ; Unknown opcode $d1
 	jsr $901f            ; Jump subroutine
 	jsl $c6594a          ; Jump subroutine long
 	jsl $c65c38          ; Jump subroutine long
-	db $7a               ; Unknown opcode $7A
+	db $7a               ; Unknown opcode $7a
 	jsl $c76597          ; Jump subroutine long
 	bcs #$03             ; Branch carry set
 	db $02               ; Unknown opcode $02
@@ -3263,82 +3263,82 @@ region_38_subroutine:
 	rtl                  ; Return from subroutine long
 
 
-; Region 39: interrupt_handler ($D000-$D011)
+; Region 39: interrupt_handler ($d000-$d011)
 region_39_interrupt_handler:
 	db $28               ; Unknown opcode $28
 	db $42               ; Unknown opcode $42
-	db $b7               ; Unknown opcode $B7
+	db $b7               ; Unknown opcode $b7
 	db $68               ; Unknown opcode $68
 	bcs #$40             ; Branch carry set
-	db $2c               ; Unknown opcode $2C
+	db $2c               ; Unknown opcode $2c
 	db $42               ; Unknown opcode $42
-	db $b7               ; Unknown opcode $B7
+	db $b7               ; Unknown opcode $b7
 	db $68               ; Unknown opcode $68
 	bmi #$41             ; Branch minus
 	bmi #$42             ; Branch minus
-	db $b8               ; Unknown opcode $B8
+	db $b8               ; Unknown opcode $b8
 	db $00               ; Unknown opcode $00
 	db $61               ; Unknown opcode $61
 	rti                  ; Return from interrupt
 
 
-; Region 40: subroutine ($9000-$905B)
+; Region 40: subroutine ($9000-$905b)
 region_40_subroutine:
 	db $33               ; Unknown opcode $33
 	jsl $c43672          ; Jump subroutine long
 	db $01               ; Unknown opcode $01
-	db $fe               ; Unknown opcode $FE
-	db $ff               ; Unknown opcode $FF
-	db $c9               ; Unknown opcode $C9
-	db $ff               ; Unknown opcode $FF
+	db $fe               ; Unknown opcode $fe
+	db $ff               ; Unknown opcode $ff
+	db $c9               ; Unknown opcode $c9
+	db $ff               ; Unknown opcode $ff
 	db $00               ; Unknown opcode $00
 	bcc #$0f             ; Branch carry clear
 	jsl $c1a8d4          ; Jump subroutine long
 	bvc #$01             ; Branch overflow clear
 	jsl $c1a8d4          ; Jump subroutine long
-	db $4d               ; Unknown opcode $4D
+	db $4d               ; Unknown opcode $4d
 	db $00               ; Unknown opcode $00
 	jmp $1056            ; Jump absolute
 	lda $33e2            ; Load accumulator absolute
 	jsl $c4371f          ; Jump subroutine long
 	db $01               ; Unknown opcode $01
-	db $fe               ; Unknown opcode $FE
-	db $ff               ; Unknown opcode $FF
+	db $fe               ; Unknown opcode $fe
+	db $ff               ; Unknown opcode $ff
 	jsr $0e0c            ; Jump subroutine
 	lda #$87             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsr $105c            ; Jump subroutine
 	bcc #$19             ; Branch carry clear
-	db $ae               ; Unknown opcode $AE
-	db $d8               ; Unknown opcode $D8
+	db $ae               ; Unknown opcode $ae
+	db $d8               ; Unknown opcode $d8
 	db $33               ; Unknown opcode $33
 	jsl $c43644          ; Jump subroutine long
 	db $01               ; Unknown opcode $01
-	db $fe               ; Unknown opcode $FE
-	db $ff               ; Unknown opcode $FF
-	db $c9               ; Unknown opcode $C9
-	db $ff               ; Unknown opcode $FF
+	db $fe               ; Unknown opcode $fe
+	db $ff               ; Unknown opcode $ff
+	db $c9               ; Unknown opcode $c9
+	db $ff               ; Unknown opcode $ff
 	db $00               ; Unknown opcode $00
 	bcs #$16             ; Branch carry set
-	db $0e               ; Unknown opcode $0E
+	db $0e               ; Unknown opcode $0e
 	db $81               ; Unknown opcode $81
-	db $be               ; Unknown opcode $BE
+	db $be               ; Unknown opcode $be
 	sep #$20             ; Set processor status
-	db $2e               ; Unknown opcode $2E
+	db $2e               ; Unknown opcode $2e
 	db $83               ; Unknown opcode $83
-	db $be               ; Unknown opcode $BE
+	db $be               ; Unknown opcode $be
 	rep #$20             ; Reset processor status
 	jsl $c1a8d4          ; Jump subroutine long
 	bvc #$01             ; Branch overflow clear
 	jsl $c1a8d4          ; Jump subroutine long
-	db $c9               ; Unknown opcode $C9
+	db $c9               ; Unknown opcode $c9
 	db $00               ; Unknown opcode $00
 	jsl $c340f7          ; Jump subroutine long
 	clc                  ; Clear carry flag
 	rtl                  ; Return from subroutine long
 
 
-; Region 41: subroutine ($A000-$A03C)
+; Region 41: subroutine ($a000-$a03c)
 region_41_subroutine:
 	lda #$2b             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
@@ -3346,115 +3346,115 @@ region_41_subroutine:
 	bcc #$06             ; Branch carry clear
 	lda #$40             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $0c               ; Unknown opcode $0C
-	db $b6               ; Unknown opcode $B6
-	db $2b               ; Unknown opcode $2B
+	db $0c               ; Unknown opcode $0c
+	db $b6               ; Unknown opcode $b6
+	db $2b               ; Unknown opcode $2b
 	lda #$46             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsr $203d            ; Jump subroutine
 	bcc #$06             ; Branch carry clear
 	lda #$02             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $0c               ; Unknown opcode $0C
-	db $b6               ; Unknown opcode $B6
-	db $2b               ; Unknown opcode $2B
+	db $0c               ; Unknown opcode $0c
+	db $b6               ; Unknown opcode $b6
+	db $2b               ; Unknown opcode $2b
 	lda #$47             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsr $203d            ; Jump subroutine
 	bcc #$06             ; Branch carry clear
 	lda #$01             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $0c               ; Unknown opcode $0C
-	db $b6               ; Unknown opcode $B6
-	db $2b               ; Unknown opcode $2B
-	db $8a               ; Unknown opcode $8A
-	db $0a               ; Unknown opcode $0A
-	db $a8               ; Unknown opcode $A8
+	db $0c               ; Unknown opcode $0c
+	db $b6               ; Unknown opcode $b6
+	db $2b               ; Unknown opcode $2b
+	db $8a               ; Unknown opcode $8a
+	db $0a               ; Unknown opcode $0a
+	db $a8               ; Unknown opcode $a8
 	lda $2bb6            ; Load accumulator absolute
 	db $99               ; Unknown opcode $99
-	db $e8               ; Unknown opcode $E8
-	db $2b               ; Unknown opcode $2B
-	db $e8               ; Unknown opcode $E8
-	db $ec               ; Unknown opcode $EC
-	db $b2               ; Unknown opcode $B2
-	db $2b               ; Unknown opcode $2B
+	db $e8               ; Unknown opcode $e8
+	db $2b               ; Unknown opcode $2b
+	db $e8               ; Unknown opcode $e8
+	db $ec               ; Unknown opcode $ec
+	db $b2               ; Unknown opcode $b2
+	db $2b               ; Unknown opcode $2b
 	bcs #$03             ; Branch carry set
 	jmp $1f7e            ; Jump absolute
 	rts                  ; Return from subroutine
 
 
-; Region 42: subroutine ($C000-$C050)
+; Region 42: subroutine ($c000-$c050)
 region_42_subroutine:
 	jsr $7bc2            ; Jump subroutine
 	lda $63dc            ; Load accumulator absolute
 	clc                  ; Clear carry flag
-	db $6d               ; Unknown opcode $6D
-	db $dc               ; Unknown opcode $DC
+	db $6d               ; Unknown opcode $6d
+	db $dc               ; Unknown opcode $dc
 	db $65               ; Unknown opcode $65
-	db $2d               ; Unknown opcode $2D
+	db $2d               ; Unknown opcode $2d
 	db $14               ; Unknown opcode $14
-	db $6f               ; Unknown opcode $6F
+	db $6f               ; Unknown opcode $6f
 	sta $63dc            ; Store accumulator absolute
 	lda $63de            ; Load accumulator absolute
-	db $6d               ; Unknown opcode $6D
-	db $de               ; Unknown opcode $DE
+	db $6d               ; Unknown opcode $6d
+	db $de               ; Unknown opcode $de
 	db $65               ; Unknown opcode $65
-	db $2d               ; Unknown opcode $2D
+	db $2d               ; Unknown opcode $2d
 	db $16               ; Unknown opcode $16
-	db $6f               ; Unknown opcode $6F
+	db $6f               ; Unknown opcode $6f
 	sta $63de            ; Store accumulator absolute
 	lda $64dc            ; Load accumulator absolute
 	clc                  ; Clear carry flag
-	db $6d               ; Unknown opcode $6D
-	db $dc               ; Unknown opcode $DC
+	db $6d               ; Unknown opcode $6d
+	db $dc               ; Unknown opcode $dc
 	db $66               ; Unknown opcode $66
-	db $2d               ; Unknown opcode $2D
+	db $2d               ; Unknown opcode $2d
 	clc                  ; Clear carry flag
-	db $6f               ; Unknown opcode $6F
+	db $6f               ; Unknown opcode $6f
 	sta $64dc            ; Store accumulator absolute
 	lda $64de            ; Load accumulator absolute
-	db $6d               ; Unknown opcode $6D
-	db $de               ; Unknown opcode $DE
+	db $6d               ; Unknown opcode $6d
+	db $de               ; Unknown opcode $de
 	db $66               ; Unknown opcode $66
-	db $2d               ; Unknown opcode $2D
-	db $1a               ; Unknown opcode $1A
-	db $6f               ; Unknown opcode $6F
+	db $2d               ; Unknown opcode $2d
+	db $1a               ; Unknown opcode $1a
+	db $6f               ; Unknown opcode $6f
 	sta $64de            ; Store accumulator absolute
 	lda $6976            ; Load accumulator absolute
 	clc                  ; Clear carry flag
-	db $6d               ; Unknown opcode $6D
-	db $f6               ; Unknown opcode $F6
+	db $6d               ; Unknown opcode $6d
+	db $f6               ; Unknown opcode $f6
 	db $69               ; Unknown opcode $69
-	db $c9               ; Unknown opcode $C9
-	db $c0               ; Unknown opcode $C0
-	db $3f               ; Unknown opcode $3F
+	db $c9               ; Unknown opcode $c9
+	db $c0               ; Unknown opcode $c0
+	db $3f               ; Unknown opcode $3f
 	bcc #$07             ; Branch carry clear
 	stz $62f6            ; Store zero absolute
 	clc                  ; Clear carry flag
 	jmp $404b            ; Jump absolute
 	sta $6976            ; Store accumulator absolute
 	lda $6af6            ; Load accumulator absolute
-	db $6d               ; Unknown opcode $6D
+	db $6d               ; Unknown opcode $6d
 	db $76               ; Unknown opcode $76
 	rtl                  ; Return from subroutine long
 
 
-; Region 43: subroutine ($D000-$D058)
+; Region 43: subroutine ($d000-$d058)
 region_43_subroutine:
 	lda $6c54            ; Load accumulator absolute
 	clc                  ; Clear carry flag
-	db $6d               ; Unknown opcode $6D
-	db $d4               ; Unknown opcode $D4
-	db $6c               ; Unknown opcode $6C
+	db $6d               ; Unknown opcode $6d
+	db $d4               ; Unknown opcode $d4
+	db $6c               ; Unknown opcode $6c
 	sta $6c54            ; Store accumulator absolute
 	lda $6dd4            ; Load accumulator absolute
 	clc                  ; Clear carry flag
-	db $6d               ; Unknown opcode $6D
+	db $6d               ; Unknown opcode $6d
 	db $54               ; Unknown opcode $54
-	db $6e               ; Unknown opcode $6E
-	db $c9               ; Unknown opcode $C9
+	db $6e               ; Unknown opcode $6e
+	db $c9               ; Unknown opcode $c9
 	db $00               ; Unknown opcode $00
-	db $1c               ; Unknown opcode $1C
+	db $1c               ; Unknown opcode $1c
 	bcc #$0a             ; Branch carry clear
 	stz $6ed4            ; Store zero absolute
 	stz $6e54            ; Store zero absolute
@@ -3462,40 +3462,40 @@ region_43_subroutine:
 	jmp $5023            ; Jump absolute
 	sta $6dd4            ; Store accumulator absolute
 	lda $6598            ; Load accumulator absolute
-	db $6d               ; Unknown opcode $6D
+	db $6d               ; Unknown opcode $6d
 	db $98               ; Unknown opcode $98
 	db $67               ; Unknown opcode $67
 	sta $6598            ; Store accumulator absolute
 	lda $659a            ; Load accumulator absolute
-	db $6d               ; Unknown opcode $6D
-	db $9a               ; Unknown opcode $9A
+	db $6d               ; Unknown opcode $6d
+	db $9a               ; Unknown opcode $9a
 	db $67               ; Unknown opcode $67
 	sta $659a            ; Store accumulator absolute
 	lda $6698            ; Load accumulator absolute
 	clc                  ; Clear carry flag
-	db $6d               ; Unknown opcode $6D
+	db $6d               ; Unknown opcode $6d
 	db $98               ; Unknown opcode $98
 	db $68               ; Unknown opcode $68
 	sta $6698            ; Store accumulator absolute
 	lda $669a            ; Load accumulator absolute
-	db $6d               ; Unknown opcode $6D
-	db $9a               ; Unknown opcode $9A
+	db $6d               ; Unknown opcode $6d
+	db $9a               ; Unknown opcode $9a
 	db $68               ; Unknown opcode $68
 	sta $669a            ; Store accumulator absolute
 	lda $69d4            ; Load accumulator absolute
 	clc                  ; Clear carry flag
-	db $6d               ; Unknown opcode $6D
+	db $6d               ; Unknown opcode $6d
 	db $54               ; Unknown opcode $54
-	db $6a               ; Unknown opcode $6A
+	db $6a               ; Unknown opcode $6a
 	sta $69d4            ; Store accumulator absolute
 	lda $6b54            ; Load accumulator absolute
 	clc                  ; Clear carry flag
-	db $6d               ; Unknown opcode $6D
-	db $d4               ; Unknown opcode $D4
+	db $6d               ; Unknown opcode $6d
+	db $d4               ; Unknown opcode $d4
 	rtl                  ; Return from subroutine long
 
 
-; Region 44: subroutine ($E000-$E000)
+; Region 44: subroutine ($e000-$e000)
 region_44_subroutine:
 	rtl                  ; Return from subroutine long
 
@@ -3523,7 +3523,7 @@ region_47_subroutine:
 	rtl                  ; Return from subroutine long
 
 
-; Region 48: subroutine ($A000-$A059)
+; Region 48: subroutine ($a000-$a059)
 region_48_subroutine:
 	db $03               ; Unknown opcode $03
 	jmp $200b            ; Jump absolute
@@ -3532,13 +3532,13 @@ region_48_subroutine:
 	jsl $cda724          ; Jump subroutine long
 	jsl $ccd6ed          ; Jump subroutine long
 	lda $3436            ; Load accumulator absolute
-	db $c9               ; Unknown opcode $C9
-	db $e8               ; Unknown opcode $E8
+	db $c9               ; Unknown opcode $c9
+	db $e8               ; Unknown opcode $e8
 	db $03               ; Unknown opcode $03
 	bcc #$03             ; Branch carry clear
 	jmp $203d            ; Jump absolute
 	lda $342e            ; Load accumulator absolute
-	db $c9               ; Unknown opcode $C9
+	db $c9               ; Unknown opcode $c9
 	bmi #$00             ; Branch minus
 	bcc #$03             ; Branch carry clear
 	jmp $2033            ; Jump absolute
@@ -3551,7 +3551,7 @@ region_48_subroutine:
 	jsl $c7315e          ; Jump subroutine long
 	jmp $2059            ; Jump absolute
 	lda $342e            ; Load accumulator absolute
-	db $c9               ; Unknown opcode $C9
+	db $c9               ; Unknown opcode $c9
 	bmi #$00             ; Branch minus
 	bcc #$03             ; Branch carry clear
 	jmp $2052            ; Jump absolute
@@ -3565,13 +3565,13 @@ region_48_subroutine:
 	rtl                  ; Return from subroutine long
 
 
-; Region 49: subroutine ($B000-$B039)
+; Region 49: subroutine ($b000-$b039)
 region_49_subroutine:
 	jmp $a9c7            ; Jump absolute
 	db $35               ; Unknown opcode $35
 	db $00               ; Unknown opcode $00
-	db $a2               ; Unknown opcode $A2
-	db $5e               ; Unknown opcode $5E
+	db $a2               ; Unknown opcode $a2
+	db $5e               ; Unknown opcode $5e
 	db $00               ; Unknown opcode $00
 	jsl $c75305          ; Jump subroutine long
 	db $02               ; Unknown opcode $02
@@ -3582,11 +3582,11 @@ region_49_subroutine:
 	jmp $3039            ; Jump absolute
 	lda #$20             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $0c               ; Unknown opcode $0C
+	db $0c               ; Unknown opcode $0c
 	db $29               ; Unknown opcode $29
 	db $36               ; Unknown opcode $36
 	jsl $ccd392          ; Jump subroutine long
-	db $a2               ; Unknown opcode $A2
+	db $a2               ; Unknown opcode $a2
 	db $35               ; Unknown opcode $35
 	db $00               ; Unknown opcode $00
 	lda #$5e             ; Load accumulator immediate
@@ -3597,19 +3597,19 @@ region_49_subroutine:
 	rtl                  ; Return from subroutine long
 
 
-; Region 50: subroutine ($C000-$C000)
+; Region 50: subroutine ($c000-$c000)
 region_50_subroutine:
 	rtl                  ; Return from subroutine long
 
 
-; Region 51: subroutine ($D000-$D039)
+; Region 51: subroutine ($d000-$d039)
 region_51_subroutine:
 	db $00               ; Unknown opcode $00
 	beq #$03             ; Branch equal
 	jmp $500c            ; Jump absolute
 	lda #$20             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $1c               ; Unknown opcode $1C
+	db $1c               ; Unknown opcode $1c
 	jmp $a935            ; Jump absolute
 	sei                  ; Set interrupt disable
 	db $00               ; Unknown opcode $00
@@ -3620,47 +3620,47 @@ region_51_subroutine:
 	jsl $cc996f          ; Jump subroutine long
 	jsl $cade3a          ; Jump subroutine long
 	jsl $c77843          ; Jump subroutine long
-	db $7d               ; Unknown opcode $7D
+	db $7d               ; Unknown opcode $7d
 	db $94               ; Unknown opcode $94
-	db $ca               ; Unknown opcode $CA
+	db $ca               ; Unknown opcode $ca
 	jsl $c7787b          ; Jump subroutine long
 	db $26               ; Unknown opcode $26
-	db $e3               ; Unknown opcode $E3
-	db $cd               ; Unknown opcode $CD
+	db $e3               ; Unknown opcode $e3
+	db $cd               ; Unknown opcode $cd
 	jsl $c77889          ; Jump subroutine long
 	rtl                  ; Return from subroutine long
 
 
-; Region 52: subroutine ($E000-$E007)
+; Region 52: subroutine ($e000-$e007)
 region_52_subroutine:
 	jsl $c77889          ; Jump subroutine long
-	db $a8               ; Unknown opcode $A8
-	db $e6               ; Unknown opcode $E6
-	db $ca               ; Unknown opcode $CA
+	db $a8               ; Unknown opcode $a8
+	db $e6               ; Unknown opcode $e6
+	db $ca               ; Unknown opcode $ca
 	rtl                  ; Return from subroutine long
 
 
-; Region 53: subroutine ($F000-$F00A)
+; Region 53: subroutine ($f000-$f00a)
 region_53_subroutine:
-	db $1f               ; Unknown opcode $1F
-	db $d9               ; Unknown opcode $D9
-	db $ca               ; Unknown opcode $CA
+	db $1f               ; Unknown opcode $1f
+	db $d9               ; Unknown opcode $d9
+	db $ca               ; Unknown opcode $ca
 	jsl $c77889          ; Jump subroutine long
 	db $03               ; Unknown opcode $03
-	db $e9               ; Unknown opcode $E9
-	db $ca               ; Unknown opcode $CA
+	db $e9               ; Unknown opcode $e9
+	db $ca               ; Unknown opcode $ca
 	rtl                  ; Return from subroutine long
 
 
 ; Region 54: subroutine ($8000-$8019)
 region_54_subroutine:
-	db $a2               ; Unknown opcode $A2
+	db $a2               ; Unknown opcode $a2
 	db $00               ; Unknown opcode $00
 	db $00               ; Unknown opcode $00
 	jsl $c743c6          ; Jump subroutine long
 	lda #$80             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $a2               ; Unknown opcode $A2
+	db $a2               ; Unknown opcode $a2
 	db $04               ; Unknown opcode $04
 	db $00               ; Unknown opcode $00
 	jsl $c743c6          ; Jump subroutine long
@@ -3673,7 +3673,7 @@ region_54_subroutine:
 region_55_subroutine:
 	db $00               ; Unknown opcode $00
 	jsl $c62407          ; Jump subroutine long
-	db $a2               ; Unknown opcode $A2
+	db $a2               ; Unknown opcode $a2
 	sec                  ; Set carry flag
 	db $00               ; Unknown opcode $00
 	jsl $c66696          ; Jump subroutine long
@@ -3681,24 +3681,24 @@ region_55_subroutine:
 	rtl                  ; Return from subroutine long
 
 
-; Region 56: subroutine ($A000-$A00A)
+; Region 56: subroutine ($a000-$a00a)
 region_56_subroutine:
-	db $bb               ; Unknown opcode $BB
+	db $bb               ; Unknown opcode $bb
 	db $14               ; Unknown opcode $14
-	db $c6               ; Unknown opcode $C6
-	db $a2               ; Unknown opcode $A2
+	db $c6               ; Unknown opcode $c6
+	db $a2               ; Unknown opcode $a2
 	db $67               ; Unknown opcode $67
 	db $00               ; Unknown opcode $00
 	jsl $c614bb          ; Jump subroutine long
 	rtl                  ; Return from subroutine long
 
 
-; Region 57: subroutine ($B000-$B00E)
+; Region 57: subroutine ($b000-$b00e)
 region_57_subroutine:
 	db $96               ; Unknown opcode $96
 	db $66               ; Unknown opcode $66
-	db $c6               ; Unknown opcode $C6
-	db $a2               ; Unknown opcode $A2
+	db $c6               ; Unknown opcode $c6
+	db $a2               ; Unknown opcode $a2
 	db $02               ; Unknown opcode $02
 	db $01               ; Unknown opcode $01
 	jsl $c66696          ; Jump subroutine long
@@ -3706,16 +3706,16 @@ region_57_subroutine:
 	rtl                  ; Return from subroutine long
 
 
-; Region 58: subroutine ($C000-$C00A)
+; Region 58: subroutine ($c000-$c00a)
 region_58_subroutine:
 	db $43               ; Unknown opcode $43
-	db $c7               ; Unknown opcode $C7
+	db $c7               ; Unknown opcode $c7
 	jsl $cbebf6          ; Jump subroutine long
 	jsl $c59384          ; Jump subroutine long
 	rtl                  ; Return from subroutine long
 
 
-; Region 59: subroutine ($D000-$D00F)
+; Region 59: subroutine ($d000-$d00f)
 region_59_subroutine:
 	db $00               ; Unknown opcode $00
 	jsl $c737be          ; Jump subroutine long
@@ -3726,11 +3726,11 @@ region_59_subroutine:
 	rtl                  ; Return from subroutine long
 
 
-; Region 60: subroutine ($E000-$E011)
+; Region 60: subroutine ($e000-$e011)
 region_60_subroutine:
-	db $cd               ; Unknown opcode $CD
+	db $cd               ; Unknown opcode $cd
 	sei                  ; Set interrupt disable
-	db $c7               ; Unknown opcode $C7
+	db $c7               ; Unknown opcode $c7
 	lda #$ce             ; Load accumulator immediate
 	db $03               ; Unknown opcode $03
 	jsl $c778e3          ; Jump subroutine long
@@ -3740,16 +3740,16 @@ region_60_subroutine:
 	rtl                  ; Return from subroutine long
 
 
-; Region 61: subroutine ($F000-$F081)
+; Region 61: subroutine ($f000-$f081)
 region_61_subroutine:
 	sta $9680            ; Store accumulator absolute
 	lda #$00             ; Load accumulator immediate
-	db $0a               ; Unknown opcode $0A
+	db $0a               ; Unknown opcode $0a
 	sta $9682            ; Store accumulator absolute
-	db $a2               ; Unknown opcode $A2
-	db $d1               ; Unknown opcode $D1
+	db $a2               ; Unknown opcode $a2
+	db $d1               ; Unknown opcode $d1
 	db $03               ; Unknown opcode $03
-	db $a0               ; Unknown opcode $A0
+	db $a0               ; Unknown opcode $a0
 	db $00               ; Unknown opcode $00
 	db $00               ; Unknown opcode $00
 	jsl $c734b3          ; Jump subroutine long
@@ -3763,12 +3763,12 @@ region_61_subroutine:
 	db $09               ; Unknown opcode $09
 	sta $9680            ; Store accumulator absolute
 	lda #$10             ; Load accumulator immediate
-	db $0a               ; Unknown opcode $0A
+	db $0a               ; Unknown opcode $0a
 	sta $9682            ; Store accumulator absolute
-	db $a2               ; Unknown opcode $A2
-	db $d1               ; Unknown opcode $D1
+	db $a2               ; Unknown opcode $a2
+	db $d1               ; Unknown opcode $d1
 	db $03               ; Unknown opcode $03
-	db $a0               ; Unknown opcode $A0
+	db $a0               ; Unknown opcode $a0
 	db $00               ; Unknown opcode $00
 	db $00               ; Unknown opcode $00
 	jsl $c734b3          ; Jump subroutine long
@@ -3782,12 +3782,12 @@ region_61_subroutine:
 	db $09               ; Unknown opcode $09
 	sta $9680            ; Store accumulator absolute
 	lda #$20             ; Load accumulator immediate
-	db $0a               ; Unknown opcode $0A
+	db $0a               ; Unknown opcode $0a
 	sta $9682            ; Store accumulator absolute
-	db $a2               ; Unknown opcode $A2
-	db $d1               ; Unknown opcode $D1
+	db $a2               ; Unknown opcode $a2
+	db $d1               ; Unknown opcode $d1
 	db $03               ; Unknown opcode $03
-	db $a0               ; Unknown opcode $A0
+	db $a0               ; Unknown opcode $a0
 	db $00               ; Unknown opcode $00
 	db $00               ; Unknown opcode $00
 	jsl $c734b3          ; Jump subroutine long
@@ -3799,7 +3799,7 @@ region_61_subroutine:
 	jmp $f078            ; Jump absolute
 	jsl $ccd6fa          ; Jump subroutine long
 	lda $342c            ; Load accumulator absolute
-	db $c9               ; Unknown opcode $C9
+	db $c9               ; Unknown opcode $c9
 	db $46               ; Unknown opcode $46
 	db $00               ; Unknown opcode $00
 	beq #$02             ; Branch equal
@@ -3823,11 +3823,11 @@ region_62_subroutine:
 	bne #$03             ; Branch not equal
 	jmp $0011            ; Jump absolute
 	db $00               ; Unknown opcode $00
-	db $d1               ; Unknown opcode $D1
+	db $d1               ; Unknown opcode $d1
 	db $01               ; Unknown opcode $01
 	jmp $0014            ; Jump absolute
 	db $00               ; Unknown opcode $00
-	db $be               ; Unknown opcode $BE
+	db $be               ; Unknown opcode $be
 	db $01               ; Unknown opcode $01
 	rtl                  ; Return from subroutine long
 
@@ -3838,29 +3838,29 @@ region_63_subroutine:
 	rtl                  ; Return from subroutine long
 
 
-; Region 64: subroutine ($A000-$A008)
+; Region 64: subroutine ($a000-$a008)
 region_64_subroutine:
-	db $c7               ; Unknown opcode $C7
+	db $c7               ; Unknown opcode $c7
 	jsl $ccd276          ; Jump subroutine long
 	jmp $2001            ; Jump absolute
 	rtl                  ; Return from subroutine long
 
 
-; Region 65: subroutine ($B000-$B002)
+; Region 65: subroutine ($b000-$b002)
 region_65_subroutine:
 	db $11               ; Unknown opcode $11
 	db $06               ; Unknown opcode $06
 	rtl                  ; Return from subroutine long
 
 
-; Region 66: subroutine ($C000-$C013)
+; Region 66: subroutine ($c000-$c013)
 region_66_subroutine:
 	jmp $2935            ; Jump absolute
 	bra #$00             ; Branch always
 	bne #$03             ; Branch not equal
 	jmp $4010            ; Jump absolute
 	db $00               ; Unknown opcode $00
-	db $6d               ; Unknown opcode $6D
+	db $6d               ; Unknown opcode $6d
 	db $04               ; Unknown opcode $04
 	jmp $4013            ; Jump absolute
 	db $00               ; Unknown opcode $00
@@ -3869,20 +3869,20 @@ region_66_subroutine:
 	rtl                  ; Return from subroutine long
 
 
-; Region 67: subroutine ($D000-$D005)
+; Region 67: subroutine ($d000-$d005)
 region_67_subroutine:
 	bvc #$22             ; Branch overflow clear
 	nop                  ; No operation
-	db $c1               ; Unknown opcode $C1
-	db $cd               ; Unknown opcode $CD
+	db $c1               ; Unknown opcode $c1
+	db $cd               ; Unknown opcode $cd
 	rtl                  ; Return from subroutine long
 
 
-; Region 68: subroutine ($E000-$E01D)
+; Region 68: subroutine ($e000-$e01d)
 region_68_subroutine:
 	jmp $6009            ; Jump absolute
 	db $00               ; Unknown opcode $00
-	db $d2               ; Unknown opcode $D2
+	db $d2               ; Unknown opcode $d2
 	db $05               ; Unknown opcode $05
 	jmp $601d            ; Jump absolute
 	lda $3545            ; Load accumulator absolute
@@ -3892,16 +3892,16 @@ region_68_subroutine:
 	bne #$03             ; Branch not equal
 	jmp $601a            ; Jump absolute
 	db $00               ; Unknown opcode $00
-	db $a2               ; Unknown opcode $A2
+	db $a2               ; Unknown opcode $a2
 	db $05               ; Unknown opcode $05
 	jmp $601d            ; Jump absolute
 	db $00               ; Unknown opcode $00
-	db $3c               ; Unknown opcode $3C
+	db $3c               ; Unknown opcode $3c
 	db $05               ; Unknown opcode $05
 	rtl                  ; Return from subroutine long
 
 
-; Region 69: subroutine ($F000-$F02C)
+; Region 69: subroutine ($f000-$f02c)
 region_69_subroutine:
 	db $00               ; Unknown opcode $00
 	beq #$03             ; Branch equal
@@ -3920,21 +3920,21 @@ region_69_subroutine:
 	lda #$1f             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	sta $9c17            ; Store accumulator absolute
-	db $a2               ; Unknown opcode $A2
+	db $a2               ; Unknown opcode $a2
 	db $00               ; Unknown opcode $00
 	db $00               ; Unknown opcode $00
-	db $a0               ; Unknown opcode $A0
+	db $a0               ; Unknown opcode $a0
 	db $00               ; Unknown opcode $00
 	db $00               ; Unknown opcode $00
 	jsl $c736c8          ; Jump subroutine long
 	rtl                  ; Return from subroutine long
 
 
-; Region 70: subroutine ($8000-$804F)
+; Region 70: subroutine ($8000-$804f)
 region_70_subroutine:
 	db $87               ; Unknown opcode $87
-	db $8f               ; Unknown opcode $8F
-	db $cc               ; Unknown opcode $CC
+	db $8f               ; Unknown opcode $8f
+	db $cc               ; Unknown opcode $cc
 	bcs #$03             ; Branch carry set
 	jmp $802c            ; Jump absolute
 	jsl $cc7b05          ; Jump subroutine long
@@ -3944,14 +3944,14 @@ region_70_subroutine:
 	bcs #$03             ; Branch carry set
 	jmp $8020            ; Jump absolute
 	db $00               ; Unknown opcode $00
-	db $c1               ; Unknown opcode $C1
+	db $c1               ; Unknown opcode $c1
 	db $06               ; Unknown opcode $06
 	jmp $8023            ; Jump absolute
 	db $00               ; Unknown opcode $00
 	rep #$06             ; Reset processor status
 	jmp $8029            ; Jump absolute
 	db $00               ; Unknown opcode $00
-	db $c3               ; Unknown opcode $C3
+	db $c3               ; Unknown opcode $c3
 	db $06               ; Unknown opcode $06
 	jmp $804f            ; Jump absolute
 	lda $354f            ; Load accumulator absolute
@@ -3964,22 +3964,22 @@ region_70_subroutine:
 	bcs #$03             ; Branch carry set
 	jmp $8046            ; Jump absolute
 	db $00               ; Unknown opcode $00
-	db $4b               ; Unknown opcode $4B
+	db $4b               ; Unknown opcode $4b
 	db $06               ; Unknown opcode $06
 	jmp $8049            ; Jump absolute
 	db $00               ; Unknown opcode $00
-	db $7d               ; Unknown opcode $7D
+	db $7d               ; Unknown opcode $7d
 	db $06               ; Unknown opcode $06
 	jmp $804f            ; Jump absolute
 	db $00               ; Unknown opcode $00
-	db $1b               ; Unknown opcode $1B
+	db $1b               ; Unknown opcode $1b
 	db $06               ; Unknown opcode $06
 	rtl                  ; Return from subroutine long
 
 
-; Region 71: subroutine ($9000-$906D)
+; Region 71: subroutine ($9000-$906d)
 region_71_subroutine:
-	db $0f               ; Unknown opcode $0F
+	db $0f               ; Unknown opcode $0f
 	db $07               ; Unknown opcode $07
 	jsl $cdac66          ; Jump subroutine long
 	bcs #$03             ; Branch carry set
@@ -3995,7 +3995,7 @@ region_71_subroutine:
 	db $07               ; Unknown opcode $07
 	lda #$01             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $0c               ; Unknown opcode $0C
+	db $0c               ; Unknown opcode $0c
 	db $19               ; Unknown opcode $19
 	db $36               ; Unknown opcode $36
 	jmp $902c            ; Jump absolute
@@ -4003,7 +4003,7 @@ region_71_subroutine:
 	bpl #$07             ; Branch plus
 	lda #$01             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $1c               ; Unknown opcode $1C
+	db $1c               ; Unknown opcode $1c
 	db $19               ; Unknown opcode $19
 	db $36               ; Unknown opcode $36
 	jmp $9038            ; Jump absolute
@@ -4011,7 +4011,7 @@ region_71_subroutine:
 	bpl #$07             ; Branch plus
 	lda #$01             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $1c               ; Unknown opcode $1C
+	db $1c               ; Unknown opcode $1c
 	db $19               ; Unknown opcode $19
 	db $36               ; Unknown opcode $36
 	jsl $cdacd2          ; Jump subroutine long
@@ -4030,43 +4030,43 @@ region_71_subroutine:
 	jmp $8fe8            ; Jump absolute
 	lda #$02             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $0c               ; Unknown opcode $0C
+	db $0c               ; Unknown opcode $0c
 	bvc #$35             ; Branch overflow clear
 	jsl $ccd383          ; Jump subroutine long
 	jsl $ccd298          ; Jump subroutine long
 	rtl                  ; Return from subroutine long
 
 
-; Region 72: subroutine ($A000-$A008)
+; Region 72: subroutine ($a000-$a008)
 region_72_subroutine:
 	db $05               ; Unknown opcode $05
-	db $a0               ; Unknown opcode $A0
+	db $a0               ; Unknown opcode $a0
 	jmp $a008            ; Jump absolute
 	db $00               ; Unknown opcode $00
-	db $f7               ; Unknown opcode $F7
+	db $f7               ; Unknown opcode $f7
 	db $07               ; Unknown opcode $07
 	rtl                  ; Return from subroutine long
 
 
-; Region 73: subroutine ($B000-$B0A4)
+; Region 73: subroutine ($b000-$b0a4)
 region_73_subroutine:
 	db $08               ; Unknown opcode $08
 	sta $9680            ; Store accumulator absolute
 	lda #$80             ; Load accumulator immediate
 	db $09               ; Unknown opcode $09
 	sta $9682            ; Store accumulator absolute
-	db $a2               ; Unknown opcode $A2
+	db $a2               ; Unknown opcode $a2
 	db $13               ; Unknown opcode $13
 	db $02               ; Unknown opcode $02
-	db $a0               ; Unknown opcode $A0
+	db $a0               ; Unknown opcode $a0
 	db $01               ; Unknown opcode $01
 	db $00               ; Unknown opcode $00
 	jsl $c734b3          ; Jump subroutine long
 	jsl $ccd066          ; Jump subroutine long
 	lda $3402            ; Load accumulator absolute
-	db $c9               ; Unknown opcode $C9
-	db $b8               ; Unknown opcode $B8
-	db $0b               ; Unknown opcode $0B
+	db $c9               ; Unknown opcode $c9
+	db $b8               ; Unknown opcode $b8
+	db $0b               ; Unknown opcode $0b
 	bcc #$03             ; Branch carry clear
 	jmp $b027            ; Jump absolute
 	db $02               ; Unknown opcode $02
@@ -4078,9 +4078,9 @@ region_73_subroutine:
 	lda #$80             ; Load accumulator immediate
 	db $09               ; Unknown opcode $09
 	sta $9682            ; Store accumulator absolute
-	db $a2               ; Unknown opcode $A2
+	db $a2               ; Unknown opcode $a2
 	bpl #$02             ; Branch plus
-	db $a0               ; Unknown opcode $A0
+	db $a0               ; Unknown opcode $a0
 	db $00               ; Unknown opcode $00
 	db $00               ; Unknown opcode $00
 	jsl $c734b3          ; Jump subroutine long
@@ -4090,18 +4090,18 @@ region_73_subroutine:
 	lda #$80             ; Load accumulator immediate
 	db $09               ; Unknown opcode $09
 	sta $9682            ; Store accumulator absolute
-	db $a2               ; Unknown opcode $A2
+	db $a2               ; Unknown opcode $a2
 	db $14               ; Unknown opcode $14
 	db $02               ; Unknown opcode $02
-	db $a0               ; Unknown opcode $A0
+	db $a0               ; Unknown opcode $a0
 	db $01               ; Unknown opcode $01
 	db $00               ; Unknown opcode $00
 	jsl $c734b3          ; Jump subroutine long
 	jsl $ccd066          ; Jump subroutine long
 	lda $3402            ; Load accumulator absolute
-	db $c9               ; Unknown opcode $C9
-	db $a0               ; Unknown opcode $A0
-	db $0f               ; Unknown opcode $0F
+	db $c9               ; Unknown opcode $c9
+	db $a0               ; Unknown opcode $a0
+	db $0f               ; Unknown opcode $0f
 	bcc #$03             ; Branch carry clear
 	jmp $b06a            ; Jump absolute
 	db $02               ; Unknown opcode $02
@@ -4113,10 +4113,10 @@ region_73_subroutine:
 	lda #$80             ; Load accumulator immediate
 	db $09               ; Unknown opcode $09
 	sta $9682            ; Store accumulator absolute
-	db $a2               ; Unknown opcode $A2
+	db $a2               ; Unknown opcode $a2
 	db $11               ; Unknown opcode $11
 	db $02               ; Unknown opcode $02
-	db $a0               ; Unknown opcode $A0
+	db $a0               ; Unknown opcode $a0
 	db $00               ; Unknown opcode $00
 	db $00               ; Unknown opcode $00
 	jsl $c734b3          ; Jump subroutine long
@@ -4126,10 +4126,10 @@ region_73_subroutine:
 	lda #$80             ; Load accumulator immediate
 	db $09               ; Unknown opcode $09
 	sta $9682            ; Store accumulator absolute
-	db $a2               ; Unknown opcode $A2
+	db $a2               ; Unknown opcode $a2
 	db $15               ; Unknown opcode $15
 	db $02               ; Unknown opcode $02
-	db $a0               ; Unknown opcode $A0
+	db $a0               ; Unknown opcode $a0
 	db $01               ; Unknown opcode $01
 	db $00               ; Unknown opcode $00
 	jsl $c734b3          ; Jump subroutine long
@@ -4140,12 +4140,12 @@ region_73_subroutine:
 	rtl                  ; Return from subroutine long
 
 
-; Region 74: subroutine ($E000-$E008)
+; Region 74: subroutine ($e000-$e008)
 region_74_subroutine:
 	jsl $c04604          ; Jump subroutine long
 	db $93               ; Unknown opcode $93
 	db $33               ; Unknown opcode $33
-	db $f6               ; Unknown opcode $F6
+	db $f6               ; Unknown opcode $f6
 	db $00               ; Unknown opcode $00
 	rtl                  ; Return from subroutine long
 
@@ -4156,11 +4156,11 @@ region_75_subroutine:
 	jsl $c77843          ; Jump subroutine long
 	db $13               ; Unknown opcode $13
 	db $00               ; Unknown opcode $00
-	db $cc               ; Unknown opcode $CC
+	db $cc               ; Unknown opcode $cc
 	jsl $c7786d          ; Jump subroutine long
 	db $48               ; Unknown opcode $48
-	db $a2               ; Unknown opcode $A2
-	db $cd               ; Unknown opcode $CD
+	db $a2               ; Unknown opcode $a2
+	db $cd               ; Unknown opcode $cd
 	rtl                  ; Return from subroutine long
 
 
@@ -4181,87 +4181,87 @@ region_76_subroutine:
 	rtl                  ; Return from subroutine long
 
 
-; Region 77: subroutine ($A000-$A000)
+; Region 77: subroutine ($a000-$a000)
 region_77_subroutine:
 	rtl                  ; Return from subroutine long
 
 
-; Region 78: interrupt_handler ($B000-$B5E3)
+; Region 78: interrupt_handler ($b000-$b5e3)
 region_78_interrupt_handler:
-	db $d7               ; Unknown opcode $D7
-	db $ac               ; Unknown opcode $AC
-	db $cd               ; Unknown opcode $CD
+	db $d7               ; Unknown opcode $d7
+	db $ac               ; Unknown opcode $ac
+	db $cd               ; Unknown opcode $cd
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
-	db $d7               ; Unknown opcode $D7
-	db $0c               ; Unknown opcode $0C
+	db $d7               ; Unknown opcode $d7
+	db $0c               ; Unknown opcode $0c
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
-	db $d8               ; Unknown opcode $D8
-	db $0c               ; Unknown opcode $0C
+	db $d8               ; Unknown opcode $d8
+	db $0c               ; Unknown opcode $0c
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
-	db $d9               ; Unknown opcode $D9
-	db $0c               ; Unknown opcode $0C
+	db $d9               ; Unknown opcode $d9
+	db $0c               ; Unknown opcode $0c
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
-	db $da               ; Unknown opcode $DA
-	db $0c               ; Unknown opcode $0C
+	db $da               ; Unknown opcode $da
+	db $0c               ; Unknown opcode $0c
 	jmp $38c4            ; Jump absolute
 	lda #$2a             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $a2               ; Unknown opcode $A2
+	db $a2               ; Unknown opcode $a2
 	db $01               ; Unknown opcode $01
 	db $00               ; Unknown opcode $00
 	jsl $c78b94          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
-	db $db               ; Unknown opcode $DB
-	db $0c               ; Unknown opcode $0C
+	db $db               ; Unknown opcode $db
+	db $0c               ; Unknown opcode $0c
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
-	db $dc               ; Unknown opcode $DC
-	db $0c               ; Unknown opcode $0C
+	db $dc               ; Unknown opcode $dc
+	db $0c               ; Unknown opcode $0c
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
-	db $dd               ; Unknown opcode $DD
-	db $0c               ; Unknown opcode $0C
+	db $dd               ; Unknown opcode $dd
+	db $0c               ; Unknown opcode $0c
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
-	db $de               ; Unknown opcode $DE
-	db $0c               ; Unknown opcode $0C
+	db $de               ; Unknown opcode $de
+	db $0c               ; Unknown opcode $0c
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
-	db $df               ; Unknown opcode $DF
-	db $0c               ; Unknown opcode $0C
+	db $df               ; Unknown opcode $df
+	db $0c               ; Unknown opcode $0c
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
-	db $e0               ; Unknown opcode $E0
-	db $0c               ; Unknown opcode $0C
+	db $e0               ; Unknown opcode $e0
+	db $0c               ; Unknown opcode $0c
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
-	db $e1               ; Unknown opcode $E1
-	db $0c               ; Unknown opcode $0C
+	db $e1               ; Unknown opcode $e1
+	db $0c               ; Unknown opcode $0c
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
@@ -4271,92 +4271,92 @@ region_78_interrupt_handler:
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
-	db $e3               ; Unknown opcode $E3
-	db $0c               ; Unknown opcode $0C
+	db $e3               ; Unknown opcode $e3
+	db $0c               ; Unknown opcode $0c
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
-	db $e4               ; Unknown opcode $E4
-	db $0c               ; Unknown opcode $0C
+	db $e4               ; Unknown opcode $e4
+	db $0c               ; Unknown opcode $0c
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
-	db $e5               ; Unknown opcode $E5
-	db $0c               ; Unknown opcode $0C
+	db $e5               ; Unknown opcode $e5
+	db $0c               ; Unknown opcode $0c
 	jmp $38c4            ; Jump absolute
 	lda #$25             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $a2               ; Unknown opcode $A2
+	db $a2               ; Unknown opcode $a2
 	db $01               ; Unknown opcode $01
 	db $00               ; Unknown opcode $00
 	jsl $c78b94          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
-	db $e6               ; Unknown opcode $E6
-	db $0c               ; Unknown opcode $0C
+	db $e6               ; Unknown opcode $e6
+	db $0c               ; Unknown opcode $0c
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
-	db $e7               ; Unknown opcode $E7
-	db $0c               ; Unknown opcode $0C
+	db $e7               ; Unknown opcode $e7
+	db $0c               ; Unknown opcode $0c
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
-	db $e8               ; Unknown opcode $E8
-	db $0c               ; Unknown opcode $0C
+	db $e8               ; Unknown opcode $e8
+	db $0c               ; Unknown opcode $0c
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
-	db $e9               ; Unknown opcode $E9
-	db $0c               ; Unknown opcode $0C
+	db $e9               ; Unknown opcode $e9
+	db $0c               ; Unknown opcode $0c
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
 	nop                  ; No operation
-	db $0c               ; Unknown opcode $0C
+	db $0c               ; Unknown opcode $0c
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
-	db $eb               ; Unknown opcode $EB
-	db $0c               ; Unknown opcode $0C
+	db $eb               ; Unknown opcode $eb
+	db $0c               ; Unknown opcode $0c
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
-	db $ec               ; Unknown opcode $EC
-	db $0c               ; Unknown opcode $0C
+	db $ec               ; Unknown opcode $ec
+	db $0c               ; Unknown opcode $0c
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
-	db $ed               ; Unknown opcode $ED
-	db $0c               ; Unknown opcode $0C
+	db $ed               ; Unknown opcode $ed
+	db $0c               ; Unknown opcode $0c
 	jmp $38c4            ; Jump absolute
 	lda #$02             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $a2               ; Unknown opcode $A2
+	db $a2               ; Unknown opcode $a2
 	db $01               ; Unknown opcode $01
 	db $00               ; Unknown opcode $00
 	jsl $c78b94          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
-	db $ee               ; Unknown opcode $EE
-	db $0c               ; Unknown opcode $0C
+	db $ee               ; Unknown opcode $ee
+	db $0c               ; Unknown opcode $0c
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
-	db $ef               ; Unknown opcode $EF
-	db $0c               ; Unknown opcode $0C
+	db $ef               ; Unknown opcode $ef
+	db $0c               ; Unknown opcode $0c
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
@@ -4366,114 +4366,114 @@ region_78_interrupt_handler:
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
-	db $f1               ; Unknown opcode $F1
-	db $0c               ; Unknown opcode $0C
+	db $f1               ; Unknown opcode $f1
+	db $0c               ; Unknown opcode $0c
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
-	db $f2               ; Unknown opcode $F2
-	db $0c               ; Unknown opcode $0C
+	db $f2               ; Unknown opcode $f2
+	db $0c               ; Unknown opcode $0c
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
-	db $f3               ; Unknown opcode $F3
-	db $0c               ; Unknown opcode $0C
+	db $f3               ; Unknown opcode $f3
+	db $0c               ; Unknown opcode $0c
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
-	db $f4               ; Unknown opcode $F4
-	db $0c               ; Unknown opcode $0C
+	db $f4               ; Unknown opcode $f4
+	db $0c               ; Unknown opcode $0c
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
-	db $f5               ; Unknown opcode $F5
-	db $0c               ; Unknown opcode $0C
+	db $f5               ; Unknown opcode $f5
+	db $0c               ; Unknown opcode $0c
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
-	db $f6               ; Unknown opcode $F6
-	db $0c               ; Unknown opcode $0C
+	db $f6               ; Unknown opcode $f6
+	db $0c               ; Unknown opcode $0c
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
-	db $f7               ; Unknown opcode $F7
-	db $0c               ; Unknown opcode $0C
+	db $f7               ; Unknown opcode $f7
+	db $0c               ; Unknown opcode $0c
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
-	db $f8               ; Unknown opcode $F8
-	db $0c               ; Unknown opcode $0C
+	db $f8               ; Unknown opcode $f8
+	db $0c               ; Unknown opcode $0c
 	jmp $38c4            ; Jump absolute
 	lda #$28             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $a2               ; Unknown opcode $A2
+	db $a2               ; Unknown opcode $a2
 	db $01               ; Unknown opcode $01
 	db $00               ; Unknown opcode $00
 	jsl $c78b94          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
-	db $f9               ; Unknown opcode $F9
-	db $0c               ; Unknown opcode $0C
+	db $f9               ; Unknown opcode $f9
+	db $0c               ; Unknown opcode $0c
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
-	db $fa               ; Unknown opcode $FA
-	db $0c               ; Unknown opcode $0C
+	db $fa               ; Unknown opcode $fa
+	db $0c               ; Unknown opcode $0c
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
 	xce                  ; Exchange carry and emulation
-	db $0c               ; Unknown opcode $0C
+	db $0c               ; Unknown opcode $0c
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
-	db $fc               ; Unknown opcode $FC
-	db $0c               ; Unknown opcode $0C
+	db $fc               ; Unknown opcode $fc
+	db $0c               ; Unknown opcode $0c
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
-	db $fd               ; Unknown opcode $FD
-	db $0c               ; Unknown opcode $0C
+	db $fd               ; Unknown opcode $fd
+	db $0c               ; Unknown opcode $0c
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
-	db $fe               ; Unknown opcode $FE
-	db $0c               ; Unknown opcode $0C
+	db $fe               ; Unknown opcode $fe
+	db $0c               ; Unknown opcode $0c
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
-	db $ff               ; Unknown opcode $FF
-	db $0c               ; Unknown opcode $0C
+	db $ff               ; Unknown opcode $ff
+	db $0c               ; Unknown opcode $0c
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
 	db $00               ; Unknown opcode $00
-	db $0d               ; Unknown opcode $0D
+	db $0d               ; Unknown opcode $0d
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
 	db $01               ; Unknown opcode $01
-	db $0d               ; Unknown opcode $0D
+	db $0d               ; Unknown opcode $0d
 	jmp $38c4            ; Jump absolute
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $a2               ; Unknown opcode $A2
+	db $a2               ; Unknown opcode $a2
 	db $01               ; Unknown opcode $01
 	db $00               ; Unknown opcode $00
 	jsl $c78b94          ; Jump subroutine long
@@ -4481,91 +4481,91 @@ region_78_interrupt_handler:
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
 	db $02               ; Unknown opcode $02
-	db $0d               ; Unknown opcode $0D
+	db $0d               ; Unknown opcode $0d
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
 	db $03               ; Unknown opcode $03
-	db $0d               ; Unknown opcode $0D
+	db $0d               ; Unknown opcode $0d
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
 	db $04               ; Unknown opcode $04
-	db $0d               ; Unknown opcode $0D
+	db $0d               ; Unknown opcode $0d
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
 	db $05               ; Unknown opcode $05
-	db $0d               ; Unknown opcode $0D
+	db $0d               ; Unknown opcode $0d
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
 	db $06               ; Unknown opcode $06
-	db $0d               ; Unknown opcode $0D
+	db $0d               ; Unknown opcode $0d
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
 	db $07               ; Unknown opcode $07
-	db $0d               ; Unknown opcode $0D
+	db $0d               ; Unknown opcode $0d
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
 	db $08               ; Unknown opcode $08
-	db $0d               ; Unknown opcode $0D
+	db $0d               ; Unknown opcode $0d
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
 	db $09               ; Unknown opcode $09
-	db $0d               ; Unknown opcode $0D
+	db $0d               ; Unknown opcode $0d
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
-	db $0a               ; Unknown opcode $0A
-	db $0d               ; Unknown opcode $0D
+	db $0a               ; Unknown opcode $0a
+	db $0d               ; Unknown opcode $0d
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
-	db $0b               ; Unknown opcode $0B
-	db $0d               ; Unknown opcode $0D
+	db $0b               ; Unknown opcode $0b
+	db $0d               ; Unknown opcode $0d
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
-	db $0c               ; Unknown opcode $0C
-	db $0d               ; Unknown opcode $0D
+	db $0c               ; Unknown opcode $0c
+	db $0d               ; Unknown opcode $0d
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
-	db $0d               ; Unknown opcode $0D
-	db $0d               ; Unknown opcode $0D
+	db $0d               ; Unknown opcode $0d
+	db $0d               ; Unknown opcode $0d
 	jmp $38c4            ; Jump absolute
 	lda #$06             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $a2               ; Unknown opcode $A2
+	db $a2               ; Unknown opcode $a2
 	db $01               ; Unknown opcode $01
 	db $00               ; Unknown opcode $00
 	jsl $c78b94          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
-	db $0e               ; Unknown opcode $0E
-	db $0d               ; Unknown opcode $0D
+	db $0e               ; Unknown opcode $0e
+	db $0d               ; Unknown opcode $0d
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
-	db $0f               ; Unknown opcode $0F
-	db $0d               ; Unknown opcode $0D
+	db $0f               ; Unknown opcode $0f
+	db $0d               ; Unknown opcode $0d
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
@@ -4576,35 +4576,35 @@ region_78_interrupt_handler:
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
 	db $11               ; Unknown opcode $11
-	db $0d               ; Unknown opcode $0D
+	db $0d               ; Unknown opcode $0d
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
 	db $12               ; Unknown opcode $12
-	db $0d               ; Unknown opcode $0D
+	db $0d               ; Unknown opcode $0d
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
 	db $13               ; Unknown opcode $13
-	db $0d               ; Unknown opcode $0D
+	db $0d               ; Unknown opcode $0d
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
 	db $14               ; Unknown opcode $14
-	db $0d               ; Unknown opcode $0D
+	db $0d               ; Unknown opcode $0d
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
 	db $15               ; Unknown opcode $15
-	db $0d               ; Unknown opcode $0D
+	db $0d               ; Unknown opcode $0d
 	jmp $38c4            ; Jump absolute
 	lda #$08             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $a2               ; Unknown opcode $A2
+	db $a2               ; Unknown opcode $a2
 	db $01               ; Unknown opcode $01
 	db $00               ; Unknown opcode $00
 	jsl $c78b94          ; Jump subroutine long
@@ -4612,55 +4612,55 @@ region_78_interrupt_handler:
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
 	db $16               ; Unknown opcode $16
-	db $0d               ; Unknown opcode $0D
+	db $0d               ; Unknown opcode $0d
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
 	db $17               ; Unknown opcode $17
-	db $0d               ; Unknown opcode $0D
+	db $0d               ; Unknown opcode $0d
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
 	clc                  ; Clear carry flag
-	db $0d               ; Unknown opcode $0D
+	db $0d               ; Unknown opcode $0d
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
 	db $19               ; Unknown opcode $19
-	db $0d               ; Unknown opcode $0D
+	db $0d               ; Unknown opcode $0d
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
-	db $1a               ; Unknown opcode $1A
-	db $0d               ; Unknown opcode $0D
+	db $1a               ; Unknown opcode $1a
+	db $0d               ; Unknown opcode $0d
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
-	db $1b               ; Unknown opcode $1B
-	db $0d               ; Unknown opcode $0D
+	db $1b               ; Unknown opcode $1b
+	db $0d               ; Unknown opcode $0d
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
-	db $1c               ; Unknown opcode $1C
-	db $0d               ; Unknown opcode $0D
+	db $1c               ; Unknown opcode $1c
+	db $0d               ; Unknown opcode $0d
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
-	db $1d               ; Unknown opcode $1D
-	db $0d               ; Unknown opcode $0D
+	db $1d               ; Unknown opcode $1d
+	db $0d               ; Unknown opcode $0d
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
-	db $1e               ; Unknown opcode $1E
-	db $0d               ; Unknown opcode $0D
+	db $1e               ; Unknown opcode $1e
+	db $0d               ; Unknown opcode $0d
 	jmp $38c4            ; Jump absolute
 	jsl $cc7a64          ; Jump subroutine long
 	bcs #$03             ; Branch carry set
@@ -4670,7 +4670,7 @@ region_78_interrupt_handler:
 	sta $c109            ; Store accumulator absolute
 	lda #$09             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $a2               ; Unknown opcode $A2
+	db $a2               ; Unknown opcode $a2
 	db $01               ; Unknown opcode $01
 	db $00               ; Unknown opcode $00
 	jsl $c78b94          ; Jump subroutine long
@@ -4680,28 +4680,28 @@ region_78_interrupt_handler:
 	sta $c109            ; Store accumulator absolute
 	lda #$2e             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $a2               ; Unknown opcode $A2
+	db $a2               ; Unknown opcode $a2
 	db $01               ; Unknown opcode $01
 	db $00               ; Unknown opcode $00
 	jsl $c78b94          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
-	db $1f               ; Unknown opcode $1F
-	db $0d               ; Unknown opcode $0D
+	db $1f               ; Unknown opcode $1f
+	db $0d               ; Unknown opcode $0d
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
 	jsr $220d            ; Jump subroutine
-	db $d7               ; Unknown opcode $D7
-	db $ac               ; Unknown opcode $AC
-	db $cd               ; Unknown opcode $CD
+	db $d7               ; Unknown opcode $d7
+	db $ac               ; Unknown opcode $ac
+	db $cd               ; Unknown opcode $cd
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
 	db $21               ; Unknown opcode $21
-	db $0d               ; Unknown opcode $0D
+	db $0d               ; Unknown opcode $0d
 	jsl $cdacd7          ; Jump subroutine long
 	jsl $cc7a64          ; Jump subroutine long
 	bcs #$03             ; Branch carry set
@@ -4715,85 +4715,85 @@ region_78_interrupt_handler:
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
 	db $23               ; Unknown opcode $23
-	db $0d               ; Unknown opcode $0D
+	db $0d               ; Unknown opcode $0d
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
 	db $24               ; Unknown opcode $24
-	db $0d               ; Unknown opcode $0D
+	db $0d               ; Unknown opcode $0d
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
 	db $25               ; Unknown opcode $25
-	db $0d               ; Unknown opcode $0D
+	db $0d               ; Unknown opcode $0d
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
 	db $26               ; Unknown opcode $26
-	db $0d               ; Unknown opcode $0D
+	db $0d               ; Unknown opcode $0d
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
 	db $27               ; Unknown opcode $27
-	db $0d               ; Unknown opcode $0D
+	db $0d               ; Unknown opcode $0d
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
 	db $28               ; Unknown opcode $28
-	db $0d               ; Unknown opcode $0D
+	db $0d               ; Unknown opcode $0d
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
 	db $29               ; Unknown opcode $29
-	db $0d               ; Unknown opcode $0D
+	db $0d               ; Unknown opcode $0d
 	jmp $38c4            ; Jump absolute
 	lda #$22             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $a2               ; Unknown opcode $A2
+	db $a2               ; Unknown opcode $a2
 	db $01               ; Unknown opcode $01
 	db $00               ; Unknown opcode $00
 	jsl $c78b94          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
-	db $2a               ; Unknown opcode $2A
-	db $0d               ; Unknown opcode $0D
+	db $2a               ; Unknown opcode $2a
+	db $0d               ; Unknown opcode $0d
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
-	db $2b               ; Unknown opcode $2B
-	db $0d               ; Unknown opcode $0D
+	db $2b               ; Unknown opcode $2b
+	db $0d               ; Unknown opcode $0d
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
-	db $2c               ; Unknown opcode $2C
-	db $0d               ; Unknown opcode $0D
+	db $2c               ; Unknown opcode $2c
+	db $0d               ; Unknown opcode $0d
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
-	db $2d               ; Unknown opcode $2D
-	db $0d               ; Unknown opcode $0D
+	db $2d               ; Unknown opcode $2d
+	db $0d               ; Unknown opcode $0d
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
-	db $2e               ; Unknown opcode $2E
-	db $0d               ; Unknown opcode $0D
+	db $2e               ; Unknown opcode $2e
+	db $0d               ; Unknown opcode $0d
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
-	db $2f               ; Unknown opcode $2F
-	db $0d               ; Unknown opcode $0D
+	db $2f               ; Unknown opcode $2f
+	db $0d               ; Unknown opcode $0d
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
@@ -4804,97 +4804,97 @@ region_78_interrupt_handler:
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
 	db $31               ; Unknown opcode $31
-	db $0d               ; Unknown opcode $0D
+	db $0d               ; Unknown opcode $0d
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
 	db $32               ; Unknown opcode $32
-	db $0d               ; Unknown opcode $0D
+	db $0d               ; Unknown opcode $0d
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
 	db $33               ; Unknown opcode $33
-	db $0d               ; Unknown opcode $0D
+	db $0d               ; Unknown opcode $0d
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
 	db $34               ; Unknown opcode $34
-	db $0d               ; Unknown opcode $0D
+	db $0d               ; Unknown opcode $0d
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
 	db $35               ; Unknown opcode $35
-	db $0d               ; Unknown opcode $0D
+	db $0d               ; Unknown opcode $0d
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
 	db $36               ; Unknown opcode $36
-	db $0d               ; Unknown opcode $0D
+	db $0d               ; Unknown opcode $0d
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
 	db $37               ; Unknown opcode $37
-	db $0d               ; Unknown opcode $0D
+	db $0d               ; Unknown opcode $0d
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
 	sec                  ; Set carry flag
-	db $0d               ; Unknown opcode $0D
+	db $0d               ; Unknown opcode $0d
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
 	db $39               ; Unknown opcode $39
-	db $0d               ; Unknown opcode $0D
+	db $0d               ; Unknown opcode $0d
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
-	db $3a               ; Unknown opcode $3A
-	db $0d               ; Unknown opcode $0D
+	db $3a               ; Unknown opcode $3a
+	db $0d               ; Unknown opcode $0d
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
-	db $3b               ; Unknown opcode $3B
-	db $0d               ; Unknown opcode $0D
+	db $3b               ; Unknown opcode $3b
+	db $0d               ; Unknown opcode $0d
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
-	db $3c               ; Unknown opcode $3C
-	db $0d               ; Unknown opcode $0D
+	db $3c               ; Unknown opcode $3c
+	db $0d               ; Unknown opcode $0d
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
-	db $3d               ; Unknown opcode $3D
-	db $0d               ; Unknown opcode $0D
+	db $3d               ; Unknown opcode $3d
+	db $0d               ; Unknown opcode $0d
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
-	db $3e               ; Unknown opcode $3E
-	db $0d               ; Unknown opcode $0D
+	db $3e               ; Unknown opcode $3e
+	db $0d               ; Unknown opcode $0d
 	jmp $38c4            ; Jump absolute
 	lda #$2b             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $a2               ; Unknown opcode $A2
+	db $a2               ; Unknown opcode $a2
 	db $01               ; Unknown opcode $01
 	db $00               ; Unknown opcode $00
 	jsl $c78b94          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c1a988          ; Jump subroutine long
-	db $3f               ; Unknown opcode $3F
-	db $0d               ; Unknown opcode $0D
+	db $3f               ; Unknown opcode $3f
+	db $0d               ; Unknown opcode $0d
 	jsl $cdacd7          ; Jump subroutine long
 	lda #$03             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
@@ -4902,215 +4902,215 @@ region_78_interrupt_handler:
 	rti                  ; Return from interrupt
 
 
-; Region 79: subroutine ($C000-$C14C)
+; Region 79: subroutine ($c000-$c14c)
 region_79_subroutine:
 	db $03               ; Unknown opcode $03
 	jmp $3de9            ; Jump absolute
-	db $c9               ; Unknown opcode $C9
+	db $c9               ; Unknown opcode $c9
 	db $05               ; Unknown opcode $05
 	db $00               ; Unknown opcode $00
 	bne #$03             ; Branch not equal
 	jmp $3df5            ; Jump absolute
-	db $c9               ; Unknown opcode $C9
+	db $c9               ; Unknown opcode $c9
 	db $06               ; Unknown opcode $06
 	db $00               ; Unknown opcode $00
 	bne #$03             ; Branch not equal
 	jmp $3e01            ; Jump absolute
-	db $c9               ; Unknown opcode $C9
+	db $c9               ; Unknown opcode $c9
 	db $07               ; Unknown opcode $07
 	db $00               ; Unknown opcode $00
 	bne #$03             ; Branch not equal
 	jmp $3e0d            ; Jump absolute
-	db $c9               ; Unknown opcode $C9
+	db $c9               ; Unknown opcode $c9
 	db $08               ; Unknown opcode $08
 	db $00               ; Unknown opcode $00
 	bne #$03             ; Branch not equal
 	jmp $3e19            ; Jump absolute
-	db $c9               ; Unknown opcode $C9
+	db $c9               ; Unknown opcode $c9
 	db $09               ; Unknown opcode $09
 	db $00               ; Unknown opcode $00
 	bne #$03             ; Branch not equal
 	jmp $3e25            ; Jump absolute
-	db $c9               ; Unknown opcode $C9
-	db $0a               ; Unknown opcode $0A
+	db $c9               ; Unknown opcode $c9
+	db $0a               ; Unknown opcode $0a
 	db $00               ; Unknown opcode $00
 	bne #$03             ; Branch not equal
 	jmp $3e31            ; Jump absolute
-	db $c9               ; Unknown opcode $C9
-	db $0b               ; Unknown opcode $0B
+	db $c9               ; Unknown opcode $c9
+	db $0b               ; Unknown opcode $0b
 	db $00               ; Unknown opcode $00
 	bne #$03             ; Branch not equal
 	jmp $3e3d            ; Jump absolute
-	db $c9               ; Unknown opcode $C9
-	db $0c               ; Unknown opcode $0C
+	db $c9               ; Unknown opcode $c9
+	db $0c               ; Unknown opcode $0c
 	db $00               ; Unknown opcode $00
 	bne #$03             ; Branch not equal
 	jmp $3e49            ; Jump absolute
-	db $c9               ; Unknown opcode $C9
-	db $0d               ; Unknown opcode $0D
+	db $c9               ; Unknown opcode $c9
+	db $0d               ; Unknown opcode $0d
 	db $00               ; Unknown opcode $00
 	bne #$03             ; Branch not equal
 	jmp $3e55            ; Jump absolute
-	db $c9               ; Unknown opcode $C9
-	db $0e               ; Unknown opcode $0E
+	db $c9               ; Unknown opcode $c9
+	db $0e               ; Unknown opcode $0e
 	db $00               ; Unknown opcode $00
 	bne #$03             ; Branch not equal
 	jmp $3e61            ; Jump absolute
-	db $c9               ; Unknown opcode $C9
-	db $0f               ; Unknown opcode $0F
+	db $c9               ; Unknown opcode $c9
+	db $0f               ; Unknown opcode $0f
 	db $00               ; Unknown opcode $00
 	bne #$03             ; Branch not equal
 	jmp $3e6d            ; Jump absolute
-	db $c9               ; Unknown opcode $C9
+	db $c9               ; Unknown opcode $c9
 	bpl #$00             ; Branch plus
 	bne #$03             ; Branch not equal
 	jmp $3e79            ; Jump absolute
-	db $c9               ; Unknown opcode $C9
+	db $c9               ; Unknown opcode $c9
 	db $11               ; Unknown opcode $11
 	db $00               ; Unknown opcode $00
 	bne #$03             ; Branch not equal
 	jmp $3e85            ; Jump absolute
-	db $c9               ; Unknown opcode $C9
+	db $c9               ; Unknown opcode $c9
 	db $12               ; Unknown opcode $12
 	db $00               ; Unknown opcode $00
 	bne #$03             ; Branch not equal
 	jmp $3e91            ; Jump absolute
-	db $c9               ; Unknown opcode $C9
+	db $c9               ; Unknown opcode $c9
 	db $13               ; Unknown opcode $13
 	db $00               ; Unknown opcode $00
 	bne #$03             ; Branch not equal
 	jmp $3e9d            ; Jump absolute
-	db $c9               ; Unknown opcode $C9
+	db $c9               ; Unknown opcode $c9
 	db $14               ; Unknown opcode $14
 	db $00               ; Unknown opcode $00
 	bne #$03             ; Branch not equal
 	jmp $3ea9            ; Jump absolute
-	db $c9               ; Unknown opcode $C9
+	db $c9               ; Unknown opcode $c9
 	db $15               ; Unknown opcode $15
 	db $00               ; Unknown opcode $00
 	bne #$03             ; Branch not equal
 	jmp $3eb5            ; Jump absolute
-	db $c9               ; Unknown opcode $C9
+	db $c9               ; Unknown opcode $c9
 	db $16               ; Unknown opcode $16
 	db $00               ; Unknown opcode $00
 	bne #$03             ; Branch not equal
 	jmp $3ec1            ; Jump absolute
-	db $c9               ; Unknown opcode $C9
+	db $c9               ; Unknown opcode $c9
 	db $17               ; Unknown opcode $17
 	db $00               ; Unknown opcode $00
 	bne #$03             ; Branch not equal
 	jmp $3ecd            ; Jump absolute
-	db $c9               ; Unknown opcode $C9
+	db $c9               ; Unknown opcode $c9
 	clc                  ; Clear carry flag
 	db $00               ; Unknown opcode $00
 	bne #$03             ; Branch not equal
 	jmp $3ed9            ; Jump absolute
-	db $c9               ; Unknown opcode $C9
+	db $c9               ; Unknown opcode $c9
 	db $19               ; Unknown opcode $19
 	db $00               ; Unknown opcode $00
 	bne #$03             ; Branch not equal
 	jmp $3ee5            ; Jump absolute
-	db $c9               ; Unknown opcode $C9
-	db $1a               ; Unknown opcode $1A
+	db $c9               ; Unknown opcode $c9
+	db $1a               ; Unknown opcode $1a
 	db $00               ; Unknown opcode $00
 	bne #$03             ; Branch not equal
 	jmp $3ef1            ; Jump absolute
-	db $c9               ; Unknown opcode $C9
-	db $1b               ; Unknown opcode $1B
+	db $c9               ; Unknown opcode $c9
+	db $1b               ; Unknown opcode $1b
 	db $00               ; Unknown opcode $00
 	bne #$03             ; Branch not equal
 	jmp $3efd            ; Jump absolute
-	db $c9               ; Unknown opcode $C9
-	db $1c               ; Unknown opcode $1C
+	db $c9               ; Unknown opcode $c9
+	db $1c               ; Unknown opcode $1c
 	db $00               ; Unknown opcode $00
 	bne #$03             ; Branch not equal
 	jmp $3f09            ; Jump absolute
-	db $c9               ; Unknown opcode $C9
-	db $1d               ; Unknown opcode $1D
+	db $c9               ; Unknown opcode $c9
+	db $1d               ; Unknown opcode $1d
 	db $00               ; Unknown opcode $00
 	bne #$03             ; Branch not equal
 	jmp $3f15            ; Jump absolute
-	db $c9               ; Unknown opcode $C9
-	db $1e               ; Unknown opcode $1E
+	db $c9               ; Unknown opcode $c9
+	db $1e               ; Unknown opcode $1e
 	db $00               ; Unknown opcode $00
 	bne #$03             ; Branch not equal
 	jmp $3f21            ; Jump absolute
-	db $c9               ; Unknown opcode $C9
-	db $1f               ; Unknown opcode $1F
+	db $c9               ; Unknown opcode $c9
+	db $1f               ; Unknown opcode $1f
 	db $00               ; Unknown opcode $00
 	bne #$03             ; Branch not equal
 	jmp $3f2d            ; Jump absolute
-	db $c9               ; Unknown opcode $C9
+	db $c9               ; Unknown opcode $c9
 	jsr $d000            ; Jump subroutine
 	db $03               ; Unknown opcode $03
 	jmp $3f39            ; Jump absolute
-	db $c9               ; Unknown opcode $C9
+	db $c9               ; Unknown opcode $c9
 	db $21               ; Unknown opcode $21
 	db $00               ; Unknown opcode $00
 	bne #$03             ; Branch not equal
 	jmp $3f45            ; Jump absolute
-	db $c9               ; Unknown opcode $C9
+	db $c9               ; Unknown opcode $c9
 	jsl $03d000          ; Jump subroutine long
 	jmp $3f51            ; Jump absolute
-	db $c9               ; Unknown opcode $C9
+	db $c9               ; Unknown opcode $c9
 	db $23               ; Unknown opcode $23
 	db $00               ; Unknown opcode $00
 	bne #$03             ; Branch not equal
 	jmp $3f5d            ; Jump absolute
-	db $c9               ; Unknown opcode $C9
+	db $c9               ; Unknown opcode $c9
 	db $24               ; Unknown opcode $24
 	db $00               ; Unknown opcode $00
 	bne #$03             ; Branch not equal
 	jmp $3f69            ; Jump absolute
-	db $c9               ; Unknown opcode $C9
+	db $c9               ; Unknown opcode $c9
 	db $25               ; Unknown opcode $25
 	db $00               ; Unknown opcode $00
 	bne #$03             ; Branch not equal
 	jmp $3f75            ; Jump absolute
-	db $c9               ; Unknown opcode $C9
+	db $c9               ; Unknown opcode $c9
 	db $26               ; Unknown opcode $26
 	db $00               ; Unknown opcode $00
 	bne #$03             ; Branch not equal
 	jmp $3f81            ; Jump absolute
-	db $c9               ; Unknown opcode $C9
+	db $c9               ; Unknown opcode $c9
 	db $27               ; Unknown opcode $27
 	db $00               ; Unknown opcode $00
 	bne #$03             ; Branch not equal
 	jmp $3f8d            ; Jump absolute
-	db $c9               ; Unknown opcode $C9
+	db $c9               ; Unknown opcode $c9
 	db $28               ; Unknown opcode $28
 	db $00               ; Unknown opcode $00
 	bne #$03             ; Branch not equal
 	jmp $3f99            ; Jump absolute
-	db $c9               ; Unknown opcode $C9
+	db $c9               ; Unknown opcode $c9
 	db $29               ; Unknown opcode $29
 	db $00               ; Unknown opcode $00
 	bne #$03             ; Branch not equal
 	jmp $3fa5            ; Jump absolute
-	db $c9               ; Unknown opcode $C9
-	db $2a               ; Unknown opcode $2A
+	db $c9               ; Unknown opcode $c9
+	db $2a               ; Unknown opcode $2a
 	db $00               ; Unknown opcode $00
 	bne #$03             ; Branch not equal
 	jmp $3fb1            ; Jump absolute
-	db $c9               ; Unknown opcode $C9
-	db $2b               ; Unknown opcode $2B
+	db $c9               ; Unknown opcode $c9
+	db $2b               ; Unknown opcode $2b
 	db $00               ; Unknown opcode $00
 	bne #$03             ; Branch not equal
 	jmp $3fbd            ; Jump absolute
-	db $c9               ; Unknown opcode $C9
-	db $2c               ; Unknown opcode $2C
+	db $c9               ; Unknown opcode $c9
+	db $2c               ; Unknown opcode $2c
 	db $00               ; Unknown opcode $00
 	bne #$03             ; Branch not equal
 	jmp $3fc9            ; Jump absolute
-	db $c9               ; Unknown opcode $C9
-	db $2d               ; Unknown opcode $2D
+	db $c9               ; Unknown opcode $c9
+	db $2d               ; Unknown opcode $2d
 	db $00               ; Unknown opcode $00
 	bne #$03             ; Branch not equal
 	jmp $3fd5            ; Jump absolute
 	rtl                  ; Return from subroutine long
 
 
-; Region 80: interrupt_handler ($D000-$D15A)
+; Region 80: interrupt_handler ($d000-$d15a)
 region_80_interrupt_handler:
 	db $00               ; Unknown opcode $00
 	db $00               ; Unknown opcode $00
@@ -5120,13 +5120,13 @@ region_80_interrupt_handler:
 	jsl $ccd400          ; Jump subroutine long
 	jsl $ccd2da          ; Jump subroutine long
 	lda $361a            ; Load accumulator absolute
-	db $c9               ; Unknown opcode $C9
+	db $c9               ; Unknown opcode $c9
 	db $00               ; Unknown opcode $00
 	db $00               ; Unknown opcode $00
 	bne #$03             ; Branch not equal
 	jmp $5032            ; Jump absolute
 	lda $361a            ; Load accumulator absolute
-	db $c9               ; Unknown opcode $C9
+	db $c9               ; Unknown opcode $c9
 	db $88               ; Unknown opcode $88
 	db $13               ; Unknown opcode $13
 	beq #$03             ; Branch equal
@@ -5136,12 +5136,12 @@ region_80_interrupt_handler:
 	jmp $506d            ; Jump absolute
 	jmp $500f            ; Jump absolute
 	db $00               ; Unknown opcode $00
-	db $be               ; Unknown opcode $BE
-	db $0b               ; Unknown opcode $0B
+	db $be               ; Unknown opcode $be
+	db $0b               ; Unknown opcode $0b
 	jsl $cdacd2          ; Jump subroutine long
 	lda #$01             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $0c               ; Unknown opcode $0C
+	db $0c               ; Unknown opcode $0c
 	db $19               ; Unknown opcode $19
 	db $36               ; Unknown opcode $36
 	lda #$00             ; Load accumulator immediate
@@ -5159,16 +5159,16 @@ region_80_interrupt_handler:
 	lda #$1a             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	sta $9c17            ; Store accumulator absolute
-	db $a2               ; Unknown opcode $A2
+	db $a2               ; Unknown opcode $a2
 	db $00               ; Unknown opcode $00
 	db $00               ; Unknown opcode $00
-	db $a0               ; Unknown opcode $A0
+	db $a0               ; Unknown opcode $a0
 	db $00               ; Unknown opcode $00
 	db $00               ; Unknown opcode $00
 	jsl $c736c8          ; Jump subroutine long
 	jmp $500f            ; Jump absolute
 	lda $361a            ; Load accumulator absolute
-	db $c9               ; Unknown opcode $C9
+	db $c9               ; Unknown opcode $c9
 	db $28               ; Unknown opcode $28
 	db $23               ; Unknown opcode $23
 	beq #$03             ; Branch equal
@@ -5183,9 +5183,9 @@ region_80_interrupt_handler:
 	jsl $ccd420          ; Jump subroutine long
 	jmp $518a            ; Jump absolute
 	lda $361a            ; Load accumulator absolute
-	db $c9               ; Unknown opcode $C9
-	db $b8               ; Unknown opcode $B8
-	db $0b               ; Unknown opcode $0B
+	db $c9               ; Unknown opcode $c9
+	db $b8               ; Unknown opcode $b8
+	db $0b               ; Unknown opcode $0b
 	beq #$03             ; Branch equal
 	jmp $50a9            ; Jump absolute
 	lda #$19             ; Load accumulator immediate
@@ -5195,10 +5195,10 @@ region_80_interrupt_handler:
 	jsl $ccd37e          ; Jump subroutine long
 	jmp $512e            ; Jump absolute
 	lda #$50             ; Load accumulator immediate
-	db $0a               ; Unknown opcode $0A
+	db $0a               ; Unknown opcode $0a
 	sta $9680            ; Store accumulator absolute
 	lda #$90             ; Load accumulator immediate
-	db $0c               ; Unknown opcode $0C
+	db $0c               ; Unknown opcode $0c
 	sta $9682            ; Store accumulator absolute
 	lda #$15             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
@@ -5208,7 +5208,7 @@ region_80_interrupt_handler:
 	db $08               ; Unknown opcode $08
 	sta $9680            ; Store accumulator absolute
 	lda #$48             ; Load accumulator immediate
-	db $0a               ; Unknown opcode $0A
+	db $0a               ; Unknown opcode $0a
 	sta $9682            ; Store accumulator absolute
 	lda #$16             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
@@ -5218,34 +5218,34 @@ region_80_interrupt_handler:
 	db $09               ; Unknown opcode $09
 	sta $9680            ; Store accumulator absolute
 	lda #$28             ; Load accumulator immediate
-	db $0a               ; Unknown opcode $0A
+	db $0a               ; Unknown opcode $0a
 	sta $9682            ; Store accumulator absolute
 	lda #$16             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	sta $363a            ; Store accumulator absolute
 	jmp $5161            ; Jump absolute
 	lda #$30             ; Load accumulator immediate
-	db $0a               ; Unknown opcode $0A
+	db $0a               ; Unknown opcode $0a
 	sta $9680            ; Store accumulator absolute
 	lda #$90             ; Load accumulator immediate
-	db $0a               ; Unknown opcode $0A
+	db $0a               ; Unknown opcode $0a
 	sta $9682            ; Store accumulator absolute
 	lda #$16             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	sta $363a            ; Store accumulator absolute
 	jmp $5161            ; Jump absolute
 	lda #$60             ; Load accumulator immediate
-	db $0a               ; Unknown opcode $0A
+	db $0a               ; Unknown opcode $0a
 	sta $9680            ; Store accumulator absolute
 	lda #$90             ; Load accumulator immediate
-	db $0a               ; Unknown opcode $0A
+	db $0a               ; Unknown opcode $0a
 	sta $9682            ; Store accumulator absolute
 	lda #$16             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	sta $363a            ; Store accumulator absolute
 	jmp $5161            ; Jump absolute
 	lda #$00             ; Load accumulator immediate
-	db $0b               ; Unknown opcode $0B
+	db $0b               ; Unknown opcode $0b
 	sta $9680            ; Store accumulator absolute
 	lda #$d0             ; Load accumulator immediate
 	db $09               ; Unknown opcode $09
@@ -5255,38 +5255,38 @@ region_80_interrupt_handler:
 	sta $363a            ; Store accumulator absolute
 	jmp $5161            ; Jump absolute
 	lda $361a            ; Load accumulator absolute
-	db $c9               ; Unknown opcode $C9
+	db $c9               ; Unknown opcode $c9
 	jmp $d004            ; Jump absolute
 	db $03               ; Unknown opcode $03
 	jmp $50b0            ; Jump absolute
-	db $c9               ; Unknown opcode $C9
+	db $c9               ; Unknown opcode $c9
 	bcs #$04             ; Branch carry set
 	bne #$03             ; Branch not equal
 	jmp $50c5            ; Jump absolute
-	db $c9               ; Unknown opcode $C9
+	db $c9               ; Unknown opcode $c9
 	db $14               ; Unknown opcode $14
 	db $05               ; Unknown opcode $05
 	bne #$03             ; Branch not equal
 	jmp $50da            ; Jump absolute
-	db $c9               ; Unknown opcode $C9
+	db $c9               ; Unknown opcode $c9
 	sei                  ; Set interrupt disable
 	db $05               ; Unknown opcode $05
 	bne #$03             ; Branch not equal
 	jmp $50ef            ; Jump absolute
-	db $c9               ; Unknown opcode $C9
-	db $dc               ; Unknown opcode $DC
+	db $c9               ; Unknown opcode $c9
+	db $dc               ; Unknown opcode $dc
 	db $05               ; Unknown opcode $05
 	bne #$03             ; Branch not equal
 	jmp $5104            ; Jump absolute
-	db $c9               ; Unknown opcode $C9
+	db $c9               ; Unknown opcode $c9
 	rti                  ; Return from interrupt
 
 
-; Region 81: subroutine ($E000-$E026)
+; Region 81: subroutine ($e000-$e026)
 region_81_subroutine:
 	db $01               ; Unknown opcode $01
 	db $00               ; Unknown opcode $00
-	db $0c               ; Unknown opcode $0C
+	db $0c               ; Unknown opcode $0c
 	db $19               ; Unknown opcode $19
 	db $36               ; Unknown opcode $36
 	lda $3619            ; Load accumulator absolute
@@ -5304,32 +5304,32 @@ region_81_subroutine:
 	rtl                  ; Return from subroutine long
 
 
-; Region 82: subroutine ($F000-$F002)
+; Region 82: subroutine ($f000-$f002)
 region_82_subroutine:
 	db $68               ; Unknown opcode $68
 	db $68               ; Unknown opcode $68
 	rtl                  ; Return from subroutine long
 
 
-; Region 83: subroutine ($8000-$803D)
+; Region 83: subroutine ($8000-$803d)
 region_83_subroutine:
 	bra #$ad             ; Branch always
-	db $2e               ; Unknown opcode $2E
+	db $2e               ; Unknown opcode $2e
 	db $34               ; Unknown opcode $34
 	db $83               ; Unknown opcode $83
 	db $03               ; Unknown opcode $03
 	lda $342e            ; Load accumulator absolute
 	db $83               ; Unknown opcode $83
 	db $01               ; Unknown opcode $01
-	db $a3               ; Unknown opcode $A3
+	db $a3               ; Unknown opcode $a3
 	db $03               ; Unknown opcode $03
 	sec                  ; Set carry flag
-	db $e9               ; Unknown opcode $E9
+	db $e9               ; Unknown opcode $e9
 	db $01               ; Unknown opcode $01
 	db $00               ; Unknown opcode $00
 	db $83               ; Unknown opcode $83
 	db $03               ; Unknown opcode $03
-	db $a3               ; Unknown opcode $A3
+	db $a3               ; Unknown opcode $a3
 	db $01               ; Unknown opcode $01
 	clc                  ; Clear carry flag
 	db $69               ; Unknown opcode $69
@@ -5338,14 +5338,14 @@ region_83_subroutine:
 	db $83               ; Unknown opcode $83
 	db $01               ; Unknown opcode $01
 	lda $3424            ; Load accumulator absolute
-	db $c3               ; Unknown opcode $C3
+	db $c3               ; Unknown opcode $c3
 	db $03               ; Unknown opcode $03
 	bcc #$03             ; Branch carry clear
 	jmp $8029            ; Jump absolute
 	clc                  ; Clear carry flag
 	jmp $803a            ; Jump absolute
 	lda $3424            ; Load accumulator absolute
-	db $c3               ; Unknown opcode $C3
+	db $c3               ; Unknown opcode $c3
 	db $01               ; Unknown opcode $01
 	beq #$02             ; Branch equal
 	bcs #$03             ; Branch carry set
@@ -5367,22 +5367,22 @@ region_84_subroutine:
 	rtl                  ; Return from subroutine long
 
 
-; Region 85: subroutine ($A000-$A008)
+; Region 85: subroutine ($a000-$a008)
 region_85_subroutine:
 	db $81               ; Unknown opcode $81
-	db $c7               ; Unknown opcode $C7
+	db $c7               ; Unknown opcode $c7
 	lda #$80             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $0c               ; Unknown opcode $0C
+	db $0c               ; Unknown opcode $0c
 	db $41               ; Unknown opcode $41
 	db $35               ; Unknown opcode $35
 	rtl                  ; Return from subroutine long
 
 
-; Region 86: subroutine ($B000-$B08B)
+; Region 86: subroutine ($b000-$b08b)
 region_86_subroutine:
 	cli                  ; Clear interrupt disable
-	db $c7               ; Unknown opcode $C7
+	db $c7               ; Unknown opcode $c7
 	lda #$bf             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	jsl $c75828          ; Jump subroutine long
@@ -5444,10 +5444,10 @@ region_86_subroutine:
 	rtl                  ; Return from subroutine long
 
 
-; Region 87: subroutine ($C000-$C010)
+; Region 87: subroutine ($c000-$c010)
 region_87_subroutine:
 	cli                  ; Clear interrupt disable
-	db $c7               ; Unknown opcode $C7
+	db $c7               ; Unknown opcode $c7
 	lda #$b5             ; Load accumulator immediate
 	db $02               ; Unknown opcode $02
 	jsl $c75828          ; Jump subroutine long
@@ -5457,9 +5457,9 @@ region_87_subroutine:
 	rtl                  ; Return from subroutine long
 
 
-; Region 88: subroutine ($D000-$D014)
+; Region 88: subroutine ($d000-$d014)
 region_88_subroutine:
-	db $9f               ; Unknown opcode $9F
+	db $9f               ; Unknown opcode $9f
 	db $00               ; Unknown opcode $00
 	jsl $c758de          ; Jump subroutine long
 	lda #$a0             ; Load accumulator immediate
@@ -5471,7 +5471,7 @@ region_88_subroutine:
 	rtl                  ; Return from subroutine long
 
 
-; Region 89: subroutine ($E000-$E013)
+; Region 89: subroutine ($e000-$e013)
 region_89_subroutine:
 	db $00               ; Unknown opcode $00
 	bne #$03             ; Branch not equal
@@ -5487,13 +5487,13 @@ region_89_subroutine:
 region_90_subroutine:
 	lda #$01             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $0c               ; Unknown opcode $0C
-	db $2b               ; Unknown opcode $2B
+	db $0c               ; Unknown opcode $0c
+	db $2b               ; Unknown opcode $2b
 	db $36               ; Unknown opcode $36
 	rtl                  ; Return from subroutine long
 
 
-; Region 91: subroutine ($9000-$90BD)
+; Region 91: subroutine ($9000-$90bd)
 region_91_subroutine:
 	db $00               ; Unknown opcode $00
 	db $00               ; Unknown opcode $00
@@ -5561,14 +5561,14 @@ region_91_subroutine:
 	jmp $1092            ; Jump absolute
 	lda #$80             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $0c               ; Unknown opcode $0C
+	db $0c               ; Unknown opcode $0c
 	db $56               ; Unknown opcode $56
 	db $35               ; Unknown opcode $35
 	db $00               ; Unknown opcode $00
-	db $4e               ; Unknown opcode $4E
+	db $4e               ; Unknown opcode $4e
 	db $09               ; Unknown opcode $09
 	db $00               ; Unknown opcode $00
-	db $4f               ; Unknown opcode $4F
+	db $4f               ; Unknown opcode $4f
 	db $09               ; Unknown opcode $09
 	jmp $1095            ; Jump absolute
 	jmp $10b2            ; Jump absolute
@@ -5582,7 +5582,7 @@ region_91_subroutine:
 	jsl $cdacd2          ; Jump subroutine long
 	lda #$01             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $0c               ; Unknown opcode $0C
+	db $0c               ; Unknown opcode $0c
 	db $19               ; Unknown opcode $19
 	db $36               ; Unknown opcode $36
 	jsl $cdadd1          ; Jump subroutine long
@@ -5591,10 +5591,10 @@ region_91_subroutine:
 	rtl                  ; Return from subroutine long
 
 
-; Region 92: subroutine ($B000-$B00B)
+; Region 92: subroutine ($b000-$b00b)
 region_92_subroutine:
 	jmp $2f7a            ; Jump absolute
-	db $c9               ; Unknown opcode $C9
+	db $c9               ; Unknown opcode $c9
 	db $06               ; Unknown opcode $06
 	db $00               ; Unknown opcode $00
 	bne #$03             ; Branch not equal
@@ -5602,10 +5602,10 @@ region_92_subroutine:
 	rtl                  ; Return from subroutine long
 
 
-; Region 93: subroutine ($C000-$C03B)
+; Region 93: subroutine ($c000-$c03b)
 region_93_subroutine:
 	db $42               ; Unknown opcode $42
-	db $f6               ; Unknown opcode $F6
+	db $f6               ; Unknown opcode $f6
 	bcc #$03             ; Branch carry clear
 	jmp $400b            ; Jump absolute
 	db $02               ; Unknown opcode $02
@@ -5613,7 +5613,7 @@ region_93_subroutine:
 	jsl $c04835          ; Jump subroutine long
 	db $53               ; Unknown opcode $53
 	db $42               ; Unknown opcode $42
-	db $f6               ; Unknown opcode $F6
+	db $f6               ; Unknown opcode $f6
 	bcc #$03             ; Branch carry clear
 	jmp $401b            ; Jump absolute
 	db $02               ; Unknown opcode $02
@@ -5621,7 +5621,7 @@ region_93_subroutine:
 	jsl $c04835          ; Jump subroutine long
 	db $62               ; Unknown opcode $62
 	db $42               ; Unknown opcode $42
-	db $f6               ; Unknown opcode $F6
+	db $f6               ; Unknown opcode $f6
 	bcc #$03             ; Branch carry clear
 	jmp $402b            ; Jump absolute
 	db $02               ; Unknown opcode $02
@@ -5629,7 +5629,7 @@ region_93_subroutine:
 	jsl $c04835          ; Jump subroutine long
 	db $71               ; Unknown opcode $71
 	db $42               ; Unknown opcode $42
-	db $f6               ; Unknown opcode $F6
+	db $f6               ; Unknown opcode $f6
 	bcc #$03             ; Branch carry clear
 	jmp $403b            ; Jump absolute
 	db $02               ; Unknown opcode $02
@@ -5637,11 +5637,11 @@ region_93_subroutine:
 	rtl                  ; Return from subroutine long
 
 
-; Region 94: subroutine ($D000-$D00F)
+; Region 94: subroutine ($d000-$d00f)
 region_94_subroutine:
 	lda #$08             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $1c               ; Unknown opcode $1C
+	db $1c               ; Unknown opcode $1c
 	db $53               ; Unknown opcode $53
 	db $35               ; Unknown opcode $35
 	jsl $ccd383          ; Jump subroutine long
@@ -5650,7 +5650,7 @@ region_94_subroutine:
 	rtl                  ; Return from subroutine long
 
 
-; Region 95: subroutine ($E000-$E144)
+; Region 95: subroutine ($e000-$e144)
 region_95_subroutine:
 	lda #$00             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
@@ -5681,27 +5681,27 @@ region_95_subroutine:
 	jsl $c74b39          ; Jump subroutine long
 	jmp $606c            ; Jump absolute
 	lda $c141            ; Load accumulator absolute
-	db $c9               ; Unknown opcode $C9
+	db $c9               ; Unknown opcode $c9
 	db $00               ; Unknown opcode $00
 	db $00               ; Unknown opcode $00
 	bne #$03             ; Branch not equal
 	jmp $600f            ; Jump absolute
-	db $c9               ; Unknown opcode $C9
+	db $c9               ; Unknown opcode $c9
 	db $01               ; Unknown opcode $01
 	db $00               ; Unknown opcode $00
 	bne #$03             ; Branch not equal
 	jmp $6019            ; Jump absolute
-	db $c9               ; Unknown opcode $C9
+	db $c9               ; Unknown opcode $c9
 	db $02               ; Unknown opcode $02
 	db $00               ; Unknown opcode $00
 	bne #$03             ; Branch not equal
 	jmp $6023            ; Jump absolute
-	db $c9               ; Unknown opcode $C9
+	db $c9               ; Unknown opcode $c9
 	db $03               ; Unknown opcode $03
 	db $00               ; Unknown opcode $00
 	bne #$03             ; Branch not equal
 	jmp $602d            ; Jump absolute
-	db $c9               ; Unknown opcode $C9
+	db $c9               ; Unknown opcode $c9
 	db $04               ; Unknown opcode $04
 	db $00               ; Unknown opcode $00
 	bne #$03             ; Branch not equal
@@ -5714,26 +5714,26 @@ region_95_subroutine:
 	jmp $60c3            ; Jump absolute
 	lda $3426            ; Load accumulator absolute
 	sec                  ; Set carry flag
-	db $e9               ; Unknown opcode $E9
-	db $3c               ; Unknown opcode $3C
+	db $e9               ; Unknown opcode $e9
+	db $3c               ; Unknown opcode $3c
 	db $00               ; Unknown opcode $00
 	sta $3426            ; Store accumulator absolute
 	lda $3428            ; Load accumulator absolute
 	sec                  ; Set carry flag
-	db $e9               ; Unknown opcode $E9
+	db $e9               ; Unknown opcode $e9
 	db $46               ; Unknown opcode $46
 	db $00               ; Unknown opcode $00
 	sta $3428            ; Store accumulator absolute
 	jmp $60dd            ; Jump absolute
 	lda $3426            ; Load accumulator absolute
 	sec                  ; Set carry flag
-	db $e9               ; Unknown opcode $E9
+	db $e9               ; Unknown opcode $e9
 	db $14               ; Unknown opcode $14
 	db $00               ; Unknown opcode $00
 	sta $3426            ; Store accumulator absolute
 	lda $3428            ; Load accumulator absolute
 	sec                  ; Set carry flag
-	db $e9               ; Unknown opcode $E9
+	db $e9               ; Unknown opcode $e9
 	db $46               ; Unknown opcode $46
 	db $00               ; Unknown opcode $00
 	sta $3428            ; Store accumulator absolute
@@ -5745,39 +5745,39 @@ region_95_subroutine:
 	sta $3426            ; Store accumulator absolute
 	lda $3428            ; Load accumulator absolute
 	sec                  ; Set carry flag
-	db $e9               ; Unknown opcode $E9
+	db $e9               ; Unknown opcode $e9
 	db $46               ; Unknown opcode $46
 	db $00               ; Unknown opcode $00
 	sta $3428            ; Store accumulator absolute
 	jmp $60dd            ; Jump absolute
-	db $a3               ; Unknown opcode $A3
+	db $a3               ; Unknown opcode $a3
 	db $01               ; Unknown opcode $01
-	db $c9               ; Unknown opcode $C9
+	db $c9               ; Unknown opcode $c9
 	db $00               ; Unknown opcode $00
 	db $00               ; Unknown opcode $00
 	bne #$03             ; Branch not equal
 	jmp $607e            ; Jump absolute
-	db $c9               ; Unknown opcode $C9
+	db $c9               ; Unknown opcode $c9
 	db $01               ; Unknown opcode $01
 	db $00               ; Unknown opcode $00
 	bne #$03             ; Branch not equal
 	jmp $6095            ; Jump absolute
-	db $c9               ; Unknown opcode $C9
+	db $c9               ; Unknown opcode $c9
 	db $02               ; Unknown opcode $02
 	db $00               ; Unknown opcode $00
 	bne #$03             ; Branch not equal
 	jmp $60ac            ; Jump absolute
-	db $ae               ; Unknown opcode $AE
+	db $ae               ; Unknown opcode $ae
 	db $26               ; Unknown opcode $26
 	db $34               ; Unknown opcode $34
-	db $ac               ; Unknown opcode $AC
+	db $ac               ; Unknown opcode $ac
 	db $28               ; Unknown opcode $28
 	db $34               ; Unknown opcode $34
 	jsl $c73cd1          ; Jump subroutine long
 	jsl $cc7587          ; Jump subroutine long
 	lda #$00             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $a2               ; Unknown opcode $A2
+	db $a2               ; Unknown opcode $a2
 	db $06               ; Unknown opcode $06
 	db $00               ; Unknown opcode $00
 	jsl $c73ced          ; Jump subroutine long
@@ -5799,25 +5799,25 @@ region_95_subroutine:
 	db $83               ; Unknown opcode $83
 	db $01               ; Unknown opcode $01
 	jmp $6132            ; Jump absolute
-	db $a3               ; Unknown opcode $A3
+	db $a3               ; Unknown opcode $a3
 	db $01               ; Unknown opcode $01
-	db $c9               ; Unknown opcode $C9
+	db $c9               ; Unknown opcode $c9
 	db $00               ; Unknown opcode $00
 	db $00               ; Unknown opcode $00
 	bne #$03             ; Branch not equal
 	jmp $6100            ; Jump absolute
-	db $c9               ; Unknown opcode $C9
+	db $c9               ; Unknown opcode $c9
 	db $01               ; Unknown opcode $01
 	db $00               ; Unknown opcode $00
 	bne #$03             ; Branch not equal
 	jmp $6108            ; Jump absolute
-	db $c9               ; Unknown opcode $C9
+	db $c9               ; Unknown opcode $c9
 	db $02               ; Unknown opcode $02
 	db $00               ; Unknown opcode $00
 	bne #$03             ; Branch not equal
 	jmp $6110            ; Jump absolute
 	lda $340a            ; Load accumulator absolute
-	db $c9               ; Unknown opcode $C9
+	db $c9               ; Unknown opcode $c9
 	jsr $f04e            ; Jump subroutine
 	db $03               ; Unknown opcode $03
 	jmp $6140            ; Jump absolute
@@ -5827,7 +5827,7 @@ region_95_subroutine:
 	rtl                  ; Return from subroutine long
 
 
-; Region 96: subroutine ($F000-$F0F4)
+; Region 96: subroutine ($f000-$f0f4)
 region_96_subroutine:
 	jmp $7007            ; Jump absolute
 	db $02               ; Unknown opcode $02
@@ -5850,24 +5850,24 @@ region_96_subroutine:
 	jsl $cdafa1          ; Jump subroutine long
 	lda #$9a             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $a2               ; Unknown opcode $A2
+	db $a2               ; Unknown opcode $a2
 	beq #$08             ; Branch equal
-	db $a0               ; Unknown opcode $A0
+	db $a0               ; Unknown opcode $a0
 	bvs #$09             ; Branch overflow set
 	jsl $c73c42          ; Jump subroutine long
 	db $01               ; Unknown opcode $01
 	db $00               ; Unknown opcode $00
 	lda #$00             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $a2               ; Unknown opcode $A2
+	db $a2               ; Unknown opcode $a2
 	db $06               ; Unknown opcode $06
 	db $00               ; Unknown opcode $00
 	jsl $c73ced          ; Jump subroutine long
-	db $a2               ; Unknown opcode $A2
+	db $a2               ; Unknown opcode $a2
 	jsr $2200            ; Jump subroutine
-	db $ae               ; Unknown opcode $AE
-	db $3e               ; Unknown opcode $3E
-	db $c7               ; Unknown opcode $C7
+	db $ae               ; Unknown opcode $ae
+	db $3e               ; Unknown opcode $3e
+	db $c7               ; Unknown opcode $c7
 	lda $3553            ; Load accumulator absolute
 	db $29               ; Unknown opcode $29
 	db $04               ; Unknown opcode $04
@@ -5892,22 +5892,22 @@ region_96_subroutine:
 	sta $343e            ; Store accumulator absolute
 	jmp $70a8            ; Jump absolute
 	lda $3442            ; Load accumulator absolute
-	db $c9               ; Unknown opcode $C9
+	db $c9               ; Unknown opcode $c9
 	db $01               ; Unknown opcode $01
 	db $00               ; Unknown opcode $00
 	bne #$03             ; Branch not equal
 	jmp $7061            ; Jump absolute
-	db $c9               ; Unknown opcode $C9
+	db $c9               ; Unknown opcode $c9
 	db $02               ; Unknown opcode $02
 	db $00               ; Unknown opcode $00
 	bne #$03             ; Branch not equal
 	jmp $706a            ; Jump absolute
-	db $c9               ; Unknown opcode $C9
+	db $c9               ; Unknown opcode $c9
 	db $03               ; Unknown opcode $03
 	db $00               ; Unknown opcode $00
 	bne #$03             ; Branch not equal
 	jmp $7073            ; Jump absolute
-	db $c9               ; Unknown opcode $C9
+	db $c9               ; Unknown opcode $c9
 	db $04               ; Unknown opcode $04
 	db $00               ; Unknown opcode $00
 	bne #$03             ; Branch not equal
@@ -5916,17 +5916,17 @@ region_96_subroutine:
 	db $00               ; Unknown opcode $00
 	db $83               ; Unknown opcode $83
 	db $01               ; Unknown opcode $01
-	db $a3               ; Unknown opcode $A3
+	db $a3               ; Unknown opcode $a3
 	db $01               ; Unknown opcode $01
-	db $cd               ; Unknown opcode $CD
-	db $3e               ; Unknown opcode $3E
+	db $cd               ; Unknown opcode $cd
+	db $3e               ; Unknown opcode $3e
 	db $34               ; Unknown opcode $34
 	bcc #$03             ; Branch carry clear
 	jmp $70c3            ; Jump absolute
 	jsl $cc752a          ; Jump subroutine long
-	db $a3               ; Unknown opcode $A3
+	db $a3               ; Unknown opcode $a3
 	db $01               ; Unknown opcode $01
-	db $1a               ; Unknown opcode $1A
+	db $1a               ; Unknown opcode $1a
 	db $83               ; Unknown opcode $83
 	db $01               ; Unknown opcode $01
 	jmp $70ad            ; Jump absolute
@@ -5935,23 +5935,23 @@ region_96_subroutine:
 	db $00               ; Unknown opcode $00
 	db $83               ; Unknown opcode $83
 	db $01               ; Unknown opcode $01
-	db $a3               ; Unknown opcode $A3
+	db $a3               ; Unknown opcode $a3
 	db $01               ; Unknown opcode $01
-	db $c9               ; Unknown opcode $C9
+	db $c9               ; Unknown opcode $c9
 	bpl #$00             ; Branch plus
 	bcc #$03             ; Branch carry clear
 	jmp $70e1            ; Jump absolute
 	jsl $cc752a          ; Jump subroutine long
-	db $a3               ; Unknown opcode $A3
+	db $a3               ; Unknown opcode $a3
 	db $01               ; Unknown opcode $01
-	db $1a               ; Unknown opcode $1A
+	db $1a               ; Unknown opcode $1a
 	db $83               ; Unknown opcode $83
 	db $01               ; Unknown opcode $01
 	jmp $70cb            ; Jump absolute
 	jsl $c73e43          ; Jump subroutine long
 	lda #$01             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $a2               ; Unknown opcode $A2
+	db $a2               ; Unknown opcode $a2
 	db $06               ; Unknown opcode $06
 	db $00               ; Unknown opcode $00
 	jsl $c73ced          ; Jump subroutine long
@@ -5960,9 +5960,9 @@ region_96_subroutine:
 	rtl                  ; Return from subroutine long
 
 
-; Region 97: subroutine ($8000-$800F)
+; Region 97: subroutine ($8000-$800f)
 region_97_subroutine:
-	db $c9               ; Unknown opcode $C9
+	db $c9               ; Unknown opcode $c9
 	db $00               ; Unknown opcode $00
 	db $00               ; Unknown opcode $00
 	bne #$03             ; Branch not equal
@@ -5980,10 +5980,10 @@ region_98_subroutine:
 	sta $9684            ; Store accumulator absolute
 	lda #$19             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $a2               ; Unknown opcode $A2
+	db $a2               ; Unknown opcode $a2
 	db $05               ; Unknown opcode $05
 	db $00               ; Unknown opcode $00
-	db $a0               ; Unknown opcode $A0
+	db $a0               ; Unknown opcode $a0
 	db $02               ; Unknown opcode $02
 	db $00               ; Unknown opcode $00
 	jsl $c734fc          ; Jump subroutine long
@@ -5999,10 +5999,10 @@ region_98_subroutine:
 	lda #$29             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	sta $9c17            ; Store accumulator absolute
-	db $a2               ; Unknown opcode $A2
+	db $a2               ; Unknown opcode $a2
 	db $00               ; Unknown opcode $00
 	db $00               ; Unknown opcode $00
-	db $a0               ; Unknown opcode $A0
+	db $a0               ; Unknown opcode $a0
 	db $00               ; Unknown opcode $00
 	db $00               ; Unknown opcode $00
 	jsl $c736bd          ; Jump subroutine long
@@ -6018,26 +6018,26 @@ region_98_subroutine:
 	lda #$27             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	sta $9c17            ; Store accumulator absolute
-	db $a2               ; Unknown opcode $A2
+	db $a2               ; Unknown opcode $a2
 	db $00               ; Unknown opcode $00
 	db $00               ; Unknown opcode $00
-	db $a0               ; Unknown opcode $A0
+	db $a0               ; Unknown opcode $a0
 	db $00               ; Unknown opcode $00
 	db $00               ; Unknown opcode $00
 	jsl $c736bd          ; Jump subroutine long
 	rtl                  ; Return from subroutine long
 
 
-; Region 99: subroutine ($A000-$A02A)
+; Region 99: subroutine ($a000-$a02a)
 region_99_subroutine:
-	db $a0               ; Unknown opcode $A0
+	db $a0               ; Unknown opcode $a0
 	lda $343e            ; Load accumulator absolute
-	db $c9               ; Unknown opcode $C9
+	db $c9               ; Unknown opcode $c9
 	db $01               ; Unknown opcode $01
 	db $00               ; Unknown opcode $00
 	bne #$03             ; Branch not equal
 	jmp $9fd9            ; Jump absolute
-	db $c9               ; Unknown opcode $C9
+	db $c9               ; Unknown opcode $c9
 	db $03               ; Unknown opcode $03
 	db $00               ; Unknown opcode $00
 	bne #$03             ; Branch not equal
@@ -6048,18 +6048,18 @@ region_99_subroutine:
 	jsl $c74bc2          ; Jump subroutine long
 	lda #$40             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $0c               ; Unknown opcode $0C
+	db $0c               ; Unknown opcode $0c
 	db $29               ; Unknown opcode $29
 	db $36               ; Unknown opcode $36
 	rtl                  ; Return from subroutine long
 
 
-; Region 100: subroutine ($B000-$B000)
+; Region 100: subroutine ($b000-$b000)
 region_100_subroutine:
 	rtl                  ; Return from subroutine long
 
 
-; Region 101: subroutine ($C000-$C00E)
+; Region 101: subroutine ($c000-$c00e)
 region_101_subroutine:
 	db $01               ; Unknown opcode $01
 	db $00               ; Unknown opcode $00
@@ -6067,33 +6067,33 @@ region_101_subroutine:
 	jmp $c00e            ; Jump absolute
 	db $00               ; Unknown opcode $00
 	db $24               ; Unknown opcode $24
-	db $0a               ; Unknown opcode $0A
+	db $0a               ; Unknown opcode $0a
 	jsl $cdacd2          ; Jump subroutine long
 	rtl                  ; Return from subroutine long
 
 
-; Region 102: subroutine ($D000-$D012)
+; Region 102: subroutine ($d000-$d012)
 region_102_subroutine:
 	bne #$4c             ; Branch not equal
 	db $12               ; Unknown opcode $12
 	bne #$22             ; Branch not equal
-	db $df               ; Unknown opcode $DF
-	db $cf               ; Unknown opcode $CF
-	db $cd               ; Unknown opcode $CD
+	db $df               ; Unknown opcode $df
+	db $cf               ; Unknown opcode $cf
+	db $cd               ; Unknown opcode $cd
 	jsl $cc9e86          ; Jump subroutine long
 	lda #$10             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
-	db $0c               ; Unknown opcode $0C
+	db $0c               ; Unknown opcode $0c
 	db $46               ; Unknown opcode $46
 	db $35               ; Unknown opcode $35
 	rtl                  ; Return from subroutine long
 
 
-; Region 103: subroutine ($E000-$E01B)
+; Region 103: subroutine ($e000-$e01b)
 region_103_subroutine:
-	db $a4               ; Unknown opcode $A4
-	db $6f               ; Unknown opcode $6F
-	db $c7               ; Unknown opcode $C7
+	db $a4               ; Unknown opcode $a4
+	db $6f               ; Unknown opcode $6f
+	db $c7               ; Unknown opcode $c7
 	lda #$00             ; Load accumulator immediate
 	db $00               ; Unknown opcode $00
 	sta $3608            ; Store accumulator absolute
@@ -6109,42 +6109,42 @@ region_103_subroutine:
 	rtl                  ; Return from subroutine long
 
 
-; Region 104: interrupt_handler ($F000-$F00C)
+; Region 104: interrupt_handler ($f000-$f00c)
 region_104_interrupt_handler:
 	db $06               ; Unknown opcode $06
-	db $1c               ; Unknown opcode $1C
+	db $1c               ; Unknown opcode $1c
 	db $16               ; Unknown opcode $16
 	db $68               ; Unknown opcode $68
 	db $14               ; Unknown opcode $14
-	db $f8               ; Unknown opcode $F8
+	db $f8               ; Unknown opcode $f8
 	db $04               ; Unknown opcode $04
-	db $b8               ; Unknown opcode $B8
+	db $b8               ; Unknown opcode $b8
 	db $88               ; Unknown opcode $88
 	beq #$b0             ; Branch equal
 	db $00               ; Unknown opcode $00
 	rti                  ; Return from interrupt
 
 
-; Region 105: interrupt_handler ($F000-$F019)
+; Region 105: interrupt_handler ($f000-$f019)
 region_105_interrupt_handler:
-	db $c6               ; Unknown opcode $C6
-	db $3a               ; Unknown opcode $3A
-	db $0a               ; Unknown opcode $0A
-	db $f4               ; Unknown opcode $F4
+	db $c6               ; Unknown opcode $c6
+	db $3a               ; Unknown opcode $3a
+	db $0a               ; Unknown opcode $0a
+	db $f4               ; Unknown opcode $f4
 	jsl $f42cdc          ; Jump subroutine long
-	db $0c               ; Unknown opcode $0C
-	db $b4               ; Unknown opcode $B4
+	db $0c               ; Unknown opcode $0c
+	db $b4               ; Unknown opcode $b4
 	clc                  ; Clear carry flag
-	db $e8               ; Unknown opcode $E8
+	db $e8               ; Unknown opcode $e8
 	db $68               ; Unknown opcode $68
 	cli                  ; Clear interrupt disable
-	db $e8               ; Unknown opcode $E8
+	db $e8               ; Unknown opcode $e8
 	sei                  ; Set interrupt disable
-	db $fe               ; Unknown opcode $FE
+	db $fe               ; Unknown opcode $fe
 	db $00               ; Unknown opcode $00
-	db $fc               ; Unknown opcode $FC
+	db $fc               ; Unknown opcode $fc
 	db $00               ; Unknown opcode $00
-	db $8c               ; Unknown opcode $8C
+	db $8c               ; Unknown opcode $8c
 	db $00               ; Unknown opcode $00
 	db $24               ; Unknown opcode $24
 	db $00               ; Unknown opcode $00
