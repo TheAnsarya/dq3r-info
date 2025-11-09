@@ -1,11 +1,14 @@
 #!/usr/bin/env python3
 """
-Dragon Quest III - SNES Address Translation Utility
+Dragon Quest III - SNES Address Translation Utility (HiROM)
 Critical address mapping system for accurate ROM data extraction
 
 This module provides comprehensive SNES address translation functionality,
-implementing correct LoROM banking calculations and address validation
+implementing correct HiROM banking calculations and address validation
 for accurate ROM file offset mapping.
+
+CORRECTION: Dragon Quest III uses HiROM mapping, not LoROM!
+HiROM uses different banking where $C0:0000-$FF:FFFF maps to ROM data.
 
 Critical for all analysis tools to extract meaningful data instead of
 random bytes from incorrect address calculations.
@@ -34,38 +37,40 @@ class ROMMapping:
     rom_offset: int
     size: int
     is_valid: bool
-    mapping_type: str  # 'lorom', 'hirom', 'invalid'
+    mapping_type: str  # 'hirom', 'lorom', 'invalid'
     mirror_of: Optional[int] = None
 
 class SNESAddressTranslator:
-    """SNES address translation and validation utility"""
+    """SNES address translation and validation utility for HiROM"""
 
     def __init__(self, rom_size: int = 0x600000):
         self.rom_size = rom_size
 
-        # LoROM mapping ranges for Dragon Quest III
-        self.lorom_ranges = {
-            # Banks $00-$3F: ROM $000000-$1FFFFF (2MB)
-            'primary_low': {
-                'bank_start': 0x00, 'bank_end': 0x3F,
-                'rom_base': 0x000000, 'rom_size': 0x200000
+        # HiROM mapping ranges for Dragon Quest III
+        self.hirom_ranges = {
+            # Banks $C0-$FF: Direct ROM mapping $000000-$3FFFFF
+            'rom_high': {
+                'bank_start': 0xC0, 'bank_end': 0xFF,
+                'offset_start': 0x0000, 'offset_end': 0xFFFF,
+                'rom_base': 0x000000
             },
-            # Banks $40-$7F: ROM $200000-$3FFFFF (2MB)
-            'primary_high': {
+            # Banks $40-$7F: Direct ROM mapping $000000-$3FFFFF
+            'rom_mid': {
                 'bank_start': 0x40, 'bank_end': 0x7F,
-                'rom_base': 0x200000, 'rom_size': 0x200000
+                'offset_start': 0x0000, 'offset_end': 0xFFFF,
+                'rom_base': 0x000000
+            },
+            # Banks $00-$3F: SRAM/Hardware (not ROM data)
+            'system_low': {
+                'bank_start': 0x00, 'bank_end': 0x3F,
+                'offset_start': 0x0000, 'offset_end': 0x7FFF,
+                'rom_base': None  # Not ROM data
             },
             # Banks $80-$BF: Mirror of $00-$3F
-            'mirror_low': {
+            'system_mirror': {
                 'bank_start': 0x80, 'bank_end': 0xBF,
-                'rom_base': 0x000000, 'rom_size': 0x200000,
-                'mirror_of': 0x000000
-            },
-            # Banks $C0-$FF: Mirror of $40-$7F
-            'mirror_high': {
-                'bank_start': 0xC0, 'bank_end': 0xFF,
-                'rom_base': 0x200000, 'rom_size': 0x200000,
-                'mirror_of': 0x200000
+                'offset_start': 0x0000, 'offset_end': 0x7FFF,
+                'rom_base': None  # Not ROM data
             }
         }
 
@@ -118,20 +123,32 @@ class SNESAddressTranslator:
         return None
 
     def validate_snes_address(self, snes_addr: SNESAddress) -> bool:
-        """Validate SNES address for LoROM mapping"""
+        """Validate SNES address for HiROM mapping"""
 
         # Check bank range
         if not (0 <= snes_addr.bank <= 0xFF):
             return False
 
-        # Check offset range - must be in ROM area ($8000-$FFFF)
-        if not (0x8000 <= snes_addr.offset <= 0xFFFF):
+        # Check offset range - HiROM uses full $0000-$FFFF range
+        if not (0x0000 <= snes_addr.offset <= 0xFFFF):
             return False
 
-        return True
+        # Check if this bank contains ROM data
+        bank = snes_addr.bank
+        if (0x40 <= bank <= 0x7F) or (0xC0 <= bank <= 0xFF):
+            return True
 
-    def snes_to_rom_offset(self, address: Union[str, int, SNESAddress]) -> Optional[ROMMapping]:
-        """Convert SNES address to ROM file offset with validation"""
+        return False
+
+    def snes_to_rom_offset(self, address: Union[str, int, SNESAddress]) -> int:
+        """Convert SNES address to ROM file offset (simple integer return)"""
+        mapping = self.snes_to_rom_mapping(address)
+        if mapping and mapping.is_valid:
+            return mapping.rom_offset
+        return 0
+
+    def snes_to_rom_mapping(self, address: Union[str, int, SNESAddress]) -> Optional[ROMMapping]:
+        """Convert SNES address to ROM file offset with full mapping details"""
 
         # Parse address if needed
         if not isinstance(address, SNESAddress):
@@ -145,23 +162,30 @@ class SNESAddressTranslator:
         if not self.validate_snes_address(snes_addr):
             return ROMMapping(0, 0, False, 'invalid')
 
-        # Calculate ROM offset using LoROM mapping
+        # Calculate ROM offset using HiROM mapping
         bank = snes_addr.bank
         offset = snes_addr.offset
 
         # Determine which range this bank falls into
         mapping_info = None
-        for range_name, range_data in self.lorom_ranges.items():
-            if range_data['bank_start'] <= bank <= range_data['bank_end']:
+        for range_name, range_data in self.hirom_ranges.items():
+            if (range_data['bank_start'] <= bank <= range_data['bank_end'] and
+                range_data['offset_start'] <= offset <= range_data['offset_end']):
                 mapping_info = range_data
                 break
 
-        if not mapping_info:
+        if not mapping_info or mapping_info['rom_base'] is None:
             return ROMMapping(0, 0, False, 'invalid')
 
-        # Calculate ROM offset
-        bank_within_range = bank - mapping_info['bank_start']
-        rom_offset = mapping_info['rom_base'] + (bank_within_range * 0x8000) + (offset - 0x8000)
+        # HiROM calculation: Direct mapping for $C0-$FF and $40-$7F
+        if bank >= 0xC0:
+            # Banks $C0-$FF: ROM offset = (bank - $C0) * $10000 + offset
+            rom_offset = ((bank - 0xC0) * 0x10000) + offset
+        elif bank >= 0x40:
+            # Banks $40-$7F: ROM offset = (bank - $40) * $10000 + offset
+            rom_offset = ((bank - 0x40) * 0x10000) + offset
+        else:
+            return ROMMapping(0, 0, False, 'invalid')
 
         # Validate ROM offset is within file bounds
         if rom_offset < 0 or rom_offset >= self.rom_size:
@@ -170,14 +194,14 @@ class SNESAddressTranslator:
         # Calculate available size from this offset
         available_size = self.rom_size - rom_offset
 
-        # Check if this is a mirror
-        mirror_of = mapping_info.get('mirror_of')
+        # HiROM doesn't use mirrors in the same way as LoROM
+        mirror_of = None
 
         return ROMMapping(
             rom_offset=rom_offset,
             size=available_size,
             is_valid=True,
-            mapping_type='lorom',
+            mapping_type='hirom',
             mirror_of=mirror_of
         )
 
@@ -223,25 +247,33 @@ class SNESAddressTranslator:
         }
 
         # Find matching range
-        for range_name, range_data in self.lorom_ranges.items():
-            if range_data['bank_start'] <= bank <= range_data['bank_end']:
+        for range_name, range_data in self.hirom_ranges.items():
+            if (range_data['bank_start'] <= bank <= range_data['bank_end']):
                 info['valid'] = True
-                info['rom_range'] = (range_data['rom_base'],
-                                   range_data['rom_base'] + range_data['rom_size'])
 
-                if 'mirror_of' in range_data:
-                    info['is_mirror'] = True
-                    info['mirror_of'] = range_data['mirror_of']
+                if range_data['rom_base'] is not None:
+                    # Calculate ROM range for this bank
+                    if bank >= 0xC0:
+                        rom_start = ((bank - 0xC0) * 0x10000)
+                        rom_end = rom_start + 0x10000
+                    elif bank >= 0x40:
+                        rom_start = ((bank - 0x40) * 0x10000)
+                        rom_end = rom_start + 0x10000
+                    else:
+                        rom_start = 0
+                        rom_end = 0
 
-                # Generate description
-                if range_name == 'primary_low':
-                    info['description'] = 'Primary ROM banks (first 2MB)'
-                elif range_name == 'primary_high':
-                    info['description'] = 'Extended ROM banks (second 2MB)'
-                elif range_name == 'mirror_low':
-                    info['description'] = 'Mirror of banks $00-$3F'
-                elif range_name == 'mirror_high':
-                    info['description'] = 'Mirror of banks $40-$7F'
+                    info['rom_range'] = (rom_start, min(rom_end, self.rom_size))
+
+                # Generate description for HiROM
+                if range_name == 'rom_high':
+                    info['description'] = f'HiROM high banks $C0-$FF (Bank ${bank:02X})'
+                elif range_name == 'rom_mid':
+                    info['description'] = f'HiROM mid banks $40-$7F (Bank ${bank:02X})'
+                elif range_name == 'system_low':
+                    info['description'] = f'System/SRAM banks $00-$3F (Bank ${bank:02X}) - Not ROM'
+                elif range_name == 'system_mirror':
+                    info['description'] = f'System mirror $80-$BF (Bank ${bank:02X}) - Not ROM'
 
                 break
 
@@ -268,7 +300,7 @@ class SNESAddressTranslator:
 
             try:
                 # Parse and translate address
-                mapping = self.snes_to_rom_offset(test_addr)
+                mapping = self.snes_to_rom_mapping(test_addr)
 
                 if mapping and mapping.is_valid:
                     test_result['rom_offset'] = mapping.rom_offset
@@ -355,7 +387,7 @@ def main():
     for addr_str in test_addresses[:10]:  # Test first 10 addresses
         snes_addr = translator.parse_snes_address(addr_str)
         if snes_addr:
-            mapping = translator.snes_to_rom_offset(snes_addr)
+            mapping = translator.snes_to_rom_mapping(snes_addr)
             if mapping and mapping.is_valid:
                 print(f"✅ {addr_str} → ROM ${mapping.rom_offset:06X}")
 

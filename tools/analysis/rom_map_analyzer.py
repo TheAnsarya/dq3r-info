@@ -40,13 +40,14 @@ class DQ3ROMMapAnalyzer:
         self.address_translator = SNESAddressTranslator()
         self.snes_rom_size = 6 * 1024 * 1024  # 6MB ROM
 
-        # ROM Map Specifications (SNES LoROM addresses - $BB:HHLL format)
+        # ROM Map Specifications (SNES HiROM addresses - $BB:HHLL format)
         # These are converted to file offsets using SNESAddressTranslator
+        # CORRECTED: Dragon Quest III uses HiROM, not LoROM
         self.snes_rom_map = {
             'overworld': {
-                'top_grid': {'start': '$2D:8A00', 'end': '$2D:9BE2', 'desc': '64x64 grid chunks'},
-                'chunks': {'start': '$2D:A49C', 'end': '$2E:486B', 'desc': '4x4 grids of tile indexes'},
-                'tiles': {'start': '$25:4F38', 'end': '$25:569F', 'desc': '16x16 pixel tiles (8 bytes each)'}
+                'top_grid': {'start': '$ED:8A00', 'end': '$ED:9BE2', 'desc': '64x64 grid chunks'},
+                'chunks': {'start': '$ED:A49C', 'end': '$EE:486B', 'desc': '4x4 grids of tile indexes'},
+                'tiles': {'start': '$E5:4F38', 'end': '$E5:569F', 'desc': '16x16 pixel tiles (8 bytes each)'}
             },
             'monsters': {
                 'names_start': '$3E:D958',

@@ -11,7 +11,7 @@ CRITICAL: Uses proper SNES address translation for accurate data extraction
 
 Features:
 - Complete SNES graphics format support (1bpp, 2bpp, 3bpp, 4bpp, 8bpp)
-- Correct SNES LoROM address translation
+- Correct SNES HiROM address translation
 - Palette analysis and color space conversion
 - Tilemap and tileset detection
 - Sprite format identification
@@ -131,28 +131,30 @@ class DQ3GraphicsAnalyzer:
         print("\n🎯 Analyzing Known DQ3 Graphics Locations")
         print("-" * 50)
 
-        # Known graphics locations from Dragon Quest III ROM map
+        # Known graphics locations from Dragon Quest III ROM map (HiROM format)
+        # NOTE: DQ3 uses HiROM, so actual graphics are likely in $C0+ banks
+        # These are potential locations that need verification
         known_graphics = [
-            # Font and text graphics
-            {"address": "$20:8000", "description": "Font data", "expected_format": "1bpp"},
-            {"address": "$21:8000", "description": "Text graphics", "expected_format": "1bpp"},
+            # Font and text graphics (testing HiROM banks)
+            {"address": "$C0:0000", "description": "Font data", "expected_format": "1bpp"},
+            {"address": "$C1:0000", "description": "Text graphics", "expected_format": "1bpp"},
 
             # Character and sprite graphics
-            {"address": "$22:8000", "description": "Character sprites", "expected_format": "4bpp"},
-            {"address": "$23:8000", "description": "Character graphics", "expected_format": "4bpp"},
-            {"address": "$24:8000", "description": "Battle sprites", "expected_format": "4bpp"},
+            {"address": "$C2:0000", "description": "Character sprites", "expected_format": "4bpp"},
+            {"address": "$C3:0000", "description": "Character graphics", "expected_format": "4bpp"},
+            {"address": "$C4:0000", "description": "Battle sprites", "expected_format": "4bpp"},
 
             # Background graphics
-            {"address": "$25:8000", "description": "Background tiles", "expected_format": "2bpp"},
-            {"address": "$26:8000", "description": "Map graphics", "expected_format": "2bpp"},
+            {"address": "$C5:0000", "description": "Background tiles", "expected_format": "2bpp"},
+            {"address": "$C6:0000", "description": "Map graphics", "expected_format": "2bpp"},
 
             # UI and menu graphics
-            {"address": "$27:8000", "description": "Menu graphics", "expected_format": "2bpp"},
-            {"address": "$28:8000", "description": "UI elements", "expected_format": "2bpp"},
+            {"address": "$C7:0000", "description": "Menu graphics", "expected_format": "2bpp"},
+            {"address": "$C8:0000", "description": "UI elements", "expected_format": "2bpp"},
 
             # Monster graphics
-            {"address": "$29:8000", "description": "Monster sprites", "expected_format": "4bpp"},
-            {"address": "$2A:8000", "description": "Boss graphics", "expected_format": "4bpp"},
+            {"address": "$C9:0000", "description": "Monster sprites", "expected_format": "4bpp"},
+            {"address": "$CA:0000", "description": "Boss graphics", "expected_format": "4bpp"},
         ]
 
         successful_extractions = 0
