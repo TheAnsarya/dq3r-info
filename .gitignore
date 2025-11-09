@@ -1,0 +1,171 @@
+# DQ3R (Dragon Quest III Remake) Disassembly Project
+# Git ignore file - prevents accidentally committing ROM files and build artifacts
+
+# ROM files and static assets (never commit to source control)
+/static/
+*.smc
+*.sfc
+*.srm
+*.mlb
+*.cdl
+*.bst
+*.diz
+*.save
+
+# Build artifacts
+/build/
+/dist/
+*.o
+*.obj
+*.exe
+*.dll
+*.lib
+*.a
+*.so
+*.dylib
+
+# Backup files
+/backups/
+*.bak
+*.backup
+*.orig
+temp_*
+
+# Python cache and virtual environment
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE and editor files
+.vscode/settings.json
+.vscode/launch.json
+.vscode/tasks.json
+.vscode/.ropeproject
+*.swp
+*.swo
+*~
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS specific files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+*.out
+*.err
+
+# Assembly symbols and debug files
+*.sym
+*.map
+*.lst
+
+# Extracted assets directory (generated)
+/assets/extracted/
+
+# Test output
+/test_output/
+test_results.xml
+
+# Documentation build output
+/docs/_build/
+/docs/build/
+
+# Coverage reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Local development configuration
+config.local.json
+settings.local.json
+
+# Session logs (auto-generated)
+SESSION_LOG_*.md
+activity_log.json
+
+# Project-specific temporary files
+emulator_output.txt
+rom_comparison.txt
+build_report.txt
+format_report.txt
+
+# Windows PowerShell execution policy bypass files
+*.ps1.tmp
+
+# Compressed archives
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Fonts (if any)
+*.ttf
+*.otf
+*.woff
+*.woff2
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Lock files
+package-lock.json
+yarn.lock
+Pipfile.lock
+poetry.lock

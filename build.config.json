@@ -1,0 +1,25 @@
+{
+  "project": {
+    "name": "DQ3R",
+    "description": "Dragon Quest III Remake - SNES Disassembly",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "assets": "assets",
+    "docs": "docs",
+    "static": "static"
+  },
+  "tools": {
+    "assembler": "asar",
+    "python": {
+      "venv": "venv",
+      "version": "3.8"
+    },
+    "emulator": "mesen-s"
+  },
+  "build": {
+    "tempDir": "build\\temp",
+    "mainSource": "src\\asm\\main.asm",
+    "outputRom": "build\\dq3r-rebuilt.sfc"
+  }
+}

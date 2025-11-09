@@ -1,0 +1,181 @@
+{
+	"folders": [
+		{
+			"name": "DQ3R - Dragon Quest III Remake",
+			"path": "."
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"*.asm": "asm-intel-x86-generic",
+			"*.inc": "asm-intel-x86-generic",
+			"*.s": "asm-intel-x86-generic"
+		},
+		"editor.insertSpaces": false,
+		"editor.tabSize": 4,
+		"editor.detectIndentation": false,
+		"files.eol": "\r\n",
+		"files.encoding": "utf8",
+		"files.trimTrailingWhitespace": true,
+		"files.insertFinalNewline": true,
+		"python.defaultInterpreterPath": "venv/Scripts/python.exe",
+		"python.terminal.activateEnvironment": true,
+		"python.testing.pytestEnabled": true,
+		"python.testing.unittestEnabled": false,
+		"python.testing.pytestArgs": [
+			"tests"
+		],
+		"python.linting.enabled": true,
+		"python.linting.flake8Enabled": true,
+		"git.ignoreLimitWarning": true,
+		"search.exclude": {
+			"**/static/**": true,
+			"**/build/**": true,
+			"**/venv/**": true,
+			"**/__pycache__/**": true
+		},
+		"files.exclude": {
+			"**/__pycache__": true,
+			"**/*.pyc": true
+		}
+	},
+	"extensions": {
+		"recommendations": [
+			"ms-python.python",
+			"ms-python.flake8",
+			"editorconfig.editorconfig",
+			"ms-vscode.powershell",
+			"bierner.markdown-all-in-one",
+			"ms-vscode.hexeditor"
+		]
+	},
+	"tasks": {
+		"version": "2.0.0",
+		"tasks": [
+			{
+				"label": "Build ROM",
+				"type": "shell",
+				"command": "./build.ps1",
+				"group": {
+					"kind": "build",
+					"isDefault": true
+				},
+				"presentation": {
+					"echo": true,
+					"reveal": "always",
+					"focus": false,
+					"panel": "shared",
+					"showReuseMessage": true,
+					"clear": false
+				},
+				"problemMatcher": [],
+				"detail": "Build DQ3R ROM from assembly source"
+			},
+			{
+				"label": "Check Build Environment",
+				"type": "shell",
+				"command": "./build.ps1",
+				"args": ["--check"],
+				"group": "build",
+				"presentation": {
+					"echo": true,
+					"reveal": "always",
+					"focus": false,
+					"panel": "shared"
+				},
+				"problemMatcher": [],
+				"detail": "Check build tools and environment"
+			},
+			{
+				"label": "Analyze ROM",
+				"type": "shell",
+				"command": "python",
+				"args": ["tools/analysis/analyze_rom.py", "static/Dragon Quest III - Soshite Densetsu he... (J).smc"],
+				"group": "build",
+				"presentation": {
+					"echo": true,
+					"reveal": "always",
+					"focus": false,
+					"panel": "shared"
+				},
+				"problemMatcher": [],
+				"detail": "Analyze target ROM file"
+			},
+			{
+				"label": "Extract Graphics",
+				"type": "shell",
+				"command": "python",
+				"args": ["tools/extractors/extract_graphics.py", "--output", "assets/graphics/"],
+				"group": "build",
+				"presentation": {
+					"echo": true,
+					"reveal": "always",
+					"focus": false,
+					"panel": "shared"
+				},
+				"problemMatcher": [],
+				"detail": "Extract graphics from ROM"
+			},
+			{
+				"label": "Run Tests",
+				"type": "shell",
+				"command": "python",
+				"args": ["-m", "pytest", "tests/", "-v"],
+				"group": "test",
+				"presentation": {
+					"echo": true,
+					"reveal": "always",
+					"focus": false,
+					"panel": "shared"
+				},
+				"problemMatcher": [],
+				"detail": "Run all project tests"
+			},
+			{
+				"label": "Setup Environment",
+				"type": "shell",
+				"command": "./setup.ps1",
+				"group": "build",
+				"presentation": {
+					"echo": true,
+					"reveal": "always",
+					"focus": false,
+					"panel": "shared"
+				},
+				"problemMatcher": [],
+				"detail": "Run initial project setup"
+			}
+		]
+	},
+	"launch": {
+		"version": "0.2.0",
+		"configurations": [
+			{
+				"name": "Analyze ROM",
+				"type": "python",
+				"request": "launch",
+				"program": "tools/analysis/analyze_rom.py",
+				"args": ["static/Dragon Quest III - Soshite Densetsu he... (J).smc", "--verbose"],
+				"console": "integratedTerminal",
+				"cwd": "${workspaceFolder}"
+			},
+			{
+				"name": "Extract Graphics",
+				"type": "python",
+				"request": "launch",
+				"program": "tools/extractors/extract_graphics.py",
+				"args": ["--help"],
+				"console": "integratedTerminal",
+				"cwd": "${workspaceFolder}"
+			},
+			{
+				"name": "Character Editor",
+				"type": "python",
+				"request": "launch",
+				"program": "tools/editors/character_editor.py",
+				"console": "integratedTerminal",
+				"cwd": "${workspaceFolder}"
+			}
+		]
+	}
+}

@@ -1,0 +1,184 @@
+# EditorConfig for DQ3R (Dragon Quest III Remake) Disassembly Project
+# Based on FFMQ-Info project standards
+root = true
+
+# All files
+[*]
+charset = utf-8
+end_of_line = crlf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = tab
+indent_size = 4
+tab_width = 4
+
+# Assembly files (SNES 65816)
+[*.{asm,s,inc}]
+charset = utf-8
+end_of_line = crlf
+indent_style = tab
+indent_size = 4
+tab_width = 4
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# Python files
+[*.py]
+charset = utf-8
+end_of_line = crlf
+indent_style = tab
+indent_size = 4
+tab_width = 4
+max_line_length = 120
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# PowerShell files
+[*.ps1]
+charset = utf-8
+end_of_line = crlf
+indent_style = tab
+indent_size = 4
+tab_width = 4
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# Batch files
+[*.bat]
+charset = utf-8
+end_of_line = crlf
+indent_style = tab
+indent_size = 4
+tab_width = 4
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# JSON files
+[*.json]
+charset = utf-8
+end_of_line = crlf
+indent_style = tab
+indent_size = 4
+tab_width = 4
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# YAML files
+[*.{yml,yaml}]
+charset = utf-8
+end_of_line = crlf
+indent_style = tab
+indent_size = 4
+tab_width = 4
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# C/C++ files
+[*.{c,cpp,h,hpp}]
+charset = utf-8
+end_of_line = crlf
+indent_style = tab
+indent_size = 4
+tab_width = 4
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# C# files
+[*.cs]
+charset = utf-8
+end_of_line = crlf
+indent_style = tab
+indent_size = 4
+tab_width = 4
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# Lua files
+[*.lua]
+charset = utf-8
+end_of_line = crlf
+indent_style = tab
+indent_size = 4
+tab_width = 4
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# Shell scripts (Unix)
+[*.sh]
+charset = utf-8
+end_of_line = lf
+indent_style = tab
+indent_size = 4
+tab_width = 4
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# Text files
+[*.txt]
+charset = utf-8
+end_of_line = crlf
+indent_style = tab
+indent_size = 4
+tab_width = 4
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# Table files (character tables)
+[*.tbl]
+charset = utf-8
+end_of_line = crlf
+indent_style = tab
+indent_size = 4
+tab_width = 4
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# Makefiles (require tabs)
+[{Makefile,*.mk}]
+charset = utf-8
+end_of_line = crlf
+indent_style = tab
+indent_size = 4
+tab_width = 4
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# Markdown files (preserve trailing whitespace for line breaks)
+[*.md]
+charset = utf-8
+end_of_line = crlf
+indent_style = tab
+indent_size = 4
+tab_width = 4
+insert_final_newline = true
+trim_trailing_whitespace = false
+
+# Configuration files
+[*.{cfg,config,ini}]
+charset = utf-8
+end_of_line = crlf
+indent_style = tab
+indent_size = 4
+tab_width = 4
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# XML files
+[*.xml]
+charset = utf-8
+end_of_line = crlf
+indent_style = tab
+indent_size = 4
+tab_width = 4
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# SQL files
+[*.sql]
+charset = utf-8
+end_of_line = crlf
+indent_style = tab
+indent_size = 4
+tab_width = 4
+insert_final_newline = true
+trim_trailing_whitespace = true
