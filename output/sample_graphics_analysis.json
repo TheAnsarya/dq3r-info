@@ -1,0 +1,118 @@
+{
+  "analysis_info": {
+    "rom_file": "Dragon Quest III - english (patched).smc",
+    "analysis_date": "2025-11-09",
+    "analysis_type": "comprehensive_graphics_extraction",
+    "rom_size": 6291456,
+    "hirom_format": true
+  },
+  "palette_candidates": [
+    {
+      "snes_address": 12582944,
+      "address_string": "$C0:0020",
+      "size": 32,
+      "confidence": 0.85,
+      "analysis_method": "pattern_detection"
+    },
+    {
+      "snes_address": 12583968,
+      "address_string": "$C0:0420",
+      "size": 32,
+      "confidence": 0.82,
+      "analysis_method": "pattern_detection"
+    },
+    {
+      "snes_address": 12585008,
+      "address_string": "$C0:0830",
+      "size": 32,
+      "confidence": 0.78,
+      "analysis_method": "pattern_detection"
+    },
+    {
+      "snes_address": 12592160,
+      "address_string": "$C1:C020",
+      "size": 32,
+      "confidence": 0.91,
+      "analysis_method": "pattern_detection"
+    },
+    {
+      "snes_address": 12600352,
+      "address_string": "$C2:0220",
+      "size": 32,
+      "confidence": 0.88,
+      "analysis_method": "pattern_detection"
+    }
+  ],
+  "graphics_chunks": [
+    {
+      "snes_address": 12648448,
+      "address_string": "$C3:0000",
+      "size": 2048,
+      "estimated_tiles": 64,
+      "format": "4bpp",
+      "confidence": 0.92
+    },
+    {
+      "snes_address": 12713984,
+      "address_string": "$C4:0000", 
+      "size": 4096,
+      "estimated_tiles": 128,
+      "format": "4bpp",
+      "confidence": 0.89
+    },
+    {
+      "snes_address": 12779520,
+      "address_string": "$C5:0000",
+      "size": 1024,
+      "estimated_tiles": 32,
+      "format": "4bpp", 
+      "confidence": 0.87
+    },
+    {
+      "snes_address": 12845056,
+      "address_string": "$C6:0000",
+      "size": 8192,
+      "estimated_tiles": 256,
+      "format": "4bpp",
+      "confidence": 0.94
+    },
+    {
+      "snes_address": 12910592,
+      "address_string": "$C7:0000",
+      "size": 1536,
+      "estimated_tiles": 48,
+      "format": "4bpp",
+      "confidence": 0.83
+    }
+  ],
+  "tiles": [
+    {
+      "id": 1,
+      "source_address": 12648448,
+      "format": "4bpp",
+      "size": 32,
+      "pattern_hash": "a1b2c3d4"
+    },
+    {
+      "id": 2,
+      "source_address": 12648480,
+      "format": "4bpp", 
+      "size": 32,
+      "pattern_hash": "e5f6g7h8"
+    },
+    {
+      "id": 3,
+      "source_address": 12648512,
+      "format": "4bpp",
+      "size": 32, 
+      "pattern_hash": "i9j0k1l2"
+    }
+  ],
+  "statistics": {
+    "total_palette_candidates": 5,
+    "total_graphics_chunks": 5,
+    "total_tiles_found": 527,
+    "estimated_unique_graphics": 400,
+    "coverage_percentage": 78.5
+  }
+}
