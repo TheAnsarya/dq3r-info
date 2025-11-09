@@ -5,14 +5,22 @@ Dragon Quest III - Audio System Analysis & Disassembly
 
 Comprehensive analysis of SPC-700 audio driver, music engine,
 sound effects system, APU communication, and audio format specifications.
+
+Now using correct SNES LoROM address translation for accurate data extraction.
 """
 
 import struct
 import time
+import sys
+import os
 from pathlib import Path
 from typing import Dict, List, Tuple, Any, Optional
 from dataclasses import dataclass
 import json
+
+# Add utils directory to path for SNES address translation
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'utils'))
+from snes_address_translation import SNESAddressTranslator
 
 
 @dataclass
@@ -78,18 +86,22 @@ class DQ3AudioAnalyzer:
             self.rom_data = f.read()
 
         self.rom_size = len(self.rom_data)
+
+        # Initialize SNES address translator
+        self.address_translator = SNESAddressTranslator()
+
         self.audio_functions = []
         self.music_tracks = []
         self.sound_effects = []
         self.apu_commands = []
         self.audio_driver_code = []
 
-        # SNES APU/SPC-700 communication ports
+        # SNES APU/SPC-700 communication ports (SNES addresses)
         self.apu_ports = {
-            0x2140: "APUIO0 - CPU to APU Port 0",
-            0x2141: "APUIO1 - CPU to APU Port 1",
-            0x2142: "APUIO2 - CPU to APU Port 2",
-            0x2143: "APUIO3 - CPU to APU Port 3",
+            '$00:2140': "APUIO0 - CPU to APU Port 0",
+            '$00:2141': "APUIO1 - CPU to APU Port 1",
+            '$00:2142': "APUIO2 - CPU to APU Port 2",
+            '$00:2143': "APUIO3 - CPU to APU Port 3",
         }
 
         # Common SPC-700 opcodes for audio analysis
@@ -105,9 +117,9 @@ class DQ3AudioAnalyzer:
             0xd0: ("BNE", "Branch if not equal"),
         }
 
-        # Audio patterns to detect
+        # Audio patterns to detect (updated with SNES address context)
         self.audio_patterns = {
-            "apu_communication": [0x8d, 0x40, 0x21],  # STA $2140
+            "apu_communication": [0x8d, 0x40, 0x21],  # STA $2140 (SNES $00:2140)
             "music_data_load": [0xa9, 0x00, 0x8d, 0x41, 0x21],  # LDA #$00, STA $2141
             "sound_trigger": [0xa9, 0x01, 0x8d, 0x42, 0x21],  # LDA #$01, STA $2142
             "dsp_register": [0x8d, 0x43, 0x21],  # STA $2143 (DSP register)

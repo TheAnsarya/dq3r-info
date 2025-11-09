@@ -22,6 +22,11 @@ import json
 import struct
 from typing import Dict, List, Tuple, Any
 from pathlib import Path
+import sys
+
+# Add utils directory to path for SNES address translation
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'utils'))
+from snes_address_translation import SNESAddressTranslator
 
 class DQ3ROMMapAnalyzer:
     """Advanced ROM analyzer using official ROM map specifications"""
@@ -31,40 +36,44 @@ class DQ3ROMMapAnalyzer:
         self.rom_path = self.project_root / "static" / "Dragon Quest III - english (patched).smc"
         self.rom_data = bytes()
 
-        # ROM Map Specifications (all hexadecimal values lowercase)
-        self.rom_map = {
+        # Initialize SNES address translator
+        self.address_translator = SNESAddressTranslator()
+        self.snes_rom_size = 6 * 1024 * 1024  # 6MB ROM
+
+        # ROM Map Specifications (SNES LoROM addresses - $BB:HHLL format)
+        # These are converted to file offsets using SNESAddressTranslator
+        self.snes_rom_map = {
             'overworld': {
-                'top_grid': {'start': 0x2d8a00, 'end': 0x2d9be2, 'size': 0x11e3, 'desc': '64x64 grid chunks'},
-                'chunks': {'start': 0x2da49c, 'end': 0x2e486b, 'size': 0x9dd0, 'desc': '4x4 grids of tile indexes'},
-                'tiles': {'start': 0x254f38, 'end': 0x25569f, 'size': 0x768, 'desc': '16x16 pixel tiles (8 bytes each)'}
+                'top_grid': {'start': '$2D:8A00', 'end': '$2D:9BE2', 'desc': '64x64 grid chunks'},
+                'chunks': {'start': '$2D:A49C', 'end': '$2E:486B', 'desc': '4x4 grids of tile indexes'},
+                'tiles': {'start': '$25:4F38', 'end': '$25:569F', 'desc': '16x16 pixel tiles (8 bytes each)'}
             },
             'monsters': {
-                'names_start': 0x3ed958,
-                'stats_start': 0x020028,
-                'experience_base': 0x020028,
-                'gold_base': 0x02002a,
+                'names_start': '$3E:D958',
+                'stats_start': '$02:0028',
+                'experience_base': '$02:0028',
+                'gold_base': '$02:002A',
                 'total_monsters': 155  # $9b monsters + special entries
             },
             'character_classes': {
-                'start': 0xc4179e,
-                'end': 0xc424a8,
-                'size': 0xd0b,
+                'start': '$C4:179E',
+                'end': '$C4:24A8',
                 'desc': 'Character class definitions'
             },
             'text_system': {
-                'dialog_font': {'start': 0xc10ed3, 'end': 0xc151a9, 'size': 0x42d7, 'desc': 'Dialog font data'},
-                'font_settings': {'start': 0xc151aa, 'end': 0xc152a3, 'size': 0xfa, 'desc': 'Font lookup table'},
-                'huffman_left': {'start': 0x159d3, 'end': 0x161a6, 'size': 0x7d4, 'desc': 'Huffman tree 0-bits'},
-                'huffman_right': {'start': 0x161a7, 'end': 0x1697a, 'size': 0x7d4, 'desc': 'Huffman tree 1-bits'},
-                'text_pointers': {'start': 0x15331, 'end': 0x1591e, 'size': 0x5ee, 'desc': 'Text pointer table'},
-                'script_data': {'start': 0x3cc258, 'end': 0x3ecfb5, 'size': 0x20d5e, 'desc': 'Compressed script data'}
+                'dialog_font': {'start': '$C1:0ED3', 'end': '$C1:51A9', 'desc': 'Dialog font data'},
+                'font_settings': {'start': '$C1:51AA', 'end': '$C1:52A3', 'desc': 'Font lookup table'},
+                'huffman_left': {'start': '$01:59D3', 'end': '$01:61A6', 'desc': 'Huffman tree 0-bits'},
+                'huffman_right': {'start': '$01:61A7', 'end': '$01:697A', 'desc': 'Huffman tree 1-bits'},
+                'text_pointers': {'start': '$01:5331', 'end': '$01:591E', 'desc': 'Text pointer table'},
+                'script_data': {'start': '$3C:C258', 'end': '$3E:CFB5', 'desc': 'Compressed script data'}
             },
             'menu_system': {
-                'intro_menu': 0x30348,
-                'main_menu': 0x30024,
-                'gold_menu': 0x300fc,
-                'speed_menu': 0x30378,
-                'stereo_menu': 0x30384
+                'intro_menu': '$03:0348',
+                'main_menu': '$03:0024',
+                'gold_menu': '$03:00FC',
+                'speed_menu': '$03:0378',
+                'stereo_menu': '$03:0384'
             }
         }
 
@@ -72,6 +81,16 @@ class DQ3ROMMapAnalyzer:
         self.coverage_map = {}
         self.analyzed_regions = []
         self.analysis_results = {}
+
+    def snes_to_file_offset(self, snes_address: str) -> int:
+        """Convert SNES address to file offset using address translator"""
+        return self.address_translator.snes_to_rom_offset(snes_address)
+
+    def get_rom_range(self, snes_start: str, snes_end: str) -> tuple[int, int]:
+        """Convert SNES address range to file offset range"""
+        start_offset = self.snes_to_file_offset(snes_start)
+        end_offset = self.snes_to_file_offset(snes_end)
+        return start_offset, end_offset
 
     def load_rom(self) -> bool:
         """Load Dragon Quest III ROM file"""
@@ -97,31 +116,37 @@ class DQ3ROMMapAnalyzer:
         return True
 
     def analyze_overworld_system(self):
-        """Analyze overworld map system using ROM map specifications"""
+        """Analyze overworld map system using SNES LoROM addresses"""
 
-        print("\n🗺️ Analyzing Overworld Map System")
+        print("\n🗺️ Analyzing Overworld Map System (SNES LoROM)")
         print("-" * 50)
 
         overworld_analysis = {}
 
-        # Analyze top-level grid
-        top_grid = self.rom_map['overworld']['top_grid']
-        grid_data = self.rom_data[top_grid['start']:top_grid['end']]
+        # Analyze top grid (SNES addresses)
+        top_grid_snes = self.snes_rom_map['overworld']['top_grid']
+        start_offset, end_offset = self.get_rom_range(
+            top_grid_snes['start'],
+            top_grid_snes['end']
+        )
 
-        print(f"📊 Top-level grid: ${top_grid['start']:06x}-${top_grid['end']:06x}")
-        print(f"   Size: {len(grid_data):,} bytes ({top_grid['desc']})")
+        top_grid_data = self.rom_data[start_offset:end_offset + 1]
+
+        print(f"📊 Top grid: {top_grid_snes['start']}-{top_grid_snes['end']} (SNES)")
+        print(f"   File offsets: ${start_offset:06x}-${end_offset:06x}")
+        print(f"   Size: {len(top_grid_data):,} bytes ({top_grid_snes['desc']})")
 
         # Mark coverage
-        for i in range(top_grid['start'], top_grid['end']):
+        for i in range(start_offset, end_offset + 1):
             if i < len(self.coverage_map):
                 self.coverage_map[i] = True
 
         # Analyze 64x64 grid structure
-        grid_entries = len(grid_data) // 2  # 2 bytes per entry
+        grid_entries = len(top_grid_data) // 2  # 2 bytes per entry
         unique_chunks = set()
 
-        for i in range(0, len(grid_data), 2):
-            chunk_id = struct.unpack('<H', grid_data[i:i+2])[0]
+        for i in range(0, len(top_grid_data), 2):
+            chunk_id = struct.unpack('<H', top_grid_data[i:i+2])[0]
             unique_chunks.add(chunk_id)
 
         print(f"   Grid entries: {grid_entries}")
@@ -134,15 +159,21 @@ class DQ3ROMMapAnalyzer:
             'chunk_range': (min(unique_chunks), max(unique_chunks))
         }
 
-        # Analyze chunks
-        chunks = self.rom_map['overworld']['chunks']
-        chunks_data = self.rom_data[chunks['start']:chunks['end']]
+        # Analyze chunks (SNES addresses)
+        chunks_snes = self.snes_rom_map['overworld']['chunks']
+        chunks_start, chunks_end = self.get_rom_range(
+            chunks_snes['start'],
+            chunks_snes['end']
+        )
 
-        print(f"📊 Chunks data: ${chunks['start']:06x}-${chunks['end']:06x}")
-        print(f"   Size: {len(chunks_data):,} bytes ({chunks['desc']})")
+        chunks_data = self.rom_data[chunks_start:chunks_end + 1]
+
+        print(f"📊 Chunks: {chunks_snes['start']}-{chunks_snes['end']} (SNES)")
+        print(f"   File offsets: ${chunks_start:06x}-${chunks_end:06x}")
+        print(f"   Size: {len(chunks_data):,} bytes ({chunks_snes['desc']})")
 
         # Mark coverage
-        for i in range(chunks['start'], chunks['end']):
+        for i in range(chunks_start, chunks_end + 1):
             if i < len(self.coverage_map):
                 self.coverage_map[i] = True
 
@@ -160,15 +191,21 @@ class DQ3ROMMapAnalyzer:
             'total_chunks': array_size
         }
 
-        # Analyze tiles
-        tiles = self.rom_map['overworld']['tiles']
-        tiles_data = self.rom_data[tiles['start']:tiles['end']]
+        # Analyze tiles (SNES addresses)
+        tiles_snes = self.snes_rom_map['overworld']['tiles']
+        tiles_start, tiles_end = self.get_rom_range(
+            tiles_snes['start'],
+            tiles_snes['end']
+        )
 
-        print(f"📊 Tiles data: ${tiles['start']:06x}-${tiles['end']:06x}")
-        print(f"   Size: {len(tiles_data):,} bytes ({tiles['desc']})")
+        tiles_data = self.rom_data[tiles_start:tiles_end + 1]
+
+        print(f"📊 Tiles: {tiles_snes['start']}-{tiles_snes['end']} (SNES)")
+        print(f"   File offsets: ${tiles_start:06x}-${tiles_end:06x}")
+        print(f"   Size: {len(tiles_data):,} bytes ({tiles_snes['desc']})")
 
         # Mark coverage
-        for i in range(tiles['start'], tiles['end']):
+        for i in range(tiles_start, tiles_end + 1):
             if i < len(self.coverage_map):
                 self.coverage_map[i] = True
 
