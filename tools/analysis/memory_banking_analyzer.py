@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
 """
 Dragon Quest III - Advanced Memory Banking System Analyzer
-Professional SNES LoROM banking analysis with comprehensive documentation
+Professional SNES HiROM banking analysis with comprehensive documentation
 
 This module implements enterprise-grade analysis of the Dragon Quest III
 SNES memory banking system, providing detailed mapping of ROM banks,
 memory layout, and banking mechanics.
 
-Architecture: SNES LoROM (Low ROM)
-- ROM mapped to $8000-$FFFF per bank
-- Banks $00-$7F: First half of ROM
-- Banks $80-$FF: Mirror of banks $00-$7F
-- Total ROM size: 6MB (96 banks of 32KB each)
+CRITICAL CORRECTION: Architecture: SNES HiROM (High ROM)
+- Banks $C0-$FF: ROM data mapped to $0000-$FFFF (full bank)
+- Banks $40-$7F: ROM data mapped to $0000-$FFFF (full bank)
+- Banks $00-$3F and $80-$BF: System area and mirrors
+- Total ROM size: 6MB (HiROM format)
 """
 
 import os
@@ -19,27 +19,35 @@ import json
 import struct
 from typing import Dict, List, Tuple, Any
 from pathlib import Path
+import sys
+
+# Add the utils directory to the path for address translation
+sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'utils'))
+from snes_address_translation import SNESAddressTranslator
 
 class DQ3MemoryBankingAnalyzer:
-    """Advanced SNES LoROM banking system analyzer"""
+    """Advanced SNES HiROM banking system analyzer"""
 
     def __init__(self, project_root: str):
         self.project_root = Path(project_root)
         self.rom_path = self.project_root / "static" / "Dragon Quest III - english (patched).smc"
         self.rom_data = bytes()
 
-        # SNES LoROM Banking Constants
-        self.BANK_SIZE = 0x8000  # 32KB per bank
-        self.BANK_COUNT = 192    # 6MB / 32KB = 192 banks
-        self.ROM_SIZE = 6291456  # 6MB total
+        # Initialize SNES address translator for HiROM
+        self.address_translator = SNESAddressTranslator()
 
-        # Memory mapping for SNES LoROM
+        # SNES HiROM Banking Constants
+        self.BANK_SIZE = 0x10000  # 64KB per bank (full bank in HiROM)
+        self.ROM_SIZE = 6291456   # 6MB total
+
+        # Memory mapping for SNES HiROM
         self.memory_map = {
-            'rom_base': 0x8000,     # ROM starts at $8000 in each bank
-            'rom_end': 0xFFFF,      # ROM ends at $FFFF in each bank
-            'sram_base': 0x6000,    # SRAM at $6000-$7FFF
-            'sram_size': 0x2000,    # 8KB SRAM
-            'header_offset': 0x7FC0  # ROM header at $00:7FC0
+            'hirom_c0_ff': {'start': 0xC0, 'end': 0xFF, 'size': 0x10000},  # Banks $C0-$FF
+            'hirom_40_7f': {'start': 0x40, 'end': 0x7F, 'size': 0x10000},  # Banks $40-$7F
+            'system_area': {'start': 0x00, 'end': 0x3F, 'desc': 'System area'},
+            'mirror_area': {'start': 0x80, 'end': 0xBF, 'desc': 'Mirror area'},
+            'sram_base': 0x6000,      # SRAM location
+            'header_offset': 0xFFC0   # ROM header in HiROM
         }
 
         # Banking analysis results
@@ -49,42 +57,44 @@ class DQ3MemoryBankingAnalyzer:
     def load_rom(self) -> bool:
         """Load ROM and verify banking structure"""
 
-        print("🏦 Dragon Quest III - Advanced Memory Banking System Analyzer")
+        print("BANK Dragon Quest III - Advanced Memory Banking System Analyzer")
         print("=" * 75)
-        print("🎯 Target: SNES LoROM Banking Analysis")
-        print("📊 Architecture: Low ROM (LoROM) Memory Layout")
+        print("TARGET: SNES HiROM Banking Analysis")
+        print("ARCHITECTURE: High ROM (HiROM) Memory Layout")
+        print("CRITICAL CORRECTION: DQ3 uses HiROM, not LoROM!")
         print()
 
         if not self.rom_path.exists():
-            print(f"❌ ROM file not found: {self.rom_path}")
+            print(f"ERROR ROM file not found: {self.rom_path}")
             return False
 
         with open(self.rom_path, 'rb') as f:
             self.rom_data = f.read()
 
-        print(f"✅ ROM loaded: {len(self.rom_data):,} bytes")
-        print(f"📊 Expected banks: {len(self.rom_data) // self.BANK_SIZE}")
-        print(f"📊 Bank size: {self.BANK_SIZE:,} bytes ({self.BANK_SIZE // 1024}KB)")
+        print(f"OK ROM loaded: {len(self.rom_data):,} bytes")
+        print(f"DATA HiROM banks: {len(self.rom_data) // self.BANK_SIZE}")
+        print(f"DATA Bank size: {self.BANK_SIZE:,} bytes ({self.BANK_SIZE // 1024}KB)")
+        print(f"DATA HiROM mapping: $C0-$FF and $40-$7F banks")
 
         # Verify ROM size matches expected banking structure
         if len(self.rom_data) != self.ROM_SIZE:
-            print(f"⚠️ ROM size mismatch: {len(self.rom_data)} vs expected {self.ROM_SIZE}")
+            print(f"WARNING ROM size mismatch: {len(self.rom_data)} vs expected {self.ROM_SIZE}")
 
         return True
 
     def analyze_rom_header(self):
         """Analyze SNES ROM header for banking information"""
 
-        print("\n📋 Analyzing SNES ROM Header")
+        print("\nAnalyzing SNES ROM Header")
         print("-" * 45)
 
-        # ROM header is at offset $7FC0 in the ROM file
+        # ROM header is at $00:FFC0 for HiROM (offset $FFC0 in ROM file)
         # For SMC files, we need to account for the 512-byte header
         smc_header_size = 512 if len(self.rom_data) % 1024 == 512 else 0
-        header_offset = smc_header_size + 0x7FC0
+        header_offset = smc_header_size + 0xFFC0
 
         if header_offset + 32 > len(self.rom_data):
-            print("❌ ROM header not found")
+            print("ERROR: ROM header not found")
             return
 
         header_data = self.rom_data[header_offset:header_offset + 32]
@@ -96,22 +106,26 @@ class DQ3MemoryBankingAnalyzer:
         rom_size = header_data[23]
         sram_size = header_data[24]
 
-        print(f"📊 Game Title: '{game_title}'")
-        print(f"📊 Map Mode: ${map_mode:02x} ({'LoROM' if map_mode & 1 == 0 else 'HiROM'})")
-        print(f"📊 Cartridge Type: ${cart_type:02x}")
-        print(f"📊 ROM Size: ${rom_size:02x} ({2 ** rom_size // 1024}KB)")
-        print(f"📊 SRAM Size: ${sram_size:02x} ({2 ** sram_size if sram_size > 0 else 0}KB)")
+        print(f"DATA Game Title: '{game_title}'")
+        print(f"DATA Map Mode: ${map_mode:02x} ({'LoROM' if map_mode & 1 == 0 else 'HiROM'})")
+        print(f"DATA Cartridge Type: ${cart_type:02x}")
+        print(f"DATA ROM Size: ${rom_size:02x} ({2 ** rom_size // 1024}KB)")
+        print(f"DATA SRAM Size: ${sram_size:02x} ({2 ** sram_size if sram_size > 0 else 0}KB)")
 
-        # Calculate banking information from header
-        rom_banks = 2 ** rom_size // self.BANK_SIZE
+        # Verify this is actually HiROM
+        is_hirom = (map_mode & 1) == 1
+        print(f"TARGET Verified HiROM: {is_hirom}")
 
-        print(f"📊 Calculated ROM Banks: {rom_banks}")
-        print(f"📊 Memory Layout: ${self.memory_map['rom_base']:04x}-${self.memory_map['rom_end']:04x} per bank")
+        # Calculate banking information for HiROM
+        rom_banks = len(self.rom_data) // self.BANK_SIZE
+
+        print(f"DATA ROM Banks: {rom_banks}")
+        print(f"DATA HiROM Layout: Banks $C0-$FF and $40-$7F contain ROM data")
 
         header_analysis = {
             'title': game_title,
             'map_mode': map_mode,
-            'is_lorom': (map_mode & 1) == 0,
+            'is_hirom': (map_mode & 1) == 1,
             'cart_type': cart_type,
             'rom_size_code': rom_size,
             'sram_size_code': sram_size,
@@ -124,7 +138,7 @@ class DQ3MemoryBankingAnalyzer:
     def analyze_bank_structure(self):
         """Analyze individual bank structure and classification"""
 
-        print("\n🔍 Analyzing Bank Structure")
+        print("\nAnalyzing Bank Structure")
         print("-" * 40)
 
         bank_analysis = {}
@@ -144,9 +158,14 @@ class DQ3MemoryBankingAnalyzer:
             ff_bytes = bank_data.count(0xFF)
             entropy = self.calculate_entropy(bank_data)
 
+            # Generate HiROM SNES addresses
+            hirom_bank_c0 = 0xC0 + bank_num  # Bank in $C0-$FF range
+            hirom_bank_40 = 0x40 + bank_num  # Bank in $40-$7F range
+
             bank_info = {
                 'number': bank_num,
-                'snes_address': f"${bank_num:02x}:8000-${bank_num:02x}:ffff",
+                'snes_hirom_c0': f"${hirom_bank_c0:02x}:0000-${hirom_bank_c0:02x}:ffff" if hirom_bank_c0 <= 0xFF else "N/A",
+                'snes_hirom_40': f"${hirom_bank_40:02x}:0000-${hirom_bank_40:02x}:ffff" if hirom_bank_40 <= 0x7F else "N/A",
                 'rom_offset': f"${bank_start:06x}-${bank_end-1:06x}",
                 'classification': bank_classification,
                 'zero_bytes': zero_bytes,
@@ -160,14 +179,15 @@ class DQ3MemoryBankingAnalyzer:
 
             # Print summary for first few banks
             if bank_num < 8:
-                print(f"📊 Bank ${bank_num:02x}: {bank_classification} (Entropy: {entropy:.3f})")
+                hirom_addr = f"${0xC0 + bank_num:02x}:0000" if 0xC0 + bank_num <= 0xFF else "N/A"
+                print(f"DATA Bank {bank_num:02x} (HiROM {hirom_addr}): {bank_classification} (Entropy: {entropy:.3f})")
 
         # Analyze remaining banks in groups
         for bank_group in range(32, total_banks, 16):
             group_end = min(bank_group + 16, total_banks)
             group_classification = self.analyze_bank_group(bank_group, group_end)
 
-            print(f"📊 Banks ${bank_group:02x}-${group_end-1:02x}: {group_classification}")
+            print(f"DATA Banks ${bank_group:02x}-${group_end-1:02x}: {group_classification}")
 
         self.banking_analysis['banks'] = bank_analysis
 
@@ -367,12 +387,12 @@ class DQ3MemoryBankingAnalyzer:
             'rom_info': {
                 'filename': self.rom_path.name,
                 'size_bytes': len(self.rom_data),
-                'architecture': 'SNES LoROM'
+                'architecture': 'SNES HiROM'
             },
             'banking_analysis': self.banking_analysis,
             'constants': {
                 'bank_size': self.BANK_SIZE,
-                'bank_count': self.BANK_COUNT,
+                'bank_count': len(self.rom_data) // self.BANK_SIZE,
                 'memory_map': self.memory_map
             }
         }
