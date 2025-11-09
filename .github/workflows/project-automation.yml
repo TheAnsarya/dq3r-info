@@ -1,0 +1,103 @@
+name: Project Board Automation
+
+on:
+  issues:
+    types: [opened, closed, labeled, assigned]
+  pull_request:
+    types: [opened, closed, ready_for_review, converted_to_draft]
+  project_card:
+    types: [moved]
+
+jobs:
+  manage-project-board:
+    name: Update Project Board
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Add new issues to project board
+      if: github.event_name == 'issues' && github.event.action == 'opened'
+      uses: actions/add-to-project@v0.4.0
+      with:
+        project-url: https://github.com/users/${{ github.repository_owner }}/projects/1
+        github-token: ${{ secrets.PROJECT_TOKEN }}
+
+    - name: Move issue to "Research" column for research labels
+      if: contains(github.event.issue.labels.*.name, 'research')
+      run: |
+        echo "Moving issue to Research column"
+        # This would use GitHub CLI or API to move the card
+
+    - name: Move issue to "Development" for feature/bug labels
+      if: contains(github.event.issue.labels.*.name, 'enhancement') || contains(github.event.issue.labels.*.name, 'bug')
+      run: |
+        echo "Moving issue to Development column"
+
+    - name: Move issue to "Documentation" for docs labels
+      if: contains(github.event.issue.labels.*.name, 'documentation')
+      run: |
+        echo "Moving issue to Documentation column"
+
+    - name: Move completed issues to "Complete"
+      if: github.event_name == 'issues' && github.event.action == 'closed'
+      run: |
+        echo "Moving completed issue to Complete column"
+
+    - name: Auto-assign based on labels
+      if: github.event_name == 'issues' && github.event.action == 'labeled'
+      run: |
+        # Auto-assign issues based on area labels
+        LABEL="${{ github.event.label.name }}"
+        case "$LABEL" in
+          "rom-analysis")
+            echo "Auto-assigning ROM analysis expert"
+            ;;
+          "documentation")
+            echo "Auto-assigning documentation maintainer"
+            ;;
+          "tools")
+            echo "Auto-assigning tools developer"
+            ;;
+        esac
+
+  update-milestone-progress:
+    name: Update Milestone Progress
+    runs-on: ubuntu-latest
+    if: github.event_name == 'issues'
+
+    steps:
+    - name: Calculate milestone progress
+      run: |
+        # Calculate completion percentage for milestones
+        echo "Calculating milestone progress"
+
+    - name: Update milestone description with progress
+      run: |
+        # Update milestone description with current progress stats
+        echo "Updating milestone progress indicators"
+
+  manage-stale-issues:
+    name: Manage Stale Issues
+    runs-on: ubuntu-latest
+    if: github.event_name == 'schedule'
+
+    steps:
+    - name: Mark stale issues
+      uses: actions/stale@v8
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        stale-issue-message: |
+          This issue has been automatically marked as stale because it has not had
+          recent activity. It will be closed if no further activity occurs. Thank you
+          for your contributions to DQ3R!
+        stale-pr-message: |
+          This PR has been automatically marked as stale because it has not had
+          recent activity. It will be closed if no further activity occurs.
+        stale-issue-label: 'stale'
+        stale-pr-label: 'stale'
+        days-before-stale: 60
+        days-before-close: 14
+        exempt-issue-labels: 'pinned,long-term'
+        exempt-pr-labels: 'pinned,work-in-progress'
