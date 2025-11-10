@@ -175,7 +175,7 @@ def implement_advanced_disassembler(issue):
 		'status': 'planned'
 	}
 
-	print(f"     Features: {', '.join(implementation['features'])}")
+	print(f"	 Features: {', '.join(implementation['features'])}")
 	return implementation
 
 
@@ -200,7 +200,7 @@ def implement_graphics_enhancement(issue):
 		'status': 'planned'
 	}
 
-	print(f"     Features: {', '.join(implementation['features'])}")
+	print(f"	 Features: {', '.join(implementation['features'])}")
 	return implementation
 
 
@@ -225,7 +225,7 @@ def implement_audio_system(issue):
 		'status': 'planned'
 	}
 
-	print(f"     Features: {', '.join(implementation['features'])}")
+	print(f"	 Features: {', '.join(implementation['features'])}")
 	return implementation
 
 
@@ -250,7 +250,7 @@ def implement_testing_framework(issue):
 		'status': 'planned'
 	}
 
-	print(f"     Features: {', '.join(implementation['features'])}")
+	print(f"	 Features: {', '.join(implementation['features'])}")
 	return implementation
 
 
@@ -275,7 +275,7 @@ def implement_documentation_system(issue):
 		'status': 'planned'
 	}
 
-	print(f"     Features: {', '.join(implementation['features'])}")
+	print(f"	 Features: {', '.join(implementation['features'])}")
 	return implementation
 
 

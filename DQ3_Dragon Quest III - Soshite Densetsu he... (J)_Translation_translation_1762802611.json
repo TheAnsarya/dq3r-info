@@ -1,0 +1,13 @@
+{
+  "export_info": {
+    "project_name": "DQ3_Dragon Quest III - Soshite Densetsu he... (J)_Translation",
+    "export_date": "2025-11-10T14:23:31.150959",
+    "total_segments": 1395,
+    "format": "json"
+  },
+  "segments": [
+    {
+      "id": 1,
+      "segment_id": "seg_000000",
+      "rom_offset": 2048,
+      "raw_data": 

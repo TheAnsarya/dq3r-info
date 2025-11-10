@@ -1075,11 +1075,11 @@ class AdvancedROMAnalysisEngine:
 	def _classify_segments(self, segment_analyses: List[Dict[str, Any]]) -> Dict[str, List[int]]:
 		"""Classify segments based on their characteristics"""
 		classifications = {
-			"high_entropy": [],    # Likely compressed/encrypted data
-			"low_entropy": [],     # Likely repetitive/structured data
+			"high_entropy": [],	# Likely compressed/encrypted data
+			"low_entropy": [],	 # Likely repetitive/structured data
 			"medium_entropy": [],  # Mixed content
 			"highly_unique": [],   # Many unique values
-			"repetitive": []       # Few unique values
+			"repetitive": []	   # Few unique values
 		}
 
 		for i, seg_analysis in enumerate(segment_analyses):

@@ -593,12 +593,12 @@ python test_plugin_system.py
 
 ```
 dq3r-info/
-├── ai_pattern_recognition.py    # AI-powered ROM analysis
-├── plugins/                     # Plugin system architecture
-├── tools/                       # Analysis and development tools
-├── tests/                       # Automated testing suite
-├── docs/                        # Documentation
-└── static/                      # ROM files and assets
+├── ai_pattern_recognition.py	# AI-powered ROM analysis
+├── plugins/					 # Plugin system architecture
+├── tools/					   # Analysis and development tools
+├── tests/					   # Automated testing suite
+├── docs/						# Documentation
+└── static/					  # ROM files and assets
 ```
 
 ## 🤝 Contributing
