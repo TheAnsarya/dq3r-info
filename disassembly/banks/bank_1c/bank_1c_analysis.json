@@ -1,0 +1,26 @@
+{
+  "bank_info": {
+    "number": 28,
+    "start_address": "0x1C0000",
+    "end_address": "0x1CFFFF",
+    "size": 65536,
+    "content_type": "game_logic",
+    "priority": "critical",
+    "estimated_hours": 30.0,
+    "analysis_status": "not_started"
+  },
+  "analysis_results": {
+    "code_sections": [],
+    "data_sections": [],
+    "entry_points": [],
+    "function_list": [],
+    "cross_references": [],
+    "completion_percentage": 0
+  },
+  "metadata": {
+    "created_date": "2025-11-10T14:39:11.976786",
+    "last_modified": "2025-11-10T14:39:11.976790",
+    "analyzer_version": "1.0.0",
+    "notes": "Bank 0x1C - Bank 0x1C: Main game logic, battle system, and core mechanics"
+  }
+}

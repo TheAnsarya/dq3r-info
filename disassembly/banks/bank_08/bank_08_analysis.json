@@ -1,0 +1,26 @@
+{
+  "bank_info": {
+    "number": 8,
+    "start_address": "0x080000",
+    "end_address": "0x08FFFF",
+    "size": 65536,
+    "content_type": "game_logic",
+    "priority": "critical",
+    "estimated_hours": 30.0,
+    "analysis_status": "not_started"
+  },
+  "analysis_results": {
+    "code_sections": [],
+    "data_sections": [],
+    "entry_points": [],
+    "function_list": [],
+    "cross_references": [],
+    "completion_percentage": 0
+  },
+  "metadata": {
+    "created_date": "2025-11-10T14:39:11.941714",
+    "last_modified": "2025-11-10T14:39:11.941719",
+    "analyzer_version": "1.0.0",
+    "notes": "Bank 0x08 - Bank 0x08: Main game logic, battle system, and core mechanics"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "bank_info": {
+    "number": 2,
+    "start_address": "0x020000",
+    "end_address": "0x02FFFF",
+    "size": 65536,
+    "content_type": "system",
+    "priority": "critical",
+    "estimated_hours": 25.0,
+    "analysis_status": "not_started"
+  },
+  "analysis_results": {
+    "code_sections": [],
+    "data_sections": [],
+    "entry_points": [],
+    "function_list": [],
+    "cross_references": [],
+    "completion_percentage": 0
+  },
+  "metadata": {
+    "created_date": "2025-11-10T14:39:11.928484",
+    "last_modified": "2025-11-10T14:39:11.928491",
+    "analyzer_version": "1.0.0",
+    "notes": "Bank 0x02 - Bank 0x02: Core system code, vectors, and initialization routines"
+  }
+}

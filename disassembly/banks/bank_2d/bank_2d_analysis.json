@@ -1,0 +1,26 @@
+{
+  "bank_info": {
+    "number": 45,
+    "start_address": "0x2D0000",
+    "end_address": "0x2DFFFF",
+    "size": 65536,
+    "content_type": "graphics",
+    "priority": "high",
+    "estimated_hours": 22.0,
+    "analysis_status": "not_started"
+  },
+  "analysis_results": {
+    "code_sections": [],
+    "data_sections": [],
+    "entry_points": [],
+    "function_list": [],
+    "cross_references": [],
+    "completion_percentage": 0
+  },
+  "metadata": {
+    "created_date": "2025-11-10T14:39:12.006634",
+    "last_modified": "2025-11-10T14:39:12.006638",
+    "analyzer_version": "1.0.0",
+    "notes": "Bank 0x2D - Bank 0x2D: Graphics data, sprites, and tile sets"
+  }
+}

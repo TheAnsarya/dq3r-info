@@ -1,0 +1,26 @@
+{
+  "bank_info": {
+    "number": 55,
+    "start_address": "0x370000",
+    "end_address": "0x37FFFF",
+    "size": 65536,
+    "content_type": "graphics",
+    "priority": "high",
+    "estimated_hours": 22.0,
+    "analysis_status": "not_started"
+  },
+  "analysis_results": {
+    "code_sections": [],
+    "data_sections": [],
+    "entry_points": [],
+    "function_list": [],
+    "cross_references": [],
+    "completion_percentage": 0
+  },
+  "metadata": {
+    "created_date": "2025-11-10T14:39:12.024170",
+    "last_modified": "2025-11-10T14:39:12.024175",
+    "analyzer_version": "1.0.0",
+    "notes": "Bank 0x37 - Bank 0x37: Graphics data, sprites, and tile sets"
+  }
+}
