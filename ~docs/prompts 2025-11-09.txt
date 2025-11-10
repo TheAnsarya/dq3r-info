@@ -41,11 +41,13 @@ if a module isn't available, then add it! add the missing websockets module and 
 
 put a timestamp on the IDE chat window for every response line using the _actual time_, not time since prompt started FOR EVERY SESSION AND PROMPT; run formatting on the files (tabs not spaces!); start working the github issues; implement the changes to make it awesome for as long as you can and use up all the tokens for each session, do not waste my money - use the entire token space;
 
-git commit and push damnit!; *** That script ran for half an hour and didn't end, break it into batches or something ***; put a timestamp on the IDE chat window for every response line using the _actual time_, not time since prompt started FOR EVERY SESSION AND PROMPT; run formatting on the files (tabs not spaces!); start working the github issues; implement the changes to make it awesome for as long as you can and use up all the tokens for each session, do not waste my money - use the entire token space;
+git commit and push damnit!; *** That script ran for half an hour and didn't end, break it into batches or something ***  also why is analyzing the english rom? The japanese rom is theone we are working with!; put a timestamp on the IDE chat window for every response line using the _actual time_, not time since prompt started FOR EVERY SESSION AND PROMPT; run formatting on the files (tabs not spaces!); start working the github issues; implement the changes to make it awesome for as long as you can and use up all the tokens for each session, do not waste my money - use the entire token space;
 
+the guthub issues are sparse in their descriptions -- add real descriptions and todo lists and sub-issues with emojis and stuff; move issues in the kanban board as you work on them; some of the additional sub issues should cover disassembly of the entire rom, bank by bank, and those banks can also be split into multiple files; THE PRIMARY PURPOSE of this project is to disassemble the japanese DQ3 SNES rom and document it and label all the code in its entirety so focus on that first; go!
 
+log me into GitKraken MCP so you can stop asking me
 
-
+log me into GitKraken MCP so you can stop asking me; do the manual browser interaction! then continue with issues creation and updating ns rthen continue work
 
 
 
