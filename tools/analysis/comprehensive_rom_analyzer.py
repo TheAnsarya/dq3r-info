@@ -180,11 +180,11 @@ class ComprehensiveROMAnalyzer:
 		print("Analyzing HiROM banks...")
 
 		bank_analysis = {}
-		total_banks = 64  # Banks $C0-$FF
+		total_banks = 64	# Banks $C0-$FF
 
 		for bank_num in range(0xC0, 0x100):
 			bank_key = f"${bank_num:02X}"
-			print(f"  Analyzing bank {bank_key}...")
+			print(f"	Analyzing bank {bank_key}...")
 
 			# Calculate bank boundaries
 			bank_start_snes = f"${bank_num:02X}:0000"
@@ -285,7 +285,7 @@ class ComprehensiveROMAnalyzer:
 				else:
 					break
 
-			if repetitions >= 4:  # At least 4 repetitions
+			if repetitions >= 4:	# At least 4 repetitions
 				patterns.append({
 					"pattern": pattern.hex(),
 					"size": pattern_size,
@@ -305,7 +305,7 @@ class ComprehensiveROMAnalyzer:
 			ptr16 = struct.unpack('<H', data[i:i+2])[0]
 
 			# Check if it's a reasonable SNES address
-			if 0x8000 <= ptr16 <= 0xFFFF:  # Typical SNES address range
+			if 0x8000 <= ptr16 <= 0xFFFF:	# Typical SNES address range
 				pointers.append({
 					"offset": i,
 					"type": "16bit",
@@ -329,7 +329,7 @@ class ComprehensiveROMAnalyzer:
 						"address": f"${ptr_addr:04X}"
 					})
 
-		return pointers[:50]  # Limit results
+		return pointers[:50]	# Limit results
 
 	def detect_primary_data_type(self, data: bytes) -> Tuple[DataType, float]:
 		"""Detect the primary data type in a region"""
@@ -423,7 +423,7 @@ class ComprehensiveROMAnalyzer:
 			if i + 8 < len(data):
 				header = data[i]
 				# BRR header has specific bit patterns
-				if (header & 0x0C) in [0x00, 0x04, 0x08, 0x0C]:  # Valid shift values
+				if (header & 0x0C) in [0x00, 0x04, 0x08, 0x0C]:	# Valid shift values
 					brr_pattern_score += 0.01
 
 		# Audio data often has specific entropy characteristics
@@ -439,10 +439,10 @@ class ComprehensiveROMAnalyzer:
 
 		# Look for common 65816 opcodes and patterns
 		common_opcodes = {
-			0xA9, 0xA5, 0x85, 0x8D, 0xAD,  # LDA variants
-			0x4C, 0x6C, 0x20,			  # JMP, JSR
-			0x60, 0x6B, 0x40,			  # RTS, RTL, RTI
-			0xEA,						  # NOP
+			0xA9, 0xA5, 0x85, 0x8D, 0xAD,	# LDA variants
+			0x4C, 0x6C, 0x20,				# JMP, JSR
+			0x60, 0x6B, 0x40,				# RTS, RTL, RTI
+			0xEA,							# NOP
 			0x18, 0x38, 0x58, 0x78,		# Flag operations
 		}
 
@@ -457,9 +457,9 @@ class ComprehensiveROMAnalyzer:
 			opcode = data[i]
 			if opcode in common_opcodes:
 				# Check if next bytes make sense as operands
-				if opcode in [0xA9, 0xA5]:  # LDA immediate/direct
+				if opcode in [0xA9, 0xA5]:	# LDA immediate/direct
 					valid_sequences += 1
-				elif opcode == 0x4C and i + 2 < len(data):  # JMP absolute
+				elif opcode == 0x4C and i + 2 < len(data):	# JMP absolute
 					addr = struct.unpack('<H', data[i+1:i+3])[0]
 					if 0x8000 <= addr <= 0xFFFF:
 						valid_sequences += 1
@@ -486,9 +486,9 @@ class ComprehensiveROMAnalyzer:
 		entropy = self.calculate_entropy(data)
 
 		if entropy < 1.0:
-			return CompressionType.RLE  # Likely run-length encoded
+			return CompressionType.RLE	# Likely run-length encoded
 		elif entropy < 3.0:
-			return CompressionType.CUSTOM  # Possibly custom compression
+			return CompressionType.CUSTOM	# Possibly custom compression
 
 		# Look for LZ-style patterns
 		if self.detect_lz_patterns(data):
@@ -511,7 +511,7 @@ class ComprehensiveROMAnalyzer:
 					back_refs += 1
 					break
 
-		return back_refs > len(data) * 0.3  # 30% back-references
+		return back_refs > len(data) * 0.3	# 30% back-references
 
 	def identify_notable_features(self, data: bytes, bank_num: int) -> List[str]:
 		"""Identify notable features in bank data"""
@@ -530,7 +530,7 @@ class ComprehensiveROMAnalyzer:
 			features.append("ascii_text")
 
 		# Check for repetitive patterns
-		if len(set(data[:100])) < 10:  # Very few unique bytes
+		if len(set(data[:100])) < 10:	# Very few unique bytes
 			features.append("repetitive")
 
 		# Check for pointer tables
@@ -681,7 +681,7 @@ class ComprehensiveROMAnalyzer:
 				if 0x8000 <= target <= 0xFFFF:
 					entry_points.append(target)
 
-		return entry_points[:20]  # Limit results
+		return entry_points[:20]	# Limit results
 
 	def find_subroutines(self, data: bytes, base_offset: int) -> List[Dict[str, Any]]:
 		"""Find subroutines in code data"""
@@ -689,9 +689,9 @@ class ComprehensiveROMAnalyzer:
 
 		# Simple subroutine detection based on RTS/RTL patterns
 		for i in range(len(data)):
-			if data[i] in [0x60, 0x6B]:  # RTS, RTL
+			if data[i] in [0x60, 0x6B]:	# RTS, RTL
 				# Look backwards for potential subroutine start
-				start = max(0, i - 64)  # Reasonable subroutine size
+				start = max(0, i - 64)	# Reasonable subroutine size
 
 				subroutine = {
 					"offset": base_offset + start,
@@ -701,7 +701,7 @@ class ComprehensiveROMAnalyzer:
 				}
 				subroutines.append(subroutine)
 
-		return subroutines[:50]  # Limit results
+		return subroutines[:50]	# Limit results
 
 	def find_data_references(self, data: bytes) -> List[int]:
 		"""Find data references in code"""
@@ -709,11 +709,11 @@ class ComprehensiveROMAnalyzer:
 
 		# Look for LDA/STA instructions with absolute addresses
 		for i in range(len(data) - 2):
-			if data[i] in [0xAD, 0x8D]:  # LDA abs, STA abs
+			if data[i] in [0xAD, 0x8D]:	# LDA abs, STA abs
 				addr = struct.unpack('<H', data[i+1:i+3])[0]
 				references.append(addr)
 
-		return references[:100]  # Limit results
+		return references[:100]	# Limit results
 
 	def extract_game_data(self) -> Dict[str, Any]:
 		"""Extract Dragon Quest III game data structures"""
@@ -785,7 +785,7 @@ class ComprehensiveROMAnalyzer:
 			{
 				"id": 0,
 				"location": "Aliahan",
-				"items": [0, 1, 2, 3],  # Item IDs
+				"items": [0, 1, 2, 3],	# Item IDs
 				"rom_location": "$C60000"
 			}
 		]

@@ -40,9 +40,9 @@ class BasicRing400:
 	Format: 10-bit address field + 6-bit copy size field
 	"""
 
-	RING_SIZE = 0x400  # 1024 bytes
-	MAX_COPY_SIZE = 63  # 6-bit field max value
-	MIN_COPY_SIZE = 3  # Minimum bytes to make compression worthwhile
+	RING_SIZE = 0x400	# 1024 bytes
+	MAX_COPY_SIZE = 63	# 6-bit field max value
+	MIN_COPY_SIZE = 3	# Minimum bytes to make compression worthwhile
 
 	def __init__(self):
 		self.ring_buffer = bytearray(self.RING_SIZE)
@@ -108,7 +108,7 @@ class BasicRing400:
 
 			byte1 = compressed_data[data_pos]
 
-			if byte1 & 0x80:  # Literal byte
+			if byte1 & 0x80:	# Literal byte
 				literal = byte1 & 0x7f
 				decompressed.append(literal)
 				self._add_to_ring(literal)
@@ -316,8 +316,8 @@ class HuffmanDialogCompression:
 		codes = {}
 
 		def generate_codes(node, code=""):
-			if isinstance(node[1], str):  # Leaf node
-				codes[node[1]] = code or "0"  # Handle single character case
+			if isinstance(node[1], str):	# Leaf node
+				codes[node[1]] = code or "0"	# Handle single character case
 			else:
 				generate_codes(node[1], code + "0")
 				generate_codes(node[2], code + "1")
@@ -557,7 +557,7 @@ if __name__ == "__main__":
 	print(f"Ratio: {dialog_stats.compression_ratio:.2f}")
 
 	# Test binary compression
-	sample_binary = b"\x00\x01\x02\x03" * 256  # Repeating pattern
+	sample_binary = b"\x00\x01\x02\x03" * 256	# Repeating pattern
 
 	print("\nTesting BasicRing400 compression...")
 	compressed_binary, binary_stats = engine.compress(sample_binary, "basic_ring400")

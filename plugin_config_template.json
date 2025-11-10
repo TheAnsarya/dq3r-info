@@ -4,6 +4,11 @@
         "config": {},
         "description": "Extracts audio samples and music"
     },
+    "DQ3 Text Analyzer": {
+        "enabled": true,
+        "config": {},
+        "description": "Advanced text analysis for Dragon Quest III ROM"
+    },
     "Graphics Analyzer": {
         "enabled": true,
         "config": {},

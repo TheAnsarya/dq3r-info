@@ -114,7 +114,7 @@ class DQ3ProgressTracker:
 			file_path = self.analysis_dir / filename
 			if file_path.exists():
 				with open(file_path, "r") as f:
-					data[filename[:-5]] = json.load(f)  # Remove .json extension
+					data[filename[:-5]] = json.load(f)	# Remove .json extension
 
 		return data
 
@@ -279,15 +279,15 @@ class DQ3ProgressTracker:
 				[
 					f"",
 					f"🎯 {progress.category}",
-					f"   {progress.status_bar}",
-					f"   {progress.completed_items:,} / {progress.total_items:,} completed",
+					f"	 {progress.status_bar}",
+					f"	 {progress.completed_items:,} / {progress.total_items:,} completed",
 					"",
 				]
 			)
 
 			# Add details
-			for detail in progress.details[:3]:  # Show first 3 details
-				lines.append(f"   • {detail}")
+			for detail in progress.details[:3]:	# Show first 3 details
+				lines.append(f"	 • {detail}")
 
 		lines.append("")
 
@@ -308,7 +308,7 @@ class DQ3ProgressTracker:
 				[
 					f"",
 					f"📦 {asset_type.value.replace('_', ' ').title()}",
-					f"   [{bar}] {percentage:.1f}% ({extracted}/{total})",
+					f"	 [{bar}] {percentage:.1f}% ({extracted}/{total})",
 					"",
 				]
 			)
@@ -316,7 +316,7 @@ class DQ3ProgressTracker:
 			# Show asset details
 			for asset in assets:
 				status = "✅" if asset.extracted else "⏳"
-				lines.append(f"   {status} {asset.name:<25} ${asset.address:06X} ({asset.size:,} bytes)")
+				lines.append(f"	 {status} {asset.name:<25} ${asset.address:06X} ({asset.size:,} bytes)")
 
 		# Detailed breakdown
 		lines.extend(["", "", "📋 DETAILED BREAKDOWN", "-" * 80])
@@ -335,9 +335,9 @@ class DQ3ProgressTracker:
 				[
 					f"",
 					f"{status_icon} {system_name}",
-					f"   Progress: {completion:.1f}%",
-					f"   Functions: {functions}",
-					f"   Banks: {banks}",
+					f"	 Progress: {completion:.1f}%",
+					f"	 Functions: {functions}",
+					f"	 Banks: {banks}",
 					"",
 				]
 			)
@@ -367,7 +367,7 @@ class DQ3ProgressTracker:
 				else:
 					status = "💤 Data/Empty"
 
-				lines.append(f"   Bank {bank_id}: {status:<15} {bank.get('description', 'Unknown')}")
+				lines.append(f"	 Bank {bank_id}: {status:<15} {bank.get('description', 'Unknown')}")
 
 		# Summary statistics
 		lines.extend(["", "", "📈 SUMMARY STATISTICS", "-" * 80])
@@ -381,10 +381,10 @@ class DQ3ProgressTracker:
 		lines.extend(
 			[
 				f"Overall Progress:	 {total_progress:.1f}%",
-				f"Total Assets Found:   {total_assets}",
+				f"Total Assets Found:	 {total_assets}",
 				f"Assets Extracted:	 {extracted_assets} ({(extracted_assets/max(total_assets,1)*100):.1f}%)",
-				f"Functions Analyzed:   {self.progress_categories['functions'].completed_items}",
-				f"Banks Processed:	  {self.progress_categories['banking'].completed_items}",
+				f"Functions Analyzed:	 {self.progress_categories['functions'].completed_items}",
+				f"Banks Processed:		{self.progress_categories['banking'].completed_items}",
 				"",
 			]
 		)
@@ -432,7 +432,7 @@ class DQ3ProgressTracker:
 		banking_data = self.analysis_data.get("dq3_banking", {})
 		banks_info = banking_data.get("banks", {})
 
-		for i in range(64):  # Show all 64 banks
+		for i in range(64):	# Show all 64 banks
 			bank_id = f"${i:02X}"
 			if bank_id in banks_info:
 				content = banks_info[bank_id].get("content_analysis", {})
@@ -468,7 +468,7 @@ class DQ3ProgressTracker:
 				<ul>
 			"""
 
-			for asset in assets[:3]:  # Show first 3 assets
+			for asset in assets[:3]:	# Show first 3 assets
 				status = "✅" if asset.extracted else "⏳"
 				asset_cards += f"<li>{status} {asset.name}</li>"
 
@@ -571,7 +571,7 @@ class DQ3ProgressTracker:
 		# JSON data export for external tools
 		def asset_to_dict(asset: AssetInfo) -> Dict[str, Any]:
 			data = asdict(asset)
-			data["asset_type"] = asset.asset_type.value  # Convert enum to string
+			data["asset_type"] = asset.asset_type.value	# Convert enum to string
 			return data
 
 		export_data = {
@@ -586,9 +586,9 @@ class DQ3ProgressTracker:
 			json.dump(export_data, f, indent="\t")
 
 		print("✅ Progress reports exported successfully")
-		print(f"   📄 ASCII Table: {output_path}/dq3_progress_table.txt")
-		print(f"   🌐 HTML Dashboard: {output_path}/dq3_dashboard.html")
-		print(f"   📊 JSON Data: {output_path}/dq3_progress_data.json")
+		print(f"	 📄 ASCII Table: {output_path}/dq3_progress_table.txt")
+		print(f"	 🌐 HTML Dashboard: {output_path}/dq3_dashboard.html")
+		print(f"	 📊 JSON Data: {output_path}/dq3_progress_data.json")
 
 
 def main():
@@ -611,7 +611,7 @@ def main():
 	tracker.export_progress_reports(args.output)
 
 	print(f"\n🎯 Progress tracking complete!")
-	print(f"   Open {args.output}/dq3_dashboard.html in a web browser for interactive view")
+	print(f"	 Open {args.output}/dq3_dashboard.html in a web browser for interactive view")
 
 
 if __name__ == "__main__":

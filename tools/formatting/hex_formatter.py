@@ -89,14 +89,14 @@ class HexFormatter:
 
 		# File extensions to process
 		self.supported_extensions = {
-			'.asm', '.inc', '.s', '.S',  # Assembly files
-			'.py', '.pyx',			   # Python files
-			'.c', '.h', '.cpp', '.hpp',  # C/C++ files
-			'.md', '.txt', '.rst',	   # Documentation
+			'.asm', '.inc', '.s', '.S',	# Assembly files
+			'.py', '.pyx',				 # Python files
+			'.c', '.h', '.cpp', '.hpp',	# C/C++ files
+			'.md', '.txt', '.rst',		 # Documentation
 			'.json', '.yaml', '.yml',	# Configuration
-			'.csv',					  # Data files
+			'.csv',						# Data files
 			'.html', '.htm',			 # Web files
-			'.js', '.ts',			   # JavaScript/TypeScript
+			'.js', '.ts',				 # JavaScript/TypeScript
 		}
 
 		# Files to skip for safety
@@ -111,8 +111,8 @@ class HexFormatter:
 		content = match.group(1) if match.group(1) else match.group(0)
 		# Replace hex escapes within the string
 		formatted = re.sub(r'\\x([0-9A-F]{2})',
-						  lambda m: f'\\x{m.group(1).lower()}',
-						  content)
+							lambda m: f'\\x{m.group(1).lower()}',
+							content)
 		quote = '"' if match.group(0).startswith('"') else "'"
 		return f'{quote}{formatted}{quote}'
 
@@ -145,7 +145,7 @@ class HexFormatter:
 				except Exception as e:
 					self.stats.warnings.append(f"Pattern formatting error: {e}")
 
-		return sorted(matches, key=lambda x: x[0], reverse=True)  # Process from end to start
+		return sorted(matches, key=lambda x: x[0], reverse=True)	# Process from end to start
 
 	def _apply_formatting(self, content: str, file_path: Path) -> Tuple[str, bool]:
 		"""Apply hex formatting to content"""
@@ -311,8 +311,8 @@ class HexFormatter:
 			f.write(self.generate_report())
 
 		print(f"\n📊 Reports saved:")
-		print(f"   JSON: {json_file.relative_to(self.root_dir)}")
-		print(f"   Markdown: {md_file.relative_to(self.root_dir)}")
+		print(f"	 JSON: {json_file.relative_to(self.root_dir)}")
+		print(f"	 Markdown: {md_file.relative_to(self.root_dir)}")
 
 def main():
 	"""Main entry point"""
@@ -324,11 +324,11 @@ def main():
 		epilog=__doc__
 	)
 	parser.add_argument('directory', nargs='?', default='.',
-					   help='Directory to process (default: current)')
+						 help='Directory to process (default: current)')
 	parser.add_argument('--extensions',
-					   help='Comma-separated list of file extensions to process')
+						 help='Comma-separated list of file extensions to process')
 	parser.add_argument('--dry-run', action='store_true',
-					   help='Show what would be changed without making modifications')
+						 help='Show what would be changed without making modifications')
 
 	args = parser.parse_args()
 
@@ -347,12 +347,12 @@ def main():
 		print("\n" + "=" * 80)
 		print("📈 FORMATTING COMPLETE!")
 		print(f"📁 {formatter.stats.files_processed:,} files processed")
-		print(f"✏️  {formatter.stats.files_modified:,} files modified")
+		print(f"✏️	{formatter.stats.files_modified:,} files modified")
 		print(f"🔤 {formatter.stats.hex_patterns_converted:,} hex values converted to lowercase")
 		print(f"⚡ {formatter.stats.processing_time:.2f} seconds")
 
 		if formatter.stats.error_count > 0:
-			print(f"⚠️  {formatter.stats.error_count} errors occurred")
+			print(f"⚠️	{formatter.stats.error_count} errors occurred")
 
 		formatter.save_results()
 

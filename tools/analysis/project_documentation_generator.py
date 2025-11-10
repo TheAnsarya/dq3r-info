@@ -116,7 +116,7 @@ class ProjectDocumentationGenerator:
 		if text_csv.exists():
 			with open(text_csv, 'r', encoding='utf-8') as f:
 				reader = csv.reader(f)
-				results['text_csv_rows'] = sum(1 for row in reader) - 1  # Exclude header
+				results['text_csv_rows'] = sum(1 for row in reader) - 1	# Exclude header
 
 		region_csv = analysis_dir / "region_map.csv"
 		if region_csv.exists():
@@ -200,7 +200,7 @@ class ProjectDocumentationGenerator:
 							with open(py_file, 'r', encoding='latin1') as f:
 								total_lines += sum(1 for _ in f)
 						except:
-							pass  # Skip files that can't be read
+							pass	# Skip files that can't be read
 
 				tools['total_code_lines'] = total_lines
 
@@ -278,19 +278,19 @@ class ProjectDocumentationGenerator:
 			f.write("## Project Structure\n\n")
 			f.write("```\n")
 			f.write("dq3r-info/\n")
-			f.write("  docs/					  # All analysis documentation\n")
+			f.write("	docs/						# All analysis documentation\n")
 			f.write("	maximum_analysis/		# Comprehensive ROM analysis\n")
 			f.write("	final_report/			# This final documentation\n")
 			f.write("	functions.md			 # Function analysis results\n")
 			f.write("	hardware_usage.md		# Hardware register usage\n")
-			f.write("  src/					   # Generated assembly sources\n")
+			f.write("	src/						 # Generated assembly sources\n")
 			f.write("	ultimate/				# Ultimate annotated assembly\n")
 			f.write("	dq3_main.asm			# Main disassembly\n")
-			f.write("	bank_*.asm			  # Bank-specific assembly\n")
-			f.write("  tools/					 # Analysis tools\n")
+			f.write("	bank_*.asm				# Bank-specific assembly\n")
+			f.write("	tools/					 # Analysis tools\n")
 			f.write("	analysis/				# ROM analysis scripts\n")
-			f.write("  converted_graphics/		# Extracted graphics as PNG\n")
-			f.write("  static/					# Original ROM files\n")
+			f.write("	converted_graphics/		# Extracted graphics as PNG\n")
+			f.write("	static/					# Original ROM files\n")
 			f.write("```\n\n")
 
 	def _generate_analysis_summary(self, output_dir: Path):

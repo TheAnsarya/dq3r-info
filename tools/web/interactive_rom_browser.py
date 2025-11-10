@@ -51,8 +51,8 @@ class InteractiveROMBrowser:
 		# Initialize Flask app if available
 		if Flask:
 			self.app = Flask(__name__,
-						   template_folder=str(self.project_root / "web" / "templates"),
-						   static_folder=str(self.project_root / "web" / "static"))
+							 template_folder=str(self.project_root / "web" / "templates"),
+							 static_folder=str(self.project_root / "web" / "static"))
 			CORS(self.app)
 			self._setup_routes()
 		else:
@@ -153,8 +153,8 @@ class InteractiveROMBrowser:
 
 					# Take top candidates for each format
 					top_candidates = sorted(candidates,
-										  key=lambda x: x.get('confidence', 0),
-										  reverse=True)[:20]
+											key=lambda x: x.get('confidence', 0),
+											reverse=True)[:20]
 
 					for candidate in top_candidates:
 						gallery_data.append({
@@ -227,7 +227,7 @@ class InteractiveROMBrowser:
 
 				# Convert to JSON-serializable format
 				char_data = []
-				for char in characters[:50]:  # Limit for performance
+				for char in characters[:50]:	# Limit for performance
 					char_data.append({
 						'id': char.id,
 						'name': char.name,
@@ -255,7 +255,7 @@ class InteractiveROMBrowser:
 
 				# Convert to JSON-serializable format
 				item_data = []
-				for item in items[:50]:  # Limit for performance
+				for item in items[:50]:	# Limit for performance
 					item_data.append({
 						'id': item.id,
 						'name': item.name,
@@ -283,7 +283,7 @@ class InteractiveROMBrowser:
 
 				# Convert to JSON-serializable format
 				monster_data = []
-				for monster in monsters[:50]:  # Limit for performance
+				for monster in monsters[:50]:	# Limit for performance
 					monster_data.append({
 						'id': monster.id,
 						'name': monster.name,
@@ -312,7 +312,7 @@ class InteractiveROMBrowser:
 				brr_results = analyzer.analyze_brr_samples()
 
 				sample_data = []
-				for sample in brr_results.get('samples', [])[:30]:  # Limit for performance
+				for sample in brr_results.get('samples', [])[:30]:	# Limit for performance
 					sample_data.append({
 						'offset': f"${sample.offset:06X}",
 						'size': sample.size,
@@ -407,7 +407,7 @@ class InteractiveROMBrowser:
 			for i in range(min(len(data), width * height)):
 				# Simple grayscale conversion
 				gray_value = data[i]
-				preview_bytes.extend([gray_value, gray_value, gray_value, 255])  # RGBA
+				preview_bytes.extend([gray_value, gray_value, gray_value, 255])	# RGBA
 
 			# Pad to full size
 			while len(preview_bytes) < width * height * 4:
@@ -670,7 +670,7 @@ function loadGraphicsGallery() {
 			let html = '<div class="row">';
 			data.forEach(item => {
 				const confidenceClass = item.confidence > 0.7 ? 'confidence-high' :
-									  item.confidence > 0.4 ? 'confidence-medium' : 'confidence-low';
+										item.confidence > 0.4 ? 'confidence-medium' : 'confidence-low';
 
 				html += `
 					<div class="col-md-4 mb-3">
@@ -763,7 +763,7 @@ function loadGameData(type) {
 				html += '<tr><th>ID</th><th>Name</th><th>Class</th><th>Level</th><th>HP</th><th>MP</th><th>Confidence</th></tr></thead><tbody>';
 				data.forEach(char => {
 					const confidenceClass = char.confidence > 0.7 ? 'confidence-high' :
-										  char.confidence > 0.4 ? 'confidence-medium' : 'confidence-low';
+											char.confidence > 0.4 ? 'confidence-medium' : 'confidence-low';
 					html += `
 						<tr>
 							<td>${char.id}</td>
@@ -780,7 +780,7 @@ function loadGameData(type) {
 				html += '<tr><th>ID</th><th>Name</th><th>Type</th><th>Price</th><th>Attack</th><th>Defense</th><th>Confidence</th></tr></thead><tbody>';
 				data.forEach(item => {
 					const confidenceClass = item.confidence > 0.7 ? 'confidence-high' :
-										  item.confidence > 0.4 ? 'confidence-medium' : 'confidence-low';
+											item.confidence > 0.4 ? 'confidence-medium' : 'confidence-low';
 					html += `
 						<tr>
 							<td>${item.id}</td>
@@ -797,7 +797,7 @@ function loadGameData(type) {
 				html += '<tr><th>ID</th><th>Name</th><th>HP</th><th>Attack</th><th>Experience</th><th>Gold</th><th>Confidence</th></tr></thead><tbody>';
 				data.forEach(monster => {
 					const confidenceClass = monster.confidence > 0.7 ? 'confidence-high' :
-										  monster.confidence > 0.4 ? 'confidence-medium' : 'confidence-low';
+											monster.confidence > 0.4 ? 'confidence-medium' : 'confidence-low';
 					html += `
 						<tr>
 							<td>${monster.id}</td>
@@ -836,7 +836,7 @@ function loadAudioSamples() {
 
 			data.forEach(sample => {
 				const confidenceClass = sample.confidence > 0.7 ? 'confidence-high' :
-									  sample.confidence > 0.4 ? 'confidence-medium' : 'confidence-low';
+										sample.confidence > 0.4 ? 'confidence-medium' : 'confidence-low';
 
 				html += `
 					<tr>

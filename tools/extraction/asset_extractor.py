@@ -130,14 +130,14 @@ class DQ3AssetExtractor:
 			{
 				"name": "character_tiles",
 				"format": AssetFormat.SNES_4BPP,
-				"start_pattern": b"\x00\x00\x00\x00\x00\x00\x00\x00",  # Empty tiles often start sets
-				"size_estimate": 0x8000,  # 32KB blocks
+				"start_pattern": b"\x00\x00\x00\x00\x00\x00\x00\x00",	# Empty tiles often start sets
+				"size_estimate": 0x8000,	# 32KB blocks
 				"alignment": 0x1000,
 			},
 			{
 				"name": "sprite_data",
 				"format": AssetFormat.SPRITE_16X16,
-				"start_pattern": b"\xff\x00\xff\x00",  # Common sprite pattern
+				"start_pattern": b"\xff\x00\xff\x00",	# Common sprite pattern
 				"size_estimate": 0x4000,
 				"alignment": 0x800,
 			},
@@ -148,14 +148,14 @@ class DQ3AssetExtractor:
 			{
 				"name": "brr_samples",
 				"format": AssetFormat.BRR_SAMPLE,
-				"start_pattern": b"\x00\x00\x00\x00\x00\x00\x00\x00\x03",  # BRR end marker
+				"start_pattern": b"\x00\x00\x00\x00\x00\x00\x00\x00\x03",	# BRR end marker
 				"size_estimate": 0x1000,
 				"alignment": 0x10,
 			},
 			{
 				"name": "music_data",
 				"format": AssetFormat.SPC_MUSIC,
-				"start_pattern": b"\x8f\x6c\x02",  # Common SPC sequence start
+				"start_pattern": b"\x8f\x6c\x02",	# Common SPC sequence start
 				"size_estimate": 0x2000,
 				"alignment": 0x100,
 			},
@@ -166,14 +166,14 @@ class DQ3AssetExtractor:
 			{
 				"name": "dialog_text",
 				"format": AssetFormat.SHIFT_JIS,
-				"start_pattern": b"\x82",  # Shift-JIS hiragana range start
+				"start_pattern": b"\x82",	# Shift-JIS hiragana range start
 				"size_estimate": 0x8000,
 				"alignment": 0x100,
 			},
 			{
 				"name": "menu_text",
 				"format": AssetFormat.ASCII,
-				"start_pattern": b"Item",  # Common menu strings
+				"start_pattern": b"Item",	# Common menu strings
 				"size_estimate": 0x1000,
 				"alignment": 0x10,
 			},
@@ -184,14 +184,14 @@ class DQ3AssetExtractor:
 			{
 				"name": "item_table",
 				"format": AssetFormat.ITEM_TABLE,
-				"start_pattern": b"\x01\x00",  # Item ID 1, common first item
+				"start_pattern": b"\x01\x00",	# Item ID 1, common first item
 				"size_estimate": 0x800,
 				"alignment": 0x10,
 			},
 			{
 				"name": "monster_table",
 				"format": AssetFormat.MONSTER_TABLE,
-				"start_pattern": b"\x01\x01",  # Monster ID pattern
+				"start_pattern": b"\x01\x01",	# Monster ID pattern
 				"size_estimate": 0x1000,
 				"alignment": 0x20,
 			},
@@ -203,8 +203,8 @@ class DQ3AssetExtractor:
 		output_path.mkdir(parents=True, exist_ok=True)
 
 		print(f"🎨 Starting comprehensive asset extraction...")
-		print(f"   ROM: {self.rom_path.name} ({self.rom_size:,} bytes)")
-		print(f"   Output: {output_path}")
+		print(f"	 ROM: {self.rom_path.name} ({self.rom_size:,} bytes)")
+		print(f"	 Output: {output_path}")
 
 		# Create category directories
 		categories = ["graphics", "audio", "text", "data"]
@@ -230,11 +230,11 @@ class DQ3AssetExtractor:
 		self._generate_extraction_report(output_path, results)
 
 		print(f"\n✅ Asset extraction complete!")
-		print(f"   Graphics: {self.extraction_stats['graphics']} assets")
-		print(f"   Audio: {self.extraction_stats['audio']} assets")
-		print(f"   Text: {self.extraction_stats['text']} assets")
-		print(f"   Data: {self.extraction_stats['data']} assets")
-		print(f"   Total: {len(self.extracted_assets)} assets ({self.extraction_stats['total_bytes']:,} bytes)")
+		print(f"	 Graphics: {self.extraction_stats['graphics']} assets")
+		print(f"	 Audio: {self.extraction_stats['audio']} assets")
+		print(f"	 Text: {self.extraction_stats['text']} assets")
+		print(f"	 Data: {self.extraction_stats['data']} assets")
+		print(f"	 Total: {len(self.extracted_assets)} assets ({self.extraction_stats['total_bytes']:,} bytes)")
 
 		return results
 
@@ -359,7 +359,7 @@ class DQ3AssetExtractor:
 					)
 
 					# Save as both raw and processed
-					asset.save_to_file(output_path, "bin")  # Raw data
+					asset.save_to_file(output_path, "bin")	# Raw data
 
 					# Save processed text
 					text_file = output_path / f"{location['name']}.txt"
@@ -434,7 +434,7 @@ class DQ3AssetExtractor:
 		for pattern in patterns:
 			matches = self._find_pattern_matches(pattern)
 
-			for i, match in enumerate(matches[:5]):  # Limit to 5 matches per pattern
+			for i, match in enumerate(matches[:5]):	# Limit to 5 matches per pattern
 				start, estimated_size = match
 
 				if start + estimated_size > self.rom_size:
@@ -474,7 +474,7 @@ class DQ3AssetExtractor:
 			if self.rom_data[i : i + len(start_pattern)] == start_pattern:
 				matches.append((i, size_estimate))
 
-		return matches[:10]  # Limit matches
+		return matches[:10]	# Limit matches
 
 	def _analyze_audio_data(self, data: bytes, format_type: AssetFormat) -> Dict[str, Any]:
 		"""Analyze audio data for metadata"""
@@ -496,13 +496,13 @@ class DQ3AssetExtractor:
 	def _count_music_tracks(self, data: bytes) -> int:
 		"""Estimate number of music tracks in SPC data"""
 		# Look for common SPC command patterns
-		track_indicators = [b"\x8f", b"\x9f", b"\xaf"]  # Common SPC commands
+		track_indicators = [b"\x8f", b"\x9f", b"\xaf"]	# Common SPC commands
 		tracks = 0
 
 		for indicator in track_indicators:
 			tracks += data.count(indicator)
 
-		return max(1, tracks // 10)  # Rough estimate
+		return max(1, tracks // 10)	# Rough estimate
 
 	def _process_text_data(self, data: bytes, format_type: AssetFormat) -> Tuple[bytes, Dict[str, Any]]:
 		"""Process and analyze text data"""
@@ -517,8 +517,8 @@ class DQ3AssetExtractor:
 			if format_type == AssetFormat.SHIFT_JIS:
 				# Attempt Shift-JIS decoding
 				decoded = data.decode("shift-jis", errors="replace")
-				analysis["decoded_text"] = decoded[:1000]  # First 1000 chars
-				analysis["estimated_strings"] = decoded.count("\x00")  # Null-terminated strings
+				analysis["decoded_text"] = decoded[:1000]	# First 1000 chars
+				analysis["estimated_strings"] = decoded.count("\x00")	# Null-terminated strings
 
 			elif format_type == AssetFormat.ASCII:
 				decoded = data.decode("ascii", errors="replace")
@@ -536,19 +536,19 @@ class DQ3AssetExtractor:
 
 		if format_type == AssetFormat.ITEM_TABLE:
 			analysis["type"] = "Item Data Table"
-			analysis["entry_size_estimate"] = 16  # Common item entry size
+			analysis["entry_size_estimate"] = 16	# Common item entry size
 			analysis["estimated_entries"] = len(data) // 16
 			analysis["table_format"] = "Fixed-size records"
 
 		elif format_type == AssetFormat.MONSTER_TABLE:
 			analysis["type"] = "Monster Data Table"
-			analysis["entry_size_estimate"] = 32  # Common monster entry size
+			analysis["entry_size_estimate"] = 32	# Common monster entry size
 			analysis["estimated_entries"] = len(data) // 32
 			analysis["table_format"] = "Fixed-size records"
 
 		elif format_type == AssetFormat.SPELL_TABLE:
 			analysis["type"] = "Spell Data Table"
-			analysis["entry_size_estimate"] = 12  # Common spell entry size
+			analysis["entry_size_estimate"] = 12	# Common spell entry size
 			analysis["estimated_entries"] = len(data) // 12
 			analysis["table_format"] = "Fixed-size records"
 
@@ -645,7 +645,7 @@ class DQ3AssetExtractor:
 		# Write JSON summary
 		def asset_to_dict(asset: ExtractedAsset) -> Dict[str, Any]:
 			asset_dict = asdict(asset)
-			asset_dict["asset_format"] = asset.asset_format.value  # Convert enum to string
+			asset_dict["asset_format"] = asset.asset_format.value	# Convert enum to string
 			# Remove binary data from JSON output - it's saved as separate files
 			if "data" in asset_dict:
 				del asset_dict["data"]
@@ -691,8 +691,8 @@ def main():
 		results = extractor.extract_all_assets(args.output)
 
 	print(f"\n🎯 Asset extraction complete!")
-	print(f"   Check {args.output}/ for extracted assets")
-	print(f"   See extraction_report.md for detailed analysis")
+	print(f"	 Check {args.output}/ for extracted assets")
+	print(f"	 See extraction_report.md for detailed analysis")
 
 
 if __name__ == "__main__":

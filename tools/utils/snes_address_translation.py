@@ -37,7 +37,7 @@ class ROMMapping:
 	rom_offset: int
 	size: int
 	is_valid: bool
-	mapping_type: str  # 'hirom', 'lorom', 'invalid'
+	mapping_type: str	# 'hirom', 'lorom', 'invalid'
 	mirror_of: Optional[int] = None
 
 class SNESAddressTranslator:
@@ -64,13 +64,13 @@ class SNESAddressTranslator:
 			'system_low': {
 				'bank_start': 0x00, 'bank_end': 0x3F,
 				'offset_start': 0x0000, 'offset_end': 0x7FFF,
-				'rom_base': None  # Not ROM data
+				'rom_base': None	# Not ROM data
 			},
 			# Banks $80-$BF: Mirror of $00-$3F
 			'system_mirror': {
 				'bank_start': 0x80, 'bank_end': 0xBF,
 				'offset_start': 0x0000, 'offset_end': 0x7FFF,
-				'rom_base': None  # Not ROM data
+				'rom_base': None	# Not ROM data
 			}
 		}
 
@@ -335,36 +335,36 @@ def create_test_suite() -> list:
 	# Known addresses from Dragon Quest III ROM map
 	test_addresses = [
 		# ROM Header area
-		"$00:FFC0",  # ROM title
-		"$00:FFD5",  # ROM speed/map mode
-		"$00:FFD6",  # Cartridge type
+		"$00:FFC0",	# ROM title
+		"$00:FFD5",	# ROM speed/map mode
+		"$00:FFD6",	# Cartridge type
 
 		# Graphics data (examples)
-		"$01:8000",  # Early graphics bank
-		"$02:8000",  # Graphics bank 2
-		"$10:8000",  # Graphics bank 16
+		"$01:8000",	# Early graphics bank
+		"$02:8000",	# Graphics bank 2
+		"$10:8000",	# Graphics bank 16
 
 		# Audio data
-		"$06:8000",  # Audio bank 6
-		"$07:8000",  # Audio bank 7
+		"$06:8000",	# Audio bank 6
+		"$07:8000",	# Audio bank 7
 
 		# Code areas
-		"$00:8000",  # Boot code
-		"$01:A000",  # Code area
+		"$00:8000",	# Boot code
+		"$01:A000",	# Code area
 
 		# Extended ROM areas
-		"$40:8000",  # Extended bank start
-		"$41:8000",  # Extended bank 1
+		"$40:8000",	# Extended bank start
+		"$41:8000",	# Extended bank 1
 
 		# Mirror tests
-		"$80:8000",  # Mirror of $00:8000
-		"$C0:8000",  # Mirror of $40:8000
+		"$80:8000",	# Mirror of $00:8000
+		"$C0:8000",	# Mirror of $40:8000
 
 		# Edge cases
-		"$3F:FFFF",  # End of first 2MB
-		"$7F:FFFF",  # End of second 2MB
-		"$BF:FFFF",  # End of first mirror
-		"$FF:FFFF",  # End of second mirror
+		"$3F:FFFF",	# End of first 2MB
+		"$7F:FFFF",	# End of second 2MB
+		"$BF:FFFF",	# End of first mirror
+		"$FF:FFFF",	# End of second mirror
 	]
 
 	return test_addresses
@@ -376,7 +376,7 @@ def main():
 	print("=" * 55)
 
 	# Initialize translator
-	translator = SNESAddressTranslator(rom_size=0x600000)  # 6MB ROM
+	translator = SNESAddressTranslator(rom_size=0x600000)	# 6MB ROM
 
 	# Test address parsing and translation
 	test_addresses = create_test_suite()
@@ -384,7 +384,7 @@ def main():
 	print("📋 Testing Address Translation")
 	print("-" * 40)
 
-	for addr_str in test_addresses[:10]:  # Test first 10 addresses
+	for addr_str in test_addresses[:10]:	# Test first 10 addresses
 		snes_addr = translator.parse_snes_address(addr_str)
 		if snes_addr:
 			mapping = translator.snes_to_rom_mapping(snes_addr)
@@ -394,9 +394,9 @@ def main():
 				# Test reverse translation
 				reverse_addr = translator.rom_to_snes_address(mapping.rom_offset)
 				if reverse_addr and str(reverse_addr) == str(snes_addr):
-					print(f"   ↔️ Reverse: ROM ${mapping.rom_offset:06X} → {reverse_addr}")
+					print(f"	 ↔️ Reverse: ROM ${mapping.rom_offset:06X} → {reverse_addr}")
 				else:
-					print(f"   ⚠️ Reverse translation mismatch")
+					print(f"	 ⚠️ Reverse translation mismatch")
 			else:
 				print(f"❌ {addr_str} → Invalid translation")
 		else:
@@ -410,7 +410,7 @@ def main():
 		info = translator.get_bank_info(bank)
 		print(f"Bank {info['bank_hex']}: {info['description']}")
 		if info['is_mirror']:
-			print(f"  Mirror of ROM ${info['mirror_of']:06X}")
+			print(f"	Mirror of ROM ${info['mirror_of']:06X}")
 
 	print("\n✅ Address translation utility ready for integration")
 

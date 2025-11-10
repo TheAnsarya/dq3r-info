@@ -165,7 +165,7 @@ class IntelligentCache:
 				# Fallback: use pickle size estimation
 				return len(pickle.dumps(obj, protocol=pickle.HIGHEST_PROTOCOL))
 		except Exception:
-			return 1024  # Default estimate
+			return 1024	# Default estimate
 
 	def get(self, key: str) -> Optional[Any]:
 		"""Get value from cache"""
@@ -454,7 +454,7 @@ class BackgroundProcessor:
 		"""Submit a task for background processing"""
 		with self.lock:
 			if task_id in self.futures:
-				return task_id  # Already submitted
+				return task_id	# Already submitted
 
 			future = self.executor.submit(func, *args, **kwargs)
 			self.futures[task_id] = future
@@ -524,7 +524,7 @@ class OptimizedROMAnalyzer:
 
 		logger.info("Optimized ROM analyzer initialized")
 
-	@memoize_with_ttl(ttl_seconds=1800)  # 30 minute TTL
+	@memoize_with_ttl(ttl_seconds=1800)	# 30 minute TTL
 	def analyze_region_cached(self, offset: int, size: int, analysis_type: str) -> Dict[str, Any]:
 		"""Cached region analysis"""
 		cache_key = f"region_{analysis_type}_{offset:06X}_{size}"
@@ -667,7 +667,7 @@ class OptimizedROMAnalyzer:
 				task_ids.remove(task)
 
 			if task_ids:
-				time.sleep(0.1)  # Brief pause before checking again
+				time.sleep(0.1)	# Brief pause before checking again
 
 		return results
 

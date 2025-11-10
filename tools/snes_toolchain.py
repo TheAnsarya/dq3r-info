@@ -124,7 +124,7 @@ class SNESEmulatorInterface:
 			file_size = rom_path.stat().st_size
 			validation_result["file_size"] = file_size
 
-			if file_size < 0x80000:  # Less than 512KB
+			if file_size < 0x80000:	# Less than 512KB
 				validation_result["errors"].append("ROM file too small for SNES")
 				return validation_result
 
@@ -135,7 +135,7 @@ class SNESEmulatorInterface:
 			# Check for SMC header (512 bytes)
 			if len(rom_data) % 1024 == 512:
 				validation_result["header_present"] = True
-				rom_data = rom_data[512:]  # Remove header for analysis
+				rom_data = rom_data[512:]	# Remove header for analysis
 
 			# Detect ROM type (LoROM vs HiROM)
 			if len(rom_data) >= 0x8000:
@@ -173,12 +173,12 @@ class SNESEmulatorInterface:
 
 		# Check ROM makeup byte
 		makeup = rom_data[header_offset + 0x25]
-		if makeup in [0x20, 0x21, 0x30, 0x31]:  # Valid ROM types
+		if makeup in [0x20, 0x21, 0x30, 0x31]:	# Valid ROM types
 			score += 10
 
 		# Check ROM size
 		rom_size = rom_data[header_offset + 0x27]
-		if 7 <= rom_size <= 15:  # Reasonable ROM size values
+		if 7 <= rom_size <= 15:	# Reasonable ROM size values
 			score += 5
 
 		return score
@@ -253,7 +253,7 @@ class SNESEmulatorInterface:
 			commands.extend(
 				[
 					"reset",
-					"run_frames 300",  # Run for ~5 seconds at 60fps
+					"run_frames 300",	# Run for ~5 seconds at 60fps
 					"screenshot",
 					"save_state",
 				]
@@ -275,7 +275,7 @@ class SNESEmulatorInterface:
 			# Note: This is a mock implementation - real MesenS integration would need specific API
 			cmd = [str(emulator_path), str(self.config.rom_path)]
 
-			process = subprocess.run(cmd, timeout=60, capture_output=True, text=True)  # 1 minute timeout
+			process = subprocess.run(cmd, timeout=60, capture_output=True, text=True)	# 1 minute timeout
 
 			# Check if emulator started successfully
 			return process.returncode == 0

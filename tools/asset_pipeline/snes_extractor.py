@@ -53,9 +53,9 @@ class GraphicsAsset(AssetInfo):
 
 	width: Optional[int] = None
 	height: Optional[int] = None
-	bpp: Optional[int] = None  # Bits per pixel
+	bpp: Optional[int] = None	# Bits per pixel
 	palette_offset: Optional[int] = None
-	tile_format: str = "4bpp"  # Default SNES tile format
+	tile_format: str = "4bpp"	# Default SNES tile format
 
 
 @dataclass
@@ -64,7 +64,7 @@ class AudioAsset(AssetInfo):
 
 	sample_rate: Optional[int] = None
 	channels: Optional[int] = None
-	format: str = "brr"  # SNES BRR format
+	format: str = "brr"	# SNES BRR format
 
 
 @dataclass
@@ -92,26 +92,26 @@ class SNESROMAnalyzer:
 		# DQ3 specific memory layout
 		self.dq3_layout = {
 			"character_classes": {
-				"offset": 0xc4179e,  # From previous analysis
-				"size": 9 * 90,  # 9 classes, 90 bytes each
+				"offset": 0xc4179e,	# From previous analysis
+				"size": 9 * 90,	# 9 classes, 90 bytes each
 				"format": "character_class_data",
 			},
 			"monster_data": {
-				"offset": 0x180000,  # Estimated location
-				"count": 155,  # From previous analysis
+				"offset": 0x180000,	# Estimated location
+				"count": 155,	# From previous analysis
 				"format": "monster_stats",
 			},
 			"dialog_font": {
-				"offset": 0x200000,  # Estimated location
-				"count": 50,  # From previous analysis
+				"offset": 0x200000,	# Estimated location
+				"count": 50,	# From previous analysis
 				"format": "font_data",
 			},
 			"graphics_tiles": {
-				"offset": 0x100000,  # Common graphics location
+				"offset": 0x100000,	# Common graphics location
 				"format": "4bpp_tiles",
 			},
 			"palettes": {
-				"offset": 0x140000,  # Common palette location
+				"offset": 0x140000,	# Common palette location
 				"format": "snes_palette",
 			},
 		}
@@ -127,7 +127,7 @@ class SNESROMAnalyzer:
 				data = f.read()
 
 			# Basic SNES ROM validation
-			if len(data) < 0x200000:  # Minimum expected size for DQ3
+			if len(data) < 0x200000:	# Minimum expected size for DQ3
 				raise ValueError(f"ROM file too small: {len(data)} bytes")
 
 			# Check for header (0x200 byte header sometimes present)
@@ -151,7 +151,7 @@ class SNESROMAnalyzer:
 		}
 
 		# Detect ROM mapping mode
-		if len(self.rom_data) in [0x200000, 0x400000]:  # 2MB or 4MB
+		if len(self.rom_data) in [0x200000, 0x400000]:	# 2MB or 4MB
 			analysis["rom_type"] = "LoROM"
 			analysis["mapping_mode"] = "Mode 20/21"
 
@@ -170,7 +170,7 @@ class SNESROMAnalyzer:
 		compressed_regions = []
 
 		# Look for patterns indicative of compression
-		chunk_size = 0x1000  # 4KB chunks
+		chunk_size = 0x1000	# 4KB chunks
 
 		for offset in range(0, len(self.rom_data) - chunk_size, chunk_size):
 			chunk = self.rom_data[offset : offset + chunk_size]
@@ -273,7 +273,7 @@ class SNESROMAnalyzer:
 		if zero_count > len(data) * 0.3:
 			# Check for non-random distribution
 			byte_variety = len(set(data))
-			if byte_variety < 128:  # Not too random
+			if byte_variety < 128:	# Not too random
 				return True
 
 		return False
@@ -325,14 +325,14 @@ class SNESROMAnalyzer:
 			header = self.rom_data[pos]
 
 			# Check end flag
-			if header & 0x01:  # End flag set
+			if header & 0x01:	# End flag set
 				return size + 9
 
 			size += 9
 			pos += 9
 
 			# Safety limit
-			if size > 0x10000:  # 64KB max
+			if size > 0x10000:	# 64KB max
 				break
 
 		return size
@@ -386,7 +386,7 @@ class SNESROMAnalyzer:
 				return size
 
 			# Check if still looks like text
-			if byte < 0x20 and byte not in [0x0a, 0x0d]:  # Not printable/newline
+			if byte < 0x20 and byte not in [0x0a, 0x0d]:	# Not printable/newline
 				break
 
 			size += 1
@@ -478,13 +478,13 @@ class SNESROMAnalyzer:
 		size = 0
 		pos = offset
 
-		while pos < len(self.rom_data) and size < 0x100:  # Max 256 bytes per monster
+		while pos < len(self.rom_data) and size < 0x100:	# Max 256 bytes per monster
 			if self.rom_data[pos] == 0xac:
-				return size + 1  # Include terminator
+				return size + 1	# Include terminator
 			size += 1
 			pos += 1
 
-		return 0  # Not found
+		return 0	# Not found
 
 	def _extract_dialog_assets(self) -> List[DialogAsset]:
 		"""Extract dialog and text assets"""
@@ -555,10 +555,10 @@ class SNESROMAnalyzer:
 				size=size,
 				asset_type="graphics",
 				compression=compressed_graphics,
-				bpp=4,  # Most SNES graphics are 4bpp
+				bpp=4,	# Most SNES graphics are 4bpp
 				tile_format="4bpp",
 				metadata={
-					"tile_count": len(graphics_data) // 32,  # 32 bytes per 4bpp tile
+					"tile_count": len(graphics_data) // 32,	# 32 bytes per 4bpp tile
 					"estimated_dimensions": self._estimate_graphics_dimensions(graphics_data),
 				},
 			)
@@ -573,9 +573,9 @@ class SNESROMAnalyzer:
 
 		# Common SNES graphics sizes
 		common_sizes = [
-			(8, 8, 32),  # 8x8 4bpp tile
-			(16, 16, 128),  # 16x16 4bpp tile
-			(32, 32, 512),  # 32x32 4bpp tile
+			(8, 8, 32),	# 8x8 4bpp tile
+			(16, 16, 128),	# 16x16 4bpp tile
+			(32, 32, 512),	# 32x32 4bpp tile
 		]
 
 		for width, height, expected_size in common_sizes:

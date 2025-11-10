@@ -27,8 +27,8 @@ class ROMRegion:
 	"""Represents a classified region of ROM data"""
 	start_offset: int
 	end_offset: int
-	region_type: str  # "code", "graphics", "text", "audio", "data_table", "unknown"
-	confidence: float  # 0.0 to 1.0
+	region_type: str	# "code", "graphics", "text", "audio", "data_table", "unknown"
+	confidence: float	# 0.0 to 1.0
 	description: str
 	patterns_found: List[str]
 	cross_refs: List[int]
@@ -209,7 +209,7 @@ class MaximumROMAnalyzer:
 				import math
 				entropy -= probability * math.log2(probability)
 
-		return min(entropy, 8.0)  # Max entropy for 8-bit data
+		return min(entropy, 8.0)	# Max entropy for 8-bit data
 
 	def classify_region_by_entropy(self, offset: int, size: int) -> Tuple[str, float]:
 		"""Classify region type based on entropy analysis"""
@@ -330,7 +330,7 @@ class MaximumROMAnalyzer:
 		print("Scanning for data tables...")
 		found_tables = []
 
-		for offset in range(0, self.rom_size - 64, 64):  # Check every 64 bytes
+		for offset in range(0, self.rom_size - 64, 64):	# Check every 64 bytes
 			for pattern_info in self.data_patterns:
 				detector = pattern_info['pattern']
 				result = detector(self.rom_data, offset)
@@ -407,7 +407,7 @@ class MaximumROMAnalyzer:
 
 		# Look for stat-like data (reasonable ranges)
 		entries = []
-		for i in range(0, 80, 8):  # Assume 8-byte stat blocks
+		for i in range(0, 80, 8):	# Assume 8-byte stat blocks
 			stats = data[offset+i:offset+i+8]
 			if all(0 <= stat <= 255 for stat in stats):
 				# Check for reasonable stat patterns
@@ -446,7 +446,7 @@ class MaximumROMAnalyzer:
 				ascending_count += 1
 
 		# Check for mathematical patterns
-		if ascending_count > len(sequence) * 0.7:  # 70% ascending
+		if ascending_count > len(sequence) * 0.7:	# 70% ascending
 			entries = [{'index': i, 'value': val} for i, val in enumerate(sequence)]
 			return {
 				'count': len(sequence),
@@ -481,7 +481,7 @@ class MaximumROMAnalyzer:
 
 		# Check for non-zero data with reasonable distribution
 		non_zero = sum(1 for b in tile_data if b != 0)
-		return 8 <= non_zero <= 28  # Reasonable range for graphic data
+		return 8 <= non_zero <= 28	# Reasonable range for graphic data
 
 	def _detect_2bpp_tiles(self, data: bytes, offset: int) -> bool:
 		"""Detect 2bpp tile graphics"""
@@ -586,7 +586,7 @@ class MaximumROMAnalyzer:
 
 	def _classify_all_regions(self):
 		"""Classify entire ROM using entropy and pattern analysis"""
-		region_size = 1024  # Analyze in 1KB chunks
+		region_size = 1024	# Analyze in 1KB chunks
 
 		for offset in range(0, self.rom_size, region_size):
 			end_offset = min(offset + region_size, self.rom_size)
@@ -649,7 +649,7 @@ class MaximumROMAnalyzer:
 					text.length,
 					text.encoding,
 					text.context,
-					text.text[:100]  # Truncate long text
+					text.text[:100]	# Truncate long text
 				])
 
 		# Data tables report
@@ -686,7 +686,7 @@ class MaximumROMAnalyzer:
 			writer = csv.writer(f)
 			writer.writerow(['Source_Offset', 'Target_Offset', 'Source_Type', 'Target_Type'])
 			for region in self.regions:
-				for ref_offset in region.cross_refs[:10]:  # Limit refs per region
+				for ref_offset in region.cross_refs[:10]:	# Limit refs per region
 					target_region = self._find_region_containing(ref_offset)
 					target_type = target_region.region_type if target_region else "unknown"
 					writer.writerow([
@@ -742,8 +742,8 @@ def main():
 	# Find ROM file
 	rom_files = [
 		'static/Dragon Quest III - Soshite Densetsu he... (J).smc',	# Primary Japanese source
-		'static/Dragon Quest III - english.smc',					   # Reference translation
-		'static/Dragon Quest III - english (patched).smc'			  # Backup option
+		'static/Dragon Quest III - english.smc',						 # Reference translation
+		'static/Dragon Quest III - english (patched).smc'				# Backup option
 	]
 
 	rom_path = None

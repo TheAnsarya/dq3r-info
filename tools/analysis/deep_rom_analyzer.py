@@ -21,7 +21,7 @@ class CodeRegion:
 	end_address: int
 	size: int
 	bank: int
-	code_type: str  # "initialization", "main", "interrupt", "subroutine"
+	code_type: str	# "initialization", "main", "interrupt", "subroutine"
 	instructions: List[Dict]
 
 
@@ -72,8 +72,8 @@ class DQ3DeepAnalyzer:
 		}
 
 		print(f"🔍 Deep ROM Analyzer initialized")
-		print(f"   ROM: {self.rom_path}")
-		print(f"   Size: {self.rom_size:,} bytes")
+		print(f"	 ROM: {self.rom_path}")
+		print(f"	 Size: {self.rom_size:,} bytes")
 
 	def find_actual_vectors(self) -> Dict[str, int]:
 		"""Search for actual interrupt vectors in the ROM"""
@@ -93,13 +93,13 @@ class DQ3DeepAnalyzer:
 			if 0x8000 <= addr <= 0xffff:
 				# Check if there are multiple consecutive valid addresses
 				consecutive_valid = 0
-				for i in range(8):  # Check next 8 vectors
+				for i in range(8):	# Check next 8 vectors
 					if offset + (i * 2) + 2 <= len(self.rom_data):
 						next_addr = struct.unpack("<H", self.rom_data[offset + (i * 2) : offset + (i * 2) + 2])[0]
 						if 0x8000 <= next_addr <= 0xffff:
 							consecutive_valid += 1
 
-				if consecutive_valid >= 6:  # Likely a vector table
+				if consecutive_valid >= 6:	# Likely a vector table
 					vector_names = [
 						"cop_native",
 						"brk_native",
@@ -117,7 +117,7 @@ class DQ3DeepAnalyzer:
 						"irq_emulation",
 					]
 
-					print(f"   Found potential vector table at ${offset:06X}")
+					print(f"	 Found potential vector table at ${offset:06X}")
 					for i, name in enumerate(vector_names):
 						if offset + (i * 2) + 2 <= len(self.rom_data):
 							vec_addr = struct.unpack("<H", self.rom_data[offset + (i * 2) : offset + (i * 2) + 2])[0]
@@ -127,7 +127,7 @@ class DQ3DeepAnalyzer:
 					self.vectors = potential_vectors
 					return potential_vectors
 
-		print("   No clear vector table found, using heuristics...")
+		print("	 No clear vector table found, using heuristics...")
 
 		# Use heuristics to find reset vector
 		# Look for common initialization patterns
@@ -141,7 +141,7 @@ class DQ3DeepAnalyzer:
 
 				reset_addr = 0x8000 + (offset % 0x8000)
 				potential_vectors["reset"] = reset_addr
-				print(f"   Heuristic reset vector: ${reset_addr:04X}")
+				print(f"	 Heuristic reset vector: ${reset_addr:04X}")
 				break
 
 		self.vectors = potential_vectors
@@ -208,7 +208,7 @@ class DQ3DeepAnalyzer:
 				current_addr += length
 
 				# Stop at return instructions for subroutines
-				if opcode in [0x60, 0x6b, 0x40]:  # RTS, RTL, RTI
+				if opcode in [0x60, 0x6b, 0x40]:	# RTS, RTL, RTI
 					break
 			else:
 				# Unknown opcode, advance by 1
@@ -243,12 +243,12 @@ class DQ3DeepAnalyzer:
 		regions = []
 
 		# Search for code patterns throughout ROM
-		search_size = 0x1000  # 4KB chunks
+		search_size = 0x1000	# 4KB chunks
 
 		for offset in range(0, min(0x100000, len(self.rom_data)), search_size):
 			# Check for executable code patterns
 			if self._looks_like_code(offset, min(search_size, len(self.rom_data) - offset)):
-				print(f"   Found code region at ${offset:06X}")
+				print(f"	 Found code region at ${offset:06X}")
 
 				# Disassemble this region
 				region = self.disassemble_region(offset, search_size, 0x8000 + (offset % 0x8000))
@@ -281,7 +281,7 @@ class DQ3DeepAnalyzer:
 				i += 1
 			total_bytes += 1
 
-			if total_bytes > 100:  # Sample first 100 bytes
+			if total_bytes > 100:	# Sample first 100 bytes
 				break
 
 		# If more than 30% are valid opcodes, consider it code
@@ -372,8 +372,8 @@ class DQ3DeepAnalyzer:
 
 				f.write("\n")
 
-		print(f"   Assembly: {asm_file}")
-		print(f"   Documentation: {doc_file}")
+		print(f"	 Assembly: {asm_file}")
+		print(f"	 Documentation: {doc_file}")
 		return asm_file, doc_file
 
 	def run_deep_analysis(self, output_dir: str):
@@ -392,10 +392,10 @@ class DQ3DeepAnalyzer:
 		asm_file, doc_file = self.generate_comprehensive_disassembly(output_dir)
 
 		print(f"\n🎯 Deep Analysis Complete!")
-		print(f"   Code regions: {len(regions)}")
-		print(f"   Total instructions: {sum(len(r.instructions) for r in regions)}")
-		print(f"   Assembly file: {asm_file}")
-		print(f"   Documentation: {doc_file}")
+		print(f"	 Code regions: {len(regions)}")
+		print(f"	 Total instructions: {sum(len(r.instructions) for r in regions)}")
+		print(f"	 Assembly file: {asm_file}")
+		print(f"	 Documentation: {doc_file}")
 
 
 def main():

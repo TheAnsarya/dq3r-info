@@ -114,10 +114,10 @@ class MultiROMComparator:
 
 		# Text encoding detection patterns
 		self.text_patterns = {
-			'dialogue': [0x00, 0x01, 0x02, 0x03],  # Common dialogue markers
-			'menu': [0x20, 0x21, 0x22, 0x23],	  # Menu text markers
+			'dialogue': [0x00, 0x01, 0x02, 0x03],	# Common dialogue markers
+			'menu': [0x20, 0x21, 0x22, 0x23],		# Menu text markers
 			'item': [0x40, 0x41, 0x42],			# Item name markers
-			'monster': [0x50, 0x51, 0x52]		  # Monster name markers
+			'monster': [0x50, 0x51, 0x52]			# Monster name markers
 		}
 
 		# Known graphics regions for DQ3
@@ -199,7 +199,7 @@ class MultiROMComparator:
 	def detect_header_size(self, data: bytes) -> int:
 		"""Detect SMC header size"""
 		if len(data) % 1024 == 512:
-			return 512  # SMC header
+			return 512	# SMC header
 		elif len(data) % 1024 == 0:
 			return 0	# No header
 		else:
@@ -249,7 +249,7 @@ class MultiROMComparator:
 
 			# Shift-JIS first byte ranges
 			if ((0x81 <= byte1 <= 0x9F) or (0xE0 <= byte1 <= 0xEF)) and \
-			   ((0x40 <= byte2 <= 0x7E) or (0x80 <= byte2 <= 0xFC)):
+				 ((0x40 <= byte2 <= 0x7E) or (0x80 <= byte2 <= 0xFC)):
 				japanese_count += 1
 				i += 2
 			# Half-width katakana
@@ -265,7 +265,7 @@ class MultiROMComparator:
 		"""Count ASCII/English characters"""
 		english_count = 0
 		for byte in data:
-			if 0x20 <= byte <= 0x7E:  # Printable ASCII
+			if 0x20 <= byte <= 0x7E:	# Printable ASCII
 				english_count += 1
 
 		return english_count
@@ -312,7 +312,7 @@ class MultiROMComparator:
 		self.comparisons[(rom1_id, rom2_id)] = report
 
 		logger.info(f"Comparison complete: {len(differences):,} differences, "
-				   f"{stats['difference_percentage']:.2f}% different")
+					 f"{stats['difference_percentage']:.2f}% different")
 
 		return report
 
@@ -350,14 +350,14 @@ class MultiROMComparator:
 			offset, byte1, byte2 = differences[i]
 
 			# If this difference is adjacent to the current region
-			if offset <= current_end + 16:  # Allow small gaps
+			if offset <= current_end + 16:	# Allow small gaps
 				current_end = offset
 				# Fill gaps with original data
 				gap_size = offset - len(current_data1) - current_start
 				if gap_size > 0:
 					# Need to get original data for the gap
-					current_data1.extend([0] * gap_size)  # Placeholder
-					current_data2.extend([0] * gap_size)  # Placeholder
+					current_data1.extend([0] * gap_size)	# Placeholder
+					current_data2.extend([0] * gap_size)	# Placeholder
 
 				current_data1.append(byte1)
 				current_data2.append(byte2)
@@ -447,7 +447,7 @@ class MultiROMComparator:
 			return False
 
 		# Check for tile-aligned size (common in SNES graphics)
-		if len(data) in [16, 32, 64]:  # 2BPP, 4BPP, 8BPP tile sizes
+		if len(data) in [16, 32, 64]:	# 2BPP, 4BPP, 8BPP tile sizes
 			return True
 
 		# Check for repeating patterns (common in graphics)
@@ -466,14 +466,14 @@ class MultiROMComparator:
 
 		# Common 65816 opcodes
 		common_opcodes = {
-			0xA9,  # LDA immediate
-			0x85,  # STA zero page
-			0x8D,  # STA absolute
-			0xAD,  # LDA absolute
-			0x4C,  # JMP absolute
-			0x20,  # JSR absolute
-			0x60,  # RTS
-			0x40,  # RTI
+			0xA9,	# LDA immediate
+			0x85,	# STA zero page
+			0x8D,	# STA absolute
+			0xAD,	# LDA absolute
+			0x4C,	# JMP absolute
+			0x20,	# JSR absolute
+			0x60,	# RTS
+			0x40,	# RTI
 		}
 
 		opcode_matches = sum(1 for byte in data if byte in common_opcodes)
@@ -517,7 +517,7 @@ class MultiROMComparator:
 				text = data.decode(encoding, errors='ignore')
 				# Filter out non-printable characters
 				clean_text = ''.join(c for c in text if c.isprintable() and c != '\x00')
-				if len(clean_text) >= 3:  # Minimum meaningful text length
+				if len(clean_text) >= 3:	# Minimum meaningful text length
 					return clean_text
 			except:
 				continue
@@ -551,7 +551,7 @@ class MultiROMComparator:
 			return "shift_jis"
 
 		ascii_ratio = (sum(1 for b in data1 + data2 if 0x20 <= b <= 0x7E) /
-					  max(len(data1) + len(data2), 1))
+						max(len(data1) + len(data2), 1))
 
 		if ascii_ratio > 0.8:
 			return "ascii"
@@ -611,7 +611,7 @@ class MultiROMComparator:
 		combined_size = len(data1) + len(data2)
 
 		# Common SNES graphics tile sizes
-		if combined_size == 32:  # 16 bytes each for 2BPP
+		if combined_size == 32:	# 16 bytes each for 2BPP
 			return "2BPP"
 		elif combined_size == 64: # 32 bytes each for 4BPP
 			return "4BPP"
@@ -657,7 +657,7 @@ class MultiROMComparator:
 		diff_count = sum(differences)
 
 		if diff_count < len(data1) * 0.1:
-			return "palette"  # Small changes likely palette
+			return "palette"	# Small changes likely palette
 		elif diff_count < len(data1) * 0.5:
 			return "tiles"	# Medium changes likely tile data
 		else:
@@ -734,7 +734,7 @@ class MultiROMComparator:
 	def classify_code_change(self, instructions1: List[str], instructions2: List[str]) -> str:
 		"""Classify type of code change"""
 		if len(instructions1) != len(instructions2):
-			return "feature"  # Size change suggests feature addition/removal
+			return "feature"	# Size change suggests feature addition/removal
 
 		# Count different instructions
 		differences = sum(1 for a, b in zip(instructions1, instructions2) if a != b)
@@ -764,7 +764,7 @@ class MultiROMComparator:
 
 		for func_offset, func_name in functions.items():
 			distance = abs(offset - func_offset)
-			if distance < best_distance and distance < 0x1000:  # Within 4KB
+			if distance < best_distance and distance < 0x1000:	# Within 4KB
 				best_distance = distance
 				best_match = func_name
 
@@ -796,7 +796,7 @@ class MultiROMComparator:
 		return impact
 
 	def calculate_comparison_statistics(self, differences: List[Tuple[int, int, int]],
-									  regions: List[DifferenceRegion]) -> Dict[str, Any]:
+										regions: List[DifferenceRegion]) -> Dict[str, Any]:
 		"""Calculate comprehensive comparison statistics"""
 		total_bytes = max(len(self.roms[rom_id].data) for rom_id in self.roms)
 		diff_percentage = (len(differences) / total_bytes) * 100 if total_bytes > 0 else 0
@@ -825,18 +825,18 @@ class MultiROMComparator:
 
 	def generate_patch_data(self, differences: List[Tuple[int, int, int]]) -> Optional[bytes]:
 		"""Generate patch data in IPS format"""
-		if not differences or len(differences) > 10000:  # Skip if too many differences
+		if not differences or len(differences) > 10000:	# Skip if too many differences
 			return None
 
 		try:
-			patch_data = b"PATCH"  # IPS header
+			patch_data = b"PATCH"	# IPS header
 
 			# Sort differences by offset
 			differences.sort(key=lambda x: x[0])
 
 			# Group consecutive differences
 			current_offset = differences[0][0]
-			current_data = [differences[0][2]]  # New byte values
+			current_data = [differences[0][2]]	# New byte values
 
 			for i in range(1, len(differences)):
 				offset, old_byte, new_byte = differences[i]
@@ -846,8 +846,8 @@ class MultiROMComparator:
 					current_data.append(new_byte)
 				else:
 					# Write current group
-					if len(current_data) <= 65535:  # IPS size limit
-						patch_data += struct.pack('>I', current_offset)[1:]  # 24-bit offset
+					if len(current_data) <= 65535:	# IPS size limit
+						patch_data += struct.pack('>I', current_offset)[1:]	# 24-bit offset
 						patch_data += struct.pack('>H', len(current_data))	# 16-bit size
 						patch_data += bytes(current_data)
 
@@ -898,7 +898,7 @@ class MultiROMComparator:
 			'comparison_info': {
 				'rom1': asdict(report.rom1),
 				'rom2': asdict(report.rom2),
-				'timestamp': logger.name,  # Would use datetime in practice
+				'timestamp': logger.name,	# Would use datetime in practice
 				'total_differences': report.total_differences,
 				'difference_percentage': report.difference_percentage
 			},
@@ -911,7 +911,7 @@ class MultiROMComparator:
 								len(report.graphics_differences) - len(report.code_differences)
 			},
 			'detailed_differences': {
-				'text': [asdict(diff) for diff in report.text_differences[:20]],  # Limit for size
+				'text': [asdict(diff) for diff in report.text_differences[:20]],	# Limit for size
 				'graphics': [asdict(diff) for diff in report.graphics_differences[:20]],
 				'code': [asdict(diff) for diff in report.code_differences[:20]]
 			},
@@ -1059,8 +1059,8 @@ if __name__ == "__main__":
 
 			for i, rom1_id in enumerate(rom_ids):
 				for j, rom2_id in enumerate(rom_ids):
-					if i < j:  # Avoid duplicate comparisons
-						print(f"  Comparing {rom1_id} vs {rom2_id}...")
+					if i < j:	# Avoid duplicate comparisons
+						print(f"	Comparing {rom1_id} vs {rom2_id}...")
 						report = comparator.compare_roms(rom1_id, rom2_id)
 
 						# Export results
@@ -1078,7 +1078,7 @@ if __name__ == "__main__":
 		else:
 			print("📋 Available ROMs:")
 			for rom_id, rom_info in roms.items():
-				print(f"  {rom_id}: {rom_info.name} ({rom_info.size:,} bytes, {rom_info.language})")
+				print(f"	{rom_id}: {rom_info.name} ({rom_info.size:,} bytes, {rom_info.language})")
 
 			print("\nUse --compare ROM1 ROM2 or --all-comparisons to start analysis")
 

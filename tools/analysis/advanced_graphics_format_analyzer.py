@@ -166,19 +166,19 @@ class AdvancedGraphicsAnalyzer:
 		palettes = self.find_palettes()
 		results['palette_analysis'] = {
 			'total_palettes': len(palettes),
-			'palettes': palettes[:20]  # Limit output
+			'palettes': palettes[:20]	# Limit output
 		}
 
 		# Step 2: Scan for graphics in different formats
 		logger.info("Step 2: Scanning for graphics formats...")
 		for format_name, format_spec in self.formats.items():
-			logger.info(f"  Scanning for {format_name} graphics...")
+			logger.info(f"	Scanning for {format_name} graphics...")
 			graphics = self.find_graphics_by_format(format_spec)
 			results['formats_detected'][format_name] = {
 				'count': len(graphics),
 				'total_tiles': sum(g.width * g.height for g in graphics),
 				'confidence_avg': sum(g.confidence for g in graphics) / max(len(graphics), 1),
-				'samples': [asdict(g) for g in graphics[:5]]  # First 5 samples
+				'samples': [asdict(g) for g in graphics[:5]]	# First 5 samples
 			}
 
 		# Step 3: Reconstruct sprite sheets
@@ -202,7 +202,7 @@ class AdvancedGraphicsAnalyzer:
 			'total_palettes_found': len(palettes),
 			'total_sprite_sheets': len(sprite_sheets),
 			'total_animations': len(animations),
-			'coverage_percentage': (total_graphics * 64) / len(self.rom_data) * 100  # Rough estimate
+			'coverage_percentage': (total_graphics * 64) / len(self.rom_data) * 100	# Rough estimate
 		}
 
 		logger.info(f"Analysis complete: {total_graphics} graphics, {len(palettes)} palettes")
@@ -214,7 +214,7 @@ class AdvancedGraphicsAnalyzer:
 		tile_size = format_spec.tile_size
 
 		# Scan ROM in tile-aligned chunks
-		for offset in range(0, len(self.rom_data) - tile_size, 32):  # 32-byte alignment
+		for offset in range(0, len(self.rom_data) - tile_size, 32):	# 32-byte alignment
 			if offset + tile_size > len(self.rom_data):
 				break
 
@@ -223,7 +223,7 @@ class AdvancedGraphicsAnalyzer:
 			# Analyze this potential tile
 			confidence = self.analyze_tile_format(tile_data, format_spec)
 
-			if confidence > 0.6:  # Threshold for graphics detection
+			if confidence > 0.6:	# Threshold for graphics detection
 				patterns = self.analyze_tile_patterns(tile_data, format_spec)
 
 				tile = TileData(
@@ -289,7 +289,7 @@ class AdvancedGraphicsAnalyzer:
 
 		# Factor 4: Alignment and context
 		# Graphics are often aligned to specific boundaries
-		alignment_score = 0.8  # Base score
+		alignment_score = 0.8	# Base score
 
 		factors.append(alignment_score)
 
@@ -308,7 +308,7 @@ class AdvancedGraphicsAnalyzer:
 
 			# Planes should have some correlation but not be identical
 			correlation = self.calculate_plane_correlation(plane1, plane2)
-			return max(0, 1.0 - abs(correlation - 0.6))  # Optimal correlation ~0.6
+			return max(0, 1.0 - abs(correlation - 0.6))	# Optimal correlation ~0.6
 
 		elif format_spec.bpp == 4:
 			# 4BPP: Interleaved planes
@@ -518,19 +518,19 @@ class AdvancedGraphicsAnalyzer:
 		edges = 0
 		total = 0
 
-		for row in range(1, 7):  # Avoid edges
+		for row in range(1, 7):	# Avoid edges
 			for col in range(1, 7):
 				# Sobel X
 				gx = (-1 * pixels[row-1][col-1] + 1 * pixels[row-1][col+1] +
-					  -2 * pixels[row][col-1] + 2 * pixels[row][col+1] +
-					  -1 * pixels[row+1][col-1] + 1 * pixels[row+1][col+1])
+						-2 * pixels[row][col-1] + 2 * pixels[row][col+1] +
+						-1 * pixels[row+1][col-1] + 1 * pixels[row+1][col+1])
 
 				# Sobel Y
 				gy = (-1 * pixels[row-1][col-1] + -2 * pixels[row-1][col] + -1 * pixels[row-1][col+1] +
-					   1 * pixels[row+1][col-1] +  2 * pixels[row+1][col] +  1 * pixels[row+1][col+1])
+						 1 * pixels[row+1][col-1] +	2 * pixels[row+1][col] +	1 * pixels[row+1][col+1])
 
 				magnitude = math.sqrt(gx*gx + gy*gy)
-				if magnitude > 1.0:  # Threshold for edge detection
+				if magnitude > 1.0:	# Threshold for edge detection
 					edges += 1
 				total += 1
 
@@ -540,7 +540,7 @@ class AdvancedGraphicsAnalyzer:
 		"""Simple edge detection for linear data"""
 		edges = 0
 		for i in range(len(tile_data) - 1):
-			if abs(tile_data[i] - tile_data[i+1]) > 32:  # Significant change
+			if abs(tile_data[i] - tile_data[i+1]) > 32:	# Significant change
 				edges += 1
 
 		return edges / max(len(tile_data) - 1, 1)
@@ -551,13 +551,13 @@ class AdvancedGraphicsAnalyzer:
 
 		# SNES palettes are typically 16-bit RGB555 format
 		# Scan for palette-like data
-		for offset in range(0, len(self.rom_data) - 32, 2):  # 16 colors minimum
-			if offset + 512 > len(self.rom_data):  # Max 256 colors
+		for offset in range(0, len(self.rom_data) - 32, 2):	# 16 colors minimum
+			if offset + 512 > len(self.rom_data):	# Max 256 colors
 				break
 
 			# Try different palette sizes
 			for color_count in [4, 16, 256]:
-				palette_size = color_count * 2  # 2 bytes per color
+				palette_size = color_count * 2	# 2 bytes per color
 
 				if offset + palette_size > len(self.rom_data):
 					continue
@@ -601,7 +601,7 @@ class AdvancedGraphicsAnalyzer:
 				color_word = struct.unpack('<H', palette_data[i:i+2])[0]
 
 				# Check if it's a valid RGB555 color
-				if (color_word & 0x8000) == 0:  # Bit 15 should be 0
+				if (color_word & 0x8000) == 0:	# Bit 15 should be 0
 					valid_colors += 1
 
 		factors.append(valid_colors / color_count)
@@ -680,7 +680,7 @@ class AdvancedGraphicsAnalyzer:
 		# Group tiles by format and proximity
 		for format_name in self.formats:
 			format_tiles = [tile for tile in self.detected_graphics
-						   if tile.format.name == format_name]
+							 if tile.format.name == format_name]
 
 			if not format_tiles:
 				continue
@@ -697,7 +697,7 @@ class AdvancedGraphicsAnalyzer:
 					current_sheet.append(tile)
 				else:
 					# Process current sheet
-					if len(current_sheet) >= 4:  # Minimum tiles for sprite sheet
+					if len(current_sheet) >= 4:	# Minimum tiles for sprite sheet
 						sheet = self.create_sprite_sheet(current_sheet, self.formats[format_name])
 						if sheet:
 							sprite_sheets.append(sheet)
@@ -793,7 +793,7 @@ class AdvancedGraphicsAnalyzer:
 
 		# Compare entropy and pattern similarities
 		for i in range(len(tiles)):
-			for j in range(i + 1, min(len(tiles), i + 5)):  # Compare with next few tiles
+			for j in range(i + 1, min(len(tiles), i + 5)):	# Compare with next few tiles
 				tile1, tile2 = tiles[i], tiles[j]
 
 				# Entropy similarity
@@ -842,7 +842,7 @@ class AdvancedGraphicsAnalyzer:
 			# Calculate difference between adjacent tiles
 			similarity = self.calculate_frame_similarity(tile1, tile2)
 
-			if similarity > 0.3:  # Similar enough to be animation frames
+			if similarity > 0.3:	# Similar enough to be animation frames
 				if not frames:
 					frames.append(tile1)
 				frames.append(tile2)
@@ -887,11 +887,11 @@ class AdvancedGraphicsAnalyzer:
 		"""Estimate frame delay for animation"""
 		# Simple estimation based on frame count
 		if len(frames) <= 4:
-			return 8  # Fast animation
+			return 8	# Fast animation
 		elif len(frames) <= 8:
-			return 12  # Medium animation
+			return 12	# Medium animation
 		else:
-			return 16  # Slow animation
+			return 16	# Slow animation
 
 	def detect_loop_type(self, frames: List[TileData]) -> str:
 		"""Detect animation loop type"""
@@ -933,7 +933,7 @@ class AdvancedGraphicsAnalyzer:
 			chunk = self.rom_data[offset:offset + chunk_size]
 			entropy = self.calculate_entropy(chunk)
 
-			if entropy > 7.5:  # Very high entropy indicates compression
+			if entropy > 7.5:	# Very high entropy indicates compression
 				high_entropy_regions += 1
 
 			total_regions += 1
@@ -1022,7 +1022,7 @@ if __name__ == "__main__":
 
 			print(f"\n🎨 Format Detection Results:")
 			for format_name, format_data in results['formats_detected'].items():
-				print(f"  {format_name}: {format_data['count']} tiles, "
+				print(f"	{format_name}: {format_data['count']} tiles, "
 					 f"avg confidence: {format_data['confidence_avg']:.3f}")
 
 			# Export report

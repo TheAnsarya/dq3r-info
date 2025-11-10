@@ -56,8 +56,8 @@ class DQ3ROMHeaderAnalyzer:
 		self.init_code_analysis = {}
 
 		print(f"🔍 ROM Header Analyzer initialized")
-		print(f"   ROM: {self.rom_path}")
-		print(f"   Size: {self.rom_size:,} bytes")
+		print(f"	 ROM: {self.rom_path}")
+		print(f"	 Size: {self.rom_size:,} bytes")
 
 	def analyze_complete_header(self) -> SNESHeader:
 		"""Perform complete ROM header analysis"""
@@ -140,7 +140,7 @@ class DQ3ROMHeaderAnalyzer:
 		interrupt_info = {}
 
 		for vector_name, address in self.header.vectors.items():
-			if address != 0:  # Skip unused vectors
+			if address != 0:	# Skip unused vectors
 				# Convert SNES address to ROM offset
 				rom_offset = self._snes_to_rom_address(address)
 
@@ -204,7 +204,7 @@ class DQ3ROMHeaderAnalyzer:
 			if offset >= 0x8000:
 				return (bank * 0x8000) + (offset - 0x8000)
 
-		return 0  # Invalid address
+		return 0	# Invalid address
 
 	def _analyze_interrupt_handler(self, vector_name: str, handler_code: bytes) -> str:
 		"""Analyze interrupt handler code to determine purpose"""
@@ -228,14 +228,14 @@ class DQ3ROMHeaderAnalyzer:
 		base_description = descriptions.get(vector_name, "Unknown interrupt handler")
 
 		# Add specific analysis based on code
-		if first_instruction == 0x78:  # SEI (Set Interrupt Disable)
+		if first_instruction == 0x78:	# SEI (Set Interrupt Disable)
 			base_description += " - Disables interrupts immediately"
-		elif first_instruction == 0x58:  # CLI (Clear Interrupt Disable)
+		elif first_instruction == 0x58:	# CLI (Clear Interrupt Disable)
 			base_description += " - Enables interrupts immediately"
-		elif first_instruction == 0x4c:  # JMP absolute
+		elif first_instruction == 0x4c:	# JMP absolute
 			jump_target = struct.unpack("<H", handler_code[1:3])[0]
 			base_description += f" - Jumps to main handler at ${jump_target:04X}"
-		elif first_instruction == 0x40:  # RTI (Return from Interrupt)
+		elif first_instruction == 0x40:	# RTI (Return from Interrupt)
 			base_description += " - Empty handler (immediate return)"
 
 		return base_description
@@ -247,20 +247,20 @@ class DQ3ROMHeaderAnalyzer:
 			opcode = code[i]
 
 			# Basic 65816 instruction analysis
-			if opcode == 0x78:  # SEI
+			if opcode == 0x78:	# SEI
 				analysis["operations"].append({"offset": i, "instruction": "SEI", "description": "Disable interrupts"})
 				analysis["system_setup"].append("Interrupts disabled for initialization")
 				i += 1
-			elif opcode == 0x18:  # CLC
+			elif opcode == 0x18:	# CLC
 				analysis["operations"].append({"offset": i, "instruction": "CLC", "description": "Clear carry flag"})
 				i += 1
-			elif opcode == 0xfb:  # XCE
+			elif opcode == 0xfb:	# XCE
 				analysis["operations"].append(
 					{"offset": i, "instruction": "XCE", "description": "Exchange carry and emulation flags"}
 				)
 				analysis["system_setup"].append("Switch to native 16-bit mode")
 				i += 1
-			elif opcode == 0xc2:  # REP
+			elif opcode == 0xc2:	# REP
 				if i + 1 < len(code):
 					flags = code[i + 1]
 					analysis["operations"].append(
@@ -271,7 +271,7 @@ class DQ3ROMHeaderAnalyzer:
 					i += 2
 				else:
 					break
-			elif opcode == 0xe2:  # SEP
+			elif opcode == 0xe2:	# SEP
 				if i + 1 < len(code):
 					flags = code[i + 1]
 					analysis["operations"].append(
@@ -280,7 +280,7 @@ class DQ3ROMHeaderAnalyzer:
 					i += 2
 				else:
 					break
-			elif opcode == 0x9c:  # STZ absolute
+			elif opcode == 0x9c:	# STZ absolute
 				if i + 2 < len(code):
 					addr = struct.unpack("<H", code[i + 1 : i + 3])[0]
 					analysis["operations"].append(
@@ -290,7 +290,7 @@ class DQ3ROMHeaderAnalyzer:
 					i += 3
 				else:
 					break
-			elif opcode == 0xa9:  # LDA immediate
+			elif opcode == 0xa9:	# LDA immediate
 				if i + 1 < len(code):
 					value = code[i + 1]
 					analysis["operations"].append(
@@ -303,7 +303,7 @@ class DQ3ROMHeaderAnalyzer:
 					i += 2
 				else:
 					break
-			elif opcode == 0x8d:  # STA absolute
+			elif opcode == 0x8d:	# STA absolute
 				if i + 2 < len(code):
 					addr = struct.unpack("<H", code[i + 1 : i + 3])[0]
 					analysis["operations"].append(
@@ -317,14 +317,14 @@ class DQ3ROMHeaderAnalyzer:
 					i += 3
 				else:
 					break
-			elif opcode == 0x4c:  # JMP absolute
+			elif opcode == 0x4c:	# JMP absolute
 				if i + 2 < len(code):
 					addr = struct.unpack("<H", code[i + 1 : i + 3])[0]
 					analysis["operations"].append(
 						{"offset": i, "instruction": f"JMP ${addr:04X}", "description": f"Jump to ${addr:04X}"}
 					)
 					analysis["system_setup"].append(f"Main initialization continues at ${addr:04X}")
-					break  # End of initial sequence
+					break	# End of initial sequence
 				else:
 					break
 			else:
@@ -420,7 +420,7 @@ class DQ3ROMHeaderAnalyzer:
 ### Initialization Sequence
 """
 
-			for op in self.init_code_analysis["operations"][:20]:  # First 20 operations
+			for op in self.init_code_analysis["operations"][:20]:	# First 20 operations
 				report += f"- `{op['instruction']}` - {op['description']}\n"
 
 			if len(self.init_code_analysis["operations"]) > 20:
@@ -569,10 +569,10 @@ reset_handler:
 		asm_path = self.generate_initialization_disassembly(str(output_path))
 
 		print(f"\n📊 Analysis Complete!")
-		print(f"   Report: {report_path}")
-		print(f"   Assembly: {asm_path}")
-		print(f"   Functions analyzed: {len(init_result['operations'])}")
-		print(f"   Memory operations: {len(init_result['memory_operations'])}")
+		print(f"	 Report: {report_path}")
+		print(f"	 Assembly: {asm_path}")
+		print(f"	 Functions analyzed: {len(init_result['operations'])}")
+		print(f"	 Memory operations: {len(init_result['memory_operations'])}")
 
 
 def main():

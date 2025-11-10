@@ -149,7 +149,7 @@ class DQ3ProjectShowcase:
 				capture_output=True,
 				text=True,
 				cwd=str(self.project_root),
-				timeout=300  # 5 minute timeout per tool
+				timeout=300	# 5 minute timeout per tool
 				)
 
 				execution_time = time.time() - start_time

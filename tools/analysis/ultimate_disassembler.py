@@ -81,7 +81,7 @@ class UltimateDisassembler:
 				reader = csv.DictReader(f)
 				for row in reader:
 					try:
-						offset = int(row['Offset'][1:], 16)  # Remove $ prefix
+						offset = int(row['Offset'][1:], 16)	# Remove $ prefix
 						strings[offset] = row['Text']
 					except:
 						continue
@@ -98,7 +98,7 @@ class UltimateDisassembler:
 				data = json.load(f)
 				for table in data:
 					try:
-						offset = int(table['offset'][1:], 16)  # Remove $ prefix
+						offset = int(table['offset'][1:], 16)	# Remove $ prefix
 						tables[offset] = table
 					except:
 						continue
@@ -115,7 +115,7 @@ class UltimateDisassembler:
 				reader = csv.DictReader(f)
 				for row in reader:
 					try:
-						start = int(row['Start'][1:], 16)  # Remove $ prefix
+						start = int(row['Start'][1:], 16)	# Remove $ prefix
 						end = int(row['End'][1:], 16)
 						regions.append({
 							'start': start,
@@ -397,7 +397,7 @@ class UltimateDisassembler:
 
 				if region and region['type'] in ['text_or_code']:
 					# Disassemble code region
-					region_end = min(region['end'], current_offset + 2048)  # Max 2KB per region
+					region_end = min(region['end'], current_offset + 2048)	# Max 2KB per region
 
 					f.write(f"\n; ==========================================\n")
 					f.write(f"; Region: ${current_offset:06X} - ${region_end:06X}\n")
@@ -455,11 +455,11 @@ class UltimateDisassembler:
 ; recognition, cross-reference tracking, and data structure identification.
 ;
 ; Analysis Summary:
-;   - ROM Size: {rom_size:,} bytes
-;   - Text Strings: {text_count:,} identified
-;   - Data Tables: {table_count:,} identified
-;   - Regions Classified: {region_count:,}
-;   - Code Regions: {code_regions} identified
+;	 - ROM Size: {rom_size:,} bytes
+;	 - Text Strings: {text_count:,} identified
+;	 - Data Tables: {table_count:,} identified
+;	 - Regions Classified: {region_count:,}
+;	 - Code Regions: {code_regions} identified
 ;
 ; Generation Date: {timestamp}
 ;
@@ -587,7 +587,7 @@ VERSION $00
 				# Add symbol if known
 				symbol = self._get_address_symbol(addr)
 				if symbol:
-					return f"{symbol}  ; ${addr:04X}"
+					return f"{symbol}	; ${addr:04X}"
 				return f"${addr:04X}"
 			return "$????"
 		elif addressing == "relative":
@@ -598,7 +598,7 @@ VERSION $00
 				target_offset = offset + 2 + displacement
 				target_bank, target_addr = self._rom_offset_to_snes_address(target_offset)
 				label = f"label_{target_bank:02X}_{target_addr:04X}"
-				return f"{label}  ; ${target_addr:04X}"
+				return f"{label}	; ${target_addr:04X}"
 			return "$????"
 		elif addressing == "long":
 			if len(bytes_data) >= 4:
@@ -697,9 +697,9 @@ VERSION $00
 			addresses = re.findall(r'\$([0-9A-Fa-f]{4,6})', operands)
 			for addr_str in addresses:
 				addr = int(addr_str, 16)
-				if addr < 0x8000:  # RAM/register address
+				if addr < 0x8000:	# RAM/register address
 					data_refs.append(f"RAM/Register access: ${addr:04X}")
-				else:  # ROM address
+				else:	# ROM address
 					data_refs.append(f"ROM reference: ${addr:04X}")
 
 		return data_refs
@@ -714,7 +714,7 @@ VERSION $00
 		"""Write fully annotated instruction to file"""
 		# Write address and bytes
 		bytes_str = ' '.join(f"{b:02X}" for b in instruction.bytes_data)
-		f.write(f"{instruction.bank:02X}:{instruction.address:04X}  {bytes_str:<12}")
+		f.write(f"{instruction.bank:02X}:{instruction.address:04X}	{bytes_str:<12}")
 
 		# Write instruction
 		if instruction.operands:
@@ -726,7 +726,7 @@ VERSION $00
 		f.write(f"; {instruction.description}\n")
 
 		# Write detailed comments
-		for comment in instruction.comments[:3]:  # Limit to 3 comments
+		for comment in instruction.comments[:3]:	# Limit to 3 comments
 			f.write(f"{'':37}; {comment}\n")
 
 		# Write cross-references
@@ -770,7 +770,7 @@ VERSION $00
 
 			# Game-specific symbols from data tables
 			f.write("; Game Data Structures\n")
-			for offset, table in list(self.data_tables.items())[:20]:  # First 20 tables
+			for offset, table in list(self.data_tables.items())[:20]:	# First 20 tables
 				bank, addr = self._rom_offset_to_snes_address(offset)
 				name = f"DATA_{table['type'].upper()}_{bank:02X}_{addr:04X}"
 				f.write(f".DEFINE {name:<20} ${addr:04X}\n")
@@ -786,13 +786,13 @@ VERSION $00
 			f.write("This document contains cross-reference information for the disassembly.\n\n")
 
 			f.write("## Text Strings by Location\n\n")
-			for offset in sorted(list(self.text_strings.keys())[:50]):  # First 50
+			for offset in sorted(list(self.text_strings.keys())[:50]):	# First 50
 				text = self.text_strings[offset]
 				bank, addr = self._rom_offset_to_snes_address(offset)
 				f.write(f"- `${bank:02X}:{addr:04X}` - \"{text[:60]}{'...' if len(text) > 60 else ''}\"\n")
 
 			f.write("\n## Data Tables by Location\n\n")
-			for offset in sorted(list(self.data_tables.keys())[:30]):  # First 30
+			for offset in sorted(list(self.data_tables.keys())[:30]):	# First 30
 				table = self.data_tables[offset]
 				bank, addr = self._rom_offset_to_snes_address(offset)
 				f.write(f"- `${bank:02X}:{addr:04X}` - {table['type']}: {table['entry_count']} entries\n")
@@ -815,8 +815,8 @@ def main():
 	# Find ROM file
 	rom_files = [
 		'static/Dragon Quest III - Soshite Densetsu he... (J).smc',	# Primary Japanese source
-		'static/Dragon Quest III - english.smc',					   # Reference translation
-		'static/Dragon Quest III - english (patched).smc'			  # Backup option
+		'static/Dragon Quest III - english.smc',						 # Reference translation
+		'static/Dragon Quest III - english (patched).smc'				# Backup option
 	]
 
 	rom_path = None
@@ -831,7 +831,7 @@ def main():
 
 	# Generate ultimate assembly
 	disassembler = UltimateDisassembler(rom_path)
-	disassembler.generate_ultimate_assembly(max_instructions=50000)  # Generate up to 50K instructions
+	disassembler.generate_ultimate_assembly(max_instructions=50000)	# Generate up to 50K instructions
 
 if __name__ == "__main__":
 	main()

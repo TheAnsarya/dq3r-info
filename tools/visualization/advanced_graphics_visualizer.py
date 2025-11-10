@@ -38,9 +38,9 @@ from enhanced_graphics_analyzer import EnhancedDQ3GraphicsAnalyzer, GraphicsForm
 
 class VisualizationQuality(Enum):
 	"""Output quality levels"""
-	DRAFT = "draft"		  # Fast, low quality for development
+	DRAFT = "draft"			# Fast, low quality for development
 	STANDARD = "standard"	# Balanced quality/speed
-	HIGH = "high"		   # High quality for final output
+	HIGH = "high"			 # High quality for final output
 	ULTRA = "ultra"		 # Maximum quality for analysis
 
 class ImageFormat(Enum):
@@ -176,10 +176,10 @@ class AdvancedGraphicsVisualizer:
 				palette_count += 1
 
 				if (i + 1) % 20 == 0:
-					print(f"  Generated {i + 1}/{max_palettes} palette visualizations")
+					print(f"	Generated {i + 1}/{max_palettes} palette visualizations")
 
 			except Exception as e:
-				print(f"  Error generating palette {i+1}: {e}")
+				print(f"	Error generating palette {i+1}: {e}")
 
 		print(f"Generated {palette_count} palette visualizations")
 		self.visualization_stats['palettes_generated'] = palette_count
@@ -225,7 +225,7 @@ class AdvancedGraphicsVisualizer:
 
 			# Draw color rectangle
 			draw.rectangle([x, y, x + color_size, y + color_size],
-						  fill=color, outline=(0, 0, 0))
+							fill=color, outline=(0, 0, 0))
 
 			# Add color info text for larger swatches
 			if self.config.scale_factor >= 2:
@@ -263,7 +263,7 @@ class AdvancedGraphicsVisualizer:
 				end_offset = min(start_offset + chunk.size, len(rom_data))
 				tile_data = rom_data[start_offset:end_offset]
 
-				if len(tile_data) < 32:  # Need minimum data for tiles
+				if len(tile_data) < 32:	# Need minimum data for tiles
 					continue
 
 				# Decode tiles based on detected format
@@ -304,10 +304,10 @@ class AdvancedGraphicsVisualizer:
 				tile_count += 1
 
 				if (i + 1) % 10 == 0:
-					print(f"  Generated {i + 1}/{max_chunks} tile sheets")
+					print(f"	Generated {i + 1}/{max_chunks} tile sheets")
 
 			except Exception as e:
-				print(f"  Error generating tiles {i+1}: {e}")
+				print(f"	Error generating tiles {i+1}: {e}")
 
 		print(f"Generated {tile_count} tile visualizations")
 		self.visualization_stats['tiles_generated'] = tile_count
@@ -345,9 +345,9 @@ class AdvancedGraphicsVisualizer:
 			colors = []
 			for i in range(color_count):
 				if i == 0:
-					colors.append((0, 0, 0))  # Transparent/black
+					colors.append((0, 0, 0))	# Transparent/black
 				else:
-					hue = (i - 1) / (color_count - 1) * 0.8  # Avoid wrapping to red
+					hue = (i - 1) / (color_count - 1) * 0.8	# Avoid wrapping to red
 					saturation = 0.7 + (i % 3) * 0.1
 					lightness = 0.3 + (i % 4) * 0.2
 
@@ -388,7 +388,7 @@ class AdvancedGraphicsVisualizer:
 		sheet_count = 0
 
 		for format_key, chunks in format_groups.items():
-			if len(chunks) < 2:  # Need multiple chunks for a sheet
+			if len(chunks) < 2:	# Need multiple chunks for a sheet
 				continue
 
 			try:
@@ -402,14 +402,14 @@ class AdvancedGraphicsVisualizer:
 
 				for chunk in sheet_chunks:
 					start_offset = chunk.offset
-					end_offset = min(start_offset + min(chunk.size, 1024), len(rom_data))  # Limit size
+					end_offset = min(start_offset + min(chunk.size, 1024), len(rom_data))	# Limit size
 					tile_data = rom_data[start_offset:end_offset]
 
 					if len(tile_data) >= 32:
 						bpp = self.format_to_bpp(chunk.format)
 						if bpp > 0:
 							chunk_tiles = self.decoder.decode_tiles(tile_data, bpp=bpp)
-							all_tiles.extend(chunk_tiles[:16])  # Limit tiles per chunk
+							all_tiles.extend(chunk_tiles[:16])	# Limit tiles per chunk
 
 				if all_tiles:
 					# Create combined sprite sheet
@@ -429,10 +429,10 @@ class AdvancedGraphicsVisualizer:
 					sprite_sheet.save(sheet_path)
 
 					sheet_count += 1
-					print(f"  Created sprite sheet: {filename}")
+					print(f"	Created sprite sheet: {filename}")
 
 			except Exception as e:
-				print(f"  Error creating sprite sheet for {format_key}: {e}")
+				print(f"	Error creating sprite sheet for {format_key}: {e}")
 
 		print(f"Generated {sheet_count} sprite sheets")
 		self.visualization_stats['sprite_sheets_generated'] = sheet_count
@@ -572,10 +572,10 @@ def main():
 	parser = argparse.ArgumentParser(description="Advanced Dragon Quest III Graphics Visualization")
 	parser.add_argument('--project-root', default='.', help='Project root directory')
 	parser.add_argument('--quality', choices=['draft', 'standard', 'high', 'ultra'],
-					   default='standard', help='Output quality level')
+						 default='standard', help='Output quality level')
 	parser.add_argument('--scale', type=int, default=2, help='Image scale factor')
 	parser.add_argument('--format', choices=['png', 'gif', 'webp'],
-					   default='png', help='Output image format')
+						 default='png', help='Output image format')
 	parser.add_argument('--no-gallery', action='store_true', help='Skip web gallery generation')
 
 	args = parser.parse_args()

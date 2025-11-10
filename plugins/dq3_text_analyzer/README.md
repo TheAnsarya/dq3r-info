@@ -8,7 +8,7 @@ This plugin requires the following configuration parameters:
 
 ```json
 {
-  // TODO: Document configuration parameters
+	// TODO: Document configuration parameters
 }
 ```
 

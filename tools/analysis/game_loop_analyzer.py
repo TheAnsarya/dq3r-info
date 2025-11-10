@@ -27,7 +27,7 @@ class GameLoopFunction:
 	calls_made: List[int]
 	calls_received: List[int]
 	complexity_score: int
-	execution_frequency: str  # "every_frame", "periodic", "event_driven"
+	execution_frequency: str	# "every_frame", "periodic", "event_driven"
 
 
 @dataclass
@@ -150,8 +150,8 @@ class DQ3GameLoopAnalyzer:
 		}
 
 		print(f"🎮 Game Loop Analyzer initialized")
-		print(f"   ROM: {self.rom_path}")
-		print(f"   Size: {self.rom_size:,} bytes")
+		print(f"	 ROM: {self.rom_path}")
+		print(f"	 Size: {self.rom_size:,} bytes")
 
 	def find_main_game_loop(self) -> Optional[GameLoopFunction]:
 		"""Locate the main game loop through pattern analysis"""
@@ -164,7 +164,7 @@ class DQ3GameLoopAnalyzer:
 			# Look for infinite loop pattern: code followed by JMP back to start
 			if offset + 10 < len(self.rom_data):
 				# Check for JMP absolute back to earlier address
-				if self.rom_data[offset] == 0x4c:  # JMP absolute
+				if self.rom_data[offset] == 0x4c:	# JMP absolute
 					target_addr = struct.unpack("<H", self.rom_data[offset + 1 : offset + 3])[0]
 					current_addr = 0x8000 + (offset % 0x8000)
 
@@ -179,7 +179,7 @@ class DQ3GameLoopAnalyzer:
 							}
 						)
 
-		print(f"   Found {len(infinite_loop_candidates)} potential infinite loop patterns")
+		print(f"	 Found {len(infinite_loop_candidates)} potential infinite loop patterns")
 
 		# Analyze each candidate for game loop characteristics
 		best_candidate = None
@@ -192,16 +192,16 @@ class DQ3GameLoopAnalyzer:
 				best_candidate = candidate
 
 		if best_candidate:
-			print(f"   Best main loop candidate: ${best_candidate['current_addr']:04X} (score: {best_score})")
+			print(f"	 Best main loop candidate: ${best_candidate['current_addr']:04X} (score: {best_score})")
 			return self._disassemble_game_loop(best_candidate)
 
 		# Strategy 2: Look for VBlank handler and work backwards
 		vblank_handler = self.find_vblank_handler()
 		if vblank_handler:
-			print(f"   VBlank handler found, tracing back to main loop...")
+			print(f"	 VBlank handler found, tracing back to main loop...")
 			return self._trace_to_main_loop(vblank_handler)
 
-		print("   Could not identify main game loop")
+		print("	 Could not identify main game loop")
 		return None
 
 	def _analyze_loop_candidate(self, candidate: Dict) -> int:
@@ -218,26 +218,26 @@ class DQ3GameLoopAnalyzer:
 		jsr_count = 0
 		i = 0
 		while i < len(loop_data) - 3:
-			if loop_data[i] == 0x20:  # JSR
+			if loop_data[i] == 0x20:	# JSR
 				jsr_count += 1
 				i += 3
 			else:
 				i += 1
 
-		score += jsr_count * 10  # More subroutines = higher score
+		score += jsr_count * 10	# More subroutines = higher score
 
 		# Look for input handling patterns
-		input_patterns = [0xad, 0x4016]  # LDA $4016 (controller read)
+		input_patterns = [0xad, 0x4016]	# LDA $4016 (controller read)
 		for i in range(len(loop_data) - 2):
 			if loop_data[i] == 0xad and struct.unpack("<H", loop_data[i + 1 : i + 3])[0] == 0x4016:
-				score += 20  # Input handling is strong indicator
+				score += 20	# Input handling is strong indicator
 
 		# Look for graphics/PPU operations
 		ppu_patterns = [0x2100, 0x2101, 0x2102, 0x2103, 0x2104, 0x2105, 0x2106, 0x2107]
 		for ppu_reg in ppu_patterns:
 			for i in range(len(loop_data) - 2):
 				if loop_data[i] == 0x8d and struct.unpack("<H", loop_data[i + 1 : i + 3])[0] == ppu_reg:
-					score += 15  # PPU operations indicate main loop
+					score += 15	# PPU operations indicate main loop
 
 		# Prefer moderate-sized loops (not too small, not too large)
 		if 100 <= loop_size <= 2000:
@@ -254,10 +254,10 @@ class DQ3GameLoopAnalyzer:
 		# Look for RTI (return from interrupt) instructions
 		rti_locations = []
 		for offset in range(0, len(self.rom_data)):
-			if self.rom_data[offset] == 0x40:  # RTI
+			if self.rom_data[offset] == 0x40:	# RTI
 				rti_locations.append(offset)
 
-		print(f"   Found {len(rti_locations)} RTI instructions")
+		print(f"	 Found {len(rti_locations)} RTI instructions")
 
 		# Analyze each RTI to find VBlank handler
 		for rti_offset in rti_locations:
@@ -280,12 +280,12 @@ class DQ3GameLoopAnalyzer:
 
 			# Look for sprite DMA (common in VBlank)
 			for i in range(len(handler_data) - 2):
-				if handler_data[i] == 0x8d and struct.unpack("<H", handler_data[i + 1 : i + 3])[0] == 0x4014:  # OAM DMA
+				if handler_data[i] == 0x8d and struct.unpack("<H", handler_data[i + 1 : i + 3])[0] == 0x4014:	# OAM DMA
 					vblank_score += 25
 
 			if vblank_score > 20:
 				handler_addr = 0x8000 + (start_search % 0x8000)
-				print(f"   VBlank handler found at ${handler_addr:04X} (score: {vblank_score})")
+				print(f"	 VBlank handler found at ${handler_addr:04X} (score: {vblank_score})")
 
 				# Disassemble the handler
 				handler_code = self.disassemble_region(start_search, rti_offset - start_search + 1)
@@ -318,11 +318,11 @@ class DQ3GameLoopAnalyzer:
 			# Find all references to controller ports
 			for offset in range(0, len(self.rom_data) - 2):
 				if (
-					self.rom_data[offset] == 0xad  # LDA absolute
+					self.rom_data[offset] == 0xad	# LDA absolute
 					and struct.unpack("<H", self.rom_data[offset + 1 : offset + 3])[0] == address
 				):
 
-					print(f"   Found controller read at ${offset:06X}")
+					print(f"	 Found controller read at ${offset:06X}")
 
 					# Disassemble surrounding function
 					func_start = self._find_function_start(offset)
@@ -346,7 +346,7 @@ class DQ3GameLoopAnalyzer:
 						input_functions.append(input_func)
 
 		self.input_handlers = input_functions
-		print(f"   Found {len(input_functions)} input handling functions")
+		print(f"	 Found {len(input_functions)} input handling functions")
 		return input_functions
 
 	def analyze_state_management(self) -> List[StateTransition]:
@@ -362,10 +362,10 @@ class DQ3GameLoopAnalyzer:
 		for offset in range(0, len(self.rom_data) - 5):
 			# Pattern: LDA state_var, CMP #value, BEQ/BNE target
 			if (
-				self.rom_data[offset] == 0xad  # LDA absolute
-				and self.rom_data[offset + 3] == 0xc9  # CMP immediate
+				self.rom_data[offset] == 0xad	# LDA absolute
+				and self.rom_data[offset + 3] == 0xc9	# CMP immediate
 				and self.rom_data[offset + 5] in [0xf0, 0xd0]
-			):  # BEQ/BNE
+			):	# BEQ/BNE
 
 				state_addr = struct.unpack("<H", self.rom_data[offset + 1 : offset + 3])[0]
 				state_value = self.rom_data[offset + 4]
@@ -373,9 +373,9 @@ class DQ3GameLoopAnalyzer:
 
 				# Calculate branch target
 				current_addr = 0x8000 + (offset % 0x8000)
-				if branch_offset & 0x80:  # Negative branch
+				if branch_offset & 0x80:	# Negative branch
 					target_addr = current_addr + 7 - (256 - branch_offset)
-				else:  # Positive branch
+				else:	# Positive branch
 					target_addr = current_addr + 7 + branch_offset
 
 				state_candidates.append(
@@ -388,7 +388,7 @@ class DQ3GameLoopAnalyzer:
 					}
 				)
 
-		print(f"   Found {len(state_candidates)} potential state transitions")
+		print(f"	 Found {len(state_candidates)} potential state transitions")
 
 		# Group by state address to find state machines
 		state_machines = {}
@@ -400,8 +400,8 @@ class DQ3GameLoopAnalyzer:
 
 		# Analyze each state machine
 		for state_addr, candidates in state_machines.items():
-			if len(candidates) > 2:  # Must have multiple states
-				print(f"   State machine found at ${state_addr:04X} with {len(candidates)} states")
+			if len(candidates) > 2:	# Must have multiple states
+				print(f"	 State machine found at ${state_addr:04X} with {len(candidates)} states")
 
 				for candidate in candidates:
 					transition = StateTransition(
@@ -414,7 +414,7 @@ class DQ3GameLoopAnalyzer:
 					transitions.append(transition)
 
 		self.state_transitions = transitions
-		print(f"   Identified {len(transitions)} state transitions")
+		print(f"	 Identified {len(transitions)} state transitions")
 		return transitions
 
 	def disassemble_region(self, start_offset: int, size: int) -> List[Dict]:
@@ -495,13 +495,13 @@ class DQ3GameLoopAnalyzer:
 		for i in range(offset, search_start, -1):
 			if i - 3 >= 0:
 				# Look for JSR to this location
-				if self.rom_data[i - 3] == 0x20 and struct.unpack("<H", self.rom_data[i - 2 : i])[0] == (  # JSR
+				if self.rom_data[i - 3] == 0x20 and struct.unpack("<H", self.rom_data[i - 2 : i])[0] == (	# JSR
 					0x8000 + (i % 0x8000)
 				):
 					return i
 
 				# Look for label-like patterns (common function starts)
-				if self.rom_data[i] in [0x48, 0xda, 0x5a] and i + 10 < len(  # PHA, PHX, PHY (function prologue)
+				if self.rom_data[i] in [0x48, 0xda, 0x5a] and i + 10 < len(	# PHA, PHX, PHY (function prologue)
 					self.rom_data
 				):
 					return i
@@ -516,7 +516,7 @@ class DQ3GameLoopAnalyzer:
 		for i in range(offset, search_end):
 			if i < len(self.rom_data):
 				# Look for return instructions
-				if self.rom_data[i] in [0x60, 0x6b, 0x40]:  # RTS, RTL, RTI
+				if self.rom_data[i] in [0x60, 0x6b, 0x40]:	# RTS, RTL, RTI
 					return i + 1
 
 		return search_end
@@ -553,7 +553,7 @@ class DQ3GameLoopAnalyzer:
 		"""Trace from VBlank handler back to main loop"""
 		# This is a placeholder - in a real implementation,
 		# we would follow the execution flow backwards
-		print("   Tracing execution flow from VBlank handler...")
+		print("	 Tracing execution flow from VBlank handler...")
 		return None
 
 	def generate_game_loop_analysis(self, output_dir: str):
@@ -585,7 +585,7 @@ class DQ3GameLoopAnalyzer:
 			for i, handler in enumerate(self.input_handlers):
 				f.write(f"; Input handler {i + 1}\n")
 				f.write(f"{handler.name}:\t\t; ${handler.address:04X}\n")
-				for inst in handler.instructions[:20]:  # First 20 instructions
+				for inst in handler.instructions[:20]:	# First 20 instructions
 					f.write(f"\t{inst['full'].lower():<20} ; {inst['description']}\n")
 				if len(handler.instructions) > 20:
 					f.write(f"\t; ... ({len(handler.instructions) - 20} more instructions)\n")
@@ -631,7 +631,7 @@ class DQ3GameLoopAnalyzer:
 				f.write("| From State | Condition | Target Address | Description |\n")
 				f.write("|------------|-----------|----------------|-------------|\n")
 
-				for transition in self.state_transitions[:20]:  # First 20
+				for transition in self.state_transitions[:20]:	# First 20
 					f.write(
 						f"| {transition.from_state} | {transition.condition} | ${transition.trigger_address:04X} | {transition.description} |\n"
 					)
@@ -647,8 +647,8 @@ class DQ3GameLoopAnalyzer:
 			f.write("- Input handlers located via controller port access patterns\n")
 			f.write("- State transitions found through compare-and-branch analysis\n")
 
-		print(f"   Assembly: {asm_file}")
-		print(f"   Documentation: {doc_file}")
+		print(f"	 Assembly: {asm_file}")
+		print(f"	 Documentation: {doc_file}")
 		return asm_file, doc_file
 
 	def run_complete_analysis(self, output_dir: str):
@@ -666,12 +666,12 @@ class DQ3GameLoopAnalyzer:
 		asm_file, doc_file = self.generate_game_loop_analysis(output_dir)
 
 		print(f"\n🎯 Game Loop Analysis Complete!")
-		print(f"   Main loop: {'✅ Found' if main_loop else '❌ Not found'}")
-		print(f"   VBlank handler: {'✅ Found' if vblank else '❌ Not found'}")
-		print(f"   Input handlers: {len(input_handlers)} found")
-		print(f"   State transitions: {len(state_transitions)} found")
-		print(f"   Assembly: {asm_file}")
-		print(f"   Documentation: {doc_file}")
+		print(f"	 Main loop: {'✅ Found' if main_loop else '❌ Not found'}")
+		print(f"	 VBlank handler: {'✅ Found' if vblank else '❌ Not found'}")
+		print(f"	 Input handlers: {len(input_handlers)} found")
+		print(f"	 State transitions: {len(state_transitions)} found")
+		print(f"	 Assembly: {asm_file}")
+		print(f"	 Documentation: {doc_file}")
 
 
 def main():

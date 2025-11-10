@@ -28,7 +28,7 @@ class AnalyzedFunction:
 	called_from: List[int]
 	local_labels: Set[str]
 	stack_usage: int
-	function_type: str  # "system", "game_logic", "graphics", "audio", "data_handler"
+	function_type: str	# "system", "game_logic", "graphics", "audio", "data_handler"
 	description: str
 	complexity_score: float
 
@@ -339,7 +339,7 @@ class ComprehensiveDisassembler:
 		patterns = []
 
 		# Look for initialization sequences
-		for offset in range(0, self.rom_size - 10, 0x1000):  # Check every 4K
+		for offset in range(0, self.rom_size - 10, 0x1000):	# Check every 4K
 			if offset + 10 >= self.rom_size:
 				break
 
@@ -357,7 +357,7 @@ class ComprehensiveDisassembler:
 			if len(chunk) >= 6 and chunk[0] == 0xa9 and chunk[3] == 0x8d:
 				patterns.append(offset)
 
-		return patterns[:50]  # Limit results
+		return patterns[:50]	# Limit results
 
 	def _find_subroutine_targets(self) -> List[int]:
 		"""Scan for JSR/JSL targets throughout the ROM"""
@@ -424,7 +424,7 @@ class ComprehensiveDisassembler:
 			elif mnemonic in ['PLA', 'PLX', 'PLY', 'PLB', 'PLD', 'PLP']:
 				stack_depth -= 1
 			elif mnemonic in ['JSR', 'JSL']:
-				stack_depth += 2  # Return address
+				stack_depth += 2	# Return address
 				calls_made.append(self._extract_call_target(instruction))
 			elif mnemonic in ['RTS', 'RTL']:
 				stack_depth -= 2
@@ -568,7 +568,7 @@ class ComprehensiveDisassembler:
 				operand_address = addr
 				# Check if it's a hardware register
 				if addr in self.hw_registers:
-					return f"${addr:04X}  ; {self.hw_registers[addr]}", addr
+					return f"${addr:04X}	; {self.hw_registers[addr]}", addr
 				return f"${addr:04X}", addr
 			return "$????", None
 		elif addressing in ["absolute_x", "absolute_y"]:
@@ -741,7 +741,7 @@ class ComprehensiveDisassembler:
 
 			# Sort by complexity
 			functions_by_complexity = sorted(self.functions.values(),
-										   key=lambda x: x.complexity_score, reverse=True)
+											 key=lambda x: x.complexity_score, reverse=True)
 
 			f.write("## Functions by Complexity\n\n")
 			for func in functions_by_complexity[:50]:
@@ -766,7 +766,7 @@ class ComprehensiveDisassembler:
 				f.write(f"## {reg_name}\n")
 				f.write(f"Used {len(usage_list)} times:\n")
 
-				for offset in usage_list[:20]:  # Limit to first 20
+				for offset in usage_list[:20]:	# Limit to first 20
 					bank, addr = self.rom_offset_to_snes_address(offset)
 					f.write(f"- ${offset:06X} [{bank:02X}:${addr:04X}]\n")
 
@@ -791,8 +791,8 @@ def main():
 	# Find ROM
 	rom_files = [
 		'static/Dragon Quest III - Soshite Densetsu he... (J).smc',	# Primary Japanese source
-		'static/Dragon Quest III - english.smc',					   # Reference translation
-		'static/Dragon Quest III - english (patched).smc'			  # Backup option
+		'static/Dragon Quest III - english.smc',						 # Reference translation
+		'static/Dragon Quest III - english (patched).smc'				# Backup option
 	]
 
 	rom_path = None
@@ -807,7 +807,7 @@ def main():
 
 	# Run comprehensive analysis
 	disassembler = ComprehensiveDisassembler(rom_path)
-	functions = disassembler.run_comprehensive_analysis(max_functions=500)  # Analyze up to 500 functions
+	functions = disassembler.run_comprehensive_analysis(max_functions=500)	# Analyze up to 500 functions
 
 	print(f"\nFINAL RESULTS:")
 	print(f"Functions: {len(functions)}")

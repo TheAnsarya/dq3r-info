@@ -66,7 +66,7 @@ class AudioSequence:
 	"""Audio sequence/pattern data"""
 	offset: int
 	length: int
-	sequence_type: str  # "music", "sfx", "voice"
+	sequence_type: str	# "music", "sfx", "voice"
 	channel_count: int
 	tempo: Optional[int]
 	instrument_count: int
@@ -96,16 +96,16 @@ class DQ3AudioAnalyzer:
 		self.audio_banks = {}
 
 		# SNES audio constants
-		self.SPC_RAM_SIZE = 0x10000  # 64KB SPC RAM
+		self.SPC_RAM_SIZE = 0x10000	# 64KB SPC RAM
 		self.DSP_REGISTERS = 0x80	# 128 DSP registers
-		self.MAX_VOICES = 8		  # 8 audio voices
-		self.BRR_BLOCK_SIZE = 9	  # BRR blocks are 9 bytes
+		self.MAX_VOICES = 8			# 8 audio voices
+		self.BRR_BLOCK_SIZE = 9		# BRR blocks are 9 bytes
 
 		# Audio pattern signatures
 		self.brr_signatures = [
-			b'\x00\x00\x00\x00\x00\x00\x00\x00\x03',  # BRR end block
-			b'\x01',  # BRR continue
-			b'\x02',  # BRR loop
+			b'\x00\x00\x00\x00\x00\x00\x00\x00\x03',	# BRR end block
+			b'\x01',	# BRR continue
+			b'\x02',	# BRR loop
 		]
 
 		self.smc_header_size = 0
@@ -157,10 +157,10 @@ class DQ3AudioAnalyzer:
 					self.brr_samples.append(sample)
 					samples_found += 1
 
-					if samples_found <= 10:  # Show first 10 samples
+					if samples_found <= 10:	# Show first 10 samples
 						print(f"📊 BRR Sample ${offset:06x}: {sample.size} bytes, "
-							  f"{'looped' if sample.is_looped else 'one-shot'} "
-							  f"(quality: {sample.quality_score:.2f})")
+								f"{'looped' if sample.is_looped else 'one-shot'} "
+								f"(quality: {sample.quality_score:.2f})")
 
 		print(f"\n📊 Total BRR samples detected: {samples_found}")
 
@@ -233,7 +233,7 @@ class DQ3AudioAnalyzer:
 			if blocks_analyzed > 1000:
 				break
 
-		if blocks_analyzed < 2:  # Too short to be a real sample
+		if blocks_analyzed < 2:	# Too short to be a real sample
 			return None
 
 		# Calculate quality score based on various factors
@@ -243,7 +243,7 @@ class DQ3AudioAnalyzer:
 			offset=start_offset,
 			size=total_size,
 			loop_point=loop_point,
-			sample_rate=32000,  # Default SNES sample rate
+			sample_rate=32000,	# Default SNES sample rate
 			pitch_multiplier=1.0,
 			is_looped=loop_point is not None,
 			quality_score=quality_score
@@ -252,16 +252,16 @@ class DQ3AudioAnalyzer:
 	def calculate_brr_quality(self, offset: int, size: int, block_count: int) -> float:
 		"""Calculate quality score for BRR sample detection"""
 
-		quality = 0.5  # Base quality
+		quality = 0.5	# Base quality
 
 		# Size-based scoring
-		if 100 <= size <= 10000:  # Reasonable sample size
+		if 100 <= size <= 10000:	# Reasonable sample size
 			quality += 0.2
 		elif size > 10000:
 			quality -= 0.1
 
 		# Block count scoring
-		if 5 <= block_count <= 500:  # Reasonable block count
+		if 5 <= block_count <= 500:	# Reasonable block count
 			quality += 0.2
 
 		# Data variation check
@@ -270,9 +270,9 @@ class DQ3AudioAnalyzer:
 			unique_bytes = len(set(sample_data))
 			variation = unique_bytes / len(sample_data)
 
-			if 0.1 <= variation <= 0.8:  # Good variation
+			if 0.1 <= variation <= 0.8:	# Good variation
 				quality += 0.3
-			elif variation > 0.8:  # Too random
+			elif variation > 0.8:	# Too random
 				quality -= 0.2
 
 		return min(quality, 1.0)
@@ -300,7 +300,7 @@ class DQ3AudioAnalyzer:
 				self.audio_sequences.append(sequence)
 				sequences_found += 1
 
-			print(f"   📊 Sequences found: {len(bank_sequences)}")
+			print(f"	 📊 Sequences found: {len(bank_sequences)}")
 
 		print(f"\n📊 Total audio sequences: {sequences_found}")
 
@@ -354,7 +354,7 @@ class DQ3AudioAnalyzer:
 		estimated_length = self.estimate_sequence_length(sequence_data)
 		channel_count = min(self.MAX_VOICES, max(1, channel_indicators // 4))
 
-		if estimated_length < 16:  # Too short to be meaningful
+		if estimated_length < 16:	# Too short to be meaningful
 			return None
 
 		return AudioSequence(
@@ -362,7 +362,7 @@ class DQ3AudioAnalyzer:
 			length=estimated_length,
 			sequence_type=seq_type,
 			channel_count=channel_count,
-			tempo=120 if tempo_markers > 0 else None,  # Default tempo
+			tempo=120 if tempo_markers > 0 else None,	# Default tempo
 			instrument_count=min(16, channel_indicators)
 		)
 
@@ -373,7 +373,7 @@ class DQ3AudioAnalyzer:
 		end_markers = [0xFF, 0x00, 0xFE]
 
 		for i, byte in enumerate(data):
-			if byte in end_markers and i > 16:  # Minimum sequence length
+			if byte in end_markers and i > 16:	# Minimum sequence length
 				# Check if this looks like an end
 				if i + 1 < len(data) and data[i + 1] == 0x00:
 					return i + 2
@@ -387,10 +387,10 @@ class DQ3AudioAnalyzer:
 				# Check for similarity (pattern repetition)
 				similarity = sum(a == b for a, b in zip(segment1, segment2)) / length
 
-				if similarity > 0.7:  # High similarity suggests repetition
+				if similarity > 0.7:	# High similarity suggests repetition
 					return length
 
-		return min(len(data), 256)  # Default maximum
+		return min(len(data), 256)	# Default maximum
 
 	def detect_spc_code(self, search_area: int = 0x100000):
 		"""Detect SPC-700 processor code blocks"""
@@ -424,23 +424,23 @@ class DQ3AudioAnalyzer:
 					spc_opcode_count += 1
 
 			# If chunk has many SPC opcodes, analyze as code block
-			if spc_opcode_count >= 4:  # Threshold for code detection
+			if spc_opcode_count >= 4:	# Threshold for code detection
 				code_block = self.analyze_spc_code_block(offset)
 				if code_block and code_block.complexity_score > 0.5:
 					self.spc_code_blocks.append(code_block)
 					code_blocks_found += 1
 
-					if code_blocks_found <= 5:  # Show first 5 blocks
+					if code_blocks_found <= 5:	# Show first 5 blocks
 						print(f"📊 SPC Code ${offset:06x}: {code_block.size} bytes, "
-							  f"{code_block.instruction_count} instructions "
-							  f"(complexity: {code_block.complexity_score:.2f})")
+								f"{code_block.instruction_count} instructions "
+								f"(complexity: {code_block.complexity_score:.2f})")
 
 		print(f"\n📊 Total SPC-700 code blocks: {code_blocks_found}")
 
 	def analyze_spc_code_block(self, start_offset: int) -> Optional[SPCCodeBlock]:
 		"""Analyze SPC-700 code block starting at offset"""
 
-		max_size = 2048  # Maximum code block size to analyze
+		max_size = 2048	# Maximum code block size to analyze
 		end_offset = min(start_offset + max_size, len(self.rom_data))
 
 		instruction_count = 0
@@ -457,13 +457,13 @@ class DQ3AudioAnalyzer:
 
 				# Functions typically start with MOV instructions
 				if byte in [0x8D, 0x8F, 0xCD, 0xE8] and offset not in entry_points:
-					if len(entry_points) < 10:  # Limit entry points
+					if len(entry_points) < 10:	# Limit entry points
 						entry_points.append(offset)
 						function_count += 1
 
 		size = min(max_size, end_offset - start_offset)
 
-		if instruction_count < 5:  # Too few instructions
+		if instruction_count < 5:	# Too few instructions
 			return None
 
 		# Calculate complexity score
@@ -509,7 +509,7 @@ class DQ3AudioAnalyzer:
 				samples_in_bank = sum(1 for s in self.brr_samples
 									if bank_offset <= s.offset < bank_offset + 0x8000)
 				sequences_in_bank = sum(1 for s in self.audio_sequences
-									  if bank_offset <= s.offset < bank_offset + 0x8000)
+										if bank_offset <= s.offset < bank_offset + 0x8000)
 				code_in_bank = sum(1 for s in self.spc_code_blocks
 								 if bank_offset <= s.offset < bank_offset + 0x8000)
 
@@ -519,9 +519,9 @@ class DQ3AudioAnalyzer:
 
 			if total_samples + total_sequences + total_code_blocks > 0:
 				print(f"📊 {description} (${start_bank:02x}-${end_bank-1:02x}):")
-				print(f"   BRR Samples: {total_samples}")
-				print(f"   Sequences: {total_sequences}")
-				print(f"   Code Blocks: {total_code_blocks}")
+				print(f"	 BRR Samples: {total_samples}")
+				print(f"	 Sequences: {total_sequences}")
+				print(f"	 Code Blocks: {total_code_blocks}")
 
 				self.audio_banks[description] = {
 					'banks': (start_bank, end_bank),
@@ -568,7 +568,7 @@ class DQ3AudioAnalyzer:
 					'quality_score': s.quality_score,
 					'sample_rate': s.sample_rate
 				}
-				for s in self.brr_samples[:50]  # Limit output size
+				for s in self.brr_samples[:50]	# Limit output size
 			],
 			'audio_sequences': [
 				{
@@ -578,7 +578,7 @@ class DQ3AudioAnalyzer:
 					'channels': s.channel_count,
 					'instruments': s.instrument_count
 				}
-				for s in self.audio_sequences[:50]  # Limit output size
+				for s in self.audio_sequences[:50]	# Limit output size
 			],
 			'spc_code_blocks': [
 				{
@@ -588,7 +588,7 @@ class DQ3AudioAnalyzer:
 					'instructions': c.instruction_count,
 					'complexity': c.complexity_score
 				}
-				for c in self.spc_code_blocks[:20]  # Limit output size
+				for c in self.spc_code_blocks[:20]	# Limit output size
 			],
 			'audio_banks': self.audio_banks
 		}
@@ -604,10 +604,10 @@ class DQ3AudioAnalyzer:
 
 		# Print summary
 		print(f"\n📊 Audio System Analysis Summary:")
-		print(f"   BRR Samples: {len(self.brr_samples)} ({total_sample_size:,} bytes)")
-		print(f"   Audio Sequences: {len(self.audio_sequences)} ({music_sequences} music, {effect_sequences} effects)")
-		print(f"   SPC-700 Code: {len(self.spc_code_blocks)} blocks")
-		print(f"   Audio Banks: {len(self.audio_banks)} identified")
+		print(f"	 BRR Samples: {len(self.brr_samples)} ({total_sample_size:,} bytes)")
+		print(f"	 Audio Sequences: {len(self.audio_sequences)} ({music_sequences} music, {effect_sequences} effects)")
+		print(f"	 SPC-700 Code: {len(self.spc_code_blocks)} blocks")
+		print(f"	 Audio Banks: {len(self.audio_banks)} identified")
 
 def main():
 	"""Main audio analysis process"""

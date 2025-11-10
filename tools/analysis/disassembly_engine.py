@@ -72,7 +72,7 @@ class CrossReference:
 	"""Cross-reference tracking"""
 	source_address: int
 	target_address: int
-	reference_type: str  # 'call', 'jump', 'branch', 'data'
+	reference_type: str	# 'call', 'jump', 'branch', 'data'
 	instruction_type: str
 
 class DQ3DisassemblyEngine:
@@ -84,11 +84,11 @@ class DQ3DisassemblyEngine:
 		self.rom_data = bytes()
 
 		# Disassembly state
-		self.instructions = {}  # address -> Instruction
-		self.cross_references = {}  # target -> list of sources
-		self.symbol_table = {}  # address -> symbol name
-		self.code_areas = set()  # addresses confirmed as code
-		self.data_areas = set()  # addresses confirmed as data
+		self.instructions = {}	# address -> Instruction
+		self.cross_references = {}	# target -> list of sources
+		self.symbol_table = {}	# address -> symbol name
+		self.code_areas = set()	# addresses confirmed as code
+		self.data_areas = set()	# addresses confirmed as data
 
 		# 65816 constants
 		self.BANK_SIZE = 0x8000
@@ -278,7 +278,7 @@ class DQ3DisassemblyEngine:
 			if rom_offset + i < len(self.rom_data):
 				operands.append(self.rom_data[rom_offset + i])
 			else:
-				return None  # Incomplete instruction
+				return None	# Incomplete instruction
 
 		# Calculate instruction address in SNES format
 		bank, address = self.rom_address_to_snes_address(rom_offset)
@@ -327,7 +327,7 @@ class DQ3DisassemblyEngine:
 			# 8-bit relative branch
 			offset = operands[0]
 			if offset >= 128:
-				offset -= 256  # Convert to signed
+				offset -= 256	# Convert to signed
 			bank, address = self.rom_address_to_snes_address(rom_offset)
 			target_addr = address + instruction.size + offset
 			return (bank << 16) | (target_addr & 0xFFFF)
@@ -336,7 +336,7 @@ class DQ3DisassemblyEngine:
 			# 16-bit relative branch
 			offset = operands[0] | (operands[1] << 8)
 			if offset >= 32768:
-				offset -= 65536  # Convert to signed
+				offset -= 65536	# Convert to signed
 			bank, address = self.rom_address_to_snes_address(rom_offset)
 			target_addr = address + instruction.size + offset
 			return (bank << 16) | (target_addr & 0xFFFF)
@@ -407,7 +407,7 @@ class DQ3DisassemblyEngine:
 			reset_vector_offset = self.snes_address_to_rom_offset(0x00, 0xFFFC)
 			if reset_vector_offset + 1 < len(self.rom_data):
 				reset_addr = self.rom_data[reset_vector_offset] | (self.rom_data[reset_vector_offset + 1] << 8)
-				reset_full = 0x008000 | reset_addr  # Assume bank 0
+				reset_full = 0x008000 | reset_addr	# Assume bank 0
 				entry_points.append(reset_full)
 				print(f"📊 Reset Vector: ${reset_full:06x}")
 		except ValueError:
@@ -460,7 +460,7 @@ class DQ3DisassemblyEngine:
 			print(f"📊 Code coverage: {len(bank_instructions) * 2.5:.0f} bytes estimated")
 
 			total_instructions += len(bank_instructions)
-			total_bytes += len(bank_instructions) * 2.5  # Average instruction size
+			total_bytes += len(bank_instructions) * 2.5	# Average instruction size
 
 		# Save analysis to file
 		analysis_data = {

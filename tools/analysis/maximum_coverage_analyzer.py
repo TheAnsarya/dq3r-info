@@ -59,8 +59,8 @@ class ROMRegion:
 	start_offset: int
 	end_offset: int
 	size: int
-	region_type: str  # "code", "data", "graphics", "audio", "text", "table", "unknown"
-	confidence: float  # 0.0 to 1.0
+	region_type: str	# "code", "data", "graphics", "audio", "text", "table", "unknown"
+	confidence: float	# 0.0 to 1.0
 	description: str
 	analysis_data: Dict[str, Any] = field(default_factory=dict)
 	cross_references: List[int] = field(default_factory=list)
@@ -68,7 +68,7 @@ class ROMRegion:
 	@property
 	def coverage_percentage(self) -> float:
 		"""Calculate what percentage of ROM this region covers"""
-		return (self.size / (6 * 1024 * 1024)) * 100  # 6MB ROM
+		return (self.size / (6 * 1024 * 1024)) * 100	# 6MB ROM
 
 
 @dataclass
@@ -95,7 +95,7 @@ class MaximumCoverageAnalyzer:
 		self.rom_size = len(self.rom_data)
 		self.regions = []
 		self.byte_analysis = {}
-		self.coverage_map = [0] * self.rom_size  # 0=unknown, 1=analyzed
+		self.coverage_map = [0] * self.rom_size	# 0=unknown, 1=analyzed
 		self.data_patterns = defaultdict(list)
 		self.cross_references = defaultdict(set)
 
@@ -108,8 +108,8 @@ class MaximumCoverageAnalyzer:
 		self.text_bytes = 0
 
 		print(f"INIT: Maximum Coverage Analyzer initialized")
-		print(f"   ROM: {self.rom_path}")
-		print(f"   Size: {self.rom_size:,} bytes ({self.rom_size / (1024*1024):.2f} MB)")
+		print(f"	 ROM: {self.rom_path}")
+		print(f"	 Size: {self.rom_size:,} bytes ({self.rom_size / (1024*1024):.2f} MB)")
 
 	def analyze_byte_entropy(self, window_size: int = 256) -> Dict[int, float]:
 		"""Calculate entropy for sliding windows to identify data types"""
@@ -141,7 +141,7 @@ class MaximumCoverageAnalyzer:
 			elif 4.0 <= entropy <= 6.0:
 				self._mark_region_type(offset, offset + window_size, "structured_data")
 
-		print(f"   Entropy analysis complete: {len(entropy_map)} windows analyzed")
+		print(f"	 Entropy analysis complete: {len(entropy_map)} windows analyzed")
 		return entropy_map
 
 	def find_all_pointers(self) -> Dict[int, List[int]]:
@@ -174,8 +174,8 @@ class MaximumCoverageAnalyzer:
 						pointers[target].append(offset)
 						self.cross_references[target].add(offset)
 
-		print(f"   Found {len(pointers)} pointer targets")
-		print(f"   Total references: {sum(len(refs) for refs in pointers.values())}")
+		print(f"	 Found {len(pointers)} pointer targets")
+		print(f"	 Total references: {sum(len(refs) for refs in pointers.values())}")
 
 		return dict(pointers)
 
@@ -206,9 +206,9 @@ class MaximumCoverageAnalyzer:
 				self._mark_bytes_analyzed(offset, offset + table_info['size'])
 				offset += table_info['size']
 			else:
-				offset += 16  # Skip ahead
+				offset += 16	# Skip ahead
 
-		print(f"   Identified {len(tables)} data tables")
+		print(f"	 Identified {len(tables)} data tables")
 		return tables
 
 	def identify_text_data(self) -> List[ROMRegion]:
@@ -252,7 +252,7 @@ class MaximumCoverageAnalyzer:
 				current_text_start = None
 				current_text_size = 0
 
-		print(f"   Found {len(text_regions)} text regions")
+		print(f"	 Found {len(text_regions)} text regions")
 		return text_regions
 
 	def identify_graphics_data(self) -> List[ROMRegion]:
@@ -271,8 +271,8 @@ class MaximumCoverageAnalyzer:
 			# Convert to regions
 			for sprite in sprite_data:
 				region = ROMRegion(
-					start_offset=sprite.address - 0x8000,  # Convert from SNES address
-					end_offset=(sprite.address - 0x8000) + 64,  # Estimate size
+					start_offset=sprite.address - 0x8000,	# Convert from SNES address
+					end_offset=(sprite.address - 0x8000) + 64,	# Estimate size
 					size=64,
 					region_type="graphics",
 					confidence=0.8,
@@ -282,13 +282,13 @@ class MaximumCoverageAnalyzer:
 				graphics_regions.append(region)
 
 		except Exception as e:
-			print(f"   Warning: Graphics analyzer failed: {e}")
+			print(f"	 Warning: Graphics analyzer failed: {e}")
 
 		# Additional pattern-based graphics detection
 		graphics_patterns = [
-			b'\x00\x00\x7e\x7e',  # Common tile pattern
-			b'\xff\x00\xff\x00',  # Checkerboard pattern
-			b'\x80\x80\x80\x80',  # Vertical line pattern
+			b'\x00\x00\x7e\x7e',	# Common tile pattern
+			b'\xff\x00\xff\x00',	# Checkerboard pattern
+			b'\x80\x80\x80\x80',	# Vertical line pattern
 		]
 
 		for offset in range(0, self.rom_size - 64, 64):
@@ -318,7 +318,7 @@ class MaximumCoverageAnalyzer:
 				graphics_regions.append(region)
 				self._mark_bytes_analyzed(offset, offset + 64)
 
-		print(f"   Found {len(graphics_regions)} graphics regions")
+		print(f"	 Found {len(graphics_regions)} graphics regions")
 		return graphics_regions
 
 	def identify_audio_data(self) -> List[ROMRegion]:
@@ -347,7 +347,7 @@ class MaximumCoverageAnalyzer:
 				audio_regions.append(region)
 
 		except Exception as e:
-			print(f"   Warning: Audio analyzer failed: {e}")
+			print(f"	 Warning: Audio analyzer failed: {e}")
 
 		# Look for audio patterns
 		for offset in range(0, self.rom_size - 256, 256):
@@ -357,11 +357,11 @@ class MaximumCoverageAnalyzer:
 			spc_patterns = 0
 			spc_opcodes = [0x8f, 0xaf, 0xc4, 0xe4, 0x3f, 0x6f, 0x2f, 0xf0, 0xd0]
 
-			for byte_val in chunk[::8]:  # Sample every 8th byte
+			for byte_val in chunk[::8]:	# Sample every 8th byte
 				if byte_val in spc_opcodes:
 					spc_patterns += 1
 
-			if spc_patterns >= 4:  # Threshold for likely SPC code
+			if spc_patterns >= 4:	# Threshold for likely SPC code
 				region = ROMRegion(
 					start_offset=offset,
 					end_offset=offset + 256,
@@ -374,7 +374,7 @@ class MaximumCoverageAnalyzer:
 				audio_regions.append(region)
 				self._mark_bytes_analyzed(offset, offset + 256)
 
-		print(f"   Found {len(audio_regions)} audio regions")
+		print(f"	 Found {len(audio_regions)} audio regions")
 		return audio_regions
 
 	def identify_code_regions(self) -> List[ROMRegion]:
@@ -406,7 +406,7 @@ class MaximumCoverageAnalyzer:
 				code_regions.append(region)
 
 		except Exception as e:
-			print(f"   Warning: Existing analyzer failed: {e}")
+			print(f"	 Warning: Existing analyzer failed: {e}")
 
 		# Additional instruction pattern analysis
 		valid_65816_opcodes = {
@@ -430,9 +430,9 @@ class MaximumCoverageAnalyzer:
 				if opcode in valid_65816_opcodes:
 					code_score += 1
 					sequence_length = i + 1
-				elif opcode == 0x60:  # RTS - end of function
+				elif opcode == 0x60:	# RTS - end of function
 					break
-				elif opcode > 0xff:  # Invalid
+				elif opcode > 0xff:	# Invalid
 					break
 
 			# If we found a decent code sequence
@@ -450,9 +450,9 @@ class MaximumCoverageAnalyzer:
 				self._mark_bytes_analyzed(offset, offset + sequence_length)
 				offset += sequence_length
 			else:
-				offset += 32  # Skip ahead
+				offset += 32	# Skip ahead
 
-		print(f"   Found {len(code_regions)} code regions")
+		print(f"	 Found {len(code_regions)} code regions")
 		return code_regions
 
 	def analyze_unidentified_regions(self) -> List[ROMRegion]:
@@ -464,7 +464,7 @@ class MaximumCoverageAnalyzer:
 		current_size = 0
 
 		for offset in range(self.rom_size):
-			if self.coverage_map[offset] == 0:  # Unanalyzed
+			if self.coverage_map[offset] == 0:	# Unanalyzed
 				if current_start is None:
 					current_start = offset
 				current_size += 1
@@ -489,7 +489,7 @@ class MaximumCoverageAnalyzer:
 				current_start = None
 				current_size = 0
 
-		print(f"   Analyzed {len(unidentified_regions)} previously unidentified regions")
+		print(f"	 Analyzed {len(unidentified_regions)} previously unidentified regions")
 		return unidentified_regions
 
 	def generate_comprehensive_coverage_report(self) -> Dict[str, Any]:
@@ -530,7 +530,7 @@ class MaximumCoverageAnalyzer:
 				'total_pointers_found': len(self.cross_references),
 				'most_referenced_address': max(self.cross_references.keys(),
 											 key=lambda k: len(self.cross_references[k]))
-										   if self.cross_references else 0
+											 if self.cross_references else 0
 			}
 		}
 
@@ -572,10 +572,10 @@ class MaximumCoverageAnalyzer:
 		end_time = time.time()
 
 		print(f"\n🎯 Maximum Coverage Analysis Complete!")
-		print(f"   Analysis time: {end_time - start_time:.2f} seconds")
-		print(f"   Total regions: {len(self.regions)}")
-		print(f"   Coverage: {coverage_report['coverage']['coverage_percentage']:.2f}%")
-		print(f"   Output directory: {output_path}")
+		print(f"	 Analysis time: {end_time - start_time:.2f} seconds")
+		print(f"	 Total regions: {len(self.regions)}")
+		print(f"	 Coverage: {coverage_report['coverage']['coverage_percentage']:.2f}%")
+		print(f"	 Output directory: {output_path}")
 
 		return coverage_report
 
@@ -617,7 +617,7 @@ class MaximumCoverageAnalyzer:
 				if 0x8000 <= ptr <= 0xffff:
 					pointers.append(ptr)
 
-		if len(pointers) >= 8:  # Likely pointer table
+		if len(pointers) >= 8:	# Likely pointer table
 			return {
 				'type': 'pointer_table',
 				'entries': len(pointers),
@@ -630,7 +630,7 @@ class MaximumCoverageAnalyzer:
 		values = list(data)
 		unique_values = len(set(values))
 
-		if unique_values < len(values) * 0.3:  # High repetition
+		if unique_values < len(values) * 0.3:	# High repetition
 			return {
 				'type': 'data_table',
 				'entries': len(values),

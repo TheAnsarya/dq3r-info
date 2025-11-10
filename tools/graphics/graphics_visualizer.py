@@ -61,7 +61,7 @@ class GraphicsVisualizer:
 			data = json.load(f)
 
 		print(f"Loaded analysis: {len(data.get('palette_candidates', []))} palettes, "
-			  f"{len(data.get('tiles', []))} tiles")
+				f"{len(data.get('tiles', []))} tiles")
 
 		return data
 
@@ -84,7 +84,7 @@ class GraphicsVisualizer:
 		return self.rom_data[pc_address:pc_address + size]
 
 	def visualize_palette_candidates(self, analysis_data: Dict[str, Any],
-								   output_dir: str, max_palettes: int = 50) -> None:
+									 output_dir: str, max_palettes: int = 50) -> None:
 		"""
 		Create images showing palette candidates.
 
@@ -103,7 +103,7 @@ class GraphicsVisualizer:
 
 		for i, candidate in enumerate(palette_candidates):
 			snes_addr = candidate['snes_address']
-			size = candidate.get('size', 32)  # Default 16 colors * 2 bytes
+			size = candidate.get('size', 32)	# Default 16 colors * 2 bytes
 
 			try:
 				# Extract palette data
@@ -120,10 +120,10 @@ class GraphicsVisualizer:
 				swatch.save(output_path / filename)
 
 				if (i + 1) % 10 == 0:
-					print(f"  Processed {i + 1}/{len(palette_candidates)} palettes")
+					print(f"	Processed {i + 1}/{len(palette_candidates)} palettes")
 
 			except Exception as e:
-				print(f"  Error processing palette {i} at ${snes_addr:06X}: {e}")
+				print(f"	Error processing palette {i} at ${snes_addr:06X}: {e}")
 
 		print(f"Palette visualizations saved to: {output_path}")
 
@@ -206,10 +206,10 @@ class GraphicsVisualizer:
 					image.save(output_path / filename)
 
 				if (i + 1) % 5 == 0:
-					print(f"  Processed {i + 1}/{len(chunks)} chunks")
+					print(f"	Processed {i + 1}/{len(chunks)} chunks")
 
 			except Exception as e:
-				print(f"  Error processing chunk {i} at ${snes_addr:06X}: {e}")
+				print(f"	Error processing chunk {i} at ${snes_addr:06X}: {e}")
 
 		print(f"Tile visualizations saved to: {output_path}")
 
@@ -276,9 +276,9 @@ class GraphicsVisualizer:
 					x_start = 50 + (i % 5) * 200
 					y_start = y_pos + (i // 5) * 40
 
-					for j, color in enumerate(colors[:8]):  # Show first 8 colors
+					for j, color in enumerate(colors[:8]):	# Show first 8 colors
 						draw.rectangle([x_start + j * 20, y_start,
-									  x_start + j * 20 + 18, y_start + 18],
+										x_start + j * 20 + 18, y_start + 18],
 									 fill=color, outline=(0, 0, 0))
 
 					# Address label
@@ -299,15 +299,15 @@ def main():
 	parser.add_argument('rom_path', help='Path to Dragon Quest III ROM file')
 	parser.add_argument('analysis_file', help='Path to graphics analysis JSON file')
 	parser.add_argument('--output-dir', '-o', default='output/graphics_visualization',
-					   help='Output directory for visualizations')
+						 help='Output directory for visualizations')
 	parser.add_argument('--max-palettes', type=int, default=50,
-					   help='Maximum number of palettes to visualize')
+						 help='Maximum number of palettes to visualize')
 	parser.add_argument('--max-chunks', type=int, default=20,
-					   help='Maximum number of tile chunks to visualize')
+						 help='Maximum number of tile chunks to visualize')
 	parser.add_argument('--skip-palettes', action='store_true',
-					   help='Skip palette visualization')
+						 help='Skip palette visualization')
 	parser.add_argument('--skip-tiles', action='store_true',
-					   help='Skip tile visualization')
+						 help='Skip tile visualization')
 
 	args = parser.parse_args()
 

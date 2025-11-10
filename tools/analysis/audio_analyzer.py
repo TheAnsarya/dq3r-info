@@ -31,7 +31,7 @@ class AudioFunction:
 	address: int
 	size: int
 	purpose: str
-	audio_type: str  # "music", "sfx", "driver", "communication"
+	audio_type: str	# "music", "sfx", "driver", "communication"
 	complexity_score: int
 	spc_commands: List[str]
 	instructions: List[Dict]
@@ -119,15 +119,15 @@ class DQ3AudioAnalyzer:
 
 		# Audio patterns to detect (updated with SNES address context)
 		self.audio_patterns = {
-			"apu_communication": [0x8d, 0x40, 0x21],  # STA $2140 (SNES $00:2140)
-			"music_data_load": [0xa9, 0x00, 0x8d, 0x41, 0x21],  # LDA #$00, STA $2141
-			"sound_trigger": [0xa9, 0x01, 0x8d, 0x42, 0x21],  # LDA #$01, STA $2142
-			"dsp_register": [0x8d, 0x43, 0x21],  # STA $2143 (DSP register)
+			"apu_communication": [0x8d, 0x40, 0x21],	# STA $2140 (SNES $00:2140)
+			"music_data_load": [0xa9, 0x00, 0x8d, 0x41, 0x21],	# LDA #$00, STA $2141
+			"sound_trigger": [0xa9, 0x01, 0x8d, 0x42, 0x21],	# LDA #$01, STA $2142
+			"dsp_register": [0x8d, 0x43, 0x21],	# STA $2143 (DSP register)
 		}
 
 		print(f"🎵 Audio System Analyzer initialized")
-		print(f"   ROM: {self.rom_path}")
-		print(f"   Size: {self.rom_size:,} bytes")
+		print(f"	 ROM: {self.rom_path}")
+		print(f"	 Size: {self.rom_size:,} bytes")
 
 	def find_audio_functions(self) -> List[AudioFunction]:
 		"""Find all audio-related functions"""
@@ -175,7 +175,7 @@ class DQ3AudioAnalyzer:
 		sfx_functions = self._find_sound_effect_functions()
 		audio_functions.extend(sfx_functions)
 
-		print(f"   Found {len(audio_functions)} audio functions")
+		print(f"	 Found {len(audio_functions)} audio functions")
 
 		self.audio_functions = audio_functions
 		return audio_functions
@@ -192,11 +192,11 @@ class DQ3AudioAnalyzer:
 		for table_addr in music_table_candidates:
 			rom_offset = self._snes_to_rom_address(table_addr)
 			if rom_offset > 0 and rom_offset < len(self.rom_data) - 200:
-				print(f"   Analyzing music table at ${table_addr:06X}")
+				print(f"	 Analyzing music table at ${table_addr:06X}")
 
 				# Parse music entries
-				for i in range(0, 32):  # Assume up to 32 tracks
-					track_offset = rom_offset + (i * 16)  # 16 bytes per track
+				for i in range(0, 32):	# Assume up to 32 tracks
+					track_offset = rom_offset + (i * 16)	# 16 bytes per track
 					if track_offset + 16 >= len(self.rom_data):
 						break
 
@@ -223,7 +223,7 @@ class DQ3AudioAnalyzer:
 
 						music_tracks.append(track_info)
 
-		print(f"   Identified {len(music_tracks)} music tracks")
+		print(f"	 Identified {len(music_tracks)} music tracks")
 
 		self.music_tracks = music_tracks
 		return music_tracks
@@ -251,7 +251,7 @@ class DQ3AudioAnalyzer:
 						sfx_id=len(sound_effects),
 						name=f"SFX_{len(sound_effects):02X}",
 						address=sfx_ref["address"],
-						size=32,  # Estimated
+						size=32,	# Estimated
 						frequency=self._extract_frequency(sfx_data),
 						duration=self._extract_duration(sfx_data),
 						wave_type=self._determine_wave_type(sfx_data),
@@ -263,7 +263,7 @@ class DQ3AudioAnalyzer:
 		dsp_sounds = self._find_dsp_sound_generation()
 		sound_effects.extend(dsp_sounds)
 
-		print(f"   Identified {len(sound_effects)} sound effects")
+		print(f"	 Identified {len(sound_effects)} sound effects")
 
 		self.sound_effects = sound_effects
 		return sound_effects
@@ -292,7 +292,7 @@ class DQ3AudioAnalyzer:
 
 					apu_commands.append(command_info)
 
-		print(f"   Identified {len(apu_commands)} APU commands")
+		print(f"	 Identified {len(apu_commands)} APU commands")
 
 		self.apu_commands = apu_commands
 		return apu_commands
@@ -324,9 +324,9 @@ class DQ3AudioAnalyzer:
 		memory_layout = self._analyze_spc_memory_layout()
 		driver_analysis["memory_layout"] = memory_layout
 
-		print(f"   Driver functions: {len(driver_analysis['driver_functions'])}")
-		print(f"   DSP registers used: {len(driver_analysis['dsp_register_usage'])}")
-		print(f"   Timer usage patterns: {len(driver_analysis['timer_usage'])}")
+		print(f"	 Driver functions: {len(driver_analysis['driver_functions'])}")
+		print(f"	 DSP registers used: {len(driver_analysis['dsp_register_usage'])}")
+		print(f"	 Timer usage patterns: {len(driver_analysis['timer_usage'])}")
 
 		return driver_analysis
 
@@ -347,9 +347,9 @@ class DQ3AudioAnalyzer:
 
 		for i in range(offset, search_start, -1):
 			# Look for function entry patterns
-			if i >= 3 and self.rom_data[i - 3 : i] == b"\x20\x00\x80":  # JSR $8000
+			if i >= 3 and self.rom_data[i - 3 : i] == b"\x20\x00\x80":	# JSR $8000
 				return i
-			if i >= 0 and self.rom_data[i] in [0x48, 0xda, 0x5a]:  # Function prologue
+			if i >= 0 and self.rom_data[i] in [0x48, 0xda, 0x5a]:	# Function prologue
 				return i
 
 		return search_start
@@ -363,7 +363,7 @@ class DQ3AudioAnalyzer:
 				0x60,
 				0x6b,
 				0x40,
-			]:  # RTS, RTL, RTI
+			]:	# RTS, RTL, RTI
 				return i + 1
 
 		return search_end
@@ -558,9 +558,9 @@ class DQ3AudioAnalyzer:
 		"""Extract frequency from sound effect data"""
 		if len(sfx_data) >= 2:
 			freq = struct.unpack("<H", sfx_data[0:2])[0]
-			if 100 <= freq <= 10000:  # Reasonable frequency range
+			if 100 <= freq <= 10000:	# Reasonable frequency range
 				return freq
-		return 440  # Default frequency
+		return 440	# Default frequency
 
 	def _extract_duration(self, sfx_data: bytes) -> int:
 		"""Extract duration from sound effect data"""
@@ -568,7 +568,7 @@ class DQ3AudioAnalyzer:
 			duration = sfx_data[2]
 			if 1 <= duration <= 255:
 				return duration
-		return 60  # Default duration
+		return 60	# Default duration
 
 	def _determine_wave_type(self, sfx_data: bytes) -> str:
 		"""Determine wave type from sound effect data"""
@@ -587,12 +587,12 @@ class DQ3AudioAnalyzer:
 			if self._matches_pattern(offset, self.audio_patterns["dsp_register"]):
 				# This might be a DSP sound generation
 				sfx_info = SoundEffect(
-					sfx_id=100 + len(dsp_sounds),  # Offset to avoid conflicts
+					sfx_id=100 + len(dsp_sounds),	# Offset to avoid conflicts
 					name=f"DSP_SFX_{len(dsp_sounds):02X}",
 					address=0x8000 + (offset % 0x8000),
 					size=16,
-					frequency=880,  # Default
-					duration=30,  # Default
+					frequency=880,	# Default
+					duration=30,	# Default
 					wave_type="dsp",
 				)
 				dsp_sounds.append(sfx_info)
@@ -616,7 +616,7 @@ class DQ3AudioAnalyzer:
 					"command_value": command_value,
 					"purpose": f"Port {port_addr[-1]} communication",
 					"parameters": [port_addr],
-					"spc_handler": 0,  # Would need SPC code analysis
+					"spc_handler": 0,	# Would need SPC code analysis
 				}
 
 				port_usage.append(usage_info)
@@ -683,7 +683,7 @@ class DQ3AudioAnalyzer:
 			if "timer" in func.purpose.lower():
 				timer_info = {
 					"function": func.name,
-					"timer_id": 0,  # Would analyze to determine which timer
+					"timer_id": 0,	# Would analyze to determine which timer
 					"purpose": "Audio timing",
 				}
 				timer_usage.append(timer_info)
@@ -693,12 +693,12 @@ class DQ3AudioAnalyzer:
 	def _analyze_spc_memory_layout(self) -> Dict[str, Any]:
 		"""Analyze SPC-700 memory layout"""
 		memory_layout = {
-			"driver_start": 0x0200,  # Common SPC driver location
-			"driver_size": 0x1000,  # Estimated
-			"sample_area": 0x1200,  # Common sample storage
-			"sample_size": 0x6000,  # Estimated
-			"stack_pointer": 0x01ff,  # SPC-700 stack
-			"io_ports": 0x00f4,  # SPC I/O ports
+			"driver_start": 0x0200,	# Common SPC driver location
+			"driver_size": 0x1000,	# Estimated
+			"sample_area": 0x1200,	# Common sample storage
+			"sample_size": 0x6000,	# Estimated
+			"stack_pointer": 0x01ff,	# SPC-700 stack
+			"io_ports": 0x00f4,	# SPC I/O ports
 		}
 
 		return memory_layout
@@ -783,7 +783,7 @@ class DQ3AudioAnalyzer:
 				instructions.append(instruction)
 				offset += length
 
-				if opcode == 0x60:  # RTS
+				if opcode == 0x60:	# RTS
 					break
 			else:
 				offset += 1
@@ -811,7 +811,7 @@ class DQ3AudioAnalyzer:
 			for func in self.audio_functions:
 				f.write(f"; {func.purpose} ({func.audio_type})\n")
 				f.write(f"{func.name}:\t\t; ${func.address:04X}\n")
-				for inst in func.instructions[:15]:  # First 15 instructions
+				for inst in func.instructions[:15]:	# First 15 instructions
 					f.write(f"\t{inst['full'].lower():<20}\n")
 				if len(func.instructions) > 15:
 					f.write(
@@ -948,10 +948,10 @@ class DQ3AudioAnalyzer:
 		with open(data_file, "w") as f:
 			json.dump(analysis_data, f, indent=2)
 
-		print(f"   Assembly: {asm_file}")
-		print(f"   Documentation: {doc_file}")
-		print(f"   SPC Driver: {spc_file}")
-		print(f"   Data: {data_file}")
+		print(f"	 Assembly: {asm_file}")
+		print(f"	 Documentation: {doc_file}")
+		print(f"	 SPC Driver: {spc_file}")
+		print(f"	 Data: {data_file}")
 
 		return asm_file, doc_file, data_file
 
@@ -971,16 +971,16 @@ class DQ3AudioAnalyzer:
 		asm_file, doc_file, data_file = self.generate_audio_analysis(output_dir)
 
 		print(f"\n🎯 Audio System Analysis Complete!")
-		print(f"   Audio functions: {len(audio_functions)}")
-		print(f"   Music tracks: {len(music_tracks)}")
-		print(f"   Sound effects: {len(sound_effects)}")
-		print(f"   APU commands: {len(apu_commands)}")
+		print(f"	 Audio functions: {len(audio_functions)}")
+		print(f"	 Music tracks: {len(music_tracks)}")
+		print(f"	 Sound effects: {len(sound_effects)}")
+		print(f"	 APU commands: {len(apu_commands)}")
 		print(
-			f"   SPC driver functions: {len(spc_driver_analysis['driver_functions'])}"
+			f"	 SPC driver functions: {len(spc_driver_analysis['driver_functions'])}"
 		)
-		print(f"   Assembly: {asm_file}")
-		print(f"   Documentation: {doc_file}")
-		print(f"   Analysis data: {data_file}")
+		print(f"	 Assembly: {asm_file}")
+		print(f"	 Documentation: {doc_file}")
+		print(f"	 Analysis data: {data_file}")
 
 
 def main():

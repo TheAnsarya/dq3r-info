@@ -59,8 +59,8 @@ class SNESDisassembler:
 		self.data_sections = {}
 
 		# Disassembly settings
-		self.current_m_flag = True  # 8-bit accumulator
-		self.current_x_flag = True  # 8-bit index
+		self.current_m_flag = True	# 8-bit accumulator
+		self.current_x_flag = True	# 8-bit index
 
 		print(f"INIT: Advanced SNES Disassembler")
 		print(f"ROM: {self.rom_path.name} ({self.rom_size:,} bytes)")
@@ -277,7 +277,7 @@ class SNESDisassembler:
 		"""Convert SNES address to ROM offset"""
 		if 0x8000 <= address <= 0xffff:
 			return bank * 0x8000 + (address - 0x8000)
-		return -1  # Invalid address
+		return -1	# Invalid address
 
 	def disassemble_instruction(self, offset: int) -> Tuple[Optional[Dict[str, Any]], int]:
 		"""
@@ -417,8 +417,8 @@ class SNESDisassembler:
 				# Calculate branch target
 				displacement = bytes_data[1]
 				if displacement >= 0x80:
-					displacement = displacement - 0x100  # Convert to signed
-				target_offset = offset + 2 + displacement  # +2 for instruction size
+					displacement = displacement - 0x100	# Convert to signed
+				target_offset = offset + 2 + displacement	# +2 for instruction size
 				target_bank, target_addr = self.rom_offset_to_snes_address(target_offset)
 				return f"${target_addr:04X}"
 			return "$????"
@@ -478,7 +478,7 @@ class SNESDisassembler:
 				if instruction['addressing'] in ['absolute', 'long']:
 					# Could add jump target analysis here
 					pass
-				break  # Stop linear analysis
+				break	# Stop linear analysis
 
 			elif mnemonic in ['JSR', 'JSL']:
 				# Subroutine call - continue with next instruction
@@ -545,7 +545,7 @@ class SNESDisassembler:
 
 		print(f"Found {len(code_offsets)} code regions to disassemble")
 
-		for i, (start_offset, end_offset) in enumerate(code_offsets[:50]):  # Limit for now
+		for i, (start_offset, end_offset) in enumerate(code_offsets[:50]):	# Limit for now
 			print(f"Disassembling region {i+1}/{len(code_offsets[:50])}: ${start_offset:06X}-${end_offset:06X}")
 
 			instructions = []
@@ -554,7 +554,7 @@ class SNESDisassembler:
 			while current_offset < end_offset and current_offset < self.rom_size:
 				instruction, next_offset = self.disassemble_instruction(current_offset)
 				if instruction is None:
-					current_offset += 1  # Skip invalid byte
+					current_offset += 1	# Skip invalid byte
 					continue
 
 				instructions.append(instruction)
@@ -562,16 +562,16 @@ class SNESDisassembler:
 				# Handle processor flag changes
 				if instruction['mnemonic'] == 'REP' and len(instruction['bytes']) >= 2:
 					flags = instruction['bytes'][1]
-					if flags & 0x20:  # M flag
-						self.current_m_flag = False  # 16-bit accumulator
-					if flags & 0x10:  # X flag
-						self.current_x_flag = False  # 16-bit index
+					if flags & 0x20:	# M flag
+						self.current_m_flag = False	# 16-bit accumulator
+					if flags & 0x10:	# X flag
+						self.current_x_flag = False	# 16-bit index
 				elif instruction['mnemonic'] == 'SEP' and len(instruction['bytes']) >= 2:
 					flags = instruction['bytes'][1]
-					if flags & 0x20:  # M flag
-						self.current_m_flag = True   # 8-bit accumulator
-					if flags & 0x10:  # X flag
-						self.current_x_flag = True   # 8-bit index
+					if flags & 0x20:	# M flag
+						self.current_m_flag = True	 # 8-bit accumulator
+					if flags & 0x10:	# X flag
+						self.current_x_flag = True	 # 8-bit index
 
 				current_offset = next_offset
 
@@ -604,10 +604,10 @@ class SNESDisassembler:
 		# This would parse the coverage data to find code regions
 		# For now, return some common code areas
 		regions = [
-			(0x8000, 0x8000 + 1024),   # Reset vector area
-			(0x10000, 0x10000 + 2048),  # Bank 1 code
-			(0x18000, 0x18000 + 4096),  # Bank 2 code
-			(0x20000, 0x20000 + 8192),  # Bank 3 code
+			(0x8000, 0x8000 + 1024),	 # Reset vector area
+			(0x10000, 0x10000 + 2048),	# Bank 1 code
+			(0x18000, 0x18000 + 4096),	# Bank 2 code
+			(0x20000, 0x20000 + 8192),	# Bank 3 code
 		]
 
 		return [(start, end) for start, end in regions if end <= self.rom_size]
@@ -729,10 +729,10 @@ class SNESDisassembler:
 			f.write(".DEFINE OAMDATA	$2104\n")
 			f.write(".DEFINE BGMODE	 $2105\n")
 			f.write(".DEFINE MOSAIC	 $2106\n")
-			f.write(".DEFINE BG1SC	  $2107\n")
-			f.write(".DEFINE BG2SC	  $2108\n")
-			f.write(".DEFINE BG3SC	  $2109\n")
-			f.write(".DEFINE BG4SC	  $210a\n")
+			f.write(".DEFINE BG1SC		$2107\n")
+			f.write(".DEFINE BG2SC		$2108\n")
+			f.write(".DEFINE BG3SC		$2109\n")
+			f.write(".DEFINE BG4SC		$210a\n")
 			f.write(".DEFINE BG12NBA	$210b\n")
 			f.write(".DEFINE BG34NBA	$210c\n")
 			f.write(".DEFINE BG1HOFS	$210d\n")
@@ -743,9 +743,9 @@ class SNESDisassembler:
 
 			# Game-specific constants
 			f.write("; Game Constants\n")
-			f.write(".DEFINE MAX_PARTY_MEMBERS  4\n")
+			f.write(".DEFINE MAX_PARTY_MEMBERS	4\n")
 			f.write(".DEFINE MAX_INVENTORY	 102\n")
-			f.write(".DEFINE SAVE_DATA_SIZE   $1000\n")
+			f.write(".DEFINE SAVE_DATA_SIZE	 $1000\n")
 			f.write("\n")
 
 		# Generate labels file
@@ -755,7 +755,7 @@ class SNESDisassembler:
 
 			for offset, name in sorted(self.function_names.items()):
 				bank, addr = self.rom_offset_to_snes_address(offset)
-				f.write(f".DEFINE {name.upper():<30} ${addr:04X}  ; Bank ${bank:02X}\n")
+				f.write(f".DEFINE {name.upper():<30} ${addr:04X}	; Bank ${bank:02X}\n")
 
 def main():
 	"""Main entry point for code disassembly"""
@@ -766,8 +766,8 @@ def main():
 	# Find ROM file
 	rom_files = [
 		'static/Dragon Quest III - Soshite Densetsu he... (J).smc',	# Primary Japanese source
-		'static/Dragon Quest III - english.smc',					   # Reference translation
-		'static/Dragon Quest III - english (patched).smc'			  # Backup option
+		'static/Dragon Quest III - english.smc',						 # Reference translation
+		'static/Dragon Quest III - english (patched).smc'				# Backup option
 	]
 
 	rom_path = None

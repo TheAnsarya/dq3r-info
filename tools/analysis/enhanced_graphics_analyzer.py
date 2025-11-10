@@ -57,8 +57,8 @@ class PaletteData:
 	"""Enhanced SNES palette representation with metadata"""
 	offset: int
 	snes_address: str
-	colors: List[Tuple[int, int, int]]  # RGB values
-	format: str  # "15bit_bgr" or "24bit_rgb"
+	colors: List[Tuple[int, int, int]]	# RGB values
+	format: str	# "15bit_bgr" or "24bit_rgb"
 	size: int
 	confidence: float = 0.0
 	analysis_method: str = "pattern_detection"
@@ -88,10 +88,10 @@ class EnhancedDQ3GraphicsAnalyzer:
 		# SNES graphics constants
 		self.TILE_SIZES = {
 			GraphicsFormat.FORMAT_1BPP: 8,	# 8 bytes per 8x8 tile
-			GraphicsFormat.FORMAT_2BPP: 16,   # 16 bytes per 8x8 tile
-			GraphicsFormat.FORMAT_3BPP: 24,   # 24 bytes per 8x8 tile
-			GraphicsFormat.FORMAT_4BPP: 32,   # 32 bytes per 8x8 tile
-			GraphicsFormat.FORMAT_8BPP: 64,   # 64 bytes per 8x8 tile
+			GraphicsFormat.FORMAT_2BPP: 16,	 # 16 bytes per 8x8 tile
+			GraphicsFormat.FORMAT_3BPP: 24,	 # 24 bytes per 8x8 tile
+			GraphicsFormat.FORMAT_4BPP: 32,	 # 32 bytes per 8x8 tile
+			GraphicsFormat.FORMAT_8BPP: 64,	 # 64 bytes per 8x8 tile
 		}
 
 		# Enhanced pattern detection parameters
@@ -189,14 +189,14 @@ class EnhancedDQ3GraphicsAnalyzer:
 			mapping = self.address_translator.snes_to_rom_mapping(snes_addr)
 
 			if not mapping or not mapping.is_valid:
-				print(f"   ERROR: Invalid address translation")
+				print(f"	 ERROR: Invalid address translation")
 				continue
 
 			rom_offset = mapping.rom_offset + self.smc_header_size
 
 			# Check bounds
 			if rom_offset + size > len(self.rom_data):
-				print(f"   ERROR: Address beyond ROM bounds")
+				print(f"	 ERROR: Address beyond ROM bounds")
 				continue
 
 			# Extract and analyze data
@@ -205,9 +205,9 @@ class EnhancedDQ3GraphicsAnalyzer:
 
 			format_match = detected_format.value == expected_format
 
-			print(f"   ROM offset: ${rom_offset:06X}")
-			print(f"   Detected: {detected_format.value} (confidence: {confidence:.3f})")
-			print(f"   Match: {'YES' if format_match else 'NO'} (expected: {expected_format})")
+			print(f"	 ROM offset: ${rom_offset:06X}")
+			print(f"	 Detected: {detected_format.value} (confidence: {confidence:.3f})")
+			print(f"	 Match: {'YES' if format_match else 'NO'} (expected: {expected_format})")
 
 			# Create enhanced graphics chunk
 			if confidence > self.CONFIDENCE_THRESHOLD:
@@ -228,7 +228,7 @@ class EnhancedDQ3GraphicsAnalyzer:
 
 			# Show data sample
 			hex_sample = ' '.join(f'{b:02X}' for b in data_sample[:16])
-			print(f"   Data sample: {hex_sample}")
+			print(f"	 Data sample: {hex_sample}")
 			print()
 
 		success_rate = (successful_extractions / total_chunks) * 100
@@ -241,7 +241,7 @@ class EnhancedDQ3GraphicsAnalyzer:
 
 		# Focus on HiROM banks $C0-$FF for graphics data
 		bank_start = 0xC0
-		bank_count = 0x40  # Banks $C0-$FF
+		bank_count = 0x40	# Banks $C0-$FF
 
 		chunks_found = 0
 
@@ -252,7 +252,7 @@ class EnhancedDQ3GraphicsAnalyzer:
 
 			# Analyze bank in chunks
 			bank_chunks = 0
-			for chunk_offset in range(0, 0x10000, 2048):  # 2KB chunks
+			for chunk_offset in range(0, 0x10000, 2048):	# 2KB chunks
 				snes_addr = f"${bank_num:02X}:{chunk_offset:04X}"
 
 				mapping = self.address_translator.snes_to_rom_mapping(snes_addr)
@@ -283,7 +283,7 @@ class EnhancedDQ3GraphicsAnalyzer:
 					chunks_found += 1
 
 			if bank_chunks > 0:
-				print(f"   Bank ${bank_num:02X}: {bank_chunks} graphics chunks")
+				print(f"	 Bank ${bank_num:02X}: {bank_chunks} graphics chunks")
 
 		print(f"Total additional chunks found: {chunks_found}")
 
@@ -309,7 +309,7 @@ class EnhancedDQ3GraphicsAnalyzer:
 					colors = self.convert_snes_palette(palette_data)
 					confidence = self.calculate_palette_confidence(colors)
 
-					if confidence > 0.7:  # Palette confidence threshold
+					if confidence > 0.7:	# Palette confidence threshold
 						palette = PaletteData(
 							offset=offset,
 							snes_address=snes_addr,
@@ -386,7 +386,7 @@ class EnhancedDQ3GraphicsAnalyzer:
 		max_score = 0.0
 
 		for size in pattern_sizes:
-			if len(data) >= size * 4:  # Need at least 4 repetitions
+			if len(data) >= size * 4:	# Need at least 4 repetitions
 				pattern = data[:size]
 				matches = 0
 				total_checks = min(10, len(data) // size - 1)
@@ -402,7 +402,7 @@ class EnhancedDQ3GraphicsAnalyzer:
 
 	def is_palette_data(self, data: bytes) -> bool:
 		"""Check if data appears to be SNES palette data"""
-		if len(data) != 32:  # Standard SNES palette size
+		if len(data) != 32:	# Standard SNES palette size
 			return False
 
 		# Check for reasonable color values
@@ -424,7 +424,7 @@ class EnhancedDQ3GraphicsAnalyzer:
 			if r <= 31 and g <= 31 and b <= 31:
 				valid_colors += 1
 
-		return valid_colors >= 12  # At least 75% valid colors
+		return valid_colors >= 12	# At least 75% valid colors
 
 	def convert_snes_palette(self, data: bytes) -> List[Tuple[int, int, int]]:
 		"""Convert SNES 15-bit BGR palette to RGB"""
@@ -518,7 +518,7 @@ class EnhancedDQ3GraphicsAnalyzer:
 					"size": self.TILE_SIZES[chunk.format],
 					"pattern_hash": chunk.pattern_hash or "unknown"
 				}
-				for i, chunk in enumerate(self.graphics_chunks[:100])  # Limit for report size
+				for i, chunk in enumerate(self.graphics_chunks[:100])	# Limit for report size
 			],
 			"statistics": {
 				"total_palette_candidates": len(self.palette_data),

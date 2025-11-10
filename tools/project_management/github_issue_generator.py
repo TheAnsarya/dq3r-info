@@ -897,7 +897,7 @@ Establish comprehensive release planning and version management.
 		)
 
 	def add_issue(self, title: str, labels: List[str], milestone: str, priority: str,
-				  description: str, assignee: str = "", estimated_hours: int = 0):
+					description: str, assignee: str = "", estimated_hours: int = 0):
 		"""Add a new issue to the collection"""
 
 		issue = {
@@ -955,7 +955,7 @@ Establish comprehensive release planning and version management.
 			elif line.startswith("##") and in_acceptance_section:
 				break
 			elif in_acceptance_section and line.startswith("- [ ]"):
-				criteria.append(line[6:])  # Remove "- [ ] "
+				criteria.append(line[6:])	# Remove "- [ ] "
 
 		return criteria
 
@@ -1303,7 +1303,7 @@ def main():
 	print("\n" + "=" * 80)
 	print("✅ GitHub Issues Generation Complete!")
 	print(f"📊 Generated {issue_count} comprehensive issues")
-	print(f"⏱️  Total estimated effort: {sum(issue['estimated_hours'] for issue in generator.issues)} hours")
+	print(f"⏱️	Total estimated effort: {sum(issue['estimated_hours'] for issue in generator.issues)} hours")
 	print(f"📁 Issues saved to: {generator.issues_dir}")
 	print(f"📋 Kanban board: {generator.kanban_dir}/project_kanban.html")
 	print(f"📈 Reports saved to: {generator.reports_dir}")

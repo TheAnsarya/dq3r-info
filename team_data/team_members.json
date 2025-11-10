@@ -1,0 +1,100 @@
+[
+    {
+        "id": "member-001",
+        "name": "Alice Johnson",
+        "email": "alice@example.com",
+        "role": "lead",
+        "skills": [
+            "python",
+            "ai",
+            "machine-learning"
+        ],
+        "availability": 1.0,
+        "timezone": "UTC",
+        "github_username": null,
+        "last_active": null,
+        "current_tasks": [
+            "task-0001"
+        ],
+        "completed_tasks": 0,
+        "joined_date": "2025-11-10 13:36:04"
+    },
+    {
+        "id": "member-002",
+        "name": "Alice Johnson",
+        "email": "alice@example.com",
+        "role": "lead",
+        "skills": [
+            "python",
+            "ai",
+            "machine-learning"
+        ],
+        "availability": 1.0,
+        "timezone": "UTC",
+        "github_username": null,
+        "last_active": "2025-11-10 13:37:02",
+        "current_tasks": [
+            "task-0004"
+        ],
+        "completed_tasks": 0,
+        "joined_date": "2025-11-10 13:37:02"
+    },
+    {
+        "id": "member-003",
+        "name": "Bob Smith",
+        "email": "bob@example.com",
+        "role": "developer",
+        "skills": [
+            "python",
+            "reverse-engineering",
+            "assembly"
+        ],
+        "availability": 1.0,
+        "timezone": "UTC",
+        "github_username": null,
+        "last_active": "2025-11-10 13:37:02",
+        "current_tasks": [],
+        "completed_tasks": 0,
+        "joined_date": "2025-11-10 13:37:02"
+    },
+    {
+        "id": "member-004",
+        "name": "Carol White",
+        "email": "carol@example.com",
+        "role": "tester",
+        "skills": [
+            "testing",
+            "qa",
+            "documentation"
+        ],
+        "availability": 1.0,
+        "timezone": "UTC",
+        "github_username": null,
+        "last_active": null,
+        "current_tasks": [
+            "task-0003"
+        ],
+        "completed_tasks": 1,
+        "joined_date": "2025-11-10 13:37:02"
+    },
+    {
+        "id": "member-005",
+        "name": "Dave Chen",
+        "email": "dave@example.com",
+        "role": "developer",
+        "skills": [
+            "graphics",
+            "data-analysis",
+            "python"
+        ],
+        "availability": 1.0,
+        "timezone": "UTC",
+        "github_username": null,
+        "last_active": null,
+        "current_tasks": [
+            "task-0002"
+        ],
+        "completed_tasks": 0,
+        "joined_date": "2025-11-10 13:37:02"
+    }
+]

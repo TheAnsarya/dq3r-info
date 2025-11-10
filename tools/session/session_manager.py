@@ -60,11 +60,11 @@ class DQ3SessionManager:
 
 		# Issue tracking
 		self.pending_issues: List[GitHubIssue] = []
-		self.created_issues: Dict[str, int] = {}  # title -> issue_number
+		self.created_issues: Dict[str, int] = {}	# title -> issue_number
 
 		print(f"📋 Session Manager initialized")
-		print(f"   Session log: {self.current_session_file}")
-		print(f"   Repository: {self.repo_path}")
+		print(f"	 Session log: {self.current_session_file}")
+		print(f"	 Repository: {self.repo_path}")
 
 	def log_action(self, action: str, description: str, files_changed: List[str] = None):
 		"""Log a session action"""
@@ -93,7 +93,7 @@ class DQ3SessionManager:
 
 		print(f"📝 Logged: {action} - {description}")
 		if files_changed:
-			print(f"   Files: {', '.join(files_changed)}")
+			print(f"	 Files: {', '.join(files_changed)}")
 
 	def create_disassembly_issues(self):
 		"""Create comprehensive GitHub issues for disassembly work"""
@@ -405,7 +405,7 @@ Create comprehensive documentation system with all findings.
 					formatted_files.append(str(file_path.relative_to(self.repo_path)))
 
 			except Exception as e:
-				print(f"⚠️  Error formatting {file_path}: {e}")
+				print(f"⚠️	Error formatting {file_path}: {e}")
 
 		if formatted_files:
 			self.log_action("format", f"Formatted {len(formatted_files)} Python files", formatted_files)
@@ -461,7 +461,7 @@ Create comprehensive documentation system with all findings.
 				print(f"✅ Committed and pushed: {commit_hash[:8]} - {message}")
 				return commit_hash
 			else:
-				print(f"ℹ️  No changes to commit")
+				print(f"ℹ️	No changes to commit")
 				return None
 
 		except subprocess.CalledProcessError as e:
@@ -529,8 +529,8 @@ Create comprehensive documentation system with all findings.
 		for i, entry in enumerate(self.session_entries, 1):
 			summary += f"{i}. **{entry.action}** - {entry.description}\n"
 			if entry.files_changed:
-				summary += f"   Files: {', '.join(entry.files_changed)}\n"
-			summary += f"   Time: {entry.timestamp}\n\n"
+				summary += f"	 Files: {', '.join(entry.files_changed)}\n"
+			summary += f"	 Time: {entry.timestamp}\n\n"
 
 		return summary
 

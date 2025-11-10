@@ -36,7 +36,7 @@ class SpriteData:
 	address: int
 	width: int
 	height: int
-	format: str  # "4bpp", "2bpp", etc.
+	format: str	# "4bpp", "2bpp", etc.
 	palette_offset: int
 	tiles_count: int
 	compression: str
@@ -47,7 +47,7 @@ class PPURegisterAccess:
 	"""PPU register access pattern"""
 
 	register: int
-	access_type: str  # "read", "write"
+	access_type: str	# "read", "write"
 	function_address: int
 	purpose: str
 	value_written: Optional[int] = None
@@ -139,8 +139,8 @@ class DQ3GraphicsAnalyzer:
 		}
 
 		print(f"🎨 Graphics Engine Analyzer initialized")
-		print(f"   ROM: {self.rom_path}")
-		print(f"   Size: {self.rom_size:,} bytes")
+		print(f"	 ROM: {self.rom_path}")
+		print(f"	 Size: {self.rom_size:,} bytes")
 
 	def find_ppu_access_functions(self) -> List[GraphicsFunction]:
 		"""Find all functions that access PPU registers"""
@@ -152,7 +152,7 @@ class DQ3GraphicsAnalyzer:
 		# Search for all PPU register accesses
 		for offset in range(0, len(self.rom_data) - 2):
 			# Look for STA absolute to PPU registers
-			if self.rom_data[offset] == 0x8d:  # STA absolute
+			if self.rom_data[offset] == 0x8d:	# STA absolute
 				target_addr = struct.unpack(
 					"<H", self.rom_data[offset + 1 : offset + 3]
 				)[0]
@@ -215,8 +215,8 @@ class DQ3GraphicsAnalyzer:
 
 					ppu_accesses.append(ppu_access)
 
-		print(f"   Found {len(graphics_functions)} graphics functions")
-		print(f"   Found {len(ppu_accesses)} PPU register accesses")
+		print(f"	 Found {len(graphics_functions)} graphics functions")
+		print(f"	 Found {len(ppu_accesses)} PPU register accesses")
 
 		self.graphics_functions = graphics_functions
 		self.ppu_accesses = ppu_accesses
@@ -237,21 +237,21 @@ class DQ3GraphicsAnalyzer:
 			):
 				oam_functions.append(func)
 
-		print(f"   Found {len(oam_functions)} OAM-related functions")
+		print(f"	 Found {len(oam_functions)} OAM-related functions")
 
 		# Look for DMA transfers to OAM (common for sprite updates)
 		for offset in range(0, len(self.rom_data) - 5):
 			# Look for DMA setup pattern: LDA #$00, STA $4301 (OAM destination)
 			if (
-				self.rom_data[offset] == 0xa9  # LDA immediate
-				and self.rom_data[offset + 2] == 0x8d  # STA absolute
+				self.rom_data[offset] == 0xa9	# LDA immediate
+				and self.rom_data[offset + 2] == 0x8d	# STA absolute
 				and struct.unpack("<H", self.rom_data[offset + 3 : offset + 5])[0]
 				== 0x4301
 			):
 
 				dma_value = self.rom_data[offset + 1]
-				if dma_value == 0x00:  # DMA to $2104 (OAMDATA)
-					print(f"   Found OAM DMA setup at ${offset:06X}")
+				if dma_value == 0x00:	# DMA to $2104 (OAMDATA)
+					print(f"	 Found OAM DMA setup at ${offset:06X}")
 
 					# Look for source address setup
 					source_addr = self._find_dma_source_address(offset)
@@ -266,7 +266,7 @@ class DQ3GraphicsAnalyzer:
 		# Look for sprite graphics in VRAM transfers
 		for func in self.graphics_functions:
 			if "VRAM" in func.purpose or "VMDATA" in func.ppu_registers_used:
-				print(f"   Analyzing VRAM function: {func.name}")
+				print(f"	 Analyzing VRAM function: {func.name}")
 
 				# Look for graphics data patterns
 				for inst in func.instructions:
@@ -285,7 +285,7 @@ class DQ3GraphicsAnalyzer:
 							pass
 
 		self.sprite_data = sprite_data
-		print(f"   Identified {len(sprite_data)} sprite data structures")
+		print(f"	 Identified {len(sprite_data)} sprite data structures")
 		return sprite_data
 
 	def analyze_background_system(self) -> Dict[str, Any]:
@@ -313,11 +313,11 @@ class DQ3GraphicsAnalyzer:
 			if any(reg in func.ppu_registers_used for reg in bg_regs):
 				bg_analysis["bg_functions"].append(func)
 
-		print(f"   Found {len(bg_analysis['bg_functions'])} background functions")
+		print(f"	 Found {len(bg_analysis['bg_functions'])} background functions")
 
 		# Analyze BG mode usage patterns
 		for access in self.ppu_accesses:
-			if access.register == 0x2105:  # BGMODE
+			if access.register == 0x2105:	# BGMODE
 				if access.value_written:
 					mode = access.value_written & 0x07
 					if mode not in bg_analysis["bg_mode_usage"]:
@@ -331,8 +331,8 @@ class DQ3GraphicsAnalyzer:
 				tilemap_refs = self._find_tilemap_references(func)
 				bg_analysis["tilemap_data"].extend(tilemap_refs)
 
-		print(f"   Background mode usage: {bg_analysis['bg_mode_usage']}")
-		print(f"   Tilemap references: {len(bg_analysis['tilemap_data'])}")
+		print(f"	 Background mode usage: {bg_analysis['bg_mode_usage']}")
+		print(f"	 Tilemap references: {len(bg_analysis['tilemap_data'])}")
 
 		return bg_analysis
 
@@ -348,11 +348,11 @@ class DQ3GraphicsAnalyzer:
 			if any(reg in ["CGADD", "CGDATA"] for reg in func.ppu_registers_used):
 				palette_functions.append(func)
 
-		print(f"   Found {len(palette_functions)} palette functions")
+		print(f"	 Found {len(palette_functions)} palette functions")
 
 		# Analyze each palette function
 		for func in palette_functions:
-			print(f"   Analyzing palette function: {func.name}")
+			print(f"	 Analyzing palette function: {func.name}")
 
 			palette_refs = []
 			for inst in func.instructions:
@@ -371,7 +371,7 @@ class DQ3GraphicsAnalyzer:
 										"address": addr,
 										"rom_offset": rom_offset,
 										"function": func.name,
-										"size_estimated": 32,  # Standard SNES palette size
+										"size_estimated": 32,	# Standard SNES palette size
 										"format": "15-bit RGB",
 									}
 									palette_refs.append(palette_info)
@@ -382,7 +382,7 @@ class DQ3GraphicsAnalyzer:
 			palette_data.extend(palette_refs)
 
 		self.palette_data = palette_data
-		print(f"   Identified {len(palette_data)} palette data structures")
+		print(f"	 Identified {len(palette_data)} palette data structures")
 		return palette_data
 
 	def find_graphics_compression(self) -> Dict[str, Any]:
@@ -399,7 +399,7 @@ class DQ3GraphicsAnalyzer:
 		for func in self.graphics_functions:
 			if self._looks_like_decompression(func):
 				compression_analysis["decompression_functions"].append(func)
-				print(f"   Found potential decompression: {func.name}")
+				print(f"	 Found potential decompression: {func.name}")
 
 		# Look for compressed data patterns in ROM
 		for offset in range(0, len(self.rom_data) - 100, 0x1000):
@@ -413,10 +413,10 @@ class DQ3GraphicsAnalyzer:
 				)
 
 		print(
-			f"   Decompression functions: {len(compression_analysis['decompression_functions'])}"
+			f"	 Decompression functions: {len(compression_analysis['decompression_functions'])}"
 		)
 		print(
-			f"   Compressed data locations: {len(compression_analysis['compressed_data_locations'])}"
+			f"	 Compressed data locations: {len(compression_analysis['compressed_data_locations'])}"
 		)
 
 		return compression_analysis
@@ -427,9 +427,9 @@ class DQ3GraphicsAnalyzer:
 
 		for i in range(offset, search_start, -1):
 			# Look for function entry patterns
-			if i >= 3 and self.rom_data[i - 3 : i] == b"\x20\x00\x80":  # JSR $8000
+			if i >= 3 and self.rom_data[i - 3 : i] == b"\x20\x00\x80":	# JSR $8000
 				return i
-			if i >= 0 and self.rom_data[i] in [0x48, 0xda, 0x5a]:  # Function prologue
+			if i >= 0 and self.rom_data[i] in [0x48, 0xda, 0x5a]:	# Function prologue
 				return i
 
 		return search_start
@@ -443,7 +443,7 @@ class DQ3GraphicsAnalyzer:
 				0x60,
 				0x6b,
 				0x40,
-			]:  # RTS, RTL, RTI
+			]:	# RTS, RTL, RTI
 				return i + 1
 
 		return search_end
@@ -517,12 +517,12 @@ class DQ3GraphicsAnalyzer:
 		for i in search_range:
 			if (
 				i + 4 < len(self.rom_data)
-				and self.rom_data[i] == 0x8d  # STA absolute
+				and self.rom_data[i] == 0x8d	# STA absolute
 				and struct.unpack("<H", self.rom_data[i + 1 : i + 3])[0] == 0x4302
-			):  # A1TL
+			):	# A1TL
 
 				# Look for preceding LDA
-				if i >= 3 and self.rom_data[i - 3] == 0xa9:  # LDA immediate
+				if i >= 3 and self.rom_data[i - 3] == 0xa9:	# LDA immediate
 					addr_low = self.rom_data[i - 2]
 
 					# Look for high byte
@@ -532,7 +532,7 @@ class DQ3GraphicsAnalyzer:
 							and self.rom_data[j] == 0x8d
 							and struct.unpack("<H", self.rom_data[j + 1 : j + 3])[0]
 							== 0x4303
-						):  # A1TH
+						):	# A1TH
 
 							if j >= 3 and self.rom_data[j - 3] == 0xa9:
 								addr_high = self.rom_data[j - 2]
@@ -550,9 +550,9 @@ class DQ3GraphicsAnalyzer:
 		# Basic sprite data analysis (simplified)
 		sprite_info = SpriteData(
 			address=address,
-			width=16,  # Default SNES sprite size
+			width=16,	# Default SNES sprite size
 			height=16,
-			format="4bpp",  # Most common
+			format="4bpp",	# Most common
 			palette_offset=0,
 			tiles_count=1,
 			compression="none",
@@ -569,7 +569,7 @@ class DQ3GraphicsAnalyzer:
 
 		# Simple heuristic: graphics data often has patterns
 		unique_bytes = len(set(data))
-		if unique_bytes > 16 and unique_bytes < 64:  # Graphics-like byte distribution
+		if unique_bytes > 16 and unique_bytes < 64:	# Graphics-like byte distribution
 			return SpriteData(
 				address=0x8000 + (offset % 0x8000),
 				width=8,
@@ -599,7 +599,7 @@ class DQ3GraphicsAnalyzer:
 								"address": addr,
 								"rom_offset": rom_offset,
 								"function": func.name,
-								"estimated_size": 1024,  # 32x32 tilemap
+								"estimated_size": 1024,	# 32x32 tilemap
 								"format": "16-bit tiles",
 							}
 							tilemaps.append(tilemap_info)
@@ -650,12 +650,12 @@ class DQ3GraphicsAnalyzer:
 		# Look for compression headers or patterns
 		if (
 			data[0] in [0x00, 0x01, 0x02] and data[1] == 0x00
-		):  # Common compression headers
+		):	# Common compression headers
 			return True
 
 		# Check entropy (compressed data should have high entropy)
 		unique_bytes = len(set(data))
-		return unique_bytes > 128  # High entropy indicator
+		return unique_bytes > 128	# High entropy indicator
 
 	def disassemble_region(self, start_offset: int, size: int) -> List[Dict]:
 		"""Disassemble a region of code"""
@@ -712,7 +712,7 @@ class DQ3GraphicsAnalyzer:
 				instructions.append(instruction)
 				offset += length
 
-				if opcode == 0x60:  # RTS
+				if opcode == 0x60:	# RTS
 					break
 			else:
 				offset += 1
@@ -739,7 +739,7 @@ class DQ3GraphicsAnalyzer:
 			for func in self.graphics_functions:
 				f.write(f"; {func.purpose}\n")
 				f.write(f"{func.name}:\t\t; ${func.address:04X}\n")
-				for inst in func.instructions[:30]:  # First 30 instructions
+				for inst in func.instructions[:30]:	# First 30 instructions
 					f.write(f"\t{inst['full'].lower():<20}\n")
 				if len(func.instructions) > 30:
 					f.write(
@@ -809,9 +809,9 @@ class DQ3GraphicsAnalyzer:
 		with open(data_file, "w") as f:
 			json.dump(analysis_data, f, indent=2)
 
-		print(f"   Assembly: {asm_file}")
-		print(f"   Documentation: {doc_file}")
-		print(f"   Data: {data_file}")
+		print(f"	 Assembly: {asm_file}")
+		print(f"	 Documentation: {doc_file}")
+		print(f"	 Data: {data_file}")
 
 		return asm_file, doc_file, data_file
 
@@ -831,16 +831,16 @@ class DQ3GraphicsAnalyzer:
 		asm_file, doc_file, data_file = self.generate_graphics_analysis(output_dir)
 
 		print(f"\n🎯 Graphics Engine Analysis Complete!")
-		print(f"   Graphics functions: {len(graphics_functions)}")
-		print(f"   Sprite data structures: {len(sprite_data)}")
-		print(f"   Background functions: {len(bg_analysis['bg_functions'])}")
-		print(f"   Palette data: {len(palette_data)}")
+		print(f"	 Graphics functions: {len(graphics_functions)}")
+		print(f"	 Sprite data structures: {len(sprite_data)}")
+		print(f"	 Background functions: {len(bg_analysis['bg_functions'])}")
+		print(f"	 Palette data: {len(palette_data)}")
 		print(
-			f"   Compression functions: {len(compression_analysis['decompression_functions'])}"
+			f"	 Compression functions: {len(compression_analysis['decompression_functions'])}"
 		)
-		print(f"   Assembly: {asm_file}")
-		print(f"   Documentation: {doc_file}")
-		print(f"   Analysis data: {data_file}")
+		print(f"	 Assembly: {asm_file}")
+		print(f"	 Documentation: {doc_file}")
+		print(f"	 Analysis data: {data_file}")
 
 
 def main():

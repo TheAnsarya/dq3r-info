@@ -47,7 +47,7 @@ class CodeFormatter:
 			"venv",
 			"env",
 			".vscode",
-			"logs",  # Don't format our own logs
+			"logs",	# Don't format our own logs
 		]
 
 	def _log_action(self, message: str) -> None:
@@ -123,7 +123,7 @@ class CodeFormatter:
 				result["errors"].append(f"Flake8 issues found: {flake8_result.stdout}")
 
 		except (FileNotFoundError, subprocess.TimeoutExpired):
-			pass  # flake8 not available or timed out
+			pass	# flake8 not available or timed out
 		except Exception as e:
 			result["errors"].append(f"Flake8 error: {e}")
 
@@ -269,7 +269,7 @@ class CodeFormatter:
 
 			with open(file_path, "w", encoding="utf-8") as f:
 				json.dump(data, f, indent=2, ensure_ascii=False)
-				f.write("\n")  # Ensure file ends with newline
+				f.write("\n")	# Ensure file ends with newline
 
 			result["actions"].append("Formatted JSON with 2-space indentation")
 
@@ -512,7 +512,7 @@ def run_automated_formatting():
 	if results["files_with_errors"] > 0:
 		summary += f"\n## Errors Encountered\n"
 		error_files = [fr for fr in results["file_results"] if not fr["success"]]
-		for file_result in error_files[:5]:  # Show first 5 errors
+		for file_result in error_files[:5]:	# Show first 5 errors
 			summary += f"- {file_result['file']}: {', '.join(file_result['errors'])}\n"
 
 	return summary
@@ -532,7 +532,7 @@ if __name__ == "__main__":
 		print(f"EditorConfig compliance: {compliance['summary'].get('compliance_rate', 'Unknown')}")
 		if compliance["violations"]:
 			print("Violations found:")
-			for violation in compliance["violations"][:10]:  # Show first 10
-				print(f"  {violation['file']}: {violation['violation']}")
+			for violation in compliance["violations"][:10]:	# Show first 10
+				print(f"	{violation['file']}: {violation['violation']}")
 	else:
 		print(run_automated_formatting())

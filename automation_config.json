@@ -1,0 +1,36 @@
+{
+    "enabled_stages": [
+        "code_formatting",
+        "static_analysis",
+        "testing",
+        "documentation_generation",
+        "build_validation",
+        "performance_benchmarking",
+        "deployment_preparation"
+    ],
+    "code_formatting": {
+        "enable_tabs": true,
+        "line_length": 100,
+        "sort_imports": true
+    },
+    "testing": {
+        "run_unit_tests": true,
+        "run_integration_tests": true,
+        "coverage_threshold": 80.0
+    },
+    "documentation": {
+        "generate_api_docs": true,
+        "generate_user_guide": true,
+        "update_readme": true
+    },
+    "build": {
+        "validate_assembly": true,
+        "check_rom_output": true,
+        "run_disassembly": true
+    },
+    "deployment": {
+        "create_release_notes": true,
+        "package_artifacts": true,
+        "update_version": true
+    }
+}

@@ -35,7 +35,7 @@ class ROMRegion:
 	start_address: int
 	end_address: int
 	size: int
-	type: str  # 'code', 'data', 'graphics', 'audio', 'table'
+	type: str	# 'code', 'data', 'graphics', 'audio', 'table'
 	bank: int
 	classification: str
 	entropy: float
@@ -227,7 +227,7 @@ class AdvancedSourceReconstructor:
 		offset = 0
 		while offset < len(data) - 2:
 			# Check for common 6502/65816 instructions that start subroutines
-			if data[offset] in [0x20, 0x4C, 0x6C]:  # JSR, JMP abs, JMP ind
+			if data[offset] in [0x20, 0x4C, 0x6C]:	# JSR, JMP abs, JMP ind
 				symbol_name = f"{self.naming_conventions['code_prefix']}{region.start_address + offset:06x}"
 				region.symbols.append(symbol_name)
 				self.symbol_table[region.start_address + offset] = symbol_name
@@ -301,7 +301,7 @@ class AdvancedSourceReconstructor:
 			f"; Professional-grade assembly for ROM reconstruction",
 			"",
 			f".segment \"BANK_{bank_num:02X}\"",
-			f".org $8000  ; Bank ${bank_num:02X} base address",
+			f".org $8000	; Bank ${bank_num:02X} base address",
 			""
 		])
 
@@ -327,7 +327,7 @@ class AdvancedSourceReconstructor:
 
 		self.source_files.append(source_file)
 
-		print(f"  ✅ Generated: {filename} ({len(source_content):,} bytes)")
+		print(f"	✅ Generated: {filename} ({len(source_content):,} bytes)")
 
 	def generate_region_assembly(self, region: ROMRegion, symbols_defined: Set[str], symbols_referenced: Set[str]) -> List[str]:
 		"""Generate assembly code for a specific region"""
@@ -427,7 +427,7 @@ class AdvancedSourceReconstructor:
 		for offset in range(0, len(data), 8):
 			chunk = data[offset:offset + 8]
 			hex_bytes = ', '.join(f'${b:02X}' for b in chunk)
-			lines.append(f"	.byte {hex_bytes}  ; Tile +${offset:04X}")
+			lines.append(f"	.byte {hex_bytes}	; Tile +${offset:04X}")
 
 		return lines
 
@@ -459,7 +459,7 @@ class AdvancedSourceReconstructor:
 			"",
 			"; ROM settings",
 			".rombanksize $8000",
-			".rombanks 96  ; 6MB ROM",
+			".rombanks 96	; 6MB ROM",
 			"",
 			"; Include all bank files"
 		]

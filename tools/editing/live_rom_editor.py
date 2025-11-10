@@ -73,7 +73,7 @@ class ChangeSubscription:
 	"""WebSocket subscription for real-time updates"""
 	websocket: Any
 	user_id: str
-	regions_of_interest: List[Tuple[int, int]]  # (start, end) ranges
+	regions_of_interest: List[Tuple[int, int]]	# (start, end) ranges
 	last_update: datetime
 
 class LiveROMEditor:
@@ -376,7 +376,7 @@ class LiveROMEditor:
 			return ROMModification(
 				id=modification_id,
 				offset=offset,
-				old_data=b"",  # Will be filled when applied
+				old_data=b"",	# Will be filled when applied
 				new_data=new_data,
 				timestamp=datetime.now(),
 				user_id="system",
@@ -394,7 +394,7 @@ class LiveROMEditor:
 		return ROMModification(
 			id=modification_id,
 			offset=offset,
-			old_data=b"",  # Will be filled when applied
+			old_data=b"",	# Will be filled when applied
 			new_data=tile_data,
 			timestamp=datetime.now(),
 			user_id="system",
@@ -410,7 +410,7 @@ class LiveROMEditor:
 		return ROMModification(
 			id=modification_id,
 			offset=offset,
-			old_data=b"",  # Will be filled when applied
+			old_data=b"",	# Will be filled when applied
 			new_data=new_data,
 			timestamp=datetime.now(),
 			user_id="system",
@@ -506,7 +506,7 @@ class LiveROMEditor:
 
 			async def serve():
 				await self.start_websocket_server(port)
-				await asyncio.Future()  # Run forever
+				await asyncio.Future()	# Run forever
 
 			loop.run_until_complete(serve())
 
@@ -524,7 +524,7 @@ class LiveROMAPI:
 	def handle_modify_text(self, request_data: Dict[str, Any]) -> Dict[str, Any]:
 		"""Handle text modification request"""
 		try:
-			offset = int(request_data.get('offset', 0), 0)  # Support hex strings
+			offset = int(request_data.get('offset', 0), 0)	# Support hex strings
 			text = request_data.get('text', '')
 			encoding = request_data.get('encoding', 'ascii')
 
@@ -648,7 +648,7 @@ if __name__ == "__main__":
 				print(f"✅ Applied text modification: {text_mod.id}")
 
 			# Test graphics modification
-			test_tile = bytes([0x00, 0xFF] * 8)  # Simple test pattern
+			test_tile = bytes([0x00, 0xFF] * 8)	# Simple test pattern
 			gfx_mod = editor.create_graphics_modification(0x80000, test_tile)
 			if gfx_mod:
 				editor.apply_modification(gfx_mod)
@@ -657,9 +657,9 @@ if __name__ == "__main__":
 			# Show statistics
 			stats = editor.get_modification_statistics()
 			print(f"📊 Modification Statistics:")
-			print(f"   Total: {stats['total_modifications']}")
-			print(f"   Active: {stats['active_modifications']}")
-			print(f"   Bytes Changed: {stats['total_bytes_changed']}")
+			print(f"	 Total: {stats['total_modifications']}")
+			print(f"	 Active: {stats['active_modifications']}")
+			print(f"	 Bytes Changed: {stats['total_bytes_changed']}")
 
 			# Test rollback
 			if text_mod:
@@ -668,8 +668,8 @@ if __name__ == "__main__":
 
 		# Keep server running
 		print(f"✅ Live ROM Editor running. Press Ctrl+C to stop.")
-		print(f"   WebSocket: ws://localhost:{args.port}")
-		print(f"   ROM: {args.rom}")
+		print(f"	 WebSocket: ws://localhost:{args.port}")
+		print(f"	 ROM: {args.rom}")
 
 		try:
 			while True:

@@ -139,7 +139,7 @@ class AssetExtractionPipeline:
 				asset = ExtractedAsset(
 					asset_type="tiles_4bpp",
 					offset=offset,
-					size=32,  # 8x8 4bpp tile
+					size=32,	# 8x8 4bpp tile
 					format_info={
 						'bits_per_pixel': 4,
 						'tile_size': '8x8',
@@ -153,7 +153,7 @@ class AssetExtractionPipeline:
 				asset = ExtractedAsset(
 					asset_type="tiles_2bpp",
 					offset=offset,
-					size=16,  # 8x8 2bpp tile
+					size=16,	# 8x8 2bpp tile
 					format_info={
 						'bits_per_pixel': 2,
 						'tile_size': '8x8',
@@ -162,7 +162,7 @@ class AssetExtractionPipeline:
 				)
 				tile_assets.append(asset)
 
-		return tile_assets[:1000]  # Limit to prevent excessive results
+		return tile_assets[:1000]	# Limit to prevent excessive results
 
 	def _is_likely_tile_data(self, data: bytes, bits_per_pixel: int) -> bool:
 		"""Check if data looks like SNES tile graphics"""
@@ -182,8 +182,8 @@ class AssetExtractionPipeline:
 		# Check for interleaved bitplane patterns (SNES format)
 		if bits_per_pixel == 4:
 			# 4bpp has specific interleaved pattern
-			plane1 = data[0::2]  # Even bytes
-			plane2 = data[1::2]  # Odd bytes
+			plane1 = data[0::2]	# Even bytes
+			plane2 = data[1::2]	# Odd bytes
 			return len(plane1) == len(plane2) and len(set(plane1 + plane2)) > 4
 		elif bits_per_pixel == 2:
 			# 2bpp has simpler pattern
@@ -212,7 +212,7 @@ class AssetExtractionPipeline:
 				)
 				palette_assets.append(asset)
 
-		return palette_assets[:500]  # Limit results
+		return palette_assets[:500]	# Limit results
 
 	def _is_likely_palette_data(self, data: bytes) -> bool:
 		"""Check if data looks like SNES palette data"""
@@ -261,7 +261,7 @@ class AssetExtractionPipeline:
 				)
 				sprite_assets.append(asset)
 
-		return sprite_assets[:200]  # Limit results
+		return sprite_assets[:200]	# Limit results
 
 	def _is_likely_sprite_oam(self, data: bytes) -> bool:
 		"""Check if data looks like sprite OAM data"""
@@ -277,7 +277,7 @@ class AssetExtractionPipeline:
 				attr = data[i + 3]
 
 				# Basic validation: coordinates and tile numbers should be reasonable
-				if x > 240 or y > 240:  # Outside screen bounds
+				if x > 240 or y > 240:	# Outside screen bounds
 					return False
 
 		return True
@@ -303,7 +303,7 @@ class AssetExtractionPipeline:
 				)
 				tilemap_assets.append(asset)
 
-		return tilemap_assets[:300]  # Limit results
+		return tilemap_assets[:300]	# Limit results
 
 	def _is_likely_tilemap_data(self, data: bytes) -> bool:
 		"""Check if data looks like tilemap data"""
@@ -319,7 +319,7 @@ class AssetExtractionPipeline:
 
 		# Check for reasonable tile indices (not too high)
 		max_tile = max(tiles) if tiles else 0
-		if max_tile > 0x400:  # Reasonable tile limit
+		if max_tile > 0x400:	# Reasonable tile limit
 			return False
 
 		# Check for pattern variety
@@ -364,7 +364,7 @@ class AssetExtractionPipeline:
 
 		# BRR blocks are 9 bytes each, look for patterns
 		for offset in range(0, self.rom_size - 72, 9):
-			data = self.rom_data[offset:offset + 72]  # 8 BRR blocks
+			data = self.rom_data[offset:offset + 72]	# 8 BRR blocks
 
 			if self._is_likely_brr_data(data):
 				# Determine sample length (look for end marker)
@@ -382,7 +382,7 @@ class AssetExtractionPipeline:
 				)
 				brr_assets.append(asset)
 
-		return brr_assets[:100]  # Limit results
+		return brr_assets[:100]	# Limit results
 
 	def _is_likely_brr_data(self, data: bytes) -> bool:
 		"""Check if data looks like BRR audio samples"""
@@ -401,16 +401,16 @@ class AssetExtractionPipeline:
 				loop_flag = header & 0x01
 
 				# Validate header values
-				if shift > 12:  # Invalid shift value
+				if shift > 12:	# Invalid shift value
 					return False
-				if filter > 3:  # Invalid filter
+				if filter > 3:	# Invalid filter
 					return False
 
 		return True
 
 	def _find_brr_sample_size(self, offset: int) -> int:
 		"""Find the size of a BRR sample by looking for end marker"""
-		size = 9  # Minimum one block
+		size = 9	# Minimum one block
 
 		for i in range(offset + 9, min(offset + 1000, self.rom_size), 9):
 			if i < self.rom_size:
@@ -419,7 +419,7 @@ class AssetExtractionPipeline:
 
 				size = i - offset + 9
 
-				if end_flag:  # End of sample
+				if end_flag:	# End of sample
 					break
 
 		return size
@@ -446,7 +446,7 @@ class AssetExtractionPipeline:
 				)
 				music_assets.append(asset)
 
-		return music_assets[:50]  # Limit results
+		return music_assets[:50]	# Limit results
 
 	def _is_likely_music_sequence(self, data: bytes) -> bool:
 		"""Check if data looks like music sequence commands"""
@@ -461,7 +461,7 @@ class AssetExtractionPipeline:
 			if byte in command_patterns or (0x80 <= byte <= 0xff):
 				command_count += 1
 
-		return command_count >= 8  # At least half should be commands
+		return command_count >= 8	# At least half should be commands
 
 	def _find_sequence_size(self, offset: int) -> int:
 		"""Find size of music sequence"""
@@ -555,7 +555,7 @@ class AssetExtractionPipeline:
 				string_start = None
 				current_string = b""
 
-		return text_assets[:200]  # Limit results
+		return text_assets[:200]	# Limit results
 
 	def _extract_compressed_text(self) -> List[ExtractedAsset]:
 		"""Extract compressed or encoded text"""
@@ -579,7 +579,7 @@ class AssetExtractionPipeline:
 				)
 				text_assets.append(asset)
 
-		return text_assets[:100]  # Limit results
+		return text_assets[:100]	# Limit results
 
 	def _is_likely_japanese_text(self, data: bytes) -> bool:
 		"""Check if data looks like Japanese text encoding"""
@@ -654,7 +654,7 @@ class AssetExtractionPipeline:
 				)
 				table_assets.append(asset)
 
-		return table_assets[:50]  # Limit results
+		return table_assets[:50]	# Limit results
 
 	def _is_structured_table(self, data: bytes) -> bool:
 		"""Check if data looks like a structured table"""
@@ -674,7 +674,7 @@ class AssetExtractionPipeline:
 
 	def _find_table_size(self, offset: int) -> int:
 		"""Find size of data table"""
-		return min(256, self.rom_size - offset)  # Default table size
+		return min(256, self.rom_size - offset)	# Default table size
 
 	def _extract_config_data(self) -> List[ExtractedAsset]:
 		"""Extract configuration and parameter data"""
@@ -696,7 +696,7 @@ class AssetExtractionPipeline:
 				)
 				config_assets.append(asset)
 
-		return config_assets[:100]  # Limit results
+		return config_assets[:100]	# Limit results
 
 	def _is_config_data(self, data: bytes) -> bool:
 		"""Check if data looks like configuration parameters"""
@@ -730,7 +730,7 @@ class AssetExtractionPipeline:
 		self.extraction_metadata['extraction_time'] = extraction_time
 
 		total_assets = (len(self.graphics_assets) + len(self.audio_assets) +
-					   len(self.text_assets) + len(self.data_assets))
+						 len(self.text_assets) + len(self.data_assets))
 
 		self.extraction_metadata.update({
 			'total_assets': total_assets,
@@ -763,8 +763,8 @@ def main():
 	# Find ROM file
 	rom_files = [
 		'static/Dragon Quest III - Soshite Densetsu he... (J).smc',	# Primary Japanese source
-		'static/Dragon Quest III - english.smc',					   # Reference translation
-		'static/Dragon Quest III - english (patched).smc'			  # Backup option
+		'static/Dragon Quest III - english.smc',						 # Reference translation
+		'static/Dragon Quest III - english (patched).smc'				# Backup option
 	]
 
 	rom_path = None

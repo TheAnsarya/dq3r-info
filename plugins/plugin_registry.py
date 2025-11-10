@@ -236,7 +236,7 @@ class PluginRegistry:
 			if not is_valid:
 				print(f"Plugin {plugin_name} configuration validation failed:")
 				for error in errors:
-					print(f"  - {error}")
+					print(f"	- {error}")
 				return False
 
 			# Initialize plugin

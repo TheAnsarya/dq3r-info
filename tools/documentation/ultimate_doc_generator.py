@@ -192,7 +192,7 @@ class UltimateDocumentationGenerator:
 			comment_patterns = [
 				r';.*$',	# Assembly comments
 				r'#.*$',	# Python/shell comments
-				r'//.*$',   # C++ comments
+				r'//.*$',	 # C++ comments
 				r'/\*.*?\*/', # C block comments
 			]
 
@@ -472,7 +472,7 @@ class UltimateDocumentationGenerator:
 			if params_str.strip():
 				params = [p.strip() for p in params_str.split(',')]
 				param_docs = []
-				for param in params[:5]:  # Limit to first 5 parameters
+				for param in params[:5]:	# Limit to first 5 parameters
 					param_name = param.split(':')[0].split()[-1] if ':' in param else param.split()[-1]
 					param_docs.append(f"- `{param_name}`: Parameter for function operation")
 				return '\n'.join(param_docs) if param_docs else "No parameters"
@@ -531,7 +531,7 @@ class UltimateDocumentationGenerator:
 			with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
 				lines = f.readlines()
 
-			preview_lines = lines[:50]  # First 50 lines
+			preview_lines = lines[:50]	# First 50 lines
 			language = self._get_code_language(file_path)
 
 			preview = f"""## Source Code Preview
@@ -553,7 +553,7 @@ class UltimateDocumentationGenerator:
 		try:
 			rel_path = file_path.relative_to(self.project_root)
 			result = subprocess.run(['git', 'status', '--porcelain', str(rel_path)],
-								  capture_output=True, text=True, cwd=self.project_root)
+									capture_output=True, text=True, cwd=self.project_root)
 			if result.returncode == 0:
 				status = result.stdout.strip()
 				if not status:
@@ -626,7 +626,7 @@ class UltimateDocumentationGenerator:
 		self.stats.processing_time = time.time() - start_time
 
 		# Estimate tokens (rough approximation: 1 token ≈ 4 characters)
-		total_chars = self.stats.total_words_generated * 6  # Average word length
+		total_chars = self.stats.total_words_generated * 6	# Average word length
 		self.stats.tokens_estimated = total_chars // 4
 
 		# Calculate documentation size
@@ -692,7 +692,7 @@ This is the most comprehensive documentation for a SNES ROM analysis project eve
 		# Add file type statistics
 		index_content += "\n### File Type Distribution\n"
 		for ext, files in sorted(structure['files_by_type'].items()):
-			if ext:  # Skip empty extensions
+			if ext:	# Skip empty extensions
 				index_content += f"- **{ext}**: {len(files)} files\n"
 
 		# Add navigation
@@ -896,9 +896,9 @@ def main():
 		epilog=__doc__
 	)
 	parser.add_argument('--max-tokens', action='store_true',
-					   help='Generate maximum detail for token utilization')
+						 help='Generate maximum detail for token utilization')
 	parser.add_argument('--verbose', action='store_true',
-					   help='Show detailed progress information')
+						 help='Show detailed progress information')
 
 	args = parser.parse_args()
 

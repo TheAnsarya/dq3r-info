@@ -128,7 +128,7 @@ class Function:
 	called_from: Set[int] = field(default_factory=set)
 	data_references: Set[int] = field(default_factory=set)
 	description: str = ""
-	function_type: str = "unknown"  # "main", "interrupt", "subroutine", "data"
+	function_type: str = "unknown"	# "main", "interrupt", "subroutine", "data"
 
 	@property
 	def size(self) -> int:
@@ -183,7 +183,7 @@ class SNES65816Disassembler:
 			0x63: ("ADC", AddressingMode.STACK_RELATIVE, 2, 4),
 			0x65: ("ADC", AddressingMode.DIRECT_PAGE, 2, 3),
 			0x67: ("ADC", AddressingMode.DIRECT_PAGE_INDIRECT_LONG, 2, 6),
-			0x69: ("ADC", AddressingMode.IMMEDIATE, 0, 2),  # Size varies with M flag
+			0x69: ("ADC", AddressingMode.IMMEDIATE, 0, 2),	# Size varies with M flag
 			0x6d: ("ADC", AddressingMode.ABSOLUTE, 3, 4),
 			0x6f: ("ADC", AddressingMode.ABSOLUTE_LONG, 4, 5),
 			0x71: ("ADC", AddressingMode.DIRECT_PAGE_INDIRECT_Y, 2, 5),
@@ -237,9 +237,9 @@ class SNES65816Disassembler:
 			0x60: ("RTS", AddressingMode.IMPLIED, 1, 6),
 			0x6b: ("RTL", AddressingMode.IMPLIED, 1, 6),
 			# Load/Store instructions
-			0xa9: ("LDA", AddressingMode.IMMEDIATE, 0, 2),  # Size varies with M flag
-			0xa2: ("LDX", AddressingMode.IMMEDIATE, 0, 2),  # Size varies with X flag
-			0xa0: ("LDY", AddressingMode.IMMEDIATE, 0, 2),  # Size varies with X flag
+			0xa9: ("LDA", AddressingMode.IMMEDIATE, 0, 2),	# Size varies with M flag
+			0xa2: ("LDX", AddressingMode.IMMEDIATE, 0, 2),	# Size varies with X flag
+			0xa0: ("LDY", AddressingMode.IMMEDIATE, 0, 2),	# Size varies with X flag
 			0xad: ("LDA", AddressingMode.ABSOLUTE, 3, 4),
 			0xae: ("LDX", AddressingMode.ABSOLUTE, 3, 4),
 			0xac: ("LDY", AddressingMode.ABSOLUTE, 3, 4),
@@ -391,12 +391,12 @@ class SNES65816Disassembler:
 
 		# Check ROM makeup byte
 		makeup = header_data[0x25] if len(header_data) > 0x25 else 0
-		if makeup in [0x20, 0x21, 0x30, 0x31]:  # Valid values
+		if makeup in [0x20, 0x21, 0x30, 0x31]:	# Valid values
 			score += 20
 
 		# Check ROM size
 		rom_size = header_data[0x27] if len(header_data) > 0x27 else 0
-		if 7 <= rom_size <= 15:  # Reasonable size
+		if 7 <= rom_size <= 15:	# Reasonable size
 			score += 15
 
 		# Check checksums
@@ -495,7 +495,7 @@ class SNES65816Disassembler:
 			differences = sum(1 for a, b in zip(tile1, tile2) if a != b)
 			similarity = 1.0 - (differences / tile_size)
 
-			if similarity > 0.7:  # 70% similar
+			if similarity > 0.7:	# 70% similar
 				pattern_matches += 1
 
 		return min(pattern_matches / total_tiles, 0.3)
@@ -590,11 +590,11 @@ class SNES65816Disassembler:
 
 		# Handle variable-size instructions (immediate mode)
 		instruction_size = base_size
-		if base_size == 0:  # Variable size based on processor flags
+		if base_size == 0:	# Variable size based on processor flags
 			if mnemonic in ["LDA", "ADC", "SBC", "AND", "ORA", "EOR", "CMP"]:
-				instruction_size = 3  # Assume 16-bit mode for now
+				instruction_size = 3	# Assume 16-bit mode for now
 			else:
-				instruction_size = 2  # 8-bit index registers
+				instruction_size = 2	# 8-bit index registers
 
 		# Extract operand bytes
 		operand_size = instruction_size - 1
@@ -624,7 +624,7 @@ class SNES65816Disassembler:
 			if 0x8000 <= snes_addr <= 0xffff:
 				offset_in_bank = snes_addr - 0x8000
 				return bank_info["rom_offset"] + offset_in_bank
-		else:  # HiROM
+		else:	# HiROM
 			if 0x0000 <= snes_addr <= 0xffff:
 				return bank_info["rom_offset"] + snes_addr
 
@@ -641,7 +641,7 @@ class SNES65816Disassembler:
 
 		# Disassemble until we find a return instruction or jump
 		current_addr = start_addr
-		max_size = 0x1000  # Safety limit
+		max_size = 0x1000	# Safety limit
 
 		for _ in range(max_size):
 			rom_offset = self.snes_to_rom_offset(current_addr, bank)
@@ -750,14 +750,14 @@ class SNES65816Disassembler:
 			if instruction.mnemonic in ["JSR", "JSL"]:
 				target = instruction.operand_value
 				if target:
-					target_bank = 0  # Assume same bank for JSR
+					target_bank = 0	# Assume same bank for JSR
 					if instruction.mnemonic == "JSL":
 						target_bank = (target >> 16) & 0xff
 						target = target & 0xffff
 
 					entry_points.append((target, target_bank, f"called_function"))
 
-		return list(set(entry_points))  # Remove duplicates
+		return list(set(entry_points))	# Remove duplicates
 
 
 def create_snes_disassembler(rom_path: str) -> SNES65816Disassembler:
@@ -826,17 +826,17 @@ if __name__ == "__main__":
 		entry_points = disasm.find_entry_points()
 
 		print(f"📌 Found {len(entry_points)} entry points:")
-		for addr, bank, name in entry_points[:10]:  # Show first 10
-			print(f"   ${bank:02X}:{addr:04X} - {name}")
+		for addr, bank, name in entry_points[:10]:	# Show first 10
+			print(f"	 ${bank:02X}:{addr:04X} - {name}")
 
 		# Analyze first few functions
 		for addr, bank, name in entry_points[:3]:
 			function = disasm.analyze_function(addr, bank)
 			if function:
 				print(f"\n📋 Function: {function.name}")
-				print(f"   Type: {function.function_type}")
-				print(f"   Size: {function.size} bytes")
-				print(f"   Instructions: {len(function.instructions)}")
+				print(f"	 Type: {function.function_type}")
+				print(f"	 Size: {function.size} bytes")
+				print(f"	 Instructions: {len(function.instructions)}")
 
 	# Output
 	result = "\n".join(output_lines)

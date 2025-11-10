@@ -57,8 +57,8 @@ class MemoryMap:
 	size: int
 	name: str
 	description: str
-	access_type: str  # "r", "w", "rw", "x"
-	data_type: str  # "code", "data", "graphics", "audio", "text"
+	access_type: str	# "r", "w", "rw", "x"
+	data_type: str	# "code", "data", "graphics", "audio", "text"
 	bank: int = 0
 
 	@property
@@ -150,7 +150,7 @@ class DQ3Analyzer:
 
 		# Remove header if present
 		if len(rom_data) % 1024 == 512:
-			print("   📦 Removing 512-byte header")
+			print("	 📦 Removing 512-byte header")
 			rom_data = rom_data[512:]
 
 		return SNES65816Disassembler(rom_data)
@@ -333,7 +333,7 @@ class DQ3Analyzer:
 			return {"type": "empty", "confidence": 1.0}
 
 		# Sample bank content for analysis
-		sample_size = min(0x1000, bank_size)  # Analyze first 4KB
+		sample_size = min(0x1000, bank_size)	# Analyze first 4KB
 		sample_data = self.disassembler.rom_data[rom_offset : rom_offset + sample_size]
 
 		analysis = {
@@ -359,7 +359,7 @@ class DQ3Analyzer:
 		analysis["audio_probability"] = 1.0 if self.disassembler._detect_audio_patterns(sample_data) else 0.0
 
 		# Function detection in this bank
-		if bank_num < 0x40:  # Only analyze reasonable bank numbers
+		if bank_num < 0x40:	# Only analyze reasonable bank numbers
 			try:
 				entry_points = self._find_bank_entry_points(bank_num)
 				analysis["functions_detected"] = len(entry_points)
@@ -384,7 +384,7 @@ class DQ3Analyzer:
 
 		# Search for JSR/JSL patterns that target this bank
 		search_start = bank_info["snes_start"]
-		search_end = min(bank_info["snes_end"], search_start + 0x1000)  # Limit search
+		search_end = min(bank_info["snes_end"], search_start + 0x1000)	# Limit search
 
 		rom_offset = bank_info["rom_offset"]
 		search_size = min(search_end - search_start, self.disassembler.rom_size - rom_offset)
@@ -399,20 +399,20 @@ class DQ3Analyzer:
 			addr = search_start + i
 
 			# Look for JSR targets (addresses referenced by JSR instructions)
-			if data[i] == 0x20:  # JSR absolute
+			if data[i] == 0x20:	# JSR absolute
 				if i + 2 < len(data):
 					target = struct.unpack("<H", data[i + 1 : i + 3])[0]
 					if search_start <= target <= search_end:
 						entry_points.append((target, f"jsr_target_{target:04X}"))
 
 			# Look for function prologues
-			if data[i : i + 2] == b"\x8b\x48":  # PHB, PHA - common function start
+			if data[i : i + 2] == b"\x8b\x48":	# PHB, PHA - common function start
 				entry_points.append((addr, f"function_prologue_{addr:04X}"))
 
-			elif data[i : i + 3] == b"\x08\xc2\x20":  # PHP, REP #$20 - 16-bit mode setup
+			elif data[i : i + 3] == b"\x08\xc2\x20":	# PHP, REP #$20 - 16-bit mode setup
 				entry_points.append((addr, f"function_16bit_{addr:04X}"))
 
-		return entry_points[:20]  # Limit to first 20 found
+		return entry_points[:20]	# Limit to first 20 found
 
 	def create_memory_map(self) -> List[MemoryMap]:
 		"""Create comprehensive memory map documentation"""
@@ -434,7 +434,7 @@ class DQ3Analyzer:
 
 		# ROM regions based on banking
 		for bank_num, bank_info in self.disassembler.bank_map.items():
-			if bank_num < 0x40:  # Focus on main ROM banks
+			if bank_num < 0x40:	# Focus on main ROM banks
 				start_addr = (bank_num << 16) | bank_info["snes_start"]
 
 				region = MemoryMap(
@@ -617,10 +617,10 @@ class DQ3Analyzer:
 			report_lines.extend(
 				[
 					f"Bank {bank_id}:",
-					f"  📍 SNES Range: {bank_info['snes_range']}",
-					f"  💾 ROM Offset: {bank_info['rom_offset']}",
-					f"  📝 Type: {bank_info['description']}",
-					f"  🔍 Code Density: {bank_info['content_analysis']['code_density']:.2f}",
+					f"	📍 SNES Range: {bank_info['snes_range']}",
+					f"	💾 ROM Offset: {bank_info['rom_offset']}",
+					f"	📝 Type: {bank_info['description']}",
+					f"	🔍 Code Density: {bank_info['content_analysis']['code_density']:.2f}",
 					"",
 				]
 			)
@@ -632,7 +632,7 @@ class DQ3Analyzer:
 			report_lines.append(f"{mode.upper()} Mode:")
 			for vector_name, vector_info in vectors.items():
 				report_lines.append(
-					f"  {vector_name:<8} {vector_info['vector_address']} -> {vector_info['handler_address']} "
+					f"	{vector_name:<8} {vector_info['vector_address']} -> {vector_info['handler_address']} "
 					f"({vector_info['handler_type']})"
 				)
 			report_lines.append("")

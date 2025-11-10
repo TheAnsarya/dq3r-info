@@ -231,7 +231,7 @@ class DQ3RBuildSystem:
 						except Exception:
 							continue
 
-					if best_ratio < 0.8:  # Good compression ratio
+					if best_ratio < 0.8:	# Good compression ratio
 						file_size = len(file_data)
 						savings = file_size * (1 - best_ratio)
 
@@ -249,7 +249,7 @@ class DQ3RBuildSystem:
 			compression_results["algorithms_tested"] = algorithms
 
 			# Generate recommendations
-			if compression_results["total_savings"] > 1024:  # More than 1KB savings
+			if compression_results["total_savings"] > 1024:	# More than 1KB savings
 				compression_results["recommendations"].append(
 					f"Potential compression savings: {int(compression_results['total_savings'])} bytes"
 				)
@@ -272,10 +272,10 @@ class DQ3RBuildSystem:
 
 		for pattern in patterns:
 			for file_path in self.project_root.rglob(pattern):
-				if file_path.is_file() and file_path.stat().st_size > 1024:  # At least 1KB
+				if file_path.is_file() and file_path.stat().st_size > 1024:	# At least 1KB
 					candidates.append(file_path)
 
-		return candidates[:10]  # Limit to prevent excessive processing
+		return candidates[:10]	# Limit to prevent excessive processing
 
 	def _extract_assets(self) -> Dict[str, Any]:
 		"""Extract assets from ROM files"""
@@ -359,7 +359,7 @@ class DQ3RBuildSystem:
 		self.log_build_action("Starting continuous development mode...")
 
 		iteration = 0
-		max_iterations = 10  # Prevent infinite loops
+		max_iterations = 10	# Prevent infinite loops
 
 		while iteration < max_iterations:
 			iteration += 1
@@ -375,7 +375,7 @@ class DQ3RBuildSystem:
 			# Check if we should continue
 			if self.config["max_token_utilization"]:
 				self.log_build_action("Maximizing token utilization - continuing development...")
-				time.sleep(1)  # Brief pause between iterations
+				time.sleep(1)	# Brief pause between iterations
 			else:
 				break
 
@@ -420,11 +420,11 @@ def main():
 
 			if results["success"]:
 				print("✅ Build completed successfully!")
-				print(f"⏱️  Build time: {results['build_time']:.2f} seconds")
+				print(f"⏱️	Build time: {results['build_time']:.2f} seconds")
 			else:
 				print("❌ Build failed!")
 				for error in results["errors"]:
-					print(f"   Error: {error}")
+					print(f"	 Error: {error}")
 				sys.exit(1)
 
 	except KeyboardInterrupt:

@@ -138,7 +138,7 @@ class MaximumDocumentationGenerator:
 	def document_code_files(self, code_files: List[str]) -> Dict[str, Any]:
 		"""Generate comprehensive documentation for code files"""
 
-		print(f"⚙️  Documenting {len(code_files)} code files...")
+		print(f"⚙️	Documenting {len(code_files)} code files...")
 
 		code_documentation = {
 			"files_processed": 0,
@@ -295,7 +295,7 @@ class MaximumDocumentationGenerator:
 	def calculate_function_complexity(self, lines: List[str], func_start: int) -> int:
 		"""Calculate cyclomatic complexity of a function"""
 
-		complexity = 1  # Base complexity
+		complexity = 1	# Base complexity
 
 		# Find function end (next function or class definition or end of file)
 		func_end = len(lines)
@@ -914,7 +914,7 @@ class MaximumDocumentationGenerator:
 				return format_name
 
 		# SNES ROM detection
-		if len(data) in [0x100000, 0x200000, 0x400000, 0x600000]:  # Common SNES ROM sizes
+		if len(data) in [0x100000, 0x200000, 0x400000, 0x600000]:	# Common SNES ROM sizes
 			return "SNES ROM"
 
 		return "unknown_binary"
@@ -968,7 +968,7 @@ class MaximumDocumentationGenerator:
 
 				if "columns" in analysis:
 					f.write("\n### Columns\n\n")
-					for i, col in enumerate(analysis["columns"][:20]):  # First 20 columns
+					for i, col in enumerate(analysis["columns"][:20]):	# First 20 columns
 						f.write(f"{i+1}. {col}\n")
 
 			elif data_type == "text":
@@ -1051,17 +1051,17 @@ class MaximumDocumentationGenerator:
 				if "file_types" in data_result:
 					f.write("- **File Types:**\n")
 					for file_type, count in data_result["file_types"].items():
-						f.write(f"  - {file_type}: {count} files\n")
+						f.write(f"	- {file_type}: {count} files\n")
 				f.write("\n")
 
 			f.write("## 📁 Documentation Structure\n\n")
 			f.write("```\n")
 			f.write("documentation/maximum_coverage/\n")
-			f.write("├── code_files/		   # Code documentation\n")
-			f.write("├── data_files/		   # Data file documentation\n")
+			f.write("├── code_files/			 # Code documentation\n")
+			f.write("├── data_files/			 # Data file documentation\n")
 			f.write("├── config_files/		 # Configuration documentation\n")
-			f.write("├── analysis_files/	   # Analysis documentation\n")
-			f.write("├── asset_files/		  # Asset documentation\n")
+			f.write("├── analysis_files/		 # Analysis documentation\n")
+			f.write("├── asset_files/			# Asset documentation\n")
 			f.write("├── cross_references/	 # Cross-reference system\n")
 			f.write("├── api_documentation/	# API documentation\n")
 			f.write("└── MASTER_DOCUMENTATION.md\n")
@@ -1214,7 +1214,7 @@ def main():
 	print(f"📊 Files Analyzed: {final_stats.get('total_files_analyzed', 0):,}")
 	print(f"📝 Documentation Files: {final_stats.get('documentation_files_created', 0):,}")
 	print(f"💾 Total Documentation Size: {final_stats.get('total_documentation_size', 0):,} bytes")
-	print(f"⏱️  Generation Duration: {duration:.2f} seconds")
+	print(f"⏱️	Generation Duration: {duration:.2f} seconds")
 	print(f"📁 Documentation Output: {generator.docs_output}")
 	print(f"📈 Reports: {generator.reports_dir}")
 	print("🎯 Maximum token utilization achieved!")

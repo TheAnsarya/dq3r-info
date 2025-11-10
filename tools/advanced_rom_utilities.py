@@ -36,7 +36,7 @@ class ROMPatch:
 	checksum_before: str
 	checksum_after: str
 	category: str = "general"
-	risk_level: str = "low"  # low, medium, high
+	risk_level: str = "low"	# low, medium, high
 	reversible: bool = True
 	dependencies: List[str] = field(default_factory=list)
 
@@ -54,7 +54,7 @@ class ROMOptimization:
 	size: int
 	description: str
 	potential_savings: int
-	implementation_difficulty: str  # easy, medium, hard
+	implementation_difficulty: str	# easy, medium, hard
 	side_effects: List[str] = field(default_factory=list)
 
 
@@ -85,7 +85,7 @@ class AdvancedROMAnalyzer:
 				},
 			},
 			"monster_data": {
-				"base_offset": 0x180000,  # Estimated
+				"base_offset": 0x180000,	# Estimated
 				"count": 155,
 				"terminator": 0xac,
 				"structure": {
@@ -325,7 +325,7 @@ class AdvancedROMAnalyzer:
 			if probability > 0:
 				entropy -= probability * (probability.bit_length() - 1)
 
-		return min(entropy, 8.0)  # Cap at 8 bits
+		return min(entropy, 8.0)	# Cap at 8 bits
 
 	def _estimate_structure_size(self, offset: int, structure_info: Dict[str, Any]) -> int:
 		"""Estimate size of variable-length structure"""
@@ -334,7 +334,7 @@ class AdvancedROMAnalyzer:
 			size = 0
 			pos = offset
 
-			while pos < len(self.rom_data) and size < 0x10000:  # Safety limit
+			while pos < len(self.rom_data) and size < 0x10000:	# Safety limit
 				if self.rom_data[pos] == terminator:
 					return size + 1
 				size += 1
@@ -356,7 +356,7 @@ class AdvancedROMAnalyzer:
 			return compression_analysis
 
 		# Scan ROM in chunks looking for compressed data
-		chunk_size = 0x1000  # 4KB chunks
+		chunk_size = 0x1000	# 4KB chunks
 		total_original = 0
 		total_compressed = 0
 
@@ -368,7 +368,7 @@ class AdvancedROMAnalyzer:
 				try:
 					compressed, stats = self.compression_engine.compress(chunk, algorithm)
 
-					if stats.compression_ratio < 0.8:  # Good compression
+					if stats.compression_ratio < 0.8:	# Good compression
 						compression_analysis["regions"].append(
 							{
 								"offset": offset,
@@ -390,7 +390,7 @@ class AdvancedROMAnalyzer:
 						total_original += len(chunk)
 						total_compressed += len(compressed)
 
-						break  # Use first algorithm that compresses well
+						break	# Use first algorithm that compresses well
 
 				except Exception:
 					continue
@@ -457,14 +457,14 @@ class AdvancedROMAnalyzer:
 		# Look for unused space
 		unused_regions = self._find_unused_space()
 		for region in unused_regions:
-			if region["size"] > 0x100:  # Only report significant unused space
+			if region["size"] > 0x100:	# Only report significant unused space
 				optimizations.append(
 					ROMOptimization(
 						optimization_type="space_reclamation",
 						location=region["offset"],
 						size=region["size"],
 						description=f"Unused space block at 0x{region['offset']:08X}",
-						potential_savings=0,  # No direct savings, but space for new features
+						potential_savings=0,	# No direct savings, but space for new features
 						implementation_difficulty="easy",
 						side_effects=[],
 					)
@@ -476,7 +476,7 @@ class AdvancedROMAnalyzer:
 	def _find_duplicate_regions(self) -> List[Dict[str, Any]]:
 		"""Find duplicate data regions in ROM"""
 		duplicates = []
-		block_size = 0x100  # 256 byte blocks
+		block_size = 0x100	# 256 byte blocks
 		seen_blocks = {}
 
 		for offset in range(0, len(self.rom_data) - block_size, block_size):
@@ -506,7 +506,7 @@ class AdvancedROMAnalyzer:
 		if not self.compression_engine:
 			return inefficient
 
-		chunk_size = 0x800  # 2KB chunks
+		chunk_size = 0x800	# 2KB chunks
 
 		for offset in range(0, len(self.rom_data) - chunk_size, chunk_size):
 			chunk = self.rom_data[offset : offset + chunk_size]
@@ -525,7 +525,7 @@ class AdvancedROMAnalyzer:
 					continue
 
 			# If we can achieve significant compression improvement
-			if best_ratio < 0.7:  # 30% or better compression
+			if best_ratio < 0.7:	# 30% or better compression
 				current_entropy = self._calculate_entropy(chunk)
 				potential_savings = int(len(chunk) * (1 - best_ratio))
 
@@ -551,13 +551,13 @@ class AdvancedROMAnalyzer:
 			byte = self.rom_data[i]
 
 			# Common unused byte patterns
-			is_unused = byte in [0x00, 0xff] or (byte == 0xea)  # NOP instruction
+			is_unused = byte in [0x00, 0xff] or (byte == 0xea)	# NOP instruction
 
 			if is_unused:
 				if current_region is None:
 					current_region = {"start": i, "pattern": byte}
 				elif current_region["pattern"] == byte:
-					continue  # Extend current region
+					continue	# Extend current region
 				else:
 					# End current region, start new one
 					unused_regions.append(
@@ -635,7 +635,7 @@ class AdvancedROMAnalyzer:
 		current_run = 1
 		prev_byte = None
 
-		for byte in self.rom_data[:0x10000]:  # Check first 64KB
+		for byte in self.rom_data[:0x10000]:	# Check first 64KB
 			if byte == prev_byte:
 				current_run += 1
 				max_run_length = max(max_run_length, current_run)
@@ -643,7 +643,7 @@ class AdvancedROMAnalyzer:
 				current_run = 1
 				prev_byte = byte
 
-		if max_run_length > 0x1000:  # More than 4KB of same byte
+		if max_run_length > 0x1000:	# More than 4KB of same byte
 			indicators.append(f"Excessive byte run detected: {max_run_length} bytes")
 
 		# Check for invalid instruction sequences (simplified)
@@ -652,10 +652,10 @@ class AdvancedROMAnalyzer:
 			if i + 1 < len(self.rom_data):
 				# Check for invalid 65816 opcodes (simplified)
 				opcode = self.rom_data[i]
-				if opcode in [0x02, 0x03, 0x0b, 0x0f]:  # Some undefined opcodes
+				if opcode in [0x02, 0x03, 0x0b, 0x0f]:	# Some undefined opcodes
 					invalid_instructions += 1
 
-		if invalid_instructions > 100:  # Threshold for concern
+		if invalid_instructions > 100:	# Threshold for concern
 			indicators.append(f"High number of invalid instructions: {invalid_instructions}")
 
 		return indicators
@@ -675,11 +675,11 @@ class AdvancedROMAnalyzer:
 		total_unused = sum(r["size"] for r in unused_regions if r["size"] > 0x100)
 
 		modification_analysis["expansion_space"] = total_unused
-		modification_analysis["expansion_possible"] = total_unused > 0x10000  # 64KB threshold
+		modification_analysis["expansion_possible"] = total_unused > 0x10000	# 64KB threshold
 
 		# Identify safe modification zones
 		for region in unused_regions:
-			if region["size"] > 0x1000:  # 4KB or larger
+			if region["size"] > 0x1000:	# 4KB or larger
 				modification_analysis["safe_modification_zones"].append(
 					{
 						"offset": region["offset"],
@@ -788,7 +788,7 @@ class AdvancedROMAnalyzer:
 		report += f"- **Structures Found**: {len(found_structures)}/{len(structures)}\n"
 		for name in found_structures:
 			data = structures[name]
-			report += f"  - `{name}`: 0x{data['location']:08X} ({data['size']} bytes)\n"
+			report += f"	- `{name}`: 0x{data['location']:08X} ({data['size']} bytes)\n"
 
 		report += f"\n## Compression Analysis\n"
 		compression = analysis["compression_analysis"]
@@ -798,7 +798,7 @@ class AdvancedROMAnalyzer:
 			report += f"- **Overall Compression Ratio**: {compression['compression_ratio']:.2f}\n"
 
 			for algorithm, stats in compression["compression_algorithms"].items():
-				report += f"  - `{algorithm}`: {stats['regions']} regions, {stats['total_savings']:,} bytes saved\n"
+				report += f"	- `{algorithm}`: {stats['regions']} regions, {stats['total_savings']:,} bytes saved\n"
 		else:
 			report += f"- **Error**: {compression['error']}\n"
 
@@ -815,7 +815,7 @@ class AdvancedROMAnalyzer:
 
 			for opt_type, count in by_type.items():
 				total_savings = sum(opt.potential_savings for opt in optimizations if opt.optimization_type == opt_type)
-				report += f"  - `{opt_type}`: {count} opportunities, {total_savings:,} bytes potential savings\n"
+				report += f"	- `{opt_type}`: {count} opportunities, {total_savings:,} bytes potential savings\n"
 		else:
 			report += "- **No significant optimization opportunities found**\n"
 
@@ -828,7 +828,7 @@ class AdvancedROMAnalyzer:
 		if integrity["issues"]:
 			report += f"- **Issues Found**:\n"
 			for issue in integrity["issues"]:
-				report += f"  - {issue}\n"
+				report += f"	- {issue}\n"
 		else:
 			report += f"- **No integrity issues detected**\n"
 
@@ -843,7 +843,7 @@ class AdvancedROMAnalyzer:
 		if modification["recommended_approaches"]:
 			report += f"- **Recommendations**:\n"
 			for rec in modification["recommended_approaches"]:
-				report += f"  - {rec}\n"
+				report += f"	- {rec}\n"
 
 		return report
 
@@ -876,8 +876,8 @@ class AdvancedROMAnalyzer:
 			json.dump(analysis_copy, f, indent=2, ensure_ascii=False)
 
 		print(f"Analysis results saved to: {output_dir}")
-		print(f"  - Report: {report_file}")
-		print(f"  - Data: {json_file}")
+		print(f"	- Report: {report_file}")
+		print(f"	- Data: {json_file}")
 
 
 def create_advanced_rom_analyzer(rom_path: str) -> AdvancedROMAnalyzer:
@@ -918,14 +918,14 @@ if __name__ == "__main__":
 
 		print(f"✅ Analysis complete in {analysis_results['analysis_time']:.2f} seconds")
 		print(f"📊 Found {len(analysis_results['data_structures'])} data structures")
-		print(f"🗜️  Found {len(analysis_results['optimization_opportunities'])} optimization opportunities")
+		print(f"🗜️	Found {len(analysis_results['optimization_opportunities'])} optimization opportunities")
 
 	if args.find_optimizations:
 		print("\nFinding optimization opportunities...")
 		optimizations = analyzer._find_optimization_opportunities()
 
-		for opt in optimizations[:5]:  # Show top 5
-			print(f"  - {opt.optimization_type} at 0x{opt.location:08X}: {opt.description}")
+		for opt in optimizations[:5]:	# Show top 5
+			print(f"	- {opt.optimization_type} at 0x{opt.location:08X}: {opt.description}")
 
 	if args.generate_report:
 		print("\nGenerating comprehensive report...")

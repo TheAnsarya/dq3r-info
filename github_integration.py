@@ -256,7 +256,7 @@ class GitHubIntegration:
 
 			# Get current branch name
 			result = subprocess.run(['git', 'branch', '--show-current'],
-								  capture_output=True, text=True, check=True)
+									capture_output=True, text=True, check=True)
 			branch_name = result.stdout.strip()
 
 			# Push to origin
@@ -273,7 +273,7 @@ class GitHubIntegration:
 			return False
 
 	def create_pull_request(self, title: str, description: str,
-						   head_branch: str, base_branch: str = 'main') -> Optional[str]:
+							 head_branch: str, base_branch: str = 'main') -> Optional[str]:
 		"""
 		Create pull request
 
@@ -374,60 +374,60 @@ class GitHubIntegration:
 		ci_workflow = """name: CI
 
 on:
-  push:
-    branches: [ main, feat/* ]
-  pull_request:
-    branches: [ main ]
+	push:
+	branches: [ main, feat/* ]
+	pull_request:
+	branches: [ main ]
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
+	test:
+	runs-on: ubuntu-latest
 
-    steps:
-    - uses: actions/checkout@v3
+	steps:
+	- uses: actions/checkout@v3
 
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: 3.11
+	- name: Set up Python
+		uses: actions/setup-python@v4
+		with:
+		python-version: 3.11
 
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install pytest websockets
-        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+	- name: Install dependencies
+		run: |
+		python -m pip install --upgrade pip
+		pip install pytest websockets
+		if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-    - name: Run tests
-      run: |
-        python tests/simple_test_runner.py
+	- name: Run tests
+		run: |
+		python tests/simple_test_runner.py
 
-    - name: Test plugin system
-      run: |
-        python test_plugin_system.py
+	- name: Test plugin system
+		run: |
+		python test_plugin_system.py
 
-  lint:
-    runs-on: ubuntu-latest
+	lint:
+	runs-on: ubuntu-latest
 
-    steps:
-    - uses: actions/checkout@v3
+	steps:
+	- uses: actions/checkout@v3
 
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: 3.11
+	- name: Set up Python
+		uses: actions/setup-python@v4
+		with:
+		python-version: 3.11
 
-    - name: Install linting tools
-      run: |
-        python -m pip install --upgrade pip
-        pip install flake8 black
+	- name: Install linting tools
+		run: |
+		python -m pip install --upgrade pip
+		pip install flake8 black
 
-    - name: Lint with flake8
-      run: |
-        flake8 tools/ plugins/ tests/ --count --select=E9,F63,F7,F82 --show-source --statistics
+	- name: Lint with flake8
+		run: |
+		flake8 tools/ plugins/ tests/ --count --select=E9,F63,F7,F82 --show-source --statistics
 
-    - name: Check formatting with black
-      run: |
-        black --check tools/ plugins/ tests/
+	- name: Check formatting with black
+		run: |
+		black --check tools/ plugins/ tests/
 """
 
 		with open('.github/workflows/ci.yml', 'w') as f:
@@ -437,33 +437,33 @@ jobs:
 		release_workflow = """name: Release
 
 on:
-  push:
-    tags:
-      - 'v*'
+	push:
+	tags:
+		- 'v*'
 
 jobs:
-  release:
-    runs-on: ubuntu-latest
+	release:
+	runs-on: ubuntu-latest
 
-    steps:
-    - uses: actions/checkout@v3
+	steps:
+	- uses: actions/checkout@v3
 
-    - name: Create Release
-      uses: actions/create-release@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        tag_name: ${{ github.ref }}
-        release_name: Release ${{ github.ref }}
-        body: |
-          Dragon Quest III ROM Analysis Tool Release
+	- name: Create Release
+		uses: actions/create-release@v1
+		env:
+		GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+		with:
+		tag_name: ${{ github.ref }}
+		release_name: Release ${{ github.ref }}
+		body: |
+			Dragon Quest III ROM Analysis Tool Release
 
-          ## Changes
-          - Updated ROM analysis tools
-          - Enhanced plugin system
-          - Bug fixes and improvements
-        draft: false
-        prerelease: false
+			## Changes
+			- Updated ROM analysis tools
+			- Enhanced plugin system
+			- Bug fixes and improvements
+		draft: false
+		prerelease: false
 """
 
 		with open('.github/workflows/release.yml', 'w') as f:
@@ -564,7 +564,7 @@ Add any other context or screenshots about the feature request here.
 				},
 				'branches': {
 					'total': len(branches),
-					'names': [b['name'] for b in branches[:10]]  # First 10
+					'names': [b['name'] for b in branches[:10]]	# First 10
 				},
 				'issues': {
 					'total': len(issues),
@@ -589,20 +589,20 @@ def setup_github_integration():
 	print("\n1. REPOSITORY STATUS")
 	status = github.get_repository_status()
 	if 'error' not in status:
-		print(f"   Repository: {status['repository']['full_name']}")
-		print(f"   URL: {status['repository']['url']}")
-		print(f"   Language: {status['repository']['language']}")
-		print(f"   Stars: {status['repository']['stars']}")
-		print(f"   Branches: {status['branches']['total']}")
-		print(f"   Issues: {status['issues']['open']} open, {status['issues']['closed']} closed")
+		print(f"	 Repository: {status['repository']['full_name']}")
+		print(f"	 URL: {status['repository']['url']}")
+		print(f"	 Language: {status['repository']['language']}")
+		print(f"	 Stars: {status['repository']['stars']}")
+		print(f"	 Branches: {status['branches']['total']}")
+		print(f"	 Issues: {status['issues']['open']} open, {status['issues']['closed']} closed")
 	else:
-		print(f"   Error getting repository status: {status['error']}")
+		print(f"	 Error getting repository status: {status['error']}")
 
 	# Set up project workflow
 	print("\n2. SETTING UP PROJECT WORKFLOW")
 	workflow_results = github.setup_project_workflow()
-	print(f"   Created milestones: {len(workflow_results['milestones_created'])}")
-	print(f"   Created workflow files: {len(workflow_results['workflow_files_created'])}")
+	print(f"	 Created milestones: {len(workflow_results['milestones_created'])}")
+	print(f"	 Created workflow files: {len(workflow_results['workflow_files_created'])}")
 
 	# Sync todos with issues (if token available)
 	if github.token:
@@ -618,12 +618,12 @@ def setup_github_integration():
 		]
 
 		sync_results = github.sync_todos_with_issues(sample_todos)
-		print(f"   Created issues: {len(sync_results['created_issues'])}")
-		print(f"   Existing issues: {len(sync_results['existing_issues'])}")
-		print(f"   Errors: {len(sync_results['errors'])}")
+		print(f"	 Created issues: {len(sync_results['created_issues'])}")
+		print(f"	 Existing issues: {len(sync_results['existing_issues'])}")
+		print(f"	 Errors: {len(sync_results['errors'])}")
 	else:
 		print("\n3. TODO SYNC SKIPPED")
-		print("   GitHub token not available")
+		print("	 GitHub token not available")
 
 	print("\n" + "=" * 60)
 	print("GITHUB INTEGRATION SETUP COMPLETED")

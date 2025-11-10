@@ -1,0 +1,179 @@
+[
+    {
+        "id": "task-0001",
+        "title": "Implement ROM Pattern Recognition",
+        "description": "Advanced AI-based pattern recognition for ROM data",
+        "status": "in_progress",
+        "priority": 4,
+        "assigned_to": "member-001",
+        "created_by": "system",
+        "created_date": "2025-11-10 13:37:02",
+        "due_date": null,
+        "estimated_hours": 12.0,
+        "actual_hours": 0.0,
+        "tags": [
+            "ai",
+            "python"
+        ],
+        "dependencies": [],
+        "github_issue": null,
+        "comments": [
+            {
+                "timestamp": "2025-11-10 13:37:02",
+                "user": "system",
+                "message": "Task assigned to Alice Johnson",
+                "type": "assignment"
+            },
+            {
+                "timestamp": "2025-11-10 13:37:02",
+                "user": "member-002",
+                "message": "Status changed from todo to in_progress",
+                "type": "status_change"
+            }
+        ],
+        "work_log": [
+            {
+                "session_id": "session-000001",
+                "user_id": "member-002",
+                "duration_minutes": 0,
+                "timestamp": "2025-11-10 13:37:02",
+                "description": "Implementing neural network architecture"
+            }
+        ]
+    },
+    {
+        "id": "task-0002",
+        "title": "Fix Graphics Rendering Bug",
+        "description": "Resolve SNES graphics display issues",
+        "status": "in_progress",
+        "priority": 5,
+        "assigned_to": "member-005",
+        "created_by": "system",
+        "created_date": "2025-11-10 13:37:02",
+        "due_date": null,
+        "estimated_hours": 4.0,
+        "actual_hours": 0.0,
+        "tags": [
+            "graphics",
+            "debugging"
+        ],
+        "dependencies": [],
+        "github_issue": null,
+        "comments": [
+            {
+                "timestamp": "2025-11-10 13:37:02",
+                "user": "system",
+                "message": "Task assigned to Dave Chen",
+                "type": "assignment"
+            },
+            {
+                "timestamp": "2025-11-10 13:37:02",
+                "user": "member-003",
+                "message": "Status changed from todo to in_progress",
+                "type": "status_change"
+            }
+        ],
+        "work_log": []
+    },
+    {
+        "id": "task-0003",
+        "title": "Write User Documentation",
+        "description": "Create comprehensive user guide",
+        "status": "in_progress",
+        "priority": 3,
+        "assigned_to": "member-004",
+        "created_by": "system",
+        "created_date": "2025-11-10 13:37:02",
+        "due_date": null,
+        "estimated_hours": 6.0,
+        "actual_hours": 0.0,
+        "tags": [
+            "documentation"
+        ],
+        "dependencies": [],
+        "github_issue": null,
+        "comments": [
+            {
+                "timestamp": "2025-11-10 13:37:02",
+                "user": "system",
+                "message": "Task assigned to Carol White",
+                "type": "assignment"
+            },
+            {
+                "timestamp": "2025-11-10 13:37:02",
+                "user": "member-004",
+                "message": "Status changed from todo to in_progress",
+                "type": "status_change"
+            }
+        ],
+        "work_log": []
+    },
+    {
+        "id": "task-0004",
+        "title": "Optimize Performance",
+        "description": "Improve analysis speed by 50%",
+        "status": "in_review",
+        "priority": 4,
+        "assigned_to": "member-002",
+        "created_by": "system",
+        "created_date": "2025-11-10 13:37:02",
+        "due_date": null,
+        "estimated_hours": 8.0,
+        "actual_hours": 0.0,
+        "tags": [
+            "optimization",
+            "python"
+        ],
+        "dependencies": [],
+        "github_issue": null,
+        "comments": [
+            {
+                "timestamp": "2025-11-10 13:37:02",
+                "user": "system",
+                "message": "Task assigned to Alice Johnson",
+                "type": "assignment"
+            },
+            {
+                "timestamp": "2025-11-10 13:37:02",
+                "user": "member-005",
+                "message": "Status changed from todo to in_review",
+                "type": "status_change"
+            }
+        ],
+        "work_log": []
+    },
+    {
+        "id": "task-0005",
+        "title": "Add Unit Tests",
+        "description": "Increase test coverage to 90%",
+        "status": "done",
+        "priority": 3,
+        "assigned_to": "member-004",
+        "created_by": "system",
+        "created_date": "2025-11-10 13:37:02",
+        "due_date": null,
+        "estimated_hours": 10.0,
+        "actual_hours": 0.0,
+        "tags": [
+            "testing",
+            "qa"
+        ],
+        "dependencies": [],
+        "github_issue": null,
+        "comments": [
+            {
+                "timestamp": "2025-11-10 13:37:02",
+                "user": "system",
+                "message": "Task assigned to Carol White",
+                "type": "assignment"
+            },
+            {
+                "timestamp": "2025-11-10 13:37:02",
+                "user": "member-004",
+                "message": "Status changed from todo to done",
+                "type": "status_change"
+            }
+        ],
+        "work_log": []
+    }
+]

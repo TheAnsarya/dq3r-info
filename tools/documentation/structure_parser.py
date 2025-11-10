@@ -62,10 +62,10 @@ class DataStructure:
 	structure_type: DataStructureType
 	description: str
 	fields: List[MemoryField] = field(default_factory=list)
-	instances: List[int] = field(default_factory=list)  # For arrays/multiple copies
-	dependencies: List[str] = field(default_factory=list)  # Related structures
+	instances: List[int] = field(default_factory=list)	# For arrays/multiple copies
+	dependencies: List[str] = field(default_factory=list)	# Related structures
 	version_notes: str = ""
-	completion_status: str = "partial"  # partial, complete, verified
+	completion_status: str = "partial"	# partial, complete, verified
 
 	def add_field(self, field: MemoryField):
 		"""Add field and maintain sorted order"""
@@ -152,7 +152,7 @@ class DQ3StructureParser:
 
 			self.raw_entries.append(entry)
 
-		print(f"   📋 Parsed {len(self.raw_entries)} memory entries")
+		print(f"	 📋 Parsed {len(self.raw_entries)} memory entries")
 
 		# Analyze and group into structures
 		self._analyze_structures()
@@ -171,7 +171,7 @@ class DQ3StructureParser:
 			if structure:
 				self.structures[structure.name] = structure
 
-		print(f"   🏗️ Identified {len(self.structures)} data structures")
+		print(f"	 🏗️ Identified {len(self.structures)} data structures")
 
 	def _group_by_structures(self) -> Dict[str, List[Dict[str, Any]]]:
 		"""Group entries into logical data structures"""
@@ -250,7 +250,7 @@ class DQ3StructureParser:
 			if "_" in field_name:
 				parts = field_name.split("_")
 				if len(parts) > 2:
-					field_name = "_".join(parts[1:])  # Remove prefix
+					field_name = "_".join(parts[1:])	# Remove prefix
 
 			# Determine data type
 			data_type = self._determine_data_type(entry)
@@ -354,11 +354,11 @@ class DQ3StructureParser:
 				[
 					f"## {name}",
 					"",
-					f"**Base Address:** `${structure.base_address:04X}`  ",
-					f"**Total Size:** {structure.total_size} bytes  ",
-					f"**Type:** {structure.structure_type.value.title()}  ",
-					f"**Coverage:** {structure.field_coverage:.1f}% documented  ",
-					f"**Status:** {structure.completion_status}  ",
+					f"**Base Address:** `${structure.base_address:04X}`	",
+					f"**Total Size:** {structure.total_size} bytes	",
+					f"**Type:** {structure.structure_type.value.title()}	",
+					f"**Coverage:** {structure.field_coverage:.1f}% documented	",
+					f"**Status:** {structure.completion_status}	",
 					"",
 					structure.description,
 					"",
@@ -402,9 +402,9 @@ class DQ3StructureParser:
 				"",
 				structure.description,
 				"",
-				f"**Base Address:** `${structure.base_address:04X}`  ",
-				f"**Total Size:** {structure.total_size} bytes  ",
-				f"**Type:** {structure.structure_type.value.title()}  ",
+				f"**Base Address:** `${structure.base_address:04X}`	",
+				f"**Total Size:** {structure.total_size} bytes	",
+				f"**Type:** {structure.structure_type.value.title()}	",
 				f"**Coverage:** {structure.field_coverage:.1f}% documented",
 				"",
 			]
@@ -479,7 +479,7 @@ class DQ3StructureParser:
 		type_map = {
 			"uint8": "uint8_t",
 			"uint16": "uint16_t",
-			"uint24": "uint32_t",  # No native 24-bit type
+			"uint24": "uint32_t",	# No native 24-bit type
 			"string": "char",
 			"item_id": "uint8_t",
 			"spell_flags": "uint8_t",
@@ -606,22 +606,22 @@ def main():
 	structures = parser.parse_mlb_file(args.mlb_file)
 
 	print(f"\n📋 Analysis Results:")
-	print(f"   Structures identified: {len(structures)}")
+	print(f"	 Structures identified: {len(structures)}")
 
 	total_fields = sum(len(s.fields) for s in structures.values())
 	total_coverage = sum(s.field_coverage for s in structures.values()) / len(structures)
 
-	print(f"   Total fields: {total_fields}")
-	print(f"   Average coverage: {total_coverage:.1f}%")
+	print(f"	 Total fields: {total_fields}")
+	print(f"	 Average coverage: {total_coverage:.1f}%")
 
 	# Generate documentation
 	parser.generate_documentation(args.output)
 
 	print(f"\n🎯 Documentation generated in: {args.output}/")
-	print("   📄 dq3_data_structures.md - Master documentation")
-	print("   📂 structures/ - Individual structure docs")
-	print("   🔧 headers/ - C header files")
-	print("   📊 dq3_analysis_report.md - Statistical analysis")
+	print("	 📄 dq3_data_structures.md - Master documentation")
+	print("	 📂 structures/ - Individual structure docs")
+	print("	 🔧 headers/ - C header files")
+	print("	 📊 dq3_analysis_report.md - Statistical analysis")
 
 
 if __name__ == "__main__":

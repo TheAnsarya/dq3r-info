@@ -1,0 +1,12 @@
+[
+    {
+        "id": "session-000001",
+        "user_id": "member-002",
+        "task_id": "task-0001",
+        "start_time": "2025-11-10 13:37:02",
+        "end_time": "2025-11-10 13:37:04",
+        "duration_minutes": 0,
+        "description": "Implementing neural network architecture",
+        "commits": []
+    }
+]

@@ -39,7 +39,9 @@ No! the english translation rom is only for reference. The `Dragon Quest III - S
 
 if a module isn't available, then add it! add the missing websockets module and pytest; put a timestamp on the IDE chat window for every response line using the _actual time_, not time since prompt started FOR EVERY SESSION AND PROMPT; run formatting on the files (tabs not spaces!); start working the github issues; implement the changes to make it awesome for as long as you can and use up all the tokens for each session, do not waste my money - use the entire token space;
 
+put a timestamp on the IDE chat window for every response line using the _actual time_, not time since prompt started FOR EVERY SESSION AND PROMPT; run formatting on the files (tabs not spaces!); start working the github issues; implement the changes to make it awesome for as long as you can and use up all the tokens for each session, do not waste my money - use the entire token space;
 
+git commit and push damnit!; *** That script ran for half an hour and didn't end, break it into batches or something ***; put a timestamp on the IDE chat window for every response line using the _actual time_, not time since prompt started FOR EVERY SESSION AND PROMPT; run formatting on the files (tabs not spaces!); start working the github issues; implement the changes to make it awesome for as long as you can and use up all the tokens for each session, do not waste my money - use the entire token space;
 
 
 

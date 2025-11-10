@@ -232,7 +232,7 @@ class BackupManager:
 		backup_path = self.backup_dir / backup_filename
 
 		# Copy with compression if large
-		if rom_file_path.stat().st_size > 1024 * 1024:  # > 1MB
+		if rom_file_path.stat().st_size > 1024 * 1024:	# > 1MB
 			# Compress large ROMs
 			with open(rom_file_path, 'rb') as src, open(f"{backup_path}.gz", 'wb') as dst:
 				import gzip
@@ -451,7 +451,7 @@ class ValidationEngine:
 			}
 
 		# Check for HiROM header at 0xFFC0
-		header_offset = 0x7FC0  # LoROM
+		header_offset = 0x7FC0	# LoROM
 		if len(rom_data) > 0xFFC0:
 			# Try HiROM
 			hirom_score = self._score_header_at_offset(rom_data, 0xFFC0)
@@ -483,7 +483,7 @@ class ValidationEngine:
 			expected_size = 1024 * (1 << rom_size)
 			actual_size = len(rom_data)
 
-			if abs(actual_size - expected_size) > 1024:  # Allow small discrepancy
+			if abs(actual_size - expected_size) > 1024:	# Allow small discrepancy
 				errors.append(f"Size mismatch: expected {expected_size}, got {actual_size}")
 
 			return {
@@ -520,7 +520,7 @@ class ValidationEngine:
 
 		# Check map mode (should be reasonable value)
 		map_mode = rom_data[offset + 21]
-		if map_mode in [0x20, 0x21, 0x30, 0x31]:  # Common values
+		if map_mode in [0x20, 0x21, 0x30, 0x31]:	# Common values
 			score += 10
 
 		return score
@@ -547,7 +547,7 @@ class ValidationEngine:
 			# Calculate actual checksum
 			actual_checksum = 0
 			for i in range(len(rom_data)):
-				if not (checksum_offset <= i < checksum_offset + 4):  # Skip checksum fields
+				if not (checksum_offset <= i < checksum_offset + 4):	# Skip checksum fields
 					actual_checksum += rom_data[i]
 
 			actual_checksum &= 0xFFFF
@@ -578,10 +578,10 @@ class ValidationEngine:
 		size = len(rom_data)
 
 		# SNES ROMs are typically power-of-2 sizes
-		valid_sizes = [2**i * 1024 for i in range(8, 25)]  # 256KB to 16MB
+		valid_sizes = [2**i * 1024 for i in range(8, 25)]	# 256KB to 16MB
 
 		closest_valid = min(valid_sizes, key=lambda x: abs(x - size))
-		is_valid_size = abs(size - closest_valid) <= 1024  # Allow small header differences
+		is_valid_size = abs(size - closest_valid) <= 1024	# Allow small header differences
 
 		return {
 			'valid': is_valid_size,
@@ -614,7 +614,7 @@ class ValidationEngine:
 
 		if total_bytes > 0:
 			printable_ratio = total_printable / total_bytes
-			valid = printable_ratio >= 0.1  # At least 10% printable characters
+			valid = printable_ratio >= 0.1	# At least 10% printable characters
 		else:
 			valid = False
 			printable_ratio = 0.0
@@ -896,23 +896,23 @@ class AdvancedROMEditor:
 					# Match
 					match_len = 0
 					while (i + match_len < len(current) and
-						   i + match_len < len(original) and
-						   current[i + match_len] == original[i + match_len]):
+							 i + match_len < len(original) and
+							 current[i + match_len] == original[i + match_len]):
 						match_len += 1
 
 					# Write match command
-					self._write_varint(f, match_len << 2)  # SourceRead command
+					self._write_varint(f, match_len << 2)	# SourceRead command
 					i += match_len
 				else:
 					# Difference
 					diff_start = i
 					while (i < len(current) and
-						   (i >= len(original) or current[i] != original[i])):
+							 (i >= len(original) or current[i] != original[i])):
 						i += 1
 
 					diff_len = i - diff_start
 					# Write target read command
-					self._write_varint(f, (diff_len << 2) | 1)  # TargetRead command
+					self._write_varint(f, (diff_len << 2) | 1)	# TargetRead command
 					f.write(current[diff_start:i])
 
 			# Checksums (simplified)
@@ -992,14 +992,14 @@ if __name__ == "__main__":
 	validator = ValidationEngine()
 
 	# Create test ROM data
-	test_rom = bytearray(0x100000)  # 1MB test ROM
+	test_rom = bytearray(0x100000)	# 1MB test ROM
 
 	# Add fake SNES header
 	header_offset = 0x7FC0
-	test_rom[header_offset:header_offset + 21] = b"TEST ROM			"  # Title
-	test_rom[header_offset + 21] = 0x20  # Map mode
-	test_rom[header_offset + 22] = 0x00  # Cart type
-	test_rom[header_offset + 23] = 0x0C  # ROM size (4MB)
+	test_rom[header_offset:header_offset + 21] = b"TEST ROM			"	# Title
+	test_rom[header_offset + 21] = 0x20	# Map mode
+	test_rom[header_offset + 22] = 0x00	# Cart type
+	test_rom[header_offset + 23] = 0x0C	# ROM size (4MB)
 
 	# Calculate and set checksum
 	checksum = sum(test_rom) & 0xFFFF
@@ -1013,7 +1013,7 @@ if __name__ == "__main__":
 	if validation_result['critical_errors']:
 		print("Critical errors found:")
 		for error in validation_result['critical_errors']:
-			print(f"  - {error}")
+			print(f"	- {error}")
 
 	print("\nAdvanced ROM Editor components ready!")
 	print("- Edit operations with change tracking: IMPLEMENTED")

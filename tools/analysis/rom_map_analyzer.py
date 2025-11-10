@@ -38,7 +38,7 @@ class DQ3ROMMapAnalyzer:
 
 		# Initialize SNES address translator
 		self.address_translator = SNESAddressTranslator()
-		self.snes_rom_size = 6 * 1024 * 1024  # 6MB ROM
+		self.snes_rom_size = 6 * 1024 * 1024	# 6MB ROM
 
 		# ROM Map Specifications (SNES HiROM addresses - $BB:HHLL format)
 		# These are converted to file offsets using SNESAddressTranslator
@@ -54,7 +54,7 @@ class DQ3ROMMapAnalyzer:
 				'stats_start': '$02:0028',
 				'experience_base': '$02:0028',
 				'gold_base': '$02:002A',
-				'total_monsters': 155  # $9b monsters + special entries
+				'total_monsters': 155	# $9b monsters + special entries
 			},
 			'character_classes': {
 				'start': '$C4:179E',
@@ -134,8 +134,8 @@ class DQ3ROMMapAnalyzer:
 		top_grid_data = self.rom_data[start_offset:end_offset + 1]
 
 		print(f"📊 Top grid: {top_grid_snes['start']}-{top_grid_snes['end']} (SNES)")
-		print(f"   File offsets: ${start_offset:06x}-${end_offset:06x}")
-		print(f"   Size: {len(top_grid_data):,} bytes ({top_grid_snes['desc']})")
+		print(f"	 File offsets: ${start_offset:06x}-${end_offset:06x}")
+		print(f"	 Size: {len(top_grid_data):,} bytes ({top_grid_snes['desc']})")
 
 		# Mark coverage
 		for i in range(start_offset, end_offset + 1):
@@ -143,16 +143,16 @@ class DQ3ROMMapAnalyzer:
 				self.coverage_map[i] = True
 
 		# Analyze 64x64 grid structure
-		grid_entries = len(top_grid_data) // 2  # 2 bytes per entry
+		grid_entries = len(top_grid_data) // 2	# 2 bytes per entry
 		unique_chunks = set()
 
 		for i in range(0, len(top_grid_data), 2):
 			chunk_id = struct.unpack('<H', top_grid_data[i:i+2])[0]
 			unique_chunks.add(chunk_id)
 
-		print(f"   Grid entries: {grid_entries}")
-		print(f"   Unique chunks: {len(unique_chunks)}")
-		print(f"   Chunk range: ${min(unique_chunks):04x} - ${max(unique_chunks):04x}")
+		print(f"	 Grid entries: {grid_entries}")
+		print(f"	 Unique chunks: {len(unique_chunks)}")
+		print(f"	 Chunk range: ${min(unique_chunks):04x} - ${max(unique_chunks):04x}")
 
 		overworld_analysis['top_grid'] = {
 			'entries': grid_entries,
@@ -170,8 +170,8 @@ class DQ3ROMMapAnalyzer:
 		chunks_data = self.rom_data[chunks_start:chunks_end + 1]
 
 		print(f"📊 Chunks: {chunks_snes['start']}-{chunks_snes['end']} (SNES)")
-		print(f"   File offsets: ${chunks_start:06x}-${chunks_end:06x}")
-		print(f"   Size: {len(chunks_data):,} bytes ({chunks_snes['desc']})")
+		print(f"	 File offsets: ${chunks_start:06x}-${chunks_end:06x}")
+		print(f"	 Size: {len(chunks_data):,} bytes ({chunks_snes['desc']})")
 
 		# Mark coverage
 		for i in range(chunks_start, chunks_end + 1):
@@ -179,12 +179,12 @@ class DQ3ROMMapAnalyzer:
 				self.coverage_map[i] = True
 
 		# Calculate chunk statistics
-		chunk_arrays = 16  # 16 different byte arrays
-		array_size = 0xa3d  # Each array is $a3d bytes
+		chunk_arrays = 16	# 16 different byte arrays
+		array_size = 0xa3d	# Each array is $a3d bytes
 
-		print(f"   Chunk arrays: {chunk_arrays}")
-		print(f"   Array size: ${array_size:x} bytes each")
-		print(f"   Total chunks: {array_size} (indexes $001-${array_size:03x})")
+		print(f"	 Chunk arrays: {chunk_arrays}")
+		print(f"	 Array size: ${array_size:x} bytes each")
+		print(f"	 Total chunks: {array_size} (indexes $001-${array_size:03x})")
 
 		overworld_analysis['chunks'] = {
 			'arrays': chunk_arrays,
@@ -202,17 +202,17 @@ class DQ3ROMMapAnalyzer:
 		tiles_data = self.rom_data[tiles_start:tiles_end + 1]
 
 		print(f"📊 Tiles: {tiles_snes['start']}-{tiles_snes['end']} (SNES)")
-		print(f"   File offsets: ${tiles_start:06x}-${tiles_end:06x}")
-		print(f"   Size: {len(tiles_data):,} bytes ({tiles_snes['desc']})")
+		print(f"	 File offsets: ${tiles_start:06x}-${tiles_end:06x}")
+		print(f"	 Size: {len(tiles_data):,} bytes ({tiles_snes['desc']})")
 
 		# Mark coverage
 		for i in range(tiles_start, tiles_end + 1):
 			if i < len(self.coverage_map):
 				self.coverage_map[i] = True
 
-		tile_count = len(tiles_data) // 8  # 8 bytes per 16x16 tile
-		print(f"   Tile definitions: {tile_count}")
-		print(f"   Tile format: 4 x 8x8 tiles (2 bytes each)")
+		tile_count = len(tiles_data) // 8	# 8 bytes per 16x16 tile
+		print(f"	 Tile definitions: {tile_count}")
+		print(f"	 Tile format: 4 x 8x8 tiles (2 bytes each)")
 
 		overworld_analysis['tiles'] = {
 			'count': tile_count,
@@ -264,7 +264,7 @@ class DQ3ROMMapAnalyzer:
 				'hex_data': name_data.hex()
 			})
 
-			print(f"   Monster {monster_id:02x}: {english} (${start:06x}-${end:06x})")
+			print(f"	 Monster {monster_id:02x}: {english} (${start:06x}-${end:06x})")
 			monster_id += 1
 
 		# Analyze monster stats
@@ -277,11 +277,11 @@ class DQ3ROMMapAnalyzer:
 		slime_gold = self.rom_data[gold_addr]
 
 		print(f"📊 Monster stats example (Slime):")
-		print(f"   Experience: {slime_exp} (at ${experience_addr:06x})")
-		print(f"   Gold: {slime_gold} (at ${gold_addr:06x})")
+		print(f"	 Experience: {slime_exp} (at ${experience_addr:06x})")
+		print(f"	 Gold: {slime_gold} (at ${gold_addr:06x})")
 
 		# Mark stats coverage
-		for i in range(stats_start, stats_start + 0x50):  # Sample coverage
+		for i in range(stats_start, stats_start + 0x50):	# Sample coverage
 			if i < len(self.coverage_map):
 				self.coverage_map[i] = True
 
@@ -304,7 +304,7 @@ class DQ3ROMMapAnalyzer:
 		class_data = self.rom_data[classes['start']:classes['end']]
 
 		print(f"📊 Character classes: ${classes['start']:06x}-${classes['end']:06x}")
-		print(f"   Size: {len(class_data):,} bytes ({classes['desc']})")
+		print(f"	 Size: {len(class_data):,} bytes ({classes['desc']})")
 
 		# Mark coverage
 		for i in range(classes['start'], classes['end']):
@@ -312,10 +312,10 @@ class DQ3ROMMapAnalyzer:
 				self.coverage_map[i] = True
 
 		# Analyze class structure (basic analysis)
-		class_count_estimate = len(class_data) // 32  # Estimate 32 bytes per class
+		class_count_estimate = len(class_data) // 32	# Estimate 32 bytes per class
 
-		print(f"   Estimated classes: {class_count_estimate}")
-		print(f"   Bytes per class: ~32 (estimated)")
+		print(f"	 Estimated classes: {class_count_estimate}")
+		print(f"	 Bytes per class: ~32 (estimated)")
 
 		class_analysis = {
 			'start': classes['start'],
@@ -340,7 +340,7 @@ class DQ3ROMMapAnalyzer:
 		font_data = self.rom_data[dialog_font['start']:dialog_font['end']]
 
 		print(f"📊 Dialog font: ${dialog_font['start']:06x}-${dialog_font['end']:06x}")
-		print(f"   Size: {len(font_data):,} bytes ({dialog_font['desc']})")
+		print(f"	 Size: {len(font_data):,} bytes ({dialog_font['desc']})")
 
 		# Mark coverage
 		for i in range(dialog_font['start'], dialog_font['end']):
@@ -352,7 +352,7 @@ class DQ3ROMMapAnalyzer:
 		settings_data = self.rom_data[font_settings['start']:font_settings['end']]
 
 		print(f"📊 Font settings: ${font_settings['start']:06x}-${font_settings['end']:06x}")
-		print(f"   Size: {len(settings_data):,} bytes (50 structs of 5 bytes each)")
+		print(f"	 Size: {len(settings_data):,} bytes (50 structs of 5 bytes each)")
 
 		# Mark coverage
 		for i in range(font_settings['start'], font_settings['end']):
@@ -367,9 +367,9 @@ class DQ3ROMMapAnalyzer:
 		right_data = self.rom_data[huffman_right['start']:huffman_right['end']]
 
 		print(f"📊 Huffman trees: ${huffman_left['start']:06x} + ${huffman_right['start']:06x}")
-		print(f"   Left tree: {len(left_data):,} bytes (0-bits)")
-		print(f"   Right tree: {len(right_data):,} bytes (1-bits)")
-		print(f"   Tree entries: {len(left_data) // 2} each")
+		print(f"	 Left tree: {len(left_data):,} bytes (0-bits)")
+		print(f"	 Right tree: {len(right_data):,} bytes (1-bits)")
+		print(f"	 Tree entries: {len(left_data) // 2} each")
 
 		# Mark coverage
 		for i in range(huffman_left['start'], huffman_left['end']):
@@ -384,8 +384,8 @@ class DQ3ROMMapAnalyzer:
 		pointer_data = self.rom_data[text_pointers['start']:text_pointers['end']]
 
 		print(f"📊 Text pointers: ${text_pointers['start']:06x}-${text_pointers['end']:06x}")
-		print(f"   Size: {len(pointer_data):,} bytes")
-		print(f"   Pointer entries: {len(pointer_data) // 3} (3 bytes each)")
+		print(f"	 Size: {len(pointer_data):,} bytes")
+		print(f"	 Pointer entries: {len(pointer_data) // 3} (3 bytes each)")
 
 		# Mark coverage
 		for i in range(text_pointers['start'], text_pointers['end']):
@@ -397,7 +397,7 @@ class DQ3ROMMapAnalyzer:
 		script_bytes = self.rom_data[script_data['start']:script_data['end']]
 
 		print(f"📊 Script data: ${script_data['start']:06x}-${script_data['end']:06x}")
-		print(f"   Size: {len(script_bytes):,} bytes (Huffman compressed)")
+		print(f"	 Size: {len(script_bytes):,} bytes (Huffman compressed)")
 
 		# Mark coverage
 		for i in range(script_data['start'], script_data['end']):
@@ -431,12 +431,12 @@ class DQ3ROMMapAnalyzer:
 				# Decode menu size format: %1WWW WWYY YYYX XXXX
 				word_val = struct.unpack('<H', menu_data)[0]
 
-				x_offset = word_val & 0x1f  # XXXXX
-				y_offset = (word_val >> 5) & 0x1f  # YYYYY
-				width = (word_val >> 10) & 0x1f  # WWWWW
+				x_offset = word_val & 0x1f	# XXXXX
+				y_offset = (word_val >> 5) & 0x1f	# YYYYY
+				width = (word_val >> 10) & 0x1f	# WWWWW
 
 				print(f"📊 {menu_name.replace('_', ' ').title()}: ${address:06x}")
-				print(f"   Position: ({x_offset}, {y_offset}) Width: {width}")
+				print(f"	 Position: ({x_offset}, {y_offset}) Width: {width}")
 
 				# Mark coverage
 				for i in range(address, address + 2):
@@ -493,7 +493,7 @@ class DQ3ROMMapAnalyzer:
 		print(f"\n📈 System Coverage Breakdown:")
 		for system, bytes_count in system_coverage.items():
 			if bytes_count > 0:
-				print(f"   {system.replace('_', ' ').title()}: {bytes_count:,} bytes")
+				print(f"	 {system.replace('_', ' ').title()}: {bytes_count:,} bytes")
 
 		print(f"\n📊 Total mapped bytes: {total_mapped:,}")
 		print(f"📊 Mapping coverage: {(total_mapped / total_bytes) * 100:.4f}%")
@@ -599,7 +599,7 @@ class DQ3ROMMapAnalyzer:
 				""
 			])
 
-			for monster in monsters['monsters'][:5]:  # Show first 5
+			for monster in monsters['monsters'][:5]:	# Show first 5
 				content.append(f"- **{monster['id']:02x}:** {monster['english']} (${monster['start']:06x}-${monster['end']:06x})")
 			content.append("")
 

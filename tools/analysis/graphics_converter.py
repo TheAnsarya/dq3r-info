@@ -87,7 +87,7 @@ class SNESGraphicsConverter:
 	def load_palette(self, palette_file: Path) -> List[Tuple[int, int, int]]:
 		"""Load SNES palette from binary file"""
 		if not palette_file.exists():
-			return [(0, 0, 0) for _ in range(16)]  # Default black palette
+			return [(0, 0, 0) for _ in range(16)]	# Default black palette
 
 		with open(palette_file, 'rb') as f:
 			palette_data = f.read()
@@ -102,7 +102,7 @@ class SNESGraphicsConverter:
 		while len(colors) < 16:
 			colors.append((0, 0, 0))
 
-		return colors[:16]  # Take first 16 colors for 4bpp
+		return colors[:16]	# Take first 16 colors for 4bpp
 
 	def decode_4bpp_tile(self, tile_data: bytes) -> List[int]:
 		"""
@@ -110,9 +110,9 @@ class SNESGraphicsConverter:
 		Returns 8x8 array as flat list
 		"""
 		if len(tile_data) != 32:
-			return [0] * 64  # Default empty tile
+			return [0] * 64	# Default empty tile
 
-		pixels = [0] * 64  # 8x8 pixels
+		pixels = [0] * 64	# 8x8 pixels
 
 		# SNES 4bpp format: interleaved bitplanes
 		# Bytes 0-1: bitplane 0 row 0-1
@@ -152,7 +152,7 @@ class SNESGraphicsConverter:
 		if len(tile_data) != 16:
 			return [0] * 64
 
-		pixels = [0] * 64  # 8x8 pixels
+		pixels = [0] * 64	# 8x8 pixels
 
 		for row in range(8):
 			bp0_offset = row * 2
@@ -187,7 +187,7 @@ class SNESGraphicsConverter:
 				if pixel_index < len(palette):
 					color = palette[pixel_index]
 				else:
-					color = (255, 0, 255)  # Magenta for invalid colors
+					color = (255, 0, 255)	# Magenta for invalid colors
 				img.putpixel((x, y), color)
 
 		return img
@@ -204,7 +204,7 @@ class SNESGraphicsConverter:
 		print(f"Found {len(palette_files)} palette files")
 
 		converted = 0
-		for palette_file in palette_files[:50]:  # Limit for now
+		for palette_file in palette_files[:50]:	# Limit for now
 			try:
 				colors = self.load_palette(palette_file)
 
@@ -259,7 +259,7 @@ class SNESGraphicsConverter:
 			palettes = [("default", default_palette)]
 
 		converted = 0
-		for tile_file in tile_files[:100]:  # Limit for performance
+		for tile_file in tile_files[:100]:	# Limit for performance
 			try:
 				with open(tile_file, 'rb') as f:
 					tile_data = f.read()
@@ -289,7 +289,7 @@ class SNESGraphicsConverter:
 						continue
 
 				# Convert with each available palette
-				for palette_name, palette in palettes[:3]:  # Limit palettes per tile
+				for palette_name, palette in palettes[:3]:	# Limit palettes per tile
 					try:
 						tile_img = self.create_tile_image(pixels, palette)
 						if tile_img:
@@ -431,7 +431,7 @@ class SNESGraphicsConverter:
 
 		# Analyze palettes
 		color_counts = {}
-		for palette_file in palette_files[:20]:  # Limit for performance
+		for palette_file in palette_files[:20]:	# Limit for performance
 			try:
 				colors = self.load_palette(palette_file)
 				for color in colors:
@@ -443,7 +443,7 @@ class SNESGraphicsConverter:
 
 		# Find most common colors
 		analysis['palettes']['common_colors'] = sorted(color_counts.items(),
-													  key=lambda x: x[1], reverse=True)[:10]
+														key=lambda x: x[1], reverse=True)[:10]
 		analysis['palettes']['color_distribution'] = color_counts
 
 		# Convert set to list for JSON serialization

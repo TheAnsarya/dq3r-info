@@ -96,26 +96,26 @@ class DQ3GameDataExtractor:
 		self.smc_header_size = 0
 
 		# Dragon Quest III specific offsets and patterns (SNES version)
-		self.CHARACTER_DATA_BANKS = [0x1E, 0x1F, 0x20]  # Typical character data banks
-		self.ITEM_DATA_BANKS = [0x1C, 0x1D]  # Item data banks
-		self.MONSTER_DATA_BANKS = [0x18, 0x19, 0x1A]  # Monster data banks
-		self.SPELL_DATA_BANKS = [0x1B]  # Spell data banks
-		self.TEXT_BANKS = [0x10, 0x11, 0x12, 0x13]  # Text data banks
+		self.CHARACTER_DATA_BANKS = [0x1E, 0x1F, 0x20]	# Typical character data banks
+		self.ITEM_DATA_BANKS = [0x1C, 0x1D]	# Item data banks
+		self.MONSTER_DATA_BANKS = [0x18, 0x19, 0x1A]	# Monster data banks
+		self.SPELL_DATA_BANKS = [0x1B]	# Spell data banks
+		self.TEXT_BANKS = [0x10, 0x11, 0x12, 0x13]	# Text data banks
 
 		# Known patterns for data identification
 		self.CHARACTER_PATTERNS = [
-			b'\x01\x00\x00\x00',  # Character start marker
-			b'\xFF\xFF\xFF\xFF',  # Character end marker
+			b'\x01\x00\x00\x00',	# Character start marker
+			b'\xFF\xFF\xFF\xFF',	# Character end marker
 		]
 
 		self.ITEM_PATTERNS = [
-			b'\x00\x00\x00\x01',  # Item type marker
-			b'\x01\x00\x00\x00',  # Equipment marker
+			b'\x00\x00\x00\x01',	# Item type marker
+			b'\x01\x00\x00\x00',	# Equipment marker
 		]
 
 		self.MONSTER_PATTERNS = [
-			b'\x00\x01\x00\x00',  # Monster start
-			b'\xFF\x00\x00\x00',  # Monster separator
+			b'\x00\x01\x00\x00',	# Monster start
+			b'\xFF\x00\x00\x00',	# Monster separator
 		]
 
 		# Text encoding table for Dragon Quest III
@@ -312,7 +312,7 @@ class DQ3GameDataExtractor:
 				# Calculate confidence based on data validity
 				confidence = self._calculate_character_confidence(stats, level, equipment)
 
-				if confidence > 0.3:  # Only include plausible characters
+				if confidence > 0.3:	# Only include plausible characters
 					character = Character(
 						id=char_id,
 						name=name if name else f"Character_{char_id:02X}",

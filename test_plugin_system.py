@@ -26,68 +26,68 @@ def test_plugin_system():
 	manager = PluginManager()
 
 	print(f"\n1. PLUGIN DISCOVERY")
-	print(f"   Discovered {len(manager.registry.registered_plugins)} plugins")
+	print(f"	 Discovered {len(manager.registry.registered_plugins)} plugins")
 	for name in manager.registry.registered_plugins.keys():
-		print(f"   - {name}")
+		print(f"	 - {name}")
 
 	print(f"\n2. PLUGIN LOADING")
 	loaded_plugins = manager.registry.load_all_plugins()
-	print(f"   Successfully loaded {len(loaded_plugins)} plugins:")
+	print(f"	 Successfully loaded {len(loaded_plugins)} plugins:")
 	for name in loaded_plugins:
-		print(f"   - {name}")
+		print(f"	 - {name}")
 
 	print(f"\n3. PLUGIN INITIALIZATION")
 	initialized_count = manager.auto_initialize_plugins()
-	print(f"   Initialized {initialized_count} plugins")
+	print(f"	 Initialized {initialized_count} plugins")
 
 	print(f"\n4. SYSTEM STATUS")
 	status = manager.get_system_status()
-	print(f"   Total plugins: {status['total_plugins']}")
-	print(f"   Loaded plugins: {status['loaded_plugins']}")
-	print(f"   Enabled plugins: {status['enabled_plugins']}")
-	print(f"   Error plugins: {status['error_plugins']}")
+	print(f"	 Total plugins: {status['total_plugins']}")
+	print(f"	 Loaded plugins: {status['loaded_plugins']}")
+	print(f"	 Enabled plugins: {status['enabled_plugins']}")
+	print(f"	 Error plugins: {status['error_plugins']}")
 
-	print(f"\n   Plugins by type:")
+	print(f"\n	 Plugins by type:")
 	for ptype, count in status['plugins_by_type'].items():
-		print(f"   - {ptype}: {count}")
+		print(f"	 - {ptype}: {count}")
 
 	print(f"\n5. PLUGIN CONFIGURATION TEMPLATE")
 	config_file = "plugin_config_template.json"
 	manager.create_plugin_config_template(config_file)
-	print(f"   Created configuration template: {config_file}")
+	print(f"	 Created configuration template: {config_file}")
 
 	print(f"\n6. QUICK ANALYSIS TEST")
 	rom_path = "static/Dragon Quest III - Soshite Densetsu he... (J).smc"
 	if os.path.exists(rom_path):
 		output_dir = "test_plugin_output"
-		print(f"   Running quick analysis on: {rom_path}")
+		print(f"	 Running quick analysis on: {rom_path}")
 
 		try:
 			results = quick_analysis(rom_path, output_dir, [PluginType.ANALYZER])
-			print(f"   Analysis completed successfully!")
-			print(f"   Plugins run: {len(results.get('plugins_run', []))}")
-			print(f"   Errors: {len(results.get('errors', []))}")
-			print(f"   Execution time: {results.get('total_execution_time', 0):.2f}s")
-			print(f"   Output directory: {output_dir}")
+			print(f"	 Analysis completed successfully!")
+			print(f"	 Plugins run: {len(results.get('plugins_run', []))}")
+			print(f"	 Errors: {len(results.get('errors', []))}")
+			print(f"	 Execution time: {results.get('total_execution_time', 0):.2f}s")
+			print(f"	 Output directory: {output_dir}")
 
 		except Exception as e:
-			print(f"   Analysis failed: {e}")
+			print(f"	 Analysis failed: {e}")
 	else:
-		print(f"   ROM file not found: {rom_path}")
+		print(f"	 ROM file not found: {rom_path}")
 
 	print(f"\n7. PERFORMANCE METRICS")
 	perf_report = manager.generate_performance_report()
-	print(f"   Performance metrics for {len(perf_report['metrics'])} plugins")
+	print(f"	 Performance metrics for {len(perf_report['metrics'])} plugins")
 
 	print(f"\n8. SYSTEM STATE EXPORT")
 	export_file = "plugin_system_state.json"
 	manager.export_system_state(export_file)
-	print(f"   System state exported to: {export_file}")
+	print(f"	 System state exported to: {export_file}")
 
 	# Cleanup
 	manager.shutdown()
 	print(f"\n9. SYSTEM SHUTDOWN")
-	print(f"   Plugin manager shutdown completed")
+	print(f"	 Plugin manager shutdown completed")
 
 	print("\n" + "=" * 60)
 	print("PLUGIN SYSTEM TEST COMPLETED SUCCESSFULLY")
@@ -165,7 +165,7 @@ class DQ3TextAnalyzerPlugin(AnalyzerPlugin):
 				"text_strings_found": len(text_strings),
 				"dialogue_blocks": len(dialogue_analysis),
 				"character_names": character_names,
-				"text_strings": text_strings[:100],  # First 100 strings
+				"text_strings": text_strings[:100],	# First 100 strings
 				"processed": True
 			}
 
@@ -207,7 +207,7 @@ class DQ3TextAnalyzerPlugin(AnalyzerPlugin):
 			except:
 				continue
 
-		return strings[:1000]  # Limit to 1000 strings
+		return strings[:1000]	# Limit to 1000 strings
 
 	def is_likely_japanese(self, text: str) -> bool:
 		"""Check if text is likely Japanese"""
@@ -219,7 +219,7 @@ class DQ3TextAnalyzerPlugin(AnalyzerPlugin):
 			if (0x3040 <= code <= 0x309F) or (0x30A0 <= code <= 0x30FF) or (0x4E00 <= code <= 0x9FAF):
 				japanese_chars += 1
 
-		return japanese_chars > len(text) * 0.3  # At least 30% Japanese characters
+		return japanese_chars > len(text) * 0.3	# At least 30% Japanese characters
 
 	def analyze_dialogue_structure(self) -> List[Dict[str, Any]]:
 		"""Analyze dialogue data structure"""
@@ -340,11 +340,11 @@ def create_plugin(metadata):
 
 	print(f"Created custom plugin at: {plugin_dir}")
 	print(f"Plugin features:")
-	print(f"  - Japanese text detection using Shift_JIS encoding")
-	print(f"  - Dialogue structure analysis")
-	print(f"  - Character name extraction")
-	print(f"  - Configurable search parameters")
-	print(f"  - Section-specific analysis")
+	print(f"	- Japanese text detection using Shift_JIS encoding")
+	print(f"	- Dialogue structure analysis")
+	print(f"	- Character name extraction")
+	print(f"	- Configurable search parameters")
+	print(f"	- Section-specific analysis")
 
 	return plugin_dir
 

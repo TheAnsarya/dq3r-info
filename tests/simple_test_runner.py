@@ -280,16 +280,16 @@ class SimpleTestRunner:
 
 		print("\n" + "=" * 55)
 		print(f"📊 Test Results:")
-		print(f"   Total Tests: {total_tests}")
-		print(f"   Passed: {self.tests_passed}")
-		print(f"   Failed: {self.tests_failed}")
-		print(f"   Success Rate: {success_rate:.1f}%")
+		print(f"	 Total Tests: {total_tests}")
+		print(f"	 Passed: {self.tests_passed}")
+		print(f"	 Failed: {self.tests_failed}")
+		print(f"	 Success Rate: {success_rate:.1f}%")
 
 		if self.tests_failed > 0:
 			print(f"\n❌ Failed Tests:")
 			for name, passed, time_taken, error in self.test_details:
 				if not passed:
-					print(f"   {name}: {error}")
+					print(f"	 {name}: {error}")
 
 		print(f"\n🏁 Testing complete!")
 		return self.tests_failed == 0

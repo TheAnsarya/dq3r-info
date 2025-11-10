@@ -646,7 +646,7 @@ class SNESDisassembler:
 		# Simple extraction for absolute addresses
 		if operands.startswith("$"):
 			try:
-				addr_str = operands[1:].split(",")[0]  # Remove ,X or ,Y
+				addr_str = operands[1:].split(",")[0]	# Remove ,X or ,Y
 				return int(addr_str, 16)
 			except ValueError:
 				return None
@@ -654,7 +654,7 @@ class SNESDisassembler:
 		return None
 
 	def generate_disassembly_report(self, instructions: List[Instruction],
-								  subroutines: List[Subroutine]) -> str:
+									subroutines: List[Subroutine]) -> str:
 		"""Generate formatted disassembly report"""
 		lines = []
 
@@ -667,7 +667,7 @@ class SNESDisassembler:
 		# Instruction listing
 		lines.append("INSTRUCTION LISTING")
 		lines.append("-" * 20)
-		for instr in instructions[:50]:  # Limit for display
+		for instr in instructions[:50]:	# Limit for display
 			bytes_str = " ".join(f"{b:02X}" for b in instr.bytes)
 			lines.append(f"{instr.snes_address}: {bytes_str:12} "
 						f"{instr.mnemonic:4} {instr.operands:10} "
@@ -681,7 +681,7 @@ class SNESDisassembler:
 		# Subroutine summary
 		lines.append("SUBROUTINE SUMMARY")
 		lines.append("-" * 18)
-		for sub in subroutines[:20]:  # Limit for display
+		for sub in subroutines[:20]:	# Limit for display
 			lines.append(f"{sub.snes_start} - {sub.snes_end}: "
 						f"{sub.size:4} bytes, {len(sub.instructions):3} instructions")
 
@@ -694,9 +694,9 @@ def main():
 
 	parser = argparse.ArgumentParser(description="Dragon Quest III 65816 Disassembler")
 	parser.add_argument('--start', type=str, default="$C0:8000",
-					   help='Start SNES address (e.g., $C0:8000)')
+						 help='Start SNES address (e.g., $C0:8000)')
 	parser.add_argument('--size', type=int, default=1024,
-					   help='Number of bytes to disassemble')
+						 help='Number of bytes to disassemble')
 	parser.add_argument('--project-root', default='.', help='Project root directory')
 
 	args = parser.parse_args()

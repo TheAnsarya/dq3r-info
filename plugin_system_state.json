@@ -1,31 +1,33 @@
 {
     "system_status": {
         "plugin_directory": "plugins",
-        "registry_status": "PluginRegistry(6 registered, 0 loaded)",
-        "total_plugins": 6,
-        "loaded_plugins": 0,
-        "enabled_plugins": 0,
+        "registry_status": "PluginRegistry(7 registered, 1 loaded)",
+        "total_plugins": 7,
+        "loaded_plugins": 1,
+        "enabled_plugins": 1,
         "error_plugins": 0,
         "websocket_server": false,
         "connected_clients": 0,
         "execution_history_count": 0,
         "performance_metrics_available": 0,
         "plugins_by_type": {
-            "analyzer": 2,
+            "analyzer": 3,
             "extractor": 2,
             "editor": 1,
             "converter": 0,
             "validator": 0,
             "visualizer": 1
         },
-        "plugin_statuses": {}
+        "plugin_statuses": {
+            "DQ3 Text Analyzer": "enabled"
+        }
     },
     "plugin_registry": {
         "plugin_directory": "plugins",
-        "total_plugins": 6,
-        "loaded_plugins": 0,
+        "total_plugins": 7,
+        "loaded_plugins": 1,
         "plugins_by_type": {
-            "analyzer": 2,
+            "analyzer": 3,
             "extractor": 2,
             "editor": 1,
             "converter": 0,
@@ -38,6 +40,19 @@
                 "type": "extractor",
                 "loaded": false,
                 "description": "Extracts audio samples and music"
+            },
+            "DQ3 Text Analyzer": {
+                "version": "1.0.0",
+                "type": "analyzer",
+                "loaded": true,
+                "description": "Advanced text analysis for Dragon Quest III ROM",
+                "status": {
+                    "name": "DQ3 Text Analyzer",
+                    "version": "1.0.0",
+                    "status": "enabled",
+                    "error_message": "",
+                    "type": "analyzer"
+                }
             },
             "Graphics Analyzer": {
                 "version": "1.0.0",

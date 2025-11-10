@@ -50,7 +50,7 @@ except ImportError as e:
 	print(f"Warning: Could not import some modules: {e}")
 
 # Configure logging for tests
-logging.basicConfig(level=logging.WARNING)  # Reduce noise during testing
+logging.basicConfig(level=logging.WARNING)	# Reduce noise during testing
 logger = logging.getLogger(__name__)
 
 @dataclass
@@ -118,9 +118,9 @@ class MockROMData:
 
 		# Simple patterns for each major section
 		rom_data[0:16] = b"SMALL_TEST_ROM__"
-		rom_data[0x1000:0x1010] = b"\xA9\xFF\x85\x00\x4C\x00\x80\x60" * 2  # Code
-		rom_data[0x2000:0x2010] = b"\x00\xFF\xAA\x55" * 4  # Graphics
-		rom_data[0x3000:0x3010] = b"Test text here!!"  # Text
+		rom_data[0x1000:0x1010] = b"\xA9\xFF\x85\x00\x4C\x00\x80\x60" * 2	# Code
+		rom_data[0x2000:0x2010] = b"\x00\xFF\xAA\x55" * 4	# Graphics
+		rom_data[0x3000:0x3010] = b"Test text here!!"	# Text
 
 		return bytes(rom_data)
 
@@ -209,7 +209,7 @@ class ROMAnalysisTestSuite:
 				entropy_analysis = analyzer.analyze_entropy()
 				assert entropy_analysis is not None
 			except:
-				pass  # Expected with mock data
+				pass	# Expected with mock data
 
 			return True
 		except Exception as e:
@@ -230,7 +230,7 @@ class ROMAnalysisTestSuite:
 				# Should return some structure even if empty
 				assert isinstance(graphics_candidates, (list, dict))
 			except:
-				pass  # Expected with mock data
+				pass	# Expected with mock data
 
 			return True
 		except Exception as e:
@@ -250,7 +250,7 @@ class ROMAnalysisTestSuite:
 				disassembly = disassembler.disassemble_region(0x8000, 0x8100)
 				assert isinstance(disassembly, (list, dict))
 			except:
-				pass  # Expected with mock data
+				pass	# Expected with mock data
 
 			return True
 		except Exception as e:
@@ -270,7 +270,7 @@ class ROMAnalysisTestSuite:
 				brr_samples = analyzer.find_brr_samples()
 				assert isinstance(brr_samples, (list, dict))
 			except:
-				pass  # Expected with mock data
+				pass	# Expected with mock data
 
 			return True
 		except Exception as e:
@@ -290,7 +290,7 @@ class ROMAnalysisTestSuite:
 				character_data = extractor.extract_character_data()
 				assert isinstance(character_data, (list, dict))
 			except:
-				pass  # Expected with mock data
+				pass	# Expected with mock data
 
 			return True
 		except Exception as e:
@@ -315,7 +315,7 @@ class ROMAnalysisTestSuite:
 					)
 					assert 0 <= confidence <= 1.0
 			except:
-				pass  # Expected with some mock data
+				pass	# Expected with some mock data
 
 			return True
 		except Exception as e:
@@ -327,7 +327,7 @@ class ROMAnalysisTestSuite:
 		try:
 			# Create a second test ROM with slight differences
 			rom2_data = bytearray(MockROMData.create_test_rom())
-			rom2_data[0x1000:0x1004] = b"DIFF"  # Make a difference
+			rom2_data[0x1000:0x1004] = b"DIFF"	# Make a difference
 
 			rom2_path = os.path.join(self.temp_dir, "test_rom2.smc")
 			with open(rom2_path, 'wb') as f:
@@ -361,7 +361,7 @@ class ROMAnalysisTestSuite:
 				edit_result = editor.apply_edit(0x1000, b"TEST")
 				# Should handle gracefully even if implementation differs
 			except:
-				pass  # Expected with mock implementation
+				pass	# Expected with mock implementation
 
 			return True
 		except Exception as e:
@@ -451,7 +451,7 @@ class ROMAnalysisTestSuite:
 				ComprehensiveROMAnalyzer(invalid_path)
 				assert False, "Should have raised exception for missing file"
 			except FileNotFoundError:
-				pass  # Expected
+				pass	# Expected
 
 			# Test with empty file
 			empty_path = os.path.join(self.temp_dir, "empty.smc")
@@ -462,7 +462,7 @@ class ROMAnalysisTestSuite:
 				ComprehensiveROMAnalyzer(empty_path)
 				# Should handle empty files without crashing
 			except:
-				pass  # Expected behavior varies by implementation
+				pass	# Expected behavior varies by implementation
 
 			return True
 		except Exception as e:
@@ -508,10 +508,10 @@ class ROMAnalysisTestSuite:
 				# Analyze small region to avoid long-running operations
 				analyzer.analyze_region(0x8000, 0x8100)
 			except:
-				pass  # Method might not exist in all implementations
+				pass	# Method might not exist in all implementations
 
 			analysis_time = time.time() - start_time
-			assert analysis_time < 10.0  # Should complete within 10 seconds
+			assert analysis_time < 10.0	# Should complete within 10 seconds
 
 			return True
 		except Exception as e:
@@ -555,7 +555,7 @@ class ROMAnalysisTestSuite:
 				print(f" {status} ({result.execution_time:.3f}s)")
 
 				if not result.passed and result.error_message:
-					print(f"   Error: {result.error_message}")
+					print(f"	 Error: {result.error_message}")
 
 			suite_total_time = time.time() - suite_start_time
 
@@ -566,11 +566,11 @@ class ROMAnalysisTestSuite:
 			# Create summary
 			print("\n" + "=" * 60)
 			print(f"📊 Test Suite Results:")
-			print(f"   Total Tests: {len(self.test_results)}")
-			print(f"   Passed: {passed_tests}")
-			print(f"   Failed: {failed_tests}")
-			print(f"   Success Rate: {passed_tests/len(self.test_results)*100:.1f}%")
-			print(f"   Total Time: {suite_total_time:.3f}s")
+			print(f"	 Total Tests: {len(self.test_results)}")
+			print(f"	 Passed: {passed_tests}")
+			print(f"	 Failed: {failed_tests}")
+			print(f"	 Success Rate: {passed_tests/len(self.test_results)*100:.1f}%")
+			print(f"	 Total Time: {suite_total_time:.3f}s")
 
 			# Component breakdown
 			component_stats = {}
@@ -587,7 +587,7 @@ class ROMAnalysisTestSuite:
 			for component, stats in component_stats.items():
 				total = stats['passed'] + stats['failed']
 				rate = stats['passed'] / total * 100 if total > 0 else 0
-				print(f"   {component}: {stats['passed']}/{total} ({rate:.1f}%)")
+				print(f"	 {component}: {stats['passed']}/{total} ({rate:.1f}%)")
 
 			return TestSuiteResults(
 				total_tests=len(self.test_results),

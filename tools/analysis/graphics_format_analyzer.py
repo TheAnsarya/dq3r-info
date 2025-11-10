@@ -64,8 +64,8 @@ class GraphicsChunk:
 class PaletteData:
 	"""SNES palette representation"""
 	offset: int
-	colors: List[Tuple[int, int, int]]  # RGB values
-	format: str  # "15bit_bgr" or "24bit_rgb"
+	colors: List[Tuple[int, int, int]]	# RGB values
+	format: str	# "15bit_bgr" or "24bit_rgb"
 	size: int
 
 class DQ3GraphicsAnalyzer:
@@ -87,10 +87,10 @@ class DQ3GraphicsAnalyzer:
 		# SNES graphics constants
 		self.TILE_SIZES = {
 			GraphicsFormat.FORMAT_1BPP: 8,	# 8 bytes per 8x8 tile
-			GraphicsFormat.FORMAT_2BPP: 16,   # 16 bytes per 8x8 tile
-			GraphicsFormat.FORMAT_3BPP: 24,   # 24 bytes per 8x8 tile
-			GraphicsFormat.FORMAT_4BPP: 32,   # 32 bytes per 8x8 tile
-			GraphicsFormat.FORMAT_8BPP: 64,   # 64 bytes per 8x8 tile
+			GraphicsFormat.FORMAT_2BPP: 16,	 # 16 bytes per 8x8 tile
+			GraphicsFormat.FORMAT_3BPP: 24,	 # 24 bytes per 8x8 tile
+			GraphicsFormat.FORMAT_4BPP: 32,	 # 32 bytes per 8x8 tile
+			GraphicsFormat.FORMAT_8BPP: 64,	 # 64 bytes per 8x8 tile
 		}
 
 		# Color analysis patterns
@@ -170,18 +170,18 @@ class DQ3GraphicsAnalyzer:
 			mapping = self.address_translator.snes_to_rom_mapping(snes_addr)
 
 			if not mapping or not mapping.is_valid:
-				print(f"   ❌ Invalid address translation")
+				print(f"	 ❌ Invalid address translation")
 				continue
 
 			rom_offset = mapping.rom_offset + self.smc_header_size
 
 			# Check if offset is within ROM bounds
-			if rom_offset + 1024 > len(self.rom_data):  # Need at least 1KB for analysis
-				print(f"   ❌ Address beyond ROM bounds")
+			if rom_offset + 1024 > len(self.rom_data):	# Need at least 1KB for analysis
+				print(f"	 ❌ Address beyond ROM bounds")
 				continue
 
 			# Extract data sample
-			sample_size = 2048  # 2KB sample
+			sample_size = 2048	# 2KB sample
 			end_offset = min(rom_offset + sample_size, len(self.rom_data))
 			data_sample = self.rom_data[rom_offset:end_offset]
 
@@ -191,13 +191,13 @@ class DQ3GraphicsAnalyzer:
 			# Check if it matches expected format
 			format_match = detected_format.value == expected_format
 
-			print(f"   📊 ROM offset: ${rom_offset:06X}")
-			print(f"   🎨 Detected: {detected_format.value} (confidence: {confidence:.3f})")
-			print(f"   {'✅' if format_match else '⚠️'} Expected: {expected_format}")
+			print(f"	 📊 ROM offset: ${rom_offset:06X}")
+			print(f"	 🎨 Detected: {detected_format.value} (confidence: {confidence:.3f})")
+			print(f"	 {'✅' if format_match else '⚠️'} Expected: {expected_format}")
 
 			# Extract first few bytes for validation
 			hex_sample = ' '.join(f'{b:02X}' for b in data_sample[:16])
-			print(f"   📝 Data sample: {hex_sample}")
+			print(f"	 📝 Data sample: {hex_sample}")
 
 			if format_match and confidence > 0.5:
 				successful_extractions += 1
@@ -208,7 +208,7 @@ class DQ3GraphicsAnalyzer:
 					size=sample_size,
 					format=detected_format,
 					tile_count=sample_size // self.TILE_SIZES[detected_format],
-					tile_size=TileSize.SIZE_8x8,  # Standard SNES tile size
+					tile_size=TileSize.SIZE_8x8,	# Standard SNES tile size
 					confidence=confidence,
 					palette_offset=None,
 					compression=None
@@ -250,7 +250,7 @@ class DQ3GraphicsAnalyzer:
 
 		# Validate palette quality
 		unique_colors = len(set(colors))
-		if unique_colors < 4:  # Too few unique colors
+		if unique_colors < 4:	# Too few unique colors
 			return None
 
 		return PaletteData(
@@ -268,7 +268,7 @@ class DQ3GraphicsAnalyzer:
 		# Test each format
 		for fmt in GraphicsFormat:
 			if fmt == GraphicsFormat.FORMAT_MODE7:
-				continue  # Skip Mode 7 for now
+				continue	# Skip Mode 7 for now
 
 			score = self._score_graphics_format(data, fmt)
 			format_scores[fmt] = score
@@ -283,7 +283,7 @@ class DQ3GraphicsAnalyzer:
 				best_format = fmt
 
 		if best_format is None:
-			best_format = GraphicsFormat.FORMAT_2BPP  # Default fallback
+			best_format = GraphicsFormat.FORMAT_2BPP	# Default fallback
 			best_score = 0.0
 
 		return best_format, best_score
@@ -298,14 +298,14 @@ class DQ3GraphicsAnalyzer:
 
 		# Check if data size is multiple of tile size
 		if len(data) % tile_size != 0:
-			return 0.1  # Low score for misaligned data
+			return 0.1	# Low score for misaligned data
 
 		tile_count = len(data) // tile_size
 
 		# Analyze patterns within tiles
 		pattern_score = 0.0
 
-		for tile_idx in range(min(tile_count, 32)):  # Check first 32 tiles
+		for tile_idx in range(min(tile_count, 32)):	# Check first 32 tiles
 			tile_offset = tile_idx * tile_size
 			tile_data = data[tile_offset:tile_offset + tile_size]
 
@@ -322,8 +322,8 @@ class DQ3GraphicsAnalyzer:
 			pattern_score /= min(tile_count, 32)
 
 		# Additional scoring factors
-		size_bonus = 1.0 if 64 <= tile_count <= 2048 else 0.8  # Reasonable tile count
-		alignment_bonus = 1.0 if len(data) % 16 == 0 else 0.9  # Good alignment
+		size_bonus = 1.0 if 64 <= tile_count <= 2048 else 0.8	# Reasonable tile count
+		alignment_bonus = 1.0 if len(data) % 16 == 0 else 0.9	# Good alignment
 
 		return pattern_score * size_bonus * alignment_bonus
 
@@ -343,7 +343,7 @@ class DQ3GraphicsAnalyzer:
 
 		# Good graphics should have variety, not all zeros or all FFs
 		if zero_bytes > 12 or ff_bytes > 12:
-			return 0.3  # Likely not graphics
+			return 0.3	# Likely not graphics
 
 		# Calculate pattern complexity
 		unique_bytes = len(set(plane0)) + len(set(plane1))
@@ -374,7 +374,7 @@ class DQ3GraphicsAnalyzer:
 
 		# Check for reasonable distribution
 		zero_count = sum(plane.count(0) for plane in planes)
-		if zero_count > 24:  # Too many zeros
+		if zero_count > 24:	# Too many zeros
 			return 0.4
 
 		return min(complexity * 1.2, 1.0)
@@ -436,7 +436,7 @@ class DQ3GraphicsAnalyzer:
 				# Detect graphics format
 				format_type, confidence = self.detect_graphics_format(chunk_data)
 
-				if confidence > 0.7:  # High confidence threshold
+				if confidence > 0.7:	# High confidence threshold
 					tile_size = self.TILE_SIZES[format_type]
 					tile_count = len(chunk_data) // tile_size
 
@@ -452,7 +452,7 @@ class DQ3GraphicsAnalyzer:
 					self.graphics_chunks.append(graphics_chunk)
 					bank_chunks += 1
 
-			print(f"   📊 Graphics chunks found: {bank_chunks}")
+			print(f"	 📊 Graphics chunks found: {bank_chunks}")
 			chunks_found += bank_chunks
 
 		print(f"\n📊 Total graphics chunks: {chunks_found}")
@@ -516,13 +516,13 @@ class DQ3GraphicsAnalyzer:
 			# Check for palette signature patterns
 
 			# Look for reasonable color patterns
-			palette_data = self.analyze_palette_data(offset, 32)  # 16 colors * 2 bytes
+			palette_data = self.analyze_palette_data(offset, 32)	# 16 colors * 2 bytes
 
 			if palette_data and len(palette_data.colors) >= 8:
 				# Validate color quality
 				color_variety = len(set(palette_data.colors))
 
-				if color_variety >= 4:  # At least 4 unique colors
+				if color_variety >= 4:	# At least 4 unique colors
 					palette_candidates.append(palette_data)
 
 					# Show first few colors
@@ -594,12 +594,12 @@ class DQ3GraphicsAnalyzer:
 
 		# Print summary
 		print(f"\n📊 Graphics Analysis Summary:")
-		print(f"   Total chunks analyzed: {len(self.graphics_chunks)}")
-		print(f"   Total tiles identified: {total_tiles:,}")
-		print(f"   Palette areas found: {len(self.palette_data)}")
+		print(f"	 Total chunks analyzed: {len(self.graphics_chunks)}")
+		print(f"	 Total tiles identified: {total_tiles:,}")
+		print(f"	 Palette areas found: {len(self.palette_data)}")
 
 		for format_name, counts in format_counts.items():
-			print(f"   {format_name.upper()}: {counts['chunks']} chunks, {counts['tiles']} tiles")
+			print(f"	 {format_name.upper()}: {counts['chunks']} chunks, {counts['tiles']} tiles")
 
 def main():
 	"""Main graphics analysis process"""

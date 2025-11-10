@@ -290,7 +290,7 @@ def log_current_prompt():
 		outcomes = ["Files staged for commit", "Project structure maintained"]
 
 		# Add specific action types based on file patterns
-		for file in modified_files[:5]:  # Limit to first 5 files
+		for file in modified_files[:5]:	# Limit to first 5 files
 			if ".py" in file:
 				actions.append(f"Python development: {file}")
 			elif ".md" in file:

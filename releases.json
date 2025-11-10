@@ -1,0 +1,49 @@
+[
+    {
+        "version": {
+            "major": 1,
+            "minor": 0,
+            "patch": 1,
+            "prerelease": null,
+            "build": null
+        },
+        "codename": "Stability",
+        "planned_date": "2025-11-17",
+        "release_type": "patch",
+        "status": "released",
+        "features": [
+            {
+                "id": "patch-001",
+                "title": "Fix ROM Loading Edge Cases",
+                "description": "Handle malformed ROM files gracefully",
+                "status": "complete",
+                "priority": 4,
+                "estimated_effort": 3,
+                "assigned_to": null,
+                "github_issue": 15,
+                "completion_date": "2025-11-10 13:34:09",
+                "dependencies": []
+            },
+            {
+                "id": "patch-002",
+                "title": "Improve Error Messages",
+                "description": "More descriptive error messages for users",
+                "status": "complete",
+                "priority": 3,
+                "estimated_effort": 2,
+                "assigned_to": null,
+                "github_issue": null,
+                "completion_date": null,
+                "dependencies": []
+            }
+        ],
+        "description": "Patch release with 2 new features",
+        "release_notes": "# Dragon Quest III ROM Analysis - Release 1.0.1\n\n**Release Date: 2025-11-17**\n**Codename: Stability**\n**Type: Patch Release**\n\n## \ud83d\ude80 New Features (2 total)\n\n### Fix ROM Loading Edge Cases\nHandle malformed ROM files gracefully\n*Closes #15*\n\n### Improve Error Messages\nMore descriptive error messages for users\n\n\n## \ud83d\udcca Release Statistics\n\n- **Features Completed**: 2/2\n- **Total Effort**: 5 story points\n- **Contributors**: Development Team\n- **Environments**: staging, production\n\n## \ud83d\udd17 Links\n\n- [GitHub Repository](https://github.com/TheAnsarya/dq3r-info)\n- [Issue Tracker](https://github.com/TheAnsarya/dq3r-info/issues)\n- [Documentation](docs/)\n\n---\n\n**Dragon Quest III ROM Analysis Project** - Version 1.0.1\n",
+        "actual_date": "2025-11-10 13:34:09",
+        "deployment_environments": [
+            "staging",
+            "production"
+        ],
+        "rollback_plan": null
+    }
+]

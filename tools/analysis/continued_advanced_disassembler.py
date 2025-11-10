@@ -225,7 +225,7 @@ class ContinuedAdvancedDisassembler:
 
 			# Update progress
 			progress = (total_analyzed / sum(end - start for start, end in unanalyzed_regions)) * 100
-			print(f"  ✅ Analyzed {analyzed_bytes:,} bytes ({progress:.1f}% complete)")
+			print(f"	✅ Analyzed {analyzed_bytes:,} bytes ({progress:.1f}% complete)")
 
 		# Perform cross-analysis and optimization
 		self.perform_cross_analysis()
@@ -271,7 +271,7 @@ class ContinuedAdvancedDisassembler:
 
 		# Merge small gaps and filter by minimum size
 		merged_regions = []
-		min_region_size = 256  # Only analyze regions of at least 256 bytes
+		min_region_size = 256	# Only analyze regions of at least 256 bytes
 
 		for start, end in unanalyzed_regions:
 			if end - start >= min_region_size:
@@ -296,13 +296,13 @@ class ContinuedAdvancedDisassembler:
 		structures = self.detect_data_structures(region_data, start)
 
 		# 4. Control Flow Analysis
-		control_flows = {"branches": [], "functions": [], "loops": []}  # Placeholder
+		control_flows = {"branches": [], "functions": [], "loops": []}	# Placeholder
 
 		# 5. Compression Detection
-		compression_info = {"compressed": False, "algorithm": "none"}  # Placeholder
+		compression_info = {"compressed": False, "algorithm": "none"}	# Placeholder
 
 		# 6. Cross-Reference Analysis
-		xrefs = {"internal": [], "external": []}  # Placeholder		# 7. Generate assembly output
+		xrefs = {"internal": [], "external": []}	# Placeholder		# 7. Generate assembly output
 		assembly_lines = self.disassemble_region_advanced(region_data, start)
 
 		# Save region analysis
@@ -350,7 +350,7 @@ class ContinuedAdvancedDisassembler:
 			if count > 0:
 				p = count / total_bytes
 				import math
-				entropy -= p * math.log2(p)  # Proper entropy calculation
+				entropy -= p * math.log2(p)	# Proper entropy calculation
 		stats["entropy"] = entropy
 
 		# Detect likely data type based on patterns
@@ -371,7 +371,7 @@ class ContinuedAdvancedDisassembler:
 			return "text"
 
 		# Check for graphics data
-		if len(set(data)) < 64:  # Low color count suggests graphics
+		if len(set(data)) < 64:	# Low color count suggests graphics
 			return "graphics"
 
 		# Check for compressed data (high entropy)
@@ -403,7 +403,7 @@ class ContinuedAdvancedDisassembler:
 				structures = [data[i:i+struct_size] for i in range(0, len(data), struct_size)]
 
 				# Check for patterns in structure layout
-				if len(set(structures)) < len(structures) * 0.8:  # Some repetition
+				if len(set(structures)) < len(structures) * 0.8:	# Some repetition
 					return True
 
 				# Check for similar structures (same first/last bytes)
@@ -628,7 +628,7 @@ class ContinuedAdvancedDisassembler:
 		opcodes = [data[offset + i] for i in range(4)]
 
 		# Pattern 1: REP #$xx, SEP #$xx (mode setting)
-		if opcodes[0] == 0xc2 and opcodes[2] == 0xe2:  # REP, SEP
+		if opcodes[0] == 0xc2 and opcodes[2] == 0xe2:	# REP, SEP
 			return True
 
 		# Pattern 2: PHB, PHK, PLB (bank save/restore)
@@ -660,7 +660,7 @@ class ContinuedAdvancedDisassembler:
 			if offset + 1 < len(data):
 				displacement = data[offset + 1]
 				if displacement >= 128:
-					displacement -= 256  # Sign extend
+					displacement -= 256	# Sign extend
 				return offset + size + displacement
 
 		elif addressing == "absolute" and size == 3:
@@ -709,7 +709,7 @@ class ContinuedAdvancedDisassembler:
 					string_start = i
 				current_string += bytes([byte_val])
 			else:
-				if len(current_string) >= 4:  # Minimum string length
+				if len(current_string) >= 4:	# Minimum string length
 					strings.append({
 						"offset": offset + string_start,
 						"length": len(current_string),
@@ -777,7 +777,7 @@ class ContinuedAdvancedDisassembler:
 		unique_patterns = set(entry_patterns)
 		similarity_ratio = len(unique_patterns) / len(entries)
 
-		return similarity_ratio < 0.7  # At least 30% similarity
+		return similarity_ratio < 0.7	# At least 30% similarity
 
 	def describe_table_pattern(self, entries: List[bytes]) -> str:
 		"""Describe the pattern found in table entries"""
@@ -933,7 +933,7 @@ class ContinuedAdvancedDisassembler:
 
 		# Check for bit patterns
 		unique_bytes = len(set(data))
-		if 2 <= unique_bytes <= 3:  # Some variety but not random
+		if 2 <= unique_bytes <= 3:	# Some variety but not random
 			return True
 
 		return False
@@ -1015,7 +1015,7 @@ class ContinuedAdvancedDisassembler:
 		doc_path = os.path.join(region_dir, "README.md")
 		self.generate_region_documentation(start, end, analysis, doc_path)
 
-		print(f"  💾 Saved analysis: {region_dir}")
+		print(f"	💾 Saved analysis: {region_dir}")
 
 	def generate_region_documentation(self, start: int, end: int, analysis: Dict[str, Any], doc_path: str):
 		"""Generate comprehensive documentation for analyzed region"""
@@ -1072,7 +1072,7 @@ class ContinuedAdvancedDisassembler:
 			# Assembly section
 			f.write("## Assembly Output\n\n")
 			f.write("```assembly\n")
-			for line in analysis.get("assembly", [])[:50]:  # First 50 lines
+			for line in analysis.get("assembly", [])[:50]:	# First 50 lines
 				f.write(f"{line}\n")
 			f.write("```\n\n")
 			if len(analysis.get("assembly", [])) > 50:
@@ -1191,7 +1191,7 @@ class ContinuedAdvancedDisassembler:
 	def is_significant_address(self, addr: int) -> bool:
 		"""Check if address is significant (function start, jump target, etc.)"""
 		# Implementation would check against known significant addresses
-		return addr % 0x100 == 0  # Simplified for example
+		return addr % 0x100 == 0	# Simplified for example
 
 	def generate_label(self, addr: int) -> str:
 		"""Generate appropriate label for address"""
@@ -1322,8 +1322,8 @@ def main():
 	# Find ROM file
 	rom_files = [
 		"static/Dragon Quest III - Soshite Densetsu he... (J).smc",	# Primary Japanese source
-		"static/Dragon Quest III - english.smc",					   # Reference translation
-		"static/Dragon Quest III - english (patched).smc"			  # Backup option
+		"static/Dragon Quest III - english.smc",						 # Reference translation
+		"static/Dragon Quest III - english (patched).smc"				# Backup option
 	]
 
 	rom_path = None
@@ -1351,7 +1351,7 @@ def main():
 	print("\n" + "=" * 80)
 	print("✅ Continued Advanced Analysis Complete!")
 	print(f"📊 Analyzed: {analyzed_bytes:,} additional bytes")
-	print(f"⏱️  Duration: {duration:.2f} seconds")
+	print(f"⏱️	Duration: {duration:.2f} seconds")
 	print(f"📁 Output: {disassembler.output_dir}")
 	print(f"📈 Reports: {disassembler.reports_dir}")
 

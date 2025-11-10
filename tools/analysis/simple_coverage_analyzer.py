@@ -161,7 +161,7 @@ class SimpleCoverageAnalyzer:
 
 			# Look for repeated 2-byte, 4-byte, 8-byte patterns
 			for pattern_size in [2, 4, 8, 16]:
-				if len(chunk) >= pattern_size * 4:  # Need at least 4 repetitions
+				if len(chunk) >= pattern_size * 4:	# Need at least 4 repetitions
 					patterns = []
 					for i in range(0, len(chunk) - pattern_size + 1, pattern_size):
 						pattern = chunk[i:i+pattern_size]
@@ -200,7 +200,7 @@ class SimpleCoverageAnalyzer:
 				if current_start is not None:
 					# End of unidentified region
 					size = offset - current_start
-					if size >= 16:  # Only consider regions >= 16 bytes
+					if size >= 16:	# Only consider regions >= 16 bytes
 						region = self._analyze_unknown_region(current_start, offset)
 						unidentified_regions.append(region)
 					current_start = None
@@ -390,8 +390,8 @@ def main():
 	# Find ROM file
 	rom_files = [
 		'static/Dragon Quest III - Soshite Densetsu he... (J).smc',	# Primary Japanese source
-		'static/Dragon Quest III - english.smc',					   # Reference translation
-		'static/Dragon Quest III - english (patched).smc'			  # Backup option
+		'static/Dragon Quest III - english.smc',						 # Reference translation
+		'static/Dragon Quest III - english (patched).smc'				# Backup option
 	]
 
 	rom_path = None

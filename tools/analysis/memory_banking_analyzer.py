@@ -37,17 +37,17 @@ class DQ3MemoryBankingAnalyzer:
 		self.address_translator = SNESAddressTranslator()
 
 		# SNES HiROM Banking Constants
-		self.BANK_SIZE = 0x10000  # 64KB per bank (full bank in HiROM)
-		self.ROM_SIZE = 6291456   # 6MB total
+		self.BANK_SIZE = 0x10000	# 64KB per bank (full bank in HiROM)
+		self.ROM_SIZE = 6291456	 # 6MB total
 
 		# Memory mapping for SNES HiROM
 		self.memory_map = {
-			'hirom_c0_ff': {'start': 0xC0, 'end': 0xFF, 'size': 0x10000},  # Banks $C0-$FF
-			'hirom_40_7f': {'start': 0x40, 'end': 0x7F, 'size': 0x10000},  # Banks $40-$7F
+			'hirom_c0_ff': {'start': 0xC0, 'end': 0xFF, 'size': 0x10000},	# Banks $C0-$FF
+			'hirom_40_7f': {'start': 0x40, 'end': 0x7F, 'size': 0x10000},	# Banks $40-$7F
 			'system_area': {'start': 0x00, 'end': 0x3F, 'desc': 'System area'},
 			'mirror_area': {'start': 0x80, 'end': 0xBF, 'desc': 'Mirror area'},
-			'sram_base': 0x6000,	  # SRAM location
-			'header_offset': 0xFFC0   # ROM header in HiROM
+			'sram_base': 0x6000,		# SRAM location
+			'header_offset': 0xFFC0	 # ROM header in HiROM
 		}
 
 		# Banking analysis results
@@ -145,7 +145,7 @@ class DQ3MemoryBankingAnalyzer:
 
 		total_banks = len(self.rom_data) // self.BANK_SIZE
 
-		for bank_num in range(min(total_banks, 32)):  # Analyze first 32 banks for detailed view
+		for bank_num in range(min(total_banks, 32)):	# Analyze first 32 banks for detailed view
 			bank_start = bank_num * self.BANK_SIZE
 			bank_end = bank_start + self.BANK_SIZE
 			bank_data = self.rom_data[bank_start:bank_end]
@@ -159,8 +159,8 @@ class DQ3MemoryBankingAnalyzer:
 			entropy = self.calculate_entropy(bank_data)
 
 			# Generate HiROM SNES addresses
-			hirom_bank_c0 = 0xC0 + bank_num  # Bank in $C0-$FF range
-			hirom_bank_40 = 0x40 + bank_num  # Bank in $40-$7F range
+			hirom_bank_c0 = 0xC0 + bank_num	# Bank in $C0-$FF range
+			hirom_bank_40 = 0x40 + bank_num	# Bank in $40-$7F range
 
 			bank_info = {
 				'number': bank_num,
@@ -204,7 +204,7 @@ class DQ3MemoryBankingAnalyzer:
 			return "padding"
 
 		# Check for code patterns (common 65816 opcodes)
-		code_opcodes = [0x20, 0x4C, 0x6C, 0xA9, 0xAD, 0x8D]  # JSR, JMP, LDA, STA
+		code_opcodes = [0x20, 0x4C, 0x6C, 0xA9, 0xAD, 0x8D]	# JSR, JMP, LDA, STA
 		code_score = sum(bank_data.count(op) for op in code_opcodes)
 
 		# Check for graphics patterns (low entropy, repetitive data)
@@ -283,7 +283,7 @@ class DQ3MemoryBankingAnalyzer:
 
 		print("📊 SNES LoROM Memory Map:")
 		for address_range, description in memory_regions.items():
-			print(f"   {address_range}: {description}")
+			print(f"	 {address_range}: {description}")
 
 		# Banking mechanics
 		banking_mechanics = {
@@ -296,7 +296,7 @@ class DQ3MemoryBankingAnalyzer:
 
 		print("\n📊 Banking Mechanics:")
 		for mechanism, description in banking_mechanics.items():
-			print(f"   {mechanism.replace('_', ' ').title()}: {description}")
+			print(f"	 {mechanism.replace('_', ' ').title()}: {description}")
 
 		# Calculate bank utilization
 		total_banks = len(self.rom_data) // self.BANK_SIZE
@@ -316,10 +316,10 @@ class DQ3MemoryBankingAnalyzer:
 		utilization_percentage = (utilized_banks / total_banks) * 100
 
 		print(f"\n📊 Bank Utilization:")
-		print(f"   Total Banks: {total_banks}")
-		print(f"   Utilized Banks: {utilized_banks}")
-		print(f"   Empty Banks: {empty_banks}")
-		print(f"   Utilization: {utilization_percentage:.1f}%")
+		print(f"	 Total Banks: {total_banks}")
+		print(f"	 Utilized Banks: {utilized_banks}")
+		print(f"	 Empty Banks: {empty_banks}")
+		print(f"	 Utilization: {utilization_percentage:.1f}%")
 
 		memory_analysis = {
 			'memory_regions': memory_regions,
@@ -353,7 +353,7 @@ class DQ3MemoryBankingAnalyzer:
 			# Look for 24-bit addresses (potential far calls)
 			for i in range(len(bank_data) - 2):
 				# Check for patterns like JSL (long call)
-				if bank_data[i] == 0x22:  # JSL opcode
+				if bank_data[i] == 0x22:	# JSL opcode
 					if i + 3 < len(bank_data):
 						addr_low = bank_data[i + 1]
 						addr_high = bank_data[i + 2]
@@ -458,7 +458,7 @@ class DQ3MemoryBankingAnalyzer:
 
 			banks = report_data['banking_analysis']['banks']
 
-			for bank_key in sorted(banks.keys())[:8]:  # Show first 8 banks
+			for bank_key in sorted(banks.keys())[:8]:	# Show first 8 banks
 				bank = banks[bank_key]
 				content.extend([
 					f"### Bank ${bank['number']:02x}",
@@ -493,8 +493,8 @@ class DQ3MemoryBankingAnalyzer:
 			"",
 			"```",
 			"SNES Address: $BB:HHLL",
-			"  BB = Bank number ($00-$7F, mirrored at $80-$FF)",
-			"  HHLL = High/Low address within bank ($8000-$FFFF for ROM)",
+			"	BB = Bank number ($00-$7F, mirrored at $80-$FF)",
+			"	HHLL = High/Low address within bank ($8000-$FFFF for ROM)",
 			"",
 			"ROM Offset = BB * $8000 + (HHLL - $8000)",
 			"```",

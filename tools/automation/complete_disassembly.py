@@ -34,8 +34,8 @@ class DisassemblyTarget:
 	start_address: int
 	end_address: int
 	bank: int
-	priority: str  # "critical", "high", "medium", "low"
-	target_type: str  # "code", "data", "graphics", "audio"
+	priority: str	# "critical", "high", "medium", "low"
+	target_type: str	# "code", "data", "graphics", "audio"
 	dependencies: List[str] = None
 
 
@@ -66,9 +66,9 @@ class CompleteDisassemblyEngine:
 		self.disassembly_targets = self._define_disassembly_targets()
 
 		print("🚀 Complete Disassembly Engine Initialized")
-		print(f"   ROM: {self.rom_path}")
-		print(f"   Repository: {self.repo_path}")
-		print(f"   Total targets: {len(self.disassembly_targets)}")
+		print(f"	 ROM: {self.rom_path}")
+		print(f"	 Repository: {self.repo_path}")
+		print(f"	 Total targets: {len(self.disassembly_targets)}")
 
 	def _define_disassembly_targets(self) -> List[DisassemblyTarget]:
 		"""Define comprehensive disassembly targets for Dragon Quest III"""
@@ -388,14 +388,14 @@ class CompleteDisassemblyEngine:
 	def _process_disassembly_target(self, target: DisassemblyTarget):
 		"""Process a single disassembly target with full automation"""
 		print(f"\n🔍 Processing target: {target.name}")
-		print(f"   Type: {target.target_type} | Priority: {target.priority}")
-		print(f"   Range: ${target.start_address:06X} - ${target.end_address:06X}")
+		print(f"	 Type: {target.target_type} | Priority: {target.priority}")
+		print(f"	 Range: ${target.start_address:06X} - ${target.end_address:06X}")
 
 		# Check dependencies
 		if target.dependencies:
 			missing_deps = [dep for dep in target.dependencies if dep not in self.completed_targets]
 			if missing_deps:
-				print(f"⚠️  Skipping {target.name} - missing dependencies: {missing_deps}")
+				print(f"⚠️	Skipping {target.name} - missing dependencies: {missing_deps}")
 				return
 
 		# Create branch for this target
@@ -461,7 +461,7 @@ class CompleteDisassemblyEngine:
 
 	def _disassemble_code_region(self, target: DisassemblyTarget):
 		"""Disassemble a code region with comprehensive analysis"""
-		print(f"   🔍 Disassembling code region...")
+		print(f"	 🔍 Disassembling code region...")
 
 		# Extract region from ROM
 		with open(self.rom_path, "rb") as f:
@@ -511,7 +511,7 @@ class CompleteDisassemblyEngine:
 
 	def _analyze_data_region(self, target: DisassemblyTarget):
 		"""Analyze and document a data region"""
-		print(f"   📊 Analyzing data region...")
+		print(f"	 📊 Analyzing data region...")
 
 		# Extract and analyze data structures
 		analysis_result = self.analyzer.analyze_data_region(target.start_address, target.end_address)
@@ -538,7 +538,7 @@ class CompleteDisassemblyEngine:
 
 	def _extract_graphics_assets(self, target: DisassemblyTarget):
 		"""Extract and document graphics assets"""
-		print(f"   🎨 Extracting graphics assets...")
+		print(f"	 🎨 Extracting graphics assets...")
 
 		# Extract graphics using asset extractor
 		assets_dir = self.repo_path / "assets" / "graphics" / target.name
@@ -563,7 +563,7 @@ class CompleteDisassemblyEngine:
 
 	def _extract_audio_assets(self, target: DisassemblyTarget):
 		"""Extract and document audio assets"""
-		print(f"   🎵 Extracting audio assets...")
+		print(f"	 🎵 Extracting audio assets...")
 
 		# Extract audio using asset extractor
 		assets_dir = self.repo_path / "assets" / "audio" / target.name

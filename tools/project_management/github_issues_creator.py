@@ -61,9 +61,9 @@ class GitHubIssuesCreator:
 		try:
 			self.execute_github_issue_creation(issue_data)
 			self.created_issues.append(issue_data['title'])
-			print(f"  ✅ Created: {issue_data['title']}")
+			print(f"	✅ Created: {issue_data['title']}")
 		except Exception as e:
-			print(f"  ❌ Failed to create: {issue_data['title']} - {str(e)}")
+			print(f"	❌ Failed to create: {issue_data['title']} - {str(e)}")
 
 	def parse_issue_metadata(self, content: str) -> Dict[str, Any]:
 		"""Parse issue metadata from markdown content"""
@@ -318,7 +318,7 @@ class GitHubIssuesCreator:
 				f.write(f"- **Issues:** {len(issues)}\n")
 				f.write(f"- **Total Hours:** {epic_hours}\n")
 				for issue in issues:
-					f.write(f"  - {issue['title']}\n")
+					f.write(f"	- {issue['title']}\n")
 				f.write("\n")
 
 			f.write("## 🚀 Next Steps\n\n")

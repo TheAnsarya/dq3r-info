@@ -58,7 +58,7 @@ class BankInfo:
 	bank_number: int
 	start_address: int
 	end_address: int
-	bank_type: str = "unknown"  # "ROM", "RAM", "SRAM", "IO"
+	bank_type: str = "unknown"	# "ROM", "RAM", "SRAM", "IO"
 	description: str = ""
 	labels: List[DisassemblyLabel] = field(default_factory=list)
 
@@ -271,7 +271,7 @@ class DiztinguishParser:
 			}
 
 		self.progress.labeled_locations = len(potential_labels)
-		self.progress.disassembled_bytes = len(potential_labels) * 4  # Estimate
+		self.progress.disassembled_bytes = len(potential_labels) * 4	# Estimate
 
 		results["progress"] = {
 			"total_bytes": self.progress.total_bytes,
@@ -305,17 +305,17 @@ class DiztinguishParser:
 		# Look for common SNES instruction patterns
 		for i in range(0, len(data) - 4, 2):
 			# Check for JSR/JSL instructions (common function calls)
-			if data[i] == 0x20:  # JSR absolute
+			if data[i] == 0x20:	# JSR absolute
 				target = struct.unpack("<H", data[i + 1 : i + 3])[0]
 				patterns.append((target, "JSR_target"))
 
-			elif data[i] == 0x22:  # JSL long
+			elif data[i] == 0x22:	# JSL long
 				if i + 3 < len(data):
 					target = struct.unpack("<I", data[i + 1 : i + 4] + b"\x00")[0]
 					patterns.append((target, "JSL_target"))
 
 			# Check for BRA/BRL branches
-			elif data[i] == 0x80:  # BRA
+			elif data[i] == 0x80:	# BRA
 				if i + 1 < len(data):
 					offset = struct.unpack("<b", data[i + 1 : i + 2])[0]
 					target = (i + 2 + offset) & 0xffff
@@ -334,7 +334,7 @@ class DiztinguishParser:
 		patterns = list(set(patterns))
 		patterns.sort()
 
-		return patterns[:100]  # Limit to first 100 patterns
+		return patterns[:100]	# Limit to first 100 patterns
 
 	def generate_assembly_output(self) -> str:
 		"""Generate assembly source code with labels and comments"""
@@ -487,7 +487,7 @@ if __name__ == "__main__":
 			print(f"\n📋 Summary:")
 			for bank_num, bank in parser.banks.items():
 				if bank.labels:
-					print(f"   Bank ${bank_num:02X}: {len(bank.labels)} labels - {bank.description}")
+					print(f"	 Bank ${bank_num:02X}: {len(bank.labels)} labels - {bank.description}")
 
 	except Exception as e:
 		print(f"❌ Error: {e}")

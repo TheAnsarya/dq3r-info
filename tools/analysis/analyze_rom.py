@@ -37,7 +37,7 @@ class ROMAnalyzer:
 
 			self.rom_size = len(self.rom_data)
 			print(f"SUCCESS: Loaded ROM: {self.rom_path.name}")
-			print(f"   Size: {self.rom_size:,} bytes ({self.rom_size / 1024:.1f} KB)")
+			print(f"	 Size: {self.rom_size:,} bytes ({self.rom_size / 1024:.1f} KB)")
 
 			return True
 
@@ -52,7 +52,7 @@ class ROMAnalyzer:
 
 		# DQ3-specific ROM detection
 		dq3_info = {
-			"expected_size": 4194304,  # 4MB
+			"expected_size": 4194304,	# 4MB
 			"expected_title": "DRAGONQUEST3",
 			"expected_crc32": "13836bd2",
 			"rom_type": "HiROM",
@@ -61,7 +61,7 @@ class ROMAnalyzer:
 		}
 
 		# Check for SNES header at common locations
-		header_locations = [0x7fc0, 0xffc0, 0x81c0, 0x101c0]  # LoROM/HiROM variants
+		header_locations = [0x7fc0, 0xffc0, 0x81c0, 0x101c0]	# LoROM/HiROM variants
 
 		best_header = None
 		best_score = 0
@@ -93,27 +93,27 @@ class ROMAnalyzer:
 		# Check game title (bytes 0-20) - should be printable ASCII/Shift-JIS
 		title = header_data[0:21]
 		printable_chars = sum(1 for b in title if 0x20 <= b <= 0x7e or b == 0x00)
-		if printable_chars >= 15:  # Most characters should be printable
+		if printable_chars >= 15:	# Most characters should be printable
 			score += 30
 
 		# Check map mode (byte 21) - common values
 		map_mode = header_data[21]
-		if map_mode in [0x20, 0x21, 0x23, 0x30, 0x31]:  # Common SNES map modes
+		if map_mode in [0x20, 0x21, 0x23, 0x30, 0x31]:	# Common SNES map modes
 			score += 20
 
 		# Check cart type (byte 22)
 		cart_type = header_data[22]
-		if cart_type in [0x00, 0x01, 0x02, 0x03, 0x05, 0x1a]:  # Common cart types
+		if cart_type in [0x00, 0x01, 0x02, 0x03, 0x05, 0x1a]:	# Common cart types
 			score += 15
 
 		# Check ROM size (byte 23) - should be reasonable
 		rom_size = header_data[23]
-		if 0x07 <= rom_size <= 0x0d:  # 128KB to 8MB range
+		if 0x07 <= rom_size <= 0x0d:	# 128KB to 8MB range
 			score += 15
 
 		# Check RAM size (byte 24)
 		ram_size = header_data[24]
-		if ram_size in [0x00, 0x01, 0x02, 0x03, 0x05]:  # Common RAM sizes
+		if ram_size in [0x00, 0x01, 0x02, 0x03, 0x05]:	# Common RAM sizes
 			score += 10
 
 		# Check country code (byte 25)
@@ -154,7 +154,7 @@ class ROMAnalyzer:
 
 		# Calculate actual ROM size
 		if rom_size_code <= 0x0d:
-			actual_rom_size = 1024 << rom_size_code  # 2^(rom_size_code + 10)
+			actual_rom_size = 1024 << rom_size_code	# 2^(rom_size_code + 10)
 		else:
 			actual_rom_size = self.rom_size
 
@@ -193,11 +193,11 @@ class ROMAnalyzer:
 		for i, byte in enumerate(self.rom_data):
 			# Check if byte could be part of text
 			if (
-				0x20 <= byte <= 0x7e  # ASCII printable
-				or 0x81 <= byte <= 0x9f  # Shift-JIS first byte range 1
-				or 0xe0 <= byte <= 0xfc  # Shift-JIS first byte range 2
+				0x20 <= byte <= 0x7e	# ASCII printable
+				or 0x81 <= byte <= 0x9f	# Shift-JIS first byte range 1
+				or 0xe0 <= byte <= 0xfc	# Shift-JIS first byte range 2
 				or byte in [0x0a, 0x0d, 0x00]
-			):  # Control characters
+			):	# Control characters
 
 				if not current_text:
 					start_offset = i
@@ -230,17 +230,17 @@ class ROMAnalyzer:
 		dq3_data = {}
 
 		# Character Classes analysis ($c4179e - $c424a8)
-		classes_start = 0xc4179e - 0xc00000  # Convert to ROM offset
+		classes_start = 0xc4179e - 0xc00000	# Convert to ROM offset
 		if classes_start >= 0 and classes_start + 0xd0b < self.rom_size:
 			dq3_data["character_classes"] = self.analyze_character_classes(classes_start)
 
 		# Monster data analysis ($3ed964 - $3ee0db)
-		monsters_start = 0x3ed964 - 0xc00000  # Convert to ROM offset
+		monsters_start = 0x3ed964 - 0xc00000	# Convert to ROM offset
 		if monsters_start >= 0 and monsters_start + 0x777 < self.rom_size:
 			dq3_data["monsters"] = self.analyze_monster_data(monsters_start)
 
 		# Dialog font analysis ($c151aa - $c152a3)
-		font_start = 0xc151aa - 0xc00000  # Convert to ROM offset
+		font_start = 0xc151aa - 0xc00000	# Convert to ROM offset
 		if font_start >= 0 and font_start + 0xfa < self.rom_size:
 			dq3_data["dialog_font"] = self.analyze_dialog_font(font_start)
 
@@ -264,8 +264,8 @@ class ROMAnalyzer:
 			"Hero",
 		]
 
-		for i in range(9):  # 9 character classes
-			class_offset = offset + (i * 0x173)  # Each class is 0x173 bytes
+		for i in range(9):	# 9 character classes
+			class_offset = offset + (i * 0x173)	# Each class is 0x173 bytes
 			if class_offset + 0x173 <= self.rom_size:
 				class_data = self.rom_data[class_offset : class_offset + 0x173]
 
@@ -298,7 +298,7 @@ class ROMAnalyzer:
 			name_end = name_start
 
 			# Look for $ac terminator within reasonable distance
-			for i in range(20):  # Max name length
+			for i in range(20):	# Max name length
 				if name_start + i >= self.rom_size:
 					break
 				if self.rom_data[name_start + i] == 0xac:
@@ -311,7 +311,7 @@ class ROMAnalyzer:
 					{
 						"id": monster_id,
 						"name_offset": f"0x{name_start + 0xc00000:06X}",
-						"name_length": name_end - name_start + 1,  # Include terminator
+						"name_length": name_end - name_start + 1,	# Include terminator
 						"name_hex": " ".join(f"{b:02X}" for b in name_bytes),
 					}
 				)
@@ -326,8 +326,8 @@ class ROMAnalyzer:
 		"""Analyze dialog font lookup table"""
 		fonts = []
 
-		for i in range(50):  # 50 font structures
-			font_offset = offset + (i * 5)  # Each structure is 5 bytes
+		for i in range(50):	# 50 font structures
+			font_offset = offset + (i * 5)	# Each structure is 5 bytes
 			if font_offset + 5 <= self.rom_size:
 				font_data = self.rom_data[font_offset : font_offset + 5]
 
@@ -345,7 +345,7 @@ class ROMAnalyzer:
 						"group_size": group_size,
 						"width": width,
 						"height": height,
-						"address": f"0x{address + 0xc10000:06X}",  # Add bank
+						"address": f"0x{address + 0xc10000:06X}",	# Add bank
 						"raw_data": " ".join(f"{b:02X}" for b in font_data),
 					}
 				)
@@ -367,16 +367,16 @@ class ROMAnalyzer:
 				break
 
 			# Look backwards to find start of potential string
-			string_start = max(0, ac_pos - 100)  # Look up to 100 bytes back
+			string_start = max(0, ac_pos - 100)	# Look up to 100 bytes back
 			for i in range(ac_pos - 1, string_start - 1, -1):
 				byte = self.rom_data[i]
 				# Look for likely string start (printable characters, etc.)
-				if byte < 0x01 or byte > 0xfe:  # Outside reasonable range
+				if byte < 0x01 or byte > 0xfe:	# Outside reasonable range
 					string_start = i + 1
 					break
 
 			string_length = ac_pos - string_start + 1
-			if 3 <= string_length <= 50:  # Reasonable string length
+			if 3 <= string_length <= 50:	# Reasonable string length
 				string_data = self.rom_data[string_start : ac_pos + 1]
 				text_strings.append(
 					{
@@ -390,7 +390,7 @@ class ROMAnalyzer:
 			current_pos = ac_pos + 1
 
 		return {
-			"count": len(text_strings[:100]),  # Limit output
+			"count": len(text_strings[:100]),	# Limit output
 			"strings": text_strings[:100],
 		}
 
@@ -414,7 +414,7 @@ class ROMAnalyzer:
 		# SNES uses 2bpp, 4bpp, 8bpp formats
 
 		# Simple heuristic: find regions with balanced bit patterns
-		chunk_size = 128  # Analyze in 128-byte chunks
+		chunk_size = 128	# Analyze in 128-byte chunks
 
 		for offset in range(0, len(self.rom_data) - chunk_size, chunk_size):
 			chunk = self.rom_data[offset : offset + chunk_size]
@@ -444,7 +444,7 @@ class ROMAnalyzer:
 
 		# Sort by entropy (medium values first)
 		graphics_regions.sort(key=lambda x: abs(x["entropy"] - 5.5))
-		return graphics_regions[:20]  # Return top 20 candidates
+		return graphics_regions[:20]	# Return top 20 candidates
 
 	def analyze(self) -> Dict[str, Any]:
 		"""Perform complete ROM analysis"""
@@ -464,11 +464,11 @@ class ROMAnalyzer:
 		}
 
 		# ROM type detection
-		print("   Detecting ROM type...")
+		print("	 Detecting ROM type...")
 		self.analysis["rom_type"] = self.detect_rom_type()
 
 		# DQ3-specific analysis
-		print("   Analyzing DQ3-specific data structures...")
+		print("	 Analyzing DQ3-specific data structures...")
 		self.analysis["dq3_data"] = self.analyze_dq3_structures()
 
 		# Count DQ3 findings
@@ -483,17 +483,17 @@ class ROMAnalyzer:
 			dq3_counts.append(f"{self.analysis['dq3_data']['text_strings']['count']} text strings")
 
 		if dq3_counts:
-			print(f"   Found DQ3 data: {', '.join(dq3_counts)}")
+			print(f"	 Found DQ3 data: {', '.join(dq3_counts)}")
 
 		# Text analysis
-		print("   Searching for text patterns...")
+		print("	 Searching for text patterns...")
 		self.analysis["text_regions"] = self.find_text_patterns()
-		print(f"   Found {len(self.analysis['text_regions'])} potential text regions")
+		print(f"	 Found {len(self.analysis['text_regions'])} potential text regions")
 
 		# Graphics analysis
-		print("   Searching for graphics patterns...")
+		print("	 Searching for graphics patterns...")
 		self.analysis["graphics_regions"] = self.find_graphics_patterns()
-		print(f"   Found {len(self.analysis['graphics_regions'])} potential graphics regions")
+		print(f"	 Found {len(self.analysis['graphics_regions'])} potential graphics regions")
 
 		print("SUCCESS: Analysis complete!")
 		return self.analysis
@@ -528,9 +528,9 @@ def main():
 		formatter_class=argparse.RawDescriptionHelpFormatter,
 		epilog="""
 Examples:
-  python analyze_rom.py static/dq3.smc
-  python analyze_rom.py static/dq3.smc -o analysis/dq3_analysis.json
-  python analyze_rom.py static/dq3.smc --verbose
+	python analyze_rom.py static/dq3.smc
+	python analyze_rom.py static/dq3.smc -o analysis/dq3_analysis.json
+	python analyze_rom.py static/dq3.smc --verbose
 		""",
 	)
 
@@ -569,10 +569,10 @@ Examples:
 		print(f"Title: {rom_info['title']}")
 		print(f"Header: {rom_info['header_offset']}")
 		if args.verbose:
-			print(f"   Map Mode: {rom_info['map_mode']}")
-			print(f"   Cart Type: {rom_info['cart_type']}")
-			print(f"   Version: {rom_info['version']}")
-			print(f"   Checksum: {rom_info['checksum']}")
+			print(f"	 Map Mode: {rom_info['map_mode']}")
+			print(f"	 Cart Type: {rom_info['cart_type']}")
+			print(f"	 Version: {rom_info['version']}")
+			print(f"	 Checksum: {rom_info['checksum']}")
 	else:
 		print(f"ROM Type: {rom_info.get('type', 'Unknown')}")
 
@@ -580,8 +580,8 @@ Examples:
 	text_regions = results["text_regions"]
 	print(f"\nText Regions: {len(text_regions)} found")
 	if text_regions and args.verbose:
-		for i, region in enumerate(text_regions[:5]):  # Show top 5
-			print(f"   {i+1}. {region['offset']}: {region['preview']}")
+		for i, region in enumerate(text_regions[:5]):	# Show top 5
+			print(f"	 {i+1}. {region['offset']}: {region['preview']}")
 
 	# Graphics regions
 	graphics_regions = results["graphics_regions"]
@@ -596,10 +596,10 @@ Examples:
 		print(f"\nTip: Save detailed analysis with -o {suggested_name}")
 
 	print(f"\nNext Steps:")
-	print(f"   - Review text regions for dialog extraction")
-	print(f"   - Analyze graphics patterns for tile extraction")
-	print(f"   - Use Diztinguish for detailed disassembly")
-	print(f"   - Extract game data tables and structures")
+	print(f"	 - Review text regions for dialog extraction")
+	print(f"	 - Analyze graphics patterns for tile extraction")
+	print(f"	 - Use Diztinguish for detailed disassembly")
+	print(f"	 - Extract game data tables and structures")
 
 
 if __name__ == "__main__":

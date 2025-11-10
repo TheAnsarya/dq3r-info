@@ -157,8 +157,8 @@ class PluginManager:
 			return False
 
 	def run_plugin_pipeline(self, rom_path: str, output_dir: str,
-						   plugin_names: Optional[List[str]] = None,
-						   parallel: bool = False) -> Dict[str, Any]:
+							 plugin_names: Optional[List[str]] = None,
+							 parallel: bool = False) -> Dict[str, Any]:
 		"""
 		Run multiple plugins in sequence or parallel
 
@@ -389,7 +389,7 @@ class PluginManager:
 		"""Generate performance report for all plugins"""
 		return {
 			"metrics": self.performance_metrics,
-			"execution_history": self.execution_history[-10:],  # Last 10 executions
+			"execution_history": self.execution_history[-10:],	# Last 10 executions
 			"total_executions": len(self.execution_history)
 		}
 
@@ -448,7 +448,7 @@ class PluginManager:
 
 # Convenience functions for common operations
 def quick_analysis(rom_path: str, output_dir: str = "output",
-				  plugin_types: Optional[List[PluginType]] = None) -> Dict[str, Any]:
+					plugin_types: Optional[List[PluginType]] = None) -> Dict[str, Any]:
 	"""
 	Quick ROM analysis using available plugins
 

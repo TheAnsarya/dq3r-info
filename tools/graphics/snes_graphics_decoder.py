@@ -214,7 +214,7 @@ class SNESGraphicsDecoder:
 		return colors
 
 	def tiles_to_image(self, tiles: List[np.ndarray], palette: List[Tuple[int, int, int]],
-					  tiles_per_row: int = 16, scale: int = 1) -> Image.Image:
+						tiles_per_row: int = 16, scale: int = 1) -> Image.Image:
 		"""
 		Convert decoded tiles to a PIL Image using the provided palette.
 
@@ -280,7 +280,7 @@ class SNESGraphicsDecoder:
 		Returns:
 			List of RGB tuples
 		"""
-		palette = [(0, 0, 0)]  # First color is always transparent/black
+		palette = [(0, 0, 0)]	# First color is always transparent/black
 
 		for i in range(1, num_colors):
 			# Generate rainbow colors
@@ -323,10 +323,10 @@ def main():
 
 	# Fill with alternating pattern
 	for i in range(8):
-		test_tile_data[i] = 0xAA if i % 2 == 0 else 0x55  # Bitplane 0
-		test_tile_data[i + 8] = 0x55 if i % 2 == 0 else 0xAA  # Bitplane 1
-		test_tile_data[i + 16] = 0xFF  # Bitplane 2
-		test_tile_data[i + 24] = 0x00  # Bitplane 3
+		test_tile_data[i] = 0xAA if i % 2 == 0 else 0x55	# Bitplane 0
+		test_tile_data[i + 8] = 0x55 if i % 2 == 0 else 0xAA	# Bitplane 1
+		test_tile_data[i + 16] = 0xFF	# Bitplane 2
+		test_tile_data[i + 24] = 0x00	# Bitplane 3
 
 	# Decode the test tile
 	tiles = decoder.decode_tiles(bytes(test_tile_data), bpp=4, num_tiles=1)

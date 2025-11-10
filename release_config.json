@@ -1,0 +1,20 @@
+{
+    "release_cycle_days": 30,
+    "environments": [
+        "development",
+        "staging",
+        "production"
+    ],
+    "required_approvals": 2,
+    "auto_deploy_patch": true,
+    "auto_deploy_minor": false,
+    "auto_deploy_major": false,
+    "feature_freeze_days_before": 7,
+    "testing_days_required": 3,
+    "notification_channels": [
+        "github",
+        "email"
+    ],
+    "branching_strategy": "git-flow",
+    "version_scheme": "semver"
+}

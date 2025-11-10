@@ -81,7 +81,7 @@ class AudioDriver:
 	offset: int
 	snes_address: str
 	size: int
-	driver_type: str  # "nintendo", "custom", "unknown"
+	driver_type: str	# "nintendo", "custom", "unknown"
 	entry_points: List[int]
 	sample_table_offset: Optional[int]
 	music_data_offset: Optional[int]
@@ -108,8 +108,8 @@ class SNESAudioAnalyzer:
 
 		# Detection parameters
 		self.BRR_BLOCK_SIZE = 9
-		self.MIN_SAMPLE_SIZE = 27  # At least 3 blocks
-		self.MAX_SAMPLE_SIZE = 8192  # Reasonable maximum
+		self.MIN_SAMPLE_SIZE = 27	# At least 3 blocks
+		self.MAX_SAMPLE_SIZE = 8192	# Reasonable maximum
 
 		# Known Dragon Quest III audio patterns
 		self.known_audio_regions = self._load_known_audio_regions()
@@ -189,7 +189,7 @@ class SNESAudioAnalyzer:
 						)
 
 						drivers.append(asdict(driver))
-						print(f"  Found {driver_type} driver at {snes_address}")
+						print(f"	Found {driver_type} driver at {snes_address}")
 
 		return {
 			"drivers_found": len(drivers),
@@ -200,7 +200,7 @@ class SNESAudioAnalyzer:
 	def estimate_driver_size(self, start_offset: int) -> int:
 		"""Estimate the size of an audio driver"""
 		# Simple heuristic: look for end patterns or reasonable boundaries
-		max_size = 4096  # Reasonable maximum for audio driver
+		max_size = 4096	# Reasonable maximum for audio driver
 
 		# Look for common end patterns
 		end_patterns = [b'\\x00\\x00\\x00\\x00', b'\\xFF\\xFF\\xFF\\xFF']
@@ -232,20 +232,20 @@ class SNESAudioAnalyzer:
 				if sample and sample.confidence > 0.7:
 					brr_samples.append(asdict(sample))
 					valid_samples += 1
-					print(f"  Found BRR sample at {sample.snes_address}: {sample.size} bytes")
-					i += sample.size  # Skip past this sample
+					print(f"	Found BRR sample at {sample.snes_address}: {sample.size} bytes")
+					i += sample.size	# Skip past this sample
 				else:
-					i += self.BRR_BLOCK_SIZE  # Move to next potential block
+					i += self.BRR_BLOCK_SIZE	# Move to next potential block
 			else:
 				i += 1
 
-		print(f"  BRR candidates: {candidates_found}")
-		print(f"  Valid samples: {valid_samples}")
+		print(f"	BRR candidates: {candidates_found}")
+		print(f"	Valid samples: {valid_samples}")
 
 		return {
 			"total_samples": len(brr_samples),
 			"candidates_scanned": candidates_found,
-			"samples": brr_samples[:50],  # Limit for performance
+			"samples": brr_samples[:50],	# Limit for performance
 			"analysis_method": "brr_pattern_detection"
 		}
 
@@ -289,7 +289,7 @@ class SNESAudioAnalyzer:
 
 		# Read BRR blocks until end flag or maximum size
 		while (current_offset + self.BRR_BLOCK_SIZE < len(self.rom_data) and
-			   sample_size < self.MAX_SAMPLE_SIZE):
+				 sample_size < self.MAX_SAMPLE_SIZE):
 
 			header = self.rom_data[current_offset]
 			block_data = self.rom_data[current_offset:current_offset + self.BRR_BLOCK_SIZE]
@@ -297,11 +297,11 @@ class SNESAudioAnalyzer:
 
 			# Check flags
 			flags = header & 0x03
-			if flags & 0x02:  # Loop flag
+			if flags & 0x02:	# Loop flag
 				if loop_start is None:
 					loop_start = len(blocks) - 1
 
-			if flags & 0x01:  # End flag
+			if flags & 0x01:	# End flag
 				has_end_flag = True
 				loop_end = len(blocks) - 1
 				sample_size += self.BRR_BLOCK_SIZE
@@ -311,11 +311,11 @@ class SNESAudioAnalyzer:
 			sample_size += self.BRR_BLOCK_SIZE
 
 			# Safety check for reasonable sample size
-			if len(blocks) > 100:  # More than ~900 bytes is unusual
+			if len(blocks) > 100:	# More than ~900 bytes is unusual
 				break
 
 		# Validate sample
-		if len(blocks) < 3:  # Too small
+		if len(blocks) < 3:	# Too small
 			return None
 
 		# Calculate confidence based on various factors
@@ -332,11 +332,11 @@ class SNESAudioAnalyzer:
 			offset=offset,
 			snes_address=snes_address,
 			size=sample_size,
-			sample_rate=32000,  # Default SNES sample rate
+			sample_rate=32000,	# Default SNES sample rate
 			loop_start=loop_start,
 			loop_end=loop_end,
 			blocks=blocks,
-			decoded_samples=None,  # Would decode if needed
+			decoded_samples=None,	# Would decode if needed
 			confidence=confidence,
 			analysis_notes=["brr_pattern_detected", f"blocks_{len(blocks)}"]
 		)
@@ -357,7 +357,7 @@ class SNESAudioAnalyzer:
 		for block in blocks:
 			header = block[0]
 			shift = (header >> 4) & 0x0F
-			if shift <= 12:  # Valid shift
+			if shift <= 12:	# Valid shift
 				valid_headers += 1
 
 		header_ratio = valid_headers / len(blocks)
@@ -365,7 +365,7 @@ class SNESAudioAnalyzer:
 
 		# Check for data patterns that suggest audio
 		data_entropy = self.calculate_block_entropy(blocks)
-		if 2.0 <= data_entropy <= 7.0:  # Audio-like entropy
+		if 2.0 <= data_entropy <= 7.0:	# Audio-like entropy
 			confidence += 0.1
 
 		return min(1.0, confidence)
@@ -409,11 +409,11 @@ class SNESAudioAnalyzer:
 			sequence = self.analyze_potential_music_sequence(offset)
 			if sequence and sequence.confidence > 0.8:
 				sequences.append(asdict(sequence))
-				print(f"  Found music sequence at {sequence.snes_address}: {sequence.size} bytes")
+				print(f"	Found music sequence at {sequence.snes_address}: {sequence.size} bytes")
 
 		return {
 			"total_sequences": len(sequences),
-			"sequences": sequences[:20],  # Limit for performance
+			"sequences": sequences[:20],	# Limit for performance
 			"analysis_method": "pattern_recognition"
 		}
 
@@ -456,7 +456,7 @@ class SNESAudioAnalyzer:
 		return MusicSequence(
 			offset=offset,
 			snes_address=snes_address,
-			size=256,  # Estimated size
+			size=256,	# Estimated size
 			tempo=None,
 			channels_used=set(),
 			sample_references=[],
@@ -478,11 +478,11 @@ class SNESAudioAnalyzer:
 			table = self.analyze_potential_sample_table(offset)
 			if table:
 				tables.append(table)
-				print(f"  Found sample table at ${offset:06X}: {table['entry_count']} entries")
+				print(f"	Found sample table at ${offset:06X}: {table['entry_count']} entries")
 
 		return {
 			"total_tables": len(tables),
-			"tables": tables[:10],  # Limit results
+			"tables": tables[:10],	# Limit results
 			"analysis_method": "pointer_analysis"
 		}
 
@@ -500,16 +500,16 @@ class SNESAudioAnalyzer:
 		# Check if pointers are in reasonable ranges and ascending
 		valid_pointers = 0
 		for ptr in pointers:
-			if 0x8000 <= ptr <= 0xFFFF:  # Valid SNES address range
+			if 0x8000 <= ptr <= 0xFFFF:	# Valid SNES address range
 				valid_pointers += 1
 
-		if valid_pointers < 8:  # Need majority to be valid
+		if valid_pointers < 8:	# Need majority to be valid
 			return None
 
 		# Check for ascending pattern (typical in sample tables)
 		ascending = sum(1 for i in range(len(pointers)-1) if pointers[i] <= pointers[i+1])
 
-		if ascending < len(pointers) * 0.7:  # 70% should be ascending
+		if ascending < len(pointers) * 0.7:	# 70% should be ascending
 			return None
 
 		return {
@@ -554,7 +554,7 @@ class SNESAudioAnalyzer:
 				current_start = start
 				current_end = end
 				current_types = {audio_type}
-			elif start <= current_end + 1024:  # Close enough to merge
+			elif start <= current_end + 1024:	# Close enough to merge
 				current_end = max(current_end, end)
 				current_types.add(audio_type)
 			else:
@@ -568,7 +568,7 @@ class SNESAudioAnalyzer:
 					"snes_address": snes_address,
 					"size": current_end - current_start,
 					"audio_types": list(current_types),
-					"density": len(current_types) / ((current_end - current_start) / 1024)  # Types per KB
+					"density": len(current_types) / ((current_end - current_start) / 1024)	# Types per KB
 				})
 
 				# Start new region

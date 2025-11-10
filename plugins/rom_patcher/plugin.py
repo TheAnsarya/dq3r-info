@@ -41,7 +41,7 @@ class ROMPatcherPlugin(EditorPlugin):
 
 			# Write results to output file
 			self.write_output_file(f"{self.metadata.name.lower().replace(' ', '_')}_results.json",
-								  results, format='json')
+									results, format='json')
 
 			return results
 

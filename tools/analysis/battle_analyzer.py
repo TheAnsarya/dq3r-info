@@ -24,7 +24,7 @@ class BattleFunction:
 	address: int
 	size: int
 	purpose: str
-	battle_phase: str  # "init", "calculation", "ai", "animation", "cleanup"
+	battle_phase: str	# "init", "calculation", "ai", "animation", "cleanup"
 	complexity_score: int
 	math_operations: List[str]
 	instructions: List[Dict]
@@ -39,7 +39,7 @@ class SpellData:
 	address: int
 	mp_cost: int
 	power: int
-	target_type: str  # "single", "group", "all_enemies", "self"
+	target_type: str	# "single", "group", "all_enemies", "self"
 	element: str
 	effect_function: int
 
@@ -62,7 +62,7 @@ class CombatFormula:
 
 	name: str
 	address: int
-	formula_type: str  # "damage", "accuracy", "defense", "magic"
+	formula_type: str	# "damage", "accuracy", "defense", "magic"
 	variables_used: List[str]
 	mathematical_operations: List[str]
 	constants: List[int]
@@ -87,11 +87,11 @@ class DQ3BattleAnalyzer:
 
 		# Battle system patterns to look for
 		self.battle_patterns = {
-			"damage_calculation": [0xa5, 0x85, 0x18, 0x65],  # LDA, STA, CLC, ADC
-			"multiplication": [0x8d, 0xea, 0xea, 0x4a],  # STA, NOP, NOP, LSR
-			"rng_calls": [0x20, 0x00, 0x80],  # JSR $8000 (common RNG)
-			"hp_manipulation": [0xa5, 0x38, 0xe5],  # LDA, SEC, SBC
-			"status_checks": [0x29, 0x01, 0xf0],  # AND #$01, BEQ
+			"damage_calculation": [0xa5, 0x85, 0x18, 0x65],	# LDA, STA, CLC, ADC
+			"multiplication": [0x8d, 0xea, 0xea, 0x4a],	# STA, NOP, NOP, LSR
+			"rng_calls": [0x20, 0x00, 0x80],	# JSR $8000 (common RNG)
+			"hp_manipulation": [0xa5, 0x38, 0xe5],	# LDA, SEC, SBC
+			"status_checks": [0x29, 0x01, 0xf0],	# AND #$01, BEQ
 		}
 
 		# Dragon Quest III specific addresses (common patterns)
@@ -99,14 +99,14 @@ class DQ3BattleAnalyzer:
 			"player_stats": 0x7e0000,
 			"monster_stats": 0x7e1000,
 			"battle_vars": 0x7e2000,
-			"spell_data_table": 0x8c0000,  # Estimated
-			"monster_ai_table": 0x8d0000,  # Estimated
-			"damage_table": 0x8e0000,  # Estimated
+			"spell_data_table": 0x8c0000,	# Estimated
+			"monster_ai_table": 0x8d0000,	# Estimated
+			"damage_table": 0x8e0000,	# Estimated
 		}
 
 		print(f"⚔️ Battle System Analyzer initialized")
-		print(f"   ROM: {self.rom_path}")
-		print(f"   Size: {self.rom_size:,} bytes")
+		print(f"	 ROM: {self.rom_path}")
+		print(f"	 Size: {self.rom_size:,} bytes")
 
 	def find_battle_functions(self) -> List[BattleFunction]:
 		"""Find all battle-related functions"""
@@ -156,7 +156,7 @@ class DQ3BattleAnalyzer:
 		hp_functions = self._find_hp_manipulation_functions()
 		battle_functions.extend(hp_functions)
 
-		print(f"   Found {len(battle_functions)} battle functions")
+		print(f"	 Found {len(battle_functions)} battle functions")
 
 		self.battle_functions = battle_functions
 		return battle_functions
@@ -173,11 +173,11 @@ class DQ3BattleAnalyzer:
 		for table_addr in spell_table_candidates:
 			rom_offset = self._snes_to_rom_address(table_addr)
 			if rom_offset > 0 and rom_offset < len(self.rom_data) - 100:
-				print(f"   Analyzing spell table at ${table_addr:06X}")
+				print(f"	 Analyzing spell table at ${table_addr:06X}")
 
 				# Parse spell entries (estimated structure)
-				for i in range(0, 64):  # Assume up to 64 spells
-					spell_offset = rom_offset + (i * 8)  # 8 bytes per spell
+				for i in range(0, 64):	# Assume up to 64 spells
+					spell_offset = rom_offset + (i * 8)	# 8 bytes per spell
 					if spell_offset + 8 >= len(self.rom_data):
 						break
 
@@ -199,7 +199,7 @@ class DQ3BattleAnalyzer:
 					if spell_info.mp_cost > 0 and spell_info.power > 0:
 						spell_data.append(spell_info)
 
-		print(f"   Identified {len(spell_data)} spells")
+		print(f"	 Identified {len(spell_data)} spells")
 
 		self.spell_data = spell_data
 		return spell_data
@@ -222,11 +222,11 @@ class DQ3BattleAnalyzer:
 		for table_addr in monster_table_candidates:
 			rom_offset = self._snes_to_rom_address(table_addr)
 			if rom_offset > 0 and rom_offset < len(self.rom_data) - 200:
-				print(f"   Analyzing monster table at ${table_addr:06X}")
+				print(f"	 Analyzing monster table at ${table_addr:06X}")
 
 				# Parse monster entries
-				for i in range(0, 128):  # Assume up to 128 monsters
-					monster_offset = rom_offset + (i * 16)  # 16 bytes per monster
+				for i in range(0, 128):	# Assume up to 128 monsters
+					monster_offset = rom_offset + (i * 16)	# 16 bytes per monster
 					if monster_offset + 16 >= len(self.rom_data):
 						break
 
@@ -252,7 +252,7 @@ class DQ3BattleAnalyzer:
 
 							monster_ai.append(ai_info)
 
-		print(f"   Found {len(monster_ai)} monster AI patterns")
+		print(f"	 Found {len(monster_ai)} monster AI patterns")
 
 		self.monster_ai = monster_ai
 		return monster_ai
@@ -266,7 +266,7 @@ class DQ3BattleAnalyzer:
 		# Look for mathematical operations in battle functions
 		for func in self.battle_functions:
 			if any(op in func.math_operations for op in ["MUL", "DIV", "ADD", "SUB"]):
-				print(f"   Analyzing formula in: {func.name}")
+				print(f"	 Analyzing formula in: {func.name}")
 
 				# Analyze the mathematical structure
 				variables = self._extract_variables_from_function(func)
@@ -287,7 +287,7 @@ class DQ3BattleAnalyzer:
 		damage_formulas = self._find_damage_calculation_formulas()
 		combat_formulas.extend(damage_formulas)
 
-		print(f"   Identified {len(combat_formulas)} combat formulas")
+		print(f"	 Identified {len(combat_formulas)} combat formulas")
 
 		self.combat_formulas = combat_formulas
 		return combat_formulas
@@ -330,7 +330,7 @@ class DQ3BattleAnalyzer:
 					except:
 						pass
 
-		print(f"   Found {len(status_effects)} status effect operations")
+		print(f"	 Found {len(status_effects)} status effect operations")
 
 		self.status_effects = status_effects
 		return status_effects
@@ -352,9 +352,9 @@ class DQ3BattleAnalyzer:
 
 		for i in range(offset, search_start, -1):
 			# Look for function entry patterns
-			if i >= 3 and self.rom_data[i - 3 : i] == b"\x20\x00\x80":  # JSR $8000
+			if i >= 3 and self.rom_data[i - 3 : i] == b"\x20\x00\x80":	# JSR $8000
 				return i
-			if i >= 0 and self.rom_data[i] in [0x48, 0xda, 0x5a]:  # Function prologue
+			if i >= 0 and self.rom_data[i] in [0x48, 0xda, 0x5a]:	# Function prologue
 				return i
 
 		return search_start
@@ -368,7 +368,7 @@ class DQ3BattleAnalyzer:
 				0x60,
 				0x6b,
 				0x40,
-			]:  # RTS, RTL, RTI
+			]:	# RTS, RTL, RTI
 				return i + 1
 
 		return search_end
@@ -435,10 +435,10 @@ class DQ3BattleAnalyzer:
 		for offset in range(0, len(self.rom_data) - 20):
 			# Look for linear congruential generator pattern
 			if (
-				self.rom_data[offset] == 0xa5  # LDA
-				and self.rom_data[offset + 2] == 0x0a  # ASL
+				self.rom_data[offset] == 0xa5	# LDA
+				and self.rom_data[offset + 2] == 0x0a	# ASL
 				and self.rom_data[offset + 3] == 0x85
-			):  # STA
+			):	# STA
 
 				func_start = self._find_function_start(offset)
 				func_end = self._find_function_end(offset)
@@ -516,7 +516,7 @@ class DQ3BattleAnalyzer:
 
 		# Look for patterns consistent with spell data
 		# MP costs should be reasonable (1-99)
-		mp_costs = data[::8]  # Every 8th byte
+		mp_costs = data[::8]	# Every 8th byte
 		if all(1 <= cost <= 99 for cost in mp_costs[:8]):
 			return True
 
@@ -601,7 +601,7 @@ class DQ3BattleAnalyzer:
 			if inst["name"] == "LDA" and inst.get("operand", "").startswith(" #$"):
 				try:
 					value = int(inst["operand"].replace(" #$", ""), 16)
-					if 0 <= value <= 63:  # Reasonable spell ID range
+					if 0 <= value <= 63:	# Reasonable spell ID range
 						spell_ids.append(value)
 				except:
 					pass
@@ -619,7 +619,7 @@ class DQ3BattleAnalyzer:
 				addr_str = inst["operand"].replace(" $", "")
 				try:
 					addr = int(addr_str, 16)
-					if 0x7e0000 <= addr <= 0x7effff:  # RAM addresses
+					if 0x7e0000 <= addr <= 0x7effff:	# RAM addresses
 						variables.add(f"RAM_{addr:06X}")
 				except:
 					pass
@@ -636,7 +636,7 @@ class DQ3BattleAnalyzer:
 			):
 				try:
 					value = int(inst["operand"].replace(" #$", ""), 16)
-					if value > 1:  # Ignore trivial constants
+					if value > 1:	# Ignore trivial constants
 						constants.add(value)
 				except:
 					pass
@@ -664,10 +664,10 @@ class DQ3BattleAnalyzer:
 		for offset in range(0, len(self.rom_data) - 50):
 			# Look for Attack * 2 - Defense type calculations
 			if (
-				self.rom_data[offset] == 0x0a  # ASL (multiply by 2)
-				and self.rom_data[offset + 1] == 0x38  # SEC
+				self.rom_data[offset] == 0x0a	# ASL (multiply by 2)
+				and self.rom_data[offset + 1] == 0x38	# SEC
 				and self.rom_data[offset + 2] == 0xe5
-			):  # SBC (subtract)
+			):	# SBC (subtract)
 
 				func_start = self._find_function_start(offset)
 				if func_start:
@@ -796,7 +796,7 @@ class DQ3BattleAnalyzer:
 				instructions.append(instruction)
 				offset += length
 
-				if opcode == 0x60:  # RTS
+				if opcode == 0x60:	# RTS
 					break
 			else:
 				offset += 1
@@ -824,7 +824,7 @@ class DQ3BattleAnalyzer:
 			for func in self.battle_functions:
 				f.write(f"; {func.purpose} ({func.battle_phase} phase)\n")
 				f.write(f"{func.name}:\t\t; ${func.address:04X}\n")
-				for inst in func.instructions[:20]:  # First 20 instructions
+				for inst in func.instructions[:20]:	# First 20 instructions
 					f.write(f"\t{inst['full'].lower():<20}\n")
 				if len(func.instructions) > 20:
 					f.write(
@@ -856,14 +856,14 @@ class DQ3BattleAnalyzer:
 				f.write("## Spell System\n\n")
 				f.write("| ID | Name | MP Cost | Power | Target | Element |\n")
 				f.write("|----|------|---------|-------|--------|----------|\n")
-				for spell in self.spell_data[:20]:  # First 20 spells
+				for spell in self.spell_data[:20]:	# First 20 spells
 					f.write(
 						f"| {spell.spell_id:02X} | {spell.name} | {spell.mp_cost} | {spell.power} | {spell.target_type} | {spell.element} |\n"
 					)
 
 			if self.monster_ai:
 				f.write("\n## Monster AI Patterns\n\n")
-				for ai in self.monster_ai[:10]:  # First 10 monsters
+				for ai in self.monster_ai[:10]:	# First 10 monsters
 					f.write(f"### Monster {ai.monster_id:02X}\n")
 					f.write(f"- **AI Address:** ${ai.address:04X}\n")
 					f.write(f"- **Behaviors:** {', '.join(ai.behavior_patterns)}\n")
@@ -931,10 +931,10 @@ class DQ3BattleAnalyzer:
 		with open(data_file, "w") as f:
 			json.dump(analysis_data, f, indent=2)
 
-		print(f"   Assembly: {asm_file}")
-		print(f"   Documentation: {doc_file}")
-		print(f"   Formulas: {formulas_file}")
-		print(f"   Data: {data_file}")
+		print(f"	 Assembly: {asm_file}")
+		print(f"	 Documentation: {doc_file}")
+		print(f"	 Formulas: {formulas_file}")
+		print(f"	 Data: {data_file}")
 
 		return asm_file, doc_file, data_file
 
@@ -954,14 +954,14 @@ class DQ3BattleAnalyzer:
 		asm_file, doc_file, data_file = self.generate_battle_analysis(output_dir)
 
 		print(f"\n🎯 Battle System Analysis Complete!")
-		print(f"   Battle functions: {len(battle_functions)}")
-		print(f"   Spells identified: {len(spell_data)}")
-		print(f"   Monster AI patterns: {len(monster_ai)}")
-		print(f"   Combat formulas: {len(combat_formulas)}")
-		print(f"   Status effects: {len(status_effects)}")
-		print(f"   Assembly: {asm_file}")
-		print(f"   Documentation: {doc_file}")
-		print(f"   Analysis data: {data_file}")
+		print(f"	 Battle functions: {len(battle_functions)}")
+		print(f"	 Spells identified: {len(spell_data)}")
+		print(f"	 Monster AI patterns: {len(monster_ai)}")
+		print(f"	 Combat formulas: {len(combat_formulas)}")
+		print(f"	 Status effects: {len(status_effects)}")
+		print(f"	 Assembly: {asm_file}")
+		print(f"	 Documentation: {doc_file}")
+		print(f"	 Analysis data: {data_file}")
 
 
 def main():

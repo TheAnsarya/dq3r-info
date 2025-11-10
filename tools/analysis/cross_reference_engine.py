@@ -32,7 +32,7 @@ class Symbol:
 	name: str
 	address: int
 	size: int
-	type: str  # 'function', 'data', 'label', 'variable'
+	type: str	# 'function', 'data', 'label', 'variable'
 	bank: int
 	confidence: float
 	source_analysis: str
@@ -54,7 +54,7 @@ class CrossReference:
 	"""Represents a cross-reference between symbols"""
 	source_address: int
 	target_address: int
-	reference_type: str  # 'call', 'jump', 'data_access', 'pointer'
+	reference_type: str	# 'call', 'jump', 'data_access', 'pointer'
 	source_bank: int
 	target_bank: int
 	confidence: float
@@ -64,8 +64,8 @@ class CrossReference:
 class DependencyNode:
 	"""Represents a node in the dependency graph"""
 	symbol: Symbol
-	dependencies: Set[int]  # Addresses of symbols this depends on
-	dependents: Set[int]   # Addresses of symbols that depend on this
+	dependencies: Set[int]	# Addresses of symbols this depends on
+	dependents: Set[int]	 # Addresses of symbols that depend on this
 
 	def __post_init__(self):
 		if not isinstance(self.dependencies, set):
@@ -84,7 +84,7 @@ class DQ3CrossReferenceEngine:
 		self.docs_dir = self.project_root / "documentation"
 
 		# Cross-reference data structures
-		self.symbols: Dict[int, Symbol] = {}  # address -> Symbol
+		self.symbols: Dict[int, Symbol] = {}	# address -> Symbol
 		self.cross_references: List[CrossReference] = []
 		self.dependency_graph: Dict[int, DependencyNode] = {}
 
@@ -138,8 +138,8 @@ class DQ3CrossReferenceEngine:
 
 		# Look for ROM files
 		rom_files = [
-			"Dragon Quest III - Soshite Densetsu he... (J).smc",   # Primary Japanese source
-			"Dragon Quest III - english.smc",					  # Reference translation
+			"Dragon Quest III - Soshite Densetsu he... (J).smc",	 # Primary Japanese source
+			"Dragon Quest III - english.smc",						# Reference translation
 			"Dragon Quest III - english (patched).smc"			 # Backup option
 		]
 
@@ -152,7 +152,7 @@ class DQ3CrossReferenceEngine:
 
 		if not rom_path:
 			print("⚠️ No ROM file found, using placeholder data")
-			self.rom_size = 6 * 1024 * 1024  # 6MB default
+			self.rom_size = 6 * 1024 * 1024	# 6MB default
 			return
 
 		try:
@@ -217,7 +217,7 @@ class DQ3CrossReferenceEngine:
 							func_symbol = Symbol(
 								name=f"func_{target:06X}",
 								address=target,
-								size=0,  # Unknown size
+								size=0,	# Unknown size
 								type='function',
 								bank=self.address_to_bank(target),
 								confidence=0.8,
@@ -303,7 +303,7 @@ class DQ3CrossReferenceEngine:
 				description=f"Palette with {color_count} colors"
 			)
 
-			if offset not in self.symbols:  # Don't override higher confidence symbols
+			if offset not in self.symbols:	# Don't override higher confidence symbols
 				self.symbols[offset] = symbol
 				total_symbols += 1
 
@@ -519,8 +519,8 @@ class DQ3CrossReferenceEngine:
 		nodes_with_dependents = sum(1 for node in self.dependency_graph.values() if node.dependents)
 
 		print(f"✅ Built dependency graph: {total_nodes} nodes")
-		print(f"   - {nodes_with_deps} nodes have dependencies")
-		print(f"   - {nodes_with_dependents} nodes have dependents")
+		print(f"	 - {nodes_with_deps} nodes have dependencies")
+		print(f"	 - {nodes_with_dependents} nodes have dependents")
 
 	def generate_symbol_table_report(self):
 		"""Generate comprehensive symbol table report"""
@@ -561,7 +561,7 @@ class DQ3CrossReferenceEngine:
 					"description": s.description,
 					"cross_reference_count": len(s.cross_references)
 				}
-				for s in sorted(symbols, key=lambda x: x.address)[:100]  # Limit for size
+				for s in sorted(symbols, key=lambda x: x.address)[:100]	# Limit for size
 			]
 
 		# Add cross-reference summary
@@ -618,7 +618,7 @@ class DQ3CrossReferenceEngine:
 		for symbol in self.symbols.values():
 			bank_distribution[symbol.bank] += 1
 
-		for bank in sorted(bank_distribution.keys())[:16]:  # Show first 16 banks
+		for bank in sorted(bank_distribution.keys())[:16]:	# Show first 16 banks
 			count = bank_distribution[bank]
 			dependency_content.append(f"- **Bank {bank}:** {count:,} symbols")
 
@@ -696,7 +696,7 @@ class DQ3CrossReferenceEngine:
 				""
 			])
 
-			for i, cycle in enumerate(circular_dependencies[:5], 1):  # Show first 5
+			for i, cycle in enumerate(circular_dependencies[:5], 1):	# Show first 5
 				addresses = " → ".join(f"0x{addr:06X}" for addr in cycle)
 				dependency_content.append(f"{i}. {addresses}")
 
@@ -767,7 +767,7 @@ class DQ3CrossReferenceEngine:
 		"""Find longest dependency chains"""
 
 		chains = []
-		max_depth = 10  # Limit depth to prevent infinite loops
+		max_depth = 10	# Limit depth to prevent infinite loops
 
 		def build_chain(node, chain, depth):
 			if depth > max_depth or node in chain:
@@ -792,7 +792,7 @@ class DQ3CrossReferenceEngine:
 			if not node.dependents
 		]
 
-		for start in start_nodes[:20]:  # Limit to prevent excessive computation
+		for start in start_nodes[:20]:	# Limit to prevent excessive computation
 			node_chains = build_chain(start, [], 0)
 			chains.extend(node_chains)
 
@@ -837,13 +837,13 @@ class DQ3CrossReferenceEngine:
 			if node not in visited:
 				has_cycle(node, [])
 
-		return cycles[:20]  # Limit number of cycles returned
+		return cycles[:20]	# Limit number of cycles returned
 
 	def address_to_bank(self, address: int) -> int:
 		"""Convert ROM address to bank number"""
-		if address < 0x400000:  # LoROM banks 0-31
+		if address < 0x400000:	# LoROM banks 0-31
 			return (address // 0x8000) % 64
-		else:  # Extended banks
+		else:	# Extended banks
 			return ((address - 0x400000) // 0x8000) + 64
 
 	def analyze_complete_cross_references(self):

@@ -205,7 +205,7 @@ class BasePlugin(abc.ABC):
 		elif format == 'binary':
 			with open(filepath, 'wb') as f:
 				f.write(content)
-		else:  # text
+		else:	# text
 			with open(filepath, 'w', encoding='utf-8') as f:
 				f.write(str(content))
 
@@ -434,7 +434,7 @@ class {plugin_name.replace(' ', '')}Plugin({plugin_type.value.capitalize()}Plugi
 
 			# Write results to output file
 			self.write_output_file(f"{{self.metadata.name.lower().replace(' ', '_')}}_results.json",
-								  results, format='json')
+									results, format='json')
 
 			return results
 
@@ -481,7 +481,7 @@ This plugin requires the following configuration parameters:
 
 ```json
 {{
-  // TODO: Document configuration parameters
+	// TODO: Document configuration parameters
 }}
 ```
 
