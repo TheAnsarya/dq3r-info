@@ -1,9 +1,17 @@
 name: Release
 
+# DISABLED: Automatic triggers disabled to save CI/CD resources
+# Run manually via workflow_dispatch or re-enable when ready to release
 on:
-  push:
-    tags:
-      - 'v*'
+  workflow_dispatch:
+    inputs:
+      tag_name:
+        description: 'Tag name for release'
+        required: true
+        type: string
+  # push:
+  #   tags:
+  #     - 'v*'
 
 jobs:
   release:

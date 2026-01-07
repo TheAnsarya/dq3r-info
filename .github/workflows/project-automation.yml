@@ -1,12 +1,15 @@
 name: Project Board Automation
 
+# DISABLED: Automatic triggers disabled to save CI/CD resources
+# Run manually via workflow_dispatch when needed
 on:
-  issues:
-    types: [opened, closed, labeled, assigned]
-  pull_request:
-    types: [opened, closed, ready_for_review, converted_to_draft]
-  project_card:
-    types: [moved]
+  workflow_dispatch:
+  # issues:
+  #   types: [opened, closed, labeled, assigned]
+  # pull_request:
+  #   types: [opened, closed, ready_for_review, converted_to_draft]
+  # project_card:
+  #   types: [moved]
 
 jobs:
   manage-project-board:
