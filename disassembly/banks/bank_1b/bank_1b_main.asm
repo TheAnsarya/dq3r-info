@@ -17,11 +17,11 @@
 .org $8000   ; Bank base address
 
 bank_1b_start:
-    ; TODO: Disassemble and document bank content
-    ; Content Type: Game Logic
-    ; Priority: Critical
-    ; Estimated Hours: 30.0
-    
+	; TODO: Disassemble and document bank content
+	; Content Type: Game Logic
+	; Priority: Critical
+	; Estimated Hours: 30.0
+	
 ;==============================================================================
 ; BANK 0x1B CODE SECTIONS
 ;==============================================================================

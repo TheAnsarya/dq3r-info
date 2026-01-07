@@ -10,7 +10,7 @@
 ;   $211A - STA operation
 ;==============================================================================
 DecompressGameData:
-    STA $002120          ; 8F 20 21 00 | Configure PPU register $2120
-    LDA $7FAC            ; AD AC 7F | Load from absolute address into accumulator
-    STA $00211A          ; 8F 1A 21 00 | Configure PPU register $211A
-    RTS                  ; 60 | Return from subroutine
+	STA $002120		  ; 8F 20 21 00 | Configure PPU register $2120
+	LDA $7FAC			; AD AC 7F | Load from absolute address into accumulator
+	STA $00211A		  ; 8F 1A 21 00 | Configure PPU register $211A
+	RTS				  ; 60 | Return from subroutine

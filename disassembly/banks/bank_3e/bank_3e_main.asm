@@ -17,11 +17,11 @@
 .org $8000   ; Bank base address
 
 bank_3e_start:
-    ; TODO: Disassemble and document bank content
-    ; Content Type: Text Data
-    ; Priority: Medium
-    ; Estimated Hours: 18.0
-    
+	; TODO: Disassemble and document bank content
+	; Content Type: Text Data
+	; Priority: Medium
+	; Estimated Hours: 18.0
+	
 ;==============================================================================
 ; BANK 0x3E CODE SECTIONS
 ;==============================================================================

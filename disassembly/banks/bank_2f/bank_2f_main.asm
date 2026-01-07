@@ -17,11 +17,11 @@
 .org $8000   ; Bank base address
 
 bank_2f_start:
-    ; TODO: Disassemble and document bank content
-    ; Content Type: Graphics
-    ; Priority: High
-    ; Estimated Hours: 22.0
-    
+	; TODO: Disassemble and document bank content
+	; Content Type: Graphics
+	; Priority: High
+	; Estimated Hours: 22.0
+	
 ;==============================================================================
 ; BANK 0x2F CODE SECTIONS
 ;==============================================================================

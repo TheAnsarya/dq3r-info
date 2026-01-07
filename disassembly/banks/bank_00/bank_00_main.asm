@@ -17,11 +17,11 @@
 .org $8000   ; Bank base address
 
 bank_00_start:
-    ; TODO: Disassemble and document bank content
-    ; Content Type: System
-    ; Priority: Critical
-    ; Estimated Hours: 25.0
-    
+	; TODO: Disassemble and document bank content
+	; Content Type: System
+	; Priority: Critical
+	; Estimated Hours: 25.0
+	
 ;==============================================================================
 ; BANK 0x00 CODE SECTIONS
 ;==============================================================================

@@ -17,11 +17,11 @@
 .org $8000   ; Bank base address
 
 bank_24_start:
-    ; TODO: Disassemble and document bank content
-    ; Content Type: Audio
-    ; Priority: High
-    ; Estimated Hours: 20.0
-    
+	; TODO: Disassemble and document bank content
+	; Content Type: Audio
+	; Priority: High
+	; Estimated Hours: 20.0
+	
 ;==============================================================================
 ; BANK 0x24 CODE SECTIONS
 ;==============================================================================
